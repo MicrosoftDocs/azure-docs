@@ -28,27 +28,23 @@ Enterprise Security Package (previously known as HDInsight Premium) provides mul
 
 Security and user isolation are important for a HDInsight cluster with Enterprise Security Package. To meet these requirements, SSH access to the cluster with Enterprise Security Package is blocked. The following table shows the recommended access methods for each cluster type:
 
-
-
-
-
-
 |Workload|Scenario|Access Method|
 |--------|--------|-------------|
-|Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>Use Beeline (see instructions below)</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
-|Spark|Interactive Jobs/Queries, Pyspark interactive|<ul><li>Use Beeline (see instructions below)</li><li>Zeppelin with Livy</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
-|Spark|Batch Scenarios – Spark submit, Pyspark|<ul><li>Livy</li></ul>|
-|Interactive Query (LLAP)|Interactive|<ul><li>Use Beeline (see instructions below)</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
-|Any|Install Custom Application|<ul><li>Script Actions</li></ul>|
+|Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>Use [Beeline](#beeline)</li><li>Use [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Interactive Jobs/Queries, PySpark interactive|<ul><li>Use [Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>Use [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Batch Scenarios – Spark submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interactive Query (LLAP)|Interactive|<ul><li>Use [Beeline](#beeline)</li><li>Use [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Any|Install Custom Application|<ul><li>[Script Actions](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
 
-In general, going through the standard APIs not only helps to from security perspective but also you get below benefits
-1.	Management – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
-2.	Auditing – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
+Using the standard APIs helps from security perspective. In addition, you get the following benefits:
+
+1.	**Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
+2.	**Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
 
 
 
-### Use Beeline 
+### <a name="beeline"></a>Use Beeline 
 Install Beeline on your machine, and connect over the public internet, use the following parameters: 
 
 ```
