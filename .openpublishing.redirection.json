@@ -485,11 +485,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/managed-applications/publish-marketplace-app.md",
-            "redirect_url": "/azure/managed-applications/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
@@ -5886,7 +5881,17 @@
         },
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
-            "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-cli.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-powershell.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=powershell",
             "redirect_document_id": false
         },
         {
@@ -16106,45 +16111,66 @@
             "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
             "redirect_document_id": true
         },
-        {
-            "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
-            "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+      {
+        "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
+        "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
+      "redirect_url": "/azure/active-directory/license-users-groups",
+      "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
+        "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
+        "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
+        "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+            "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
+            "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+            "redirect_document_id": false
+      },
+      {
+            "source_path": "articles/cognitive-services/Translator/speech-overview.md",
+            "redirect_url": "https://docs.microsofttranslator.com/speech-translate.html",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
-            "redirect_url": "/azure/active-directory/license-users-groups",
+	{
+            "source_path": "articles/cognitive-services/Translator/text-overview.md",
+            "redirect_url": "articles/cognitive-services/Translator/index.yml",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
-            "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+	},
+	{
+            "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
+            "redirect_url": "articles/cognitive-services/Translator/customization.md",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
-            "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
-            "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
-            "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
-            "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
-            "redirect_document_id": false
-        }
-    ]
+	}     
+
+   ]
 }
