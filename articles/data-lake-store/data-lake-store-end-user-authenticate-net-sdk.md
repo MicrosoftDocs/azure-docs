@@ -80,19 +80,23 @@ Add this snippet in your .NET client application. Replace the placeholder values
 
 For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
-    private static void Main(string[] args)
+    class Program 
     {
-        //User login via interactive popup
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-        string TOKEN_CACHE_PATH = System.IO.Path.Combine(MY_DOCUMENTS, "my.tokencache");
-        var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
-        var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
-        var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
-    }
+        private static void Main(string[] args)
+	    {
+            //User login via interactive popup
+            string TENANT = "<AAD-directory-domain>";
+            string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+            System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+            System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+            string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            string TOKEN_CACHE_PATH = System.IO.Path.Combine(MY_DOCUMENTS, "my.tokencache");
+            var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
+            var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+            var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+        }
+	}
+
 
 A couple of things to know about the preceding snippet:
 
