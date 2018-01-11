@@ -105,6 +105,6 @@ Replace the contents of the ModeratorHelper.cs file with the following code:
 
 You now have a quick way to create a Content Moderator client for your subscription.
 
-## Next steps - get the source code
+## Next steps
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
