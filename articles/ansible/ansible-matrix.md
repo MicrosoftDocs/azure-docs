@@ -12,7 +12,12 @@ ms.topic: article
 
 # Ansible matrix
 
-| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azure-module) |  Playbook Role [azure_preview_module](#introduction-to-azure_preview_module) | 
+##
+Ansible ships with a number of modules that can be executed directly on remote hosts or through Playbooks.
+Here we list Ansible modules for Azure which can provision Azure cloud resources like virtual machine, networking or container services. You can get those modules from official release of Ansible or below palybook roles published by Microsoft to get latest Azure modules.
+
+
+| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes                                 | 
@@ -37,7 +42,7 @@ ms.topic: article
 | azure_rm_dnszone_facts                      | Yes          | Yes                         | Yes                                 | 
 | azure_rm_loadbalancer                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_loadbalancer_facts                 | Yes          | Yes                         | Yes                                 | 
-| azure_rm_applicationgateway-                | -            | Yes                         |                                     | 
+| azure_rm_applicationgateway                 | -            | Yes                         |                                     | 
 | azure_rm_applicationgateway_facts           | -            | -                           | Yes                                 | 
 | azure_rm_securitygroup                      | -            | -                           | Yes                                 | 
 | azure_rm_securitygroup_facts                | -            | -                           | Yes                                 | 
@@ -47,7 +52,7 @@ ms.topic: article
 | azure_rm_managed_disk                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_managed_disk_facts                 | Yes          | Yes                         | Yes                                 | 
 | azure_rm_acs                                | Yes          | Yes                         | Yes                                 | 
-| azure_rm_containerinstance                  | -            | -Yes                        |                                     | 
+| azure_rm_containerinstance                  | -            | Yes                        |                                     | 
 | azure_rm_containerinstance_facts            | -            | -                           | Yes                                 | 
 | azure_rm_containerregistry                  | -            | Yes                         | Yes                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Yes                                 | 
