@@ -486,11 +486,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/managed-applications/publish-marketplace-app.md",
-            "redirect_url": "/azure/managed-applications/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
@@ -5887,7 +5882,17 @@
         },
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
-            "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-cli.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-powershell.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=powershell",
             "redirect_document_id": false
         },
         {
@@ -16146,6 +16151,27 @@
         "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
         "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
         "redirect_document_id": false
-      }
-    ]
+      },
+      {
+            "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
+            "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+            "redirect_document_id": false
+      },
+      {
+            "source_path": "articles/cognitive-services/Translator/speech-overview.md",
+            "redirect_url": "https://docs.microsofttranslator.com/speech-translate.html",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/cognitive-services/Translator/text-overview.md",
+            "redirect_url": "articles/cognitive-services/Translator/index.yml",
+            "redirect_document_id": false
+	},
+	{
+            "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
+            "redirect_url": "articles/cognitive-services/Translator/customization.md",
+            "redirect_document_id": false
+	}     
+
+   ]
 }
