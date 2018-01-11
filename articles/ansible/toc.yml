@@ -25,6 +25,10 @@
     href: ./ansible-manage-azure-dynamic-inventories.md
     maintainContext: true
 - name: Samples
+  items:
+    items:
+    - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">Ansible Playbook on Azure</a>.
+    - html: <a href="https://galaxy.ansible.com">Ansible Galaxy</a>.
 - name: Reference 
   items:
   - name: Ansible modules for Azure
@@ -35,3 +39,13 @@
   items:
   - name: Tools for using Ansible
     href: ./ansible-tools.md
+- name: Tools
+  items:
+    - html: <a href="./ansible-tools.md">Tools for using Ansible with Azure</a>.
+    - html: <a href="./ansible-matrix.md">Ansible modules and features matrix</a>.
+- title: Releases
+  items:
+    - html: <a href="https://github.com/ansible/ansible/releases">Official release</a>
+    - html: <a href="https://galaxy.ansible.com/Azure/azure_modules/">Playbook Role azure_module</a>
+    - html: <a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">Playbook Role azure_preview_module</a>
+    - html: <a href="./ansible-matrix.md">Feature matrix</a>

@@ -63,7 +63,7 @@ sections:
     style: unordered
     items:
     - html: <a href="./ansible-tools.md">Tools for using Ansible with Azure</a>.
-    - html: <a href="./ansible-feature-matrix.md">Feature matrix</a>.
+    - html: <a href="./ansible-matrix.md">Ansible modules and features matrix</a>.
 - title: Releases of Ansible modules for Azure
   items:
   - type: list
