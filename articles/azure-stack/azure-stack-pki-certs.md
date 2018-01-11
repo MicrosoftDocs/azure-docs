@@ -40,30 +40,28 @@ The following list describes the certificate requirements that are needed to dep
 ## Mandatory certificates
 The table in this section describes the Azure Stack public endpoint PKI certificates that are required for both Azure AD and AD FS Azure Stack deployments. Certificate requirements are grouped by area, as well as the namespaces used and the certificates that are required for each namespace. The table also describes the folder in which your solution provider will copy the different certificates per public endpoint. 
 
-You must provide certificates with the appropriate DNS names for the different Azure Stack public infrastructure endpoints. Each endpoint’s DNS name is expressed in the format: *PREFIX.REGION.EXTERNALFQDN*. 
+You must provide certificates with the appropriate DNS names for the different Azure Stack public infrastructure endpoints. Each endpoint’s DNS name is expressed in the format: [prefix].[region].[externalfqdn]. 
 
-For your deployment, the *REGION* and *EXTERNALFQDN* values must match the region and external domain names that you chose for your Azure Stack system. As an example, if my region name was *Redmond* and my external domain name was *Contoso.com*, my DNS names would have the format *PREFIX.redmond.contoso.com*. *PREFIX* values are predesignated by Microsoft to describe the endpoint secured by the certificate. 
-The *PREFIX* values of the external infrastructure endpoints depend on the Azure Stack service that uses the specific endpoint. 
+For your deployment, the [region] and [externalfqdn] values must match the region and external domain names that you chose for your Azure Stack system. As an example, if the region name was *Redmond* and the external domain name was *contoso.com*, the DNS names would have the format *[prefix].redmond.contoso.com*. The [prefix] values are predesignated by Microsoft to describe the endpoint secured by the certificate. The [prefix] values of the external infrastructure endpoints depend on the Azure Stack service that uses the specific endpoint. 
 
 |Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
-|Public Portal|portal.*REGION.EXTERNALFQDN*|Portals|*REGION.EXTERNALFQDN*|
-|Admin Portal|adminportal.*REGION.EXTERNALFQDN*|Portals|*REGION.EXTERNALFQDN*|
-|ARM Public|management.*REGION.EXTERNALFQDN*|ARM|*REGION.EXTERNALFQDN*|
-|ARM Admin|adminmanagement.*REGION.EXTERNALFQDN*|ARM|*REGION.EXTERNALFQDN*|
-|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for: * .blob.*REGION.EXTERNALFQDN*, * .queue.*REGION.EXTERNALFQDN*, and * .table.*REGION.EXTERNALFQDN*|Storage|blob.*REGION.EXTERNALFQDN*, table.*REGION.EXTERNALFQDN*, and queue.*REGION.EXTERNALFQDN*|
-|KeyVault|* .vault.*REGION.EXTERNALFQDN* (Wildcard SSL Certificate)|Key Vault|vault.*REGION.EXTERNALFQDN*|
-|KeyVaultInternal|* .adminvault.*REGION.EXTERNALFQDN* (Wildcard SSL Certificate)|Internal Keyvault|adminvault.*REGION.EXTERNALFQDN*|
+|Public Portal|portal.[region].[externalfqdn]|Portals|[region].[externalfqdn]|
+|Admin Portal|adminportal.[region].[externalfqdn]|Portals|[region].[externalfqdn]|
+|ARM Public|management.[region].[externalfqdn]|ARM|[region].[externalfqdn]|
+|ARM Admin|adminmanagement.[region].[externalfqdn]|ARM|[region].[externalfqdn]|
+|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for: *.blob.[region].[externalfqdn], *.queue.[region].[externalfqdn], and *.table.[region].[externalfqdn]|Storage|blob.[region].[externalfqdn], table.[region].[externalfqdn], and queue.[region].[externalfqdn]|
+|KeyVault|*.vault.[region].[externalfqdn] (Wildcard SSL Certificate)|Key Vault|vault.[region].[externalfqdn]|
+|KeyVaultInternal|*.adminvault.[region].[externalfqdn] (Wildcard SSL Certificate)|Internal Keyvault|adminvault.[region].[externalfqdn]|
 |
-
 <sup>1</sup> The ACS certificate requires three wildcard SANs on a single certificate. This may not be supported by all Public Certificate Authorities. 
 
 If you deploy Azure Stack using the Azure AD deployment mode, you only need to request the certificates listed in previous table. However, if you deploy Azure Stack using the AD FS deployment mode, you must also request the certificates described in the following table:
 
 |Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
-|ADFS|adfs.*REGION.EXTERNALFQDN* (SSL Certificate)|ADFS|*REGION.EXTERNALFQDN*|
-|Graph|graph.*REGION.EXTERNALFQDN* (SSL Certificate)|Graph|*REGION.EXTERNALFQDN*|
+|ADFS|adfs.[region].[externalfqdn] (SSL Certificate)|ADFS|[region].[externalfqdn]|
+|Graph|graph.[region].[externalfqdn] (SSL Certificate)|Graph|[region].[externalfqdn]|
 |
 
 > [!IMPORTANT]
@@ -79,15 +77,15 @@ The following table describes the endpoints and certificates required for the SQ
 
 |Scope (per region)|Certificate|Required certificate subject and subject alternative names (SAN)|SubDomain namespace|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL and MySQL|* .dbadapter.*REGION.EXTERNALFQDN* (Wildcard SSL Certificate)|dbadapter.*REGION.EXTERNALFQDN*|
-|App Service|Web Traffic Default SSL Cert|* .appservice.*REGION.EXTERNALFQDN*, * .scm.appservice.*REGION.EXTERNALFQDN* (Multi Domain Wildcard SSL Certificate<sup>1</sup>)|appservice.*REGION.EXTERNALFQDN* and scm.appservice.*REGION.EXTERNALFQDN*|
-|App Service|API|api.appservice.*REGION.EXTERNALFQDN* (SSL Certificate<sup>2</sup>)|appservice.*REGION.EXTERNALFQDN* and scm.appservice.*REGION.EXTERNALFQDN*|
-|App Service|FTP|ftp.appservice.*REGION.EXTERNALFQDN* (SSL Certificate<sup>2</sup>)|appservice.*REGION.EXTERNALFQDN* and scm.appservice.*REGION.EXTERNALFQDN*|
-|App Service|SSO|sso.appservice.*REGION.EXTERNALFQDN* (SSL Certificate<sup>2</sup>)|appservice.*REGION.EXTERNALFQDN* and scm.appservice.*REGION.EXTERNALFQDN*|
+|SQL, MySQL|SQL and MySQL|*.dbadapter.[region].[externalfqdn] (Wildcard SSL Certificate)|dbadapter.[region].[externalfqdn]|
+|App Service|Web Traffic Default SSL Cert|*.appservice.[region].[externalfqdn], *.scm.appservice.[region].[externalfqdn] (Multi Domain Wildcard SSL Certificate<sup>1</sup>)|appservice.[region].[externalfqdn] and scm.appservice.[region].[externalfqdn]|
+|App Service|API|api.appservice.[region].[externalfqdn] (SSL Certificate<sup>2</sup>)|appservice.[region].[externalfqdn] and scm.appservice.[region].[externalfqdn]|
+|App Service|FTP|ftp.appservice.[region].[externalfqdn] (SSL Certificate<sup>2</sup>)|appservice.[region].[externalfqdn] and scm.appservice.[region].[externalfqdn]|
+|App Service|SSO|sso.appservice.[region].[externalfqdn] (SSL Certificate<sup>2</sup>)|appservice.[region].[externalfqdn] and scm.appservice.[region].[externalfqdn]|
 
 <sup>1</sup> Requires one certificate with multiple wildcard subject alternative names. This may not be supported by all Public Certificate Authorities 
 
-<sup>2</sup> An * .appservice.*REGION.EXTERNALFQDN* wild card certificate cannot be used in place of these three certificates (api.appservice.*REGION.EXTERNALFQDN*, ftp.appservice.*REGION.EXTERNALFQDN*, and sso.appservice.*REGION.EXTERNALFQDN*. Appservice explicitly requires the use of separate certificates for these endpoints. 
+<sup>2</sup> An *.appservice.[region].[externalfqdn] wild card certificate cannot be used in place of these three certificates (api.appservice.[region].[externalfqdn], ftp.appservice.[region].[externalfqdn], and sso.appservice.[region].[externalfqdn]. Appservice explicitly requires the use of separate certificates for these endpoints. 
 
 
 ## Next steps
