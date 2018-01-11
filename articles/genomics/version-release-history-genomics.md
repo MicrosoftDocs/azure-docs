@@ -13,6 +13,7 @@ ms.topic: article
 ms.date: 01/11/2018
 ---
 
+# Version release history
 The Microsoft Genomics team regularly updates the Microsoft Genomics Python client for fixes and new functionality. 
 
 ## Latest release
