@@ -119,11 +119,11 @@
       items:
         - name: Linux
           items: 
-            - name: Standard Storage for unmanaged and managed VM Disks
+            - name: Standard Storage for VM Disks
               href: https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage
         - name: Windows
           items: 
-            - name: Standard Storage for unmanaged and managed VM Disks
+            - name: Standard Storage for VM Disks
               href: https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage
   - name: Secure
     items:
