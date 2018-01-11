@@ -221,7 +221,7 @@ The pipeline in this sample transforms data using Spark Activity and an on-deman
 Advance to the next tutorial to learn how to transform data by running Hive script on an Azure HDInsight cluster that is in a virtual network. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
+> [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 
