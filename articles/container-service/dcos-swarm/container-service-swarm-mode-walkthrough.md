@@ -6,7 +6,7 @@ author: neilpeterson
 manager: timlt
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom:

@@ -59,7 +59,7 @@ Azure ML Workbench also support execution in Docker in an Azure Linux VM. Here y
 4. Click **Create** to create an Ubuntu DSVM.
 
 5. Fill in the **Basics** form with the required information.
-When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
+When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/regions/services/).
 Click OK to save the **Basics** information.
 
 6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).

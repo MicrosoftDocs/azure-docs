@@ -30,4 +30,4 @@ private static string ClientId = "[Enter the application Id here]";
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
+[!INCLUDE  [Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]

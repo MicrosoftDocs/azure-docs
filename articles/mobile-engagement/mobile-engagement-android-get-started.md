@@ -88,9 +88,10 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. Go back to the Azure Classic Portal in your app's **Connection Info** page and copy the **Connection String**.
+3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
 
-      ![][9]
+      ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
+
 4. Paste it into the `setConnectionString` parameter, replacing the entire string shown in the following code:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");

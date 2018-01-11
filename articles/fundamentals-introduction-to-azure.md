@@ -22,24 +22,22 @@ Microsoft Azure is Microsoft's application platform for the public cloud.  The g
 
 **How to read this article**
 
-Azure is growing all the time so it's easy to get overloaded.  Start with the basic services, which are listed first in this article, and then go on to additional services. That doesn't mean you can't use just the additional services by themselves, but the basic services make up the core of an application running in Azure.
+Azure is growing all the time so it's easy to get overloaded.  Start with the basic services, which are listed first in this article, and then go on to additional services. That doesn't mean you can't use just the additional services by themselves. But the basic services make up the core of an application that runs in Azure.
 
 **Give feedback**
 
 Your feedback is important. This article should give you an effective overview of Azure. If it does not, tell us in the comments section at the bottom of the page. Give some detail on what you expected to see and how to improve the article.  
 
 ## The Components of Azure
-Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . The Management Portal is what you use to manage most (but not all) services in Azure.
+Azure groups services into categories in the Azure portal and on various visual aids like the [What Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/). The [Azure portal](http://portal.azure.com) is what you use to manage services in Azure.
 
-This article will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
+This article uses a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
 ![Azure components](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Figure: Azure provides Internet-accessible application services running in Azure datacenters.*
 
-## Management Portal
-Azure has a web interface called the [Management Portal](http://manage.windowsazure.com) that allows administrators to access and administer most, but not all Azure features.  Microsoft typically releases the newer UI portal in beta before retiring an older one. The newer one is called the ["Azure Portal"](https://portal.azure.com/).
-
-There is typically a long overlap when both portals are active. While core services will appear in both portals, not all functionality may be available in both. Newer services may show up in the newer portal first and older services and functionality may only exist in the older one.  The message here is that if you don't find something in the older portal, check the newer one and vice-versa.
+## Azure portal
+Azure has a web interface called the [Azure portal](http://portal.azure.com) that allows administrators to access and administer Azure features and services.  
 
 ## Compute
 One of the most basic things a cloud platform does is execute applications. Each of the Azure compute models has its own role to play.
@@ -63,7 +61,7 @@ This quite general approach to cloud computing can be used to address many diffe
 **Virtual Machine Scenarios**
 
 1. **Dev/Test** - You might use them to create an inexpensive development and test platform that you can shut down when you've finished using it. You might also create and run applications that use whatever languages and libraries you like. Those applications can use any of the data management options that Azure provides, and you can also choose to use SQL Server or another DBMS running in one or more virtual machines.
-2. **Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving your application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
+2. **Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving your application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
 3. **Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie your local network and your network in Azure together.
 
 ### Web Apps
@@ -72,7 +70,7 @@ This quite general approach to cloud computing can be used to address many diffe
 
 One of the most common things that people do in the cloud is run websites and web applications. Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs and the underlying operating systems. Cloud services web roles can do this, but deploying and maintaining them still takes administrative work.  What if you just want a website where somebody else takes care of the administrative work for you?
 
-This is exactly what Web Apps provides. This compute model offers a managed web environment using the Azure Management portal as well as APIs. You can move an existing website application into Web Apps unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Azure Web Apps to load balance requests across them. Azure Apps offers both a shared option, where your website runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
+This is exactly what Web Apps provides. This compute model offers a managed web environment using the Azure portal as well as APIs. You can move an existing website application into Web Apps unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Azure Web Apps to load balance requests across them. Azure Apps offers both a shared option, where your website runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances.
 
 For development, Web Apps supports .NET, PHP, Node.js, Java and Python along with SQL Database and Azure Database for MySQL for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
 
@@ -84,9 +82,9 @@ Web Apps is intended to be useful for corporations, developers, and web design a
 ![Azure Cloud Service](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Figure: Azure Cloud Services provides a place to run highly scalable custom code on a Platform as a Service (PaaS) environment*
 
-Suppose you want to build a cloud application that can support lots of simultaneous users, doesn't require much administration, and never goes down. You might be an established software vendor, for example, that's decided to embrace Software as a Service (SaaS) by building a version of one of your applications in the cloud. Or you might be a start-up creating a consumer application that you expect will grow fast. If you're building on Azure, which execution model should you use?
+Suppose you want to build a cloud application that can support lots of simultaneous users, doesn't require much administration, and never goes down. You might be an established software vendor, for example, that's decided to embrace Software as a Service (SaaS) by building a version of one of your applications in the cloud. Or you might be a start-up creating a consumer application that you expect to grow fast. If you're building on Azure, which execution model should you use?
 
-Azure Web Apps allows creating this kind of web application, but there are some constraints. You don't have administrative access, for example, which means that you can't install arbitrary software. Azure Virtual Machines gives you lots of flexibility, including administrative access, and you certainly can use it to build a very scalable application, but you'll have to handle many aspects of reliability and administration yourself. What you'd like is an option that gives you the control you need but also handles most of the work required for reliability and administration.
+Azure Web Apps allows creating this kind of web application, but there are some constraints. You don't have administrative access, for example, which means that you can't install arbitrary software. Azure Virtual Machines gives you lots of flexibility, including administrative access. You can use it to build a very scalable application. But you have to handle many aspects of reliability and administration yourself. What you'd like is an option that gives you the control you need but also handles most of the work required for reliability and administration.
 
 This is exactly what's provided by Azure Cloud Services. This technology is designed expressly to support scalable, reliable, and low-admin applications, and it's an example of what's commonly called Platform as a Service (PaaS). To use it, you create an application using the technology you choose, such as C#, Java, PHP, Python, Node.js, or something else. Your code then executes in virtual machines (referred to as instances) running a version of Windows Server.
 
@@ -159,7 +157,7 @@ Sometimes you want to move a lot of data into Azure. That would take a long time
 **Scenarios for Import / Export**
 
 * **Large Data Migration** - Anytime you have large amounts of data (Terabytes) that you want to upload to Azure, the Import/Export service is often much faster and perhaps cheaper than transferring it over the internet. Once the data is in blobs, you can process it into other forms such as Table storage or an SQL Database.
-* **Archived Data Recovery** - You can use Import/Export to have Microsoft transfer  large amounts of data stored in Azure Blob Storage to a storage device that you send and then have that device delivered back to a location you desire. Because this will take some time, it's not a good option for disaster recovery. It's best for archived data that you don't need quick access to.
+* **Archived Data Recovery** - You can use Import/Export to have Microsoft transfer  large amounts of data stored in Azure Blob Storage to a storage device that you send and then have that device delivered back to a location you desire. Because this takes some time, it's not a good option for disaster recovery. It's best for archived data that you don't need quick access to.
 
 ### File Service
 ![Azure File Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
@@ -208,14 +206,14 @@ For more information about ExpressRoute, see [ExpressRoute Technical Overview](e
 
 If your Azure application is running in multiple datacenters, you can use Azure Traffic Manager to route requests from users intelligently across instances of the application. You can also route traffic to services not running in Azure as long as they are accessible from the internet.  
 
-An Azure application with users in just a single part of the world might run in only one Azure datacenter. An application with users scattered around the world, however, is more likely to run in multiple datacenters, maybe even all of them. In this second situation, you face a problem: How do you intelligently direct users to application instances? Most of the time, you probably want each user to access the datacenter closest to her, since it will likely give her the best response time. But what if that instance of the application is overloaded or unavailable? In this case, it would be nice to direct her request automatically to another datacenter. This is exactly what's done by Azure Traffic Manager.
+An Azure application with users in just a single part of the world might run in only one Azure datacenter. An application with users scattered around the world, however, is more likely to run in multiple datacenters, maybe even all of them. In this second situation, you face a problem: How do you intelligently direct users to application instances? Most of the time, you probably want each user to access the datacenter closest to them, since it gives them the best response time. But what if that instance of the application is overloaded or unavailable? In this case, it would be nice to direct their request automatically to another datacenter. This is exactly what's done by Azure Traffic Manager.
 
 The owner of an application defines rules that specify how requests from users should be directed to datacenters, then relies on Traffic Manager to carry out these rules. For example, users might normally be directed to the closest Azure datacenter, but get sent to another one when the response time from their default datacenter exceeds the response time from other datacenters. For globally distributed applications with many users, having a built-in service to handle problems like these is useful.
 
 Traffic manager uses Directory Name Service (DNS) to route users to service endpoints, but further traffic does not go through Traffic Manager once that connection is made. This keeps Traffic Manager from being a bottleneck that might slow down your service communications.
 
 ## Developer Services
-Azure offers a number of tools to help developers and IT Professional create and maintain applications in the cloud.  
+Azure offers a number of tools to help developers and IT Professionals create and maintain applications in the cloud.  
 
 ### Azure SDK
 Back in 2008, the very first pre-release version of Azure supported only .NET development. Today, however, you can create Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, Ruby, and Python. There's also a general Azure SDK that provides basic support for any language, such as C++.  
@@ -225,13 +223,13 @@ These SDKs help you build, deploy, and manage Azure applications. They're availa
 Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software that uses Azure services. For example, you might build an application that reads and writes Azure blobs, or create a tool that deploys Azure applications through the Azure management interface.
 
 ### Visual Studio Team Services
-Visual Studio Team Services is a marketing name covering a number services which help to develop applications in the Azure.
+Visual Studio Team Services is a marketing name covering a number services which help to develop applications in Azure.
 
 To avoid confusion - It does not provide a hosted or Web-based version of Visual Studio. You still need your local running copy of Visual Studio. But it provides many other tools which can be very helpful.
 
 It does include a hosted source control system called Team Foundation Service, which offers version control and work item tracking.  You can even use Git for version control if you prefer that. And you can vary the source control system you use by project. You can create unlimited private team projects accessible from anywhere in the world.  
 
-Visual Studio Team Services provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Team Services will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month.
+Visual Studio Team Services provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Team Services automatically determines how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month.
 
 Visual Studio Team Services also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms.
 
@@ -246,7 +244,7 @@ But organizations that already have an on-premises system can test new projects 
 
 *Figure: Application Insights monitors performance and usage of your live web or device app.*
 
-When you have published your app - whether it runs on mobile devices, desktops, or web browsers - Application Insights tells you how it is performing and what users are doing with it. It will keep a count of crashes and slow response, alert you if the figures cross unacceptable thresholds, and help you diagnose any problems.
+When you have published your app - whether it runs on mobile devices, desktops, or web browsers - Application Insights tells you how it is performing and what users are doing with it. It keeps a count of crashes and slow response, alert you if the figures cross unacceptable thresholds, and help you diagnose any problems.
 
 When you develop a new feature, plan to measure its success with users. By analyzing usage patterns, you understand what works best for your customers and enhance your app in every development cycle.
 
@@ -278,9 +276,9 @@ Azure API Management makes it easy for organizations to publish APIs to partners
 
 **API Management Scenarios**
 
-Let's say your company has a set of devices that all need to call back to a central service to get data -- for example, a shipping company that has devices in every truck on the road.  Certainly the company will want to set up a system to track it's own trucks so it can reliably predict and update delivery times. It can know how many trucks it has and plan appropriately.  Each truck will need a device that calls back to a central location with it's positioning and speed data, and perhaps more.
+Let's say your company has a set of devices that all need to call back to a central service to get data -- for example, a shipping company that has devices in every truck on the road.  Certainly the company wants to set up a system to track it's own trucks so it can reliably predict and update delivery times. It can know how many trucks it has and plan appropriately.  Each truck needs a device that calls back to a central location with it's positioning and speed data, and perhaps more.
 
-A customer of the shipping company would probably also benefit from getting this positioning data.  The customer could use it to know how far products have to travel, where they get stuck, how much they paying along certain routes (if combined with what they paid to ship). If the shipping company aggregates this data already, many customers might pay for it.  But then the shipping company needs to provide a way to give customers the data. Once they provide access to customers, they may not have control over how often the data is queried. They will have to provide rules about who can access what data. All of these rules would have to be built into their external API. This is where API Management can help.  
+A customer of the shipping company would probably also benefit from getting this positioning data.  The customer could use it to know how far products have to travel, where they get stuck, how much they paying along certain routes (if combined with what they paid to ship). If the shipping company aggregates this data already, many customers might pay for it.  But then the shipping company needs to provide a way to give customers the data. Once they provide access to customers, they may not have control over how often the data is queried. They have to provide rules about who can access what data. All of these rules would have to be built into their external API. This is where API Management can help.  
 
 ## Identity and Access
 Working with identity is part of most applications. Knowing who a user is lets an application decide how it should interact with that user. Azure provides services to help track identity as well as integrate it with identity stores you may already be using.
@@ -366,7 +364,7 @@ Data is safer because backups are encrypted before transmission and stored encry
 
 **Scenarios for Azure Backup**
 
-If you already using Windows Server or System Center, Azure backup is a natural solution for backing up your servers file system, virtual machines, and SQL Server databases.  It works with encrypted, sparse and compressed files. There are some limitations, so you should [check the Azure Backup pre-requisites](http://technet.microsoft.com/library/dn296608.aspx) first.
+If you're already using Windows Server or System Center, Azure backup is a natural solution for backing up your servers file system, virtual machines, and SQL Server databases.  It works with encrypted, sparse and compressed files. There are some limitations, so you should [check the Azure Backup pre-requisites](http://technet.microsoft.com/library/dn296608.aspx) first.
 
 ## Messaging and Integration
 No matter what it's doing, code frequently needs to interact with other code.  In some situations, all that's needed is basic queued messaging. In other cases, more complex interactions are required. Azure provides a few different ways to solve these problems. Figure 5 illustrates the choices.
@@ -378,7 +376,7 @@ No matter what it's doing, code frequently needs to interact with other code.  I
 
 Queuing is a simple idea: One application places a message in a queue, and that message is eventually read by another application. If your application needs just this straightforward service, Azure Queues might be the best choice.
 
-Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx).  In many scenarios, either will work.
+Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx).  In many scenarios, either works.
 
 **Queue Scenarios**
 
@@ -422,11 +420,11 @@ Anytime you are setting up where there are many messages that are all important,
 ![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Figure: BizTalk Services provides the ability to transform XML messages formats in the cloud.*
 
-Sometimes you need connect systems which communicate using different messaging formats. It’s common for business to have different database schemas and XML messaging formats, even when a common standard is available. Rather than write a lot of custom code, you can use BizTalk Server on-premises to integrate various systems.  Azure BizTalk Services provides the same type of service, but in the cloud. You can pay for only what you use and not worry about scale like you would have to on-premises.
+Sometimes you need to connect systems which communicate using different messaging formats. It’s common for businesses to have different database schemas and XML messaging formats, even when a common standard is available. Rather than write a lot of custom code, you can use BizTalk Server on-premises to integrate various systems.  Azure BizTalk Services provides the same type of service, but in the cloud. You can pay for only what you use and not worry about scale like you would have to on-premises.
 
 **BizTalk Services Scenarios**
 
-Business-to-Business (B2B) interactions commonly require this type of translation.  For example, a company building airplanes needs to order parts from it's various parts suppliers. It will have many parts suppliers.  Those orders should be automated to go directly from the airplane builders systems into the suppliers systems.  Neither business wants to change their core systems and message formats, and it's very unlikely that those formats are the same. BizTalk Services can take messages and translate between the new formats both ways. Either the airplane supplier can do the work to translate or the various suppliers can, depending on who wants more control and the amount of translation needed.     
+Business-to-Business (B2B) interactions commonly require this type of translation.  For example, a company building airplanes needs to order parts from its various parts suppliers. It will have many parts suppliers.  Those orders should be automated to go directly from the airplane builders systems into the suppliers systems.  Neither business wants to change their core systems and message formats, and it's very unlikely that those formats are the same. BizTalk Services can take messages and translate between the new formats both ways. Either the airplane supplier can do the work to translate or the various suppliers can, depending on who wants more control and the amount of translation needed.     
 
 ## Compute Assistance
 Azure provides assistance for services that do not need to run all the time.  
@@ -435,7 +433,7 @@ Azure provides assistance for services that do not need to run all the time.
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Figure: Azure Scheduler provides a way to schedule jobs at a specific time for a specific duration.*
 
-Sometimes applications only need to run at a certain time. On Azure, you can save money with this type of app instead of letting an application just keep running 24x7 waiting for data to process. Azure Scheduler allows you to schedule when an application should run based on interval of time or a calendar. It’s reliable and will verify that a process runs even if there are network, machine, and data center failures. You use the Scheduler REST API to manage these actions.
+Sometimes applications only need to run at a certain time. On Azure, you can save money with this type of app instead of letting an application just keep running 24x7 waiting for data to process. Azure Scheduler allows you to schedule when an application should run based on an interval of time or a calendar. It’s reliable and will verify that a process runs even if there are network, machine, and data center failures. You use the Scheduler REST API to manage these actions.
 
 When a scheduled alarm occurs, Scheduler sends HTTP or HTTPS messages to a specific endpoint or can put a message in a Storage Queue.  So you need to have your application either have an accessible endpoint or have it monitor a storage queue. Then once it gets the message, it can perform whatever action it's programmed to.
 
@@ -459,7 +457,7 @@ Accessing data stored in any of Azure's data management services-SQL Database, T
 
 A Cloud Services application can store data in this cache, then retrieve it directly without needing to access persistent storage. The cache can be maintained inside your application's VMs or be provided by VMs dedicated solely to caching. In either case, the cache can be distributed, with the data it contains spread across multiple VMs in an Azure datacenter.
 
-Azure has a number of different cache technologies that have shifted over time. In the order they were introduced, there is a shared, in-role, managed and Redis cache. The shared caching is an older technology and you shouldn’t create new implementations with it. The Managed Cache has the same features of the In-Role cache, but as managed service outside of the Azure Management Portal. The Redis Cache is in preview. The Redis implementation has the largest number of features and is recommended when you write new caching code.
+Azure has a number of different cache technologies that have shifted over time. In the order they were introduced, there is a shared, in-role, managed and Redis cache. The shared caching is an older technology and you shouldn’t create new implementations with it. The Managed Cache has the same features of the In-Role cache, but as managed service outside of the Azure portal. The Redis implementation has the largest number of features and is recommended when you write new caching code.
 
 **Azure Cache Scenarios**
 
@@ -491,7 +489,7 @@ HDInsight is the name of the Azure's Apache Hadoop-based service. HDInsight lets
 HDinsight supports other components of the Hadoop ecosystem as well, including Hive and Pig. Microsoft has also created components that make it easier to work with data produced by HDInsight using traditional BI tools, such as the HiveODBC adapter and Data Explorer that work with Excel.
 
 ### High-Performance Computing (Big Compute)
-One of the most attractive ways to use a cloud platform is to run high performance computing (HPC) and other "Big Compute" applications. Examples include specialized engineering applications built to use the industry-standard Message Passing Interface (MPI) as well as so-called embarrassingly parallel applications, such financial risk models.
+One of the most attractive ways to use a cloud platform is to run high performance computing (HPC) and other "Big Compute" applications. Examples include specialized engineering applications built to use the industry-standard Message Passing Interface (MPI) as well as so-called embarrassingly parallel applications, such as financial risk models.
 
 The essence of Big Compute is executing code on many machines at the same time. On Azure, this means running many virtual machines simultaneously, all working in parallel to solve some problem. Doing this requires some way to resources and to schedule applications, i.e., to distribute their work across these instances. Microsoft’s free HPC Pack and other compute cluster solutions can perform well in Azure, taking advantage of Azure compute and infrastructure services to add capacity on-demand to an on-premises compute cluster or run Big Compute applications entirely in the cloud.
 
@@ -513,7 +511,7 @@ As the figure shows, Media Services provides a set of components for application
 
 Applications that use this platform can run on Azure or elsewhere. For example, a desktop application for a video production house might let its users upload video to Media Services, then process it in various ways. Alternatively, a cloud-based content management service running on Azure might rely on Media Services to process and distribute video. Wherever it runs and whatever it does, each application chooses which components it needs to use, accessing them through RESTful interfaces.
 
-To distribute what it produces, an application can use the Azure CDN, another CDN, or just send bits directly to users. However, it gets there, video created using Media Services can be consumed by various client systems, including Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash, and Silverlight. The goal is to make it easier to create modern media applications.
+To distribute what it produces, an application can use the Azure CDN, another CDN, or just send bits directly to users. However, when it gets there, video created using Media Services can be consumed by various client systems, including Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash, and Silverlight. The goal is to make it easier to create modern media applications.
 
 **References**
 
@@ -525,13 +523,13 @@ The rise of Software as a Service is transforming how we create applications. It
 ![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Figure: Azure Marketplace and Azure Store let you find and buy Azure applications and commercial datasets and use them as part of your Azure applications.**
 
-The difference between the two is that Marketplace is outside of the Azure Management Portal, but the Store can be accessed from inside the portal. Potential customers can search to find Azure applications that meet their needs. Customers can search for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor, directly through the Marketplace or Store web locations or in some cases from the Management Portal. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
+The difference between the two is that Marketplace is outside of the Azure portal, but the Store can be accessed from inside the portal. Potential customers can search to find Azure applications that meet their needs. Customers can search for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor, directly through the Marketplace or Store web locations or in some cases from the Azure portal. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
 
 **Commerce Scenarios**
 
 SendGrid is an application in the Azure Store that allows you to send email. It offers additional functionality like reliable delivery and statistics.  You can buy this application and related services rather than try to build such an infrastructure yourself.  
 
 ## Getting Started
-Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/downloads/), and go for it. Cloud computing is the new default--get started now.
+Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](https://azure.microsoft.com/en-us/downloads/), and go for it. Cloud computing is the new default--get started now.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

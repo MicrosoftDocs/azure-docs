@@ -5,7 +5,7 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
@@ -78,3 +78,8 @@ The data now looks like the following:
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### Min Max Normalization
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

@@ -29,7 +29,7 @@ This tutorial assumes a basic understanding of Kubernetes concepts, for detailed
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
 
-To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
+To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yaml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
 If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
@@ -46,7 +46,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
@@ -61,10 +61,10 @@ Save and close the file.
 
 ## Deploy application
 
-Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
+Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Output:

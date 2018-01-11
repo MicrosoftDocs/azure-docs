@@ -86,6 +86,8 @@
       href: submit-apache-hadoop-jobs-programmatically.md
   - name: Develop
     items:
+    - name: Run custom MapReduce programs
+      href: apache-hadoop-run-custom-programs.md
     - name: Develop C# streaming MapReduce programs
       href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
     - name: Develop Java MapReduce programs
@@ -121,6 +123,9 @@
     items:
     - name: Analyze using Power Query
       href: apache-hadoop-connect-excel-power-query.md
+    - name: Connect Power BI to Interactive Query
+      href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+      maintainContext: true
     - name: Connect Power BI to Hadoop
       href: apache-hadoop-connect-hive-power-bi.md
     - name: Connect Excel to Hadoop
@@ -427,9 +432,6 @@
       maintainContext: true
     - name: Access YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Use Apache Phoenix and SQuirreL
-      href: ../hdinsight-hbase-phoenix-squirrel.md
       maintainContext: true
     - name: Generate movie recommendations using Mahout
       href: ../hdinsight-mahout.md

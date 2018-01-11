@@ -162,7 +162,18 @@ In general, to recover your service in the most rapid manner, we recommend that 
 
 ### Confirm network connectivity
 
-The most common point of failure is that firewall and or proxy ports and idle timeouts are incorrectly configured. For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) article.
+The most common point of failure is that firewall and or proxy ports and idle timeouts are incorrectly configured. 
+
+For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access to the following:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.windows.net
+
+For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the following Monday.
+
+For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) article.
+
+
 
 ### Restart the Azure AD Connect Sync service
 

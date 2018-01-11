@@ -5,7 +5,7 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
@@ -119,6 +119,31 @@ Then run either of the following commands:
 or 
 
 `./pip install <libraryname>`
+
+## Use custom modules
+In Transform Dataflow (Script), write python code like this:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+In Add Column (Script), set Code Block Type = Module, and write python code following:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+For different execution contexts (local, docker spark), point absolute path to the right place. You may want to use “os.getcwd() + relativePath” to locate it.
+
 
 ## Column data 
 Column data can be accessed from a row by using dot notation or key-value notation. Column names that contain spaces or special characters can't be accessed by using dot notation. The `row` variable should always be defined in both modes of Python extensions (Module and Expression). 
