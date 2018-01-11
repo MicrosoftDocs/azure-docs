@@ -203,11 +203,11 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ## Configure docker HEALTHCHECK 
 Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the **dockerfile** used while generating the container image. 
 
-![HealthCheckHealthy][3]
+![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnealthyApp][2]
 
-![HealthCheckUnhealthyDsp][5]
+![HealthCheckUnhealthyDsp][3]
 
 You can configure **HEALTHCHECK**  behavior for each container by specifying **HealthConfig** options as part of **ContainerHostPolicies** in ApplicationManifest.
 
