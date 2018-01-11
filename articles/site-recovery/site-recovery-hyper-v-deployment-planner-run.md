@@ -41,10 +41,10 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | Parameter name | Description |
 |---|---|
 | -Operation | GetVMList |
-| -User | The user name to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.|
-|-ServerListFile | The file with the list of servers that contain the VMs to be profiled. The file path can be absolute or relative. This file should contain one of the following in each line:<ul><li>Hyper-V host name or IP address</li><li>Hyper-V cluster name or IP address</li></ul><br>Example: ServerList.txt contains the following servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
-| -Directory|(Optional) The universal naming convention (UNC) or local directory path to store data that's generated during this operation. If the path is not mentioned, the directory named ProfiledData under the current path is used as the default directory.|
-|-OutputFile| (Optional) The file where the list of VMs fetched from the  Hyper-V servers is saved. If a name is not mentioned, the details would be stored in VMList.txt.  Use the file to start profiling after removing VMs that don't need to be profiled.|
+| -User | The username to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.|
+|-ServerListFile | The file with the list of servers that contain the VMs to be profiled. The file path can be absolute or relative. This file should contain one of the following in each line:<ul><li>Hyper-V host name or IP address</li><li>Hyper-V cluster name or IP address</li></ul><br>**Example:** ServerList.txt contains the following servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -Directory|(Optional) The universal naming convention (UNC) or local directory path to store data generated during this operation. If a name isn't specified, the directory named ProfiledData under the current path is used as the default directory.|
+|-OutputFile| (Optional) The file where the list of VMs fetched from the  Hyper-V servers is saved. If a name is not mentioned, the details are stored in VMList.txt.  Use the file to start profiling after removing VMs that don't need to be profiled.|
 |-Password|(Optional) The password to connect to the Hyper-V host.   If the password isn't specified as a parameter, you will be prompted for it later when the command is run.|
 
 ### GetVMList discovery
@@ -56,12 +56,14 @@ You can also choose to list in a file the friendly names or IP addresses of the 
 
 Open the output file in Notepad, and then copy the names of all VMs that you want to profile to another file (for example, ProfileVMList.txt). Use one VM name per line. This file is used as input to the -VMListFile parameter of the tool for all other operations: profiling, report generation, and getting throughput.
 
-### Example 1: To store the list of VMs in a file
+### Examples
+
+#### Store the list of VMs in a file
 ```
 ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile “E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
 ```
 
-### Example 2: To store the list of VMs at the default location (-Directory path)
+#### Store the list of VMs at the default location (-Directory path)
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledData" -ServerListFile "E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1
 ```
@@ -88,29 +90,29 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | Parameter name | Description |
 |---|---|
 | -Operation | StartProfiling |
-| -User | The user name to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.|
-| -VMListFile | The file with the list of VMs to be profiled. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by the VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -User | The username to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.|
+| -VMListFile | The file with the list of VMs to be profiled. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by the VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<br><br>**Example:** VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|The number of minutes for which profiling will run. The minimum is 30 minutes.|
 |-NoOfHoursToProfile|The number of hours for which profiling will run.|
-|-NoOfDaysToProfile |The number of days for which profiling will run. We recommend that you run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation.|
+|-NoOfDaysToProfile |The number of days for which profiling will run. We recommend that you run profiling for more than 7 days. That duration helps ensure that the workload pattern in your environment over the specified period is observed and is used to provide an accurate recommendation.|
 |-Virtualization|The virtualization type (VMware or Hyper-V).|
-|-Directory|(Optional) The UNC or local directory path to store profiling data that's generated during profiling. If the value is not provided, the directory named ProfiledData under the current path will be used as the default directory.|
+|-Directory|(Optional) The UNC or local directory path to store profiling data generated during profiling. If a name isn't specified, the directory named ProfiledData under the current path will be used as the default directory.|
 |-Password|(Optional) The password to connect to the Hyper-V host. If the password is not specified now, you will be prompted for it later during the execution of the command.|
 |-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
-|-StorageAccountKey|(Optional) The key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *Storage account name* > **Settings** > **Access Keys** > **Key1* (or the primary access key for a classic storage account).|
-|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, and AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Azure China.|
+|-StorageAccountKey|(Optional) The key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *Storage account name* > **Settings** > **Access Keys** > **Key1** (or the primary access key for a classic storage account).|
+|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Azure China.|
 
 We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend that you profile during the week when you see the maximum churn. The best way is to profile for 31 days, to get a better recommendation. 
 
-During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept, you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes. 
+During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept, you can profile for a few hours or minutes. The minimum allowed profiling time is 30 minutes. 
 
 During profiling, you can optionally pass a storage-account name and key to find the throughput that Azure Site Recovery can achieve at the time of replication from the Hyper-V server to Azure. If the storage-account name and key are not passed during profiling, the tool does not calculate achievable throughput.
 
-You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled 10 VMs (VM1 through VM10), and after few days you want to profile another 5 VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). 
+You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, let's say that you have profiled 10 VMs (VM1 through VM10). After a few days, you want to profile another 5 VMs (VM11 through VM15). You can run the tool from another command-line console for the second set of VMs (VM11 through VM15). 
 
 Ensure that the second set of VMs does not have any VM names from the first profiling instance, or that you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect. 
 
-By default, the tool is configurd to profile and generate reports for up to 1,000 VMs. You can change the limit by changing the MaxVMsSupported key value in the ASRDeploymentPlanner.exe.config file.
+By default, the tool is configured to profile and generate reports for up to 1,000 VMs. You can change the limit by changing the MaxVMsSupported key value in the ASRDeploymentPlanner.exe.config file.
 ```
 <!-- Maximum number of VMs supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -128,33 +130,36 @@ The profiling command generates several files in the profiling directory. Do not
 
 ### Examples
 
->[!NOTE]
->* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl+C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such cases, rerun the tool in profiling mode after the server restarts.
->* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report will not contain throughput information.
->* Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect and profile iSCSI and pass-through disks that are attached to VMs.
-
-#### Example 1: Profile VMs for 30 days, and find the throughput from on-premises to Azure
+#### Profile VMs for 30 days, and find the throughput from on-premises to Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### Example 2: Profile VMs for 15 days
+#### Profile VMs for 15 days
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
-#### Example 3: Profile VMs for 60 minutes for a quick test of the tool
+#### Profile VMs for 60 minutes for a quick test of the tool
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
 
-#### Example 4: Profile VMs for 2 hours for a proof of concept
+#### Profile VMs for 2 hours for a proof of concept
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
 ```
 
-## Generate report
-The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_*unique numeric identifier*.xlsm and placed in the specified directory.
+### Considerations for profiling
+
+If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl+C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such cases, rerun the tool in profiling mode after the server restarts.
+
+When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput is not calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report will not contain throughput information.
+
+Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect and profile iSCSI and pass-through disks that are attached to VMs.
+
+## Generate a report
+The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output. It summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_*unique numeric identifier*.xlsm and placed in the specified directory.
 
 After profiling is complete, you can run the tool in report-generation mode. 
 
@@ -166,144 +171,142 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | Parameter name | Description |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | The file that contains the list of profiled VMs that the report will be generated for. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | The file that contains the list of profiled VMs that the report will be generated for. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by the VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<br><br>**Example:** VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|The virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, the directory named ProfiledData under the current path will be used as the default directory.|
-| -User | (Optional) The user name to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.<br>The user and password are used to fetch the latest configuration information of the VMs (like number of disks, number of cores, and number of NICs) to use in the report. If this value is not provided, configuration information collected during profiling is used.|
-|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it now, you will be prompted for it later during the execution of the command.|
+| -User | (Optional) The username to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.<br>The user and password are used to fetch the latest configuration information of the VMs (like the number of disks, number of cores, and number of NICs) to use in the report. If this value is not provided, configuration information collected during profiling is used.|
+|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it now, you will be prompted for it when you run the command.|
 | -DesiredRPO | (Optional) The desired recovery point objective (RPO), in minutes. The default is 15 minutes.|
 | -Bandwidth | (Optional) The bandwidth in megabits per second. Use this parameter to calculate the RPO that can be achieved for the specified bandwidth. |
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour) format. StartDate must be specified along with EndDate. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour) format. EndDate must be specified along with StartDate. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
-| -UseManagedDisks | (Optional) UseManagedDisks: Yes/No. The default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
-|-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the specified currency.|
-|-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to the list of [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
-|-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (Pay-As-You-Go).|
-|-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+| -UseManagedDisks | (Optional) UseManagedDisks: Yes/No. The default is Yes. The number of virtual machines that can be placed in a single storage account is calculated based on whether failover/test failover of virtual machines is done on managed disk instead of unmanaged disk. |
+|-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription, and your target Azure region in the specified currency.|
+|-TargetRegion|(Optional) The Azure region where replication is targeted. Because Azure has different costs per region, to generate a report with a specific target Azure region, use this parameter. The default is WestUS2 or the last-used target region. Refer to the list of [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
+|-OfferId|(Optional) The offer associated with the subscription. The default is MS-AZR-0003P (Pay-As-You-Go).|
+|-Currency|(Optional) The currency in which cost is shown in the generated report. The default is US Dollar ($) or the last-used currency. Refer to the list of [supported currencies](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
 
-By default, the tool is configured to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+By default, the tool is configured to profile and generate reports for up to 1,000 VMs. You can change the limit by changing the MaxVMsSupported key value in the ASRDeploymentPlanner.exe.config file.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
 ### Examples
-#### Example 1: Generate a report with default values when the profiled data is on the local drive
+#### Generate a report with default values when the profiled data is on the local drive
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### Example 2: Generate a report when the profiled data is on a remote server
+#### Generate a report when the profiled data is on a remote server
 You should have read/write access on the remote directory.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “\\PS1-W2K12R2\Hyper-V_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### Example 3: Generate a report with a specific bandwidth that you will be provision for the replication
+#### Generate a report with a specific bandwidth that you will provision for the replication
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -Bandwidth 100
 ```
 
-#### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent 
+#### Generate a report with a 5 percent growth factor instead of the default 30 percent 
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### Example 5: Generate a report with a subset of profiled data
+#### Generate a report with a subset of profiled data
 For example, you have 30 days of profiled data and want to generate a report for only 20 days.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### Example 6: Generate a report for 5 minutes RPO
+#### Generate a report for a 5-minute RPO
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID
+#### Generate a report for the South India Azure region with Indian Rupee and a specific offer ID
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
 
 ### Percentile value used for the calculation
-**What default percentile value of the performance metrics collected during profiling does the tool use when it generates a report?**
+When the tool generates a report, it defaults to the percentile value of 95 for read/write IOPS, write IOPS, and data churn. These values are collected during profiling of all the VMs. This metric ensures that the percentile spike of 100 that your VMs might see because of temporary events is not used to determine your target storage account and source bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report generation activity, or another short-lived, point-in-time event.
 
-The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the VMs. This metric ensures that the 100th percentile spike your VMs might see because of temporary events is not used to determine your target storage account and source bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report generation activity, or other similar short-lived, point-in-time events.
-
-Using 95th percentile values gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Azure. We do not anticipate that you would need to change this number. If you do change the value (to 90th percentile, for example), you can update the configuration file ASRDeploymentPlanner.exe.config in the default folder and save it to generate a new report on the existing profiled data.
+Using a percentile value of 95 gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Azure. We do not anticipate that you'll need to change this number. If you do change the value (to a percentile of 90, for example), you can update the configuration file ASRDeploymentPlanner.exe.config in the default folder and save it to generate a new report on the existing profiled data.
 ```
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />
 ```
 
-### Growth factor considerations
-**Why should I consider growth factor when I plan deployments?**
-It is critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. After protection is in place if your workload characteristics change, you cannot switch to a different storage account for protection without disabling and re-enabling the protection.
+### Considerations for growth factor
+It's critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. After protection is in place, if your workload characteristics change, you cannot switch to a different storage account for protection without disabling and re-enabling the protection.
 
 For example, let's say that today your VM fits in a standard storage replication account. Over the next three months, several changes are likely to occur:
 
-* The number of users of the application that runs on the VM will increase.
-* The resulting increased churn on the VM will require the VM to go to premium storage so that Azure Site Recovery replication can keep pace.
-* Consequently, you will have to disable and re-enable protection to a premium storage account.
+1. The number of users of the application that runs on the VM will increase.
+2. The increased churn on the VM will require the VM to go to premium storage so that Azure Site Recovery replication can keep pace.
+3. You will have to disable and re-enable protection to a premium storage account.
 
-We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent, you are the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you. 
+We strongly recommend that you plan for growth during deployment planning. Although the default value is 30 percent, you are the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data. You can then determine what target storage and source bandwidth recommendations work best for you. 
 
 The generated Microsoft Excel report contains the following information:
 
-* [On-premises Summary](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [On-premises summary](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM<->Storage Placement](site-recovery-hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)]
+* [VM-storage placement](site-recovery-hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [On-premises Storage Requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [IR Batching](site-recovery-hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
-* [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
+* [On-premises storage requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [IR batching](site-recovery-hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
 
 ![Deployment planner report](media/site-recovery-hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
 
 
 ## Get throughput
-To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs are to be protected. 
+To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs will be protected. 
 
 ### Command-line parameters 
-Open a command-line console and go to the Azure Site Recovery deployment planning tool folder. Run ASRDeploymentPlanner.exe with the following parameters
+Open a command-line console and go to the folder for the Azure Site Recovery deployment planning tool. Run ASRDeploymentPlanner.exe with the following parameters.
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
  Parameter name | Description |
 |---|---|
-| -Operation | GetThroughtput |
-|-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-|-Directory|(Optional) The universal naming convention (UNC) or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, the directory named 'ProfiledData' under the current path will be used as the default directory.|
+| -Operation | GetThroughput |
+|-Virtualization|The virtualization type (VMware or Hyper-V).|
+|-Directory|(Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, the directory named ProfiledData under the current path will be used as the default directory.|
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *Storage account name* > **Settings** > **Access Keys** > **Key1**.|
-| -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address followed by VM name separated by a \ per line. VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Optional) This is your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds|
+| -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by the VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<br><br>**Example:** VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China.|
 
-
-The tool creates several 64 MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
-
-The throughput is measured at a specified point in time, and it is the maximum throughput that Azure Site Recovery can achieve during replication, provided that all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput levels can be achieved at various times. In the report, the tool shows the last measured throughput.
-    
 ### Example
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
+### Throughput considerations
+
+The tool creates several 64-MB asrvhdfile*number*.vhd files (where *number* is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You have to delete them manually.
+
+The throughput is measured at a specified point in time. It's the maximum throughput that Azure Site Recovery can achieve during replication, if all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn. 
+
+To understand what throughput levels can be achieved at various times, we recommend that you run the tool at various points in time during profiling. In the report, the tool shows the last measured throughput.
+
 > [!NOTE]
 > Run the tool on a server that has the same storage and CPU characteristics as that of a Hyper-V server.
->
-> For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the right bandwidth, if you don’t see an increase in the achieved throughput reported by the tool, do the following:
->
->  1. Check to determine whether there is any network Quality of Service (QoS) that is limiting Azure Site Recovery throughput.
->
->  2. Check to determine whether your Azure Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
->
->  3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
->
 
+For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the right bandwidth, if you don’t see an increase in the achieved throughput reported by the tool, do the following:
+
+1. Check to determine whether a network Quality of Service (QoS) problem is limiting Azure Site Recovery throughput.
+2. Check to determine whether your Azure Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
+3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
+
+    
 ## Next steps
-* [Analyze the generated report](site-recovery-hyper-v-deployment-planner-analyze-report.md).
+* [Analyze the generated report](site-recovery-hyper-v-deployment-planner-analyze-report.md)
