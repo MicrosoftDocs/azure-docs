@@ -68,11 +68,11 @@ sections:
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
         href: https://www.youtube.com/watch?v=hZgXSMWnACs
-    - title: Performance and scale, from indexing to geo-distributed architectures
-      href: https://www.youtube.com/watch?v=RYwc62oAXIs
+    - title: Deploy Azure Search to an Azure Docker container instance
+      href: https://www.youtube.com/watch?v=gcfn2BrX30Q
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
-        href: https://www.youtube.com/watch?v=RYwc62oAXIs
+        href: https://www.youtube.com/watch?v=gcfn2BrX30Q
 - title: Reference
   items:
   - type: list
