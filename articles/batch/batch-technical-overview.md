@@ -22,7 +22,7 @@ ms.custom:
 
 Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a collection of virtual machines, installs the applications you want to run, and schedules jobs to run on the virtual machines.
 
-Azure Batch builds on top of the Azure compute infrastructure to provide a platform service. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. There is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
+Azure Batch manages Azure compute resources and adds higher-level features tailored to batch processing jobs. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. There is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
 
 For a comparison between Batch and other HPC solution options in Azure, see [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md).
 
@@ -56,7 +56,7 @@ You can also run Batch jobs as part of a larger Azure workflow to transform data
 
 Higher-level, workload-specific capabilities are also available for Azure Batch:
 * Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
-* R users can leverage the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale-out the execution of R algorithms.
+* R users can leverage the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms.
 
 
 ## Scenario: Scale out a parallel workload
@@ -83,7 +83,7 @@ See the [Batch feature overview for developers](batch-api-basics.md) for more de
 
 ## Next steps
 
-Get started with Azure Batch with one of our quickstarts:
+Get started with Azure Batch with one of these quickstarts:
 * [Run your first Batch job with the Azure CLI](quick-create-cli.md)
 * [Run your first Batch job with the Azure portal](quick-create-portal.md)
 * [Run your first Batch job using the .NET API](quick-run-dotnet.md)

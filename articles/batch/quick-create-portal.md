@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -23,7 +23,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create Batch account
 
-Follow these steps to create a sample Batch account for test purposes. You need an account to create Batch pools and Batch jobs. As shown here, you can link an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
+Follow these steps to create a sample Batch account for test purposes. You need an account to create Batch pools and Batch jobs. As shown here, you can link an Azure storage account with the Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads.
 
 
 1. Click **Create a resource** > **Compute** > **Batch Service**. 
@@ -69,13 +69,15 @@ Create a sample pool of Windows VMs for test purposes. The pool for this quick e
 
 5. Keep the defaults for remaining settings, and click **OK** to create the pool.
 
-While the compute nodes are starting, you see an **Allocation state** of **Resizing**. You can go ahead and create a job and tasks while the pool is resizing. After a few minutes, the state of the nodes is **Steady**, indicating they are ready to run tasks. 
+The pool is created immediately, but it takes a few minutes to create the pool nodes. During this time, the pool's **Allocation state** is **Resizing**. You can go ahead and create a job and tasks while the pool is resizing. After a few minutes, the state of the pool is **Steady**, and the nodes start. When the state of the nodes is **Idle**, they are ready to run tasks. 
 
 
 
 ## Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The following example creates a job on the pool you created. Initially the job has no tasks.
+A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. 
+
+ The following example creates a job on the pool you created. Initially the job has no tasks.
 
 1. In the account view, click **Jobs** > **Add**. 
 
@@ -101,7 +103,7 @@ To create the first task:
 
   ![Create a task][task_create]
 
-After the task is created, it starts running on one of the nodes in the pool.
+After you create a task, Batch queues it to run on the pool. Once a node is available to run it, the task runs.
 
 To create a second task, go back to step 1. Enter a different **Task ID**, but specify an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
 
@@ -118,6 +120,11 @@ The contents show the Azure Batch environment variables that are set on the node
 
 
 ## Clean up resources
+
+If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
+
+You are charged for pools while the nodes are running, even if no jobs are scheduled. When you no longer need a pool, delete it. In the account view, click **Pools** and the name of the pool. Then click **Delete**.
+
 
 When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and click **Delete resource group**.
 
