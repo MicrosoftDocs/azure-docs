@@ -1,5 +1,5 @@
 ---
-title: Deploy the StorSimple Device Manager service in Azure | Microsoft Docs
+title: New authentication for StorSimple Virtual Arrays | Microsoft Docs
 description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
 services: storsimple
 documentationcenter: ''
@@ -48,18 +48,25 @@ For a complete list of URL patterns for StorSimple Virtual Arrays, go to [URL pa
 
 If the authentication URL is not included in the firewall rules beyond the deprecation date, the users see a critical alert that their StorSimple device could not authenticate with the service. The service will not be able to communicate with the device. If the users see this alert, they need to include the new authentication URL. For more information on the alert, go to [Use alerts to monitor your StorSimple device](storsimple-virtual-array-manage-alerts.md#networking-alerts).
 
+## Device version and authentication changes
+
+If using a StorSimple Virtual Array, use the following table to determine what action you need to take based on the device software version you are running.
+
+| If your device is running  | Take the following action                                    |
+|----------------------------|--------------------------------------------------------------|
+| Update 1.0 or later and is offline. <br> You see an alert that the URL is not whitelisted.| Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). |
+| Update 1.0 or later and the device is online.| No action is required.                                       |
+| Update 0.6 or earlier and the device is offline. | [Download Update 1.0 through catalog server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Apply Update 1.0 through the local web UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 0.6 or earlier and the device is online | Modify the firewall rules to include the authentication URL.<br> Install Update 1.0 through the Azure portal. |
+
 ## AAD-based registration keys
 
 Beginning Update 1.0 for StorSimple Virtual Arrays, new AAD-based registration keys are used. You use the registration keys to register your StorSimple Device Manager service with the device.
 
-You cannot use the new AAD service registration keys:
-- If you are using a StorSimple Virtual Arrays running Update 0.6 or earlier.
-- If you have an older device that you are activating now.
-
-In the preceding scenarios, you need to regenerate the service registration key. Once you regenerate the key, the new key is used for registering all the subsequent devices. The old key is no longer valid.
+You cannot use the new AAD service registration keys if you are using a StorSimple Virtual Arrays running Update 0.6 or earlier. You need to regenerate the service registration key. Once you regenerate the key, the new key is used for registering all the subsequent devices. The old key is no longer valid.
 
 - The new AAD registration key expires after 3 days.
-- The AAD registration keys work only with StorSimple 1200 series virtual arrays running Update 1 or later.
+- The AAD registration keys work only with StorSimple 1200 series virtual arrays running Update 1 or later. The AAD registration key from a StorSimple 8000 series device will not work.
 - The AAD registration keys are longer than the corresponding ACS registration keys.
 
 Perform the following steps to generate an AAD service registration key.
@@ -74,21 +81,9 @@ Perform the following steps to generate an AAD service registration key.
 
     ![Click regenerate](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
 
-3. Copy the new key. The older key will no longer work. 
+3. Copy the new key. The older key no longer works.
 
     ![Confirm regenerate](./media/storsimple-8000-aad-registration-key/aad-registration-key2.png)
-
-## Device version and authentication changes
-
-If using a StorSimple Virtual Array, use the following table to determine what action you need to take based on the device software version you are running.
-
-| If your device is running  | Take the following action                                    |
-|----------------------------|--------------------------------------------------------------|
-| Update 1.0 or later and is offline. <br> You see an alert that the URL is not whitelisted.| Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). |
-| Update 1.0 or later and the device is online.| No action is required.                                       |
-| Update 0.6 or earlier and the device is offline. | [Download Update 1.0 through catalog server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Apply Update 1.0 through the local web UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
-| Update 0.6 or earlier and the device is online | Install Update 1.0 through the Azure portal. <br> Modify the firewall rules to include the authentication URL.               |
-
 
 ## Next steps
 
