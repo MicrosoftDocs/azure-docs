@@ -34,7 +34,7 @@ sections:
       href: /azure/iot-edge/quickstart-linux
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_macos.svg
-      text: MacOS
+      text: Mac
       href: /azure/iot-edge/quickstart-linux
 - title: Step-by-Step Tutorials
   items:
@@ -44,7 +44,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulate an IoT Edge device in Windows</a>
-    - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux</a>
+    - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux or MacOS</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Develop and deploy a C# module</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Deploy Azure Stream Analytics as a module</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Deploy Azure Machine Learning as a module</a>
