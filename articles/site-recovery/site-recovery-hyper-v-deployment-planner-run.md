@@ -45,7 +45,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |-ServerListFile | The file with the list of servers that contain the VMs to be profiled. The file path can be absolute or relative. This file should contain one of the following in each line:<ul><li>Hyper-V host name or IP address</li><li>Hyper-V cluster name or IP address</li></ul><br>**Example:** ServerList.txt contains the following servers:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Optional) The universal naming convention (UNC) or local directory path to store data generated during this operation. If a name isn't specified, the directory named ProfiledData under the current path is used as the default directory.|
 |-OutputFile| (Optional) The file where the list of VMs fetched from the  Hyper-V servers is saved. If a name is not mentioned, the details are stored in VMList.txt.  Use the file to start profiling after removing VMs that don't need to be profiled.|
-|-Password|(Optional) The password to connect to the Hyper-V host.   If the password isn't specified as a parameter, you will be prompted for it later when the command is run.|
+|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
 
 ### GetVMList discovery
 **Hyper-V cluster**: When the Hyper-V cluster name is given in the server's list file, the tool finds all the Hyper-V nodes of the cluster and gets the VMs present on each of the Hyper-V hosts.
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfDaysToProfile |The number of days for which profiling will run. We recommend that you run profiling for more than 7 days. That duration helps ensure that the workload pattern in your environment over the specified period is observed and is used to provide an accurate recommendation.|
 |-Virtualization|The virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The UNC or local directory path to store profiling data generated during profiling. If a name isn't specified, the directory named ProfiledData under the current path will be used as the default directory.|
-|-Password|(Optional) The password to connect to the Hyper-V host. If the password is not specified now, you will be prompted for it later during the execution of the command.|
+|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
 |-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
 |-StorageAccountKey|(Optional) The key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *Storage account name* > **Settings** > **Access Keys** > **Key1** (or the primary access key for a classic storage account).|
 |-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Azure China.|
@@ -175,7 +175,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-Virtualization|The virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, the directory named ProfiledData under the current path will be used as the default directory.|
 | -User | (Optional) The username to connect to the Hyper-V host or Hyper-V cluster. The user needs to have administrative access.<br>The user and password are used to fetch the latest configuration information of the VMs (like the number of disks, number of cores, and number of NICs) to use in the report. If this value is not provided, configuration information collected during profiling is used.|
-|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it now, you will be prompted for it when you run the command.|
+|-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
 | -DesiredRPO | (Optional) The desired recovery point objective (RPO), in minutes. The default is 15 minutes.|
 | -Bandwidth | (Optional) The bandwidth in megabits per second. Use this parameter to calculate the RPO that can be achieved for the specified bandwidth. |
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour) format. StartDate must be specified along with EndDate. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
