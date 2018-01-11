@@ -172,9 +172,9 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New pipeline menu](./media/tutorial-control-flow-portal/new-pipeline-menu.png)
 3. In the properties window for the pipeline, switch to the **Parameters** tab, and use the **New** button to add the following three parameters of type String: sourceBlobContainer, sinkBlobContainer, and receiver. 
 
-    - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
-    - sinkBlobContainer – parameter in the pipeline consumed by the sink blob dataset
-    - receiver – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
+    - **sourceBlobContainer** - parameter in the pipeline consumed by the source blob dataset.
+    - **sinkBlobContainer** – parameter in the pipeline consumed by the sink blob dataset
+    - **receiver** – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
    ![New pipeline menu](./media/tutorial-control-flow-portal/pipeline-parameters.png)
 4. In the **Activities** toolbox, expand **Data Flow**, and drag-drop **Copy** activity to the pipeline designer surface. 
@@ -201,8 +201,8 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New Azure Storage linked service](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Enter `@pipeline().parameters.sourceBlobContainer` for the folder and `emp.txt` for the file name. You use the sourceBlobContainer pipeline parameter to set the folder path for the dataset. 
 
-   ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-1. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**. 
+    ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+13. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**. 
 
    ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. In the properties window, switch to the **Sink** tab, and click **+ New** for **Sink Dataset**. You create a sink dataset for the copy activity in this step similar to the way you created the source dataset. 
@@ -216,7 +216,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     2. Enter `@pipeline().parameters.sinkBlobContainer` for the folder.
     1. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
-       ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
+        ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Switch to the **pipeline** tab at the top. Expand **General** in the **Activities** toolbox, and drag-drop a **Web** activity to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
 
    ![Drag-drop first Web activity](./media/tutorial-control-flow-portal/success-web-activity-general.png)
