@@ -342,8 +342,8 @@ To execute your script in a Docker container on a remote Linux machine, you need
 ## Execute script in an HDInsight cluster
 You can also run this script in an HDInsight Spark cluster. Learn [how to create HDInsight Spark Cluster to use in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
-   >![NOTE] 
-   >The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
+>[!NOTE] 
+>The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
 
 1. If you have access to Spark for Azure HDInsight cluster, generate an HDInsight run configuration command as shown here. Provide the HDInsight cluster name and your HDInsight username and password as the parameters. Use the following command:
 
