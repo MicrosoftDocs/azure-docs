@@ -1,6 +1,6 @@
 ---
-title: Ansible matrix
-description: Ansible matrix
+title: Ansible module and version matrix
+description: Ansible module and version matrix
 ms.service: ansible
 keywords: ansible, roles, matrix, version, azure, devops
 author: tomarcher
@@ -10,14 +10,13 @@ ms.date: 01/11/2018
 ms.topic: article
 ---
 
-# Ansible matrix
+# Ansible module and version matrix
 
-##
-Ansible ships with a number of modules that can be executed directly on remote hosts or through Playbooks.
-Here we list Ansible modules for Azure which can provision Azure cloud resources like virtual machine, networking or container services. You can get those modules from official release of Ansible or below palybook roles published by Microsoft to get latest Azure modules.
+## Ansible modules for Azure
+Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
+This article lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. You can get these modules from the official release of Ansible or from the following playbook roles published by Microsoft.
 
-
-| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Ansible module for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes                                 | 
