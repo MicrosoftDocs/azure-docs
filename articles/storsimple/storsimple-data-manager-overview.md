@@ -17,7 +17,7 @@ ms.date: 01/10/2018
 ms.author: vidarmsft
 ---
 
-# StorSimple Data Manager overview
+# StorSimple Data Manager solution overview
 
 ## Overview
 
@@ -31,7 +31,7 @@ This article provides an overview of the StorSimple Data Manager solution. It al
 
 The StorSimple Data Manager service identifies StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is deduped, compressed StorSimple format. The Data Manager service provides APIs to extract the StorSimple format data and transform it into other formats such as Azure blobs and Azure Files. This transformed data is then readily consumed by Azure HDInsight and Azure Media services. The data transformation thus enables these services to operate upon the transformed StorSimple data from StorSimple 8000 series on-premises device. A high-level block diagram illustrating this is shown below.
 
-![High-level diagram](./media/storsimple-data-manager-overview/storsimple-data-manager-overview.png)
+![High-level diagram](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
 
 ## Data Manager use cases
@@ -51,9 +51,8 @@ The StorSimple Data Manager is available in the following 7 regions:
  - North Europe
  - West Europe
 
-However, the StorSimple Data Manager can be used to transform data in the following regions. This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 26 regions shown below, you can transform your data using this service.
+However, the StorSimple Data Manager can be used to transform data in the following regions. This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 26 regions, you can transform your data using this service.
 
-<put the Job run regions.png file>
 
 ## Choosing a region
 
@@ -65,15 +64,15 @@ We recommend that:
 
 ## Security considerations
 
-The StorSimple Data Manager needs the service data encryption key to transform from StorSimple format to native format. The service data encryption key is generated when the first device registers with the StorSimple service. For more information on this key, go to [StorSimple security](storsimple-8000-security.md). 
+The StorSimple Data Manager needs the service data encryption key to transform from StorSimple format to native format. The service data encryption key is generated when the first device registers with the StorSimple service. For more information on this key, go to [StorSimple security](storsimple-8000-security.md).
 
 The service data encryption key provided as an input is stored in a key vault that is created when you create a Data Manager. The vault resides in the same Azure region as your StorSimple Data Manager. This key is deleted when you delete your Data Manager service.
 
-This key is used by the compute resources use to do the transformation. These compute resources are location in the same Azure region as your job definition. This region may, or may not be the same as the region where you bring up your Data Manager.
+This key is used by the compute resources to perform the transformation. These compute resources are located in the same Azure region as your job definition. This region may, or may not be the same as the region where you bring up your Data Manager.
 
 If your Data Manager region is different from your job definition region, it is important that you understand what data/metadata resides in each of these regions. The diagram below illustrates this.
 
-<slide 2>
+![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-jobd-different-regions.png)
 
 ## Next steps
 
