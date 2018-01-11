@@ -37,8 +37,8 @@ With X.509 attestation, devices can also be provisioned through an enrollment gr
 
 To see a list of devices that have been provisioned through an enrollment group, you can view the enrollment group's details. This is an easy way to understand which IoT hub each device has been provisioned to. To view the device list: 
 
-1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-2. Click the provisioning service that has the enrollment group in the list of resources.
+1. Log in to the Azure portal and click **All resources** on the left-hand menu.
+2. Click your provisioning service in the list of resources.
 3. In your provisioning service, click **Manage enrollments**, then select **Enrollment Groups** tab.
 4. Click the enrollment group to open it.
 
