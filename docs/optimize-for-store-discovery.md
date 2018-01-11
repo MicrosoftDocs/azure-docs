@@ -1,12 +1,12 @@
 ---
-title: Optimize the AppSource placement and ranking of your Office Add-in
+title: Optimize the placement and ranking of your Office Add-in in AppSource
 description: Apply best practices for add-in development and create an effectiveAppSource listing.
 ms.date: 12/04-2017
 ---
 
-# Optimize the AppSource placement and ranking of your Office Add-in
+# Optimize the placement and ranking of your Office Add-in in AppSource
 
-Do you want to deliver a top-quality add-in experience, generate positive customer reviews, and optimize your add-in's placement in the AppSource? The depth and value that you provide in your add-in determines in part your add-in's AppSource placement and ranking in store search results. To create a high-quality add-in experience, apply the [best practices for add-in development](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-development-best-practices). Make sure that customers find and use your add-in by [creating an effective AppSource listing](create-effective-office-store-listings.md). 
+Do you want to deliver a top-quality add-in experience, generate positive customer reviews, and optimize your add-in's placement in  AppSource and within the Office experience? The depth and value that you provide in your add-in determines in part your add-in's placement and ranking in AppSource search results. To create a high-quality add-in experience, apply the [best practices for add-in development](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-development-best-practices). Make sure that customers find and use your add-in by [creating an effective AppSource listing](create-effective-office-store-listings.md). 
 
 ## Checklist to optimize your add-in
 
@@ -21,8 +21,7 @@ Use this checklist to optimize the end-to-end experience of your add-in.
 
 ## See also
 
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)  
-- [Training: Shipping your Office App to the AppSource](http://dev.office.com/training)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)  
     
  
 
