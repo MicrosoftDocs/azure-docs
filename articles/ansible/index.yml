@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Ansible on Azure Documentation
 metadata:
-  title: Ansible on Azure Documentation - Tutorials and reference
+  title: Ansible on Azure Documentation - Tutorials, samples, reference, and resources
   meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   services: terraform
   author: tomarcher
@@ -20,7 +20,7 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Configure Ansible and use it to create a Linux VM in Azure.
+    text: Configure Ansible, and use it to create a Linux VM in Azure.
   - type: list
     style: icon48
     items: 
