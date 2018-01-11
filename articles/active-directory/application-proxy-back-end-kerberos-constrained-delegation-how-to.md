@@ -81,7 +81,7 @@ Being able to pre-authenticate to Azure is imperative for KCD SSO to function. T
 
 **Delegation service** - The Azure Proxy connector obtaining a kerberos service ticket from a KDC (Kerberos Distribution Center), on behalf of users.
 
-The external communications between the client and the Azure front end should have no bearing on KCD whatsoever, other than ensuring that it works. This is so the Azure Proxy service can be provided with a valid user ID that is used to obtain a kerberos ticket. Without this KCD is not possible and would fail.
+The external communications between the client and the Azure front end should have no bearing on KCD whatsoever, other than ensuring that it works. This is so the Azure Proxy service can be provided with a valid user ID that is used to obtain a kerberos ticket. Without this, KCD is not possible and would fail.
 
 As mentioned previously, the browser error messages usually provide some good clues on why things are failing. Make sure to note down the activity ID and timestamp in the response as this allows you to correlate the behavior to actual events in the Azure Proxy event log.
 
@@ -129,7 +129,7 @@ If Kerberos is not available, then check the application’s authentication sett
    
 -   With Kerberos and NTLM in place, lets now temporarily disable pre-authentication for the application in the portal. See if you can access it from the internet using the external URL. You should be prompted to authenticate and should be able to do so with the same account used in the previous step. If not, this indicates a problem with the backend application and not KCD at all.
 
--   Now re-enable pre-authentication in the portal and authenticate through Azure by attempting to connect to the application via it’s external URL. If SSO has failed, then you should see a forbidden error message in the browser, plus event 13022 in the log:
+-   Now re-enable pre-authentication in the portal and authenticate through Azure by attempting to connect to the application via its external URL. If SSO has failed, then you should see a forbidden error message in the browser, plus event 13022 in the log:
 
     *Microsoft AAD Application Proxy Connector cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.*
 
@@ -139,7 +139,7 @@ If Kerberos is not available, then check the application’s authentication sett
 
     ![IIS application configuration window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    Once you know the identity, issue the following from a cmd prompt to make sure this account is definitely configured with the SPN in question. For example,  **setspn – q http/spn.wacketywack.com**
+    Once you know the identity, issue the following from a cmd prompt to make sure this account is definitely configured with the SPN in question. For example,  `setspn –q http/spn.wacketywack.com`
 
     ![SetSPN command window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
@@ -153,7 +153,7 @@ If Kerberos is not available, then check the application’s authentication sett
 
 While being useful in improving the performance of Kerberos operations, leaving Kernel mode enabled also causes the ticket for the requested service to be decrypted using machine account. This is also called the Local system, so having this set to true break KCD when the application is hosted across multiple servers in a farm.
 
--   As an additional check, you may also want to disable the **Extended** protection too. There have been encountered scenarios where this has proved to break KCD when enabled in very specific configurations, where an application is published as a sub folder of the Default Web site. This itself is configured for Anonymous authentication only, leaving the entire dialogs greyed out suggesting child objects would not be inheriting any active settings. But where possible we would always recommend having this enabled, so by all means test, but don’t forget to restore this to enabled.
+-   As an additional check, you may also want to disable the **Extended** protection too. There have been encountered scenarios where this has proved to break KCD when enabled in very specific configurations, where an application is published as a sub folder of the Default Web site. This itself is configured for Anonymous authentication only, leaving the entire dialogs grayed out suggesting child objects would not be inheriting any active settings. But where possible we would always recommend having this enabled, so by all means test, but don’t forget to restore this to enabled.
 
 These additional checks should have put you on track to start using your published application. You can go ahead and spin up additional connectors that are also configured to delegate, but if things are no further then we would suggest a read of our more in-depth technical walkthrough [The complete guide for Troubleshoot Azure AD Application Proxy](https://aka.ms/proxytshootpaper)
 
