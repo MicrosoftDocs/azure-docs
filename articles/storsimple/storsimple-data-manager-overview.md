@@ -72,7 +72,7 @@ This key is used by the compute resources to perform the transformation. These c
 
 If your Data Manager region is different from your job definition region, it is important that you understand what data/metadata resides in each of these regions. The diagram below illustrates this.
 
-![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-jobd-different-regions.png)
+![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
 ## Next steps
 
