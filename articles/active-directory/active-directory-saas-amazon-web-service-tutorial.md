@@ -216,7 +216,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 21. Use AWS service account credentials for fetching the roles from AWS account in Azure AD User Provisioning. For this, open the AWS console home.
 
-22. Click on **Services** -> **Security,Identity& Compliance** -> **IAM**.
+22. Click on **Services** -> **Security, Identity& Compliance** -> **IAM**.
 
 	![fetching the roles from AWS account](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
@@ -228,7 +228,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Create your own policy to fetch all the roles from AWS accounts. Choose appropriate service by clciking **Choose a service**.
+25. Create your own policy to fetch all the roles from AWS accounts. Choose appropriate service by clicking **Choose a service**.
 	
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
