@@ -12,7 +12,7 @@ ms.topic: article
 
 # Ansible matrix
 
-| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azure_module) |  Playbook Role [azure_preview_module](#introduction-to-azure_preview_module) | 
+| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azure-module) |  Playbook Role [azure_preview_module](#introduction-to-azure_preview_module) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes                                 | 
