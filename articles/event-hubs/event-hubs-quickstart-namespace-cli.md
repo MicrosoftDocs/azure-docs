@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - create an Azure Event Hubs namespace and event hub using Azure CLI | Microsoft Docs
+title: Azure Quickstart - Send and receive Event Hubs messages using Azure CLI | Microsoft Docs
 description: Quickly learn to send and receive Event Hub messages using Azure CLI
 services: event-hubs
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Create namespace and event hub using Azure CLI
+# Send and receive events using Azure CLI
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using Azure CLI to create an Event Hubs namespace and an event hub within that namespace.
 
