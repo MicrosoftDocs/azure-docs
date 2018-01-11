@@ -34,8 +34,8 @@ This script uses the following commands. Each command in the table links to comm
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server restore](/cli/azure/mysql/server#az_msql_server_restore) | Restore a server from backup. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) | Restore a server from backup. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
