@@ -32,9 +32,7 @@ In this article, you learn about the following:
 * transferring data into or out of storage
 * the many storage client libraries available.
 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
+To get up and running with Azure Storage, see [Create a storage account](storage-quickstart-create-account.md).
 
 ## Introducing the Azure Storage services
 
@@ -216,9 +214,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Learn more about File storage](../storage-files-introduction.md)
 * [Learn more about Queue storage](../queues/storage-queues-introduction.md)
 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
+To get up and running with Azure Storage, see [Create a storage account](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

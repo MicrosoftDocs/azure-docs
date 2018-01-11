@@ -248,6 +248,8 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
+    - name: Validation for Azure Stack
+      href: azure-stack-diagnostic-test.md
     - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference
