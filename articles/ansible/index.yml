@@ -27,7 +27,7 @@ sections:
     - image: 
         src: /azure/media/index/azure_dev-9.svg
       text: Configure Ansible
-      href: /azure/virtual-machines/linux/ansible-install-configure.md
+      href: /azure/virtual-machines/linux/ansible-install-configure
     - image: 
         src: /azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
