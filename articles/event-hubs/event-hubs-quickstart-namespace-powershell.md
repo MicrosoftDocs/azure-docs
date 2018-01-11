@@ -3,7 +3,7 @@ title: Azure Quickstart - Send and receive Event Hubs messages using PowerShell 
 description: Quickly learn to create an Event Hubs namespace with an event hub using PowerShell
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: ''
 
