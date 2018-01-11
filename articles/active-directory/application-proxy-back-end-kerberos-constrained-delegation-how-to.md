@@ -23,29 +23,29 @@ The methods available for achieving SSO to published applications can somewhat v
 
 The actual procedure for enabling KCD is relatively straightforward and typically requires no more than a general understanding of the various components and authentication flow that facilitates SSO. Finding good sources of information to help troubleshoot scenarios where KCD SSO doesn’t function as expected, can be sparse.
 
-As such, this article attempts to provide a single point of reference that should help troubleshoot and self-remediate some of the most common issues seen. At the same time offer additional guidance for diagnosing the more complex and troubled of implementation.
+As such, this article attempts to provide a single point of reference that should help troubleshoot and self-remediate some of the most common issues seen. At the same time, offer additional guidance for diagnosing the more complex and troubled of implementation.
 
 note that this article makes the following assumptions:
 
--   Azure Application Proxy has been deployed as per our [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) and general access to non KCD applications is working as expected.
+-   Azure Application Proxy has been deployed as per [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) and general access to non KCD applications is working as expected.
 
 -   The published target application is based on IIS and Microsoft’s implementation of kerberos.
 
--   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in our [KCD whitepaper](http://aka.ms/KCDPaper).
+-   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](http://aka.ms/KCDPaper).
 
 -   The subject application is published in an Azure tenant with pre-authentication enabled, and users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios are not covered by this article, but be added at some point in the future.
 
 ## Prerequisites
 
-Azure Application Proxy can be deployed into pretty much any type of infrastructure or environment and the architectures no doubt vary from organization to organization. One of the most common causes of KCD-related issues are not the environments themselves, but rather simple mis-configurations, or general oversight.
+Azure Application Proxy can be deployed into many types of infrastructures or environments and the architectures no doubt vary from organization to organization. One of the most common causes of KCD-related issues are not the environments themselves, but rather simple mis-configurations, or general oversight.
 
-For this reason, our advice is always to start by making sure you have met all the pre-requisites laid out in our main [Using KCD SSO with the Application Proxy article](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) before starting troubleshooting.
+For this reason, it is always best to start by making sure you have met all the pre-requisites laid out in our main [Using KCD SSO with the Application Proxy article](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) before starting troubleshooting.
 
 Particularly the section on configuring KCD on 2012R2, as this employs a fundamentally different approach to configuring KCD on previous versions of Windows, but also while being mindful of several other considerations:
 
--   It is not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then move to another dialog at any given time, so connector hosts should generally not be restricted to being able to communicate with only specific local site DCs.
+-   It is not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then move to another dialog at any given time, so connector hosts should not be restricted to being able to communicate with only specific local site DCs.
 
--   Similar to the above point, cross domain scenarios rely on referrals that direct a connector host to DCs that may reside outside of the local network perimeter. In this scenario it is equally important to make sure you are also allowing traffic onwards to DCs that represent other respective domains, or else delegation fail.
+-   Similar to the preceding point, cross domain scenarios rely on referrals that direct a connector host to DCs that may reside outside of the local network perimeter. In this scenario, it is equally important to make sure you are also allowing traffic onwards to DCs that represent other respective domains, or else delegation fail.
 
 -   Where possible, you should avoid placing any active IPS/IDS devices between connector hosts and DCs, as these are sometimes over intrusive and interfere with core RPC traffic
 
