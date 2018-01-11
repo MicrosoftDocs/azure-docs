@@ -27,7 +27,7 @@ After you buy a Reserved VM Instance, the reservation discount is automatically 
 |Windows VMs with [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.| 
 
 ## Application of reservation discount to non-Windows VMs
- The reservation discount is applied to running VM instances on an hourly basis. The reservations that you have bought are matched to the usage emitted by the running VMs to apply the reservation discount. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
+ The reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation wil be filled from other VMs not using a reservation, including concurrently running VMs. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
 ![Reserved VM Instance application](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
