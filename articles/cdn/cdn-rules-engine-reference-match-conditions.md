@@ -85,7 +85,7 @@ The URL match conditions identify requests based on their URLs.
 
 Name | Purpose
 -----|--------
-URL Path Directory | Identifies requests by their relative path.
+[URL Path Directory](#url-path-directory) | Identifies requests by their relative path.
 URL Path Extension | Identifies requests by their file name extension.
 URL Path Filename | Identifies requests by their file name.
 URL Path Literal | Compares a request's relative path to the specified value.
@@ -110,7 +110,7 @@ The Always match condition applies a default set of features to all requests.
 
 ---
 ### AS Number 
-The AS Number network is defined by its autonomous system number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified ASN.
+The AS Number network is defined by its autonomous system number (ASN). An option is provided to indicate whether this condition is met when a client's network "Matches" or "Does Not Match" the specified ASN.
 
 Key information:
 - Specify multiple ASNs by delimiting each one with a single space. For example, 64514 64515 matches requests that arrive from either 64514 or 64515.
@@ -447,6 +447,48 @@ Key information:
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
+
+---
+### URL Path Directory
+Identifies a request by its relative path. This relative path excludes the file name of the requested asset.
+
+Key information:
+- **Relative to** option: This option determines whether the URL comparison starts before or after the content access point. The content access point is the portion of the path that appears between the CDN hostname and the relative path to the requested asset (for example, /800001/CustomerOrigin). It identifies a location by server type (for example, CDN or customer origin) and your customer account number.
+
+   The following values are available for the **Relative to** option:
+   - **Root**: Indicates that the URL comparison will start directly after the CDN hostname. For example: http:\//wpc.0001._&lt;Domain&gt;_/_**800001/myorigin/myfolder/index.htm**_
+
+   - **Origin**: Indicates that the URL comparison will start after the content access point (for example, /000001 or /800001/myorigin). For example: http:\//wpc.0001._&lt;Domain&gt;_/800001/myorigin/_**myfolder**_/index.htm
+
+- An edge CNAME URL will be rewritten to a CDN URL prior to the URL comparison.
+
+   For example, both of the following URLs point to the same asset and therefore have the same URL path.
+
+  - CDN URL: http:\//wpc.0001._&lt;Domain&gt;_/800001/CustomerOrigin/path/asset.htm
+
+  - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
+
+  - URL path (Relative to Root): /800001/CustomerOrigin/path/
+
+  - URL path (Relative to Origin): /path/
+
+- This match condition is satisfied when the relative URL path, excluding file name, is either an exact match ("Matches") or "Does Not Match" one of the specified URL patterns.
+
+   For example, none of the following values are an exact match for the relative path of the URLs in the previous example. Therefore, this match condition will not be satisfied when it is configured to match one of these values:
+     - /pa
+     - ath/
+     - /path
+
+- A URL comparison ends right before the filename of the requested asset. A trailing forward slash is the last character in this type of path.
+- Replace spaces in the URL path with "%20."
+- Each URL path pattern can contain one or more asterisks (*). Each asterisk will match a sequence of one or more characters.
+- Specify multiple URL paths by delimiting each one with a single space.
+
+     For example: */sales/ */marketing/
+
+- A URL path can take advantage of special characters.
+- The case-sensitivity of URL comparisons is determined by the **Ignore Case** option.
+
 
 ## Next steps
 * [Azure Content Delivery Network overview](cdn-overview.md)
