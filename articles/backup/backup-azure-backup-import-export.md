@@ -43,7 +43,7 @@ After the upload of the backup data to Azure is finished, Azure Backup copies th
   * An Azure Backup vault has been created.
   * Vault credentials have been downloaded.
   * The Azure Backup agent has been installed on either Windows Server/Windows client or System Center Data Protection Manager server, and the computer is registered with the Azure Backup vault.
-* [Download the Azure Publish file settings](https://manage.windowsazure.com/publishsettings) on the computer from which you plan to back up your data.
+* [Download the Azure Publish file settings](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) on the computer from which you plan to back up your data.
 * Prepare a staging location, which might be a network share or additional drive on the computer. The staging location is transient storage and is used temporarily during this workflow. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * Make sure that you’re using a supported drive. Only 2.5 inch SSD, or 2.5 or 3.5-inch SATA II/III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-service.md#hard-disk-drives) for the latest set of drives that the service supports.
 * Enable BitLocker on the computer to which the SATA drive writer is connected.
@@ -64,7 +64,7 @@ The information in this section helps you complete the offline-backup workflow s
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. This might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
     * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure.
-    * **Azure Publish Settings**: An XML file that contains information about your subscription profile. It also contains secure credentials that are associated with your subscription. You can [download the file](https://manage.windowsazure.com/publishsettings). Provide the local path to the publish settings file.
+    * **Azure Publish Settings**: An XML file that contains information about your subscription profile. It also contains secure credentials that are associated with your subscription. You can [download the file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Provide the local path to the publish settings file.
     * **Azure Subscription ID**: The Azure subscription ID for the subscription where you plan to initiate the Azure Import job. If you have multiple Azure subscriptions, use the ID of the subscription that you want to associate with the import job.
     * **Azure Storage Account**: The storage account in the Azure subscription associated with the Azure Import job.
     * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where this job’s data is imported.
