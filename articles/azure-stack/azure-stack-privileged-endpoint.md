@@ -95,6 +95,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 
