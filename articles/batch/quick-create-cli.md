@@ -37,7 +37,7 @@ az group create \
 
 ## Create a storage account
 
-You can link an Azure general-purpose storage account with your Batch account. Although not required for the example in this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can link an Azure general-purpose storage account with your Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
@@ -82,7 +82,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-The pool is created immediately, but it takes a few minutes to start the pool nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:
+The pool is created immediately, but it takes a few minutes to create the pool nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -99,12 +99,6 @@ A Batch job is a logical grouping of one or more tasks. A job includes settings 
 az batch job create \
     --id myjob \
     --pool-id mypool
-```
-
-To see the properties associated with all jobs in the account, use the [az batch job list](/cli/azure/batch/job#az_batch_job_list) command. In this case, one job is listed:
-
-```azurecli-interactive 
-az batch job list
 ```
 
 ## Create tasks
@@ -127,6 +121,8 @@ The command output shows settings for each of the tasks. Batch distributes the t
 
 ## View task status
 
+After you create a task, Batch queues it to run on the pool. Once a node is available to run it, the task runs.
+
 Use the [az batch task show](/cli/azure/batch/task#az_batch_task_show) command to view the status of the Batch tasks. The following example shows details about *mytask1* running on one of the pool nodes.
 
 ```azurecli-interactive 
@@ -141,7 +137,7 @@ The command output includes many details, but take note of the `exitCode` and th
 
 ## View task output
 
-To list the files output from the tasks on the nodes where they completed, use the [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list) command. The following command lists the files created by *mytask1*: 
+To list the files created by a task on a compute node, use the [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list) command. The following command lists the files created by *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -175,15 +171,15 @@ az batch task file download \
 You can view the contents of `stdout.txt` in a text editor. The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines.
 
 ```
-AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
-AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/certs
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
 AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus.batch.azure.com/
-AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob-linux/job-1/mytask3/wd
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myjob-linux
+AZ_BATCH_JOB_ID=myjob
 AZ_BATCH_NODE_IS_DEDICATED=true
 AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
 AZ_BATCH_POOL_ID=mypool-linux
@@ -191,8 +187,14 @@ AZ_BATCH_TASK_ID=mytask3
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
-
 ## Clean up resources
+If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
+
+You are charged for pools while the nodes are running, even if no jobs are scheduled. When you no longer need a pool, delete it with the [az batch pool delete](cli/azure/batch/pool#az_batch_pool_delete) command:
+
+```azurecli-interactive
+az batch pool delete --pool-id mypool
+```
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Batch account, pools, and all related resources. Delete the resources as follows:
 
@@ -202,7 +204,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 
 > [!div class="nextstepaction"]
