@@ -21,7 +21,7 @@ ms.author: piyushjo
 This documentation is an appendix to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read that article first to understand the context. It also describes an alternate way to do the one-time authentication setup for the Mobile Engagement REST APIs by using the Azure portal.
 
 > [!NOTE]
-> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for the authentication requirements for Mobile Engagement APIs. Refer to it if you want to understand the following steps in detail.
+> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md). They are customized for the authentication requirements for Mobile Engagement APIs. Refer to them if you want to understand the following steps in detail.
 
 1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com/).
 2. Select **Active Directory** from the left pane.
@@ -52,12 +52,12 @@ This documentation is an appendix to [Authenticate with Mobile Engagement REST A
 
      ![Configure app][11]
 
-10. Create a new key, and then immediately copy it. It won't be shown again.
+10. Create a new key, and then immediately copy it. It isn't shown again.
 
      ![Configure app][12]
 
     > [!IMPORTANT]
-    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. If you think that this key has been compromised, you can also delete and recreate it .
+    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. If you think that this key has been compromised, you can delete and recreate it.
     >
     >
 11. Select the **Endpoints** button at the top of the page. Then copy the **OAUTH 2.0 TOKEN ENDPOINT**.
@@ -92,11 +92,11 @@ This documentation is an appendix to [Authenticate with Mobile Engagement REST A
 
     ![][20]
 
-24. On the **Add Access** section, it appears as **1 user, 0 groups**. Select **OK** in this section to confirm the change.
+24. On the **Add Access** section, it appears as **1 user, 0 groups**. To confirm the change, select **OK**.
 
     ![][21]
 
-You have now completed the required Azure AD configuration and and are all set to call the APIs.
+You have now completed the required Azure AD configuration and are all set to call the APIs.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png
