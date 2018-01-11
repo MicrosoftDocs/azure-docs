@@ -151,7 +151,7 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | eventDataId |Unique identifier for the event. |
 | eventSource |Name of the Azure service or infrastructure that generated the event. |
 | httpRequest |The request usually includes the clientRequestId, clientIpAddress, and HTTP method (for example, PUT). |
-| level |One of the following values: Critical, Error, Warning, Informational, and Verbose. |
+| level |One of the following values: Critical, Error, Warning and Informational. |
 | operationId |Usually a GUID shared among the events corresponding to single operation. |
 | operationName |Name of the operation. |
 | properties |Properties of the event. |

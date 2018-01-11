@@ -22,6 +22,10 @@ ms.author: bryanla
 
 ## Frequently Asked Questions (FAQs)
 
+### Is there a private preview available, for additional features?
+
+Yes. If you would like to be considered for enrollment in the private preview, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
+
 ### Does MSI work with Azure Cloud Services?
 
 No, there are no plans to support MSI in Azure Cloud Services.

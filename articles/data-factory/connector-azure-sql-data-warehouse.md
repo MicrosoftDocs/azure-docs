@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/18/2017
 ms.author: jingwang
 
 ---
@@ -316,7 +316,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -352,12 +352,15 @@ To use this feature, create an [Azure Storage linked service](connector-azure-bl
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }

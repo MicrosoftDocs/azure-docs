@@ -2,14 +2,14 @@
 title: Add features in LUIS applications | Microsoft Docs
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: Kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/09/2018
+ms.author: v-geberr
 ---
 
 # Use features to improve your LUIS app's performance  
@@ -26,7 +26,7 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
  
     ![Create new phrase list](./media/luis-add-features/create-new-phrase-list.png)
     
-3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas, and then press Enter.
+3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas, and then press **Enter**.
 
     ![Add phrase list Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
@@ -60,8 +60,8 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 
-## Pattern feature
-**This is a deprecated feature**. New patterns cannot be added to LUIS but any existing pattern features will be supported until May 2018. 
+## Pattern (regular expression) feature 
+**This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
 
 ## Next steps
 

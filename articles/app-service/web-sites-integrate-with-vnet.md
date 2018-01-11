@@ -258,6 +258,10 @@ Now if your VNet hosted VM can reach your on-premises system but your app can't 
 * your on-premises firewalls are blocking traffic from your Point to Site IP range
 * you have a User Defined Route(UDR) in your VNet that prevents your Point to Site based traffic from reaching your on-premises network
 
+## PowerShell automation
+
+You can integrate App Service with an Azure Virtual Network using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
 ## Hybrid Connections and App Service Environments
 There are three features that enable access to VNet hosted resources. They are:
 

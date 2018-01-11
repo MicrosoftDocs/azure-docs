@@ -2,14 +2,14 @@
 title: Add entities in LUIS apps | Microsoft Docs
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/09/2018
+ms.author: v-geberr
 ---
 
 # Manage entities
@@ -42,7 +42,7 @@ A simple entity is a generic entity that describes a single concept.
 ## Add hierarchical entities
 A hierarchical entity defines a relationship between a category and its members.
 
-To add hierarchical entities, complete the following steps. Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
+To add hierarchical entities, complete the following steps: Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
 2. On the **Entities** page, click **Create new entity**.
@@ -64,19 +64,21 @@ To add hierarchical entities, complete the following steps. Make sure to add the
 You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
 
 1. Add the prebuilt entity "number". For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
-2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". 
 
-3. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
-4. On the **Entities** page, click **Create new entity** to create a custom entity.
-5. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
-6. Click **Add Child** to add a new child.
-7. In **Child #1**, select the entity "number" from the list.
-8. In **Child #2**, select the parent entity "Category" from the list. 
-9. In **Child #3**, select the parent entity "TravelClass" from the list. 
+3. Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+
+4. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+5. On the **Entities** page, click **Create new entity** to create a custom entity.
+6. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+7. Click **Add Child** to add a new child.
+8. In **Child #1**, select the entity "number" from the list.
+9. In **Child #2**, select the parent entity "Category" from the list. 
+10. In **Child #3**, select the parent entity "TravelClass" from the list. 
 
     ![Add composite entity](./media/add-entities/ticketsorder-composite-entity.png)
 
-10. Click **Done**.
+11. Click **Done**.
 
     >[!NOTE]
     >To delete a child, click the trash button next to it.
@@ -97,7 +99,7 @@ A list entity is an entity that is defined by a list of all its values.
 
 5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
 
-![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
+    ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
  
 ## Import list entity values
 
@@ -113,26 +115,26 @@ A list entity is an entity that is defined by a list of all its values.
 
  4. Click **Done**.
 
-An example of valid json for an entity list is shown in the following JSON-formatted code:
+    An example of valid json for an entity list is shown in the following JSON-formatted code:
 
-```
-[
-    {
-        "canonicalForm": "Egypt",
-        "list": [
-            "Cairo",
-            "Alexandria"
-        ]
-    },
-    {
-        "canonicalForm": "USA",
-        "list": [
-            "California",
-            "Texas"
-        ]
-    }
-]  
-```
+    ```
+    [
+        {
+            "canonicalForm": "Egypt",
+            "list": [
+                "Cairo",
+                "Alexandria"
+            ]
+        },
+        {
+            "canonicalForm": "USA",
+            "list": [
+                "California",
+                "Texas"
+            ]
+        }
+    ]  
+    ```
 
 ## Edit entity name
 On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
@@ -150,9 +152,11 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed.  
+Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed. [Fuzzy search](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#fuzzy-search) is on by default. 
 
 ![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
+
+
 
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [add features](Add-Features.md) to improve the app.

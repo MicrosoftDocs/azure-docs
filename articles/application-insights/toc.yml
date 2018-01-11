@@ -51,6 +51,8 @@
       href: app-insights-windows-desktop.md
     - name: ASP.NET Core
       href: app-insights-asp-net-core.md
+    - name: Console
+      href: application-insights-console.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -263,6 +265,10 @@
       href: app-insights-analytics-troubleshooting.md
     - name: Java
       href: app-insights-java-troubleshoot.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0
 - name: Reference
   items:
   - name: Analytics query language

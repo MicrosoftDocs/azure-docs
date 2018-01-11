@@ -51,6 +51,7 @@
 | &nbsp; |[HubSpot (Beta)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira (Beta)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (Beta)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
+| &nbsp; |[Marketo (Beta)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (Beta)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Paypal (Beta)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (Beta)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
@@ -60,9 +61,9 @@
 | &nbsp; |[ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Any connector marked as *Beta* means that you can try it out and give us feedback, and do not use in production environments.
+> Any connector marked as *Beta* means that you can try it out and give us feedback. If you want to take a dependency on Beta connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
