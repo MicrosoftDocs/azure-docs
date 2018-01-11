@@ -1,5 +1,5 @@
 ---
-title: Using Apache Hive as an ETL Tool | Microsoft Docs
+title: Using Apache Hive as an ETL Tool - Azure HDInsight | Microsoft Docs
 description: Use Apache Hive to extract, transform, and load (ETL) data in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -77,7 +77,7 @@ You can use Hive to output data to a variety of targets including:
 * Excel.
 * Azure table and blob storage.
 * Applications or services that require data to be processed into specific formats, or as files that contain specific types of information structure.
-* A JSON Document Store like <a href="https://azure.microsoft.com/en-us/services/cosmos-db/">CosmosDB</a>.
+* A JSON Document Store like <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
 
 ## Considerations
 
@@ -89,7 +89,7 @@ The ETL model is typically used when you want to:
 
 If the target for the data is not a database, you can generate a file in the appropriate format within the query, for example a CSV. This file can then be imported into Excel or Power BI.
 
-If you need to execute several operations on the data as part of the ETL process, consider how you manage them. If the operations are controlled by an external program, rather than as a workflow within the solution, you need to decide whether some operations can be executed in parallel, and to detect when each job  completes. Using a workflow mechanism such as Oozie within Hadoop may be easier than trying to orchestrate a sequence of operations using external scripts or custom programs. For more information about Oozie, see [Workflow and job orchestration](https://msdn.microsoft.com/en-us/library/dn749829.aspx).
+If you need to execute several operations on the data as part of the ETL process, consider how you manage them. If the operations are controlled by an external program, rather than as a workflow within the solution, you need to decide whether some operations can be executed in parallel, and to detect when each job  completes. Using a workflow mechanism such as Oozie within Hadoop may be easier than trying to orchestrate a sequence of operations using external scripts or custom programs. For more information about Oozie, see [Workflow and job orchestration](https://msdn.microsoft.com/library/dn749829.aspx).
 
 <!-- ## Next steps -->
 <!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->

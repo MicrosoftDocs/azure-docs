@@ -60,7 +60,7 @@ Source data files are typically loaded into a location in Azure Storage or Azure
 
 ### Azure Storage 
 
-[Azure Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) has [specific scalability targets](../../storage/common/storage-scalability-targets.md).  For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you are using a subset of the data or all of the data.
+[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) has [specific scalability targets](../../storage/common/storage-scalability-targets.md).  For most analytic nodes, Azure Storage scales best when dealing with many smaller files.  Azure Storage guarantees the same performance, no matter how many files or how large the files (as long as you are within your limits).  This means that you can store terabytes of data and still get consistent performance, whether you are using a subset of the data or all of the data.
 
 Azure Storage has several different types of blobs.  An *append blob* is a great option for storing web logs or sensor data.  
 
@@ -116,7 +116,7 @@ These products scale up, which means that they are scaled by adding more CPU and
 
 Azure Analysis Services (AAS) is an analytical data engine used in decision support and business analytics, providing the analytical data for business reports and client applications such as Power BI, Excel, Reporting Services reports, and other data visualization tools.
 
-Analysis cubes can scale by changing tiers for each individual cube.  For more information, see [Azure Analysis Services Pricing](https://azure.microsoft.com/en-us/pricing/details/analysis-services/).
+Analysis cubes can scale by changing tiers for each individual cube.  For more information, see [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## Extract and Load
 
