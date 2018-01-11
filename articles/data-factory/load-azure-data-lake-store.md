@@ -16,36 +16,36 @@ ms.author: jingwang
 ---
 # Load data into Azure Data Lake Store using Azure Data Factory
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview) is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.
+[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.
 
 Azure Data Factory is a fully managed cloud-based data integration service, which can be used to populate the lake with the data from your existing system, and saving you valuable time while building your analytics solutions. Here are the key benefits of loading data into Azure Data Lake Store using Azure Data Factory:
 
 * **Easy to set up**: 5-step intuitive wizard with no scripting required.
 * **Rich data store support**: built-in support for a rich set of on-premises and cloud-based data stores, see detailed list in [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 * **Secure and compliant**: data is transferred over HTTPS or ExpressRoute, and global service presence ensures your data never leaves the geographical boundary
-* **High performance**: up to 1GBps data loading speed into Azure Data Lake Store. Learn details from [copy activity performance](copy-activity-performance).
+* **High performance**: up to 1GBps data loading speed into Azure Data Lake Store. Learn details from [copy activity performance](copy-activity-performance.md).
 
-This article shows you how to use Data Factory Copy Data tool to **load data from Amazom S3 into Azure Data Lake Store**. You can follow the similar steps to copy data from other types of data stores.
+This article shows you how to use Data Factory Copy Data tool to **load data from Amazon S3 into Azure Data Lake Store**. You can follow the similar steps to copy data from other types of data stores.
 
 > [!NOTE]
->  For general information about capabilities of Data Factory in copying data to/from Azure Azure Data Lake Store, see [Copy data to or from Azure Data Lake Store by using Azure Data Factory](connector-azure-data-lake-store.md) article.
+>  For general information about capabilities of Data Factory in copying data to/from Azure Data Lake Store, see [Copy data to or from Azure Data Lake Store by using Azure Data Factory](connector-azure-data-lake-store.md) article.
 >
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* **Azure Data Lake Store**. If you don't have an Data Lake Store account, see the [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account) article for steps to create one.
-* **Amazon S3**. This article showcases copy data from Amazon S3. You can use other data store following the similar steps.
+* **Azure Data Lake Store**. If you don't have a Data Lake Store account, see the [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account) article for steps to create one.
+* **Amazon S3**. This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory
 
 1. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
-   ![New->DataFactory](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![New->DataFactory](./media/load-data-into-azure-data-lake-store.md/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, provide the values as shown in the following screenshot: 
       
-     ![New data factory page](./media/load-data-into-azure-data-lake-store/new-azure-data-factory.png)
+     ![New data factory page](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
    * **Name.** Enter a global unique name for the data factory. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
@@ -93,11 +93,11 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 8. In the **Specify Data Lake Store connection** page, do the following steps: 
 
     1. Select your Data Lake Store for the **Data Lake Store account name**.
-    2. Specify the service principal information including **Tenant**, **Service principal id** and **Service principal key**.
+    2. Specify the service principal information including **Tenant**, **Service principal ID**, and **Service principal key**.
     3. Click **Next**. 
 
     > [!IMPORTANT]
-    > Here we use **Service principal** to authenticate data lake store. Follow the instruction [here](connector-azure-data-lake-store#using-service-principal-authentication) and make sure you grant the service principal proper permission in Azure Data Lake Store.
+    > In this walkthrough, you use a **Service principal** to authenticate data lake store. Follow the instruction [here](connector-azure-data-lake-store#using-service-principal-authentication) and make sure you grant the service principal proper permission in Azure Data Lake Store.
 
     ![Specify Azure Data Lake Store account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 

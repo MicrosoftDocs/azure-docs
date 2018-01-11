@@ -23,7 +23,7 @@ Getting started with Azure SQL Data Warehouse is now easier than ever using **Az
 * **Easy to set up**: 5-step intuitive wizard with no scripting required.
 * **Rich data store support**: built-in support for a rich set of on-premises and cloud-based data stores, see detailed list in [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 * **Secure and compliant**: data is transferred over HTTPS or ExpressRoute, and global service presence ensures your data never leaves the geographical boundary
-* **Unparalleled performance by using PolyBase**: Using Polybase is the most efficient way to move data into Azure SQL Data Warehouse. Using the staging blob feature, you can achieve high load speeds from all types of data stores besides Azure Blob storage and Data Lake Store, which the Polybase supports by default. Learn details from [copy activity performance](copy-activity-performance).
+* **Unparalleled performance by using PolyBase**: Using Polybase is the most efficient way to move data into Azure SQL Data Warehouse. Using the staging blob feature, you can achieve high load speeds from all types of data stores besides Azure Blob storage and Data Lake Store, which the Polybase supports by default. Learn details from [copy activity performance](copy-activity-performance.md).
 
 This article shows you how to use Data Factory Copy Data tool to **load data from Azure SQL Database into Azure SQL Data Warehouse**. You can follow the similar steps to copy data from other types of data stores.
 
@@ -36,7 +36,7 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 * **Azure SQL Data Warehouse**. This data warehouse holds the data copied over from the SQL Database. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
-* **Azure SQL Database**. This tutorial copies data from an Azure SQL Database with Adventure Works LT sample data, you can create one following [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. 
+* **Azure SQL Database**. This tutorial copies data from an Azure SQL Database with Adventure Works LT sample data, you can create one following the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. 
 * **Azure Storage account**. The Azure Storage is used as **staging** blob in the bulk copy operation. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 
 ## Create a data factory
@@ -81,7 +81,7 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
     5. Click **Next**. 
 
         ![Specify Azure SQL DB](./media/load-azure-sql-data-warehouse/specify-source-connection.png)
-5. In the **Select tables from which to copy the data or use a custom query** page, filter the tables by specify "SalesLT" in the input box, then check the **(Select all)** checkbox to select all tables, and then click **Next**. 
+5. In the **Select tables from which to copy the data or use a custom query** page, filter the tables by specifying **SalesLT** in the input box, then check the **(Select all)** checkbox to select all tables, and then click **Next**. 
 
     ![Choose input file or folder](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
@@ -97,18 +97,18 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
     5. Click **Next**. 
 
         ![Specify Azure SQL Data Warehouse](./media/load-azure-sql-data-warehouse/specify-sink-connection.png)
-8. In the **Table mapping** page, rreview and click **Next**. An intelligent table mapping appears that maps source to destination tables based on table names. If the table does not exist in the destination, by default ADF will create one with the same name. You can also choose to map to an existing table. 
+8. In the **Table mapping** page, review, and click **Next**. An intelligent table mapping appears that maps source to destination tables based on table names. If the table does not exist in the destination, by default Azure Data Factory creates one with the same name. You can also choose to map to an existing table. 
 
     > [!NOTE]
     > Auto table creation for SQL Data Warehouse sink applies when SQL Server or Azure SQL Database is source. If you copy data from other source data store, you need to pre create the schema in sink Azure SQL Data Warehouse before data copy.
 
     ![Table mapping page](./media/load-azure-sql-data-warehouse/specify-table-mapping.png)
 
-9. In the **Schema mapping** page, rreview and click **Next**. Intelligent mapping is based on column name. If you choose to let Data Factory auto create the tables, proper data type conversion may happen if needed to fix the incompatibility between source and destination stores. If there is an unsupported data type conversion between the source and destination column, you see an error message alongside the corresponding table.
+9. In the **Schema mapping** page, review, and click **Next**. Intelligent mapping is based on column name. If you choose to let Data Factory auto create the tables, proper data type conversion may happen if needed to fix the incompatibility between source and destination stores. If there is an unsupported data type conversion between the source and destination column, you see an error message alongside the corresponding table.
 
     ![Schema mapping page](./media/load-azure-sql-data-warehouse/specify-schema-mapping.png)
 
-11. In the **Settings** page, select an Azure Storage in the **Storage account name** drop down list. It is used for staging the data before it loads into SQL Data Warehouse performantly using PolyBase. After the copy is done, the interim data in storage will be cleaned up automatically. 
+11. In the **Settings** page, select an Azure Storage in the **Storage account name** drop-down list. It is used for staging the data before it loads into SQL Data Warehouse using PolyBase. After the copy is done, the interim data in storage will be cleaned up automatically. 
 
     Under "Advanced settings", uncheck "use type default" option.
 
