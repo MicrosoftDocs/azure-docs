@@ -19,8 +19,9 @@ ms.author: shlo
 # Visually author data factories
 With the Azure Data Factory UX experience, users can visually author and deploy resources within their data factory, without writing a single line of code.
 This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
+
 1. Configure VSTS Git Integration for collaboration, source control, or versioning
-2. Work directly with the data factory service
+2. Work directly with the Data Factory service
 
 ## Authoring with VSTS Git Integration
 Authoring with VSTS Git integration allows for source control and collaboration while authoring your data factory pipelines. Users have the option to associate a data factory to a VSTS Git Account repository for source control, collaboration, and versioning etc. A single VSTS GIT account can have multiple repositories. However, a VSTS Git repository can only be associated with a single data factory. If you don't have a VSTS account and repository already, create one [here](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
@@ -65,10 +66,10 @@ Once you click 'sync', you can pull changes from the master branch to your local
 ![Syncing Changes](media/author-visually/sync-change.png)
 
 #### Publish
- Publish changes in master branch to data factory service.
+ Publish changes in master branch to Data Factory service.
 
 > [!NOTE]
-> The **master branch is not representative of what's deployed in the data factory service.** The master branch *must* be published manually to the data factory service.
+> The **master branch is not representative of what's deployed in the Data Factory service.** The master branch *must* be published manually to the Data Factory service.
 
 
 ## Authoring with Data Factory
@@ -76,13 +77,13 @@ Another option is to author in Data Factory mode. This is different from authori
 
 ![Configure Data Factory](media/author-visually/configure-data-factory.png)
 
-In Data Factory mode, there is only the 'Publish' mode and no 'Sync' mode. Any changes you make are published directly to the data factory service.
+In Data Factory mode, there is only the 'Publish' mode and no 'Sync' mode. Any changes you make are published directly to the Data Factory service.
 
 ![Data Factory Publish](media/author-visually/data-factory-publish.png)
 
 ## Expression Language
 
-Users can specify expression language in defining property values by using the data factory supported expression language. See [Expressions and functions in Azure Data Factory](control-flow-expression-language-functions.md) for more about which expressions are supported.
+Users can specify expressions in defining property values by using the expression language supported by Azure Data Factory. See [Expressions and functions in Azure Data Factory](control-flow-expression-language-functions.md) for more about which expressions are supported.
 
 Specify expressions in property values in the UX like so.
 
