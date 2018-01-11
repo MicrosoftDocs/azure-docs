@@ -177,7 +177,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the get started page of Azure Data Factory UI, click **Create pipeline** or switch to the **Edit** tab. 
 
-    ![Create pipeline pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/
+    ![Create pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
