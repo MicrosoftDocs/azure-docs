@@ -61,7 +61,7 @@ When you query the Instance Metadata Service, you must provide the header `Metad
 Instance metadata is available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 Access all data categories for a virtual machine instance using the following request:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -79,7 +79,7 @@ API | Default Data Format | Other Formats
 
 To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
@@ -108,7 +108,7 @@ HTTP Status Code | Reason
 
 **Request**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -117,7 +117,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-```
+```json
 {
   "interface": [
     {
@@ -147,7 +147,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### Retrieving public IP address
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -155,7 +155,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Request**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -216,13 +216,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Or through the `Invoke-RestMethod` cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -231,7 +231,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > The response is a JSON string. The following example response  is pretty-printed for readability.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -311,7 +311,7 @@ As a service provider, you may require to track the number of VMs running your s
 
 **Request**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
