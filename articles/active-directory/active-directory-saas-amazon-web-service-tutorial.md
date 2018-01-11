@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/11/2017
 ms.author: jeedes
 
 ---
@@ -114,8 +114,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name  | Attribute Value | Namespace |
 	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+	| rolesessionname | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+	| role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
 	
 	>[!TIP]
 	>You need to configure the user provisioning in Azure AD to fetch all the roles from AWS Console. Refer the provisioning steps below.
@@ -228,7 +228,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Create your own policy to fetch all the roles from AWS accounts. In the **Create your own policy** section click on **Select** button.
+25. Create your own policy to fetch all the roles from AWS accounts. Choose appropriate service by clciking **Choose a service**.
 	
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
