@@ -17,19 +17,17 @@ ms.author: alleonar
 
 ---
 # Azure Key Vault .NET 2.0 - Release Notes and Migration Guide
-The following notes and guidance are for developers working with Azure Key Vault .NET / C# library. In the transition from the 1.0 version to the 2.0 version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as **Key Vault certificates** support.
+The following information helps migrating to the 2.0 version of the Azure Key Vault library for C# and .NET.  Apps written for earlier versions need to be updating to support the latest version.  These changes are needed to fully support new and improved features, such as **Key Vault certificates**.
 
 ## Key Vault certificates
 
-Key Vault certificates support provides for management of your x509 certificates and the following behaviors:  
+Key Vault certificates manage x509 certificates and supports the following behaviors:  
 
-* Allows a certificate owner to create a certificate through a Key Vault creation process or through the import of an existing certificate. This includes both self-signed and Certificate Authority generated certificates.
-* Allows a Key Vault certificate owner to implement secure storage and management of X509 certificates without interaction with private key material.  
-* Allows a certificate owner to create a policy that directs Key Vault to manage the life-cycle of a certificate.  
-* Allows certificate owners to provide contact information for notification about life-cycle events of expiration and renewal of certificate.  
-* Supports automatic renewal with selected issuers - Key Vault partner X509 certificate providers / certificate authorities.
-  
-  * NOTE - Non-partnered providers/authorities are also allowed but, will not support the auto renewal feature.
+* Create certificates through a Key Vault creation process or import existing certificate. This includes both self-signed and Certificate Authority (CA) generated certificates.
+* Securely store and manage x509 certificate storage without interaction using private key material.  
+* Define policies that direct Key Vault to manage the certificate lifecycle.  
+* Provide contact information for lifecycle events, such as expiration warnings and renewal notifications.  
+* Automatically renew certificates with selected issuers (Key Vault partner X509 certificate providers and certificate authorities).* Support certificate from alternate (non-partner) provides and certificate authorities (does not support auto-renewal).  
 
 ## .NET support
 
@@ -54,8 +52,8 @@ Key Vault certificates support provides for management of your x509 certificates
 
 ## Return types
 
-* **KeyList** and **SecretList** nosw returns *IPage<T>* instead of *ListKeysResponseMessage*
-* The generated **BackupKeyAsync** now returns *BackupKeyResult* which contains *Value* (back-up blob). Previously, the method was wrapped and returning only the value.
+* **KeyList** and **SecretList** now returns *IPage<T>* instead of *ListKeysResponseMessage*
+* The generated **BackupKeyAsync** now returns *BackupKeyResult*, which contains *Value* (back-up blob). Previously, the method was wrapped and returned just the value.
 
 ## Exceptions
 
