@@ -41,6 +41,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_dnsrecordset_facts                 | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone                            | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone_facts                      | Yes          | Yes                         | Yes                                 | 
+| **Storage**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_loadbalancer_facts                 | Yes          | Yes                         | Yes                                 | 
 | azure_rm_applicationgateway                 | -            | Yes                         |                                     | 
@@ -52,6 +53,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_storageblob                        | Yes          | Yes                         | Yes                                 | 
 | azure_rm_managed_disk                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_managed_disk_facts                 | Yes          | Yes                         | Yes                                 | 
+| **Containers**                    |           |                          |                                  | 
 | azure_rm_acs                                | Yes          | Yes                         | Yes                                 | 
 | azure_rm_containerinstance                  | -            | Yes                        |                                     | 
 | azure_rm_containerinstance_facts            | -            | -                           | Yes                                 | 
@@ -61,8 +63,10 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_containerregistryreplication_facts | -            | -                           | Yes                                 | 
 | azure_rm_containerregistrywebhook           | -            | -                           | Yes                                 | 
 | azure_rm_containerregistrywebhook_facts     | -            | -                           | Yes                                 | 
+| **Azure Functions**                    |           |                          |                                  | 
 | azure_rm_functionapp                        | Yes          | Yes                         | Yes                                 | 
 | azure_rm_functionapp_facts                  | Yes          | Yes                         | Yes                                 | 
+| **Databases**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Yes                         | Yes                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Yes                                 | 
 | azure_rm_sqldatabase                        | -            | -                           | Yes                                 | 
