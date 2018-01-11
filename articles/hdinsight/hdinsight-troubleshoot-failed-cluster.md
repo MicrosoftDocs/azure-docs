@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: ashishth
+
 ---
 # Troubleshoot a slow or failing HDInsight cluster
 
@@ -90,12 +91,12 @@ To open a list of service views, select **Ambari Views** on the Azure portal pag
 
 #### Check for Azure service outages
 
-HDInsight relies on several Azure services. It runs virtual servers on Azure HDInsight, stores data and scripts on Azure Blob storage or Azure DataLake Store, and indexes log files in Azure Table storage. Disruptions to these services, although rare, can cause issues in HDInsight. If you have unexpected slowdowns or failures in your cluster,  check the [Azure Status Dashboard](https://azure.microsoft.com/en-us/status/). The status of each service is listed by region. Check your cluster's region and also regions for any related services.
+HDInsight relies on several Azure services. It runs virtual servers on Azure HDInsight, stores data and scripts on Azure Blob storage or Azure DataLake Store, and indexes log files in Azure Table storage. Disruptions to these services, although rare, can cause issues in HDInsight. If you have unexpected slowdowns or failures in your cluster,  check the [Azure Status Dashboard](https://azure.microsoft.com/status/). The status of each service is listed by region. Check your cluster's region and also regions for any related services.
 
 #### Check Azure service usage limits
 
-If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits).
-You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request).
+If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 #### Check the release version
 
@@ -266,7 +267,7 @@ To help diagnose the source of a cluster error, start a new cluster with the sam
 5. Continue until all steps run without error.
 6. When you are done debugging the test cluster, delete it.
 
-## See also
+## Next steps
 
 * [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Analyze HDInsight Logs](hdinsight-debug-jobs.md)

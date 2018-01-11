@@ -540,6 +540,6 @@ MH: 6
 FM: 5
 ```
 
-<!-- ## See also -->
+<!-- ## Next steps -->
 <!-- * [Phoenix in HDInsight](hdinsight-phoenix-in-hdinsight.md)  -->
 <!-- * [Using the HBase REST SDK](hdinsight-using-hbase-rest-sdk.md)  -->
