@@ -63,8 +63,6 @@ The agent enables the process creation event 4688 and the *CommandLine* field in
 
 When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center’s security alerts dashboard.
 
-To disable the process creation event 4688, set the registry value *\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\AscPolicies* to **Disabled**. The rollback is applied in approximately 10 minutes.
-
 ### Does the Monitoring Agent impact the performance of my servers?
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
