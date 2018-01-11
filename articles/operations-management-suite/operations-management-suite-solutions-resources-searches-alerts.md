@@ -45,7 +45,7 @@ The name of the workspace is in the name of each Log Analytics resource.  This i
 ## Log Analytics API version
 All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for resources that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- The following table specifies the Log Analytics API versions for legacy and upgraded workspaces: 
+ The following table specifies the Log Analytics API versions for saved searches in legacy and upgraded workspaces: 
 
 | Workspace version | API version | Query |
 |:---|:---|:---|
