@@ -37,13 +37,13 @@ ACR_RESOURCE_GROUP=myACRInstance
 ACR_NAME=myACRInstance
 
 # Get the id of the service principal configured for AKS.
-CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query "properties.servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query "servicePrincipalProfile.clientId" --output tsv)
 
 # Get the ACR resource id.
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
-# Create a contributor role assignment for the AKS service principal, with a scope of the ACR resource. 
-# The contributor role can be replaces with Owner or Read depending access requirements. 
+# Create a contributor role assignment with a scope of the ACR resource. 
+# The role can be replaces with Owner or Read depending access requirements.
 az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
 ```
 
@@ -64,18 +64,27 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment for the service principal, with a scope of the ACR resource. 
-# The contributor role can be replaces with Owner or Read depending access requirements.
+# Create a contributor role assignment with a scope of the ACR resource. 
+# The role can be replaces with Owner or Read depending access requirements.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
-# Get the service principle client id. This is used when creating the Kubernetes secret.
+# Get the service principle client id.
 SP_APP_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
+
+# Output the service principal's credentials; use these in your services and
+# applications to authenticate to the container registry.
+echo "Service principal ID: $SP_APP_ID"
+echo "Service principal password: $SP_PASSWD"
 ```
 
 The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret]. The following example assumes that the previous script was used to create the service principal.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server=https://$ACR_LOGIN_SERVER --docker-username=$SP_APP_ID --docker-password=$SP_PASSWD --docker-email=user@contoso.com
+kubectl create secret docker-registry acr-auth \
+  --docker-server=https://mycontainerregistry.azurecr.io \
+  --docker-username=<service-principal-ID> \
+  --docker-password=$SP_PASSWD \
+  --docker-email=<service-principal-password>
 ```
 
 The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter. 
