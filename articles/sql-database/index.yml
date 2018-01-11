@@ -23,7 +23,7 @@ abstract:
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
     title: Create a SQL database on Azure. (3:12)
-    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
 - title: 5-Minute Quickstarts

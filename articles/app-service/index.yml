@@ -23,7 +23,7 @@ abstract:
       src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250  
     title: Create a Web App with Node.js and Azure App Service. (2:41)
-    href: https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
+    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -101,7 +101,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
@@ -110,8 +110,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/rest/api/appservice">REST API Reference</a></p>
+      html: <p><a href="/rest/api/appservice">REST API Reference</a></p>
