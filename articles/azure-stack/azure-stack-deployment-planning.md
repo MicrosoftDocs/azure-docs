@@ -3,30 +3,38 @@ title: Planning considerations for Azure Stack integrated systems | Microsoft Do
 description: Learn what you can do to plan now and prepare for multi-node Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
-ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
+ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
-ms.author: mabrigg
+ms.date: 01/15/2018
+ms.author: jeffgilb
 
 ---
 # Planning considerations for Azure Stack integrated systems
 
 *Applies to: Azure Stack integrated systems*
 
-If you’re interested in an Azure Stack integrated system, you’ll want to understand some of the major planning considerations around deployment and how the system fits into your datacenter. This topic provides a high-level overview of these considerations.
+If you’re interested in an Azure Stack integrated system, you’ll want to understand some of the major planning considerations around deployment and how the system fits into your datacenter. This topic provides a high-level overview of these considerations. If you decide to purchase an integrated system, your original equipment manufacturer (OEM) hardware vendor helps guide you through much of the planning process in more detail. They will also perform the actual deployment.
 
-If you decide to purchase an integrated system, your original equipment manufacturer (OEM) hardware vendor helps guide you through much of the planning process in more detail. They will also perform the actual deployment.
+To deploy Azure Stack there are a set of decisions that you need to make to properly integrate Azure Stack within your environment. You will be asked to collect a set of information and you will have to make a set of decisions before you can proceed with deploying Azure Stack. You would be asked to provide this information to your solution provider during your planning process and have it ready for the hardware vendor before deployment starts to help the process go quickly and smoothly.
+
+The information you will be providing will be divided into two parts:
+
+- Customer and environment information
+- Network settings requirements
+
+The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
+
+While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up to help you with your planning.
 
 ## Management considerations
-
 Azure Stack is a sealed system, where the infrastructure is locked down both from a permissions and network perspective. Network access control lists (ACLs) are applied to block all unauthorized incoming traffic and all unnecessary communications between infrastructure components. This makes it difficult for unauthorized users to access the system.
 
 For daily management and operations, there is no unrestricted administrator access to the infrastructure. Azure Stack operators must manage the system through the administrator portal or through Azure Resource Manager (via PowerShell or the REST API). There is no access to the system by other management tools such as Hyper-V Manager or Failover Cluster Manager. To help protect the system, third-party software (for example, agents) can't be installed inside the components of the Azure Stack infrastructure. Interoperability with external management and security software occurs via PowerShell or the REST API.
@@ -36,7 +44,6 @@ When a higher level of access is needed for troubleshooting issues that aren’t
 ## Identity considerations
 
 ### Choose identity provider
-
 You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment.
 
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
@@ -44,7 +51,6 @@ Your identity provider choice has no bearing on tenant virtual machines, the ide
 You can learn more about choosing an identity provider in the [deployment decisions for Azure Stack integrated systems article](.\azure-stack-deployment-decisions.md).
 
 ### AD FS and Graph integration
-
 If you choose to deploy Azure Stack using AD FS as the identity provider, you must integrate the AD FS instance on Azure Stack with an existing AD FS instance through a federation trust. This allows identities in an existing Active Directory forest to authenticate with resources in Azure Stack.
 
 You can also integrate the Graph service in Azure Stack with the existing Active Directory. This enables you to manage Role-Based Access Control (RBAC) in Azure Stack. When access to a resource is delegated, the Graph component looks up the user account in the existing Active Directory forest using the LDAP protocol.
