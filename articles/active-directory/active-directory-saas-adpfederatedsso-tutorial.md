@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
-	| PersonImmutableID | user.extensionattribute2 |
+	| employeeID | user.Employeeid |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
