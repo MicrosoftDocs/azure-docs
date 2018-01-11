@@ -140,7 +140,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 To install the OPC Proxy, run the following command at a command prompt:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
 ```
 
 You only need to run the installation once on a system.
@@ -148,7 +148,7 @@ You only need to run the installation once on a system.
 Use the following command to run the OPC Proxy:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
 ```
 
 OPC Proxy saves the connection string during the installation. On subsequent runs you should omit the connection string because it poses a security risk.
@@ -165,7 +165,7 @@ You can now connect to the gateway from the cloud, and you are ready to add OPC 
 
 ## Add your own OPC UA servers
 
-To add your own OPC US servers to the Connected factory preconfigured solution:
+To add your own OPC UA servers to the Connected factory preconfigured solution:
 
 1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal. Follow the same steps as in the previous section to establish a trust relationship between the Connected factory portal and the OPC UA server.
 

@@ -19,7 +19,7 @@ ms.author: mbullwin
 
 ---
 # Application Insights for Azure Cloud Services
-[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-cloudservices/sample.png)
 

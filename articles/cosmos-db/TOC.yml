@@ -187,8 +187,10 @@
         href: programming.md
       - name: Performance testing
         href: performance-testing.md
-      - name: Performance tips
+      - name: Performance tips for .NET
         href: performance-tips.md
+      - name: Performance tips for Java
+        href: performance-tips-java.md
       - name: Multi-master setup
         href: multi-region-writers.md
       - name: DateTimes
@@ -252,6 +254,8 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
+      - name: Using Mongoose
+        href: mongodb-mongoose.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
