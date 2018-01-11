@@ -813,19 +813,19 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Blob Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
+                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
                                             </a>
