@@ -156,7 +156,7 @@
         href: azure-stack-enable-multitenancy.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
-  - name: Offer servicesOffer services
+  - name: Offer services
     items:
     - name: Overview of offering services
       href: azure-stack-offer-services-overview.md
