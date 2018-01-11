@@ -1,8 +1,4 @@
-<div id="introduction">
-
-# Introduction
-
-</div>
+# Introduction  
 
 Welcome to CycleCloud! To properly introduce our software, we've
 created this guide to walk you through the setup and execution of an
