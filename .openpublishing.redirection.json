@@ -6891,6 +6891,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
@@ -16130,6 +16135,11 @@
       {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
         "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
+        "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
         "redirect_document_id": false
       },
       {
