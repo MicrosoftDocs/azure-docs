@@ -1,11 +1,11 @@
 ---
-title: Migrate classic policies in the Azure portal | Microsoft Docs
-description: Learn what you need to know to migrate classic policies in the Azure portal.
+title: Azure Active Directory location condition | Microsoft Docs
+description: Learn how to use the location condition to control access to your cloud apps based on a user's network location.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -14,22 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
 
 ---
 # Azure Active Directory location condition 
 
-With Azure Active Directory (Azure AD) conditional access, you can control how authorized users can access your cloud apps. The location condition of a conditional access policy enables you to tie the access control to the network locations of your users.
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a conditional access policy enables you to tie access controls settings to the network locations of your users.
 
-This article provides you with with the information you need to configure the location condition. 
+This article provides you with the information you need to configure the location condition. 
 
 ## Locations
 
-In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. Users can access your cloud apps not only from the corporate network, but also from any internet location. When an access attempt is made from outside your corporate network, there is an increased risk that a sign-in is not performed by the legitimate owner of an account. 
-
-With the location condition, you can control access to your cloud apps based on the network location of a user. Common use cases for the location condition are:
+Azure AD enables single sign on to devices, apps, and services from anywhere on the public internet. With the location condition, you can control access to your cloud apps based on the network location of a user. Common use cases for the location condition are:
 
 - Requiring multi-factor authentication for users accessing a service when they are off the corporate network  
 
@@ -50,7 +48,7 @@ With named locations, you can create logical groupings of IP address ranges, cou
 
 - **IP ranges** - One or more IP address ranges in CIDR format.
 
-- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce false positives.
+- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations-1).
 
 - **Country / Regions** - This option enables you to select one or more country or region to define a named location. 
 
@@ -58,38 +56,36 @@ With named locations, you can create logical groupings of IP address ranges, cou
 
 The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
 
-- One named location with up to 500 IP ranges.
+- One named location with up to 1200 IP ranges.
 
-- A maximum of 60 named locations with one IP range assigned to each of them.
-
-
-
-
-## MFA trusted IPs
-
-You can also configure IP address ranges in the multi-factor authentication service settings of the Azure portal. If you have a MFA trusted IPs range configured, it shows up as **MFA Trusted IPS** in the list of locations in the location condition.  
-
-You can configure up to 50 IP address ranges in the MFA trusted IP settings. The IP address ranges are in CIDR format. Learn more about trusted IP settings.
-
-### Skipping multi-factor federated users on the corporate intranet
-
-On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. Learn more about configuring this option.
-
-After checking this option, including the named location “MFA Trusted IPS” will apply to any policies with this selected.
-
-For mobile and desktop applications, which have long lived session lifetimes, conditional access is periodically re-evaluated. The default is once an hour. When the inside corporate network claim is and only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges, so it is more difficult to determine if the user is still on the corporate network. 
-
-The following heuristic is applied:
-
-1. First check to see if the user’s IP address falls with in one of the trusted IP ranges.
-
-2. Check to see that the first three octets of the user’s IP address match the first 3 octets of the IP address the initial authentication. The IP address is compared to the initial authentication because that is when the inside corporate network, claim was originally issued, and the user location was validated.
-
-If both steps fail, evaluate the user to no longer be on an MFA Trusted IP.
+- A maximum of 90 named locations with one IP range assigned to each of them.
 
 
 
-## Configuration
+
+## Trusted IPs
+
+You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+
+If you have trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.   
+
+### Skipping multi-factor authentication
+
+On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using conditional access](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+
+After checking this option, including the named location **MFA Trusted IPS** will apply to any policies with this selected.
+
+For mobile and desktop applications, which have long lived session lifetimes, conditional access is periodically re-evaluated. The default is once an hour. When the inside corporate network claim is and only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges. In this case, it is more difficult to determine if the user is still on the corporate network:
+
+1. Check if the user’s IP address is in one of the trusted IP ranges.
+
+2. Check whether the first three octets of the user’s IP address match the first 3 octets of the IP address of the initial authentication. The IP address is compared with the initial authentication because this is when the inside corporate network claim was originally issued and the user location was validated.
+
+If both steps fail, a user is considered to be no longer on a trusted IP.
+
+
+
+## Location condition configuration
 
 When you configure the location condition, you have the option to distinguish between:
 
@@ -113,19 +109,29 @@ This option applies to:
 
 ### Selected locations
 
-With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. Whe you click **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location named **MFA Trusted IPs** is used to include the IP settings that can be configured in the multi-factor authentication service setting page.
+With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. Whe you click **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location called **MFA Trusted IPs** is used to include the IP settings that can be configured in the multi-factor authentication service setting page.
 
 ## What you should know
 
-### When is policy evaluated?
+### When is a location evaluated?
 
-Conditional access policies are evaluated when a user initially signs in and any time Azure AD issues a token for the cloud app that conditional access policy has been set on. For mobile and desktop applications, this defaults to once an hour. That means that 
+Conditional access policies are evaluated when: 
 
-----with in an hour of moving off of the corporate network policy will be enforced for applications using modern authentication.
+- A user initially signs in 
+
+- Azure AD issues a token for the cloud app the conditional access policy has been set on. 
+
+By default, Azure AD issues a token on an hourly basis. After moving off the corporate network, within an hour the policy is enforced for applications using modern authentication.
+
 
 ### User IP address
 
 The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. 
+
+### Bulk uploading and downloading of named locations
+
+When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those from the file. Each row of the file contains one IP Address range in CIDR format. 
+
 
 ### Cloud proxies and VPNs 
 
@@ -134,9 +140,6 @@ When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses 
 When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
 
 
-### Bulk uploading and downloading of named locations
-
-When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those from the file. Each row of the file contains one IP Address range in CIDR format. 
 
 ### API support and PowerShell 
 
