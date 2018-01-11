@@ -67,6 +67,8 @@
       href: azure-stack-deployment-planning.md
     - name: Deployment planning decisions
       href: azure-stack-deployment-decisions.md
+    - name: Azure Stack deployment PKI requirements
+      href: azure-stack-pki-certs.md
     - name: Deploy connected to Azure
       href: azure-stack-connected-deployment.md
     - name: Deploy disconnected from Azure
