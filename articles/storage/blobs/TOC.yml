@@ -102,29 +102,29 @@
         - name: Linux
           items: 
             - name: High-performance Premium Storage for VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
+              href: ../../virtual-machines/linux/premium-storage
             - name: Migrating to Premium Storage using Azure Site Recovery
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/storage-migrate-to-premium-storage-using-azure-site-recovery
+              href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
             - name: Design for high performance
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/storage-premium-storage-performance.md
+              href: ../../virtual-machines/linux/premium-storage-performance.md
         - name: Windows
           items: 
             - name: High-performance Premium Storage for VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/storage-premium-storage.md
+              href: ../../virtual-machines/windows/premium-storage.md
             - name: Migrating to Premium Storage using Azure Site Recovery
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/storage-migrate-to-premium-storage-using-azure-site-recovery.md
+              href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
             - name: Design for high performance
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/storage-premium-storage-performance.md
+              href: ../../virtual-machines/windows/premium-storage-performance.md
     - name: Standard Storage 
       items:
         - name: Linux
           items: 
             - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/storage-standard-storage.md
+              href: ../../virtual-machines/linux/standard-storage.md
         - name: Windows
           items: 
             - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/storage-standard-storage.md
+              href: ../../virtual-machines/windows/standard-storage.md
   - name: Secure
     items:
     - name: Security guide
