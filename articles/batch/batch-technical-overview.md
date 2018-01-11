@@ -56,7 +56,7 @@ You can also run Batch jobs as part of a larger Azure workflow to transform data
 
 Higher-level, workload-specific capabilities are also available for Azure Batch:
 * Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
-* R users can leverage the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale-out the execution of R algorithms.
+* R users can leverage the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms.
 
 
 ## Scenario: Scale out a parallel workload
@@ -83,7 +83,7 @@ See the [Batch feature overview for developers](batch-api-basics.md) for more de
 
 ## Next steps
 
-Get started with Azure Batch with one of our quickstarts:
+Get started with Azure Batch with one of these quickstarts:
 * [Run your first Batch job with the Azure CLI](quick-create-cli.md)
 * [Run your first Batch job with the Azure portal](quick-create-portal.md)
 * [Run your first Batch job using the .NET API](quick-run-dotnet.md)
