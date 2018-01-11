@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # Persistent volumes with Azure disks - dynamic provisioning
 
-A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure managed disk as a Kubernetes persistent volume in an AKS cluster. 
+A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This document details dynamic provisioning of an Azure disk as a Kubernetes persistent volume in an AKS cluster. 
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
 ## Create storage class
 
-A storage class is used to define how a dynamically created persistent volume is configured. Items such as the Azure storage account name, SKU, and region are defined in the storage class object. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
+A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
 The following manifest can be used to create a storage class for an Azure disk. 
 
@@ -36,7 +36,7 @@ parameters:
 
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Disk, an Azure managed disk is created in the same resource group that contains the AKS resource.
+A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
@@ -57,7 +57,7 @@ spec:
 
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the managed disk successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
 
 ```yaml
 kind: Pod
@@ -110,7 +110,7 @@ If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified
 
 ## Next steps
 
-Learn more about Kubernetes persistent volumes using Azure managed misks.
+Learn more about Kubernetes persistent volumes using Azure disks.
 
 > [!div class="nextstepaction"]
 > [Kubernetes plugin for Azure Files][kubernetes-disk]
