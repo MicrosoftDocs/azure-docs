@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
 
 ---
@@ -73,7 +73,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -Config $config 
 ```
@@ -246,7 +246,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

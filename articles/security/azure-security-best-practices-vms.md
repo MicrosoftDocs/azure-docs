@@ -1,5 +1,5 @@
 ---
-title: Azure virtual machine security best practices | Microsoft Docs
+title: Azure virtual machine security best practices
 description: This article provides a variety of security best practices to be used in virtual machines located in Azure.
 services: security
 documentationcenter: na
@@ -111,7 +111,7 @@ Security Center can actively monitor for threats, and potential threats are expo
 
 To understand how Security Center can help you identify potential threats in your VMs located in Azure, watch the following video:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Organizations that don't enforce a strong security posture for their VMs remain unaware of potential attempts by unauthorized users to circumvent established security controls.
 
