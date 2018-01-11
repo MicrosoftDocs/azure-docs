@@ -95,15 +95,15 @@ If using a cluster of version 1.8.5 or greater, mount options can be specified o
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefile
-provisioner: kubernetes.io/azure-file
+  name: azure-managed-disk
+provisioner: kubernetes.io/azure-disk
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
   - uid=1000
   - gid=1000
 parameters:
-  skuName: Standard_LRS
+  kind: Managed
 ```
 
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the `runAsUser` value set to `0`. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
