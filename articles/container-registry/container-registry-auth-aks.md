@@ -19,7 +19,7 @@ Authentication between a Microsoft Azure Container Service (AKS) cluster and Mic
 
 When you create an AKS cluster, an Azure Active Directory service principal is configured to work with the cluster. If the scope of this service principal also includes the ACR resource, authentication can occur with no further configuration. 
 
-There are three ways to achieve this configuration.
+There are three ways to achieve this configuration:
 
 1. Use the Azure CLI to create an AKS cluster without specifying a service principal. A service principal is generated with subscription scope, which includes the ACR registry.
 2. Place the ACR resource in the same resource group as the AKS cluster resources.
@@ -31,10 +31,10 @@ The following script can be used to complete method three as describe in the pre
 #!/bin/bash
 
 # Modify for your environment.
-AKS_RESOURCE_GROUP=myAKSCluster
+AKS_RESOURCE_GROUP=myAKSResourceGroup
 AKS_CLUSTER_NAME=myAKSCluster
-ACR_RESOURCE_GROUP=myACRInstance
-ACR_NAME=myACRInstance
+ACR_RESOURCE_GROUP=myACRResourceGroup
+ACR_NAME=myACRRegistry
 
 # Get the id of the service principal configured for AKS.
 CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME --query "servicePrincipalProfile.clientId" --output tsv)
@@ -43,7 +43,7 @@ CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
 # Create a contributor role assignment with a scope of the ACR resource. 
-# The role can be replaces with Owner or Read depending access requirements.
+# The role can be replaced with Owner or Read depending access requirements.
 az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
 ```
 
@@ -65,8 +65,8 @@ ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create a contributor role assignment with a scope of the ACR resource. 
-# The role can be replaces with Owner or Read depending access requirements.
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
+# The role can be replaced with Owner or Read depending access requirements.
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
@@ -80,7 +80,11 @@ echo "Service principal password: $SP_PASSWD"
 The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret]. Replace the server name with the ACR login server, the user name with the service principal id, and the password with the service principal password.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server=https://<acr-login-server> --docker-username=<service-principal-ID> --docker-password=<service-principal-password> --docker-email=user@contoso.com
+kubectl create secret docker-registry acr-auth \ 
+  --docker-server <acr-login-server> \
+  --docker-username <service-principal-ID> \
+  --docker-password <service-principal-password> \
+  --docker-email=user@contoso.com
 ```
 
 The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter. 
@@ -98,7 +102,7 @@ spec:
     spec:
       containers:
       - name: acr-auth-example
-        image: mycontainerregistry.azurecr.io/acr-auth-example
+        image: myacrregistry.azurecr.io/acr-auth-example
       imagePullSecrets:
       - name: acr-auth
 ```
