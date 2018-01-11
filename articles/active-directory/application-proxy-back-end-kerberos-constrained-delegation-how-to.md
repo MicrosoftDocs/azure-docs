@@ -19,7 +19,7 @@ ms.author: asteen
 
 # Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy
 
-The methods available for achieving SSO to published applications can somewhat vary from application to application and one of the options that Azure Application Proxy offers by default, is Kerberos Constrained Delegation (KCD). This is where a connector host is configured to perform constrained kerberos authentication to backend applications, on behalf of users.
+The methods available for achieving SSO to published applications can somewhat vary from one application to another. One of the options that Azure Application Proxy offers by default, is Kerberos Constrained Delegation (KCD). This is where a connector host is configured to perform constrained kerberos authentication to backend applications, on behalf of users.
 
 The actual procedure for enabling KCD is relatively straightforward and typically requires no more than a general understanding of the various components and authentication flow that facilitates SSO. Finding good sources of information to help troubleshoot scenarios where KCD SSO doesn’t function as expected, can be sparse.
 
@@ -27,7 +27,7 @@ As such, this article attempts to provide a single point of reference that shoul
 
 note that this article makes the following assumptions:
 
--   Azure Application Proxy has been deployed as per [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) and general access to non KCD applications is working as expected.
+-   The deployment of Azure Application Proxy per [documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) and general access to non KCD applications is working as expected.
 
 -   The published target application is based on IIS and Microsoft’s implementation of kerberos.
 
@@ -97,7 +97,7 @@ And the corresponding entries seen the event log would be seen as events 13019 o
 
 -   Reconfirm that the connector host has been granted the rights to delegate to the designated target account’s SPN, and that **Use any authentication protocol** is selected. This is covered in the [SSO configuration article](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
 
--   Verify that there is only a single instance of the SPN in existence in AD by issuing a **setspn -x** from a cmd prompt on any domain member host
+-   Verify that there is only a single instance of the SPN in existence in AD by issuing a `setspn -x` from a cmd prompt on any domain member host
 
 -   Check to see if a domain policy is being enforced to limit the [max size of issued kerberos tokens](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), as this prevents the connector from obtaining a token if found to be excessive
 
@@ -161,7 +161,7 @@ If you’re still unable to progress your issue, support would be more than happ
 
 ## Other scenarios
 
--   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third party applications such as Tableau Server do not like this method of authenticating, and rather expects the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
+-   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications such as Tableau Server do not like this method of authenticating, and rather expects the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
 
 -   Double hop authentication - Commonly used in scenarios where an application is tiered, with a backend and front end, both requiring authentication, such as SQL Reporting Services.
 
