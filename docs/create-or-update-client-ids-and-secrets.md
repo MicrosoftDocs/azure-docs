@@ -47,7 +47,7 @@ You can associate only one client ID with your add-in, but you can associate mul
 > - Block access for all countries except China.
 > - Create a separate add-in listing for China. 
 >
-> For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
+> For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
 
 Inbound data to your add-in is signed by using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret is used instead.
 
@@ -99,7 +99,7 @@ After you create your client ID and client secret, you can add them to the code 
 
 2. Select the friendly name of the OAuth client ID that you want your add-in to use. 
     
-   For more information, see [Use the Seller Dashboard to submit solutions to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md).
+   For more information, see [Use the Seller Dashboard to submit solutions to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md).
     
 <a name="bk_update"> </a>
 ## Update the client secret associated with your client ID
@@ -203,14 +203,14 @@ You might want to delete a client ID in certain situations, for example:
 <a name="bk_addresources"> </a>
 ## See also
 
-- [Upload your package to the AppSource](upload-package.md)
+- [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
 - [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
-- [Validation policies for apps and add-ins submitted to the AppSource](validation-policies.md)
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md) 
+- [Validation policies for apps and add-ins submitted to AppSource](validation-policies.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md) 
 
     
  

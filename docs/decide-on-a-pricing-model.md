@@ -6,7 +6,7 @@ ms.date: 12/04-2017
 
 # Decide on a pricing model for your AppSource submission
 
-The AppSource provides a variety of pricing options. You don't have to set your pricing model until you submit your app or add-in, and you don't have to specify anything in your app or add-in to support the pricing option you choose. However, it's a good idea to decide on your pricing model during your design and development process. The pricing model you choose might influence the features and behavior you include. Also, certain monetizing strategies, such as using the licensing framework, or offering ads or additional purchases, require you to implement custom code.
+AppSource provides a variety of pricing options. You don't have to set your pricing model until you submit your app or add-in, and you don't have to specify anything in your app or add-in to support the pricing option you choose. However, it's a good idea to decide on your pricing model during your design and development process. The pricing model you choose might influence the features and behavior you include. Also, certain monetizing strategies, such as using the licensing framework, or offering ads or additional purchases, require you to implement custom code.
 
 > [!NOTE]
 > SharePoint Add-ins that use the subscription model are only available for SharePoint Online users, and are not shown to SharePoint on-premises users.
@@ -24,12 +24,12 @@ When you submit an app or add-in to the AppSource via the Seller Dashboard, on t
 For details about requirements for advertising and offering features or content for purchase within your app or add-in, see sections 2 and 3 of the [Validation policies](validation-policies.md).
  
 > [!NOTE]
-> Power BI custom visuals in the AppSource can only be free.
+> Power BI custom visuals in AppSource can only be free.
  
 
 ## Setting the price
 
-When you set the price, the price tier applies across all currencies. You don't set a specific price for each language. The price tier sets the sales price in all the countries or regions where you choose to distribute your app or add-in. The price tier you select is translated into the appropriate currency for the buyer. Each price tier has a corresponding value in each currency offered by the AppSource. We use these values to help you sell your apps and add-ins at a comparable price point worldwide. However, due to changes in foreign exchange rates, the exact sales amount might vary slightly from one currency to another.
+When you set the price, the price tier applies across all currencies. You don't set a specific price for each language. The price tier sets the sales price in all the countries or regions where you choose to distribute your app or add-in. The price tier you select is translated into the appropriate currency for the buyer. Each price tier has a corresponding value in each currency offered by AppSource. We use these values to help you sell your apps and add-ins at a comparable price point worldwide. However, due to changes in foreign exchange rates, the exact sales amount might vary slightly from one currency to another.
 
 Keep in mind that the price tier you select might include sales or value-added tax that your customers must pay. For example, if you sell an add-in at 1.19 EUR in Europe, a 15% VAT tax is included. Your add-in proceeds are based on the post-tax amount of 1.03 EUR (1.19 - 0.16).
 
@@ -55,7 +55,7 @@ The following table lists the options that are available for monetizing your app
 
 |**Free**|**One-time charge or monthly subscription**|
 |:-----|:-----|
-| Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](license-your-add-ins.md).</li></ul>Include ads?<ul><li>Implement custom code to [Create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [Validation policies for apps and add-ins submitted to the AppSource](validation-policies.md).</li></ul> | Set price per user.<br/><br/>Offer site license? (SharePoint Add-ins only)<ul><li>Set price threshold.</li></ul>Offer add-in as a trial?<ul><li>Set trial duration.</li><li>Set user limit (SharePoint Add-ins only).</li></ul>Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](license-your-add-ins.md).</li></ul>Include ads?<ul><li>Implement custom code to [create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [validation policies](validation-policies.md).</li></ul>|
+| Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](license-your-add-ins.md).</li></ul>Include ads?<ul><li>Implement custom code to [Create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [Validation policies for apps and add-ins submitted to AppSource](validation-policies.md).</li></ul> | Set price per user.<br/><br/>Offer site license? (SharePoint Add-ins only)<ul><li>Set price threshold.</li></ul>Offer add-in as a trial?<ul><li>Set trial duration.</li><li>Set user limit (SharePoint Add-ins only).</li></ul>Include custom licensing behavior?<ul><li>Implement custom code to perform [licensing checks](license-your-add-ins.md).</li></ul>Include ads?<ul><li>Implement custom code to [create effective ad-supported apps and add-ins](create-effective-office-store-listings.md#bk_ads).</li></ul>Include purchases?<ul><li>Implement custom code to support those features. Be sure to comply with the [validation policies](validation-policies.md).</li></ul>|
 
 ## Hosting your apps or add-ins on Microsoft Azure
 
@@ -68,11 +68,11 @@ For more information, see [Hosting add-ins on Microsoft Azure](https://azure.mic
 
 ## See also
 
-- [Upload your package to the AppSource](upload-package.md)
+- [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 

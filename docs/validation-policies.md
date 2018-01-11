@@ -1,15 +1,15 @@
 ---
-title: Validation policies for apps and add-ins submitted to the AppSource (version 2.2)
+title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
 ms.date: 12/04-2017
 ---
 
-# Validation policies for apps and add-ins submitted to the AppSource (version 2.2)
+# Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 
-This document describes the criteria that are used to validate that Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals are eligible to be listed in the AppSource.
+This document describes the criteria that are used to validate that Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals are eligible to be listed in AppSource. Solutions listed in AppSource also appear in Office in the in-product Store.
  
 <a name="bk_1"> </a>
-## 1. Apps and add-ins provide value to the AppSource customer
+## 1. Apps and add-ins provide value to the customer
 
 |Policy number|Description|
 |:-----|:-----|
@@ -18,7 +18,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
 
 <a name="bk_2"> </a>
-## 2. AppSource apps or add-ins can display certain ads
+## 2. Apps or add-ins can display certain ads
 
 |Policy number|Description|
 |:-----|:-----|
@@ -75,7 +75,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|5.1|You must submit a privacy link. The linked privacy documentation must be clearly titled as such. The content of the privacy statement must be under the direct control of the app or add-in provider.If your app or add-in does not collect or transmit user information, you must link to a statement that states this fact.For information about common mistakes to avoid, see  [How can I avoid errors when submitting my app or add-in to the AppSource?](office-store-submission-faq.md#bk_q2) in [AppSource submission FAQ](office-store-submission-faq.md).|
+|5.1|You must submit a privacy link. The linked privacy documentation must be clearly titled as such. The content of the privacy statement must be under the direct control of the app or add-in provider.If your app or add-in does not collect or transmit user information, you must link to a statement that states this fact.For information about common mistakes to avoid, see  [How can I avoid errors when submitting my app or add-in to AppSource?](office-store-submission-faq.md#bk_q2) in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.2|Your app or add-in must obtain consent to publish personal information.|
 |5.3|Your app or add-in must not obtain or store customer information or content without notifying the user.|
 |5.4|Your app or add-in must not pass or transmit customer data without notifying the user.|
@@ -83,11 +83,11 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.6|Your app or add-in must not implement geo-blocking of customers without explicitly stating this in the description.|
 |5.7|Apps and add-ins must be secured with a valid and trusted SSL certificate (HTTPS). For more information, see  [Why do my apps and add-ins have to be SSL-secured?](office-store-submission-faq.md#bk_q7) in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.8|Apps and add-ins may not open pop-up windows unless they are triggered by explicit user interaction. Any pop-up windows that are triggered by user interaction must not be blocked by the browser's pop-up blocker when the pop-up blocker is set to the default value.|
-|5.9|Your app or add-in cannot request full-control permission. SharePoint Add-ins that request full-control permissions are not accepted in the AppSource.<br/><br/>If your app or add-in requires full-control permission, your Store add-ins might be dependent on add-ins that are deployed to a customer's tenant outside the AppSource process. For more information, see  [Combining AppSource add-ins with high trust permissions now supported](https://dev.office.com/blogs/combining-store-add-ins-with-high-trust-permissions).|
+|5.9|Your app or add-in cannot request full-control permission. SharePoint Add-ins that request full-control permissions are not accepted in AppSource.<br/><br/>If your app or add-in requires full-control permission, your Store add-ins might be dependent on add-ins that are deployed to a customer's tenant outside the AppSource process. For more information, see  [Combining AppSource add-ins with high trust permissions now supported](https://dev.office.com/blogs/combining-store-add-ins-with-high-trust-permissions).|
 |5.9.1|SharePoint Add-ins must prompt the administrator to explain that the add-in must install a full-control app. The administrator must be able to install this full-control app without interacting with the SharePoint Add-in provider, for example via email or web forms.|
 |5.9.2|The full-control app that is installed via the SharePoint Add-in must comply with all Store policies. |
-|5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to the AppSource can function only to install the full-control app.|
-|5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted.For more information, see *How can I avoid errors when submitting my app or add-in to the AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md)|
+|5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to AppSource can function only to install the full-control app.|
+|5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted.For more information, see *How can I avoid errors when submitting my app or add-in to AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md)|
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
 |5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](https://dev.office.com/reference/add-ins/shared/office.initialize) has been called. This ensures that content display will synchronize with presentations correctly.|
 
@@ -116,7 +116,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|7.1|The metadata that you submit with your app or add-in must be accurate. For information about common mistakes to avoid, see [How can I avoid errors when submitting my app or add-in to the AppSource?](office-store-submission-faq.md#bk_q2) in [AppSource submission FAQ](office-store-submission-faq.md).|
+|7.1|The metadata that you submit with your app or add-in must be accurate. For information about common mistakes to avoid, see [How can I avoid errors when submitting my app or add-in to AppSource?](office-store-submission-faq.md#bk_q2) in [AppSource submission FAQ](office-store-submission-faq.md).|
 |7.2|Your app or add-in must have a unique name.|
 |7.3|Your app or add-in's title, description, and images must reflect its functionality, and may not mislead the user. If you make changes to your app or add-in such that the functionality does not match the description, you must resubmit your app or add-in. |
 |7.4|Your app or add-in title and short description must convey its purpose. Do not rely exclusively on familiarity with a brand or service to convey the purpose of your app or add-in. |
@@ -125,11 +125,11 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.4.3|This policy does not apply to dictionary add-in submissions.|
 |7.4.4|You must specify language support for your add-in in your add-in's manifest. |
 |7.4.5|If your app or add-in targets a larger organization or enterprise, the title can use your brand or service. For more information, see  [AppSource validation policy changes to support apps and add-ins that target larger organizations and enterprises](https://dev.office.com/blogs/office-store-validation-policy-changes-to-support-apps-and-add-ins-that-target-larger-organizations-and-enterprises).|
-|7.5| Apps or add-ins listed in multiple languages must be easily identified and understood. The AppSource supports merchandising of apps and add-ins in the following languages:<br/><br/>Arabic<br/>Bulgarian<br/>Chinese (Simplified)<br/>Chinese (Traditional)<br/>Croatian<br/>Czech<br/>Danish<br/>Dutch<br/>English<br/>Estonian<br/>Finnish<br/>French<br/>German<br/>Greek<br/>Hebrew<br/>Hindi<br/>Hungarian<br/>Indonesian<br/>Italian<br/>Japanese<br/>Kazakh<br/>Korean<br/>Latvian<br/>Lithuanian<br/>Malay (Latin)<br/>Norwegian (Bokmål)<br/>Polish<br/>Portuguese (Brazil)<br/>Portuguese (Portugal)<br/>Romanian<br/>Russian<br/>Serbian (Latin)<br/>Slovak<br/>Slovenian<br/>Spanish<br/>Swedish<br/>Thai<br/>Turkish<br/>Ukrainian<br/>Vietnamese<br/><br/>**Note:** English apps and add-ins are distributed to all Store-supported markets by default. Providers can block English apps and add-ins from distribution via Seller Dashboard. For more information, see *How do I declare language support for my add-in?*  in [AppSource submission FAQ](office-store-submission-faq.md). |
+|7.5| Apps or add-ins listed in multiple languages must be easily identified and understood. AppSource supports merchandising of apps and add-ins in the following languages:<br/><br/>Arabic<br/>Bulgarian<br/>Chinese (Simplified)<br/>Chinese (Traditional)<br/>Croatian<br/>Czech<br/>Danish<br/>Dutch<br/>English<br/>Estonian<br/>Finnish<br/>French<br/>German<br/>Greek<br/>Hebrew<br/>Hindi<br/>Hungarian<br/>Indonesian<br/>Italian<br/>Japanese<br/>Kazakh<br/>Korean<br/>Latvian<br/>Lithuanian<br/>Malay (Latin)<br/>Norwegian (Bokmål)<br/>Polish<br/>Portuguese (Brazil)<br/>Portuguese (Portugal)<br/>Romanian<br/>Russian<br/>Serbian (Latin)<br/>Slovak<br/>Slovenian<br/>Spanish<br/>Swedish<br/>Thai<br/>Turkish<br/>Ukrainian<br/>Vietnamese<br/><br/>**Note:** English apps and add-ins are distributed to all Store-supported markets by default. Providers can block English apps and add-ins from distribution via Seller Dashboard. For more information, see *How do I declare language support for my add-in?*  in [AppSource submission FAQ](office-store-submission-faq.md). |
 |7.6|Your app or add-in must not falsely declare language support.|
 |7.7|The capabilities you declare must relate to the core functions and description of your app or add-in.|
 |7.8|You must provide at least one screenshot of your app or add-in.|
-|7.9|Your add-in's packages must be correctly formatted and conform to the current manifest schema. For Office Add-ins, this is manifest schema version 1.1.<br/><br/>For detailed manifest schema information, see  [Schema reference for Office Add-ins manifests (v1.1)](http://msdn.microsoft.com/library/7e0cadc3-f613-8eb9-57ef-9032cbb97f92%28Office.15%29.aspx) and [Schema reference for manifests of SharePoint Add-ins](http://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691%28Office.15%29.aspx). Also see *What are some common errors to avoid when submitting my add-in to the AppSource?*  in [AppSource submission FAQ](office-store-submission-faq.md).|
+|7.9|Your add-in's packages must be correctly formatted and conform to the current manifest schema. For Office Add-ins, this is manifest schema version 1.1.<br/><br/>For detailed manifest schema information, see  [Schema reference for Office Add-ins manifests (v1.1)](http://msdn.microsoft.com/library/7e0cadc3-f613-8eb9-57ef-9032cbb97f92%28Office.15%29.aspx) and [Schema reference for manifests of SharePoint Add-ins](http://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691%28Office.15%29.aspx). Also see *What are some common errors to avoid when submitting my add-in to AppSource?*  in [AppSource submission FAQ](office-store-submission-faq.md).|
 |7.10|The categories you assign your app or add-in must correspond to the character or purpose of the app or add-in.<br/><br/>**Note:** Non-productivity apps or add-ins must be categorized in the Lifestyle category and only in that category.|
 |7.11|Your app or add-in must not be a duplicate of an app or add-in you've already submitted.|
 |7.12|Your app or add-in must include the app or add-in name, version information, and technical support contact information that is easily discoverable.|
@@ -168,10 +168,10 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|10.1|Your paid app or add-in must follow the AppSource commerce requirements. For more information, see  *Can I submit a paid app or add-in to the AppSource?*  in [AppSource submission FAQ](office-store-submission-faq.md).|
-|10.2|If your SharePoint Add-in has autohosting capabilities, it will not be accepted in the AppSource. For more information, see  [Update on Autohosted Add-ins Preview program](https://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/).|
+|10.1|Your paid app or add-in must follow the AppSource commerce requirements. For more information, see  *Can I submit a paid app or add-in to AppSource?*  in [AppSource submission FAQ](office-store-submission-faq.md).|
+|10.2|If your SharePoint Add-in has autohosting capabilities, it will not be accepted in AppSource. For more information, see  [Update on Autohosted Add-ins Preview program](https://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/).|
 |10.3|The version number you specify for your add-in on the Seller Dashboard submission form must exactly match the version number in the add-in manifest.<br/><br/>You must specify your add-in version using the following syntax:<br/><br/>*a*  . *b*  . *c*  . *d*<br/><br/>Where  *a*  is an integer between 1-9999, and each of *b*  , *c*  , *d*  are each integers between 0-9999. For example, 1.0.0.0 or 6.23.0.1.|
-|10.4|Add-ins that utilize deprecated functionality will not be allowed in the AppSource.For more information, see  [SharePoint 2013: List of obsolete types and members](http://www.microsoft.com/en-us/download/details.aspx?id=40731).|
+|10.4|Add-ins that utilize deprecated functionality will not be allowed in AppSource. For more information, see [SharePoint 2013: List of obsolete types and members](http://www.microsoft.com/en-us/download/details.aspx?id=40731).|
 |10.5|Paid Outlook add-ins must support a site license.|
 |10.6|Submitting Office Add-ins that are hosted within Access as paid add-ins is not currently supported.|
 |10.7|Deleted.|
@@ -208,7 +208,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |Policy number|Description|
 |:-----|:-----|
 |13.1|Power BI custom visuals must be free and may not offer additional purchase.|
-|13.2|Power BI custom visuals submitted to the AppSource must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
+|13.2|Power BI custom visuals submitted to AppSource must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
 
@@ -266,9 +266,9 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 
  

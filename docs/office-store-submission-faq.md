@@ -1,6 +1,6 @@
 ---
 title: AppSource submission FAQ
-description: Answers to the most common questions about submitting an add-in to the AppSource.
+description: Answers to the most common questions about submitting an add-in to AppSource.
 ms.date: 12/04-2017
 ---
 
@@ -9,7 +9,7 @@ ms.date: 12/04-2017
 For the most current version of the validation policies, see [Validation policies](validation-policies.md).
 
 <a name="bk_q2"> </a>
-## How can I avoid errors when submitting my app or add-in to the AppSource?
+## How can I avoid errors when submitting my app or add-in to AppSource?
 
 To avoid common submission errors:
 
@@ -36,7 +36,7 @@ To avoid common submission errors:
 
 - Make sure your SharePoint Add-ins specify their supported locales. 
     
-  If you don't specify supported locales, your add-in will not be accepted by the AppSource. For details, see [Locale support information is required for all add-ins in the AppSource](https://blogs.msdn.microsoft.com/officeapps/2012/10/12/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store/).
+  If you don't specify supported locales, your add-in will not be accepted by AppSource. For details, see [Locale support information is required for all add-ins in AppSource](https://blogs.msdn.microsoft.com/officeapps/2012/10/12/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store/).
 
 - Make sure your OAuth client IDs match
     
@@ -51,36 +51,36 @@ To avoid common submission errors:
 - If your Office Add-in is available on iOS, do not include "app" in the **Add-in Title** or **Add-in Short Description**.
 
 <a name="bk_q3"> </a>
-## If I make updates to my submission, when do I have to resubmit it to the AppSource?
+## If I make updates to my submission, when do I have to resubmit it to AppSource?
 
-If you make updates to the web service for your add-in, you do not have to resubmit it to the AppSource. However, if you make changes to any items or data you submitted via the Seller Dashboard, such as the manifest, screenshots, icons, or submission form data, you need to resubmit it so that the AppSource can implement those changes. You must resubmit add-ins with an updated manifest that includes a new version number. You must also make sure to update the version number in the submission form to match the version number of the new manifest.
+If you make updates to the web service for your add-in, you do not have to resubmit it to AppSource. However, if you make changes to any items or data you submitted via the Seller Dashboard, such as the manifest, screenshots, icons, or submission form data, you need to resubmit it so that AppSource can implement those changes. You must resubmit add-ins with an updated manifest that includes a new version number. You must also make sure to update the version number in the submission form to match the version number of the new manifest.
 
 <a name="bk_q3"> </a>
-## What happens when I update my add-in to a new version in the AppSource?
+## What happens when I update my add-in to a new version in AppSource?
 
 The following is the update process for Office Add-ins:
 
-- You submit your revised add-in and add-in manifest to the AppSource via the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in the AppSource.
+- You submit your revised add-in and add-in manifest to AppSource via the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in AppSource.
 
-- You can choose to continue to offer the previous version of your add-in in the AppSource, or you can unpublish the previous version via the Seller Dashboard. For details, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md).
+- You can choose to continue to offer the previous version of your add-in in AppSource, or you can unpublish the previous version via the Seller Dashboard. For details, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md).
 
 - When an existing customer launches the updated add-in for the first time, a notification appears either in the task pane or the body of the document that prompts the user to update their add-in. When the user chooses **Update**, the latest version of the add-in launches.
     
   If the updated version includes new permissions, the user must consent to them.
 
 > [!NOTE]
-> You cannot have two or more versions of the same add-in in the AppSource at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two AppSource listings and will potentially split your customer base.
+> You cannot have two or more versions of the same add-in in AppSource at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two AppSource listings and will potentially split your customer base.
 
 Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see [SharePoint Add-ins update process](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins-update-process).
 
 <a name="bk_q4"> </a>
-## Can I submit a paid app or add-in to the AppSource?
+## Can I submit a paid app or add-in to AppSource?
 
-You can now submit paid apps and add-ins to the AppSource through the Seller Dashboard, with the following restrictions:
+You can now submit paid apps and add-ins to AppSource through the Seller Dashboard, with the following restrictions:
 
-- If your SharePoint Add-in contains an Office Add-in, it must be priced as free in the AppSource. Paid SharePoint Add-ins that contain Office Add-ins are not accepted until these commerce capabilities are enabled.
+- If your SharePoint Add-in contains an Office Add-in, it must be priced as free in AppSource. Paid SharePoint Add-ins that contain Office Add-ins are not accepted until these commerce capabilities are enabled.
 
-- Additional restrictions apply to autohosted add-ins. For information, see *Can I submit an autohosted SharePoint Add-in to the AppSource?* and policy 10.2 in the [validation policies](validation-policies.md).
+- Additional restrictions apply to autohosted add-ins. For information, see *Can I submit an autohosted SharePoint Add-in to AppSource?* and policy 10.2 in the [validation policies](validation-policies.md).
 
 In addition, consider the following:
 
@@ -89,17 +89,17 @@ In addition, consider the following:
   For more information, see [License your Office and SharePoint Add-ins](license-your-add-ins.md), [Which business model is right for your add-in?](https://blogs.msdn.microsoft.com/officeapps/2012/09/10/which-business-model-is-right-for-your-app/), and [Creating and verifying licensing in a paid Office Add-in](https://blogs.msdn.microsoft.com/officeapps/2012/11/01/creating-and-verifying-licensing-in-a-paid-app-for-office/).
     
 <a name="bk_q4"> </a>
-## What percentage of a paid app or add-in in the AppSource goes to Microsoft?
+## What percentage of a paid app or add-in in AppSource goes to Microsoft?
 
-For paid apps and add-ins in the AppSource, 20% goes to Microsoft.
+For paid apps and add-ins in AppSource, 20% goes to Microsoft.
 
 <a name="bk_q5"> </a>
-## Can I submit an autohosted SharePoint Add-in to the AppSource?
+## Can I submit an autohosted SharePoint Add-in to AppSource?
 
 The Office 365 Autohosted Add-ins Preview program ended on June 30, 2014. You cannot create new autohosted add-ins in SharePoint. For more information, see [Update on Autohosted Add-ins Preview program](https://blogs.office.com/en-us/2014/05/16/update-on-autohosted-apps-preview-program/). For information about how to convert your autohosted add-in, see [Convert an autohosted SharePoint Add-in to a provider-hosted add-in](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/convert-an-autohosted-sharepoint-add-in-to-a-provider-hosted-add-in).
  
 <a name="bk_q55"> </a>
-## Can I submit Access web apps to the AppSource?
+## Can I submit Access web apps to AppSource?
 
 Yes. 
 
@@ -111,7 +111,7 @@ If your add-in uses the JavaScript APIs for Office, you must [reference the Micr
 <a name="bk_q7"> </a>
 ## Why do my apps and add-ins have to be SSL-secured?
 
-Apps and add-ins that are not SSL-secured (HTTPS) generate unsecure content warnings and errors during use. For this reason, all apps and add-ins submitted to the AppSource are required to be SSL-secured.
+Apps and add-ins that are not SSL-secured (HTTPS) generate unsecure content warnings and errors during use. For this reason, all apps and add-ins submitted to AppSource are required to be SSL-secured.
  
 <a name="bk_q8"> </a>
 ## How do I declare language support?
@@ -133,10 +133,10 @@ Two aspects of your submission relate to supported languages:
 
 ## See also
 
-- [Upload your package to the AppSource](upload-package.md)
+- [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
 - [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

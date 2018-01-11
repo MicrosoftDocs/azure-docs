@@ -60,13 +60,13 @@ You can delete draft submissions or items that you have unpublished. You cannot 
 <a name="BKMK_Metrics"> </a>
 ## View metrics
 
-After your submission is approved and listed in the AppSource, you can view up to four weeks of data for it on the **Metrics** page in the Seller Dashboard, including:
+After your submission is approved and listed in AppSource, you can view up to four weeks of data for it on the **Metrics** page in the Seller Dashboard, including:
 
--  **Browser hits** - The number of times your listing has been viewed in the AppSource.
+-  **Browser hits** - The number of times your listing has been viewed in AppSource.
 
--  **Downloads** - The number of times the solution has been downloaded from the AppSource.
+-  **Downloads** - The number of times the solution has been downloaded from AppSource.
 
--  **Trial downloads** - The number of times the solution has been acquired for free from the AppSource.
+-  **Trial downloads** - The number of times the solution has been acquired for free from AppSource.
 
 -  **Trial conversions** - The number of times a customer who acquired a trial made a purchase.
 
@@ -117,5 +117,5 @@ For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows
 
 ## See also
 
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 
