@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2018
+ms.date: 01/10/2018
 ms.author: jingwang
 ---
 # Copy multiple tables in bulk by using Azure Data Factory
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+> - This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 At a high level, this tutorial involves following steps:
 
@@ -76,7 +77,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
       
      ![New data factory page](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
@@ -85,7 +86,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-      Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 6. Select **Pin to dashboard**.     
@@ -102,9 +103,12 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## Create linked services
-In this tutorial, you create three linked services for source, sink, and staging blob respectively, which includes connections to your data stores:
+You create linked services to link your data stores and computes to a data factory. A linked has the connection information that the Data Factory service uses to connect to the data store at runtime. 
+
+In this tutorial, you link your Azure SQL Database, Azure SQL Data Warehouse, and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure SQL Data Warehouse is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into SQL Data Warehouse by using PolyBase. 
 
 ### Create the source Azure SQL Database linked service
+In this step, you create a linked service to link your Azure SQL database to the data factory. 
 
 1. Click **Connections** at the bottom of the window, and click **+ New** on the toolbar. 
 
@@ -122,11 +126,11 @@ In this tutorial, you create three linked services for source, sink, and staging
     6. To test the connection to Azure SQL database using the specified information, click **Test connection**.
     7. Click **Save**.
 
-    ![Azure SQL Database settings](./media/tutorial-bulk-copy-portal/azure-sql-database-settings.png)
+        ![Azure SQL Database settings](./media/tutorial-bulk-copy-portal/azure-sql-database-settings.png)
 
 ### Create the sink Azure SQL Data Warehouse linked service
 
-1. Click **Connections** at the bottom of the window, and click **+ New** on the toolbar. 
+1. In the **Connections** tab, click **+ New** on the toolbar again. 
 2. In the **New Linked Service** window, select **Azure SQL Data Warehouse**, and click **Continue**. 
 3. In the **New Linked Service** window, do the following steps: 
 
@@ -141,18 +145,23 @@ In this tutorial, you create three linked services for source, sink, and staging
 ### Create the staging Azure Storage linked service
 In this tutorial, you use Azure Blob storage as an interim staging area to enable PolyBase for a better copy performance.
 
-1. Click **Connections** at the bottom of the window, and click **+ New** on the toolbar. 
+1. In the **Connections** tab, click **+ New** on the toolbar again. 
 2. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**. 
 3. In the **New Linked Service** window, do the following steps: 
 
     1. Enter **AzureStorageLinkedService** for **Name**. 
     2. Select your **Azure Storage account** for **Storage account name**.
-    3. Select your Azure SQL database for **Database name**. 
     4. Click **Save**.
 
 
 ## Create datasets
-In this tutorial, you create source and sink datasets, which specify the location where the data is stored:
+In this tutorial, you create source and sink datasets, which specify the location where the data is stored. 
+
+The input dataset AzureSqlDatabaseDataset refers to the AzureSqlDatabaseLinkedService. The linked service specifies the connection string to connect to the database. The dataset specifies the name of the database and the table that contains the source data. 
+
+The output dataset AzureSqlDWDataset refers to the AzureSqlDWLinkedService. The linked service specifies the connection string to connect to the data warehouse. The dataset specifies the database and the table to which the data is copied. 
+
+In this tutorial, the source and destination SQL tables are not hard-coded in the dataset definitions. Instead, the ForEach activity passes the name of the table at runtime to the Copy activity. 
 
 ### Create a dataset for source SQL Database
 
@@ -168,7 +177,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 4. Switch to the **Connection** tab, and do the following steps: 
 
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-    2. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database.
+    2. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dummyName** as the table name. 
 
     ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
@@ -183,7 +192,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 
     ![Source dataset connection page](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
 6. Enter **DWTableName** for the parameter name. 
-7. In the **Parameterized properties** section, enter `@{dataset().DWTableName}` for **tableName** property. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter.
+7. In the **Parameterized properties** section, enter `@{dataset().DWTableName}` for **tableName** property. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes a table one by one to the Copy activity. 
    
     ![Parameter name](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
 
@@ -193,11 +202,11 @@ In this tutorial, you create two pipelines: **IterateAndCopySQLTables** and **Ge
 The **GetTableListAndTriggerCopyData** pipeline performs two steps:
 
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
-* Triggers the pipeline "IterateAndCopySQLTables" to do the actual data copy.
+* Triggers the pipeline **IterateAndCopySQLTables** to do the actual data copy.
 
 The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
 
-### Create the pipeline "IterateAndCopySQLTables"
+### Create the pipeline IterateAndCopySQLTables
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
@@ -212,16 +221,16 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
     3. Select **Object** for **Type**.
 
         ![Pipeline parameter](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. Drag-drop **ForEach** activity from the **Activities** toolbox to the pipeline design surface. In the Properties window at the bottom, enter **IterateSQLTables** for **Name**. 
+4. In the **Activities** toolbox, expand **Iteration & Conditions**, and drag-drop the **ForEach** activity to the pipeline design surface. You can also search for activities in the **Activities** toolbox. In the **Properties** window at the bottom, enter **IterateSQLTables** for **Name**. 
 
     ![ForEach activity name](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
 5. Switch to the **Settings** tab, and enter `@pipeline().parameters.tableList` for **Items**.
 
     ![ForEach activity settings](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. To add a child activity to the **ForEach** activity, click the **Edit (pencil icon)** as shown in the following image: 
+6. To add a child activity to the **ForEach** activity, **double-click** the ForEach activity (or) click the **Edit (pencil icon)**. You see the action links for an activity only when you select it. 
 
     ![ForEach activity name](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. Drag-drop **Copy** activity into the pipeline designer surface, and change the name in the Properties window to **CopyData**. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. 
+7. In the **Activities** toolbox, expand **DataFlow**, and drag-drop **Copy** activity into the pipeline designer surface, and change the name in the Properties window to **CopyData**. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, click the link in the breadcrumb menu. 
 
     ![Copy in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 8. Switch to the **Source** tab, and do the following steps:
@@ -239,14 +248,14 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
     2. Expand **Polybase Settings**, and select **Allow polybase**. 
-    3. Select **Use Type default** option. 
+    3. Clear the **Use Type default** option. 
     4. Enter the following SQL script for **Cleanup Script**. 
 
-    ```sql
-    TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
-    ```
+        ```sql
+        TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
+        ```
 
-    ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+        ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
 10. Switch to the **Parameters** tab, scroll down, if needed, to see the **Sink Dataset** section with **DWTableName** parameter. Set value of this parameter to `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`.
 
     ![Copy sink parameters](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
@@ -260,7 +269,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 
     ![Pipeline validation report](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
 
-### Create the pipeline "GetTableListAndTriggerCopyData"
+### Create the pipeline GetTableListAndTriggerCopyData
 
 This pipeline performs two steps:
 
@@ -273,7 +282,7 @@ This pipeline performs two steps:
 2. In the Properties window, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
 
     ![Pipeline name](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. Drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
+3. In the **Activities** toolbox, expand **SQL Azure/SQL Database**, and drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
     1. Enter **LookupTableList** for **Name**. 
     2. Enter **Retrieve the table list from Azure SQL database** for **Description**.
@@ -300,7 +309,7 @@ This pipeline performs two steps:
     2. Expand the **Advanced** section. 
     3. Click **+ New** in the **Parameters** section. 
     4. Enter **tableList** for parameter **name**.
-    5. Enter `@activity('LookupTableList').output.value` for parameter **value**.
+    5. Enter `@activity('LookupTableList').output.value` for parameter **value**. You are setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
 
         ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Connect** the **Lookup** activity to the **Execute Pipeline** activity by dragging the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
@@ -309,7 +318,7 @@ This pipeline performs two steps:
 8. To validate the pipeline, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report**, click **>>**.
 
     ![Second pipeline - validation report](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish**. 
+9. To publish entities (datasets, pipelines, etc.) to the Data Factory service, click **Publish**. Wait until the publishing succeeds. 
 
     ![Publish button](./media/tutorial-bulk-copy-portal/publish.png)
 
@@ -383,7 +392,7 @@ This pipeline performs two steps:
         ]
     }
     ```    
-4. To switch back to the **Pipeline Runs** view, click **Pipelines** at the top. Click **View Activity Runs** link (first link in the **Actions** column) for the **IterateAndCopySQLTables** pipeline. You should see output as shown in the following image: Notice that there is one **Copy** activity run for each table in the **Lookup** activity output. 
+4. To switch back to the **Pipeline Runs** view, click **Pipelines** link at the top. Click **View Activity Runs** link (first link in the **Actions** column) for the **IterateAndCopySQLTables** pipeline. You should see output as shown in the following image: Notice that there is one **Copy** activity run for each table in the **Lookup** activity output. 
 
     ![Activity runs](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 5. Confirm that the data was copied to the target SQL Data Warehouse you used in this tutorial. 
@@ -401,4 +410,4 @@ You performed the following steps in this tutorial:
 
 Advance to the following tutorial to learn about copy data incrementally from a source to a destination:
 > [!div class="nextstepaction"]
->[Copy data incrementally](tutorial-incremental-copy-powershell.md)
+>[Copy data incrementally](tutorial-incremental-copy-portal.md)
