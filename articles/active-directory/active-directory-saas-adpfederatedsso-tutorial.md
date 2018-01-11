@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/11/2018
 ms.author: jeedes
 
 ---
@@ -102,8 +102,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
-	
+	b. Copy the **User access URL** and paste it in the **Configure Sign-on URL section**, which is explained later in the tutorial.
+
 	c.	Set the **User assignment required** field value to **Yes**.
 
 	d.	Set the **Visible to users** field value to **No**.
@@ -122,9 +122,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	In the **Identifier** textbox, type a URL: `https://fed.adp.com/` 
 	
-5. The ADP Federated SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"PersonImmutableID"** and the value of which we have mapped to ExtensionAttribute2, which contains the EmployeeID of the user. 
+5. The ADP Federated SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"EmployeeID"** and the value of which we have mapped to EmployeeID, which contains the EmployeeID of the user. 
 
-	Here the user mapping from Azure AD to ADP Federated SSO will be done on the EmployeeID but you can map this to a different value also based on your application settings. So please work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.
+	Here the user mapping from Azure AD to ADP Federated SSO will be done on the EmployeeID but you can map this to a different value also based on your application settings. So please work with [ADP support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"EmployeeID"** claim.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
 
@@ -190,7 +190,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	c.	Set the **Visible to users** field value to **Yes**.
 
-7. Click **Single sign-on** on your **ADP Federated SSO** application integration page.
+7. Click **Single sign-on** on **ADP Federated SSO** application integration page.
 
 	![Configure single sign-on link][4]
 
@@ -201,30 +201,34 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 9. Navigate to the **Configure Sign-on URL** section, perform the following steps:
 
 	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
-                                                              
+
 	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
 
-	 b. Global admin have to append the RelayState value manually to the User access URL. These are the 5 apps they support with different relay state URLs mentioned below the same.
+	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_useraccess.png)
+
+	b. Navigate to **properties tab** on **ADP Federated SSO** application integration page, copy the **User access URL**
+                                                             
+	c. Global admin have to append the **Relay State** value manually to the **User access URL**. These are the 5 apps they support with different **Relay State URLS** you have to append the appropriate value for particlular application mentioned below.
 	
 	1- **ADP Workforce Now**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
 	2- **ADP Workforce Now Enhanced Time**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 	
 	3-**ADP Vantage HCM**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
 	4-**ADP Enterprise HR**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
 	5-**MyADP**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 	c. **Save** your changes.
 
