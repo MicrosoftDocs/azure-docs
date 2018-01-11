@@ -49,7 +49,7 @@ Particularly the section on configuring KCD on 2012R2, as this employs a fundame
 
 -   Where possible, you should avoid placing any active IPS/IDS devices between connector hosts and DCs, as these are sometimes over intrusive and interfere with core RPC traffic
 
-You should try to test delegation in the simplest of scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
+It is recommended to test delegation in the simplest of scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
 
 Some environmental factors may also be contributing to an issue. During testing, minimize the architecture to a bare minimum to avoid these environmental factors. For example, misconfigured internal firewall ACLs are not uncommon, so if possible have all traffic from a connector allowed straight through to the DCs and backend application. 
 
@@ -73,7 +73,7 @@ How you then troubleshoot depend on the issue and observed symptoms. Before goin
 
 -   [Working with SSO when on-premises and cloud identities are not identical](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
 
-If you’ve got this far, then the main issue definitely exists. You need to dig deeper, so start by separating the flow into three distinct stages that you can troubleshoot.
+If you’ve got this far, then the main issue definitely exists. Start by separating the flow into three distinct stages that you can troubleshoot.
 
 **Client pre-authentication** - The external user authenticating to Azure via a browser.
 
@@ -153,7 +153,7 @@ If Kerberos is not available, then check the application’s authentication sett
 
 While being useful in improving the performance of Kerberos operations, leaving Kernel mode enabled also causes the ticket for the requested service to be decrypted using machine account. This is also called the Local system, so having this set to true break KCD when the application is hosted across multiple servers in a farm.
 
--   As an additional check, you may also want to disable the **Extended** protection too. There have been encountered scenarios where this has proved to break KCD when enabled in very specific configurations, where an application is published as a sub folder of the Default Web site. This itself is configured for Anonymous authentication only, leaving the entire dialogs grayed out suggesting child objects would not be inheriting any active settings. But where possible we would always recommend having this enabled, so by all means test, but don’t forget to restore this to enabled.
+-   As an additional check, you may also want to disable the **Extended** protection too. There have been encountered scenarios where this has proved to break KCD when enabled in specific configurations, where an application is published as a sub folder of the Default Web site. This itself is configured for Anonymous authentication only, leaving the entire dialogs grayed out suggesting child objects would not be inheriting any active settings. But where possible we would always recommend having this enabled, so by all means test, but don’t forget to restore this to enabled.
 
 These additional checks should have put you on track to start using your published application. You can go ahead and spin up additional connectors that are also configured to delegate, but if things are no further then we would suggest a read of our more in-depth technical walkthrough [The complete guide for Troubleshoot Azure AD Application Proxy](https://aka.ms/proxytshootpaper)
 
@@ -161,7 +161,7 @@ If you’re still unable to progress your issue, support would be more than happ
 
 ## Other scenarios
 
--   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some 3rd party applications such as Tableau Server do not like this method of authenticating, and rather expects the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
+-   Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third party applications such as Tableau Server do not like this method of authenticating, and rather expects the more conventional negotiations to take place. The first request is anonymous, allowing the application to respond with the authentication types that it supports through a 401.
 
 -   Double hop authentication - Commonly used in scenarios where an application is tiered, with a backend and front end, both requiring authentication, such as SQL Reporting Services.
 
