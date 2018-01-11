@@ -30,7 +30,7 @@ This topic shows both approaches through the portal.
 ## Deploy resources
 Let's start by deploying resources to Azure that you can use for exporting as a template. If you already have a resource group in your subscription that you want to export to a template, you can skip this section. The remainder of this article assumes you have deployed the web app and SQL database solution shown in this section. If you use a different solution, your experience might be a little different, but the steps to export a template are the same. 
 
-1. In the [Azure portal](https://portal.azure.com), select **New**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
    
       ![select new](./media/resource-manager-export-template/new.png)
 2. Search for **web app + SQL** and select it from the available options.
