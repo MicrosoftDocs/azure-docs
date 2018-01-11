@@ -238,7 +238,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Attribute|Description|Required|Default|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|No timeout|  
+|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|300 seconds|  
 |follow-redirects="true &#124; false"|Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.|No|false|  
   
 ### Usage  
@@ -408,7 +408,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### Example  
- In the following example request forewarding is retried up to ten times using exponential retry algorithm. Since                    `first-fast-retry` is set to false, all retry attempts are subject to the exponsntial retry algorithm.  
+ In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.  
   
 ```xml  
   

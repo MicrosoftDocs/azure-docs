@@ -4,7 +4,7 @@ description: A step-by-step guide to enabling conditional access to on-premises 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -98,19 +98,13 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 | Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## Integrate Azure Active Directory with on-premises Active Directory
-This step helps you integrate your Azure AD tenant with your on-premises Active Directory by using Azure AD Connect. Although the steps are available in the Azure classic portal, make note of any special instructions that are listed in this section.
 
-1. Sign in to the Azure classic portal by using an account that is a global administrator in Azure AD.
-2. On the left pane, select **Active Directory**.
-3. On the **Directory** tab, select your directory.
-4. Select the **Directory Integration** tab.
-5. Under the **deploy and manage** section, follow steps 1 through 3 to integrate Azure Active Directory with your on-premises directory.
-   
-   1. Add domains.
-   2. Install and run Azure AD Connect by using the instructions at [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
-   
-   In addition, configure federation with AD FS as outlined in [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**See:**
+
+- [Integrate your on-premises directories with Azure Active Directory](./connect/active-directory-aadconnect.md) - to review conceptual information.
+
+- [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - for installation instructions.
+
 
 ## Upgrade your Active Directory Domain Services schema
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory device-based conditio
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243

@@ -130,7 +130,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 
 
 ## Create virtual network interface card
-A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in an Ansible playbook creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
+A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -348,10 +348,11 @@ resource "random_id" "randomId" {
 
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
-    name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    location            = "East US"
-    account_type        = "Standard_LRS"
+    name                        = "diag${random_id.randomId.hex}"
+    resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
+    location                    = "East US"
+    account_tier                = "Standard"
+    account_replication_type    = "LRS"
 
     tags {
         environment = "Terraform Demo"

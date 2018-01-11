@@ -26,7 +26,7 @@ After [deploying the Azure Stack Development Kit](azure-stack-run-powershell-scr
 ## Create an Azure Stack tenant account using the Azure portal
 You must have an Azure subscription to use the Azure portal.
 
-1. Log in to [Azure](http://manage.windowsazure.com).
+1. Log in to [Azure](https://portal.azure.com).
 2. In Microsoft Azure left navigation bar, click **Active Directory**.
 3. In the directory list, click the directory that you want to use for Azure Stack, or create a new one.
 4. On this directory page, click **Users**.

@@ -3,7 +3,7 @@ title: Azure Active Directory B2C Documentation - Tutorials, API Reference | Mic
 description: Learn how to deploy comprehensive consumer identity management in the cloud. Documentation shows how to protect consumer-facing web and mobile apps.
 services: active-directory-b2c
 author: czeumault
-manager: carolz
+manager: mtillman
 layout: LandingPage
 ms.assetid: 
 ms.service: active-directory-b2c

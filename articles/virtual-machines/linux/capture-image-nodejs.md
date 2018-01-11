@@ -58,7 +58,7 @@ First, run the **waagent** command with the **deprovision** parameter on the Lin
 ## Step 2: Capture the VM
 Use the Azure CLI to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
 
-1. From your local computer, open the Azure CLI and [login to your Azure subscription](../../xplat-cli-connect.md). 
+1. From your local computer, open the Azure CLI and [login to your Azure subscription](/cli/azure/authenticate-azure-cli). 
 2. Make sure you are in Resource Manager mode.
    
     ```azurecli

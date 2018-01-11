@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
@@ -43,11 +43,6 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## Video tutorial
-How to Enable Single Sign-On to Google Apps in 2 Minutes:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
 
 ## Frequently Asked Questions
 1. **Q: Are Chromebooks and other Chrome devices compatible with Azure AD single sign-on?**

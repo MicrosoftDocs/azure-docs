@@ -4,7 +4,7 @@ description: This is the Azure Multi-factor authentication page that will assist
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869

@@ -10,24 +10,23 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs
 
-This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VM running
+This tutorial shows you how to set up disaster recovery to Azure for on-premises VMware VMs running
 Windows. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Recovery Services vault for Site Recovery
-> * Set up the source and target replication environments
+> * Specify the replication source and target.
+> * Set up the source replication environment, including on-premises Site Recovery components, and the target replication environment.
 > * Create a replication policy
 > * Enable replication for a VM
 
-This is the third tutorial in a series. This tutorial assumes that you have already completed the
-tasks in the previous tutorials:
+This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
@@ -35,49 +34,28 @@ tasks in the previous tutorials:
 Before you start, it's helpful to [review the architecture](concepts-vmware-to-azure-architecture.md)
 for disaster recovery scenario.
 
-## Configure VMware account permissions
 
-1. Create a role at the vCenter level. Give the role the name **Azure_Site_Recovery**.
-2. Assign the following permissions to the **Azure_Site_Recovery** role.
+## Select a replication goal
 
-   **Task** | **Role/Permissions** | **Details**
-   --- | --- | ---
-   **VM discovery** | Data Center object –> Propagate to Child Object, role=Read-only | At least a read-only user.<br/><br/> User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
-   **Full replication, failover, failback** |  Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
-
-3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
-
-## Specify what you want to replicate
-
-The Mobility service must be installed on each VM you want to replicate. Site Recovery installs
-this service automatically when you enable replication for the VM. For automatic installation, you
-need to prepare an account that Site Recovery will use to access the VM.
-
-You can use a domain or local account. For Linux VMs, the account should be root on the source Linux
-server. For Windows VMs, if you're not using a domain account, disable Remote User Access control
-on the local machine:
-
-  - In the registery, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**,
-    add the DWORD entry **LocalAccountTokenFilterPolicy** and set the value to 1.
+1. In **Recovery Services vaults**, click the vault name, **ContosoVMVault**.
+2. In **Getting Started**, click Site Recovery. Then click **Prepare Infrastructure**.
+3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
+4. In **Where do you want to replicate your machines, select **To Azure**.
+5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 
 ## Set up the source environment
 
-Setting up the source environment consists of downloading the Site Recovery Unified Setup, setting
-up the configuration server and registering it in the vault, and discovering VMs.
+To set up the source environment, you download the Site Recovery Unified Setup file. You run setup to install on-premises Site Recovery components, register VMware servers in the vault, and discover on-premises VMs.
 
-The configuration server is a single on-premises VMware VM to host all of the Site Recovery
-components. This VM runs the configuration server, process server, and master target server.
+### Verify on-premises Site Recovery requirements
 
-- The configuration server coordinates communications between on-premises and Azure, and manages data
-  replication.
-- The process server acts as a replication gateway. Receives replication data, optimizes it with
-  caching, compression, and encryption, and sends it to Azure storage. The process server also
-  installs the Mobility service on VMs you want to replicate, and performs automatic discovery of VMs
-  on on-premises VMware servers.
+You need a single, highly-available, on-premises VMware VM to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server.
+
+- The configuration server coordinates communications between on-premises and Azure, and manages data replication.
+- The process server acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage. The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of on-premises VMware VMs.
 - The master target server handles replication data during failback from Azure.
 
-The configuration server VM should be a highly available VMware VM that meets the following
-requirements:
+The VM should meet the following requirements.
 
 | **Requirement** | **Details** |
 |-----------------|-------------|
@@ -94,35 +72,25 @@ requirements:
 | IP address type | Static |
 | Ports | 443 (Control channel orchestration)<br/>9443 (Data transport)|
 
-On the configuration server VM, make sure that the system clock is synchronized with a Time Server.
-Time must be synchronized to within 15 minutes. If the time difference is greater than 15 minutes,
+In addition: 
+- Make sure that the system clock on the VM is synchronized with a Time Server. Time must be synchronized to within 15 minutes. If it's greater setup fails.
 setup fails.
+- Make sure that the configuration server VM can access these URLs:
 
-Make sure that the configuration server can access these URLs:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Any IP address-based firewall rules should allow communication to Azure.
-
-- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+- Make sure that IP address-based firewall rules allow communication to Azure.
+    - Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), port 443 (HTTPS), and port 9443 (data replication).
     - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
 
-Any IP address-based firewall rules should allow communication to [Azure Datacenter IP
-Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and ports 443 (HTTPS) and
-9443 (data replication). Be sure to allow IP address ranges for the Azure region of your
-subscription, and for West US (used for Access Control and Identity Management).
 
-### Download the Site Recovery Unified Setup
+### Download the Site Recovery Unified Setup file
 
-1. Open the [Azure portal](https://portal.azure.com) and click on **All resources**.
-2. Click on the Recovery Service vault named **ContosoVMVault**.
-3. Click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-4. Select **On-premises** for where your machines are located, **To Azure** for where you want to
-   replicate your machines, and **Yes, with VMware vSphere Hypervisor**. Then, click **OK**.
-5. In the Prepare source pane, click **+Configuration server**.
-6. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-7. Download the Site Recovery Unified Setup installation file.
-8. Download the vault registration key. You need this when you run Unified Setup. The key is valid
+1. In the vault > **Prepare Infrastructure**, click **Source**.
+1. In **Prepare source**, click **+Configuration server**.
+2. In **Add Server**, check that **Configuration Server** appears in **Server type**.
+3. Download the Site Recovery Unified Setup installation file.
+4. Download the vault registration key. You need this when you run Unified Setup. The key is valid
    for five days after you generate it.
 
    ![Set up source](./media/tutorial-vmware-to-azure/source-settings.png)
@@ -184,9 +152,11 @@ subscription, and for West US (used for Access Control and Identity Management).
 
 To discover VMs, the configuration server needs to connect to on-premises VMware servers. For the
 purposes of this tutorial, add the vCenter server, or vSphere hosts, using an account that has
-administrator privileges on the server.
+administrator privileges on the server. You created this account in the [previous tutorial](tutorial-prepare-on-premises-vmware.md). 
 
-1. On your configuration server, launch **CSPSConfigtool.exe**. It is available as a shortcut on the
+To add the account:
+
+1. On the configuration server VM, launch **CSPSConfigtool.exe**. It is available as a shortcut on the
    desktop and located in the *install location*\home\svsystems\bin folder.
 
 2. Click **Manage Accounts** > **Add Account**.
@@ -197,12 +167,12 @@ administrator privileges on the server.
 
    ![Details](./media/tutorial-vmware-to-azure/credentials2.png)
 
-To add a server:
+To add the VMware server:
 
 1. Open the [Azure portal](https://portal.azure.com) and click on **All resources**.
 2. Click on the Recovery Service vault named **ContosoVMVault**.
 3. Click **Site Recovery** > **Prepare Infrastructure** > **Source**
-4. Select **+vCenter** to connect to a vCenter server or vSphere ESXi host.
+4. Select **+vCenter**, to connect to a vCenter server or vSphere ESXi host.
 5. In **Add vCenter**, specify a friendly name for the server. Then, specify the IP address or FQDN.
 6. Leave the port set to 443, unless your VMware servers listen for requests on a different port.
 7. Select the account to use for connecting to the server. Click **OK**.

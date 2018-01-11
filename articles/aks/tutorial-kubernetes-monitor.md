@@ -2,19 +2,11 @@
 title: Kubernetes on Azure tutorial - Monitor Kubernetes
 description: AKS tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -24,7 +16,7 @@ ms.custom: mvc
 
 Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
-In this tutorial, you configure monitoring of your AKS cluster using the [Containers solution for Log Analytics](../log-analytics/log-analytics-containers.md).
+In this tutorial, you configure monitoring of your AKS cluster using the [Containers solution for Log Analytics][log-analytics-containers].
 
 This tutorial, part seven of eight, covers the following tasks:
 
@@ -37,7 +29,7 @@ This tutorial, part seven of eight, covers the following tasks:
 
 In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created.
 
-If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 ## Configure the monitoring solution
 
@@ -63,7 +55,7 @@ To retrieve these values, Select **OMS Workspace** from the container solutions 
 
 ## Configure monitoring agents
 
-The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
+The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet][kubernetes-daemonset], which runs a single pod on each cluster node.
 
 Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for `WSID` and `KEY` with your Log Analytics Workspace ID and Key.
 
@@ -103,6 +95,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -129,6 +123,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 Create the DaemonSet with the following command:
@@ -158,7 +155,7 @@ In the Azure portal, select the Log Analytics workspace that has been pinned to 
 
 ![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-See the [Azure Log Analytics documentation](../log-analytics/index.yml) for detailed guidance on querying and analyzing monitoring data.
+See the [Azure Log Analytics documentation][log-analytics-docs] for detailed guidance on querying and analyzing monitoring data.
 
 ## Next steps
 
@@ -172,4 +169,14 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 Advance to the next tutorial to learn about upgrading Kubernetes to a new version.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

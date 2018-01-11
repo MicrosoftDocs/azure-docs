@@ -3,8 +3,8 @@ title: Key differences between Azure and Azure Stack when you use services and b
 description: What you need to know when you use services or build apps for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
@@ -14,8 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
-ms.author: twooley
-ms.custom: mvc
+ms.author: mabrigg
 
 ---
 # Key considerations: Using services or building apps for Azure Stack

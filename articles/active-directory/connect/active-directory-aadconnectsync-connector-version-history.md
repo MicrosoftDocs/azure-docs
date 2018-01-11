@@ -4,7 +4,7 @@ description: This topic lists all releases of the Connectors for Forefront Ident
 services: active-directory
 documentationcenter: ''
 author: fimguy
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -41,7 +41,7 @@ Related links:
 
 * Lotus Notes:
   * Filtering custom certifiers option
-  * Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+  * Import of the class ImportOperations fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
 * Generic LDAP:
   * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
 * Generic SQL:

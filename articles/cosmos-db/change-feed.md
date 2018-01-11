@@ -31,7 +31,7 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the DocumentDB client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
 
 ## How does change feed work?
 
@@ -87,11 +87,11 @@ Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB po
 <a id="rest-apis"></a>
 ## Using the SDK
 
-The [DocumentDB SDK](documentdb-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
+The [SQL SDK](sql-api-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
 
-This section walks through how to use the DocumentDB SDK to work with a change feed.
+This section walks through how to use the SQL SDK to work with a change feed.
 
-1. Start by reading the following resources from appconfig. Instructions on retrieving the endpoint and authorization key are available in [Update your connection string](create-documentdb-dotnet.md#update-your-connection-string).
+1. Start by reading the following resources from appconfig. Instructions on retrieving the endpoint and authorization key are available in [Update your connection string](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -163,7 +163,7 @@ So, your checkpoint array is just keeping the LSN for each partition. But if you
 <a id="change-feed-processor"></a>
 ## Using the Change Feed Processor library 
 
-The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
+The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
 The main benefit of Change Feed Processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
 
@@ -277,11 +277,11 @@ For more information about using Azure Cosmos DB with Azure Functions see [Azure
 
 For more information on using the Change Feed Processor library, use the following resources:
 
-* [Information page](documentdb-sdk-dotnet-changefeed.md) 
+* [Information page](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Sample code showing steps 1-6 above](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 For more information on using the change feed via the SDK, use the following resources:
 
-* [SDK information page](documentdb-sdk-dotnet.md)
+* [SDK information page](sql-api-sdk-dotnet.md)

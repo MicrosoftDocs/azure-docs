@@ -4,7 +4,7 @@ description: Step by step instructions and examples for using an Azure VM MSI se
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.author: bryanla
 
 # How to use an Azure VM Managed Service Identity (MSI) for sign in 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 This article provides PowerShell and CLI script examples for sign-in using an MSI service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites

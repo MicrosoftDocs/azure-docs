@@ -44,6 +44,35 @@ To set up a managed service identity in the portal, you will first create an app
 
 ![Managed Service Identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
 
+### Using the Azure CLI
+
+To set up a managed service identity using the Azure CLI, you will need to use the `az webapp assign-identity` command against an existing application. You have three options for running the examples in this section:
+
+- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 or later) if you prefer to use a local CLI console. 
+
+The following steps will walk you through creating a web app and assigning it an identity using the CLI:
+
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Run the `assign-identity` command to create the identity for this application:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
+
 ### Using an Azure Resource Manager template
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).

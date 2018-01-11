@@ -85,12 +85,29 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 
 ```java
 public class Function {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
     @FunctionName("hello")
-    public String hello(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
-                        ExecutionContext context) {
-        return String.format("Hello, %s!", req);
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("name");
+        String name = request.getBody().orElse(query);
+
+        if (name == null) {
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+        } else {
+            return request.createResponse(200, "Hello, " + name);
+        }
     }
 }
+
 ```
 
 ## Run the function locally
@@ -102,6 +119,9 @@ cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+
+> [!NOTE]
+> If you're experiencing this exception: `javax.xml.bind.JAXBException` with Java 9, see the workaround on [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
 You see this output when the function is running:
 

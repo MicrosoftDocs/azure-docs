@@ -4,7 +4,7 @@ description: Learn how to activate roles for privileged identities with the Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45

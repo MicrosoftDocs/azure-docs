@@ -30,7 +30,8 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### Azure PowerShell
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## Resource Manager templates
 To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
@@ -423,7 +424,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```
 
 ## Monitor the pipeline
-1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as `data fa`, and select **Data factories**.
+1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as **data fa**, and select **Data factories**.
 
     ![Browse data factories menu](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. In the **Data Factories** page, click the data factory you created. If needed, filter the list with the name of your data factory.  

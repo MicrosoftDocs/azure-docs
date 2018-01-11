@@ -5,7 +5,7 @@ services: machine-learning
 author: tedway
 ms.author: tedway
 manager: mwinkle
-ms.reviewer: garyericson, mldocs
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

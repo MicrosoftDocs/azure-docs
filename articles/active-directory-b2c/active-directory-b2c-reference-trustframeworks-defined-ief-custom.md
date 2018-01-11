@@ -4,7 +4,7 @@ description: A topic about Azure Active Directory B2C custom policies and the Id
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 
 ms.assetid:
