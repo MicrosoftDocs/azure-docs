@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
@@ -172,12 +172,12 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New pipeline menu](./media/tutorial-control-flow-portal/new-pipeline-menu.png)
 3. In the properties window for the pipeline, switch to the **Parameters** tab, and use the **New** button to add the following three parameters of type String: sourceBlobContainer, sinkBlobContainer, and receiver. 
 
-    - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
-    - sinkBlobContainer – parameter in the pipeline consumed by the sink blob dataset
-    - receiver – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
+    - **sourceBlobContainer** - parameter in the pipeline consumed by the source blob dataset.
+    - **sinkBlobContainer** – parameter in the pipeline consumed by the sink blob dataset
+    - **receiver** – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
    ![New pipeline menu](./media/tutorial-control-flow-portal/pipeline-parameters.png)
-4. Drag-drop **Copy** activity from the **Activities** toolbox to the pipeline designer surface. 
+4. In the **Activities** toolbox, expand **Data Flow**, and drag-drop **Copy** activity to the pipeline designer surface. 
 
    ![Drag-drop copy activity](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. In the **Properties** window for the **Copy** activity at the bottom, switch to the **Source** tab, and click **+ New**. You create a source dataset for the copy activity in this step. 
@@ -201,13 +201,13 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New Azure Storage linked service](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Enter `@pipeline().parameters.sourceBlobContainer` for the folder and `emp.txt` for the file name. You use the sourceBlobContainer pipeline parameter to set the folder path for the dataset. 
 
-   ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-1. Switch to the pipeline tab. Confirm that **SourceBlobDataset** is selected for **Source Dataset**. 
+    ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+13. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**. 
 
    ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. In the properties window, switch to the **Sink** tab, and click **+ New** for **Sink Dataset**. You create a sink dataset for the copy activity in this step similar to the way you created the source dataset. 
 
-   ![New sink dataset button](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
+    ![New sink dataset button](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
 14. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**. 
 15. In the **General** settings page for the dataset, enter **SinkBlobDataset** for **Name**.
 16. Switch to the **Connection** tab, and do the following steps: 
@@ -216,8 +216,8 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     2. Enter `@pipeline().parameters.sinkBlobContainer` for the folder.
     1. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
-       ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
-17. Switch to the **pipeline** tab at the top, and drag-drop a **Web** activity from the Activities toolbox to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
+        ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
+17. Switch to the **pipeline** tab at the top. Expand **General** in the **Activities** toolbox, and drag-drop a **Web** activity to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
 
    ![Drag-drop first Web activity](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Switch to the **Settings** tab from the **General** tab, and do the following steps: 
@@ -237,16 +237,16 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ```
         The message body contains the following properties:
 
-        - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
+        - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
         - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
         - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
         - Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
     6. The **Settings** should look like the following image: 
 
         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
-19. Connect the Copy activity to the Web activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
+19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
 
-    ![Connect Copy activity with the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png) connect-copy-web-activity1.png)
+    ![Connect Copy activity with the first Web activity](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)
 20. Drag-drop another **Web** activity from the Activities toolbox to the pipeline designer surface, and set the **name** to **SendFailureEmailActivity**.
 
     ![Name of the second Web activity](./media/tutorial-control-flow-portal/web-activity2-name.png)
