@@ -10,7 +10,7 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/10/2018
+ms.date: 01/11/2018
 ---
 # Azure CLI samples for Azure Database for MySQL 
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.
@@ -24,7 +24,7 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Change server configurations**||
 | [Change server configurations](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that change configurations of a single Azure Database for MySQL server. |
 |**Restore a server**||
-| [Restore a server](./scripts/sample-pitr-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that restores a single Azure Database for MySQL server to a previous point in time. |
+| [Restore a server](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that restores a single Azure Database for MySQL server to a previous point in time. |
 |**Manipulate with server logs**||
 | [Enable and download server logs](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that enables and downloads server logs of a single Azure Database for MySQL server. |
 |||
