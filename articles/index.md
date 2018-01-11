@@ -906,7 +906,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/en-us/azure/sql-data-warehouse/">
+                                            <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/sqldatawarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
                                             </a>
@@ -2421,7 +2421,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/event-hubs/">
+                                <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2459,7 +2459,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/sql-data-warehouse/">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2895,7 +2895,7 @@ featureFlags:
                                 </a>
                             </li>                            
                             <li>
-                                <a href="/en-us/azure/event-hubs/">
+                                <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
