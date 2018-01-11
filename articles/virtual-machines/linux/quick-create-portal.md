@@ -29,11 +29,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (cat <filename>) to the clipboard. (If you're running bash on Windows for this step, ensure that you don't copy line break characters from the output). Note the filename of the private key file for later use.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard. If you use Windows Subsystem for Linux, make sure that you don't copy line break characters from the output. Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
 You can find more detailed information on this process [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
@@ -69,10 +70,10 @@ Create an SSH connection with the virtual machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Run the following command to create an SSH session. Replace the <privatekeyfilename> with the filename of your ssh private key from earlier in the guide and replace the connection string (azureuser@40.112.21.50) with the one you copied from the Azure portal.
+2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
 ```bash 
-ssh -i <privatekeyfilename> azureuser@40.112.21.50
+ssh azureuser@40.112.21.50
 ```
 
 ## Install NGINX
@@ -100,7 +101,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
 3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Source Port range** is set to *, **Destination Port range** is set to 80 and **Action** is set to **Allow**. 
+5. In **Name**, type **http**. Make sure **Source Port range** is set to `*`, **Destination Port range** is set to *80*, and **Action** is set to *Allow*. 
 6. Click **OK**.
 
 
