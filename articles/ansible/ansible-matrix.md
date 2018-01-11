@@ -93,12 +93,12 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
 
 ## Introduction to azure_module
-The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of the Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing this role is a good choice.
+The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of the Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing the azure_module role is a good choice.
 
 The azure_module playbook role is released every three weeks.
 
 ## Introduction to azure_preview_module
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete and includes all the latest Azure modules. The update and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install this role.
+The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module role.
 
 The azure_preview_module playbook role is released every three weeks.
 
