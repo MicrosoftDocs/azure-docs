@@ -1,9 +1,9 @@
 ---
 title: Azure Quickstart - create an Azure Event Hubs namespace and event hub using Azure CLI | Microsoft Docs
-description: Quickly learn to create an Event Hubs namespace with an event hub using Azure CLI
+description: Quickly learn to send and receive Event Hub messages using Azure CLI
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2017
+ms.date: 01/11/2018
 ms.author: sethm
 
 ---
 
 # Create namespace and event hub using Azure CLI
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to quickly use Azure CLI to create an Event Hubs namespace and an event hub within that namespace. Once provisioned, you can start sending and receiving events to and from the event hub.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to quickly use Azure CLI to create an Event Hubs namespace and an event hub within that namespace. Once the entities are provisioned, the quickstart shows how to send and receive events to and from the event hub.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
 ## Launch Azure Cloud Shell
 
-Azure Cloud Shell is a free Bash shell that you can run directly from within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click **Cloud Shell** on the upper right menu in the Azure portal.
+Azure Cloud Shell is a free Bash shell that you can run directly from within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button in the upper right corner of the Azure portal.
 
 ![][1]
 
@@ -88,46 +88,29 @@ az storage account keys list --resource-group eventhubsResourceGroup --account-n
 
 The next step is to run the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
 
-First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+First, download the [Basic](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/src/main/java/com/microsoft/azure/eventhubs/samples/Basic) sample from GitHub, or clone or download the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
 ### Sender
 
-1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
-
-2. Locate the **SampleSender** sample folder you downloaded previously, then double-click the SampleSender.sln file to load the project in Visual Studio.
-
-3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
-
-4. Replace the `EventHubConnectionString` value with the connection string you obtained in the "Get namespace credentials" section of this article.
-
-5. Replace `EventHubName` with the name of the event hub you created within that namespace.
-
-6. From the **Build** menu, click **Build Solution** to ensure there are no errors.
+1. In the Send.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
+2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
+3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Primary Key value you obtained previously. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.   
 
 ### Receiver
 
-1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
-
-2. Locate the **SampleEphReceiver** sample folder you downloaded in step 1, then double-click the SampleEphReceiver.sln file to load the project in Visual Studio.
-
-3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
-
-4. Replace the following variable values:
-	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
-	2. `EventHubName`: The name of the event hub you created within that namespace.
-	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
-	4. `StorageAccountName`: The name of the storage account you created.
-	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
-
-5. From the **Build** menu, click **Build Solution** to ensure there are no errors.
+1. In the ReceiveByDateTime.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article. 
+2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
+3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Primary Key value you obtained previously. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.
 
 ### Run the apps
 
-First, run the **SampleSender** application and observe 100 messages being sent. Press **Enter** to end the program.
+First, run the **Send** application and observe 100 messages being sent. Press **Enter** to end the program.
 
 ![][3]
 
-Then, run the **SampleEphReceiver** app, and observe the messages being received into the Event Processor Host.
+Then, run the **ReceiveByDateTime** app, and observe the messages being received into the Event Processor Host.
 
 ![][4]
 
