@@ -29,7 +29,7 @@ All of the code in this tutorial is available on the [LUIS-Samples github reposi
 ## Scenario
 This tutorial adds LUIS request and response information to the ApplicationInsights telemetry data storage. 
 
-## What is ApplicationInsights?
+## What is Application Insights?
 Use [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) to monitor your live web application. It includes powerful analytics tools to help you diagnose telemetry issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. 
 
 Currently, LUIS does not natively support Application Insights telemetry, but the Azure Function app does. 
@@ -67,8 +67,8 @@ For this tutorial, all four services are in the "West US 2" region.
 
 ## Create the Function app
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**
-2. 
-3. Click the green **+** sign in the upper left-hand panel and search for "Function app" in the marketplace, and follow the **create experience**.
+ 
+2. Click the green **+** sign in the upper left-hand panel and search for "Function app" in the marketplace, and follow the **create experience**.
 
     ![Azure Search](./media/luis-tutorial-appinsights/search-for-function-app.png) 
 
@@ -76,7 +76,7 @@ For this tutorial, all four services are in the "West US 2" region.
 
     ![Function app creation settings](./media/luis-tutorial-appinsights/function-app-config.png) 
 
-    When Deployment succeeds, you see the Function app settings. This is currently an empty Function app. You need to add the first function.
+When Deployment succeeds, you see the Function app settings. This is currently an empty Function app. You need to add the first function.
 
 ## Add function
 1. In the Function apps list on the left, click on the blue **+** symbol to add a function.
@@ -89,13 +89,13 @@ For this tutorial, all four services are in the "West US 2" region.
 
 The functions list, under the Function Apps, shows one function named **HttpTriggerCSharp1**. The right window displays the code for run.csx. The method inside the file, **Run**, is the main entry. 
 
-    ![Webhook with Csharp](./media/luis-tutorial-appinsights/httptriggercsharp1.png)
+![Webhook with Csharp](./media/luis-tutorial-appinsights/httptriggercsharp1.png)
 
 By default, when you call the function from an HTTP request with a query string or body that includes "name" and a value for "name", the function sends an HTTP response of "Hello " + name. If no value for name was provided, the function sends an HTTP error of BadRequest and a message asking for a name. 
 
 The `Run` method is in `run.csx`:
 
-   [!code-javascript[Run.original.csx](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.original.csx)]
+[!code-javascript[Run.original.csx](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.original.csx)]
 
 ## Verify basic function works
 You can test the function in the far-right **Test** pane. 
@@ -119,7 +119,7 @@ You have a working function app.
 ## Function files
 All files associated with the function are available for editing. You can view the files by clicking **View files** next to **Test** in the far-right panel. 
 
-    ![Basic function test pane](./media/luis-tutorial-appinsights/basic-fn-files.png)
+![Basic function test pane](./media/luis-tutorial-appinsights/basic-fn-files.png)
 
 This basic function currently has a `function.json` file, a `readme.md` file, and a `run.csx` file. You can add, delete, or upload a file.
 
@@ -163,7 +163,7 @@ Most of the additional code for this tutorial is between the `Using` statement a
 
 Add the following code:
 
-   [!code-javascript[Add NuGet package](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=7-20)]
+[!code-javascript[Add NuGet package](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=7-20)]
 
 Save the file.
 
@@ -171,7 +171,7 @@ Save the file.
 
 Next, add the following code for the LUIS and Bing values. Change these values to your own ID and Keys.
 
-   [!code-javascript[Add keys](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=22-25)]
+[!code-javascript[Add keys](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=22-25)]
 
 > [!Note]
 > * You do not have to use the Bing Spell Check for this tutorial to function. It is added here as an option. 
@@ -181,7 +181,7 @@ Save the file.
 ## Add dependency variables
 Add the HttpClient, and ApplicationInsights dependency variables:
 
-   [!code-javascript[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
+[!code-javascript[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
 
 Because Application Insights was turned on as part of the Function app creation, the `APPINSIGHTS_INSTRUMENTATIONKEY` is an environment variable for the Function app. You do not need to find the instrumentation key or set it. 
 
@@ -190,7 +190,7 @@ Save the file.
 ## Add function name variables for searching 
 The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_`. Add the code for this constant string:
 
-   [!code-javascript[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
+[!code-javascript[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
 
 Since the function is hooked to Application Insights, there are more entries than just the LUIS query results from the function.
 
@@ -219,7 +219,7 @@ The LUIS query result is a nested JSON object. In order to deserialize it into C
 
 Add the following LUIS query result classes:
 
-   [!code-javascript[Add LUIS query result classes to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=40-68)]
+[!code-javascript[Add LUIS query result classes to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=40-68)]
 
 Save the file and test. If the test returns 200 continue.
 
@@ -230,7 +230,7 @@ The `EndpointQuery` method builds the URL, adds the `Ocp-Apim-Subscription-Key` 
 
 Add the `EndpointQuery` method:
 
-   [!code-javascript[Add EndpointQuery method to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=70-137)]
+[!code-javascript[Add EndpointQuery method to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=70-137)]
 
 Save the file and test. If the test returns 200 continue.
 
@@ -241,7 +241,7 @@ The `ApplicationInsightsTraceSuccess` adds Application Insights properties to th
 
 Add the `ApplicationInsightsTraceSuccess` method:
 
-   [!code-javascript[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-171)]
+[!code-javascript[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-171)]
 
 Save the file and test. If the test returns 200 continue.
 
@@ -299,54 +299,54 @@ This test is outside the Azure portal.
 
 1. Get the function's URL by clicking on `</> Get function` in the top, middle window to the right of the Run button. 
 
-![Get function URL](./media/luis-tutorial-appinsights/get-fn-url.png)
+    ![Get function URL](./media/luis-tutorial-appinsights/get-fn-url.png)
 
 2. Copy this URL.  
 
-![Get function URL](./media/luis-tutorial-appinsights/fn-url.png)
+    ![Get function URL](./media/luis-tutorial-appinsights/fn-url.png)
 
 3. Open a command/terminal window to use [Curl](https://curl.haxx.se/). Enter the following Curl command to make an HTTP request into the Azure function, replace `<URL>` with the URL from step 2:
-
-```
-curl -H "Content-Type: application/json" -X POST -d '{"query":"turn on the lights"}' <URL>
-```
-
-The Curl response is:
-```
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   599  100   569  100    30    569     30  0:00:01 --:--:--  0:00:01   697{
-  "query": "turn on the lights",
-  "topScoringIntent": {
-    "intent": "HomeAutomation.TurnOn",
-    "score": 0.9835362
-  },
-  "intents": [
-    {
-      "intent": "HomeAutomation.TurnOn",
-      "score": 0.9835362
-    },
-    {
-      "intent": "None",
-      "score": 0.0832152
-    },
-    {
-      "intent": "HomeAutomation.TurnOff",
-      "score": 0.0231100265
+    
+    ```
+    curl -H "Content-Type: application/json" -X POST -d '{"query":"turn on the lights"}' <URL>
+    ```
+    
+    The Curl response is:
+    ```
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100   599  100   569  100    30    569     30  0:00:01 --:--:--  0:00:01   697{
+      "query": "turn on the lights",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOn",
+        "score": 0.9835362
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.9835362
+        },
+        {
+          "intent": "None",
+          "score": 0.0832152
+        },
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.0231100265
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lights",
+          "type": "HomeAutomation.Device",
+          "startIndex": 12,
+          "endIndex": 17,
+          "score": 0.637476563
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "lights",
-      "type": "HomeAutomation.Device",
-      "startIndex": 12,
-      "endIndex": 17,
-      "score": 0.637476563
-    }
-  ]
-}
-
-```
+    
+    ```
 
 The Curl command did not have to pass the LUIS App ID, LUIS subscription Key, or Bing Subscription Key. The command only has to pass the query. 
  
@@ -368,6 +368,7 @@ Open Application Insights to see the LUIS entries.
     When you are done, select the far-right top `X` to return to the list of dependency items. 
 
 4. Select the top entry -- the erroring LUIS query. Remember this error was due to changing the required HTTP value to have an extra `y`. The dependency information shows the Custom Data from the `ApplicationInsightsTraceError` method, including the error message from LUIS. When you are done, select the far-right top `X` to return to the list of dependency items. 
+
 
 > [!Tip]
 > If you want to save the dependency list and return to it later, click on `...More` and click `Save favorite`.
@@ -393,6 +394,7 @@ Application Insights entries are stored in [Analytics](). Analytics gives you th
 4. Run the query. Scroll to the far right in the data table. The two new columns of top intent and score are available. Click on the topIntent column to sort.
 
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
+
 
 Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
