@@ -29,7 +29,7 @@ Following is the link to the public GitHub repository:
 
 A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. The goal is to reduce the costs by reducing downtime and possibly increase safety. 
 
-This scenario takes ideas from the [predictive maintenance playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) to demonstrate building a predictive model for a simulated data set. The example data is derived from common elements observed in many predictive maintenance use cases.
+This scenario takes ideas from the [predictive maintenance playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) to demonstrate building a predictive model for a simulated data set. The example data is derived from common elements observed in many predictive maintenance use cases.
 
 The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this scenario, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
 
