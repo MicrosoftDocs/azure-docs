@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/12/2017
-ms.author: saweld
+ms.date: 01/09/2018
+ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace images
@@ -42,7 +42,7 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of December 18, 2017.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of January 9, 2018.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
@@ -98,6 +98,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | ezpublish | 2014-11 |
 | bitnami | fatfreecrm | 0-13 |
 | bitnami | ghost | 0-7 |
+| bitnami | ghost | default |
 | bitnami | gitlab | 8-5 |
 | bitnami | hadoop | 2-7 |
 | bitnami | hadoop | default |
@@ -230,6 +231,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | checkpoint | sg2 | sg-byol2 |
 | chef-software | chef-automate-vm-image | byol |
 | cisco | cisco-asav | asav-azure-byol |
+| cisco | cisco-csr-1000v | 16_5 |
 | cisco | cisco-csr-1000v | 16_6 |
 | cisco | cisco-csr-1000v | 16_7 |
 | cisco | cisco-csr-1000v | 3_16 |
@@ -252,6 +254,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cloudhub-technologies | wordpress-on-windows-2012-r2 | wordpress-on-windows-2012-r2 |
 | codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
 | codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
+| cohesive | vns3_4x_network_security | cohesive-vns3-4x-byol |
 | commvault | commvault | csmav11 |
 | composable | composable | composable-govt |
 | connecting-software | cb-replicator-byol | cbrep-gov-byol |
@@ -280,6 +283,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
 | flashgrid-inc | flashgrid-ol7-g | fg-17-05-ol74-g |
+| flashgrid-inc | flashgrid-ol7-g | fg-rh-gc |
 | fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
 | fortinet | fortinet-fortimanager | fortinet-fortimanager |
 | fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
@@ -506,6 +510,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | wowza | wowzastreamingengine | linux-byol |
 | wowza | wowzastreamingengine | windows-byol |
 | zerto | zerto-cloud-appliance-50 | zerto55u2zca |
+| zerto | zerto-cloud-appliance-50 | zerto55u3zca |
 
 ## Next steps
 * [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)

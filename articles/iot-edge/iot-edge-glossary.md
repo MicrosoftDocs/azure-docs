@@ -25,5 +25,5 @@ This article lists some of the common terms used in the IoT Edge articles.
 ## Next steps
 
 * See [IoT Hub glossary](#iot-hub-devguide-glossary.md)
-* Learn IoT Edge [module development](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules)
-* Learn IoT Edge [deployment](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring)
+* Learn IoT Edge [module development](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)
+* Learn IoT Edge [deployment](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)
