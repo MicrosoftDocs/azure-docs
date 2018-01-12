@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/19/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ---
 
@@ -24,7 +24,7 @@ This article explains how you can use the StorSimple Data Manager UI to transfor
 
 ## Use StorSimple Data Transformation
 
-The StorSimple Data Manager is the resource within which data transformation is instantiated. The Data Transformation service lets you move data from your StorSimple 8000 series on-premises device to blobs in Azure Storage or Azure Media Assets. To transform the StorSimple native format data, you need to specify the details about your StorSimple 8000 series device and the data of interest that you want to move to the storage account.
+The StorSimple Data Manager is the resource within which data transformation is instantiated. The Data Transformation service lets you move data from your StorSimple 8000 series on-premises device to blobs in Azure Storage. To transform the StorSimple native format data, you need to specify the details about your StorSimple 8000 series device and the data of interest that you want to move to the storage account.
 
 ### Create a StorSimple Data Manager service
 
@@ -135,18 +135,11 @@ Perform the following steps to create a job definition.
     
     1. Select the repository you created as the target from the dropdown list in the **Target account name**.
 
-    2. Depending upon whether you chose a Media Services account or an Azure Storage account, the steps are different.
-
-        - Choose the storage type as blobs or files. Specify the name of the storage container where the transformed data resides. Click **OK**.
+    2. Choose the storage type as blobs or files. Specify the name of the storage container where the transformed data resides. Click **OK**.
 
             ![Configure target data repo storage account](./media/storsimple-data-manager-ui/create-job-definition-16.png)
-    
-        - If you wish to create a multiple file media asset that is mapped to the directories in StorSimple volume, select the checkbox to operate in directory mode. Click **OK**.
-               
-            ![Configure target data repo media account](./media/storsimple-data-manager-ui/create-job-definition-15.png)
 
-
-12. You can also check the option to present an estimate of job duration before you run the job. Click **OK** to create the job definition. Your job definition is now complete. You can use this job definition multiple times via the UI with different runtime settings.
+11. You can also check the option to present an estimate of job duration before you run the job. Click **OK** to create the job definition. Your job definition is now complete. You can use this job definition multiple times via the UI with different runtime settings.
 
     ![Complete job definition](./media/storsimple-data-manager-ui/create-job-definition-13.png)
 
