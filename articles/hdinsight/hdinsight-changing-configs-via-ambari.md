@@ -103,9 +103,7 @@ These changes  affect all Tez jobs across the server. To get an optimal result, 
 
 ORC and Snappy both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
 
-For example, say you have an input data size of 50 GB. That data in ORC format with Snappy compression is 1 GB. Hive estimates the number of reducers needed as:
-
-    (number of bytes input to mappers / `hive.exec.reducers.bytes.per.reducer`)
+For example, say you have an input data size of 50 GB. That data in ORC format with Snappy compression is 1 GB. Hive estimates the number of reducers needed as:     (number of bytes input to mappers / `hive.exec.reducers.bytes.per.reducer`).
 
 With the default settings, this example is 4 reducers.
 
@@ -150,7 +148,7 @@ By default, Hive follows a set of rules to find one optimal query execution plan
 
 To enable CBO, navigate to the Hive **Configs** tab and search for `parameter hive.cbo.enable`, then switch the toggle button to **On**.
 
-    ![CBO](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO config](./media/hdinsight-changing-configs-via-ambari/cbo.png)
 
 The following additional configuration parameters increase Hive query performance when CBO is enabled:
 
@@ -158,7 +156,7 @@ The following additional configuration parameters increase Hive query performanc
 
     When set to true, Hive uses statistics stored in its metastore to answer simple queries like `count(*)`.
 
-    ![CBO](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
+    ![CBO stats](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
 
 * `hive.stats.fetch.column.stats`
 
