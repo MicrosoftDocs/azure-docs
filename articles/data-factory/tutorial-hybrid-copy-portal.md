@@ -155,7 +155,7 @@ In this step, you create a data factory, and launch the Azure Data Factory UI to
 
 ## Create a pipeline
 
-1. You see In the **General** tab of the Properties window at the bottom, and enter **SQLServerToBlobPipeline** for **Name**.
+1. In the **General** tab of the Properties window at the bottom, and enter **SQLServerToBlobPipeline** for **Name**.
 
    ![Pipeline name](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
 2. In the **Activities** toolbox, expand **Data Flow**, and drag-drop **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
