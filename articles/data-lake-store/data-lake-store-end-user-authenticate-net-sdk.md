@@ -81,7 +81,7 @@ Add this snippet in your .NET client application. Replace the placeholder values
 
 For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
-- Replease the Main() function with the following code:
+- Replace the Main() function with the following code:
 
     private static void Main(string[] args)
     {
