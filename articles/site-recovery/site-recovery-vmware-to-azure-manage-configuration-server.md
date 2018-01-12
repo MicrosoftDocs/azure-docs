@@ -115,7 +115,7 @@ For configuration server deployments before May 2016, certificate expiry was set
 - A notification banner appears on the vault resource page. Click the banner for more details.
 - If you see an **Upgrade Now** button, this indicates that there are some components in your environment that haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade components before you renew the certificate. You can't renew on older versions.
 
-## Renew the certificate
+### Renew the certificate
 
 1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**, and click the required configuration server.
 2. The expiry date appears under **Configuration Server health**
