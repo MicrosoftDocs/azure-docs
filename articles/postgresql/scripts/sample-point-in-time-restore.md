@@ -41,3 +41,4 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- [How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal](../howto-restore-server-portal.md)
