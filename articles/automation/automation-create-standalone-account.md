@@ -60,12 +60,11 @@ Complete the following steps to create an Azure Automation account in the Azure 
 4. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
 5. If you have more than one subscription, specify the subscription you want to use for the new account. For **Resource group**, enter or select a new or existing resource group. For **Location**, select an Azure datacenter location.
 6. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
-  > [!NOTE]
-  > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, it doesn't have a corresponding authentication identity in your classic deployment model subscription or Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription.  This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
-  > 
-  > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-  > When the service principal is not created, the Contributor role is not assigned.
+    If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, it doesn't have a corresponding authentication identity in your classic deployment model subscription or Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription.  This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
   
+    ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
+  
+    When the service principal is not created, the Contributor role is not assigned.
 7. To track the progress of the Automation account creation, in the menu, select **Notifications**.
 
 ### Resources included
