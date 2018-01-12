@@ -93,7 +93,7 @@ $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Cred
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if($s)
 {
