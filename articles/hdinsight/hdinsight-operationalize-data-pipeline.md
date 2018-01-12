@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/11/2017
-ms.author: ashish
+ms.date: 01/11/2018
+ms.author: ashishth
 
 ---
 # Operationalize a data analytics pipeline
@@ -158,10 +158,9 @@ To use the Oozie Web Console to view the status of your coordinator and workflow
 
 ### Configure Hive
 
-1. Upload the CSV file `2017-01-FlightData.csv` containing sample data for one month of flight data. 
-<!-- {TODO tbd This file type is not allowed}  You will need to upload the CSV file that contains sample data for one month flight data. You can download this CSV file from here: [2017-01-FlightData.csv](./code/hdinsight-operationalize-data-pipeline/setup/2017-01-FlightData.csv)  -->
+1. Download an example CSV file that contains flight data for one month. Download its ZIP file `2017-01-FlightData.zip` from the [HDInsight Github repository](https://github.com/hdinsight/hdinsight-dev-guide) and unzip it to the CSV file `2017-01-FlightData.csv`. 
 
-2. Copy this file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
+2. Copy this CSV file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
 
 You can copy the file using SCP in your `bash` shell session.
 
