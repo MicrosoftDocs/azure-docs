@@ -101,17 +101,17 @@
         },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
-            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md",
-            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
-            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis",
             "redirect_document_id": false
         },
         {
