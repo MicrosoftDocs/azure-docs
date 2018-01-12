@@ -40,6 +40,10 @@
       href: moderation-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: Concepts
   items: 
   - name: Image moderation
