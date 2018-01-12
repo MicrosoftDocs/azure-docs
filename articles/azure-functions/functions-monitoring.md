@@ -64,9 +64,11 @@ Get the instrumentation key and save it in a function app:
 
 ## Disable built-in logging
 
-If you enable Application Insights, we recommend that you disable the [built-in logging that uses Azure storage](#logging-to-storage). The built-in logging is useful for testing with light workloads, but it can cause storage failures in high-load conditions. For production monitoring, Application Insights is recommended. When you disable built-in logging, the **Monitor** tab for a function in the portal takes you to Application Insights.
+If you enable Application Insights, we recommend that you disable the [built-in logging that uses Azure storage](#logging-to-storage). The built-in logging is useful for testing with light workloads but is not intended for high-load production use. For production monitoring, Application Insights is recommended. If built-in logging is used in production, the logging record may be incomplete due to throttling on Azure Storage.
 
-To disable built-in logging to storage, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings).
+To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings).
+
+When you enable Application Insights and disable built-in logging, the **Monitor** tab for a function in the Azure portal takes you to Application Insights.
 
 ## View telemetry data
 
@@ -472,7 +474,7 @@ We recommend Application Insights for monitoring functions because it offers mor
 
 Built-in logging uses the storage account specified by the connection string in the `AzureWebJobsDashboard` app setting. If that app setting is configured, you can see the logging data in the Azure portal. In a function app page, select a function and then select the **Monitor** tab, and you get a list of function executions. Select a function execution to review the duration, input data, errors, and associated log files.
 
-If you have Application Insights enabled, [disable built-in logging](#disable-built-in-logging). In that case, the **Monitor** tab takes you to Application Insights.
+If you use Application Insights and have [built-in logging disabled](#disable-built-in-logging), the **Monitor** tab takes you to Application Insights.
 
 ### Real-time monitoring
 
