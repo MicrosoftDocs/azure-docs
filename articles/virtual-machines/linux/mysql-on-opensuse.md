@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/11/2018
 ms.author: cynthn
 
 ---
@@ -41,6 +41,11 @@ az vm create --resource-group mySQLSUSEResourceGroup \
    --generate-ssh-keys
 ```
 
+You also need to add a rule to the network security group to allow traffic over port 3306 for MySQL.
+
+```azurecli-interactive
+az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
+```
 
 ## Connect to the Virtual Machine
 
@@ -64,69 +69,31 @@ Follow the prompts to update your VM.
 ## Install and run MySQL on the virtual machine
 
 
-Install the MySQL Community Server edition.
+Install the MySQL Community Server edition. Reply to prompts as appropriate.
 
 ```bash
 sudo zypper install mysql-community-server
 ```
  
-Output:
-
-You just installed MySQL server for the first time.
-
-You can start it using:
- rcmysql start
-
-During first start empty database will be created for your automatically.
-
-PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
-To do so, start the server, then issue the following commands:
-
-'/usr/bin/mysqladmin' -u root password 'new-password'
-'/usr/bin/mysqladmin' -u root -h <hostname> password 'new-password'
-
-Alternatively you can run:
-'/usr/bin/mysql_secure_installation'
-
-which will also give you the option of removing the test
-databases and anonymous user created by default. This is
-strongly recommended for production servers.
-
  
- 
- 
- 
-Set MySQL to start when the system boots.
+Set MySQL to start when the system boots. 
 
 ```bash
-insserv mysql
+sudo systemctl enable mysql
+```
+Verify that MySQL is enabled.
 
-sudo insserv /usr/lib/systemd/system/mysql.service
+```bash
+systemctl is-enabled mysql
 ```
 
-Start the MySQL daemon (mysqld) manually.
+This should return: enabled.
 
-```bash   
-rcmysql start
-```
-   
-Check the status of the MySQL daemon.
- 
-```bash 
-rcmysql status
-```
-   
-Stop the MySQL daemon.
 
-```bash   
-rcmysql stop
-```
+## MySQL password
 
-## mySQL password
+After installation, the MySQL root password is empty by default. We recommended that you run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
 
-After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
-
-Run the script MySQL installation script.
 
 ```bash
 mysql_secure_installation
@@ -137,8 +104,7 @@ Log in to MySQL:
 ```bash  
 mysql -u root -p
 ```
-Enter the MySQL root password (which you changed in the previous step) and you are presented with a prompt where you can issue SQL statements to interact with the database.
-
+This switches you to the MySQL prompt where you can issue SQL statements to interact with the database.
 
 To create a new MySQL user, run the following command at the **mysql>** prompt:
 
@@ -152,7 +118,7 @@ The semi-colons (;) at the end of the line is crucial for ending the command.
 ## Create a database
 
 
-Create a database and grant the `mysqluser` user permissions on it.
+Create a database and grant the `mysqluser` user permissions.
 
 ```   
 CREATE DATABASE testdatabase;
@@ -174,24 +140,6 @@ To exit the MySQL database administration utility, type:
 
 ```    
 quit
-```
-
-## Add an endpoint
-
-```azurecli-interactive
-az vm open-port --port 3306 --resource-group mySQSUSEResourceGroup --name myVM
-```
-
-To remotely connect to the virtual machine from your computer, type:
-
-```   
-mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
-```   
-    
-For example, using the virtual machine you created in this tutorial, type this command:
-
-```   
-mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 ```
 
 
