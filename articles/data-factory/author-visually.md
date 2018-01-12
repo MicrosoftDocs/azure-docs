@@ -19,8 +19,17 @@ ms.author: shlo
 # Visually author data factories
 With the Azure Data Factory UX experience, users can visually author and deploy resources in their data factory without writing a single line of code. This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, and deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
 
-1. Configure VSTS Git Integration for collaboration, source control, or versioning
-2. Work directly with the Data Factory service
+1. Work directly with the Data Factory service
+2. Configure VSTS Git Integration for collaboration, source control, or versioning 
+
+## Authoring with Data Factory
+Another option is to author in Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing your changes, nor does it allow for collaboration or version control.
+
+![Configure Data Factory](media/author-visually/configure-data-factory.png)
+
+In Data Factory mode, there is only the 'Publish' mode and no 'Sync' mode. Any changes you make are published directly to the Data Factory service.
+
+![Data Factory Publish](media/author-visually/data-factory-publish.png)
 
 ## Authoring with VSTS Git Integration
 Authoring with VSTS Git integration allows for source control and collaboration while authoring your data factory pipelines. Users have the option to associate a data factory with a VSTS Git Account repository for source control, collaboration, and versioning etc. A single VSTS GIT account can have multiple repositories. However, a VSTS Git repository can only be associated with a single data factory. If you don't have a VSTS account and repository already, create one [here](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
@@ -69,14 +78,7 @@ Once you click 'sync', you can pull changes from the master branch to your local
 > The **master branch is not representative of what's deployed in the Data Factory service.** The master branch *must* be published manually to the Data Factory service.
 
 
-## Authoring with Data Factory
-Another option is to author in Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing your changes, nor does it allow for collaboration or version control.
 
-![Configure Data Factory](media/author-visually/configure-data-factory.png)
-
-In Data Factory mode, there is only the 'Publish' mode and no 'Sync' mode. Any changes you make are published directly to the Data Factory service.
-
-![Data Factory Publish](media/author-visually/data-factory-publish.png)
 
 ## Expression Language
 
