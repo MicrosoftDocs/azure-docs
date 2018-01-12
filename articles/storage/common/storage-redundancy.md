@@ -49,11 +49,17 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 
 ### ZRS Classic accounts
 
-The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
+The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. 
+ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover
+to the secondary. 
 
-Once ZRS is generally available in a region, you can migrate your ZRS Classic storage accounts in that region to ZRS accounts via an automated migration process. You will no longer be able to create a ZRS Classic account from the portal in that region, but you can create one through other means.  
+ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
 
-ZRS accounts support manually migrating a ZRS account in that region to or from an LRS, GRS, or RAGRS account. You can perform this manual migration using AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries.
+Once ZRS is generally available in a region, you can migrate your ZRS Classic storage accounts in that region to ZRS accounts via an automated migration process. 
+You will no longer be able to create a ZRS Classic account from the portal in that region, but you can create one through other means.  
+
+ZRS accounts support manually migrating a ZRS account in that region to or from an LRS, GRS, or RAGRS account. You can perform this manual migration using AzCopy, 
+Azure Storage Explorer, Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries.
 
 > [!NOTE]
 > ZRS Classic accounts are planned for deprecation and required migration on March 31, 2021. Microsoft will send more details to ZRS Classic customers prior to deprecation.
