@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
