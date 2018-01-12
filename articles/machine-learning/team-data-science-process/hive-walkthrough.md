@@ -127,11 +127,11 @@ The data should now be in Azure Blob storage, and ready to be consumed within th
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
+To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](customize-hadoop-cluster.md).
 
-In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down-sample this data to be used within Azure Machine Learning for building models.
+In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down-sample this data to be used within Machine Learning for building models.
 
-To prepare the cluster for exploratory data analysis, we download the .hql files containing the relevant Hive scripts from [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. To do this, open the **Command Prompt** from within the head node of the cluster and issue the following two commands:
+To prepare the cluster for exploratory data analysis, we download the .hql files containing the relevant Hive scripts from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. To do this, open the command prompt from within the head node of the cluster, and run the following two commands:
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
@@ -141,7 +141,7 @@ These two commands download all .hql files needed in this walkthrough to the loc
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
