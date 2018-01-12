@@ -1,6 +1,6 @@
 ---
 title: Create a standalone Azure Automation account | Microsoft Docs
-description: This article walks you through the steps creating, testing, and using an example security principal authentication in Azure Automation.
+description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
 services: automation
 documentationcenter: ''
 author: georgewallace
@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # Create a standalone Azure Automation account
-This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without additional management solutions or integration with Azure Log Analytics in Operations Management Suite (OMS). You can add those management solutions or integrate with Log Analytics for advanced monitoring of runbook jobs at any point in the future. 
+This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Log Analytics in Operations Management Suite (OMS). You can add those management solutions or integrate with Log Analytics for advanced monitoring of runbook jobs at any point in the future. 
 
 With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model.
 
@@ -28,7 +28,7 @@ When you create an Automation account in the Azure portal, these accounts are au
   - Creates a service principal in Azure AD.
   - Creates a certificate.
   - Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
-* **Classic Run As account**. This account uploads a management certificate. The certificate is used to manage classic resources by using runbooks.
+* **Classic Run As account**. This account uploads a management certificate. The certificate manages classic resources by using runbooks.
 
 With these accounts created for you, you can quickly start building and deploying runbooks to support your automation needs.  
 
@@ -49,7 +49,7 @@ To verify user roles:
 4. After you select a specific user, select **Profile**. The value of the **User type** attribute under the user's profile should not be **Guest**.
 
 ## Create a new Automation account in the Azure portal
-Complete the following steps to create an Azure Automation account in the Azure portal.    
+To create an Azure Automation account in the Azure portal, complete the following steps:    
 
 1. Sign in to the Azure portal with an account that's a member of the subscription Administrators role and a coadministrator of the subscription.
 2. Select **New**.<br><br> ![Select New in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
@@ -63,35 +63,37 @@ Complete the following steps to create an Azure Automation account in the Azure 
   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
   >
 5. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
-6. If you have more than one subscription, specify the subscription you want to use for the new account. For **Resource group**, enter or select a new or existing resource group. For **Location**, select an Azure datacenter location.
-7. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
+6. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account. 
+7. For **Resource group**, enter or select a new or existing resource group. 
+8. For **Location**, select an Azure datacenter location.
+9. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
     
   > [!NOTE]
-  > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, it doesn't have a corresponding authentication identity in your classic deployment model subscription or Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
+  > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, the account doesn't have a corresponding authentication identity in your classic deployment model subscription or in the Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
   >
   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
   >
   > When the service principal is not created, the Contributor role is not assigned.
   >
-8. To track the progress of the Automation account creation, in the menu, select **Notifications**.
+10. To track the progress of the Automation account creation, in the menu, select **Notifications**.
 
 ### Resources included
-When the Automation account is successfully created, several resources are automatically created for you. The following table summarizes resources for the Run As account.<br>
+When the Automation account is successfully created, several resources are automatically created for you. The following table summarizes resources for the Run As account.
 
 | Resource | Description |
 | --- | --- |
 | AzureAutomationTutorial Runbook |An example graphical runbook that demonstrates how to authenticate by using the Run As account. The runbook gets all Resource Manager resources. |
 | AzureAutomationTutorialScript Runbook |An example PowerShell runbook that demonstrates how to authenticate by using the Run As account. The runbook gets all Resource Manager resources. |
 | AzureAutomationTutorialPython2 Runbook |An example Python runbook that demonstrates how to authenticate by using the Run As account. The runbook lists all resource groups present in the subscription. |
-| AzureRunAsCertificate |A certificate asset that's automatically created during Automation account creation or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
-| AzureRunAsConnection |A connection asset that's automatically created during Automation account creation or by using a PowerShell script for an existing account. |
+| AzureRunAsCertificate |A certificate asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
+| AzureRunAsConnection |A connection asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. |
 
-The following table summarizes resources for the Classic Run As account.<br>
+The following table summarizes resources for the Classic Run As account.
 
 | Resource | Description |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM name and status. |
-| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM name and status. |
+| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
+| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
 | AzureClassicRunAsCertificate |A certificate asset that's automatically created. The certificate authenticates with Azure so you can manage Azure classic resources from runbooks. This certificate has a one-year lifespan. |
 | AzureClassicRunAsConnection |A connection asset that's automatically created. The asset authenticates with Azure so you can manage Azure classic resources from runbooks. |
 
