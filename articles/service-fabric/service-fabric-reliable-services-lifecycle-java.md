@@ -112,7 +112,6 @@ Similarly, Service Fabric needs the secondary replica that's promoted to start l
     - The service's `StatefulServiceBase.runAsync()` method is called.
 2. After all the replica listener's `openAsync()` calls finish and `runAsync()` is called, `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
-
 ### Common issues during stateful service shutdown and primary demotion
 Service Fabric changes the primary of a stateful service for multiple reasons. The most common reasons are [cluster rebalancing](service-fabric-cluster-resource-manager-balancing.md) and [application upgrade](service-fabric-application-upgrade.md). During these operations, it's important that the service respects the `cancellationToken`. This also applies during normal service shutdown, such as if the service was deleted.
 

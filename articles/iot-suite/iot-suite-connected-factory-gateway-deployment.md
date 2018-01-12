@@ -165,7 +165,7 @@ You can now connect to the gateway from the cloud, and you are ready to add OPC 
 
 ## Add your own OPC UA servers
 
-To add your own OPC US servers to the Connected factory preconfigured solution:
+To add your own OPC UA servers to the Connected factory preconfigured solution:
 
 1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal. Follow the same steps as in the previous section to establish a trust relationship between the Connected factory portal and the OPC UA server.
 
@@ -177,6 +177,6 @@ To add your own OPC US servers to the Connected factory preconfigured solution:
 
 ## Next steps
 
-To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).
+Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

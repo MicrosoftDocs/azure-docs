@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 01/11/2018
 ms.author: sajagtap
 ---
 
@@ -16,17 +16,19 @@ ms.author: sajagtap
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## Create a free Azure account
+## Sign up for the Content Moderator media processor
+
+### Create a free Azure account
 
 [Start here](https://azure.microsoft.com/free/) to create a free Azure account if you don't have one already.
 
-## Create an Azure Media Services account
+### Create an Azure Media Services account
 
 The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.
 
 [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
-## Request access to Content Moderator
+### Request access to Content Moderator private preview
 
 [Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
 
@@ -34,7 +36,7 @@ The Content Moderator's video capability is available as a private preview **med
    - Your Azure Media Services account name
    - Your region
 
-## Get Azure Active Directory credentials
+### Get Azure Active Directory credentials
 
    1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
    1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
@@ -42,11 +44,24 @@ The Content Moderator's video capability is available as a private preview **med
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
+## Create your Visual Studio project
 
-## Scan your videos for possible adult and racy content
+1. Add a new **Console app (.NET Framework)** project to your solution.
 
-After getting access to the Content Moderator media processor, use the following sample C# code to run a Content Moderator job. This code requires the **windowsazure.mediaservices** and **windowsazure.mediaservices.extensions** NuGet packages available on [NuGet](https://www.nuget.org/).
+   In the sample code, name the project **VideoModeration**.
 
+1. Select this project as the single startup project for the solution.
+
+### Install required packages
+
+Install the following NuGet packages available on [NuGet](https://www.nuget.org/).
+
+- windowsazure.mediaservices
+- windowsazure.mediaservices.extensions
+
+### Update the program's using statements
+
+Modify the program's using statements.
 
 	using System;
 	using System.Linq;
@@ -55,54 +70,60 @@ After getting access to the Content Moderator media processor, use the following
 	using System.IO;
 	using System.Threading;
 
-	namespace VideoModeratorQuickStart
-	{
-    class Program
-    {
-        // declare constants and globals
-        private static CloudMediaContext _context = null;
+### Initialize application-specific settings
+
+Add the following static fields to the **Program** class in Program.cs.
+
+	// declare constants and globals
+	private static CloudMediaContext _context = null;
     
-        // Azure Media Services authentication assuming Service Principal Authentication
-        private const string AZURE_AD_TENANT_NAME = "Your Azure AD Tenant Name";
-        private const string CLIENT_ID = "Your Client ID";
-        private const string CLIENT_SECRET = "Your Client Secret";
+    // Azure Media Services authentication
+    private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
+    private const string CLIENT_ID = "**********************";
+    private const string CLIENT_SECRET = "***********************";
 
-        // REST API endpoint, example shown.      
-        private const string REST_API_ENDPOINT = "https://accountname.restv2.westcentralus.media.azure.net/API";
+    // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
+    private const string REST_API_ENDPOINT = "***************";
 
-        // Content Moderator Media Processor Name
-        private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
+    // Content Moderator Media Processor Name
+    private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
 
-        // Input (for example, test.mp4) and output files in the current directory of the executable
-        private const string INPUT_FILE = "INPUT VIDEO FILE";
-        private const string OUTPUT_FOLDER = "";
+    // Input and Output files in the current directory of the executable
+    private const string INPUT_FILE = "*****.mp4";
+    private const string OUTPUT_FOLDER = "";
 
-        // A preset file with the version number, also in the current directory
+### Create a preset file (json)
+
+Create a JSON file in the current directory with the version number.
+
         private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
         //Example file content:
         //        {
         //             "version": "2.0"
         //        }
+        private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
-        static void Main(string[] args)
-        {
-           
-            // Read the preset settings
-            string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
+## Add code to moderate a video and get results
 
-            // Get Azure AD credentials
-            var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
-                       new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
-                       AzureEnvironments.AzureCloudEnvironment);
+### Add the following code to the main method
 
-            // Initialize an Azure AD token
-            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+		// Read the preset settings
+        string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
 
-            // Create a media context
-            _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
+        // Get Azure AD credentials
+        var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
+        	new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
+            AzureEnvironments.AzureCloudEnvironment);
 
-            RunContentModeratorJob(INPUT_FILE, OUTPUT_FOLDER, configuration);
-        }
+        // Initialize an Azure AD token
+        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+		// Create a media context
+        _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
+
+        RunContentModeratorJob(INPUT_FILE, OUTPUT_FOLDER, configuration);
+        
+### Add the method to read the input video, scan it, and download the output
 
         static void RunContentModeratorJob(string inputFilePath, string output, string configuration)
         {
@@ -164,6 +185,10 @@ After getting access to the Content Moderator media processor, use the following
             DownloadAsset(job.OutputMediaAssets.First(), output);
         }
 
+### Add a couple of helper functions
+
+These methods download the Content Moderator output file (JSON) from the Azure Media Services asset, and help track the status of the moderation job so that the program can log a running status to the console.
+
         static void DownloadAsset(IAsset asset, string outputDirectory)
         {
             foreach (IAssetFile file in asset.AssetFiles)
@@ -204,7 +229,7 @@ After getting access to the Content Moderator media processor, use the following
 
     }
 
-## Analyze the JSON response
+## Run the program and review the output
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
