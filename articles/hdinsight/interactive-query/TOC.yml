@@ -206,7 +206,7 @@
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
-      - name: title: Optimize clusters with the Ambari web UI
+      - name: Optimize clusters with the Ambari web UI
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
       - name: Use Ambari REST API
