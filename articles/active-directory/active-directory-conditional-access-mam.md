@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -386,9 +386,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     - **Require approved client app (preview)**
 
-    - **Require one of the selected controls**   
+    - **Require all the selected controls**   
  
-    ![Conditional access](./media/active-directory-conditional-access-mam/11.png)
+    ![Conditional access](./media/active-directory-conditional-access-mam/13.png)
 
 
 

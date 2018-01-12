@@ -20,7 +20,7 @@ ms.custom: mvc
 
 Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices in cases where their credentials, whether a SAS token or an X.509 certificate, may be compromised. This article describes how to revoke device access at the provisioning step.
 
-To learn about revoking device access to an IoT hub after the device has been provisioned. see [Disable Devices](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+To learn about revoking device access to an IoT hub after the device has been provisioned. see [Disable Devices](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Be aware of the retry policy of devices that you revoke access for. For example, a device with an infinite retry policy may continuously try to register with the provisioning service, consuming service resources and possibly impacting performance.
