@@ -98,7 +98,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
    
     ![Data factory home page](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
-11. Click **Edit** tab (or) click **Create pipeline** tile. 
+11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:  
 
     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 

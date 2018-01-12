@@ -182,12 +182,9 @@ END
 ## Create a pipeline
 In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline. 
 
-1. In the **get started** page of Data Factory UI, click **Create pipeline**, or switch to the **Edit** tab. 
+1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile. 
 
-   ![Get started page of Data Factory UI](./media/tutorial-incremental-copy-portal/get-started-page.png)
-2. Click **+ (plus)**, and click **Pipeline**. 
-
-   ![New pipeline menu](./media/tutorial-incremental-copy-portal/new-pipeline-menu.png)    
+   ![Get started page of Data Factory UI](./media/tutorial-incremental-copy-portal/get-started-page.png)    
 3. In the **General** page of the **Properties** window for the pipeline, enter **IncrementalCopyPipeline** name. 
 
    ![Pipeline name](./media/tutorial-incremental-copy-portal/pipeline-name.png)

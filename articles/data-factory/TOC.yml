@@ -65,7 +65,9 @@
       - name: PowerShell
         href: tutorial-incremental-copy-powershell.md
     - name: 5.2 - Copy from multiple tables 
-      href: tutorial-incremental-copy-multiple-tables-powershell.md
+      items:
+      - name: PowerShell
+        href: tutorial-incremental-copy-multiple-tables-powershell.md
     - name: 5.3 - Use change tracking feature 
       items:
       - name: Azure portal
