@@ -16,6 +16,6 @@
     | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** when you create a new plan.  |
     | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Globally unique name | Use an existing storage account or create a new one.   |
 
-4. Click **Create** to create a function app in Azure with these settings. After the provisioning is complete, make a note of the **Site URL** value, which is the address of your function app in Azure. 
+4. Click **Create** to create a function app in Azure with these settings and deploy your function project code. After the deployment is complete, make a note of the **Site URL** value, which is the address of your function app in Azure. 
 
     ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)

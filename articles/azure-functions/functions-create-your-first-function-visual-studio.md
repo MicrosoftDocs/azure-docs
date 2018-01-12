@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 01/11/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -28,15 +28,17 @@ In this article, you learn how to use the Visual Studio 2017 tools for Azure Fun
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-If you prefer, you can instead [watch the video](#watch-the-video).
+This topic includes [a video](#watch-the-video) that demonstrates the same basic steps.
 
 ## Prerequisites
 
-To complete this tutorial, install:
+To complete this tutorial:
 
-* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
+* Install [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Make sure you have updated to the most recent version of Azure Functions and WebJobs Tools. Do this under **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -44,17 +46,17 @@ To complete this tutorial, install:
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-A code file is added to your project that contains a class that implements your function code. This code is based on a template, which receives a name value and echos it back. The **FunctionName** attribute sets the name of your function. The **HttpTrigger** attribute indicates the message that triggers the function. 
+Visual Studio creates a project and in it a class that contains boilerplate code for the chosen function type. The **FunctionName** attribute on the method sets the name of the function. The **HttpTrigger** attribute specifies that the function is triggered by an HTTP request. The boilerplate code sends an HTTP response that includes a value from the request body or query string. You can add input and output bindings to a function by applying the appropriate attributes to the method. For more information, see the [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) section of the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-Now that you have created your function app project and an HTTP-triggered function, you can test it on your local computer.
+Now that you have created your function project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
 
-1. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools.  You may also need to enable a firewall exception so that the tools can handle HTTP requests.
+1. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
 
 2. Copy the URL of your function from the Azure Functions runtime output.  
 
@@ -78,7 +80,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
 
-    The URL that calls your HTTP triggered function looks like this:
+    The URL that calls your HTTP triggered function should be in the following format:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
