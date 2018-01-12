@@ -33,5 +33,5 @@ image-moderation-quickstart-dotnet.md).
 See all samples at the [Content Moderator .NET samples on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
 
 ## REST API samples
-- [eCommerce catalog moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) - [See tutorial](ecommerce-retail-catalog-moderation.md).
-- [Facebook content moderation](https://github.com/MicrosoftContentModerator/samples-fbPageModeration) - [See tutorial](facebook-post-moderation.md).
+- [eCommerce catalog moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). See [tutorial](ecommerce-retail-catalog-moderation.md).
+- [Facebook content moderation](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). See [tutorial](facebook-post-moderation.md).
