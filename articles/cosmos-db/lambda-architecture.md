@@ -24,7 +24,7 @@ To implement a lambda architecture on Azure, you can combine the following techn
 * [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/), the industry's first globally distributed, multi-model database service. 
 * [Apache Spark for Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/), a processing framework that runs large-scale data analytics applications
 * Azure Cosmos DB [change feed](change-feed.md), which streams new data to the batch layer for HDInsight to process
-* The [Spark Connector](spark-connector.md)
+* The [Spark to Azure Cosmos DB Connector](spark-connector.md)
 
 This article describes how to implement both a lambda architecture based on the original multi-layer design, or a "rearchitected" lambda architecture that simplifies operations.  
 
