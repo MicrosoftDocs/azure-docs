@@ -18,11 +18,25 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-## Create storage class
+## Built in storage classes
 
 A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-The following manifest can be used to create a storage class for an Azure disk. 
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the `kubectl get storageclass` to see these.
+
+Output:
+
+```console
+NAME                PROVISIONER                AGE
+default (default)   kubernetes.io/azure-disk   1h
+managed-premium     kubernetes.io/azure-disk   1h
+```
+
+If these storage classes work for your needs, you do not need to created a new one.
+
+## Create storage class
+
+If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. 
 
 ```yaml
 apiVersion: storage.k8s.io/v1beta1
@@ -32,6 +46,7 @@ metadata:
 provisioner: kubernetes.io/azure-disk
 parameters:
   kind: Managed
+  storageaccounttype: Standard_LRS
 ```
 
 ## Create persistent volume claim
@@ -77,37 +92,6 @@ spec:
         claimName: azure-managed-disk
 ```
 
-## Mount options
-
-Default fileMode and dirMode values differ between Kubernetes versions as described in the following table. 
-
-| version | value |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 or above | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 or above | 0755 |
-
-If using a cluster of version 1.8.5 or greater, mount options can be specified on the storage class object. The following example sets `0777`. 
-
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: azure-managed-disk
-provisioner: kubernetes.io/azure-disk
-mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-parameters:
-  kind: Managed
-```
-
-If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the `runAsUser` value set to `0`. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
-
 ## Next steps
 
 Learn more about Kubernetes persistent volumes using Azure disks.
@@ -117,18 +101,9 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-list]: /cli/azure/group#az_group_list
-[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
-[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[premium-storage]: ../virtual-machines/windows/premium-storage.md
