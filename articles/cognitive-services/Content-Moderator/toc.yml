@@ -9,25 +9,41 @@
   - name: Review tool
     href: quick-start.md
   - name: Moderation APIs
-    items: 
-    - name: Images
+    items:
+    - name: Helper library - .NET
+      href: content-moderator-helper-quickstart-dotnet.md
+    - name: Images - API console
       href: try-image-api.md
-    - name: Custom images
+    - name: Images - .NET
+      href: image-moderation-quickstart-dotnet.md
+    - name: Custom images - API console
       href: try-image-list-api.md
-    - name: Text
+    - name: Custom images - .NET
+      href: image-lists-quickstart-dotnet.md
+    - name: Text - API console
       href: try-text-api.md
-    - name: Custom terms
+    - name: Text - .NET
+      href: text-moderation-quickstart-dotnet.md
+    - name: Custom terms - API console
       href: try-terms-list-api.md
-    - name: Videos
+    - name: Videos - .NET
       href: video-moderation-api.md
   - name: Review APIs
     items: 
-    - name: Jobs
+    - name: Jobs - API console
       href: try-review-api-job.md
-    - name: Reviews
+    - name: Jobs - .NET
+      href: moderation-jobs-quickstart-dotnet.md
+    - name: Reviews - API console
       href: try-review-api-review.md
-    - name: Workflows
+    - name: Reviews - .NET
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: Concepts
   items: 
   - name: Image moderation
@@ -54,7 +70,7 @@
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: Review text
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Verify credentials
+    - name: Manage credentials
       href: Review-Tool-User-Guide/Credentials.md
     - name: Use connectors
       href: Review-Tool-User-Guide/Connectors.md
@@ -76,9 +92,7 @@
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: Samples
-    href: https://github.com/MicrosoftContentModerator
+  - name: SDK and samples
+    href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md
