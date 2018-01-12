@@ -14,12 +14,14 @@ ms.tgt_pltfrm: NA
 
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # How to specify environment variables for services in Service Fabric
 
 This article shows you how to specify environment variables for a service or container in Service Fabric.
+
+## Procedure for specifying environment variables for services
 
 In this example, you set an environment variable for a container. The article assumes you already have an application and service manifest.
 
@@ -49,7 +51,7 @@ In this example, you set an environment variable for a container. The article as
       </ServiceManifestImport>
     ```
 
-# Next steps
+## Next steps
 To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
 
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

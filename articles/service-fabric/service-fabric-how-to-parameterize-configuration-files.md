@@ -14,12 +14,14 @@ ms.tgt_pltfrm: NA
 
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # How to parameterize configuration files in Service Fabric
 
 This article shows you how to parameterize a configuration file in Service Fabric.
+
+## Procedure for parameterizing configuration files
 
 In this example, you override a configuration value using parameters in your application deployment.
 
@@ -71,7 +73,7 @@ In this example, you override a configuration value using parameters in your app
 
 When publishing your application from Visual Studio using the Cloud.xml publish profile, your service is configured to use port 80. If you deploy the application without specifying the MyWebAPI_PortNumber parameter, the service uses port 8080.
 
-# Next steps
+## Next steps
 To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
 
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

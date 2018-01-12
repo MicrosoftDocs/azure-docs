@@ -1,5 +1,5 @@
 ---
-title: How to specify the port number of a service using parameters in Service Fabric | Microsoft Docs
+title: How to specify the port number of a service using parameters in Azure Service Fabric | Microsoft Docs
 description: Shows you how to use parameters to specify the port for an application in Service Fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: NA
 
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # How to specify the port number of a service using parameters in Service Fabric
 
 This article shows you how to specify the port number of a service using parameters in Service Fabric using Visual Studio.
+
+## Procedure for specifying the port number of a service using parameters
 
 In this example, you set the port number for your asp.net core web API using a parameter.
 
@@ -84,7 +86,7 @@ In this example, you set the port number for your asp.net core web API using a p
 
 When publishing your application from Visual Studio using the Cloud.xml publish profile, your service is configured to use port 80. If you deploy the application without specifying the MyWebAPI_PortNumber parameter, the service uses port 8080.
 
-# Next steps
+## Next steps
 To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
 
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

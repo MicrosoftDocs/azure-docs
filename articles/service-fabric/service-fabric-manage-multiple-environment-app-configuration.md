@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 
 ms.workload: NA
 ms.date: 01/09/2017
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # Manage applications for multiple environments
