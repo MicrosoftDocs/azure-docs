@@ -8,13 +8,13 @@ manager: timlt
 
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Linux - preview
+# Deploy Azure IoT Edge on a simulated device in Linux or MacOS - preview
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
 
@@ -31,10 +31,14 @@ The simulated device that you create in this tutorial is a monitor that generate
 
 ## Prerequisites
 
-This tutorial assumes that you're using a computer or virtual machine running Linux to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
+This tutorial uses your computer or virtual machine like an Internet of Things device. To turn your machine into an IoT Edge device, the following services are required:
 
-- [Install Docker for Linux][lnk-docker-ubuntu] and make sure it's running. 
-- Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
+* Python pip, to install the IoT Edge runtime.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, to run the IoT Edge modules
+   * [Install Docker for Linux][lnk-docker-ubuntu] and make sure that it's running. 
+   * [Install Docker for Mac][lnk-docker-mac] and make sure that it's running. 
 
 ## Create an IoT hub
 
@@ -128,4 +132,5 @@ This tutorial is the prerequisite for all of the other IoT Edge tutorials. You c
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
