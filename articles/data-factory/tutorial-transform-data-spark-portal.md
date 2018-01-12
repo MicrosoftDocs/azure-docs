@@ -111,7 +111,7 @@ You author two Linked Services in this section:
 
 ### Create an Azure Storage linked service
 
-1. In the **get started** page, click **Create pipeline** tile, or switch to the **Edit** tab on the left. 
+1. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
 
     ![Create pipeline tile](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
