@@ -119,7 +119,7 @@ In this tutorial, you do the following steps:
 
 ## Azure SSIS integration runtimes in the portal
 
-1. In the Data Integration Application, switch to the **Edit** tab, click **Connections**, and then switch to **Integration Runtimes** tab to view existing integration runtimes in your data factory. 
+1. In the Azure Data Factory UI, switch to the **Edit** tab, click **Connections**, and then switch to **Integration Runtimes** tab to view existing integration runtimes in your data factory. 
     ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 1. Click **New** to create a new Azure-SSIS IR. 
 

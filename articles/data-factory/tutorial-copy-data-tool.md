@@ -106,7 +106,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab. 
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab. 
 
 ## Use Copy Data tool to create a pipeline
 

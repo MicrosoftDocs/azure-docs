@@ -105,7 +105,7 @@ In this step, you create a data factory, and launch the Azure Data Factory UI to
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create a pipeline
 In this step, you create a pipeline with a Copy activity in the data factory. The Copy activity copies data from Azure Blob Storage to Azure SQL Database. In the [Quickstart tutorial](quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
