@@ -35,7 +35,7 @@ Questions and answers are arranged in the following categories:
 
 ### Once I have moved to Azure portal, can I still create a StorSimple Manager service in the classic portal?
 
-No. Once you have migrated your StorSimple Manager service to the Azure portal, you cannot create a new service in the classic portal. Also, [the classic portal won't be available from January 8, 2018](https://azure.microsoft.com/en-in/updates/azure-portal-updates-for-classic-portal-users). 
+No. Once you have migrated your StorSimple Manager service to the Azure portal, you cannot create a new service in the classic portal. Also, [the classic portal won't be available from January 8, 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### I have multiple StorSimple Managers running in the classic portal. Can I choose which ones to move to the Azure portal?
 
