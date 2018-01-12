@@ -18,10 +18,12 @@ ms.author: v-geberr
 
 > [!div class="checklist"]
 * Your LUIS **[LUIS endpoint key](manage-keys#endpoint-key)**. 
-* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. 
+* Your existing LUIS [**application ID**](./luis-get-started-create-app.md) for the [Home Automation example](luis-get-started-create-app.md). The application ID is shown in the application's Settings page. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
+
+All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/azure-function-application-insights-endpoint). 
 
 ## Scenario
 This tutorial will add LUIS request and response information to the ApplicationInsights telemetry data storage. 
@@ -68,7 +70,7 @@ For this tutorial, all 4 services are in the "West US 2" region.
 
     ![Azure Search](./media/) 
 
-3. Create the Function app with settings including account name, pricing tiers, etc. Select **Consumption Plan** for the Hosting plan. Turn on **Application Insights**. Select "West US 2" for he Hosting Plan and Application Insights Location regions. Check **Pin to dashboard** so you can quickly return to the function. Select **Create**.
+3. Create the Function app with settings including account name of `LUIS-Fn-AppInsights-Tutorial`, pricing tiers, etc. Select **Consumption Plan** for the Hosting plan. Turn on **Application Insights**. Select "West US 2" for he Hosting Plan and Application Insights Location regions. Check **Pin to dashboard** so you can quickly return to the function. Select **Create**.
 
     ![Function app creation settings](./media/) 
 
@@ -84,29 +86,7 @@ By default, when you call the function from an HTTP request with a query string 
 
 The `Run` function code is in `run.csx` and contains:
 
-```CScharp
-using System.Net;
-
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
-
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
-    name = name ?? data?.name;
-
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
-}
-```
+   [!code-javascript[Package.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.original.csx)]
 
 You can test the function in the far-right **Test** pane. Click on **Run**. You can see the log of the function at the bottom, under the code window. Click the blue **^** to enlarge the log view. 
 
@@ -208,8 +188,10 @@ Add the `EndpointQuery` method:
 
 Save the file.
 
+The [DependencyTelemetry](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.dependencytelemetry?view=azure-dotnet) constructor takes a Name and Type property. Both are arbitrary in this example. The Name is set to `LUIS-dependency-` + the region. This name will be used to find the LUIS query results later in the tutorial.
+
 ## Add Application Insights successful log to LUIS class
-The `ApplicationInsightsTraceSuccess` adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call.
+The `ApplicationInsightsTraceSuccess` adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call. The query result is flattened including all intents and entities. Each item in the array is numbered for each property.
 
 Add the `ApplicationInsightsTraceSuccess` method:
 
@@ -236,11 +218,131 @@ Change the `Run` method to add the region either through the querystring or body
 Save the file.
 
 ## Test successful LUIS Query
+Now that the code is in the function, it is time to test a successful function call. While still in the function, open the far-right test panel.
+
+1. Change the JSON query to the following HomeAutomation query:
+
+    ```JSON
+    {
+        "query": "turn on the hall lights"
+    }
+    ```
+    
+    If you are using Bing Spell Check, change the query to the following where `lights` is now misspelled as `lightz`
+    
+    ```JSON
+    {
+        "query": "turn on the hall lightz"
+    }
+    ```
+
+2. Click the Test button.
+
+3. Review the HTTP response **Output** shown below the test query. The response from LUIS looks exactly as if it was made directly to LUIS. There is no difference. 
+
 ## Test failing LUIS Query
+Make sure the the erroring path is also returning the LUIS response. 
+
+1. Change the name of the HTTP Header to have an extra `y` at the end of `LUISsubscriptionKey`. Since the proper header isn't sent, LUIS should response with a 4xx error.
+
+    Code before this change:
+    
+    ```CSharp
+    httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", LUISsubscriptionKey);
+    ```
+    
+    Code after this change:
+    
+    ```CSharp
+    httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", LUISsubscriptionKeyy);
+    ```
+
+2. Save the file. Click on the **Test** button.
+
+3. Review the HTTP response **Output** shown below the test query. The response from LUIS looks exactly as if it was made directly to LUIS. There is no difference. 
+
+## Test from Curl, an HTTP client
+This test is outside the Azure portal. 
+
+1. Get the function's URL by clicking on `</> Get function` in the top, middle window to the right of the Run button. 
+
+2. Copy this URL.  
+
+3. Open a command/terminal window to use [Curl](https://curl.haxx.se/). Enter the following Curl command to make an HTTP request into the Azure function, replace `<URL>` with the URL from step 2:
+
+```
+curl -H "Content-Type: application/json" -X POST -d '{"query":"turn on the lights"}' <URL>
+```
+
+The Curl response is:
+```
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   599  100   569  100    30    569     30  0:00:01 --:--:--  0:00:01   697{
+  "query": "turn on the lights",
+  "topScoringIntent": {
+    "intent": "HomeAutomation.TurnOn",
+    "score": 0.9835362
+  },
+  "intents": [
+    {
+      "intent": "HomeAutomation.TurnOn",
+      "score": 0.9835362
+    },
+    {
+      "intent": "None",
+      "score": 0.0832152
+    },
+    {
+      "intent": "HomeAutomation.TurnOff",
+      "score": 0.0231100265
+    }
+  ],
+  "entities": [
+    {
+      "entity": "lights",
+      "type": "HomeAutomation.Device",
+      "startIndex": 12,
+      "endIndex": 17,
+      "score": 0.637476563
+    }
+  ]
+}
+
+```
+
+The Curl command did not have to pass the LUIS App ID, LUIS subscription Key, or Bing Subscription Key. The command only has to pass the query. 
+ 
 ## View LUIS entries in Application Insights
+Open Application Insights to see the LUIS entries. 
+
+1. In the portal, select `All resources` then filter by the name `LUIS-Fn-AppInsights-Tutorial`. The `All resources` icon is a 9x9 green grid. 
+2. Click on the resource with the type `Application Insights`. The icon for Application Insights is a light blub. 
+3. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. The listing will have Trace, Request, Dependency, and Exception data. Dependencies, such as the LUIS query results, are marked with a yellow bar to the left of the item.
+4. Filter on `LUIS-dependency-` and hit enter on the keyboard. The list is narrowed to just LUIS query results.
+5. Select the 2nd entry from the top -- the successful LUIS query. A new window displays more detailed data including the custom data for the successful LUIS query at the far-right. The Custom Data corresponds to the telemetry properties. The Command entry is the URL. 
+    When you are done, select the far-right top `X` to return to the list of dependency items. 
+6. Select the top entry -- the erroring LUIS query. Remember this error was due to changing the required HTTP value to have an extra `y`. The dependency information shows the Custom Data from the `ApplicationInsightsTraceError` method, including the error message from LUIS. 
+     When you are done, select the far-right top `X` to return to the list of dependency items. 
+
+> [!Tip]
+> If you want to save the dependency list and return to it later, click on `...More` above the filter box and click `Save favorite`.
+
 ## View LUIS entries in Analytics
+Application Insights entries are stored in [Analytics](). Analytics gives you the power to query the data with the Kusto language, as well as export it to PowerBi. 
+
+1. Click on `Analytics` at the top of the dependency listing, above the filter box. 
+2. A new window opens with a query window on top and a data table window below. If you have used databases before, this should feel familiar. 
+
+    ```SQL
+     dependencies
+    | where timestamp >= datetime(2018-01-11T00:49:59.999Z) and timestamp < datetime(2018-01-12T00:50:00.001Z)
+    | where (itemType == 'dependency' and (timestamp >= datetime(2018-01-11T00:50:00.000Z) and timestamp <= datetime(2018-01-12T00:50:00.000Z)))
+    | where * has 'LUIS-'
+    | top 101 by timestamp desc
+    ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS.ai](Train-Test.md)
+> [Learn more about ](Train-Test.md)
