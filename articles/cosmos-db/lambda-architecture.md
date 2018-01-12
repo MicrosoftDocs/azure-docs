@@ -26,7 +26,7 @@ To implement a lambda architecture on Azure, you can combine the following techn
 * Azure Cosmos DB [change feed](change-feed.md), which streams new data to the batch layer for HDInsight to process
 * The [Spark to Azure Cosmos DB Connector](spark-connector.md)
 
-This article describes how to implement both a lambda architecture based on the original multi-layer design, or a "rearchitected" lambda architecture that simplifies operations.  
+This article describes the fundamentals of a lambda architecture based on the original multi-layer design and the benefits of a "rearchitected" lambda architecture that simplifies operations.  
 
 For an overview of the lambda architecture and the resources available in the lambda architecture sample, watch the following video:
 
@@ -48,7 +48,7 @@ The basic principles of a lambda architecture are described in the preceding dia
  4. The **speed layer** compensates for processing time (to the serving layer) and deals with recent data only.
  5. All queries can be answered by merging results from batch views and real-time views or pinging them individually.
 
-To implement this architecture, you need:
+Upon further reading, we will be able to implement this architecture using only the following:
 
 * Azure Cosmos DB collection(s)
 * HDInsight (Apache Spark 2.1) cluster
@@ -72,7 +72,7 @@ To run a quick prototype of the Azure Cosmos DB change feed as part of the **spe
 
 The following code snippet shows how to configure `spark-shell` to run a structured streaming job to connect to an Azure Cosmos DB change feed, which reviews the real-time Twitter data stream, to perform a running interval count.
 
-```
+```scala
 // Import Libraries
 import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.schema._
