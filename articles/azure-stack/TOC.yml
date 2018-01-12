@@ -154,6 +154,8 @@
         href: Azure-stack-create-service-principals.md
       - name: Enable multi-tenancy
         href: azure-stack-enable-multitenancy.md
+    - name: Rotate secrets
+      href: azure-stack-rotate-secrets.md
   - name: Offer services
     items:
     - name: Overview of offering services
@@ -248,6 +250,8 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
+    - name: Validation for Azure Stack
+      href: azure-stack-diagnostic-test.md
     - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference
