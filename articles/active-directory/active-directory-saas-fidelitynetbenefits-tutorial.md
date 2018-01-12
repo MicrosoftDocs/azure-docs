@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: jeedes
 
 ---
@@ -78,7 +78,7 @@ In this section, you configure and test Azure AD single sign-on with Fidelity Ne
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Fidelity NetBenefits is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Fidelity NetBenefits needs to be established.
 
-In Fidelity NetBenefits, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Fidelity NetBenefits, **user** mapping should be done with **Azure AD user** to establish the link relationship.
 
 To configure and test Azure AD single sign-on with Fidelity NetBenefits, you need to complete the following building blocks:
 
@@ -122,11 +122,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	For Production Environment:
 	`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
-4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **EmailPrefix()** of **UserPrincipalName** attribute but you should configure the **User Identifier (NameId)** as per your application requirement. The following screenshot shows just an example for this.
+4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **user.userprincipalname**. You can map this with **EmployeeId** or any other claim which is applicable to your Organization as **User Identifier**. The following screenshot shows just an example for this.
 
 	![Fidelity NetBenefits attribute](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
-	Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
+	>[!Note]
+	>Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
 	
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -179,7 +180,9 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Fidelity NetBenefits test user
 
-In this section, you create a user called Britta Simon in Fidelity NetBenefits. Work with [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) to add the users in the Fidelity NetBenefits platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Fidelity NetBenefits. If you are creating Static federation, please work with [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) to create users in Fidelity NetBenefits platform. These users must be created and activated before you use single sign-on. 
+
+For Dynamic Federation, users are created using Just In Time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
 
 ### Assign the Azure AD test user
 
