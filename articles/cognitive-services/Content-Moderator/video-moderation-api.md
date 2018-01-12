@@ -241,6 +241,7 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 > [!NOTE]
 > Location of a keyframe in seconds = timestamp/timescale
 
+
     {
     "version": 2,
     "timescale": 90000,
@@ -290,3 +291,7 @@ After the Content Moderation job is completed, analyze the JSON response. It con
     }
     ]
     }
+
+## Next steps
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
