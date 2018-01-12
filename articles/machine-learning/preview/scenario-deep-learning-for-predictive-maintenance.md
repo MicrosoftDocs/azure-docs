@@ -24,7 +24,7 @@ In predictive maintenance scenarios, data is collected over time to monitor the 
 
 In this tutorial, we build an LSTM network for the data set and scenario that are described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We use the network to predict the remaining useful life of aircraft engines. The template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future. Using this prediction, maintenance can be planned in advance, to prevent failure.
 
-This tutorial uses the [Keras](https://keras.io/) deep learning library, and the Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) as a back end.
+This tutorial uses the [Keras](https://keras.io/) deep learning library, and the Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) as a back end.
 
 The public GitHub repository that has the samples for this tutorial is at [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -40,7 +40,7 @@ We suggest that you examine the data format and complete all three steps of the 
 
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - Azure Machine Learning Workbench, with a workspace created.
-- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## Create a new Workbench project
 
@@ -125,7 +125,7 @@ You can edit relevant parts of this scenario, and try different problem scenario
 
 ## References
 
-- [Predictive Maintenance Solution Template](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
