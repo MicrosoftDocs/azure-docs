@@ -1,5 +1,5 @@
 ---
-title: Create an Azure data factory using the Azure portal | Microsoft Docs
+title: Create an Azure data factory using the Azure Data Factory UI | Microsoft Docs
 description: 'This tutorial shows you how to create a data factory with a pipeline that copies data from one folder to another folder in Azure Blob Storage.'
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 01/09/2018
 ms.author: jingwang
 
 ---
-# Create a data factory using the Azure portal
+# Create a data factory using the Azure Data Factory UI
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](quickstart-create-data-factory-portal.md)
 
-This quickstart describes how to use the Azure portal to create and monitor a data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md). 
+This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md). 
 
 
 > [!NOTE]
