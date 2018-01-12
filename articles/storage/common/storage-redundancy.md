@@ -49,17 +49,30 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## Zone-redundant storage
-Zone-redundant storage (ZRS) is designed to simplifies development of highly available applications and provide at least 99.9999999999% (12 9's) durability of objects over a given year by replicating your data synchronously across multiple Availability Zones enabling customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously –and continue to be strongly consistent. ZRS should be considered for scenarios like transactional applications where downtime is not acceptable.  
 
-ZRS is currently available for preview in US East 2, US Central, Europe North and France Central with more regions coming. Please refer to the ZRS documentation for more details on getting started and preview pricing.     
+Zone-redundant storage (ZRS) is designed to simplify the development of highly available applications. ZRS provides durability for storage objects of at least 99.9999999999% (12 9's) over a given year by replicating your data synchronously across multiple availability zones. ZRS enables customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously and continue to be strongly consistent. 
+Consider ZRS for scenarios like transactional applications where downtime is not acceptable.  
 
-The existing ZRS capability will be renamed to ZRS Classic and there will be an automated migration path for ZRS Classic customers to the new ZRS when it is generally available in the region.  ZRS Classic replicates data asynchronously across datacenters within one to two regions and a replica may not be available until Microsoft initiates failover to the secondary.  ZRS Classic accounts is only available for block blobs in general-purpose v1 storage accounts, cannot be converted to or from LRS or GRS accounts, and do not have metrics or logging capability.   
+ZRS is currently available for preview in the following regions, with more regions coming soon:
 
-At ZRS GA, ZRS Classic account creation will no longer be available in the portal but can be created through other means.  ZRS Classic accounts are planned for deprecation and migration on 3/31/2021.  More details will be sent to ZRS Classic customers in the future. 
+- US East 2 
+- US Central 
+- Europe North
+- France Central 
+ 
+Please refer to the ZRS documentation for more details on getting started and preview pricing.     
 
-Migration of data from ZRS Classic to ZRS accounts will be enabled at general availability of ZRS, and will only be enabled for regions where ZRS is available. Migration of ZRS data to / from LRS, GRS, or RAGRS accounts can be done manually using AzCopy, Storage Explorer, PowerShell, CLI or Client SDK. 
+### ZRS Classic
 
-Some additional questions answered in the Frequently Asked Questions section below. 
+The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.   
+
+Once ZRS is generally available in a region, you will be able to migrate your ZRS Classic storage accounts in that region to ZRS accounts via an automated migration process. You will no longer be able to create a ZRS Classic account from the portal in that region, but you can create one through other means.  
+
+ZRS accounts support manually migrating a ZRS account in that region to or from an LRS, GRS, or RAGRS account. Perform this manual migration using AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries.
+
+ZRS Classic accounts are planned for deprecation and required migration on 3/31/2021. Microsoft will sent more details to ZRS Classic customers prior to deprecation.
+
+Additional questions are addressed in the (Frequently asked questions)(#frequently-asked-questions) section below. 
 
 ## Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
