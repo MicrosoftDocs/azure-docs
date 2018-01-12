@@ -19,13 +19,13 @@ This article shows you how to use the Microsoft Translator Speech API to transla
 
 ## Prerequisites
 
-You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
-You will need to install the [Websocket package](https://www.npmjs.com/package/websocket) for Node.js.
+You need to install the [Websocket package](https://www.npmjs.com/package/websocket) for Node.js.
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## Translate speech
 
