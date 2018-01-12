@@ -27,7 +27,7 @@ ms.author: v-geberr
 All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/azure-function-application-insights-endpoint). 
 
 ## Scenario
-This tutorial will add LUIS request and response information to the ApplicationInsights telemetry data storage. 
+This tutorial adds LUIS request and response information to the ApplicationInsights telemetry data storage. 
 
 ## What is ApplicationInsights?
 Use [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) to monitor your live web application. It includes powerful analytics tools to help you diagnose telemetry issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. 
@@ -43,7 +43,7 @@ While the Azure function in this tutorial is written in C#, your calling code ca
 
 ## Function purpose
 
-This tutorial will wrap the LUIS API endpoint query in an Azure function. The function's purpose is to send LUIS query or error information to Application Insights. Instead of calling the LUIS API as an HTTP Request, call the Azure function as an HTTP Request. The function returns the LUIS query results or errors without altering them.
+This tutorial wraps the LUIS API endpoint query in an Azure function. The function's purpose is to send LUIS query or error information to Application Insights. Instead of calling the LUIS API as an HTTP Request, call the Azure function as an HTTP Request. The function returns the LUIS query results or errors without altering them.
 
 ![Concept of Azure Function](./media/luis-tutorial-appinsights/concept.png)
 
@@ -54,7 +54,7 @@ The function can, in addition to calling LUIS and Application Insights, call or 
 Each call to the function adds custom information to your Application Insights service including the LUIS query response of intents, entities, scores, Azure Keys, LUIS App ID, and the region. Each custom data item is a name/value pair. In Application Insights, all the custom data is stored in a single JSON field of name/value pairs. 
 
 ## Azure services
-The tutorial uses four Azure resources. The Function app service is hosted in an App Service plan. The ApplicationInsights service stores data in an Azure Storage Account. When the Function app is created, your Azure resources list has 4 new items:
+The tutorial uses four Azure resources. The Function app service is hosted in an App Service plan. The ApplicationInsights service stores data in an Azure Storage Account. When the Function app is created, your Azure resources list has four new items:
 
 |Azure Service|Purpose|
 |--|--|
@@ -63,7 +63,7 @@ The tutorial uses four Azure resources. The Function app service is hosted in an
 |Storage Account|Data storage|
 |App Service plan|Hosts app|
 
-For this tutorial, all 4 services are in the "West US 2" region.
+For this tutorial, all four services are in the "West US 2" region.
 
 ## Create the Function app
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**
@@ -127,7 +127,7 @@ This basic function currently has a `function.json` file, a `readme.md` file, an
 > * For this tutorial, you do not need to change the `function.json` or the `readme.md` files.
 
 ## Restore NuGet packages
-The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name and version are added to the `package.json`.
+The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name, and version are added to the `package.json`.
 
 A basic function has no dependencies so the dependency file, `package.json` does not exist yet. [Download the `package.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
 
@@ -169,7 +169,7 @@ Save the file.
 
 ## Add keys
 
-Next, add the following code for the LUIS and Bing values. Change these to your own ID and Keys.
+Next, add the following code for the LUIS and Bing values. Change these values to your own ID and Keys.
 
    [!code-javascript[Add keys](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=22-25)]
 
@@ -183,16 +183,16 @@ Add the HttpClient, and ApplicationInsights dependency variables:
 
    [!code-javascript[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
 
-Because Application Insights was turned on as part of the the Function app creation, the `APPINSIGHTS_INSTRUMENTATIONKEY` is an environment variable for the Function app. You do not need to find the instrumentation key or set it. 
+Because Application Insights was turned on as part of the Function app creation, the `APPINSIGHTS_INSTRUMENTATIONKEY` is an environment variable for the Function app. You do not need to find the instrumentation key or set it. 
 
 Save the file.
 
 ## Add function name variables for searching 
-The easiest way to find the entries sent to Application Insights from this function is to search for a unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_`. Add the code for this constant string:
+The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_`. Add the code for this constant string:
 
    [!code-javascript[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
 
-Since the function is hooked to Application Insights there will be more entries than just the LUIS query results from the function.
+Since the function is hooked to Application Insights, there are more entries than just the LUIS query results from the function.
 
 Save the file.
 
@@ -234,7 +234,7 @@ Add the `EndpointQuery` method:
 
 Save the file and test. If the test returns 200 continue.
 
-The [DependencyTelemetry](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.dependencytelemetry?view=azure-dotnet) constructor takes a Name and Type property. Both are arbitrary in this example. The Name is set to `LUIS-dependency-` + the region. This name will be used to find the LUIS query results later in the tutorial.
+The [DependencyTelemetry](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.dependencytelemetry?view=azure-dotnet) constructor takes a Name and Type property. Both are arbitrary in this example. The Name is set to `LUIS-dependency-` + the region. This name is used to find the LUIS query results later in the tutorial.
 
 ## Add Application Insights successful log to LUIS class
 The `ApplicationInsightsTraceSuccess` adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call. The query result is flattened including all intents and entities. Each item in the array is numbered for each property.
@@ -274,7 +274,7 @@ Change the request body to:
 Save the file and test. If the test returns 200 continue. The response from LUIS looks exactly as if it was made directly to the LUIS API.  
 
 ## Test failing LUIS Query
-Make sure the the erroring path is also returning the LUIS response. 
+Make sure the erroring path is also returning the LUIS response. 
 
 1. Change the name of the HTTP Header to have an extra `y` at the end of `LUISsubscriptionKey`. Since the proper header isn't sent, LUIS should response with a 401-Unauthorized error.
 
@@ -353,15 +353,15 @@ The Curl command did not have to pass the LUIS App ID, LUIS subscription Key, or
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
 
-1. In the portal, select `All resources` then filter by the name `LUIS-Fn-AppInsights-Tutorial`. The `All resources` icon is a 9x9 green grid. Click on the resource with the type `Application Insights`. The icon for Application Insights is a light blub. 
+1. In the portal, select `All resources` then filter by the name `LUIS-Fn-AppInsights-Tutorial`. The `All resources` icon is a 9x9 green grid. Click on the resource with the type `Application Insights`. The icon for Application Insights is a light bulb. 
 
     ![Search for app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
-2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. The listing will have Trace, Request, Dependency, and Exception data. Dependencies, such as the LUIS query results, are marked with a yellow bar to the left of the item. Filter on `LUIS_fn_dependency_` and hit enter on the keyboard. The list is narrowed to just LUIS query results.
+2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. The listing has Trace, Request, Dependency, and Exception data. Dependencies, such as the LUIS query results, are marked with a yellow bar to the left of the item. Filter on `LUIS_fn_dependency_` and hit enter on the keyboard. The list is narrowed to just LUIS query results.
 
     ![Filter to dependencies](./media/luis-tutorial-appinsights/app-insights-filter.png)
 
-3. Select the 2nd entry from the top -- the successful LUIS query. A new window displays more detailed data including the custom data for the successful LUIS query at the far-right. The Custom Data corresponds to the telemetry properties. The Command entry is the URL. 
+3. Select the second entry from the top -- the successful LUIS query. A new window displays more detailed data including the custom data for the successful LUIS query at the far-right. The Custom Data corresponds to the telemetry properties. The Command entry is the URL. 
 
     ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail.png)
 
@@ -379,7 +379,7 @@ Application Insights entries are stored in [Analytics](). Analytics gives you th
 
     ![Analytics button](./media/luis-tutorial-appinsights/analytics-button.png)
 
-2. A new window opens with a query window above and a data table window below. If you have used databases before, this feels familiar. The query includes all items from the last 24 hours beginning with the name `LUIS_fn_dependency_`. The `CustomDimensions` column has the LUIS query results as name/value pairs.
+2. A new window opens with a query window above and a data table window below. If you have used databases before, this interface feels familiar. The query includes all items from the last 24 hours beginning with the name `LUIS_fn_dependency_`. The `CustomDimensions` column has the LUIS query results as name/value pairs.
 
     ![Analytics query window](./media/luis-tutorial-appinsights/analytics-query-window.png)
 
