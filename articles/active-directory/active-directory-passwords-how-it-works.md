@@ -1,5 +1,5 @@
 ---
-title: 'How Azure AD SSPR works | Microsoft Docs'
+title: Self-service password reset how it works - Azure Active Directory
 description: Azure AD self-service password reset deep dive
 services: active-directory
 keywords: 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 

@@ -4,7 +4,7 @@ description: Build an Apache Spark streaming sample on how to send a data stream
 keywords: apache spark streaming,spark streaming,spark sample,apache spark streaming example,event hub azure sample,spark sample
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
+ms.author: jgao
 
 ---
 
