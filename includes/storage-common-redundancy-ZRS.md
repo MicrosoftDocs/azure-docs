@@ -8,4 +8,11 @@ ZRS is currently available for preview in the following regions, with more regio
 - US Central 
 - Europe North
 - France Central 
+
+For pricing information for ZRS, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), and the per-service pricing pages:
+
+- [Blobs](https://https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) 
+- [Unmanaged disks](https://https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)
+- [Files](https://https://azure.microsoft.com/pricing/details/storage/files/)
+- [Queues](https://https://azure.microsoft.com/pricing/details/storage/queues/)
  
