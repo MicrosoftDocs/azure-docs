@@ -55,8 +55,6 @@ Complete the following steps to create an Azure Automation account in the Azure 
 2. Select **New**.<br><br> ![Select New in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Search for **Automation**. In the search results, select **Automation & Control**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. Under **Automation Accounts**, select **Add**.<br><br>![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-
-
   > [!NOTE]
   > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.<br><br>![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
   > 
@@ -64,7 +62,6 @@ Complete the following steps to create an Azure Automation account in the Azure 
 4. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
 5. If you have more than one subscription, specify the subscription you want to use for the new account. For **Resource group**, enter or select a new or existing resource group. For **Location**, select an Azure datacenter location.
 6. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.  
-   
   > [!NOTE]
   > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the **Add Automation Account** pane. Although the account is created in the Azure portal, it doesn't have a corresponding authentication identity in your classic deployment model subscription or Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription.  This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
   > 
