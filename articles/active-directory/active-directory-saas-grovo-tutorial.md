@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 01/12/2017
 ms.author: jeedes
 
 ---
@@ -147,8 +147,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
 	
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
