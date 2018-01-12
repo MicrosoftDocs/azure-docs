@@ -36,44 +36,49 @@ Preceding are steps you can use to create a new NSG using PowerShell that keeps 
 This resolution requires installing and running [Azure AD Powershell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0).
 
 1. Connect to your Azure AD directory.
-```PowerShell
-# Connect to your Azure AD directory.
-Connect-AzureAD
-```
+
+  ```PowerShell
+  # Connect to your Azure AD directory.
+  Connect-AzureAD
+  ```
 2. Log in to your Azure subscription.
-```PowerShell
-# Log in to your Azure subscription.
-Login-AzureRmAccount
-```
+
+  ```PowerShell
+  # Log in to your Azure subscription.
+  Login-AzureRmAccount
+  ```
+
 3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. You are welcome to add additional rules as you see fit using the same format.
-```PowerShell
-```PowerShell
-# Create the rules needed
-$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 443
-$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389
-$rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
--SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389
-# Create the NSG with the 3 rules above
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
--Name "NSG-Default" -SecurityRules $rule1,$rule2,$rule3
-```
+
+  ```PowerShell
+  # Create the rules needed
+  $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 443
+  $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+  -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389
+  $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389
+  # Create the NSG with the 3 rules above
+  $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
+  -Name "NSG-Default" -SecurityRules $rule1,$rule2,$rule3
+  ```
+
 4. Lastly, the script associates the NSG with the vnet and subnet of choice.
-```PowerShell
-# Find vnet and subnet
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
-# Set the nsg to the subnet and save the changes
-$subnet.NetworkSecurityGroup = $nsg
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
+
+  ```PowerShell
+  # Find vnet and subnet
+  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
+  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
+  # Set the nsg to the subnet and save the changes
+  $subnet.NetworkSecurityGroup = $nsg
+  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  ```
 
 **Full Script**
 
