@@ -17,7 +17,7 @@ ms.author: jingwang
 # Copy Data tool in Azure Data Factory
 The Azure Data Factory Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario.  It saves time, especially when you use Azure Data Factory to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 
-- When using the the Azure Data Factory Copy Data tool, you do not need understand Data Factory definitions for linked services, datasets, pipelines, activities, and triggers. 
+- When using the Azure Data Factory Copy Data tool, you do not need understand Data Factory definitions for linked services, datasets, pipelines, activities, and triggers. 
 - The flow of Copy Data tool is intuitive for loading data into a data lake. The tool automatically creates all the necessary Data Factory resources to copy data from the selected source data store to the selected destination/sink data store. 
 - The Copy Data tool helps you validate the data that is being ingested at the time of authoring, which helps you avoid any potential errors at the beginning itself.
 - If you need to implement complex business logic to load data into a data lake, you can still edit the Data Factory resources created by the Copy Data tool by using the per-activity authoring in Data Factory UI. 
@@ -91,7 +91,7 @@ Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{
 
 ![Filter file or folder](./media/copy-data-tool/filter-file-or-folder.png)
 
-The Copy Data tool generates parameters with expressionsm, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline. For more information, see the [How to read or write partitioned data](how-to-read-write-partitioned-data.md) article.
 
 ## Scheduling options
 You can run the copy operation once or on a schedule (hourly, daily, and so on). These options can be used for the connectors across different environments, including on-premises, cloud, and local desktop. 
