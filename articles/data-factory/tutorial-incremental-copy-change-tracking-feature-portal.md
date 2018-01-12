@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/12/2018
 ms.author: jingwang
 ---
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information 
@@ -175,7 +175,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
    
    ![Data factory home page](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
-11. In the get started page of Azure Data Factory UI, click **Create pipeline** or switch to the **Edit** tab. 
+11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
 
     ![Create pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
