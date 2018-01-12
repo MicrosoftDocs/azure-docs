@@ -95,7 +95,7 @@ All files associated with the function are available for editing. You can view t
 > [!Note]
 > * For this tutorial, you do not need to change the function.json or the readme.md files.
 
-## Add Application Insights depend
+## Add Application Insights dependency
 A basic function has no dependencies so the dependency file, **package.json** is not in the list. Create the file and add the following code:
 
    [!code-javascript[Package.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/project.json)]
