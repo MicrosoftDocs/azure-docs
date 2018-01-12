@@ -114,8 +114,8 @@ At this stage the connector is expected to have sent a Kerberos service ticket t
 -   Still on the connector host, confirm that the authentication between the browser and the application is using Kerberos, by doing one of the following:
 
 1.  Run Dev tools(**F12**) in Internet Explorer, or use [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) from the connector host. Go to the application using the internal URL, and inspect the offered WWW authorization headers returned in the response from the application, to ensure that either negotiate or Kerberos is present. A subsequent Kerberos blob returned in the response from the browser to the application typically start with **YII**, so this is a good indication of Kerberos being in play. NTLM on the other hand always starts with **TlRMTVNTUAAB**, which reads NTLMSSP when decoded from Base64. If you see **TlRMTVNTUAAB** at the start of the blob, this means that Kerberos is **not** available. If you don’t see this, Kerberos is likely available.
-
-  * Note, if using Fiddler, this method would require temporarily disabling extended protection on the application’s config in IIS.
+    > [!NOTE]
+    > If using Fiddler, this method would require temporarily disabling extended protection on the application’s config in IIS.
 
      ![Browser network inspection window](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
