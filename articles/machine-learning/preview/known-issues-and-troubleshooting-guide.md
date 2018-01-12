@@ -143,6 +143,8 @@ If you kick off an experimentation run using `az ml experiment submit` or `az ml
 
 Please note that this only interrupts the output stream in the CLI window. It does not actually stop a job that's being executed. If you want to cancel an ongoing job, use `az ml experiment cancel -r <run_id> -t <target name>` command.
 
+On Windows computers with keyboards that do not have Break key, possible alternatives include Fn-B, Ctrl-Fn-B or Fn+Esc. Consult your hardware vendor's documentation for a specific key combination.
+
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
 ```
