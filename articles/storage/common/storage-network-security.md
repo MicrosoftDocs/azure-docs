@@ -37,6 +37,10 @@ Once network rules are applied, they are enforced for all requests.  SAS tokens 
 
 Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
 
+> [!NOTE]
+> Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is not currently supported.  For more information, see [Limitations when backing up and restoring a VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
+
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
 ## Change the default network access rule
