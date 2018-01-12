@@ -56,8 +56,12 @@ Complete the following steps to create an Azure Automation account in the Azure 
 3. Search for **Automation**. In the search results, select **Automation & Control**.<br><br> ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 4. Under **Automation Accounts**, select **Add**.
   ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+  
   > [!NOTE]
-  > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.<br><br>![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
+  > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
+  >
+  >![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
+  >
 5. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
 6. If you have more than one subscription, specify the subscription you want to use for the new account. For **Resource group**, enter or select a new or existing resource group. For **Location**, select an Azure datacenter location.
 7. For the **Create Azure Run As account** option, ensure that **Yes** is selected, and then select **Create**.
