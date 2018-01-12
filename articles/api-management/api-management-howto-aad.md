@@ -17,7 +17,7 @@ ms.author: apimpm
 ---
 
 > [!WARNING]
-> Azure Active Directory integration is available in the [Developer and Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tiers only.
+> Azure Active Directory integration is available in the [Developer, Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tiers only.
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 ## Overview

@@ -35,8 +35,8 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Select this project as the single startup project for the solution.
 
-1. Add a reference to the **ModeratorHelper** project assembly that you created
-   in the Content Moderator client helper quickstart.
+1. Add a reference to the **ModeratorHelper** project assembly that you created 
+   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### Install required packages
 
@@ -178,3 +178,8 @@ The sample output for the program, as written to the log file, is:
 	],
 	"TrackingId": "dd91ede4-de1c-4a8f-9f1e-56381696a527"
 	}
+
+
+## Next steps
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
