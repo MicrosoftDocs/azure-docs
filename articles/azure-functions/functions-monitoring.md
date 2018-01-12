@@ -33,7 +33,10 @@ For a function app to send data to Application Insights, it needs to know the in
 
 * [Create a connected Application Insights instance when you create the function app](#new-function-app).
 * [Connect an Application Insights instance to an existing function app](#existing-function-app).
- 
+
+> [!NOTE]
+> If you enable Application Insights, disable the [built-in logging that uses Azure storage](#logging-to-storage) by deleting the `AzureWebJobsDashboard` app setting. For information about how to manage app settings, see [Manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). The built-in logging is suitable only for light workloads; in high-load conditions, it can cause storage failures that affect other uses of the same storage account.
+
 ### New function app
 
 Enable Application Insights on the Function App **Create** page:
@@ -460,58 +463,41 @@ To report an issue with Application Insights integration in Functions, or to mak
 
 ## Monitoring without Application Insights
 
-We recommend Application Insights for monitoring functions because it offers more data and better ways to analyze the data. But you can also find telemetry and logging data in the Azure portal pages for a Function app. 
+We recommend Application Insights for monitoring functions because it offers more data and better ways to analyze the data. But you can also find logs and telemetry data in the Azure portal pages for a Function app.
 
-Select the **Monitor** tab for a function and you get a list of function executions. Select a function execution to review the duration, input data, errors, and associated log files.
+### Logging to storage
 
-> [!IMPORTANT]
-> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the **Monitoring** tile in the Function App does not show any data. This is because the platform dynamically scales and manages compute instances for you. These metrics are not meaningful on a Consumption plan.
+Built-in logging uses the storage account specified by the connection string in the `AzureWebJobsDashboard` app setting. If that app setting is configured, you can see the logging data in the Azure portal. In a function app page, select a function and then select the **Monitor** tab, and you get a list of function executions. Select a function execution to review the duration, input data, errors, and associated log files.
+
+If you have Application Insights enabled, [the AzureWebJobsDashboard app setting should be deleted](#enable-application-insights-integration), and in that case the **Monitor** tab takes you to Application Insights.
 
 ### Real-time monitoring
 
-Real-time monitoring is available by clicking **Live Event Stream** on the function **Monitor** tab. The live event stream is displayed in a graph in a new browser tab.
+You can stream log files to a command-line session on a local workstation using the [Azure Command Line Interface (CLI) 2.0](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> There is a known issue that may cause your data to fail to be populated. You may need to close the browser tab containing the live event stream and then click **Live Event Stream** again to allow it to properly populate your event stream data. 
-
-These statistics are real-time but the actual graphing of the execution data may have around 10 seconds of latency.
-
-### Monitor log files from a command line
-
-You can stream log files to a command-line session on a local workstation using the Azure Command Line Interface (CLI) 1.0 or PowerShell.
-
-### Monitor function app log files with the Azure CLI 1.0
-
-To get started, [install the Azure CLI 1.0](../cli-install-nodejs.md) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
-
-Use the following commands to enable classic Service Management mode, choose your subscription, and stream log files:
+For Azure CLI 2.0, use the following commands to sign in, choose your subscription, and stream log files:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### Monitor function app log files with PowerShell
-
-To get started, [install and configure Azure PowerShell](/powershell/azure/overview).
-
-Use the following commands to add your Azure account, choose your subscription, and stream log files:
+For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-For more information, see [How to: Stream logs for web apps](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Application Insights](https://docs.microsoft.com/azure/application-insights/)
+For more information, see the following resources:
 
-> [!div class="nextstepaction"]
-> [Learn more about the logging framework that Functions uses](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core logging](/aspnet/core/fundamentals/logging/)
