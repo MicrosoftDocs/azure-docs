@@ -153,7 +153,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 
 ## Create a pipeline
