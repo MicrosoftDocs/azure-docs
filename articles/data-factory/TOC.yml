@@ -45,6 +45,8 @@
     items:
     - name: Copy Data tool
       href: tutorial-hybrid-copy-data-tool.md    
+    - name: Azure portal
+      href: tutorial-hybrid-copy-portal.md          
     - name: PowerShell
       href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
