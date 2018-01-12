@@ -51,8 +51,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 
 The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. 
 
-ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover
-to the secondary. 
+ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. 
 
 ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
 
