@@ -43,7 +43,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 ## Locally-redundant storage
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-## Zone-redundant storage
+## Zone-redundant storage (Preview)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 

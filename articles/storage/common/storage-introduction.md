@@ -156,7 +156,7 @@ All storage accounts have **locally-redundant storage (LRS)** which is designed 
 
 As explained above, with LRS you have multiple copies of your data in a single datacenter. This handles the problem of data becoming unavailable if a storage node fails or is taken offline to be updated, but not the case of an entire datacenter becoming unavailable.
 
-**Zone redundant storage (ZRS)**
+**Zone redundant storage (ZRS) (Preview)**
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
