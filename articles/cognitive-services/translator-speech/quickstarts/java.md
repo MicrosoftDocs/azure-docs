@@ -231,7 +231,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Translator Text tutorial](../tutorial-wpf-translation-csharp.md)
+> [Translator Text tutorial](../tutorial-translator-speech-csharp.md)
 
 ## See also 
 
