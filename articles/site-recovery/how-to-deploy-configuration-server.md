@@ -12,7 +12,7 @@ ms.author: anoopkv
 
 # Deploy a configuration server
 
-You deploy an on-premises configuration server when you use he [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. WThe configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article walks you through the steps needed to deploy the configuration server.
+You deploy an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. WThe configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article walks you through the steps needed to deploy the configuration server.
 
 ## Prerequisites
 
