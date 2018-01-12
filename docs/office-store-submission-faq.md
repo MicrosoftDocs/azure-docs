@@ -1,7 +1,7 @@
 ---
 title: AppSource submission FAQ
 description: Answers to the most common questions about submitting an add-in to AppSource.
-ms.date: 12/04-2017
+ms.date: 1/11/2018
 ---
 
 # AppSource submission FAQ

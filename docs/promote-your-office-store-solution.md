@@ -1,7 +1,7 @@
 ---
 title: Promote your AppSource solution
 description: Use AppSource badges to promote your solution and drive traffic from your site to AppSource.
-ms.date: 12/04-2017
+ms.date: 1/11/2018
 ---
 
 # Promote your AppSource solution

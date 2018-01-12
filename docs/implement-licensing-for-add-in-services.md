@@ -1,7 +1,7 @@
 ---
 title: Implement licensing to upsell your Office Add-in services
 description: Handle licensing state for individuals and organizations based on how an Office Add-in is acquired.
-ms.date: 12/04-2017
+ms.date: 1/11/2018
 ---
 
 # Implement licensing to upsell your Office Add-in services

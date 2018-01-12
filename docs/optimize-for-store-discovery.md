@@ -1,7 +1,7 @@
 ---
 title: Optimize the placement and ranking of your Office Add-in in AppSource
 description: Apply best practices for add-in development and create an effectiveAppSource listing.
-ms.date: 12/04-2017
+ms.date: 1/11/2018
 ---
 
 # Optimize the placement and ranking of your Office Add-in in AppSource

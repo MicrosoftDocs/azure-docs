@@ -1,7 +1,7 @@
 ---
 title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit, including your title, description, logos, and screenshots, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 12/04-2017
+ms.date: 1/11/2018
 ---
 
 # Create effective listings in AppSource and within Office
