@@ -228,11 +228,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Create your own policy to fetch all the roles from AWS accounts.
+25. Create your own policy to fetch all the roles from AWS accounts by performing the following steps:
 
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-	a. In the **“Create your own policy”** section click on **“JSON”** tab.
+	a. In the **“Create policy”** section click on **“JSON”** tab.
 
 	b. In the policy document, add the below JSON.
 	
