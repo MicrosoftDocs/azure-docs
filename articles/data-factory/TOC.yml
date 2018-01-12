@@ -111,6 +111,7 @@
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
     - name: Copy Data tool
+      href: copy-data-tool.md
       items:
       - name: Load Data Lake Store
         href: load-azure-data-lake-store.md    
