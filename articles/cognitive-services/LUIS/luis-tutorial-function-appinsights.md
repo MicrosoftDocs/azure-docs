@@ -127,11 +127,11 @@ This basic function currently has a `function.json` file, a `readme.md` file, an
 > * For this tutorial, you do not need to change the `function.json` or the `readme.md` files.
 
 ## Restore NuGet packages
-The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name, and version are added to the `package.json`.
+The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name, and version are added to the `project.json`.
 
-A basic function has no dependencies so the dependency file, `package.json` does not exist yet. [Download the `package.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
+A basic function has no dependencies so the dependency file, `project.json` does not exist yet. [Download the `project.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
 
-[!code-javascript[Package.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/package.json)]
+[!code-javascript[Project.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/project.json)]
 
 Watch the log to see that the NuGet packages are restored. Do not continue until the package is load is finished.
 
