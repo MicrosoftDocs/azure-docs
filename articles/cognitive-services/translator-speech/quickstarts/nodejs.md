@@ -1,4 +1,4 @@
----
+tutorial-translator-speech-csharp---
 title: Node.js Quickstart for Azure Cognitive Services, Microsoft Translator Speech API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Speech API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
@@ -159,7 +159,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Translator Text tutorial](../tutorial-wpf-translation-csharp.md)
+> [Translator Text tutorial](../tutorial-translator-speech-csharp.md)
 
 ## See also 
 
