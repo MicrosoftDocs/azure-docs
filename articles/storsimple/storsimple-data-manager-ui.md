@@ -72,7 +72,7 @@ Perform the following steps to create a job definition.
 
 3. Provide a name for your job definition. The name can be between 3 and 63 characters. The name can contain uppercase and lowercase letters, numbers, and hyphens.
 
-4. Specify a location where your job runs. This location can be different than the location where the service is deployed. <!-- Review with Vivek what is the advantage of two discrete locations -->
+4. Specify a location where your job runs. This location can be different than the location where the service is deployed.
 
 5. Click **Source** to specify the source data repository.
 
@@ -112,25 +112,15 @@ Perform the following steps to create a job definition.
 
     ![Configure source data repo 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
-8. Next, the target data repository needs to be configured. There are two types of supported targets – Azure Storage accounts and Azure Media Services accounts. Choose storage accounts to put files into blobs in that account. Choose media services account to put files into assets in that account. In the dropdown, select **Add new** and then **Configure settings**.
+8. Next, the target data repository needs to be configured. Choose storage accounts to put files into blobs in that account. In the dropdown, select **Add new** and then **Configure settings**.
 
- 
 9. Select the type of target repository you want to add and the other parameters associated with the repository.
 
-    - If you select a Storage account type target, you can specify a friendly name, subscription (choose the same as that of the service or other), and a storage account.
+    If you select a Storage account type target, you can specify a friendly name, subscription (choose the same as that of the service or other), and a storage account.
         ![Configure target data repo 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
 
-    - If you select **Media Services** as the repository type, you can specify the name, friendly name, account key ID for the media services account. For more information, go to [Create an Azure Media Services account](../media-services/media-services-portal-create-account.md#create-an-ams-account).
-
-        ![Configure target data repo 2](./media/storsimple-data-manager-ui/create-job-definition-14.png)
-
-        You also need the storage account credentials where the storage queue is created.
+    A storage queue is created when the job runs. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition.
     
-        ![Configure target data repo 3](./media/storsimple-data-manager-ui/create-job-definition-14.png)
-
-    In both cases, a storage queue is created when the job runs. This queue is populated with messages about transformed blobs <!--OR ASSETS--> as they are ready. The name of this queue is the same as the name of the job definition.
-    <!--Can we link to an article that indicates how to listen to storage queue?-->
-
 10.	After you add the data repository, wait a couple minutes.
     
     1. Select the repository you created as the target from the dropdown list in the **Target account name**.
