@@ -82,20 +82,16 @@ You can enable CDN for your storage account directly from your storage account.
 	> [!TIP]
    	> By default, a new CDN endpoint uses the host name of your storage account as the origin server.
 
-	![cdn new endpoint creation][cdn-new-endpoint-creation]
-
 3. Select **Create**. After the endpoint is created, it appears in the endpoint list.
 
 	![Storage new CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
 > [!NOTE]
-> If you want to specify optimization types for your CDN endpoint, you can use the [Azure CDN portal](cdn-create-new-endpoint.md) to create a CDN endpoint or a CDN profile.
-
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
+> If you want to specify advanced configuration settings for your CDN endpoint, such as the optimization type, you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) to create a CDN endpoint, or a CDN profile.
 
 ## Step 3: Enable additional CDN features
 
-From the storage account "Azure CDN" pane, select the CDN endpoint from the list to open the CDN configuration pane. You can enable additional CDN features for your delivery, such as compression, query string, and geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
+From the storage account **Azure CDN** pane, select the CDN endpoint from the list to open the CDN configuration pane. You can enable additional CDN features for your delivery, such as compression, query string, and geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
 	
 ![Storage CDN endpoint configuration](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
 
