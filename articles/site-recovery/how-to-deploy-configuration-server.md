@@ -91,7 +91,7 @@ Site Recovery provides a downloadable template to set up the configuration serve
 
 ## Troubleshoot deployment issues
 
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issue.md)]
+[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
 
