@@ -63,7 +63,7 @@ You can reregister the configuration server in the same vault if you need to. f 
       net start obengine
       ```
 
-## Delete or unregister the configuration server
+## Delete or unregister a configuration server
 
 1. Disable [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all replication policies from the configuration server.
