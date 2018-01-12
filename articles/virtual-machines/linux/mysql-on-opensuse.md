@@ -47,9 +47,9 @@ You also need to add a rule to the network security group to allow traffic over 
 az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
 ```
 
-## Connect to the Virtual Machine
+## Connect to the VM
 
-You'll use SSH connect to the virtual machine. In this example, the public IP address of the VM is *10.111.112.113*. You can see the IP address in the output of the previous command.
+You'll use SSH connect to the VM. In this example, the public IP address of the VM is *10.111.112.113*. You can see the IP address in the output of the previous command.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -58,7 +58,7 @@ ssh 10.111.112.113
  
 ## Update the VM
  
-After you're connected to the virtual machine, you can install system updates and patches. 
+After you're connected to the VM, install system updates and patches. 
    
 ```bash
 sudo zypper update
@@ -66,15 +66,14 @@ sudo zypper update
 
 Follow the prompts to update your VM.
 
-## Install and run MySQL on the virtual machine
+## Install MySQL 
 
 
-Install the MySQL Community Server edition. Reply to prompts as appropriate.
+Install the MySQL in the VM over SSH. Reply to prompts as appropriate.
 
 ```bash
-sudo zypper install mysql-community-server
+sudo zypper install mysql
 ```
- 
  
 Set MySQL to start when the system boots. 
 
@@ -92,27 +91,29 @@ This should return: enabled.
 
 ## MySQL password
 
-After installation, the MySQL root password is empty by default. We recommended that you run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. 
 
 
 ```bash
 mysql_secure_installation
 ```
 
-Log in to MySQL:
+## Log in to MySQL
+
+You can now log in and enter the MySQL prompt.
 
 ```bash  
 mysql -u root -p
 ```
 This switches you to the MySQL prompt where you can issue SQL statements to interact with the database.
 
-To create a new MySQL user, run the following command at the **mysql>** prompt:
+Now, create a new MySQL user.
 
 ```   
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-The semi-colons (;) at the end of the line is crucial for ending the command.
+The semi-colon (;) at the end of the line is crucial for ending the command.
 
 
 ## Create a database
@@ -127,15 +128,12 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
 
-To log in from another computer, type:
+Enable log in from another computer. In this example, the IP address of the computer that we want to log in from is *10.112.113.114*
 
 ```   
-GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
+GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    
-Where `ip-address` is the IP address of the computer from which you connect to MySQL.
-
-
 To exit the MySQL database administration utility, type:
 
 ```    
