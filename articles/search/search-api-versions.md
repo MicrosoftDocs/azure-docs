@@ -7,13 +7,12 @@ author: brjohnstmsft
 manager: pablocas
 editor: ''
 
-ms.assetid: 0458053a-164e-4682-a802-00097ecde981
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 01/11/2018
 ms.author: brjohnst
 ---
 
@@ -36,7 +35,7 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 | [.NET SDK Preview](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview, released May 2017 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Generally Available |
 | [Service REST API Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Preview |
-| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Generally Available |
+| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Generally Available |
 | [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Generally Available |
 
 For the REST APIs, including the `api-version` on each call is required. This makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
