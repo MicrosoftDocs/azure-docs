@@ -72,7 +72,7 @@ Use the following steps to restore Domain Services on your tenant:
 2. Choose the subscription from the table that is associated with your managed domain
 3. Using the left-hand navigation, choose **Resource Providers**
 4. Search for "Microsoft.AAD" in the table and click **Re-register**
-5. Check your health blade in two hours to see if this has resolved your alert
+5. To check to make sure your alert is resolved, view your health alert page in two hours.
 
 
 ### Service Principals that self correct

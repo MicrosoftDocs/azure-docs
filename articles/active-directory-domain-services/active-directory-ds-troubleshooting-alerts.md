@@ -41,7 +41,7 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 
 This error is usually caused by incorrectly moving your Azure subscription to a new Azure AD directory and deleting the old Azure AD directory that is still associated with Azure AD Domain Services.
 
-This is an unrecoverable error. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and recreate it in your new directory. If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](active-directory-ds-contact-us.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and recreate it in your new directory. If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](active-directory-ds-contact-us.md).
 
 ### AADDS101: Azure AD B2C is running in this directory
 **Alert Message:**
@@ -57,7 +57,7 @@ To restore your service, follow these steps:
 
 1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your existing Azure AD directory.
 2. Create a new directory that is not an Azure AD B2C directory.
-3. Follow our [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
+3. Follow the [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
 
 ### AADDS103: Address is in a public IP range
 
