@@ -17,14 +17,13 @@ ms.author: shlo
 
 ---
 # Visually author data factories
-With the Azure Data Factory UX experience, users can visually author and deploy resources within their data factory, without writing a single line of code.
-This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
+With the Azure Data Factory UX experience, users can visually author and deploy resources in their data factory without writing a single line of code. This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, and deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
 
 1. Configure VSTS Git Integration for collaboration, source control, or versioning
 2. Work directly with the Data Factory service
 
 ## Authoring with VSTS Git Integration
-Authoring with VSTS Git integration allows for source control and collaboration while authoring your data factory pipelines. Users have the option to associate a data factory to a VSTS Git Account repository for source control, collaboration, and versioning etc. A single VSTS GIT account can have multiple repositories. However, a VSTS Git repository can only be associated with a single data factory. If you don't have a VSTS account and repository already, create one [here](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+Authoring with VSTS Git integration allows for source control and collaboration while authoring your data factory pipelines. Users have the option to associate a data factory with a VSTS Git Account repository for source control, collaboration, and versioning etc. A single VSTS GIT account can have multiple repositories. However, a VSTS Git repository can only be associated with a single data factory. If you don't have a VSTS account and repository already, create one [here](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
 
 ### Configure VSTS Git Repo with Azure Data Factory
 Users can configure a VSTS GIT repo with a data factory through two methods.
@@ -42,13 +41,11 @@ From there, a side panel appears for configuring the repository settings.
 * **Visual Studio Team Services Account**: The account name can be found from https://{account name}.visualstudio.com. Sign in to your VSTS account [here](https://www.visualstudio.com/team-services/git/) and access your Visual Studio profile to see your repositories and projects
 * **ProjectName:** The project name can be found from https://{account name}.visualstudio.com/{project name}
 * **RepositoryName:** The repository name. VSTS projects contain Git repositories to manage your source code as your project grows. Either create a new repository or use an existing repository already in the project.
-* **Import existing Data Factory resources to repository**: By checking this box, you can import your current data factory resources authored on the UX canvas to the associated VSTS GIT repository in JSON format. This exports each resource individually. (that is, a linked service and dataset is exported into separate JSONs)
-<br>
-By unchecking this box, previous resources are not imported into the Git repository. Only new resources authored appear in the list.
+* **Import existing Data Factory resources to repository**: By checking this box, you can import your current data factory resources authored on the UX canvas to the associated VSTS GIT repository in JSON format. This action exports each resource individually (that is, linked services and datasets are exported into separate JSONs).    If you clear this check box, the existing resources are not imported into the Git repository. 
 
 #### Method 2: From Authoring Canvas
 
-Go to the 'Authoring canvas.' Click the 'Data Factory' drop-down menu under your Data Factory name. From there, click 'Configure Code Repository.' Similarly, as **Method 1,** a side panel appears for configuring the repository settings. Refer above for the settings options.
+In the  'Authoring canvas', click the 'Data Factory' drop-down menu under your data factory name. Then, click 'Configure Code Repository.' Similar to **Method 1**, a side panel appears for configuring the repository settings. See the previous sections for information about the settings.
 
 ![Configure Code Repository 2](media/author-visually/configure-repo-2.png)
 
@@ -73,7 +70,7 @@ Once you click 'sync', you can pull changes from the master branch to your local
 
 
 ## Authoring with Data Factory
-Another option is to author in Data Factory mode. This is different from authoring through VSTS Code Repository in that there is no repository storing your changes, nor does it allow for collaboration or version control.
+Another option is to author in Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing your changes, nor does it allow for collaboration or version control.
 
 ![Configure Data Factory](media/author-visually/configure-data-factory.png)
 
@@ -99,10 +96,10 @@ From there, you can either utilize an existing parameter or specify a new parame
 ![Parameters](media/author-visually/parameters.png)
 
 ## Feedback
-Click on the 'Feedback' icon to give us feedback on various features or any issues that you might be facing.
+Click on the 'Feedback' icon to give us (Microsoft) feedback on various features or any issues that you might be facing.
 
 ![Feedback](media/monitor-visually/feedback.png)
 
 ## Next steps
 
-See  [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines
+To learn about monitoring and managing pipelines, see  [Monitor and manage pipelines programmatically](monitor-programmatically.md) article 

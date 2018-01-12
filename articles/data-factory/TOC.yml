@@ -106,7 +106,7 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Visuall author data factories
+  - name: Visually author data factories
     href: author-visually.md
   - name: Copy data
     items:
