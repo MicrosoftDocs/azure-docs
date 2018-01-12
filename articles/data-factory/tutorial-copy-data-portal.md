@@ -125,7 +125,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 3. In the **Properties** window for the pipeline, set the **name** of the pipeline to **CopyPipeline**.
 
     ![Pipeline name](./media/tutorial-copy-data-portal/pipeline-name.png)
-4. Drag-drop the **Copy** activity from the tool box to the pipeline designer surface. 
+4. In the **Activities** toolbox, expand the **DataFlow** category, and drag-drop the **Copy** activity from the tool box to the pipeline designer surface. 
 
     ![Drag-drop copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 5. In the **General** tab of the **Properties** window, specify **CopyFromBlobToSql** as the name of the activity.
