@@ -25,7 +25,7 @@ To service, manage, and update your domain, Microsoft uses various [Service Prin
 
 **Alert Message:**
 
-*A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
+*A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
 Service principals are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. Use the preceding steps to determine which service principals need to be recreated.
 
