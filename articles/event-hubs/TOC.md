@@ -2,9 +2,9 @@
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
 
 # Quickstarts
-## [Create namespace and event hub using the portal](event-hubs-quickstart-namespace-portal.md)
-## [Create namespace and event hub using PowerShell](event-hubs-quickstart-namespace-powershell.md)
-## [Create namespace and event hub using Azure CLI](event-hubs-quickstart-namespace-cli.md)
+## [Use the Azure portal to send and receive events](event-hubs-quickstart-namespace-portal.md)
+## [Use PowerShell to send and receive events](event-hubs-quickstart-namespace-powershell.md)
+## [Use Azure CLI to send and receive events](event-hubs-quickstart-namespace-cli.md)
 
 # Tutorials
 
