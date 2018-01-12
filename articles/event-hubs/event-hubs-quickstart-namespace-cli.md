@@ -106,13 +106,7 @@ First, download the [Basic](https://github.com/Azure/azure-event-hubs/tree/maste
 
 ### Run the apps
 
-First, run the **Send** application and observe 100 messages being sent. Press **Enter** to end the program.
-
-![][3]
-
-Then, run the **ReceiveByDateTime** app, and observe the messages being received into the Event Processor Host.
-
-![][4]
+First, run the **Send** application and observe an event being sent. Then, run the **ReceiveByDateTime** app, and observe the event being received into the Event Processor Host.
 
 ## Clean up deployment
 
@@ -131,8 +125,6 @@ In this article, you created the Event Hubs namespace and other resources requir
 
 [1]: ./media/event-hubs-quickstart-namespace-cli/cli1.png
 [2]: ./media/event-hubs-quickstart-namespace-cli/cli2.png
-[3]: ./media/event-hubs-quickstart-namespace-cli/sender1.png
-[4]: ./media/event-hubs-quickstart-namespace-cli/receiver1.png
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
