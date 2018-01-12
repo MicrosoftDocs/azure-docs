@@ -116,12 +116,9 @@ In this step, you create a pipeline with a Copy activity in the data factory. Th
 
 In this tutorial, you start with creating the pipeline, and create linked services and datasets when you need them to configure the pipeline. 
 
-1. In the get started page, click **Create Pipeline** tile (or) click **Edit** tab on the left. 
+1. In the get started page, click **Create Pipeline** tile. 
 
    ![Create pipeline tile](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. Click **+ (plus)**, and click **Pipeline**. You see a new tab in the edit titled **pipeline1**. You also see the pipeline in the treeview in the left pane. 
-
-   ![New pipeline menu](./media/tutorial-copy-data-portal/new-pipeline-menu.png)
 3. In the **Properties** window for the pipeline, set the **name** of the pipeline to **CopyPipeline**.
 
     ![Pipeline name](./media/tutorial-copy-data-portal/pipeline-name.png)
