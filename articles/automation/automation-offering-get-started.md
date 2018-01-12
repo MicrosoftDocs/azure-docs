@@ -22,7 +22,7 @@ ms.author: magoedte
 This article introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, you can learn how to prepare and onboard Automation. After you read this article, you'll be ready to begin developing runbooks to support your process automation needs. 
 
 
-## Automation architecture
+## Automation architecture overview
 
 ![Azure Automation overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
@@ -80,7 +80,7 @@ To verify user roles:
 3. Select **All users**. 
 4. After you select a specific user, select **Profile**. The value of the **User type** attribute under the user's profile should not be **Guest**.
 
-## Plan for authentication
+## <a name="authentication-planning"></a>Plan for authentication
 In Azure Automation, you can automate tasks against resources that are in Azure, on-premises, and in other cloud services. For a runbook to perform its required actions, it must have permissions to securely access the resources. It must have the minimal rights required within the subscription.  
 
 ### What is an Automation account 
@@ -123,7 +123,7 @@ In the **How-to, authentication, and security** section, supporting articles pro
 
 For the Azure Run As and Classic Run As accounts, [Update Automation Run As account](automation-create-runas-account.md) describes how to update your existing Automation account with the Run As accounts from the portal. It also describes how to use PowerShell if the Automation account wasn't originally configured with a Run As or Classic Run As account. You can create a Run As account and a Classic Run As account by using a certificate that's issued by your enterprise certificate authority (CA). Review [Update Automation Run As account](automation-create-runas-account.md) to learn how to create the accounts by using this configuration.     
  
-## Plan your network
+## <a name="network-planning"></a>Plan your network
 For the Hybrid Runbook Worker to connect to and register with OMS, it must have access to the port number and the URLs that are described in this section. This is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) to connect to OMS. 
 
 If you use a proxy server for communication between the agent and the OMS service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access.
@@ -160,7 +160,7 @@ For a list of region IP addresses instead of region names, download the [Azure D
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file used to update the Border Gateway Protocol (BGP) advertisement of Azure space the first week of each month. 
 > 
 
-## Create an Automation account
+## <a name="creating-an-automation-account"></a>Create an Automation account
 
 The following table introduces methods for creating an Automation account in the Azure portal. The table describes each type of deployment experience, and the differences between them.  
 
