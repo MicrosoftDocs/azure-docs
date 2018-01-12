@@ -38,7 +38,7 @@ The following diagram illustrates the example pipeline.
 
 ![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## Oozie Solution Overview
+## Oozie solution overview
 
 This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
 
@@ -56,23 +56,23 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 
 1. Using the Azure portal, create a new Resource Group named `oozie` to contain all the resources used by this example.
 2. Within the `oozie` resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
-3. Using the Azure portal, navigate to the pane for your newly deployed SQL Database, and select Tools.
+3. Using the Azure portal, navigate to the pane for your newly deployed SQL Database, and select **Tools**.
 
     ![Tools button](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
 
-4. Select Query Editor.
+4. Select **Query Editor**.
 
     ![Query Editor button](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
 
-5. In the Query Editor pane, select Login.
+5. In the **Query Editor** pane, select **Login**.
 
     ![Login button](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
 
-6. Enter your SQL Database credentials and select OK.
+6. Enter your SQL Database credentials and select **OK**.
 
    ![Login form](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
 
-7. In the query editor text area, enter the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
+7. In the Query Editor text area, enter the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
 
     ```
     CREATE TABLE dailyflights
@@ -91,34 +91,34 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
     GO
     ```
 
-8. Select Run to execute the SQL statements.
+8. Select **Run** to execute the SQL statements.
 
     ![Run button](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
 
-9. Your Azure SQL Database is now ready.
+Your Azure SQL Database is now ready.
 
 #### Provision an HDInsight Hadoop Cluster
 
 1. In the Azure portal, select **+New** and search for HDInsight.
-2. Select Create.
+2. Select **Create**.
 3. On the Basics pane, provide a unique name for your cluster and choose your Azure Subscription.
 
     ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
 
-4. In the Cluster type pane, select the Hadoop cluster type, Linux operating system, and the latest version of the HDInsight cluster. Leave the Cluster tier at Standard.
+4. In the **Cluster type** pane, select the **Hadoop** cluster type, **Linux** operating system, and the latest version of the HDInsight cluster. Leave the **Cluster tier** at **Standard**.
 
     ![HDInsight cluster type](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
 
-5. Choose Select to apply your cluster type selection.
-6. Complete the Basics pane by providing a login password and selecting your `oozie` resource group from the list, then select Next.
+5. Choose **Select** to apply your cluster type selection.
+6. Complete the **Basics** pane by providing a login password and selecting your `oozie` resource group from the list, then select **Next**.
 
     ![HDInsight Basics pane](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
 
-7. In the Storage pane, leave the primary storage type set to Azure Storage, select Create new, and provide a name for the new account.
+7. In the **Storage** pane, leave the primary storage type set to **Azure Storage**, select **Create new**, and provide a name for the new account.
 
     ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
-8. For the Metastore Settings, under **Select a SQL database for Hive**, choose the database you previously created.
+8. For the **Metastore Settings**, under **Select a SQL database for Hive**, choose the database you previously created.
 
     ![HDInsight Hive Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
 
@@ -126,18 +126,18 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 
     ![HDInsight Hive Metastore Authenticate](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-10. Enter your SQL database username and password, and choose Select. 
+10. Enter your SQL database username and password, and choose **Select**. 
 
        ![HDInsight Hive Metastore Authenticate Login](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-11. Back on the Metastore Settings, select your database for the Oozie metadata store and authenticate as you did previously. 
+11. Back on the **Metastore Settings** pane, select your database for the Oozie metadata store and authenticate as you did previously. 
 
        ![HDInsight Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Select Next.
-13. On the Summary pane, select **Create** to deploy your cluster.
+12. Select **Next**.
+13. On the **Summary** pane, select **Create** to deploy your cluster.
 
-### Verify SSH Tunneling Setup
+### Verify SSH tunneling setup
 
 To use the Oozie Web Console to view the status of your coordinator and workflow instances, set up an SSH tunnel to your HDInsight cluster. For more information, see [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -154,7 +154,7 @@ To use the Oozie Web Console to view the status of your coordinator and workflow
 
     http://headnodehost:8080
 
-3. To access the Oozie Web Console from within Ambari, select Oozie, Quick Links, and then select Oozie Web Console.
+3. To access the **Oozie Web Console** from within Ambari, select **Oozie**, **Quick Links**, and then select **Oozie Web Console**.
 
 ### Configure Hive
 
@@ -166,16 +166,20 @@ You can copy the file using SCP in your `bash` shell session.
 
 1. Use SCP to copy the files from your local machine to the local storage of your HDInsight cluster head node.
 
+    ```bash
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
+    ```
 
 2. Use the HDFS command to copy the file from your head node local storage to Azure Storage.
 
+    ```bash
     hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
+    ```
 
 The sample data is now available. However, the pipeline requires two Hive tables for processing, one for the incoming data (`rawFlights`) and one for the summarized data (`flights`). Create these tables in Ambari as follows.
 
 1. Log in to Ambari by navigating to [http://headnodehost:8080](http://headnodehost:8080).
-2. From the list of services, select Hive.
+2. From the list of services, select **Hive**.
 
     ![Selecting Hive in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
@@ -207,7 +211,8 @@ The sample data is now available. However, the pipeline requires two Hive tables
     ) 
     LOCATION '/example/data/flights'
     ```
-5. Select Execute to create the table.
+
+5. Select **Execute** to create the table.
 
     ![Hive Query in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
@@ -236,7 +241,8 @@ The sample data is now available. However, the pipeline requires two Hive tables
         "quoteChar"     = "\""
     );
     ```
-7. Select Execute to create the table.
+
+7. Select **Execute** to create the table.
 
 ### Create the Oozie workflow
 
@@ -408,7 +414,7 @@ day=03
 
 The following table summarizes each of the properties and indicates where you can find the values for your own environment.
 
-| Property | Value Source |
+| Property | Value source |
 | --- | --- |
 | nameNode | The full path to the Azure Storage Container attached to your HDInsight cluster. |
 | jobTracker | The internal hostname to your active cluster's YARN head node. On the Ambari home page, select YARN from the list of services, then choose Active Resource Manager. The hostname URI is displayed at the top of the page. Append the port 8050. |
@@ -458,11 +464,11 @@ Use SCP from your bash session to deploy your Oozie workflow (`workflow.xml`), t
 
         oozie job -config job.properties -run
 
-7. Observe the status using the Oozie Web Console. From within Ambari, select Oozie, Quick Links, and then Oozie Web Console. Under the Workflow Jobs tab, select All Jobs.
+7. Observe the status using the Oozie Web Console. From within Ambari, select **Oozie**, **Quick Links**, and then **Oozie Web Console**. Under the **Workflow Jobs** tab, select **All Jobs**.
 
     ![Oozie Web Console Workflows](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-8. When the status is SUCCEEDED, query the SQL database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select Tools, and open the Query Editor.
+8. When the status is SUCCEEDED, query the SQL database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select **Tools**, and open the **Query Editor**.
 
         SELECT * FROM dailyflights
 
@@ -541,38 +547,44 @@ To schedule this workflow so that it runs daily (or all days in a date range), y
 
 As you can see, the majority of the coordinator is just passing configuration information to the workflow instance. However, there are a few important items to call out.
 
-1. The `start` and `end` attributes on the `coordinator-app` element itself control the time interval over which the coordinator runs.
+* Point 1: The `start` and `end` attributes on the `coordinator-app` element itself control the time interval over which the coordinator runs.
 
+    ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
+    ```
 
     A coordinator is responsible for scheduling actions within the `start` and `end` date range, according to the interval specified by the `frequency` attribute. Each scheduled action in turn runs the workflow as configured. In the coordinator definition above, the coordinator is configured to run actions from January 1st, 2017 to January 5th, 2017. The frequency is set to 1 day by the [Oozie Expression Language](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency expression `${coord:days(1)}`. This results in the coordinator scheduling an action (and hence the workflow) once per day. For date ranges that are in the past, as in this example, the action will be scheduled to run without delay. The start of the date from which an action is scheduled to run is called the *nominal time*. For example, to process the data for January 1st, 2017 the coordinator will schedule action with a nominal time of 2017-01-01T00:00:00 GMT.
 
-2. Within the date range of the workflow, the `dataset` element specifies where to look in HDFS for the data for a particular date range, and configures how Oozie determines whether the data is available yet for processing.
+* Point 2: Within the date range of the workflow, the `dataset` element specifies where to look in HDFS for the data for a particular date range, and configures how Oozie determines whether the data is available yet for processing.
 
+    ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
-            <uri-template>${sourceDataFolder}${YEAR}-${MONTH}-FlightData.csv</uri-template>
-            <done-flag></done-flag>
+        <uri-template>${sourceDataFolder}${YEAR}-${MONTH}-FlightData.csv</uri-template>
+        <done-flag></done-flag>
     </dataset>
+    ```
 
     The path to the data in HDFS is built dynamically according to the expression provided in the `uri-template` element. In this coordinator, a frequency of one day is also used with the dataset. While the start and end dates on the coordinator element control when the actions are scheduled (and defines their nominal times), the `initial-instance` and `frequency` on the dataset control the calculation of the date that is used in constructing the `uri-template`. In this case, set the initial instance to one day before the start of the coordinator to ensure that it picks up the first day's (1/1/2017) worth of data. The dataset's date calculation rolls forward from the value of `initial-instance` (12/31/2016) advancing in increments of dataset frequency (1 day) until it finds the most recent date that does not pass the nominal time set by the coordinator (2017-01-01T00:00:00 GMT for the first action).
 
     The empty `done-flag` element indicates that when Oozie checks for the presence of input data at the appointed time, Oozie determines data whether available by presence of a directory or file. In this case it is the presence of a csv file. If a csv file is present, Oozie assumes the data is ready and launches a workflow instance to process the file. If there is no csv file present, Oozie assumes the data is not yet ready and that run of the workflow goes into a waiting state.
 
-3. The `data-in` element specifies the particular timestamp to use as the nominal time when replacing the values in `uri-template` for the associated dataset. 
+* Point 3: The `data-in` element specifies the particular timestamp to use as the nominal time when replacing the values in `uri-template` for the associated dataset.
 
+    ```
     <data-in name="event_input1" dataset="ds_input1">
         <instance>${coord:current(0)}</instance>
     </data-in>
+    ```
 
     In this case, set the instance to the expression `${coord:current(0)}`, which translates to using the nominal time of the action as originally scheduled by the coordinator. In other words, when the coordinator schedules the action to run with a nominal time of 01/01/2017, then 01/01/2017 is what is used to replace the YEAR (2017) and MONTH (01) variables in the URI template. Once the URI template is computed for this instance, Oozie checks whether the expected directory or file is available and schedules the next run of the workflow accordingly.
 
 The three preceding points combine to yield a situation where the coordinator schedules processing of the source data in a day-by-day fashion. 
 
-1. The coordinator starts with a nominal date of 2017-01-01.
-2. Oozie looks for data available in `sourceDataFolder/2017-01-FlightData.csv`.
-3. When Oozie finds that file, it schedules an instance of the workflow that will process the data for 2017-01-01.
+* Point 1: The coordinator starts with a nominal date of 2017-01-01.
 
-Oozie then continues processing for 2017-01-02. This evaluation repeats up to but not including 2017-01-05.
+* Point 2: Oozie looks for data available in `sourceDataFolder/2017-01-FlightData.csv`.
+
+* Point 3: When Oozie finds that file, it schedules an instance of the workflow that will process the data for 2017-01-01. Oozie then continues processing for 2017-01-02. This evaluation repeats up to but not including 2017-01-05.
 
 As with workflows, the configuration of a coordinator is defined in a `job.properties` file, which has a superset of the settings used by the workflow.
 
@@ -595,7 +607,7 @@ sqlDatabaseTableName=dailyflights
 
 The only new properties introduced in this `job.properties` file are:
 
-| Property | Value Source |
+| Property | Value source |
 | --- | --- |
 | oozie.coord.application.path | Indicates the location of the `coordinator.xml` file containing the Oozie coordinator to run. |
 | hiveDailyTableNamePrefix | The prefix used when dynamically creating the table name of the staging table. |
@@ -607,21 +619,29 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
 1. Use SCP from your local machine to copy the coordinator files up to the local storage of the head node of your cluster.
 
+    ```bash
     scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:~
+    ```
 
 2. SSH into your head node.
 
-        ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 
+    ```bash
+    ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 
+    ```
 
 3. Copy the coordinator files to HDFS.
 
-        hdfs dfs -put ./* /oozie/
+    ```bash
+    hdfs dfs -put ./* /oozie/
+    ```
 
 4. Run the coordinator.
 
-        oozie job -config job.properties -run
+    ```bash
+    oozie job -config job.properties -run
+    ```
 
-5. Verify the status using the Oozie Web Console, this time selecting the Coordinator Jobs tab, and then  All jobs.
+5. Verify the status using the Oozie Web Console, this time selecting the **Coordinator Jobs** tab, and then  **All jobs**.
 
     ![Oozie Web Console Coordinator Jobs](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
 
@@ -631,7 +651,7 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
     Each action in this list corresponds to an instance of the workflow that processes one day's worth of data, where the start of that day is indicated by the nominal time.
 
-## See also
+## Next steps
 
 * [Apache Oozie Documentation](http://oozie.apache.org/docs/4.2.0/index.html)
 
