@@ -13,7 +13,7 @@ ms.author: nepeters
 
 # Authenticate with Azure Container Registry from Azure Container Service
 
-When using Azure Container Registry (ACR) with Azure Container Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
+When you're using Azure Container Registry (ACR) with Azure Container Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
 
 ## Grant AKS access to ACR
 
