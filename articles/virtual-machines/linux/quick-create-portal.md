@@ -35,7 +35,7 @@ From a Bash shell, run this command and follow the on-screen directions. The com
 ssh-keygen -t rsa -b 2048
 ```
 
-You can find more detailed information on this process [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
+You can find more detailed information on this process [here](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
 
