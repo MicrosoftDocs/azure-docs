@@ -157,23 +157,8 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [typical architectures leveraging SQL DW]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 5425529573222147376d8f1dbb2b82403f627ded
 [replicated tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
 [distributed tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
 [into ADLS]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
 [sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
-<<<<<<< HEAD
-=======
-[replicated tables]:https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[distributed tables]:https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[into ADLS]: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
->>>>>>> 038a011d6fc26a71aee06794c8c0dc9705d4c7d6
-=======
->>>>>>> 5425529573222147376d8f1dbb2b82403f627ded
