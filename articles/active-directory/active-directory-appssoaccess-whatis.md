@@ -94,7 +94,7 @@ Ready to get started? To deploy single sign-on between Azure AD and SaaS applica
 ### Using the Azure AD application gallery
 The [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
 
-![Azure AD Access Panel](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
+![Azure online app gallery](media/active-directory-appssoaccess-whatis/onlineappgallery.png)
 
 Here are some tips for finding apps by what capabilities they support:
 
@@ -149,7 +149,7 @@ Which method(s) you choose to deploy in your organization is your discretion.
 ### Azure AD access panel
 The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
 
-![][3]
+![Azure AD Access Panel](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
 The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription or Office 365 subscription.
 
