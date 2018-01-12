@@ -28,7 +28,7 @@ Recommendations and performance optimizations for loading data into Azure SQL Da
 ## Preparing data in Azure Storage
 To minimize latency, co-locate your storage layer and your data warehouse.
 
-When exporting data into an ORC File Format, text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this limitation, export only a subset of the columns.
+When exporting data into an ORC File Format, you might get Java out-of-memory errors when there are large text columns. To work around this limitation, export only a subset of the columns.
 
 PolyBase cannot load rows that have more than 1,000,000 bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than 1,000,000 bytes of data. This byte limitation is true regardless of the table schema.
 
@@ -65,7 +65,7 @@ Run loads under static rather than dynamic resource classes. Using the static re
 
 There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
-For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lockdown their schemas using DENY:
+For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -129,7 +129,7 @@ After migrating your external tables to the new data source, perform the followi
 
 
 ## Next steps
-To monitor the load process, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).
+To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).
 
 
 

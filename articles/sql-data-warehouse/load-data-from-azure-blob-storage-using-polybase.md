@@ -168,7 +168,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
@@ -209,7 +209,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, but this time enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
 3. Click **Connect**.
 
