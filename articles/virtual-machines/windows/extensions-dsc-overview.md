@@ -36,11 +36,9 @@ The Azure VM that is configured by the DSC configuration needs to be an OS that 
 ## Terms and concepts
 This guide presumes familiarity with the following concepts:
 
-Configuration - A DSC configuration document. 
-
-Node - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
-
-Configuration Data - A .psd1 file containing environmental data for a configuration
+* **Configuration** - A DSC configuration document. 
+* **Node** - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
+* **Configuration Data** - A .psd1 file containing environmental data for a configuration
 
 ## Architectural overview
 The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal.
@@ -145,7 +143,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## Logging
 Logs are placed in:
 
+```
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## Next steps
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 

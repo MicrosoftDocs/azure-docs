@@ -33,6 +33,8 @@ To complete this tutorial:
 
 ## Prepare the app
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 To use custom domains in Azure Web Apps, your web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the web app is in the supported pricing tier.
 
 ### Sign in to Azure

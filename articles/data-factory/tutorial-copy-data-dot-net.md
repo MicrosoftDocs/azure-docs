@@ -365,14 +365,13 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
     resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
  
-
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(activityRuns.First().Output);
     }
     else
         Console.WriteLine(activityRuns.First().Error);
-
+    
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```

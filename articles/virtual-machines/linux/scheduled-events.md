@@ -183,7 +183,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 
@@ -203,13 +203,14 @@ def handle_scheduled_events(data):
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ","_")
         if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
             # Add logic for handling events here
+
 
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)

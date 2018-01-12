@@ -78,7 +78,6 @@ You can use the following values to create a test environment, or refer to these
 ## <a name="createvnet"></a>1. Create a virtual network
 
 Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2. Add a gateway subnet
@@ -122,7 +121,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="uploadfile"></a>7. Upload the root certificate public certificate data
 
-After the gateway has been created, you upload the public key information for the root certificate to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificates- up to a total of 20.
+After the gateway has been created, you upload the public key information for the root certificate to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificates up to a total of 20.
 
 1. Certificates are added on the **Point-to-site configuration** page in the **Root certificate** section.  
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.

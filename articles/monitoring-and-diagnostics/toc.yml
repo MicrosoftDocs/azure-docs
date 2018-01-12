@@ -33,7 +33,7 @@
       href: monitoring-overview-metrics.md
     - name: Alerts
       href: monitoring-overview-alerts.md
-    - name: Alerts (Preview)  
+    - name: Alerts (Preview)
       href: monitoring-overview-unified-alerts.md
     - name: Log alerts
       href: monitor-alerts-unified-log.md
@@ -79,7 +79,7 @@
     - name: Configure alerts in Azure portal
       href: insights-alerts-portal.md
     - name: Configure metric or log alerts in Alerts (Preview) in Azure portal
-      href: monitor-alerts-unified-usage.md  
+      href: monitor-alerts-unified-usage.md
     - name: Configure alerts with CLI
       href: insights-alerts-command-line-interface.md
     - name: Configure alerts with Azure PowerShell
@@ -90,6 +90,8 @@
       href: monitoring-enable-alerts-using-template.md
   - name: Use autoscale
     items:
+    - name: Understand Autoscale settings
+      href: monitoring-understanding-autoscale-settings.md
     - name: Best practices
       href: insights-autoscale-best-practices.md
     - name: Common metrics
@@ -162,6 +164,8 @@
     href: monitoring-metric-charts.md
   - name: Send metrics to Grafana
     href: monitor-send-to-grafana.md
+  - name: Send monitoring data to an event hub
+    href: monitor-stream-monitoring-data-event-hubs.md
 - name: Reference
   items:
   - name: Azure CLI

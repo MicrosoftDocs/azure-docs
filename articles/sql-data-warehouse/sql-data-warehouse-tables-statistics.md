@@ -30,32 +30,30 @@ ms.author: barbkess
 > 
 > 
 
-The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
+The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data. Having statistics on your data is one of the most important things you can do to optimize your queries. This is because the SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest. For example, if the optimizer estimates that the date you are filtering in your query will return 1 row, it may choose a very different plan than if it estimates that they date you have selected will return 1 million rows.
 
-Statistics can be created on a single column, multiple columns or on an index of a table.  Statistics are stored in a histogram which captures the range and selectivity of values.  This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.  For example, if the optimizer estimates that the date you are filtering in your query will return 1 row, it may choose a very different plan than if it estimates that they date you have selected will return 1 million rows.  While creating statistics is extremely important, it is equally important that statistics *accurately* reflect the current state of the table.  Having up-to-date statistics ensures that a good plan is selected by the optimizer.  The plans created by the optimizer are only as good as the statistics on your data.
-
-The process of creating and updating statistics is currently a manual process, but is very simple to do.  This is unlike SQL Server which automatically creates and updates statistics on single columns and indexes.  By using the information below, you can greatly automate the management of the statistics on your data. 
+The process of creating and updating statistics is currently a manual process, but is very simple to do.  Soon youw will be able to automatically create and update statistics on single columns and indexes.  By using the information below, you can greatly automate the management of the statistics on your data. 
 
 ## Getting started with statistics
- Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather than after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
+Creating sampled statistics on every column is an easy way to get started with statistics. Out-of-date statistics will lead to sub-optimal query performance. However it can consume memory to update statistics on all columns as your data grow. 
 
-## Multi-column statistics
-In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by.
+Following are some of  recommendations for different scenarios:
+| **Scenarios** | Recommendation |
+|:--- |:--- |
+| **Get started** | Update all columns after migrating to SQL DW |
+| **Most important column for stats** | Hash distribution key |
+| **Second most important column for stats** | Partition Key |
+| **Other important columns for stats** | Date, Frequent JOINs, GROUP BY, HAVING and WHERE |
+| **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
+| **Sampling** |  Below 1 B rows, use default sampling (20%) <br></br> With more than 1 B rows tables, statistics on a 2% range is good |
 
 ## Updating statistics
-Updating statistics is an important part of your database management routine.  When the distribution of data in the database changes, statistics need to be updated.  Out-of-date statistics will lead to sub-optimal query performance.
 
-One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
 
-One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
+One of the first questions to ask when troubleshooting a query is, **"Are the statistics up-to-date?"**
 
-This question is not one that can be answered by the age of the data. An up to date statistics object could be very old if there's been no material change to the underlying data. When the number of rows has changed substantially or there is a material change in the distribution of values for a given column *then* it's time to update statistics.  
-
-For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
-
-* If you have zero rows in the table, when you add rows, you’ll get an automatic update of statistics
-* When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you’ll get an automatic update 
-* Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
+This question is not one that can be answered by the age of the data. An up to date statistics object could be very old if there's been no material change to the underlying data. When the number of rows has changed substantially or there is a material change in the distribution of values for a given column *then* it's time to update statistics.
 
 Since there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics where updated on each table.  
 
@@ -91,7 +89,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Date columns in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.  Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.  Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
 
 For further explanation, see [Statistics][Statistics] on MSDN.
 
@@ -119,7 +117,7 @@ These examples show how to use various options for creating statistics. The opti
 ### A. Create single-column statistics with default options
 To create statistics on a column, simply provide a name for the statistics object and the name of the column.
 
-This syntax uses all of the default options. By default, SQL Data Warehouse samples 20 percent of the table when it creates statistics.
+This syntax uses all of the default options. By default, SQL Data Warehouse **samples 20 percent** of the table when it creates statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -186,7 +184,7 @@ To create a multi-column statistics, simply use the previous examples, but speci
 > 
 > 
 
-In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_c\ategory*:
+In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;

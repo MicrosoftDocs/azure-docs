@@ -239,7 +239,7 @@ If you encounter errors similar to the following ones, it is likely due to impro
 In case if you use **PowerShell** or **Credential Manager application**  to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, then you would require the **'Remote Access from Intranet'** option to be enabled. 
 If you run the **PowerShell** or **Credential Manager application**  to encrypt credential on the same machine where the self-hosted integration runtime is installed, then **'Remote Access from Intranet'** may not be enabled.
 
-Remote Access from Intranet should be **enabled** before adding another node for **High Availablity and Scalability**.  
+Remote Access from Intranet should be **enabled** before adding another node for **High Availability and Scalability**.  
 
 During self-hosted integration runtime setup (v 3.3.xxxx.x onwards), by default, the self-hosted integration runtime installation disables the **'Remote Access from Intranet'** on the self-hosted integration runtime machine.
 

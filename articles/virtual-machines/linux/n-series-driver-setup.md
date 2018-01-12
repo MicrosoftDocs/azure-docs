@@ -4,7 +4,7 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in 
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 

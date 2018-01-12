@@ -6,13 +6,13 @@
     href: how-iot-edge-works.md
 - name: Quickstarts
   items:
-  - name: Deploy to the edge - Linux
+  - name: Deploy to the edge - Linux/Mac
     href: quickstart-linux.md
   - name: Deploy to the edge - Windows
     href: quickstart.md
 - name: Tutorials
   items:
-  - name: Simulate an Edge device - Linux
+  - name: Simulate an Edge device - Linux/Mac
     href: tutorial-simulate-device-linux.md
   - name: Simulate an Edge device - Windows
     href: tutorial-simulate-device-windows.md
@@ -26,8 +26,12 @@
     href: tutorial-deploy-function.md
 - name: How-to guides
   items:
-  - name: Create a transparent gateway
-    href: how-to-create-transparent-gateway.md
+  - name: Create gateways
+    items:
+    - name: Create a transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Modbus gateway
+      href: deploy-modbus-gateway.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
@@ -38,6 +42,10 @@
         href: how-to-vscode-develop-csharp-module.md
       - name: Debug C# module
         href: how-to-vscode-debug-csharp-module.md
+      - name: Develop and deploy Azure Functions
+        href: how-to-vscode-develop-azure-function.md
+      - name: Debug Azure Functions
+        href: how-to-vscode-debug-azure-function.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Concepts

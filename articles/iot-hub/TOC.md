@@ -162,6 +162,7 @@
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
 
 ---
@@ -67,7 +67,7 @@ To restore files or folders from the restore point, go to the virtual machine an
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.  
          
-   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
 
 ### Identifying Volumes
 
@@ -161,7 +161,7 @@ If the RAID disk has another LVM configured in it, then use the preceding proced
 
 ### For Windows
 
-The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
+The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or a Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
