@@ -203,11 +203,11 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ## Configure docker HEALTHCHECK 
 Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the **dockerfile** used while generating the container image. 
 
-![HealthCheckHealthy][3]
+![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnealthyApp][2]
 
-![HealthCheckUnhealthyDsp][5]
+![HealthCheckUnhealthyDsp][3]
 
 You can configure **HEALTHCHECK**  behavior for each container by specifying **HealthConfig** options as part of **ContainerHostPolicies** in ApplicationManifest.
 
@@ -401,6 +401,23 @@ You can configure the Service Fabric cluster to remove unused container images f
 ```
 
 For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+
+## Configure container image download time
+
+By default, the Service Fabric runtime allocates a time of 20 minutes to download and extract container images, which works for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This can be set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
 
 ## Set container retention policy
 

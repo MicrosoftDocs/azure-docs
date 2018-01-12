@@ -301,7 +301,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio with Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio with Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [Azure portal]: https://portal.azure.com/
