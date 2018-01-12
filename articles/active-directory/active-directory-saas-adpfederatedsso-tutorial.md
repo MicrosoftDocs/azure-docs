@@ -208,23 +208,23 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 	
 	1- **ADP Workforce Now**
 		
-	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
 
 	2- **ADP Workforce Now Enhanced Time**
 		
-	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 	
 	3-**ADP Vantage HCM**
 		
-	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
 	4-**ADP Enterprise HR**
 
-	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
 	5-**MyADP**
 
-	`<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+	`<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 	c. **Save** your changes.
 
