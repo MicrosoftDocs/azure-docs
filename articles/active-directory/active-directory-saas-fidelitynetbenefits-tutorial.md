@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	For Production Environment:
 	`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
-4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **user.userprincipalname**. You can map this with **EmployeeId** or any other claim which is applicable to your Organization as **User Identifier**. The following screenshot shows just an example for this.
+4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **user.userprincipalname**. You can map this with **employeeid** or any other claim which is applicable to your Organization as **User Identifier**. The following screenshot shows just an example for this.
 
 	![Fidelity NetBenefits attribute](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
