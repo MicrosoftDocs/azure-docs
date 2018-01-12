@@ -97,7 +97,7 @@
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
-#### [Python back end/Python device](iot-hub-python-python-device-management-getstarted.md)
+#### [Python back end/Python device](iot-hub-python-python-device-management-get-started.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
