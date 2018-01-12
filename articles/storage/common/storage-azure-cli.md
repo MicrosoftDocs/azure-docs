@@ -194,6 +194,8 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
+???Is there a new value for the CLI for ZRS???
+
 ### Set default Azure storage account environment variables
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 

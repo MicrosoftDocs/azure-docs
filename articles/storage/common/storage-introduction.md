@@ -150,17 +150,15 @@ For more information about securing your storage account and encryption, see the
 
 In order to ensure that your data is durable, Azure Storage has the ability to keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account is set up.
 
-All storage accounts have **locally redundant storage (LRS)** which is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+All storage accounts have **locally-redundant storage (LRS)** which is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
-**Locally redundant storage (LRS)**
+**Locally-redundant storage (LRS)**
 
 As explained above, with LRS you have multiple copies of your data in a single datacenter. This handles the problem of data becoming unavailable if a storage node fails or is taken offline to be updated, but not the case of an entire datacenter becoming unavailable.
 
 **Zone redundant storage (ZRS)**
 
-Zone-redundant storage (ZRS) is designed to provide at least 99.9999999999% (12 9's) durability of objects over a given year by maintaining local copies of your data as well as another set of copies of your data. The second set of copies is replicated asynchronously across datacenters within one or two regions. Note that ZRS is only available for block blobs in general-purpose storage accounts. Also, once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.
-
-ZRS accounts provide higher durability than LRS, but ZRS accounts do not have metrics or logging capability.
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 **Geo-redundant storage (GRS)**
 
@@ -171,10 +169,10 @@ Geo-redundant storage (GRS) is designed to provide 99.99999999999999% (16 9's) d
 Read-access geo-redundant storage is exactly like GRS except that you get read access to the data in the secondary location. If the primary data center becomes unavailable temporarily, you can continue to read the data from the secondary location. This can be very helpful. For example, you could have a web application that changes into read-only mode and points to the secondary copy, allowing some access even though updates are not available.
 
 > [!IMPORTANT]
-> You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
+> You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS.
 >
 
-For more information about replication, see [Azure Storage replication](storage-redundancy.md).
+For more information about replication options, see [Azure Storage replication](storage-redundancy.md).
 
 For disaster recovery information, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
 

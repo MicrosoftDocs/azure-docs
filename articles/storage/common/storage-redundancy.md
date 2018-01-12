@@ -40,27 +40,14 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
 >
 
-## Locally redundant storage
+## Locally-redundant storage
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## Zone-redundant storage
 
-Zone-redundant storage (ZRS) is designed to simplify the development of highly available applications. ZRS provides durability for storage objects of at least 99.9999999999% (12 9's) over a given year. ZRS replicates your data synchronously across multiple availability zones. 
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
-ZRS enables customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously and continue to be strongly consistent. 
-
-Consider ZRS for scenarios like transactional applications where downtime is not acceptable.  
-
-ZRS is currently available for preview in the following regions, with more regions coming soon:
-
-- US East 2 
-- US Central 
-- Europe North
-- France Central 
- 
-Refer to the ZRS documentation for more details on getting started and preview pricing.     
-
-### ZRS Classic
+### ZRS Classic accounts
 
 The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
 
