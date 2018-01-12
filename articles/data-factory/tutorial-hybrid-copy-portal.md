@@ -149,13 +149,14 @@ In this step, you create a data factory, and launch the Azure Data Factory UI to
    
    ![Data factory home page](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory UI in a separate tab. 
-11. Click **Create pipeline**. You see a pipeline in the treeview and its editor open. 
 
-   ![Get started page](./media/tutorial-hybrid-copy-portal/get-started-page.png)
 
 ## Create a pipeline
 
-1. In the **General** tab of the Properties window at the bottom, and enter **SQLServerToBlobPipeline** for **Name**.
+1. In the **Get started** page, click **Create pipeline**. A pipeline is automatically created for you. You see the pipeline in the tree view and its editor open. 
+
+   ![Get started page](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+2. In the **General** tab of the **Properties** window at the bottom, and enter **SQLServerToBlobPipeline** for **Name**.
 
    ![Pipeline name](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
 2. In the **Activities** toolbox, expand **Data Flow**, and drag-drop **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
