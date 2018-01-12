@@ -140,7 +140,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 
 
 ### Connect to Azure and register
-Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#-Download-the-Azure-Stack-tools). Import the **.\RegisterWithAzure.psm1** module: 
+Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **.\RegisterWithAzure.psm1** module: 
 
 PowerShell to run:
 ```powershell
@@ -172,7 +172,7 @@ If you see a list of items available from Azure (such as WordPress), your activa
 > After registration is complete, the active warning for not registering will no longer appear.
 
 ## Remove a registered resource
-If you want to remove the registration resource, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for Register-AzsEnvironment.
+If you want to remove a registration, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for **Register-AzsEnvironment**.
 
 To remove a registration using a resource name:
 
