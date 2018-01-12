@@ -64,11 +64,11 @@ cd \
 ```
 
 ## Register Azure Stack connected environments
-Internet connected environments that can access Azure. You need to register the Azure Stack resource provider and then configure your billing model.
+Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
-### Register Azure Stack resource provider
-To register the Azure Stack resource provider with Azure, start Powershell ISE as an administrator and use the following PowerShell script example to register the Azure Stack resource provider with Azure. These commands will:
-- Prompt you to log in as an owner of the Azure subscription that you will use and set the **-EnvironmentName** parameter to **AzureCloud**.
+### Register the Azure Stack resource provider
+To register the Azure Stack resource provider with Azure, start Powershell ISE as an administrator and use the following PowerShell commands. These commands will:
+- Prompt you to log in as an owner of the Azure subscription to be used and set the `EnvironmentName` parameter to **AzureCloud**.
 - Register the Azure resource provider **Microsoft.AzureStack**.
 
 PowerShell to run:
@@ -81,7 +81,9 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ### Register Azure Stack with Azure using the pay-as-you-use billing model
 Use the these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
-Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **.\RegisterWithAzure.psm1** module: 
+Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **.\RegisterWithAzure.psm1** module using PowerShell: 
+
+PowerShell to run:
 
 ```powershell
 Import-Module .\RegisterWithAzure.psm1
@@ -89,6 +91,7 @@ Import-Module .\RegisterWithAzure.psm1
 Next, in the same PowerShell session, run the **Set-AzsRegistration** cmdlet. When prompted for credentials, specify the owner of the Azure subscription.  
 
 PowerShell to run:
+
 ```powershell
 $AzureContext = Get-AzureRmContext
 $CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
@@ -105,7 +108,7 @@ Set-AzsRegistration `
 |BillingModel|The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development.|
 
 ### Register Azure Stack with Azure using the capacity billing model
-Follow the same instruction as for pay-as-you-use, but add the agreement number under which capacity was purchased and change the BillingModel parameter to Capacity. All other parameters are unchanged.
+Follow the same instructions used for registering using the pay-as-you-use billing model, but add the agreement number under which capacity was purchased and change the `BillingModel` parameter to **Capacity**. All other parameters are unchanged.
 
 PowerShell to run:
 ```powershell
@@ -139,6 +142,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 ### Connect to Azure and register
 Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#-Download-the-Azure-Stack-tools). Import the **.\RegisterWithAzure.psm1** module: 
 
+PowerShell to run:
 ```powershell
 Import-Module .\RegisterWithAzure.psm1
 ```
@@ -159,7 +163,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 
 ## Verify Azure Stack registration
 Use these steps to verify that Azure Stack has successfully registered with Azure.
-1. Sign in to the administrator portal ([https://adminportal.[REGION].azurestack.external](https://adminportal.[REGION].azurestack.external)).
+1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal).
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 
 If you see a list of items available from Azure (such as WordPress), your activation was successful.
@@ -168,7 +172,7 @@ If you see a list of items available from Azure (such as WordPress), your activa
 > After registration is complete, the active warning for not registering will no longer appear.
 
 ## Remove a registered resource
-If you want to remove the registration resource, then you must use UnRegister-AzsEnvironment and pass in either the registration resource name or the registration token you used for Register-AzsEnvironment.
+If you want to remove the registration resource, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for Register-AzsEnvironment.
 
 To remove a registration using a resource name:
 
@@ -189,7 +193,7 @@ You’ll need to update or renew your registration in the following circumstance
 - When you scale changes (add/remove nodes) for capacity-based billing.
 
 ### Change the subscription you use
-If you would like to change the subscription you use, you must first run Remove-AzsRegistration, ensure you are logged in to the correct Azure PowerShell context, and then run Set-AzsRegistration with any changed parameters.
+If you would like to change the subscription you use, you must first run the **Remove-AzsRegistration** cmdlet, then ensure you are logged in to the correct Azure PowerShell context, and finally run **Set-AzsRegistration** with any changed parameters:
 
 ```powershell
 Remove-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
@@ -198,7 +202,7 @@ Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedE
 ```
 
 ### Change the billing model or syndication features
-If you would like to change the billing model or syndication features for your installation, you can call the registration function to set the new values. You do not need to first remove the current registration. 
+If you would like to change the billing model or syndication features for your installation, you can call the registration function to set the new values. You do not need to first remove the current registration: 
 
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
