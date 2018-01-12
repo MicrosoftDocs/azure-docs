@@ -70,10 +70,38 @@ Install the MySQL Community Server edition.
 sudo zypper install mysql-community-server
 ```
  
+Output:
+
+You just installed MySQL server for the first time.
+
+You can start it using:
+ rcmysql start
+
+During first start empty database will be created for your automatically.
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following commands:
+
+'/usr/bin/mysqladmin' -u root password 'new-password'
+'/usr/bin/mysqladmin' -u root -h <hostname> password 'new-password'
+
+Alternatively you can run:
+'/usr/bin/mysql_secure_installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default. This is
+strongly recommended for production servers.
+
+ 
+ 
+ 
+ 
 Set MySQL to start when the system boots.
 
 ```bash
 insserv mysql
+
+sudo insserv /usr/lib/systemd/system/mysql.service
 ```
 
 Start the MySQL daemon (mysqld) manually.
