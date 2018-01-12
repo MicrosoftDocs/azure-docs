@@ -25,7 +25,7 @@ There are three ways to achieve this configuration:
 2. Place the ACR resource in the same resource group as the AKS cluster resources.
 3. Create a new role assignment for the AKS service principal with a scope of the ACR resource.
 
-The following script can be used to complete method three as describe in the preceding text.
+The following script can be used to complete the third method as described in the preceding text.
 
 ```bash
 #!/bin/bash
