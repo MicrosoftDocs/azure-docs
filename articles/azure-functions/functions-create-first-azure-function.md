@@ -49,7 +49,7 @@ Next, you create a function in the new function app.
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-A function is created in your chosen language using the template for an HTTP triggered function. This topic shows a C# script function in the portal, but you can create a function in any [supported language](supported-languages). 
+A function is created in your chosen language using the template for an HTTP triggered function. This topic shows a C# script function in the portal, but you can create a function in any [supported language](supported-languages.md). 
 
 Now, you can run the new function by sending an HTTP request.
 
