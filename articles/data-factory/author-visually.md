@@ -20,14 +20,14 @@ ms.author: shlo
 With the Azure Data Factory UX experience, users can visually author and deploy resources in their data factory without writing a single line of code. This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, and deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
 
 1. Work directly with the Data Factory service
-2. Configure VSTS Git Integration for collaboration, source control, or versioning 
+2. Configure VSTS Git Integration for collaboration, source control, or versioning
 
 ## Authoring with Data Factory
-Another option is to author in Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing your changes, nor does it allow for collaboration or version control.
+The first option is authoring directly with Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing the JSON entities of your changes, nor is it optimized for collaboration or version control.
 
 ![Configure Data Factory](media/author-visually/configure-data-factory.png)
 
-In Data Factory mode, there is only the 'Publish' mode and no 'Sync' mode. Any changes you make are published directly to the Data Factory service.
+In Data Factory mode, there is only the 'Publish' mode. Any changes you make are published directly to the Data Factory service.
 
 ![Data Factory Publish](media/author-visually/data-factory-publish.png)
 
@@ -50,7 +50,7 @@ From there, a side panel appears for configuring the repository settings.
 * **Visual Studio Team Services Account**: The account name can be found from https://{account name}.visualstudio.com. Sign in to your VSTS account [here](https://www.visualstudio.com/team-services/git/) and access your Visual Studio profile to see your repositories and projects
 * **ProjectName:** The project name can be found from https://{account name}.visualstudio.com/{project name}
 * **RepositoryName:** The repository name. VSTS projects contain Git repositories to manage your source code as your project grows. Either create a new repository or use an existing repository already in the project.
-* **Import existing Data Factory resources to repository**: By checking this box, you can import your current data factory resources authored on the UX canvas to the associated VSTS GIT repository in JSON format. This action exports each resource individually (that is, linked services and datasets are exported into separate JSONs).    If you clear this check box, the existing resources are not imported into the Git repository. 
+* **Import existing Data Factory resources to repository**: By checking this box, you can import your current data factory resources authored on the UX canvas to the associated VSTS GIT repository in JSON format. This action exports each resource individually (that is, linked services and datasets are exported into separate JSONs).    If you clear this check box, the existing resources are not imported into the Git repository.
 
 #### Method 2: From Authoring Canvas
 
@@ -104,4 +104,4 @@ Click on the 'Feedback' icon to give us (Microsoft) feedback on various features
 
 ## Next steps
 
-To learn about monitoring and managing pipelines, see  [Monitor and manage pipelines programmatically](monitor-programmatically.md) article 
+To learn about monitoring and managing pipelines, see  [Monitor and manage pipelines programmatically](monitor-programmatically.md) article
