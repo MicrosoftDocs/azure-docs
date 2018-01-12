@@ -12,6 +12,7 @@ ms.date: 01/12/2018
 ms.author: v-geberr
 ---
 
+
 # Use an Azure Function app to add LUIS information to Application Insights
 
 ## Prerequisites
