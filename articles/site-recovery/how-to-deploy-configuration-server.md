@@ -21,6 +21,8 @@ We recommend that you deploy the configuration server as a highly available VMwa
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+
 ## Capacity planning
 
 The sizing requirements for the configuration server depend on the potential data change rate. Use this table as a guide.
@@ -90,6 +92,7 @@ Site Recovery provides a downloadable template to set up the configuration serve
 ## Troubleshoot deployment issues
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issue.md)]
+
 
 
 ## Next steps
