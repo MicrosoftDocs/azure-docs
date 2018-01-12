@@ -37,7 +37,7 @@ The Azure services that support Availability Zones are:
 
 - Linux Virtual Machines
 - Windows Virtual Machines
-- Zonal Virtual Machine Scale Sets
+- Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
 - Public IP address
