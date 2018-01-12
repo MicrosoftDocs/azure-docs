@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017 
+ms.date: 01/12/2018 
 ---
 
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
@@ -115,7 +115,7 @@ After logging in, the Workbench app might get stuck on a blank screen with a mes
 3. Restart the app.
 
 ## Can't delete Experimentation Account
-You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see the error "Can not delete resource before nested resources are deleted."
 
 ```azure-cli
 # delete a project
