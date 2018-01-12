@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
+        src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
       text: Azure VMs
       href: /azure/log-analytics/log-analytics-quick-collect-azurevm
     - image: 

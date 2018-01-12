@@ -118,6 +118,9 @@
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Manage logs for an HDInsight cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
@@ -143,6 +146,9 @@
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Troubleshoot a slow or failing HDInsight cluster
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
     - name: HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
