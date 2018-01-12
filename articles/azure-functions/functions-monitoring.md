@@ -34,9 +34,6 @@ For a function app to send data to Application Insights, it needs to know the in
 * [Create a connected Application Insights instance when you create the function app](#new-function-app).
 * [Connect an Application Insights instance to an existing function app](#existing-function-app).
 
-> [!NOTE]
-> If you enable Application Insights, disable the [built-in logging that uses Azure storage](#logging-to-storage) by deleting the `AzureWebJobsDashboard` app setting. For information about how to manage app settings, see [Manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). The built-in logging is suitable only for light workloads; in high-load conditions, it can cause storage failures that affect other uses of the same storage account.
-
 ### New function app
 
 Enable Application Insights on the Function App **Create** page:
@@ -64,6 +61,12 @@ Get the instrumentation key and save it in a function app:
    ![Add instrumentation key to app settings](media/functions-monitoring/add-ai-key.png)
 
 1. Click **Save**.
+
+## Disable built-in logging
+
+If you enable Application Insights, we recommend that you disable the [built-in logging that uses Azure storage](#logging-to-storage). The built-in logging is useful for testing with light workloads, but it can cause storage failures in high-load conditions. For production monitoring, Application Insights is recommended. When you disable built-in logging, the **Monitor** tab for a function in the portal takes you to Application Insights.
+
+To disable built-in logging to storage, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ## View telemetry data
 
@@ -469,7 +472,7 @@ We recommend Application Insights for monitoring functions because it offers mor
 
 Built-in logging uses the storage account specified by the connection string in the `AzureWebJobsDashboard` app setting. If that app setting is configured, you can see the logging data in the Azure portal. In a function app page, select a function and then select the **Monitor** tab, and you get a list of function executions. Select a function execution to review the duration, input data, errors, and associated log files.
 
-If you have Application Insights enabled, [the AzureWebJobsDashboard app setting should be deleted](#enable-application-insights-integration), and in that case the **Monitor** tab takes you to Application Insights.
+If you have Application Insights enabled, [disable built-in logging](#disable-built-in-logging). In that case, the **Monitor** tab takes you to Application Insights.
 
 ### Real-time monitoring
 
