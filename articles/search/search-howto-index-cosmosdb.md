@@ -172,7 +172,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 > 
 
 ### Mapping between JSON Data Types and Azure Search Data Types
-| JSON DATA TYPE | COMPATIBLE TARGET INDEX FIELD TYPES |
+| JSON data type | Compatible target index field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
@@ -319,5 +319,5 @@ The following example creates a data source with a soft-deletion policy:
 ## <a name="NextSteps"></a>Next steps
 Congratulations! You have learned how to integrate Azure Cosmos DB with Azure Search using an indexer to crawl and upload documents from a SQL data model.
 
-* To learn how more about Azure Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/cosmos-db/).
-* To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
+* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/cosmos-db/).
+* To learn more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
