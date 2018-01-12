@@ -212,7 +212,7 @@ $blobClient = BlobRestProxy::createBlobService($connectionString);
 
 try    {
     // List blobs.
-    $blob_list = $blobRestProxy->listBlobs("mycontainer");
+    $blob_list = $blobClient->listBlobs("mycontainer");
     $blobs = $blob_list->getBlobs();
 
     foreach($blobs as $blob)
@@ -317,8 +317,6 @@ Now that you've learned the basics of the Azure blob service, follow these links
 
 * Visit the [API Reference for Azure Storage PHP Client Library](http://azure.github.io/azure-storage-php/)
 * See the [Advanced Blob example](https://github.com/Azure/azure-storage-php/blob/master/samples/BlobSamples.php).
-
-For more information, see also the [PHP Developer Center](/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
