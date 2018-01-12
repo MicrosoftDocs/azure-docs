@@ -3,7 +3,7 @@
 
 
 title: Explore data in a Hadoop cluster and create models in Azure Machine Learning | Microsoft Docs
-description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset.
+description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: bradsev
@@ -21,16 +21,16 @@ ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
-In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
+In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
 
-For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md).
+For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md).
 
-It is also possible to use an IPython notebook to accomplish the tasks presented the walkthrough using the 1 TB dataset. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
+You can also use an IPython notebook to accomplish the tasks presented in the walkthrough that uses the 1 TB dataset. For more information, see [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
-## <a name="dataset"></a>NYC Taxi Trips Dataset description
-The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) files (~48GB uncompressed). It comprises more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+## <a name="dataset"></a>NYC Taxi Trips dataset description
+The NYC Taxi Trip data is about 20 GB of compressed comma-separated values (CSV) files (~48 GB uncompressed). It has more than 173 million individual trips, and includes the fares paid for each trip. Each trip record includes the pick-up and drop-off location and time, anonymized hack (driver's) license number, and medallion number (the taxi’s unique ID). The data covers all trips in the year 2013, and is provided in the following two datasets for each month:
 
-1. The 'trip_data' CSV files contain trip details. This includes number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
+- The trip_data CSV files contain trip details. This includes the number of passengers, pick-up and drop-off points, trip duration, and trip length. Here are a few sample records:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) 
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. The 'trip_fare' CSV files contain details of the fare paid for each trip. This includes payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
+- The trip_fare CSV files contain details of the fare paid for each trip. This includes payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -47,88 +47,83 @@ The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) 
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_licence and pickup\_datetime.
-
-To get all of the details relevant to a particular trip, it is sufficient to join with three keys: the "medallion", "hack\_license" and "pickup\_datetime".
-
-We describe some more details of the data when we store them into Hive tables shortly.
+The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_license, and pickup\_datetime. To get all of the details relevant to a particular trip, it is sufficient to join with these three keys.
 
 ## <a name="mltasks"></a>Examples of prediction tasks
-When approaching data, determining the kind of predictions you want to make based on its analysis helps clarify the tasks that you will need to include in your process.
-Here are three examples of prediction problems that we address in this walkthrough whose formulation is based on the *tip\_amount*:
+Determine the kind of predictions you want to make based on data analysis. This helps clarify the tasks you need to include in your process. Here are three examples of prediction problems that we address in this walkthrough. These are based on the *tip\_amount*:
 
-1. **Binary classification**: Predict whether or not a tip was paid for a trip. That is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
+- **Binary classification**: Predict whether or not a tip was paid for a trip. That is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-2. **Multiclass classification**: To predict the range of tip amounts paid for the trip. We divide the *tip\_amount* into five bins or classes:
+- **Multiclass classification**: Predict the range of tip amounts paid for the trip. We divide the *tip\_amount* into five classes:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-3. **Regression task**: To predict the amount of the tip paid for a trip.  
+- **Regression task**: Predict the amount of the tip paid for a trip.  
 
 ## <a name="setup"></a>Set up an HDInsight Hadoop cluster for advanced analytics
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
-2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
+1. [Create a storage account](../../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
+2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
-   * Remember to link the storage account created in step 1 with your HDInsight cluster when creating it. This storage account is used to access data that is processed within the cluster.
-   * After the cluster is created, enable Remote Access to the head node of the cluster. Navigate to the **Configuration** tab and click **Enable Remote**. This step specifies the user credentials used for remote login.
-3. [Create an Azure Machine Learning workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used to build machine learning models. This task is addressed after completing an initial data exploration and down sampling using the HDInsight cluster.
+   * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
+   * After you create the cluster, enable Remote Access to the head node of the cluster. Browse to the **Configuration** tab, and select **Enable Remote**. This step specifies the user credentials used for remote login.
+3. [Create an Azure Machine Learning workspace](../studio/create-workspace.md): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.
 
 ## <a name="getdata"></a>Get the data from a public source
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
-To copy the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](move-azure-blob.md).
+To copy the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
 
-Here we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).
+Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy.md).
 
-1. From a Command Prompt window, issue the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
+1. From a command prompt window, run the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. When the copy completes, a total of 24 zipped files are in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder will be referred to as the *<path\_to\_unzipped_data\_files\>* is what follows.
+1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *<path\_to\_unzipped_data\_files\>* in what follows.
 
-## <a name="upload"></a>Upload the data to the default container of Azure HDInsight Hadoop cluster
+## <a name="upload"></a>Upload the data to the default container of the HDInsight Hadoop cluster
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***&#60;path_to_data_folder>*** the directory (along with path) on your machine that contains the unzipped data files  
-* ***&#60;storage account name of Hadoop cluster>*** the storage account associated with your HDInsight cluster
-* ***&#60;default container of Hadoop cluster>*** the default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
-* ***&#60;storage account key>*** the key for the storage account used by your cluster
+* ***&#60;path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***&#60;storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
+* ***&#60;default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
+* ***&#60;storage account key>*** The key for the storage account used by your cluster.
 
-From a Command Prompt or a Windows PowerShell window in your machine, run the following two AzCopy commands.
+From a command prompt or a Windows PowerShell window, run the following two AzCopy commands.
 
-This command uploads the trip data to ***nyctaxitripraw*** directory in the default container of the Hadoop cluster.
+This command uploads the trip data to the ***nyctaxitripraw*** directory in the default container of the Hadoop cluster.
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 
-This command uploads the fare data to ***nyctaxifareraw*** directory in the default container of the Hadoop cluster.
+This command uploads the fare data to the ***nyctaxifareraw*** directory in the default container of the Hadoop cluster.
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 
-The data should now in Azure Blob Storage and ready to be consumed within the HDInsight cluster.
+The data should now be in Azure Blob storage, and ready to be consumed within the HDInsight cluster.
 
-## <a name="#download-hql-files"></a>Log into the head node of Hadoop cluster and prepare for exploratory data analysis
+## <a name="#download-hql-files"></a>Sign in to the head node of Hadoop cluster and prepare for exploratory data analysis
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
@@ -836,3 +831,6 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+
+
+
