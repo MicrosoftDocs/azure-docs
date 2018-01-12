@@ -36,7 +36,7 @@ In this section, we will walk you through regenerating credentials for Blob Stor
 5. Locate the Blob/Table storage input/output for which you want to rotate credentials.  
 6. Find the **Storage Account Key** field and paste your newly generated key > **Save**  
 7. A connection test will automatically start when you save your changes, you can view it from the notifications tab. There ar two notifications- one corresponds to saving the update and other corresponds to testing the connection:  
-   ![Notifications after editing the key][.\media\stream-analytics-login-credentials-inputs-outputs\image3.png]
+   ![Notifications after editing the key][.\media\stream-analytics-login-credentials-inputs-outputs\image4.png]
 8. Proceed to [start your job from last stopped time](#start-your-job-from-the-last-stopped-time) section.
 
 ### Event hubs
@@ -57,6 +57,7 @@ You need to connect to the SQL database to create a new user and login credentia
 
 1. Sign in to the Azure portal > browse the SQL database that you used as output for the Stream Analytics job.  
 2. From **Data explorer**, login/connect to your database > select Authorization type as **SQL server authentication** > type in your **Login** and **Password** details > Select **Ok**  
+    
 3. In the query tab, alter the password for one of your user's by running the following query (make sure to replace `<user_name>` with your username and `<new_password>` with your new password):  
 
    `Alter user <user_name> WITH PASSWORD = '<new_password>'`
@@ -78,12 +79,9 @@ You need to connect to the SQL database to create a new user and login credentia
 
 ## Start your job from the last stopped time
 
-1. Navigate away from the Input/Output:  
-   ![graphic40][graphic40]
-2. Click the Start command:  
-   ![graphic41][graphic41]
-3. Pick the Last Stopped Time and click OK:  
-   ![graphic42][graphic42]
+1. Navigate to the job's **Overview** pane > select **Start** to start the job  
+2. Select **When last stopped** > click **Start**:  
+   ![Start the job][.\media\stream-analytics-login-credentials-inputs-outputs\image5.png]
 
 
 ## Get help
