@@ -9,19 +9,19 @@ ms.date: 01/10/2017
 ms.author: anoopkv
 ---
 
-# Manage a Configuration Server
+# Manage a configuration server
 
-When you set up disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) service, an on-premises configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
+You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
-## Modify the VMware server
+## Modify VMware settings
 
 Modify settings for the VMware server to which the configuration server connects.
 
 1. Log onto the machine running the configuration server.
 2. Launch Azure Site Recovery Configuration Manager from the desktop shortcut. Or, open **https://configuration-server-name/IP:44315**.
 3. Click **Manage vCenter Server/vSPhere ESXi server**:
-    - To update the VMware server to which the configuration server connects for automatic discovery of VMs, click **Add vCenter Server/vSphere ESXi server**, and specify the server details.
-    - To update the credentials used to connect to the VMware server, click **Edit**, and specify the new credentials. Then click **OK** to update the settings.
+    - To associate a different VMware server with the configuration server, click **Add vCenter Server/vSphere ESXi server**, and specify the server details.
+    - To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, click **Edit**. Specify the new credentials, and then click **OK**.
 
         ![Modify VMware](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-vmware-server.png)
 
@@ -122,3 +122,6 @@ For configuration server deployments before May 2016, certificate expiry was set
 3. Click **Renew Certificates**. 
 
 
+## Next steps
+
+Review the tutorials for setting up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and physical servers(tutorial-physical-to-azure.md) to Azure.
