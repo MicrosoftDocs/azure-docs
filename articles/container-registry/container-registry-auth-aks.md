@@ -13,11 +13,13 @@ ms.author: nepeters
 
 # Authenticate with Azure Container Registry from Azure Container Service
 
-Authentication between a Microsoft Azure Container Service (AKS) cluster and Microsoft Azure Container Registry (ACR) registry can be configured in a few different ways.
+When using Azure Container Registry (ACR) with Azure Container Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
 
 ## Grant AKS access to ACR
 
-When an AKS cluster is created, a service principal is also created to manage cluster operability with Azure resources. This service principal can also be used for authentication with an ACR registry. To do so, a role assignment needs to be created to grant the service principal read access to the ACR resource. The following sample can be used to complete this operation.
+When an AKS cluster is created, a service principal is also created to manage cluster operability with Azure resources. This service principal can also be used for authentication with an ACR registry. To do so, a role assignment needs to be created to grant the service principal read access to the ACR resource. 
+
+The following sample can be used to complete this operation.
 
 ```bash
 #!/bin/bash
@@ -59,8 +61,7 @@ SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Read 
 # Get the service principle client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 
-# Output the service principal's credentials; use these in your services and
-# applications to authenticate to the container registry.
+# Output used when creating Kubernetes secret.
 echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
