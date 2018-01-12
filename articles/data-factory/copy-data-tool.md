@@ -1,5 +1,5 @@
 ---
-title: Copy Data toool Azure Data Factory | Microsoft Docs
+title: Copy Data tool Azure Data Factory | Microsoft Docs
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 services: data-factory
 documentationcenter: ''
