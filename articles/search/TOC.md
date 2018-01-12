@@ -1,55 +1,73 @@
-# [Overview](search-what-is-azure-search.md)
-## [What is Azure Search?](search-what-is-azure-search.md)
+# Overview
+## [About Azure Search](search-what-is-azure-search.md)
 
-# Get Started
+# Quickstarts
 
 ## [Create a service](search-create-service-portal.md)
-## [Create an index](search-what-is-an-index.md)
-### [Azure portal](search-create-index-portal.md)
-### [.NET](search-create-index-dotnet.md)
-### [REST](search-create-index-rest-api.md)
-## [Add data](search-what-is-data-import.md)
-### [Azure portal](search-import-data-portal.md)
-### [.NET](search-import-data-dotnet.md)
-### [REST](search-import-data-rest-api.md)
-## [Search an index](search-query-overview.md)
-### [Azure portal](search-explorer.md)
-### [.NET](search-query-dotnet.md)
-### [REST](search-query-rest-api.md)
+## Portal
+### [Create an index](search-create-index-portal.md)
+### [Import data](search-import-data-portal.md)
+### [Search Explorer](search-explorer.md)
+## .NET
+### [Create an index](search-create-index-dotnet.md)
+### [Import data](search-import-data-dotnet.md)
+### [Search](search-query-dotnet.md)
+## REST
+### [Create an index](search-create-index-rest-api.md)
+### [Import data](search-import-data-rest-api.md)
+### [Search](search-query-rest-api.md)
+### [Test with REST clients](search-fiddler.md)
 
 # Tutorials
 
-## [Develop in .NET](search-howto-dotnet-sdk.md)
-## [Synonyms preview in .NET](search-synonyms-tutorial-sdk.md)
-## [SQL data indexer in .NET](search-indexer-tutorial.md)
-## [Portal walkthrough](search-get-started-portal.md)
-## [Search semi-structured data](search-semi-structured-data.md)
-## [Explore the REST API](search-fiddler.md)
+## [1 - Index Azure SQL Database](search-indexer-tutorial.md)
+## [2 - Index Azure blobs](search-semi-structured-data.md)
+## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
+## [4 - Portal walkthrough](search-get-started-portal.md)
 
-# How to
+# Samples
+## [Azure code samples](https://azure.microsoft.com/resources/samples/?service=search)
+## [GitHub samples](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
-## Plan & Design
+# Concepts
+## [Full text search](search-lucene-query-architecture.md)
+## [Indexing](search-what-is-data-import.md)
+## [Index definition](search-what-is-an-index.md)
+## [Linguistic analysis](search-analyzers.md)
+
+# How-to guides
+
+## Plan & design
 ### [Choose a SKU](search-sku-tier.md)
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
+### [Performance & optimization](search-performance-optimization.md)
+
 ## Security
-### [Data and operational security](search-security-overview.md)
-### [Secure with identity filters](search-security-trimming-for-azure-search.md)
-### [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+### [Data & operational security](search-security-overview.md)
+### [Secure by using identity filters](search-security-trimming-for-azure-search.md)
+### [Secure by using Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+
 ## Development
 ### [API versions](search-api-versions.md)
+### [Develop in .NET](search-howto-dotnet-sdk.md)
 ### [Develop in Node.js](search-get-started-nodejs.md)
 ### [Develop in Java](search-get-started-java.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
-### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
-## Load data
-### [Indexer overview](search-indexer-overview.md)
-### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
-### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
+### [Paging results](search-pagination-page-layout.md)
+
+## Text analysis
+### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+
+## Indexing data
+### [Indexers overview](search-indexer-overview.md)
+### [Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 ### [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
@@ -57,32 +75,24 @@
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Search
-### [How full text search works](search-lucene-query-architecture.md)
-### Query Construction
-#### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-#### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Lucene query examples](search-query-lucene-examples.md)
-### Analyzers in Azure Search
-#### [Overview](search-analyzers.md)
-#### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
-#### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-### Filters in Azure Search
-#### [Overview](search-filters.md)
-#### [Facet filters](search-filters-facets.md)
-#### [Language filters](search-filters-language.md)
-#### [Expression syntax reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### [Paging results](search-pagination-page-layout.md)
-### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Basic query construction](search-query-overview.md)
+### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+### [Lucene syntax query examples](search-query-lucene-examples.md)
 ### [Faceted navigation](search-faceted-navigation.md)
-### [Synonyms preview](search-synonyms.md)
-### [moreLikeThis preview](search-more-like-this.md)
-## Administration & Analytics
-### [Manage using Azure portal](search-manage.md)
-### [Manage using PowerShell](search-manage-powershell.md)
-### [Monitor usage and statistics](search-monitor-usage.md)
+### [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Synonyms (in preview)](search-synonyms.md)
+## Filters
+### [Filter overview](search-filters.md)
+### [Facet filters](search-filters-facets.md)
+### [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+
+## Administration & analytics
+### [Administration (portal)](search-manage.md)
+### [PowerShell (Azure Search)](search-manage-powershell.md)
+### [Monitor usage & statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
-### [Performance and optimization](search-performance-optimization.md)
 
 # Reference
 
@@ -97,21 +107,16 @@
 
 ## [FAQ - Frequently Asked Questions](search-faq-frequently-asked-questions.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
-## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## Courseware & tutorials
-### [Videos and tutorials](search-video-demo-tutorial-list.md)
+### [Videos & tutorials](search-video-demo-tutorial-list.md)
 ### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ## Demo sites
 ### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ## Partner & community
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Azure Search MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [blog: Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-
-
-
