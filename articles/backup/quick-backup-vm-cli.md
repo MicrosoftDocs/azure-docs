@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-ms.date: 10/02/2017
+ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
