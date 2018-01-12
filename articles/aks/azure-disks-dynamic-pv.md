@@ -7,9 +7,8 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 1/12/2018
 ms.author: nepeters
-ms.custom: mvc
 ---
 
 # Persistent volumes with Azure disks - dynamic provisioning
@@ -22,9 +21,7 @@ For more information on Kubernetes persistent volumes, see [Kubernetes persisten
 
 A storage class is used to define how a dynamically created persistent volume is configured. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the `kubectl get storageclass` to see these.
-
-Output:
+Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks. Use the `kubectl get storageclass` command to see these.
 
 ```console
 NAME                PROVISIONER                AGE
@@ -55,7 +52,7 @@ parameters:
 
 A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
-The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
 ```yaml
 apiVersion: v1
@@ -63,7 +60,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
   annotations:
-    volume.beta.kubernetes.io/storage-class: azure-managed-disk
+    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
@@ -99,7 +96,7 @@ spec:
 Learn more about Kubernetes persistent volumes using Azure disks.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure Files][kubernetes-disk]
+> [Kubernetes plugin for Azure disks][kubernetes-disk]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
