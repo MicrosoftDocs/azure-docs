@@ -36,7 +36,9 @@ If these storage classes work for your needs, you do not need to created a new o
 
 ## Create storage class
 
-If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. 
+If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. 
+
+The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. 
 
 ```yaml
 apiVersion: storage.k8s.io/v1beta1
@@ -51,7 +53,7 @@ parameters:
 
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
+A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
