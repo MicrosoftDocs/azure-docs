@@ -27,7 +27,7 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
 | Maximum size of device twin <br/> (tags, reported properties, and desired properties) | 8 KB |
-| Maximum size of device twin string value | 512 bytes |
+| Maximum size of device twin string value | 4 KB |
 | Maximum depth of object in device twin | 5 |
 | Maximum size of direct method payload | 8 KB |
 | Job history maximum retention | 30 days |
