@@ -95,7 +95,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    
    ![Data factory home page](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab.
-11. Switch to the **Edit** tab (or) click **Create Pipeline** tile. 
+11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image: 
 
    ![Edit tab](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
