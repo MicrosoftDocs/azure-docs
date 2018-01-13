@@ -127,7 +127,7 @@ Perform the following steps to create a job definition.
 
     2. Choose the storage type as blobs or files. Specify the name of the storage container where the transformed data resides. Click **OK**.
 
-            ![Configure target data repo storage account](./media/storsimple-data-manager-ui/create-job-definition-16.png)
+        ![Configure target data repo storage account](./media/storsimple-data-manager-ui/create-job-definition-16.png)
 
 11. You can also check the option to present an estimate of job duration before you run the job. Click **OK** to create the job definition. Your job definition is now complete. You can use this job definition multiple times via the UI with different runtime settings.
 
