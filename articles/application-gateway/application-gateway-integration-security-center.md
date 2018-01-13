@@ -33,7 +33,7 @@ Clicking any recommendations regarding web application firewall opens a new blad
 
 ## Add a web application firewall to an existing resource
 
-Navigate to **More Services** > **Security + Identity** > **Security Center** and on the **Security Center - Overview** blade, click **Applications**. On the **Security Center - Applications** blade, the table contains a list of applications that Security Center detected in your subscription.
+Navigate to **All services** > **Security + Identity** > **Security Center** and on the **Security Center - Overview** blade, click **Applications**. On the **Security Center - Applications** blade, the table contains a list of applications that Security Center detected in your subscription.
 
 ![web applications][3]
 
@@ -53,7 +53,7 @@ Adding a web application to an application gateway through Security Center does 
 
 ## Add a resource to an existing web application firewall
 
-Navigate to **More Services** > **Security + Identity** > **Security Center** and on the **Security Center - Overview** blade, click **Partner solutions**. Existing Security Center aware application gateways show in the **Partner Solutions** blade.
+Navigate to **All services** > **Security + Identity** > **Security Center** and on the **Security Center - Overview** blade, click **Partner solutions**. Existing Security Center aware application gateways show in the **Partner Solutions** blade.
 
 ![partner solutions][7]
 
