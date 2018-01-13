@@ -60,7 +60,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
 3. In Job details section, upload the drive journal files that you obtained during the drive preparation step. If waimportexport.exe version1 was used, you will need to upload one file for each drive that you have prepared. Select the storage account that the data will be imported into in the "Import destination" Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In Return shipping info section, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
+4. In Return shipping info section, select the carrier from the drop-down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
    
 5. In the Summary section, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
 
@@ -439,7 +439,7 @@ Following pre-checks are recommended for preparing your drives for an export job
    
    ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
 
-4. In Step 3 Return shipping info, select the carrier from the drop down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region..
+4. In Step 3 Return shipping info, select the carrier from the drop-down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
    
  5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
 
