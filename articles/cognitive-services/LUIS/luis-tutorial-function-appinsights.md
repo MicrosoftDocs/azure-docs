@@ -19,7 +19,7 @@ ms.author: v-geberr
 
 > [!div class="checklist"]
 * Your **[LUIS endpoint key](Manage-Keys.md#endpoint-key)**. 
-* Your existing LUIS [**application ID**](./luis-get-started-create-app.md) for the [Home Automation example](luis-get-started-create-app.md). The application ID is shown in the application's Settings page. 
+* Your existing LUIS [**application ID**](./luis-get-started-create-app.md) for the [Home Automation example](luis-get-started-create-app.md). The application ID is shown in the application's **Settings** page. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
