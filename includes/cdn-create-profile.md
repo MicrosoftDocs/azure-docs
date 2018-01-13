@@ -19,7 +19,7 @@
    
     ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
-8. Optionally, select **Create a new CDN endpoint now** to display the options for creating an endpoint at the same time that you create the profile. For more information, see [Create a new CDN endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+8. Optionally, select **Create a new CDN endpoint now** to display the options for creating an endpoint at the same time that you create the profile. For more information, see [Create a new CDN endpoint](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
    
 9. If you want to save the profile to your dashboard after it is created to make it easier to find, select **Pin to dashboard**.
     
