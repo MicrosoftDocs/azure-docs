@@ -422,4 +422,5 @@ For more information, see also the [PHP Developer Center](/develop/php/).
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
+[composer-phar]: http://getcomposer.org/composer.phar
 
