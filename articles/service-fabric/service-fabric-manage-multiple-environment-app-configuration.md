@@ -51,7 +51,7 @@ When creating a named application instances in Service Fabric, you have the opti
   - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
   - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Visual Studio Team Service or Team Foundation Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
 
-## Next step
+## Next steps
 The following articles show you how to use some of the concepts described here:
 
 - [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
