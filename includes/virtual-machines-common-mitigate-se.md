@@ -1,5 +1,7 @@
 
-**Last document update**: January 6, 6:30 PM PST.
+
+
+**Last document update**: January 12, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -44,9 +46,7 @@ If you are using Linux and hosting untrusted code, you should also update Linux 
 
 
 
-
-
-
+We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
 
 
 ## Next steps
