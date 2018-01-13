@@ -27,7 +27,7 @@ ms.author: v-geberr
 All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/azure-function-application-insights-endpoint). 
 
 ## Scenario
-This tutorial adds LUIS request and response information to the ApplicationInsights telemetry data storage. 
+This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. 
 
 ## What is Application Insights?
 Use [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) to monitor your live web application. It includes powerful analytics tools to help you diagnose telemetry issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. 
@@ -37,7 +37,7 @@ Currently, LUIS does not natively support Application Insights telemetry, but th
 ## What is an Azure function app?
 The [Azure Function](https://docs.microsoft.com/azure/azure-functions/) app is a serverless platform, currently supporting C# and Nodejs. An Azure function app is a unit of code that is executed based on an HTTP call. Azure functions can be triggered, cascaded, and returned to the caller. Any code you can call from .Net Core or Nodejs can be called from an Azure function. You have access to both NuGet (C#) and NPM (Nodejs) modules.
 
-While you can develop Azure functions local to your development computer, you can also use the Azure portal's development environment for functions. Using the portal is a better fit for working with ApplicationInsights for this tutorial. 
+While you can develop Azure functions local to your development computer, you can also use the Azure portal's development environment for functions. Using the portal is a better fit for working with Application Insights for this tutorial. 
 
 While the Azure function in this tutorial is written in C#, your calling code can be in any programming language. The Azure function is a drop-in replacement for the LUIS endpoint. 
 
@@ -53,12 +53,12 @@ The function can, in addition to calling LUIS and Application Insights, call or 
 
 Each call to the function adds custom information to your Application Insights service including the LUIS query response of intents, entities, scores, Azure Keys, LUIS App ID, and the region. Each custom data item is a name/value pair. In Application Insights, all the custom data is stored in a single JSON field of name/value pairs. 
 
-## Azure services
+## Azure resources
 The tutorial uses four Azure resources. The Function app service is hosted in an App Service plan. The ApplicationInsights service stores data in an Azure Storage Account. When the Function app is created, your Azure resources list has four new items:
 
 |Azure Service|Purpose|
 |--|--|
-|ApplicationInsights|ApplicationInsights|Application Analytics|
+|Application Insights|Application Insights|Application Analytics|
 |Azure Function app (AppService)|Serverless code|
 |Storage Account|Data storage|
 |App Service plan|Hosts app|
@@ -129,11 +129,11 @@ This basic function currently has a `function.json` file, a `readme.md` file, an
 ## Restore NuGet packages
 The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name, and version are added to the `project.json`.
 
-A basic function has no dependencies so the dependency file, `project.json` does not exist yet. [Download the `project.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
+A basic function has no dependencies so the dependency file, `project.json`, does not exist yet. [Download the `project.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
 
 [!code-javascript[Project.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/project.json)]
 
-Watch the log to see that the NuGet packages are restored. Do not continue until the package is load is finished.
+Watch the log to see that the NuGet packages are restored. Do not continue until `Compilation succeeded`.
 
 ```
 2018-01-12T21:27:20.644 Restoring packages.
@@ -179,7 +179,7 @@ Next, add the following code for the LUIS and Bing values. Change these values t
 Save the file.
 
 ## Add dependency variables
-Add the HttpClient, and ApplicationInsights dependency variables:
+Add the HttpClient, and Application Insights dependency variables:
 
 [!code-javascript[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
 
@@ -188,7 +188,7 @@ Because Application Insights was turned on as part of the Function app creation,
 Save the file.
 
 ## Add function name variables for searching 
-The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_`. Add the code for this constant string:
+The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_` and the region. Add the code for these constant strings:
 
 [!code-javascript[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
 
@@ -224,7 +224,7 @@ Add the following LUIS query result classes:
 Save the file and test. If the test returns 200 continue.
 
 ## Add EndpointQuery method to LUIS class
-The function's main method `Run` does not handle the LUIS request. Instead, create a new method `EndpointQuery` to handle the LUIS request and the Application Insights entry.
+The function's main method `Run` does not handle the LUIS request. Instead, create a new method `EndpointQuery` in the LUIS class to handle the LUIS request and the Application Insights entry.
 
 The `EndpointQuery` method builds the URL, adds the `Ocp-Apim-Subscription-Key` HTTP security header, creates the telemetry object `dependencyTelemetry`, starts the dependency timer, awaits the asynchronous response from LUIS, sends the success or failing response to Application Insights, and returns the original response from LUIS back to the function's main method `Run`.
 
