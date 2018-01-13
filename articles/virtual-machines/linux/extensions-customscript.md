@@ -34,7 +34,7 @@ You can store sensitive data in a protected configuration, which is encrypted an
 The schema for the public configuration is as follows.
 
 >[!NOTE]
->These property names are case sensitive. To avoid deployment problems, use the names as shown here.
+>These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 * **commandToExecute** (required, string): The entry point script to execute.
 * **fileUris** (optional, string array): The URLs for files to be downloaded.
@@ -51,7 +51,7 @@ The schema for the public configuration is as follows.
 The schema for the protected configuration is as follows.
 
 >[!NOTE]
->These property names are case sensitive. To avoid deployment problems, use the names as shown here.
+>These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 * **commandToExecute** (optional, string): The entry point script to execute. Use this field if your command contains secrets such as passwords.
 * **storageAccountName** (optional, string): The name of the storage account. If you specify storage credentials, all file URIs must be URLs for Azure blobs.
