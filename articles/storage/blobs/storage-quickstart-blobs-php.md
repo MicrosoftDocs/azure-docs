@@ -21,7 +21,6 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 To complete this quickstart: 
 * Install [PHP](http://php.net/downloads.php)
 * Install [The Azure SDK for PHP](../../php-download-sdk.md)
-(https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) using the rubygem package. 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -29,12 +28,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Download the sample application
-The [sample application](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) used in this quickstart is a basic Ruby application.  
+The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
 ```bash
-git clone <repohere>
+git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the example file.  
@@ -47,6 +46,7 @@ In the application, you must provide the connection string for your storage acco
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
+
 ### Windows
 
 ```cmd
