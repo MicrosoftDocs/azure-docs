@@ -112,7 +112,7 @@ You can test the function in the far-right **Test** pane. The request body is pr
 
     The log result details:
 
-    ![Basic function results log pane](./media/luis-tutorial-appinsights/basic-fn-results-log.png)
+    ![Basic function results log pane](./media/luis-tutorial-appinsights/basic-fn-log-results.png)
 
 You have a working function app. 
 
