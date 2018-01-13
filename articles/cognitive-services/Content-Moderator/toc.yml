@@ -40,6 +40,10 @@
       href: moderation-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: Concepts
   items: 
   - name: Image moderation
@@ -88,9 +92,7 @@
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/
-  - name: Samples
-    href: https://github.com/MicrosoftContentModerator
+  - name: SDK and samples
+    href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md
