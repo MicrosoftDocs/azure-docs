@@ -39,6 +39,10 @@ A registry in Azure Container Registry - [Create a container registry](../contai
 > Deploying containers to a Service Fabric cluster in Windows 10 or on a cluster with Docker CE isn't supported. This walkthrough locally tests using the Docker engine on Windows 10, and finally deploys the container services to a Windows Server cluster in Azure running Docker EE. 
 >   
 
+> [!NOTE]
+> Service Fabric version 6.1 has preview support for Windows Server version 1709. Open networking and Service Fabric DNS Service do not work with Windows Server version 1709. 
+> 
+
 ## Define the Docker container
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
 
