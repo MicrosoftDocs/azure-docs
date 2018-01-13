@@ -391,7 +391,7 @@ Open Application Insights to see the LUIS entries.
 ## View LUIS entries in Analytics
 Application Insights entries are stored in [Analytics](). Analytics gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [PowerBI](https://powerbi.microsoft.com). 
 
-1. Click on `Analytics` at the top of the dependency listing, above the filter box. 
+1. Click on **Analytics** at the top of the dependency listing, above the filter box. 
 
     ![Analytics button](./media/luis-tutorial-appinsights/analytics-button.png)
 
