@@ -116,6 +116,8 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Copy Data tool
+      href: copy-data-tool.md  
     - name: Read or write partitioned data
       href: how-to-read-write-partitioned-data.md
     - name: Connectors
