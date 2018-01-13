@@ -110,7 +110,9 @@ You can test the function in the far-right **Test** pane. The request body is pr
 
     ![Basic function log pane](./media/luis-tutorial-appinsights/basic-fn-log.png)
 
-    ![Basic function log pane](./media/luis-tutorial-appinsights/basic-fn-log-results.png)
+    The log result details:
+
+    ![Basic function results log pane](./media/luis-tutorial-appinsights/basic-fn-results-log.png)
 
 You have a working function app. 
 
@@ -247,7 +249,7 @@ The **ApplicationInsightsTraceSuccess** adds Application Insights properties to 
 
 Add the **ApplicationInsightsTraceSuccess** method:
 
-[!code-csharp[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-171)]
+[!code-csharp[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-172)]
 
 Save the file and test. If the test returns HTTP status of 200, then continue.
 
@@ -256,7 +258,7 @@ The **ApplicationInsightsTraceError** adds Application Insights properties to th
 
 Add the **ApplicationInsightsTraceError** method:
 
-[!code-csharp[Add Application Insights error log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=172-183)]
+[!code-csharp[Add Application Insights error log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=173-186)]
 
 Save the file and test. If the test returns HTTP status of 200, then continue.
 
@@ -265,7 +267,7 @@ The complete LUIS class is now in **run.csx**. The main method `Run` needs to ca
 
 Change the `Run` method to add the region either through the querystring or body and change the final call to return the LUIS.endpoint method results.
 
-[!code-csharp[Add LUIS.EndpointQuery to Run method](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=186-213)]
+[!code-csharp[Add LUIS.EndpointQuery to Run method](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=188-215)]
 
 Save the file and test. The test returns HTTP status of 400-bad request because the function expects the `query` name/value pair, not the `name` name/value pair. 
 
@@ -378,7 +380,7 @@ Open Application Insights to see the LUIS entries.
 
 4. Select the top entry -- the erroring LUIS query. Remember this error was due to changing the required HTTP value to have an extra `y`. The dependency information shows the Custom Data from the **ApplicationInsightsTraceError** method, including the error message from LUIS. 
 
-    ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail.png)
+    ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail-error.png)
 
     When you are done, select the far-right top **X** to return to the list of dependency items. 
 
