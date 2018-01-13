@@ -48,7 +48,7 @@ The following example shows the schema of a device created event:
 ```json
 [{
   "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/BDF55CDD-8DAB-4CF4-9B2F-C21E8A780472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/EGTESTHUB1",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
   "subject": "devices/LogicAppTestDevice",
   "eventType": "Microsoft.Devices.DeviceCreated",
   "eventTime": "2018-01-02T19:17:44.4383997Z",

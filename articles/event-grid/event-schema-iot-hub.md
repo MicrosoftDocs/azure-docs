@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: kgremban
 ---
 
@@ -33,7 +33,7 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
 ```json
 [{
   "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/BDF55CDD-8DAB-4CF4-9B2F-C21E8A780472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/EGTESTHUB1",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
   "subject": "devices/LogicAppTestDevice",
   "eventType": "Microsoft.Devices.DeviceCreated",
   "eventTime": "2018-01-02T19:17:44.4383997Z",
@@ -115,7 +115,7 @@ The contents of the data object are different for each event publisher. For IoT 
 | reported | object | A portion of the properties that can be written only by the device, and read by the application back-end. |
 | lastUpdated | string | The ISO8601 timestamp of the last device twin property update. | 
 
-# Next steps
+## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * To learn about how IoT Hub and Event Grid work together, see [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
