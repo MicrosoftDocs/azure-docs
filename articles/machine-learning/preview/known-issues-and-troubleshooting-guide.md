@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017 
+ms.date: 01/12/2018 
 ---
 
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
@@ -115,7 +115,7 @@ After logging in, the Workbench app might get stuck on a blank screen with a mes
 3. Restart the app.
 
 ## Can't delete Experimentation Account
-You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see the error "Can not delete resource before nested resources are deleted."
 
 ```azure-cli
 # delete a project
@@ -142,6 +142,8 @@ If you kick off an experimentation run using `az ml experiment submit` or `az ml
 - On macOS, use Ctrl-C.
 
 Please note that this only interrupts the output stream in the CLI window. It does not actually stop a job that's being executed. If you want to cancel an ongoing job, use `az ml experiment cancel -r <run_id> -t <target name>` command.
+
+On Windows computers with keyboards that do not have Break key, possible alternatives include Fn-B, Ctrl-Fn-B or Fn+Esc. Consult your hardware vendor's documentation for a specific key combination.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
