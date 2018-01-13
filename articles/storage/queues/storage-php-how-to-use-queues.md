@@ -84,7 +84,7 @@ For accessing the emulator storage:
 UseDevelopmentStorage=true
 ```
 
-To create any Azure service client, you need to use the **QueueRestProxy** class. You can use either of the following techniques:
+To create an Azure Queue service client, you need to use the **QueueRestProxy** class. You can use either of the following techniques:
 
 * Pass the connection string directly to it.
 * Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/web-sites-configure.md) document for configuring connection strings.
@@ -106,7 +106,7 @@ A **QueueRestProxy** object lets you create a queue by using the **createQueue**
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
@@ -145,7 +145,7 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
@@ -175,7 +175,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
@@ -223,7 +223,7 @@ Your code removes a message from a queue in two steps. First, you call **QueueRe
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
@@ -264,7 +264,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create queue REST proxy.
 $queueClient = QueueRestProxy::createQueueService($connectionString);
@@ -309,7 +309,7 @@ There are two ways that you can customize message retrieval from a queue. First,
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
@@ -359,7 +359,7 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
@@ -390,7 +390,7 @@ To delete a queue and all the messages in it, call the **QueueRestProxy->deleteQ
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 

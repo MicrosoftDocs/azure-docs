@@ -172,7 +172,7 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
@@ -205,7 +205,7 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -237,7 +237,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -267,7 +267,7 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -293,7 +293,7 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create blob REST proxy.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
