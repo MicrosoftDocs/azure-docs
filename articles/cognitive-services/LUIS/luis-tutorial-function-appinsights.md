@@ -93,22 +93,24 @@ The functions list, under the Function Apps, shows one function named **HttpTrig
 
 By default, when you call the function from an HTTP request with a query string or body that includes "name" and a value for "name", the function sends an HTTP response of "Hello " + name. If no value for name was provided, the function sends an HTTP error of BadRequest and a message asking for a name. 
 
-The `Run` method is in `run.csx`:
+The `Run` method is in **run.csx**:
 
-[!code-javascript[Run.original.csx](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.original.csx)]
+[!code-csharp[Run.original.csx](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.original.csx?range=2-22)]
 
 ## Verify basic function works
-You can test the function in the far-right **Test** pane. 
+You can test the function in the far-right **Test** pane. The request body is provided. You do not need to add or change anything.
 
 ![Basic function test pane](./media/luis-tutorial-appinsights/basic-fn-test-panel.png)
 
-1. Click on **Run**. The **Output** box appears below the **Request body** box.
+1. Click on **Run** button. The **Output** box appears below the **Request body** box.
 
     ![Basic function test pane result](./media/luis-tutorial-appinsights/basic-fn-test-pane-result.png)
 
 2. You can see the log of the function at the bottom, under the code window. Click the blue **^** to enlarge the log view.
 
     ![Basic function log pane](./media/luis-tutorial-appinsights/basic-fn-log.png)
+
+    ![Basic function log pane](./media/luis-tutorial-appinsights/basic-fn-log-results.png)
 
 You have a working function app. 
 
@@ -121,19 +123,19 @@ All files associated with the function are available for editing. You can view t
 
 ![Basic function test pane](./media/luis-tutorial-appinsights/basic-fn-files.png)
 
-This basic function currently has a `function.json` file, a `readme.md` file, and a `run.csx` file. You can add, delete, or upload a file.
+This basic function currently has a function.json file, a readme.md file, and a **run.csx** file. You can add, delete, or upload a file.
 
 > [!Note]
 > * For this tutorial, you do not need to change the `function.json` or the `readme.md` files.
 
 ## Restore NuGet packages
-The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json package. In order to add the dependencies to the function, the package name, and version are added to the `project.json`.
+The function in this tutorial needs to use the Application Insights NuGet and the Newtonsoft.Json packages. In order to add the dependencies to the function, the package name, and version are added to the `project.json`.
 
-A basic function has no dependencies so the dependency file, `project.json`, does not exist yet. [Download the `project.json`](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
+A basic function has no dependencies so the dependency file, `project.json`, does not exist yet. [Download the project.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/azure-function-application-insights-endpoint/project.json) from LUIS-Samples and upload to the files. 
 
-[!code-javascript[Project.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/project.json)]
+[!code-json[Project.json dependencies](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/project.json)]
 
-Watch the log to see that the NuGet packages are restored. Do not continue until `Compilation succeeded`.
+Watch the log to see that the NuGet packages are restored. Do not continue until the log reports `Compilation succeeded`.
 
 ```
 2018-01-12T21:27:20.644 Restoring packages.
@@ -156,48 +158,48 @@ Watch the log to see that the NuGet packages are restored. Do not continue until
 2018-01-12T21:27:25.213 Compilation succeeded.
 ```
 
-## Add NuGet package
-Return to the `run.csx` file. 
+## Add NuGet package references
+Return to the **run.csx** file. 
 
-Most of the additional code for this tutorial is between the `Using` statement and the `Run` method. First, add the `System` and `ApplicationInsights` dependencies.
+Most of the additional code for this tutorial is above the `Run` method. First, add the `System` and `ApplicationInsights` dependencies.
 
 Add the following code:
 
-[!code-javascript[Add NuGet package](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=7-20)]
+[!code-csharp[Add NuGet package](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=7-20)]
 
-Save the file.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Add keys
 
 Next, add the following code for the LUIS and Bing values. Change these values to your own ID and Keys.
 
-[!code-javascript[Add keys](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=22-25)]
+[!code-csharp[Add keys](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=22-25)]
 
 > [!Note]
 > * You do not have to use the Bing Spell Check for this tutorial to function. It is added here as an option. 
 
-Save the file.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Add dependency variables
 Add the HttpClient, and Application Insights dependency variables:
 
-[!code-javascript[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
+[!code-csharp[Add dependency variables](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=27-32)]
 
 Because Application Insights was turned on as part of the Function app creation, the `APPINSIGHTS_INSTRUMENTATIONKEY` is an environment variable for the Function app. You do not need to find the instrumentation key or set it. 
 
-Save the file.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Add function name variables for searching 
-The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_` and the region. Add the code for these constant strings:
+The easiest way to find the entries sent to Application Insights from this function is to search for unique and specific names. For this tutorial, the function name is `LUIS_fn_example` and the dependency name is `LUIS_fn_dependency_<region>`. Add the code for these constant strings:
 
-[!code-javascript[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
+[!code-csharp[Add function name variables for searching](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=34-36)]
 
 Since the function is hooked to Application Insights, there are more entries than just the LUIS query results from the function.
 
-Save the file.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Create a new LUIS class
-All the LUIS and Application Insights code is in a LUIS class. Create the class just after the function name:
+All the LUIS and Application Insights code is in a LUIS class. Create the class:
 
 ```CSharp
 public static class LUIS
@@ -212,56 +214,60 @@ public static class LUIS
 }
 ```
 
-Save the file and test. If the test returns 200 continue.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Add LUIS query result classes to LUIS class
-The LUIS query result is a nested JSON object. In order to deserialize it into C# classes, the classes have to be defined. Notice that along with the properties from LUIS, several more properties have been added to collect more information about the call to LUIS. 
+The LUIS query result is a nested JSON object. 
+
+[!code-json[LUIS query results](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/results.json)]
+
+In order to deserialize it into C# classes, the classes have to be defined. Notice that along with the properties from LUIS, several more properties have been added to collect more information about the call to LUIS. 
 
 Add the following LUIS query result classes:
 
-[!code-javascript[Add LUIS query result classes to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=40-68)]
+[!code-csharp[Add LUIS query result classes to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=40-68)]
 
-Save the file and test. If the test returns 200 continue.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
 ## Add EndpointQuery method to LUIS class
-The function's main method `Run` does not handle the LUIS request. Instead, create a new method `EndpointQuery` in the LUIS class to handle the LUIS request and the Application Insights entry.
+The function's main method **Run** does not handle the LUIS request. Instead, create a new method **EndpointQuery** in the LUIS class to handle the LUIS request and the Application Insights entry.
 
-The `EndpointQuery` method builds the URL, adds the `Ocp-Apim-Subscription-Key` HTTP security header, creates the telemetry object `dependencyTelemetry`, starts the dependency timer, awaits the asynchronous response from LUIS, sends the success or failing response to Application Insights, and returns the original response from LUIS back to the function's main method `Run`.
+The **EndpointQuery** method builds the URL, adds the `Ocp-Apim-Subscription-Key` HTTP security header, creates the telemetry object `dependencyTelemetry`, starts the dependency timer, awaits the asynchronous response from LUIS, sends the success or failing response to Application Insights, and returns the original response from LUIS back to the function's main method **Run**.
 
-Add the `EndpointQuery` method:
+Add the **EndpointQuery** method:
 
-[!code-javascript[Add EndpointQuery method to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=70-137)]
+[!code-csharp[Add EndpointQuery method to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=70-137)]
 
-Save the file and test. If the test returns 200 continue.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
-The [DependencyTelemetry](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.dependencytelemetry?view=azure-dotnet) constructor takes a Name and Type property. Both are arbitrary in this example. The Name is set to `LUIS-dependency-` + the region. This name is used to find the LUIS query results later in the tutorial.
+The [DependencyTelemetry](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.datacontracts.dependencytelemetry?view=azure-dotnet) constructor takes a Name and Type property. Both are arbitrary in this example. The Name is set to `fnLUISDependencyName + endpointRegion`. This name is used to find the LUIS query results later in the tutorial.
 
-## Add Application Insights successful log to LUIS class
-The `ApplicationInsightsTraceSuccess` adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call. The query result is flattened including all intents and entities. Each item in the array is numbered for each property.
+## Add successful results to Application Insights
+The **ApplicationInsightsTraceSuccess** adds Application Insights properties to the dependency object and sends those properties to Application Insights with the `.Track` call. The query result is flattened including all intents and entities. Each item in the array is numbered for each property.
 
-Add the `ApplicationInsightsTraceSuccess` method:
+Add the **ApplicationInsightsTraceSuccess** method:
 
-[!code-javascript[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-171)]
+[!code-csharp[Add Application Insights successful log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=138-171)]
 
-Save the file and test. If the test returns 200 continue.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
-## Add Application Insights error log to LUIS class
-The `ApplicationInsightsTraceError` adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call.
+## Add error results to Application Insights
+The **ApplicationInsightsTraceError** adds Application Insights properties to the dependency and sends those properties to Application Insights with the `.Track` call.
 
-Add the `ApplicationInsightsTraceError` method:
+Add the **ApplicationInsightsTraceError** method:
 
-   [!code-javascript[Add Application Insights error log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=172-183)]
+[!code-csharp[Add Application Insights error log to LUIS class](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=172-183)]
 
-Save the file and test. If the test returns 200 continue.
+Save the file and test. If the test returns HTTP status of 200, then continue.
 
-## Add LUIS.EndpointQuery to Run method
-The complete LUIS class is now in `run.csx`. The main method `Run` needs to call it. 
+## Add LUIS to Run method
+The complete LUIS class is now in **run.csx**. The main method `Run` needs to call it. 
 
 Change the `Run` method to add the region either through the querystring or body and change the final call to return the LUIS.endpoint method results.
 
-   [!code-javascript[Add LUIS.EndpointQuery to Run method](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=186-213)]
+[!code-csharp[Add LUIS.EndpointQuery to Run method](~/samples-luis/documentation-samples/azure-function-application-insights-endpoint/run.csx?range=186-213)]
 
-Save the file and test. The test returns 400 bad request because the function expects the `query` name/value pair. 
+Save the file and test. The test returns HTTP status of 400-bad request because the function expects the `query` name/value pair, not the `name` name/value pair. 
 
 Change the request body to:
 
@@ -271,12 +277,12 @@ Change the request body to:
 }
 ```
 
-Save the file and test. If the test returns 200 continue. The response from LUIS looks exactly as if it was made directly to the LUIS API.  
+Save the file and test. If the test returns HTTP status of 200, then continue. The response from LUIS looks exactly as if it was made directly to the LUIS API.  
 
 ## Test failing LUIS Query
 Make sure the erroring path is also returning the LUIS response. 
 
-1. Change the name of the HTTP Header to have an extra `y` at the end of `LUISsubscriptionKey`. Since the proper header isn't sent, LUIS should response with a 401-Unauthorized error.
+1. Change the name of the HTTP Header name to have an extra `y` at the end of `Ocp-Apim-Subscription-Key`. Since the proper header name isn't sent, LUIS should respond with a 401-Unauthorized error.
 
     Code before this change:
     
@@ -287,17 +293,17 @@ Make sure the erroring path is also returning the LUIS response.
     Code after this change:
     
     ```CSharp
-    httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", LUISsubscriptionKeyy);
+    httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Keyy", LUISsubscriptionKey);
     ```
 
 2. Save the file. Click on the **Test** button.
 
-3. Review the HTTP response **Output** shown below the test query. The response from LUIS looks exactly as if it was made directly to LUIS.
+3. Review the HTTP response **Output** shown below the test query. The erroring response from LUIS looks exactly as if it was made directly to LUIS.
 
 ## Test from Curl, an HTTP client
 This test is outside the Azure portal. 
 
-1. Get the function's URL by clicking on `</> Get function` in the top, middle window to the right of the Run button. 
+1. Get the function's URL by clicking on **</> Get function** in the top, middle window to the right of the Run button. 
 
     ![Get function URL](./media/luis-tutorial-appinsights/get-fn-url.png)
 
@@ -349,11 +355,14 @@ This test is outside the Azure portal.
     ```
 
 The Curl command did not have to pass the LUIS App ID, LUIS subscription Key, or Bing Subscription Key. The command only has to pass the query. 
+
+> [!Caution]
+> This function doesn't require any security at this point. Anyone with the URL can access this function.
  
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
 
-1. In the portal, select `All resources` then filter by the name `LUIS-Fn-AppInsights-Tutorial`. The `All resources` icon is a 9x9 green grid. Click on the resource with the type `Application Insights`. The icon for Application Insights is a light bulb. 
+1. In the portal, select **All resources** then filter by the name `LUIS-Fn-AppInsights-Tutorial`. Click on the resource with the type **Application Insights**. The icon for Application Insights is a light bulb. 
 
     ![Search for app insights](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
@@ -365,13 +374,17 @@ Open Application Insights to see the LUIS entries.
 
     ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail.png)
 
-    When you are done, select the far-right top `X` to return to the list of dependency items. 
+    When you are done, select the far-right top **X** to return to the list of dependency items. 
 
-4. Select the top entry -- the erroring LUIS query. Remember this error was due to changing the required HTTP value to have an extra `y`. The dependency information shows the Custom Data from the `ApplicationInsightsTraceError` method, including the error message from LUIS. When you are done, select the far-right top `X` to return to the list of dependency items. 
+4. Select the top entry -- the erroring LUIS query. Remember this error was due to changing the required HTTP value to have an extra `y`. The dependency information shows the Custom Data from the **ApplicationInsightsTraceError** method, including the error message from LUIS. 
+
+    ![Dependency details](./media/luis-tutorial-appinsights/app-insights-detail.png)
+
+    When you are done, select the far-right top **X** to return to the list of dependency items. 
 
 
 > [!Tip]
-> If you want to save the dependency list and return to it later, click on `...More` and click `Save favorite`.
+> If you want to save the dependency list and return to it later, click on **...More** and click **Save favorite**.
 
 ## View LUIS entries in Analytics
 Application Insights entries are stored in [Analytics](). Analytics gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [PowerBI](https://powerbi.microsoft.com). 
@@ -380,7 +393,7 @@ Application Insights entries are stored in [Analytics](). Analytics gives you th
 
     ![Analytics button](./media/luis-tutorial-appinsights/analytics-button.png)
 
-2. A new window opens with a query window above and a data table window below. If you have used databases before, this interface feels familiar. The query includes all items from the last 24 hours beginning with the name `LUIS_fn_dependency_`. The `CustomDimensions` column has the LUIS query results as name/value pairs.
+2. A new window opens with a query window above and a data table window below. If you have used databases before, this interface feels familiar. The query includes all items from the last 24 hours beginning with the name `LUIS_fn_dependency_`. The **CustomDimensions** column has the LUIS query results as name/value pairs.
 
     ![Analytics query window](./media/luis-tutorial-appinsights/analytics-query-window.png)
 
@@ -391,7 +404,7 @@ Application Insights entries are stored in [Analytics](). Analytics gives you th
     | extend score = todouble(customDimensions.LUIS_topScoringintent_score)
     ```
 
-4. Run the query. Scroll to the far right in the data table. The two new columns of top intent and score are available. Click on the topIntent column to sort.
+4. Run the query. Scroll to the far right in the data table. The two new columns of topIntent and score are available. Click on the topIntent column to sort.
 
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
