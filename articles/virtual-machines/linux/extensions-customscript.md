@@ -19,7 +19,7 @@ ms.author: danis
 
 ---
 # Use the Azure Custom Script Extension with Linux virtual machines
-The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
+The Custom Script Extension downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, the Azure portal, or the Azure Virtual Machines REST API.
 
@@ -36,7 +36,7 @@ The schema for the public configuration is as follows.
 >[!NOTE]
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
-* **commandToExecute** (required, string): The entry point script to execute.
+* **commandToExecute** (required, string): The entry point script to run.
 * **fileUris** (optional, string array): The URLs for files to be downloaded.
 * **timestamp** (optional, integer): The time stamp of the script. Change the value of this field only if you want to trigger a rerun of the script.
 
@@ -53,7 +53,7 @@ The schema for the protected configuration is as follows.
 >[!NOTE]
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
-* **commandToExecute** (optional, string): The entry point script to execute. Use this field if your command contains secrets such as passwords.
+* **commandToExecute** (optional, string): The entry point script to run. Use this field if your command contains secrets such as passwords.
 * **storageAccountName** (optional, string): The name of the storage account. If you specify storage credentials, all file URIs must be URLs for Azure blobs.
 * **storageAccountKey** (optional, string): The access key of the storage account.
 
@@ -116,7 +116,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 
 #### Public and protected configuration files
 
-You use a public configuration file to specify the script file URI. You use a protected configuration file to specify the command to be executed.
+You use a public configuration file to specify the script file URI. You use a protected configuration file to specify the command to be run.
 
 Public configuration file:
 
