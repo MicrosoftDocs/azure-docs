@@ -100,7 +100,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs, **Page*
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to your Azure storage account.
-* Create an export job when you want to transfer data currently stored in your storage account to hard drives that are shipped to us. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an export job when you want to transfer data currently stored in your storage account to hard drives that are shipped to Microsoft. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
@@ -121,7 +121,7 @@ The WAImportExport tool is only compatible with 64-bit Windows operating system.
 Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+>**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you need to use WAImportExpot V1 tool if the only key available is SAS-Key.
 
 >
 
@@ -135,7 +135,7 @@ For import jobs, only the first data volume on the drive will be processed. The 
 > 
 > 
 
-Below is a list of external USB adaptors used to copy data to internal HDDs. 
+Following is a list of external USB adaptors used to copy data to internal HDDs. 
 Anker 68UPSATAA-02BU
 Anker 68UPSHHDS-BU
 Startech SATADOCK22UE
@@ -147,7 +147,7 @@ The data on the drive must be encrypted using BitLocker Drive Encryption. This p
 
 For import jobs, there are two ways to perform the encryption. The first way is to specify the option when using dataset CSV file while running the WAImportExport tool during drive preparation. The second way is to enable BitLocker encryption manually on the drive and specify the encryption key in the driveset CSV when running WAImportExport tool command line during drive preparation.
 
-For export jobs, after your data is copied to the drives, the service will encrypt the drive using BitLocker before shipping it back to you. The encryption key will be provided to you via the Azure portal.  
+For export jobs, after your data is copied to the drives, the service will encrypt the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal.  
 
 ### Operating System
 You can use one of the following 64-bit Operating Systems to prepare the hard drive using the WAImportExport Tool before shipping the drive to Azure:
