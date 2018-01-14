@@ -39,9 +39,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Create a complete Linux VM with Ansible.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Use Ansible in the Azure Cloud Shell.</a>
-    - html: <a href="./ansible-manage-azure-dynamic-inventories">Manage your Azure dynamic inventories.</a>
+    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Create a Linux virtual machine, including virtual network, public IP address, and virtual network interface card.</a>
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Connect to an Azure virtual machine and run an Ansible playbook in CloudShell.</a>
+    - html: <a href="./ansible-manage-azure-dynamic-inventories">Configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one those virtual machines, and install Nginx on the tagged virtual machine.</a>
 - title: Samples
   items:
   - type: list
