@@ -34,7 +34,7 @@ To understand the network and system requirements to deploy the Windows agent, r
 ## Obtain workspace ID and key
 Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics.  
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace you intend on configuring the agent to report to.
 3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Select **Connected Sources**, and then select **Windows Servers**.   
@@ -156,7 +156,7 @@ From the computer in **Control Panel**, find the item **Microsoft Monitoring Age
 
 You can also perform a simple log search in the Azure portal.  
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
 2. On the Log Analytics workspace page, select the target workspace and then select the **Log Search** tile. 
 2. On the Log Search pane, in the query field type:  
 
