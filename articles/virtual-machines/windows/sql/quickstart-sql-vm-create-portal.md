@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
-1. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **Create a resource**. 
 
 1. In the search field, type **SQL Server 2017 Developer on Windows Server 2016**, and press ENTER.
 
