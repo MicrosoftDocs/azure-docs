@@ -40,9 +40,10 @@ In the Content Moderator Dashboard, you can find your subscription key in **Sett
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
-1. Name the project **TermLists**.
+1. Name the project **TermLists**. Select this project as the single startup project for the solution.
 
-1. Select this project as the single startup project for the solution.
+1. Add a reference to the **ModeratorHelper** project assembly that you created 
+   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### Install required packages
 
@@ -77,19 +78,6 @@ namespace TermLists
 {
     class Program
     {
-        // NOTE: Replace this example location with the location for your Content Moderator account.
-        /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
-        /// </summary>
-        private static readonly string AzureRegion = "INSERT CONTENT MODERATOR ACCOUNT REGION HERE";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        /// <summary>
-        /// Your Content Moderator subscription key.
-        /// </summary>
-        private static readonly string CMSubscriptionKey = "INSERT CONTENT MODERATOR SUBSCRIPTION KEY HERE";
-
         // NOTE: If needed, replace this value with the appropriate language for your region.
         /// <summary>
         /// The language of the terms in the term lists.
@@ -97,37 +85,10 @@ namespace TermLists
         private const string lang = "eng";
 
         /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"{AzureRegion}.api.cognitive.microsoft.com";
-
-        /// <summary>
         /// The minimum amount of time, in milliseconds, to wait between calls
         /// to the Content Moderator APIs.
         /// </summary>
         private const int throttleRate = 2000;
-```
-
-### Create Content Moderator Client object
-
-Add the following method definition to namespace TermLists, class Program.
-
-```csharp
-        /// <summary>
-        /// Returns a new Content Moderator client for your subscription.
-        /// </summary>
-        /// <returns>The new client.</returns>
-        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-        /// When you have finished using the client,
-        /// you should dispose of it either directly or indirectly. </remarks>
-        public static ContentModeratorClient NewClient()
-        {
-            return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
-            {
-                BaseUrl = AzureBaseURL
-            };
-        }
 ```
 
 ## Create a term list
