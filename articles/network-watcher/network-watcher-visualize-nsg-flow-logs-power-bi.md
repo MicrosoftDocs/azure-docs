@@ -106,7 +106,7 @@ Feel free to customize this template for your needs. There are many numerous way
 
 ## Notes
 
-* Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupevent/`
 
     * If other data exists in another directory they the queries to pull and process the data must be modified.
 
