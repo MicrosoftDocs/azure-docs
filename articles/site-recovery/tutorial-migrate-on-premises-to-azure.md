@@ -41,7 +41,7 @@ Devices exported by paravirtualized drivers aren't supported.
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group **ContosoRG**.
