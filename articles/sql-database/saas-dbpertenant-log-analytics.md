@@ -73,7 +73,7 @@ At this point, you should be able open Log Analytics in the Azure portal (or the
 
 In this exercise, open Log Analytics and the OMS portal to look at the telemetry being gathered for the databases and pools.
 
-1. Browse to the [Azure portal](https://portal.azure.com) and open Log Analytics by clicking More services, then search for Log Analytics:
+1. Browse to the [Azure portal](https://portal.azure.com) and open Log Analytics by clicking **All services**, then search for Log Analytics:
 
    ![open log analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
