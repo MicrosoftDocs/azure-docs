@@ -26,7 +26,7 @@
     maintainContext: true
 - name: Samples
   items:
-  - name: Ansible playbooks for Azure
+  - name: Azure playbooks on GitHub
     href: https://github.com/Azure-Samples/ansible-playbooks
   - name: Ansible Galaxy
     href: https://galaxy.ansible.com
