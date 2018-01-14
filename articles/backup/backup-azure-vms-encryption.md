@@ -45,7 +45,7 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.
 
 ### Configure backup
-1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, select **More services**.
+1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, select **All services**.
 
    a. In the list of resources, type **Recovery Services**.
 
