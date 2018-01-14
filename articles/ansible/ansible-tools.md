@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, tools, vs code, visual studio code, extension
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/08/2018
+ms.date: 01/14/2018
 ms.topic: article
 ---
 
@@ -16,7 +16,7 @@ The following tools make working with Ansible and Azure easier and more efficien
 
 ## Visual Studio Code extension for Ansible
 
-The [Visual Studio Code for Ansible extension](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible) provides several features for using Ansible from Visual Studio Code:
+The [Visual Studio Code extension for Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible) provides several features for using Ansible from Visual Studio Code:
 
 - Auto completion of Ansible directives, modules, and plugins from the Ansible documentation as you type.
 - Code snippets display when clicking &lt;Ctrl>&lt;Space> while authoring your Ansible playbooks.

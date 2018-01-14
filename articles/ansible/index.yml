@@ -14,13 +14,13 @@ metadata:
   ms.date: 01/11/2018
   ms.author: tarcher
 abstract:
-  description: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
+  description: Use [Ansible](http://www.ansible.com) to automate cloud provisioning, configuration management, and application deployments.
 sections:
 sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Configure Ansible, and use it to create a Linux VM in Azure.
+    text: Configure Ansible and use it to create a Linux VM in Azure.
   - type: list
     style: icon48
     items: 
@@ -28,6 +28,7 @@ sections:
         src: /azure/media/index/azure_dev-9.svg
       text: Configure Ansible
       href: /azure/virtual-machines/linux/ansible-install-configure
+      maintainContext: true
     - image: 
         src: /azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
