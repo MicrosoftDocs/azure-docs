@@ -126,21 +126,19 @@ To complete this step we will need a few things up front.
 
 Perform the following steps to obtain the storage key:
  1. Browse to the [Azure portal](http://portal.azure.com).
- 2. In the navigation pane of the Azure console, scroll to the bottom and click **More services.**
+ 2. In the navigation pane of the Azure console, click **All services.**
+  3. Enter **Storage** in the **Filter** text box. Click **Storage accounts**.
 
- ![More Services](./media/security-azure-log-integration-get-started/more-services.png)
- 3. Enter **Storage** in the **Filter** text box. Click **Storage accounts** (this will appear after you enter **Storage**)
-
-   ![filter box](./media/security-azure-log-integration-get-started/filter.png)
+       ![Screenshot that shows Storage accounts in All services](./media/security-azure-log-integration-get-started/filter.png)
  4. A list of storage accounts will appear, double click on the account that you assigned to Log storage.
 
-   ![list of storage accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
+       ![list of storage accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
  5. Click on **Access keys** in the **Settings** section.
 
-  ![access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+      ![access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
  6. Copy **key1** and put it in a secure location that you can access for the next step.
 
-   ![two access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+       ![two access keys](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
  7. On the server that you installed Azure Log Integration, open an elevated Command Prompt (note that we’re using an elevated Command Prompt window here, not an elevated PowerShell console).
  8. Navigate to **c:\Program Files\Microsoft Azure Log Integration**
  9. Run ``Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey> `` </br> For example ``Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==``

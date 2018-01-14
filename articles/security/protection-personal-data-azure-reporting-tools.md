@@ -146,7 +146,7 @@ There are a number of ways to use the data in the Activity log and other Azure M
 
 - You can query the data using the Azure Monitor REST API, CLI commands, [PowerShell](https://docs.microsoft.com/powershell/) cmdlets, or the .NET SDK.
 
-To get started with Azure Monitor, select **More Services** in the Azure portal.
+To get started with Azure Monitor, select **All services** in the Azure portal.
 
 1. Scroll down to **Monitor** in the **Monitoring and Managing** section.
 
