@@ -1,6 +1,6 @@
 ---
-title: Azure Content Moderator - Moderate using custom image lists using .NET | Microsoft Docs
-description: How to moderate with custom image lists using Azure Content Moderator SDK for .NET
+title: Moderate with custom image lists in Azure Content Moderator | Microsoft Docs
+description: How to moderate with custom image lists using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
