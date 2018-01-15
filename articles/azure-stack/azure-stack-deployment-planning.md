@@ -19,9 +19,6 @@ ms.reviewer: wfayed
 ---
 
 # Planning considerations for Azure Stack integrated systems
-
-*Applies to: Azure Stack integrated systems*
-
 If you’re interested in an Azure Stack integrated system, you should understand some of the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
 
 > [!NOTE]
