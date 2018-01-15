@@ -423,7 +423,7 @@ The **scripts/SwitchOn-method.js** file implements the **Switch On** method in a
 
 1. Save the **scripts/SwitchOff-method.js** file.
 
-1. In Solution Explorer, select each of your four new files in turn. For each file, in the **Properties** window verify that **Copy to output directory** is set to **Copy if newer**.
+1. In Solution Explorer, select each of your four new files in turn. In the **Properties** window for each file, verify that **Copy to output directory** is set to **Copy if newer**.
 
 ### Configure the device simulation service
 
@@ -568,7 +568,7 @@ You have now completed the steps to deploy an updated version of the device simu
 
 In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
 
-    ![Temperature telemetry](media/iot-suite-remote-monitoring-test/telemetry.png)
+![Temperature telemetry](media/iot-suite-remote-monitoring-test/telemetry.png)
 
 On the **Devices** page, you can provision instances of your new type:
 
