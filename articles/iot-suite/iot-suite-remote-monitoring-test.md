@@ -200,7 +200,7 @@ When you modify the device simulation service, you can run it locally to test yo
 
 In this tutorial, you work with the **device-simulation** and **storage-adapter** Visual Studio projects. You can clone the source code repositories from GitHub. Perform this step on your local development machine where you have Visual Studio installed:
 
-1. Open a command prompt and to the folder where you want to save your copy of the repositories.
+1. Open a command prompt and navigate to the folder where you want to save your copy of the **device-simulation** and **storage-adapter** GitHub repositories.
 
 1. To clone the .NET version of the **device-simulation** repository, run the following command:
 
@@ -216,7 +216,7 @@ In this tutorial, you work with the **device-simulation** and **storage-adapter*
     git clone https://github.com/Azure/storage-adapter.git
     ```
 
-    The device simulation service uses the storage adapter service to connect to the Cosmos DB service. The remote monitoring solution stores the simulated device configuration data in Cosmos DB.
+    The device simulation service uses the storage adapter service to connect to the Cosmos DB service in Azure. The remote monitoring solution stores the simulated device configuration data in a Cosmos DB database.
 
 ### Run the storage adapter service locally
 
@@ -248,7 +248,7 @@ The easiest way to create a new device type in the device simulation service is 
 
 1. In Solution Explorer, right-click the **device-simulation** solution and choose **Set StartUp Projects**. Choose **Single startup project** and select **SimulationAgent**. Then click **OK**.
 
-1. Each device type has a JSON model file and associated scripts in the `Services/data/devicemodels` folder. In Solution Explorer, copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
+1. Each device type has a JSON model file and associated scripts in the **Services/data/devicemodels** folder. In Solution Explorer, copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
 
     | Source                      | Destination                   |
     | --------------------------- | ----------------------------- |
@@ -258,9 +258,9 @@ The easiest way to create a new device type in the device simulation service is 
 
 ### Define the characteristics of the new device type
 
-The `lightbulb-01.json` file defines the characteristics of the type, such as the telemetry it generates and the methods it supports. The following steps update the `lightbulb-01.json` file to define the **Lightbulb** device:
+The **lightbulb-01.json** file defines the characteristics of the type, such as the telemetry it generates and the methods it supports. The following steps update the **lightbulb-01.json** file to define the **Lightbulb** device:
 
-1. In the `lightbulb-01.json` file, update the device metadata as shown in the following snippet:
+1. In the **lightbulb-01.json** file, update the device metadata as shown in the following snippet:
 
     ```json
     "SchemaVersion": "1.0.0",
@@ -271,7 +271,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     "Protocol": "MQTT",
     ```
 
-1. In the `lightbulb-01.json` file, update the simulation definition as shown in the following snippet:
+1. In the **lightbulb-01.json** file, update the simulation definition as shown in the following snippet:
 
     ```json
     "Simulation": {
@@ -289,7 +289,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     },
     ```
 
-1. In the `lightbulb-01.json` file, update the device type properties as shown in the following snippet:
+1. In the **lightbulb-01.json** file, update the device type properties as shown in the following snippet:
 
     ```json
     "Properties": {
@@ -300,7 +300,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     },
     ```
 
-1. In the `lightbulb-01.json` file, update the device type telemetry definitions as shown in the following snippet:
+1. In the **lightbulb-01.json** file, update the device type telemetry definitions as shown in the following snippet:
 
     ```json
     "Telemetry": [
@@ -320,7 +320,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     ],
     ```
 
-1. In the `lightbulb-01.json` file, update the device type methods as shown in the following snippet:
+1. In the **lightbulb-01.json** file, update the device type methods as shown in the following snippet:
 
     ```json
     "CloudToDeviceMethods": {
@@ -335,13 +335,13 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
     }
     ```
 
-1. Save the `lightbulb-01.json` file.
+1. Save the **lightbulb-01.json** file.
 
 ### Simulate custom device behavior
 
-The `scripts/lightbulb-01-state.js` file defines the simulation behavior of the **Lightbulb** type. The following steps update the `scripts/lightbulb-01-state.js` file to define the behavior of the **Lightbulb** device:
+The **scripts/lightbulb-01-state.js** file defines the simulation behavior of the **Lightbulb** type. The following steps update the **scripts/lightbulb-01-state.js** file to define the behavior of the **Lightbulb** device:
 
-1. Edit the state definition in the `scripts/lightbulb-01-state.js` file as shown in the following snippet:
+1. Edit the state definition in the **scripts/lightbulb-01-state.js** file as shown in the following snippet:
 
     ```js
     // Default state
@@ -385,11 +385,11 @@ The `scripts/lightbulb-01-state.js` file defines the simulation behavior of the 
     }
     ```
 
-1. Save the `scripts/lightbulb-01-state.js` file.
+1. Save the **scripts/lightbulb-01-state.js** file.
 
-The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a **Lightbulb** device. The following steps update the `scripts/SwitchOn-method.js` file:
+The **scripts/SwitchOn-method.js** file implements the **Switch On** method in a **Lightbulb** device. The following steps update the **scripts/SwitchOn-method.js** file:
 
-1. Edit the state definition in the `scripts/SwitchOn-method.js` file as shown in the following snippet:
+1. Edit the state definition in the **scripts/SwitchOn-method.js** file as shown in the following snippet:
 
     ```js
     var state = {
@@ -407,11 +407,11 @@ The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a *
     }
     ```
 
-1. Save the `scripts/SwitchOn-method.js` file.
+1. Save the **scripts/SwitchOn-method.js** file.
 
-1. Make a copy the `scripts/SwitchOn-method.js` file called `scripts/SwitchOff-method.js`.
+1. Make a copy the **scripts/SwitchOn-method.js** file called **scripts/SwitchOff-method.js**.
 
-1. To switch off the lightbulb, edit the **main** function in the `scripts/SwitchOff-method.js` file as follows:
+1. To switch off the lightbulb, edit the **main** function in the **scripts/SwitchOff-method.js** file as follows:
 
     ```js
     function main(context, previousState) {
@@ -421,7 +421,7 @@ The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a *
     }
     ```
 
-1. Save the `scripts/SwitchOff-method.js` file.
+1. Save the **scripts/SwitchOff-method.js** file.
 
 1. In Solution Explorer, select each of your four new files in turn. For each file, in the **Properties** window verify that **Copy to output directory** is set to **Copy if newer**.
 
@@ -597,14 +597,15 @@ The following steps show you how to find the files that define the built-in **Ch
     ```
 
 1. Each device type has a JSON model file and associated scripts in the `data/devicemodels` folder. The files that define the simulated **Chiller** device type are:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+
+    * **data/devicemodels/chiller-01.json**
+    * **data/devicemodels/scripts/chiller-01-state.js**
 
 ### Specify the new telemetry type
 
 The following steps show you how to add a new **Internal Temperature** type to the **Chiller** device type:
 
-1. Open the `chiller-01.json` file.
+1. Open the **chiller-01.json** file.
 
 1. Update the **SchemaVersion** value as follows:
 
@@ -636,9 +637,9 @@ The following steps show you how to add a new **Internal Temperature** type to t
     },
     ```
 
-1. Save the `chiller-01.json` file.
+1. Save the **chiller-01.json** file.
 
-1. Open the `scripts/chiller-01-state.js` file.
+1. Open the **scripts/chiller-01-state.js** file.
 
 1. Add the following fields to the **state** variable:
 
@@ -653,7 +654,7 @@ The following steps show you how to add a new **Internal Temperature** type to t
     state.internal_temperature = vary(65, 2, 15, 125);
     ```
 
-1. Save the `scripts/chiller-01-state.js` file.
+1. Save the **scripts/chiller-01-state.js** file.
 
 ### Test the Chiller device type
 
