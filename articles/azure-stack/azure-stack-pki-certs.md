@@ -51,7 +51,7 @@ For your deployment, the [region] and [externalfqdn] values must match the regio
 |Admin Portal|adminportal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
 |ARM Public|management.*&lt;region>.&lt;fqdn>*|ARM|*&lt;region>.&lt;fqdn>*|
 |ARM Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|ARM|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for: &#42;.blob.*&lt;region>.&lt;fqdn>*, &#42;.queue.*&lt;region>.&lt;fqdn>*, and &#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*, table.*&lt;region>.&lt;fqdn>*, and queue.*&lt;region>.&lt;fqdn>*|
+|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn><br>queue.*&lt;region>.&lt;fqdn>*|
 |KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
 |
@@ -79,10 +79,10 @@ The following table describes the endpoints and certificates required for the SQ
 |Scope (per region)|Certificate|Required certificate subject and subject alternative names (SAN)|SubDomain namespace|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL and MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web Traffic Default SSL Cert|&#42;.appservice.*&lt;region>.&lt;fqdn>*, &#42;.scm.appservice.*&lt;region>.&lt;fqdn>* (Multi Domain Wildcard SSL Certificate<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>* and scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>* (SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>* and scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>* (SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>* and scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>* (SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>* and scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Web Traffic Default SSL Cert|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi Domain Wildcard SSL Certificate<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>* (SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Requires one certificate with multiple wildcard subject alternative names. Multiple wildcard SANs on a single certificate might not be supported by all Public Certificate Authorities 
 

@@ -7,21 +7,25 @@ author: jeffgilb
 manager: femila
 editor: ''
 
-ms.assetid: 
+ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/16/2018
 ms.author: jeffgilb
-
+ms.reviewer: wfayed
 ---
+
 # Planning considerations for Azure Stack integrated systems
 
 *Applies to: Azure Stack integrated systems*
 
-If you’re interested in an Azure Stack integrated system, you’ll want to understand some of the major planning considerations around deployment and how the system fits into your datacenter. This topic provides a high-level overview of these considerations. If you decide to purchase an integrated system, your original equipment manufacturer (OEM) hardware vendor helps guide you through much of the planning process in more detail. They will also perform the actual deployment.
+If you’re interested in an Azure Stack integrated system, you’ll want to understand some of the major planning considerations around deployment and how the system fits into your datacenter. This topic provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system so you’ll be prepared to work with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
+
+> [!NOTE]
+> Azure Stack multi-node systems can only be purchased from authorized hardware vendors. 
 
 To deploy Azure Stack there are a set of decisions that you need to make to properly integrate Azure Stack within your environment. You will be asked to collect a set of information and you will have to make a set of decisions before you can proceed with deploying Azure Stack. You would be asked to provide this information to your solution provider during your planning process and have it ready for the hardware vendor before deployment starts to help the process go quickly and smoothly.
 
@@ -82,37 +86,16 @@ The following table summarizes these domain naming decisions.
 
 For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates for public-facing endpoints. At a high level, certificates have the following requirements:
 
-> [!IMPORTANT]
-> The certificate information in this article is provided only as general guidance. Before you acquire any certificates for Azure Stack, work with your OEM hardware partner. They will provide more detailed certificate guidance and requirements.
-
 - You can use a single wildcard certificate or you can use a set of dedicated certificates, and use wildcards only for endpoints such as storage and Key Vault.
-- Certificates must be issued by a public trusted certificate authority (CA) or a customer-managed CA.
- 
-The following table shows the services and number of public-facing endpoints that require certificates for initial Azure Stack deployment. 
+- Certificates can be issued by a public trusted certificate authority (CA) or a customer-managed CA.
 
-| Used For | Endpoint 
-| -------- | ------------- | 
-| Azure Resource Manager (administrator) | adminmanagment.[region].[external_domain] |
-| Azure Resource Manager (user) | management.[region].[external_domain] |
-| Portal (administrator) | adminportal.[region].[external_domain] |
-| Portal (user) | portal. [region].[external_domain] |
-| Key Vault (user) | &#42;.vault.[region].[external_domain] |
-| Key Vault (administrator) | &#42;.adminvault.[region].[external_domain] |
-| Storage | &#42;.blob.[region].[external_domain]<br>&#42;.table.[region].[external_domain]<br>&#42;.queue.[region].[external_domain]  |
-| Graph** | graph.[region].[external_domain] |
-| AD FS** | adfs.[region].[external_domain] |
-| | |
+For more information  about what PKI certificates are required to deploy Azure Stack, and how to obtain them, see, [Azure Stack Public Key Infrastructure certificate requirements](.\azure-stack-pki-certs).  
 
-**Certificates for Graph and AD FS endpoints are only needed for AD FS deployments.
 
-If you want to use a single wildcard certificate, you need a total of six Subject Alternative Names (SANs) for initial Azure Stack deployment. These SANs are: 
+> [!IMPORTANT]
+> The provided PKI certificate information should be used as general guidance. Before you acquire any PKI certificates for Azure Stack, work with your OEM hardware partner. They will provide more detailed certificate guidance and requirements.
 
-- &#42;.[region].[external_domain]
-- &#42;.vault.[region].[external_domain]
-- &#42;.adminvault.[region].[external_domain]
-- &#42;.blob.[region].[external_domain]
-- &#42;.table.[region].[external_domain] 
-- &#42;.queue.[region].[external_domain]
+
 
 ## Time synchronization
 You must choose a specific time server with is used to synchronize Azure Stack.  Time symbolization is critical to Azure Stack and its Infrastructure Roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
@@ -121,46 +104,56 @@ You must specify an IP for the time synchronization server, although most of the
 
 
 ## Network connectivity
+This section provides Azure Stack network infrastructure information that will help you make important decisions about how to best integrate Azure Stack into your existing networking environment. 
 
-### DNS integration
+> [!NOTE]
+> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](.\azure-stack-integrate-dns).
 
-To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. As deployment inputs, you must provide at least two servers to use as DNS forwarders for fault tolerance.
+### Physical network design
+The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Below is a diagram of our recommended design:
 
-To resolve DNS names of Azure Stack endpoints from outside Azure Stack (for example, from the corporate forest), you must integrate the DNS servers that host the external DNS zone for Azure Stack with the DNS servers that host the parent zone you want to use. This requires DNS name resolution between Azure Stack and existing DNS zones in the datacenter. To accomplish this, you’ll use methods such as conditional forwarding or zone delegation. We recommend conditional forwarding if you have direct control over the DNS servers that host the parent zone for your Azure Stack external DNS namespace. (If your external Azure Stack DNS zone appears as a child domain of your corporate domain name (for example, azurestack.contoso.com and contoso.com), you must use zone delegation instead.
+![Recommended Azure Stack network design](media/azure-stack-deployment-planning/recommended-design.png)
+
+
+### Logical Networks
+Logical networks represent an abstraction of the underlying physical network infrastructure. They are used to organize and simplify network assignments for hosts, virtual machines, and services. As part of logical network creation, network sites are created to define the virtual local area networks (VLANs), IP subnets, and IP subnet/VLAN pairs that are associated with the logical network in each physical location.
+The network infrastructure for Azure Stack uses the following logical networks that are configured on the switches:
 
 ### Network infrastructure
-
 The network infrastructure for Azure Stack consists of several logical networks that are configured on the switches. The following diagram shows these logical networks, and how they integrate with the top-of-rack (TOR), baseboard management controller (BMC), and border (customer network) switches.
 
-![Logical network diagram and switch connections](media/azure-stack-planning-considerations/NetworkDiagram.png)
+![Logical network diagram and switch connections](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
-The following table shows the logical networks and associated IPv4 subnet ranges that you must plan for.
+#### BMC network
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host will be located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
 
-| Logical Network | Description | Size | 
-| -------- | ------------- | ------------ | 
-| Public VIP | Public IP addresses for a small set of Azure Stack services, with the rest used by tenant virtual machines. The Azure Stack infrastructure uses 32 addresses from this network. If you plan to use App Service and the SQL resource providers, this uses 7 more. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
-| Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
-| Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
-| Private | Used for the storage network and private VIPs. | /24 | 
-| BMC | Used to communicate with the BMCs on the physical hosts. | /27 | 
-| | | |
+#### Private network
+This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
 
-### Uplink to border switches
+- **Storage network**. A /25 (126 host IP’s) network used to support the use of Spaces Direct and Server Message Block (SMB) storage traffic and virtual machine live migration. 
+- **Internal virtual IP network**. A /25 network dedicated to internal-only VIPs for the software load balancer.
 
-You'll need an uplink configured to the border switches in your datacenter. You can route this Layer 3 traffic from the top-of-rack (TOR) switches that are part of an Azure Stack integrated system using either of the following methods:
+#### Azure Stack infrastructure network
+This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs) , It isn’t expected to be routed beyond the border switches except for a very small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
 
-- Border Gateway Protocol (BGP) 
-- static routing
+#### Public infrastructure network
+This /27 network is the very small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
 
-We recommend BGP because it enables the automatic update of routes that are published by the Software Load Balancing Multiplexer (SLB MUX) to external networks. This is important if you add public IP address ranges after deployment. If you do BGP peering from the TOR switches to the aggregate switch that the TOR switches are connected to, public IP address ranges that you add post-deployment are automatically advertised to the aggregate switch without manual intervention. If you use static routing, you must manually update the routes for the new ranges every time you add a public IP address block.
+#### Public VIP network
+The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure uses at least 8 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
 
-### Proxy server
+#### Switch infrastructure network
+This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IP’s) subnets and the loopbacks which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, they may be private or public IPs.
 
-Azure Stack supports only transparent proxy servers. A transparent proxy intercepts requests at the network layer without requiring any special client configuration.
+#### Switch management network
+This /29 (6 host IPs) network is dedicated to connecting the management ports of the switches. It allows out-of-band access for deployment, management, and troubleshooting. It is calculated from the switch infrastructure network mentioned above.
+
+### TRANSPARENT PROXY
+The Azure Stack solution doesn’t support normal web proxies. If the datacenter requires all traffic to use a proxy, you must configure a transparent proxy to process all traffic from the rack to handle it according to policy, separating traffic between the zones on your network. A transparent proxy (also known as an intercepting, inline, or forced proxy) intercepts normal communication at the network layer without requiring any special client configuration. Clients need not to be aware of the existence of the proxy.
 
 ### Publish Azure Stack services
 
-You'll need to make Azure Stack services available to users from outside Azure Stack. Azure Stack sets up various endpoints for its infrastructure roles. These endpoints are assigned VIPs from the public IP address pool. A DNS entry is created for each endpoint in the external DNS zone, which was specified at deployment time. For example, the user portal is assigned the DNS host entry of "portal.<*region*>.<*external_FQDN*>." 
+You'll need to make Azure Stack services available to users from outside Azure Stack. Azure Stack sets up various endpoints for its infrastructure roles. These endpoints are assigned VIPs from the public IP address pool. A DNS entry is created for each endpoint in the external DNS zone, which was specified at deployment time. For example, the user portal is assigned the DNS host entry of portal.*&lt;region>.&lt;fqdn>*.
 
 #### Ports and URLs
 

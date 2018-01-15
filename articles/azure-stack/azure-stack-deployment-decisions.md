@@ -13,8 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/16/2018
 ms.author: jeffgilb
+ms.reviewer: wfayed
 
 ---
 # Deployment planning decisions for Azure Stack integrated systems
