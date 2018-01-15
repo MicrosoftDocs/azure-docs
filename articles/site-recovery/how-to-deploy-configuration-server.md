@@ -61,7 +61,7 @@ Site Recovery provides a downloadable template to set up the configuration serve
 
 3. In **Select source**, specify the location of the downloaded OVF.
 4. In **Review details**, click **Next**.
-5. In **Select name and folder, and **Select configuration**, accept the default settings.
+5. In **Select name and folder**, and **Select configuration**, accept the default settings.
 6. In **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
 4. In the rest of the wizard pages, accept the default settings.
 5. In **Ready to complete**:
