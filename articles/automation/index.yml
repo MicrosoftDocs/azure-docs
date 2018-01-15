@@ -35,7 +35,7 @@ sections:
     - image: 
         src: /azure/automation/media/index/dscconfig.svg
       text: Create a DSC configuration
-      href: "/azure/automation/automation-quickstart-dsc-config"
+      href: "/azure/automation/automation-quickstart-dsc-configuration"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -48,27 +48,6 @@ sections:
     - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
     - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify software installed on a VM</a>
     - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Troubleshoot changes on a VM</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Getting Started with Azure Automation
-      href: https://app.pluralsight.com/library/courses/azure-automation-getting-started/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-automation-getting-started/table-of-contents
-    - title: Managing Configurations with Azure Automation DSC
-      href: https://app.pluralsight.com/library/courses/azure-automation-dsc-managing-configurations/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-automation-dsc-managing-configurations/table-of-contents
-    - title: 'Play by Play: Elastic Scale and Consistency with Azure Automation DSC'
-      href: https://app.pluralsight.com/library/courses/play-by-play-azure-automation-dsc-elastic-scale-consistency/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/play-by-play-azure-automation-dsc-elastic-scale-consistency/table-of-contents
 - title: Reference
   items:
   - type: list

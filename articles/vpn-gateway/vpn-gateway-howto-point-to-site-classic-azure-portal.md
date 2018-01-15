@@ -77,9 +77,7 @@ Before beginning, verify that you have an Azure subscription. If you don't alrea
 If you don't already have a virtual network, create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal, use the following steps:
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. Click **New**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
-
-  ![Search for virtual network page](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+2. Click **Create a resource** > **Networking** > **Virtual Network**. 
 3. Near the bottom of the Virtual Network page, from the **Select a deployment model** list, select **Classic**, and then click **Create**.
 
   ![Select deployment model](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)

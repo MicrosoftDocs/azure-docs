@@ -403,7 +403,7 @@ Using Azure SQL Database as a data store is identical across all Azure App Servi
 not done so already, follow these steps to create a Mobile App backend.
 
 1. Log in to the [Azure portal].
-2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a
+2. In the top left of the window, click **Create a resource** > **Web + Mobile** > **Mobile App**, then provide a
    name for your Mobile App backend.
 3. In the **Resource Group** box, enter the same name as your app.
 4. The Default App Service plan is selected.  If you wish to change your App Service plan, you can do so by

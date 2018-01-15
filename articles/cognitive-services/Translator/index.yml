@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Translator Text API Documentation
+metadata:
+  title: Translator Text Documentation - Tutorials, API Reference
+  description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how write code that makes use of the Translator service.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2017
+  ms.author: v-jansko
+abstract:
+  description: Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Translator Text API by making a translation request and viewing the response:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_php.svg
+      - image:
+          src: media/index/logo_ruby.svg
+    rows:
+      - title: 'Translate text using the API'
+        values:
+        - href: quickstarts/csharp
+        - href: quickstarts/java
+        - href: quickstarts/nodejs
+        - href: quickstarts/python
+        - href: quickstarts/php
+        - href: quickstarts/ruby
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Translator Text API:'
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="http://docs.microsofttranslator.com/text-translate.html">API Reference</a></p>
+   

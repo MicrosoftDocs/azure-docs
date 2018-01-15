@@ -31,7 +31,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new service
 
-1. In the [Azure portal](https://portal.azure.com/), select **New** > **Enterprise Integration** > **API management**.
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Enterprise Integration** > **API management**.
 
     Alternatively, choose **New**, type `API management` in the search box, and press Enter. Click **Create**.
 
