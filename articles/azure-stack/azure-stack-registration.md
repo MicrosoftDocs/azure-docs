@@ -13,8 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/16/2018
 ms.author: jeffgilb
+ms.reviewer: wfayed
 
 ---
 # Register Azure Stack with Azure
@@ -63,7 +64,7 @@ cd \
   cd AzureStack-Tools-master
 ```
 
-## Register Azure Stack connected environments
+## Register Azure Stack in connected environments
 Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
 ### Register the Azure Stack resource provider
@@ -163,28 +164,13 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 
 ## Verify Azure Stack registration
 Use these steps to verify that Azure Stack has successfully registered with Azure.
-1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal).
+1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.&#91;REGION&#93;.&#91;FQDN&#93;.
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 
 If you see a list of items available from Azure (such as WordPress), your activation was successful.
 
 > [!NOTE]
 > After registration is complete, the active warning for not registering will no longer appear.
-
-## Remove a registered resource
-If you want to remove a registration, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for **Register-AzsEnvironment**.
-
-To remove a registration using a resource name:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-To remove a registration using a registration token:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
 
 ## Renew or change registration
 You’ll need to update or renew your registration in the following circumstances:
@@ -207,3 +193,19 @@ If you would like to change the billing model or syndication features for your i
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
+
+## Remove a registered resource
+If you want to remove a registration, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for **Register-AzsEnvironment**.
+
+To remove a registration using a resource name:
+
+```Powershell    
+UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
+```
+To remove a registration using a registration token:
+
+```Powershell
+$registrationToken = "*Your copied registration token*"
+UnRegister-AzsEnvironment -RegistrationToken $registrationToken
+```
+

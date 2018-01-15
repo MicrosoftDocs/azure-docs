@@ -13,10 +13,11 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/16/2018
 ms.author: jeffgilb
-
+ms.reviewer: wfayed
 ---
+
 # Generate PKI certificates for Azure Stack deployment
 Now that you know [the PKI certificate requirements](azure-stack-pki-certs.md) for Azure Stack deployments, you need to obtain those certificates from the Certificate Authority (CA) of your choice. 
 
@@ -26,9 +27,7 @@ One way to request certificates from either a Public CA or an Internal CA is by 
 ### Sample INF file 
 The example certificate request INF file can be used to create an offline certificate request file for submission to a CA (either internal or public). The INF covers all of the required endpoints (including the optional PaaS services) in a single wildcard certificate. 
 
-The following sample INF file assumes that: 
-•	Region = SEA 
-•	External FQDN = contoso.com 
+The sample INF file assumes that region is equal to **sea** and the external FQDN value is **sea&#46;contoso&#46;com**. Change those values to match your environment before generating an .INF file for your deployment. 
 
     
     [Version] 
@@ -66,9 +65,9 @@ The following sample INF file assumes that:
 ## Generate and submit request to the CA
 The following workflow describes how you can customize and use the sample INF file generated earlier to request a certificate from a CA:
 
-1. **Edit and save INF file**. Copy the sample provided and save it to a new text file. Replace the region and FQDN with the values that match your deployment and save the file as .INF file.
+1. **Edit and save INF file**. Copy the sample provided and save it to a new text file. Replace the subject name and external FQDN with the values that match your deployment and save the file as an .INF file.
 2. **Generate a request using certreq**. Using a Windows computer, launch a command prompt as Administrator and run the following command to generate a request (.req) file: `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. ***Submit to CA**. Submit the .req file generated to your CA (can be internal or public).
+3. **Submit to CA**. Submit the .REQ file generated to your CA (can be internal or public).
 4. **Import .CER**. The CA returns a .CER file. Using the same Windows computer from which you generated the request file, import the .CER file returned into the computer/personal store. 
 5. **Export and copy .PFX to deployment folders**. Export the certificate (including the Private Key) as a .PFX file, and copy the .PFX file to the deployment folders described in [Azure Stack deployment PKI requirements](azure-stack-pki-certs.md).
 
