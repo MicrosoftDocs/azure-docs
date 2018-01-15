@@ -1,6 +1,6 @@
 ---
-title: Moderate text by using custom term lists in Azure Content Moderator | Microsoft Docs
-description: Test-drive custom term lists in the Content Moderator API console.
+title: Moderate with custom term lists in Azure Content Moderator | Microsoft Docs
+description: How to moderate with custom term lists using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 01/11/2018
 ms.author: sajagtap
 ---
 
-# Moderate text by using custom terms in .NET
+# Moderate with custom term lists in .NET
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
