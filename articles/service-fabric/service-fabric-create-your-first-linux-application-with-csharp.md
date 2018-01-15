@@ -37,10 +37,18 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
 1. Install nodejs and NPM on your machine
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Redhat
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
