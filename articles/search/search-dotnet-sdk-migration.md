@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2018
+ms.date: 01/15/2018
 ms.author: brjohnst
 
 ---

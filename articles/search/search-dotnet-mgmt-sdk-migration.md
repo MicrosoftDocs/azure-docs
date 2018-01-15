@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2018
+ms.date: 01/15/2018
 ms.author: brjohnst
 
 ---
 # Upgrading to the Azure Search .NET Management SDK version 2
-If you're using version 1.0.2 or older of the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), this article will help you upgrade your application to use version 3.
+If you're using version 1.0.2 or older of the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), this article will help you upgrade your application to use version 2.
 
 Version 2 of the Azure Search .NET Management SDK contains some changes from earlier versions. These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
@@ -39,7 +39,7 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, it could be because you've implemented some of the SDK interfaces (for example, for the purposes of unit testing), which have changed. To resolve this, you'll need to implement the new methods such as `BeginCreateOrUpdateWithHttpMessagesAsync`.
 
-Once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 3](#WhatsNew).
+Once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 2](#WhatsNew).
 
 ## Conclusion
 We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
