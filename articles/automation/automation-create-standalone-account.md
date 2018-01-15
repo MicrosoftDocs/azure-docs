@@ -92,8 +92,8 @@ The following table summarizes resources for the Classic Run As account.
 
 | Resource | Description |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
-| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all Classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
+| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
+| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
 | AzureClassicRunAsCertificate |A certificate asset that's automatically created. The certificate authenticates with Azure so you can manage Azure classic resources from runbooks. This certificate has a one-year lifespan. |
 | AzureClassicRunAsConnection |A connection asset that's automatically created. The asset authenticates with Azure so you can manage Azure classic resources from runbooks. |
 
