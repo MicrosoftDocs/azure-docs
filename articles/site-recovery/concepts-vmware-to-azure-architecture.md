@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/15/2018
 ms.author: raynew
 ---
 
@@ -20,11 +20,9 @@ The following table and graphic provide a high-level view of the components used
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure storage account, and Azure network. | Replicated data from on-premises VMs is stored in the storage account. Azure VMs are created with the replicated data when you run a fail over from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
-**Configuration server** | A single on-premises VMware VM deployed from a downloaded OVF template. The VM runs all on-premises Site Recovery components, including the configuration server, process server, and master target server. | The configuration server coordinates communications between on-premises and Azure, and manages data replication.
- **Process server**:  | Installed by default together with the configuration server. | The process server acts as a replication gateway. It receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage. The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of VMs on on-premises VMware servers. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.
- **Master target server** | Installed by default together with the configuration server. | Handles replication data during failback from Azure. For large deployments, you can add an additional, separate master target server for failback.
+**Configuration server machine** | A single on-premises machine. We recommend you run it as a VMware VM that can deployed from a downloaded OVF template.<br/><br/> The machine runs all on-premises Site Recovery components, including the configuration server, process server, and master target server. | **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication.<br/><br/> **Process server**:  Installed by default on the configuration server. It receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage. The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of on-premises machines. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.<br/><br/>  **Master target server**: Installed by default on the configuration server. It handles replication data during failback from Azure. For large deployments, you can add an additional, separate master target server for failback.
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
-**Replicated machines** | The Mobility service is installed on each VMware VM that you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager. 
+**Replicated machines** | The Mobility service is installed on each VMware VM that you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager.
 
 **VMware to Azure architecture**
 
