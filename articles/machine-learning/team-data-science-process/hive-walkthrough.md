@@ -146,20 +146,20 @@ These two commands download all .hql files needed in this walkthrough to the loc
 > 
 
 We are now ready to create Hive tables for the NYC taxi dataset.
-In the head node of the Hadoop cluster, open the ***Hadoop Command Line*** on the desktop of the head node, and enter the Hive directory by entering the command
+In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
 
     cd %hive_home%\bin
 
 > [!NOTE]
-> **Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This will take care of any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt",  and "Hadoop Command Line" interchangeably in this walkthrough.**
+> Run all Hive commands in this walkthrough from the Hive bin/ directory prompt. This handles any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop command line" interchangeably in this walkthrough.
 > 
 > 
 
-From the Hive directory prompt, enter the following command in Hadoop Command Line of the head node to submit the Hive query to create Hive database and tables:
+From the Hive directory prompt, run the following command in the Hadoop command line of the head node. This submits the Hive query to create the Hive database and tables:
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*** file that creates Hive database ***nyctaxidb*** and tables ***trip*** and ***fare***.
+Here is the content of the **C:\temp\sample\_hive\_create\_db\_and\_tables.hql** file. This creates the Hive database **nyctaxidb**, and the tables **trip** and **fare**.
 
     create database if not exists nyctaxidb;
 
@@ -202,43 +202,43 @@ Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*
 
 This Hive script creates two tables:
 
-* the "trip" table contains trip details of each ride (driver details, pickup time, trip distance, and times)
-* the "fare" table contains fare details (fare amount, tip amount, tolls, and surcharges).
+* The **trip** table contains trip details of each ride (driver details, pick-up time, trip distance, and times).
+* The **fare** table contains fare details (fare amount, tip amount, tolls, and surcharges).
 
-If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line](move-hive-tables.md#submit).
+If you need any additional assistance with these procedures, or you want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop command line](move-hive-tables.md#submit).
 
-## <a name="#load-data"></a>Load Data to Hive tables by partitions
+## <a name="#load-data"></a>Load data to Hive tables by partitions
 > [!NOTE]
-> This is typically an **Admin** task.
+> This is typically an Admin task.
 > 
 > 
 
-The NYC taxi dataset has a natural partitioning by month, which we use to enable faster processing and query times. The following PowerShell commands (issued from the Hive directory using the **Hadoop Command Line**) load data to the "trip" and "fare" Hive tables partitioned by month.
+The NYC taxi dataset has a natural partitioning by month, which we use to enable faster processing and query times. The following PowerShell commands (issued from the Hive directory by using the Hadoop command line) load data to the trip and fare Hive tables, partitioned by month.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-The *sample\_hive\_load\_data\_by\_partitions.hql* file contains the following **LOAD** commands:
+The **sample\_hive\_load\_data\_by\_partitions.hql** file contains the following **LOAD** commands:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
-Note that a number of Hive queries we use here in the exploration process involve looking at just a single partition or at only a couple of partitions. But these queries could be run across the entire data.
+Note that a number of the Hive queries we use here in the exploration process involve looking at only one or two partitions. But these queries could be run across the entire dataset.
 
 ### <a name="#show-db"></a>Show databases in the HDInsight Hadoop cluster
-To show the databases created in HDInsight Hadoop cluster inside the Hadoop Command-Line window, run the following command in Hadoop Command Line:
+To show the databases created in HDInsight Hadoop cluster inside the Hadoop command-line window, run the following command in the Hadoop command line:
 
     hive -e "show databases;"
 
-### <a name="#show-tables"></a>Show the Hive tables in the nyctaxidb database
-To show the tables in the nyctaxidb database, run the following command in Hadoop Command Line:
+### <a name="#show-tables"></a>Show the Hive tables in the **nyctaxidb** database
+To show the tables in the **nyctaxidb** database, run the following command in Hadoop command line:
 
     hive -e "show tables in nyctaxidb;"
 
-We can confirm that the tables are partitioned by issuing the command below:
+We can confirm that the tables are partitioned by running the following command:
 
     hive -e "show partitions nyctaxidb.trip;"
 
-The expected output is shown below:
+Here is the expected output:
 
     month=1
     month=10
@@ -254,11 +254,11 @@ The expected output is shown below:
     month=9
     Time taken: 2.075 seconds, Fetched: 12 row(s)
 
-Similarly, we can ensure that the fare table is partitioned by issuing the command below:
+Similarly, we can ensure that the fare table is partitioned by running the following command:
 
     hive -e "show partitions nyctaxidb.fare;"
 
-The expected output is shown below:
+Here is the expected output:
 
     month=1
     month=10
@@ -276,49 +276,49 @@ The expected output is shown below:
 
 ## <a name="#explore-hive"></a>Data exploration and feature engineering in Hive
 > [!NOTE]
-> This is typically a **Data Scientist** task.
+> This is typically a Data Scientist task.
 > 
 > 
 
-The data exploration and feature engineering tasks for the data loaded into the Hive tables can be accomplished using Hive queries. Here are examples of such tasks that we walk you through in this section:
+You  can use Hive queries to accomplish data exploration and feature engineering tasks for the data loaded into the Hive tables. Here are examples of such tasks:
 
 * View the top 10 records in both tables.
 * Explore data distributions of a few fields in varying time windows.
 * Investigate data quality of the longitude and latitude fields.
-* Generate binary and multiclass classification labels based on the **tip\_amount**.
+* Generate binary and multiclass classification labels based on the tip amount.
 * Generate features by computing the direct trip distances.
 
 ### Exploration: View the top 10 records in table trip
 > [!NOTE]
-> This is typically a **Data Scientist** task.
+> This is typically a Data Scientist task.
 > 
 > 
 
-To see what the data looks like, we examine 10 records from each table. Run the following two queries separately from the Hive directory prompt in the Hadoop Command Line console to inspect the records.
+To see what the data looks like, examine 10 records from each table. To inspect the records, run the following two queries separately from the Hive directory prompt in the Hadoop command line console.
 
-To get the top 10 records in the table "trip" from the first month:
+To get the top 10 records in the trip table from the first month:
 
     hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
 
-To get the top 10 records in the table "fare" from the first month:
+To get the top 10 records in the fare table from the first month:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-It is often useful to save the records to a file for convenient viewing. A small change to the preceding query accomplishes this:
+You can save the records to a file for convenient viewing. A small change to the preceding query accomplishes this:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
 ### Exploration: View the number of records in each of the 12 partitions
 > [!NOTE]
-> This is typically a **Data Scientist** task.
+> This is typically a Data Scientist task.
 > 
 > 
 
-Of interest is how the number of trips varies during the calendar year. Grouping by month allows us to see what this distribution of trips looks like.
+Of interest is how the number of trips varies during the calendar year. Grouping by month shows the distribution of trips.
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
-This gives us the output:
+This gives us the following output:
 
     1       14776615
     2       13990176
@@ -334,9 +334,9 @@ This gives us the output:
     12      13971118
     Time taken: 283.406 seconds, Fetched: 12 row(s)
 
-Here, the first column is the month and the second is the number of trips for that month.
+Here, the first column is the month, and the second is the number of trips for that month.
 
-We can also count the total number of records in our trip data set by issuing the following command at the Hive directory prompt:
+We can also count the total number of records in our trip dataset by running the following command at the Hive directory prompt:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -345,11 +345,11 @@ This yields:
     173179759
     Time taken: 284.017 seconds, Fetched: 1 row(s)
 
-Using commands similar to those shown for the trip data set, we can issue Hive queries from the Hive directory prompt for the fare data set to validate the number of records.
+Using commands similar to those shown for the trip dataset, we can issue Hive queries from the Hive directory prompt for the fare dataset to validate the number of records.
 
     hive -e "select month, count(*) from nyctaxidb.fare group by month;"
 
-This gives us the output:
+This gives us the following output:
 
     1       14776615
     2       13990176
@@ -365,9 +365,9 @@ This gives us the output:
     12      13971118
     Time taken: 253.955 seconds, Fetched: 12 row(s)
 
-Note that the exact same number of trips per month is returned for both data sets. This provides the first validation that the data has been loaded correctly.
+Note that the exact same number of trips per month is returned for both datasets. This provides the first validation that the data has been loaded correctly.
 
-Counting the total number of records in the fare data set can be done using the following command from the Hive directory prompt:
+You can count the total number of records in the fare dataset by using the following command from the Hive directory prompt:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -380,15 +380,15 @@ The total number of records in both tables is also the same. This provides a sec
 
 ### Exploration: Trip distribution by medallion
 > [!NOTE]
-> This is typically a **Data Scientist** task.
+> This is typically a Data Scientist task.
 > 
 > 
 
-This example identifies the medallion (taxi numbers) with more than 100 trips within a given time period. The query benefits from the partitioned table access since it is conditioned by the partition variable **month**. The query results are written to a local file queryoutput.tsv in `C:\temp` on the head node.
+This example identifies the medallions (taxi numbers) with greater than 100 trips within a given time period. The query benefits from the partitioned table access, because it is conditioned by the partition variable **month**. The query results are written to a local file, **queryoutput.tsv**, in `C:\temp` on the head node.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for inspection.
+Here is the content of the **sample\_hive\_trip\_count\_by\_medallion.hql** file for inspection.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -397,9 +397,9 @@ Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for i
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-The medallion in the NYC taxi data set identifies a unique cab. We can identify which cabs are "busy" by asking which ones made more than a certain number of trips in a particular time period. The following example identifies cabs that made more than a hundred trips in the first three months, and saves the query results to a local file, C:\temp\queryoutput.tsv.
+The medallion in the NYC taxi dataset identifies a unique cab. We can identify which cabs are comparatively busy by asking which ones made more than a certain number of trips in a particular time period. The following example identifies cabs that made more than a hundred trips in the first three months, and saves the query results to a local file, **C:\temp\queryoutput.tsv**.
 
-Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for inspection.
+Here is the content of the **sample\_hive\_trip\_count\_by\_medallion.hql** file for inspection.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -408,13 +408,13 @@ Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for i
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-From the Hive directory prompt, issue the following command:
+From the Hive directory prompt, run the following command:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### Exploration: Trip distribution by medallion and hack_license
+### Exploration: Trip distribution by medallion and hack license
 > [!NOTE]
-> This is typically a **Data Scientist** task.
+> This is typically a Data Scientist task.
 > 
 > 
 
