@@ -165,7 +165,7 @@ In the tutorial, you work with Visual Studio solution that connects to the solut
     sudo grep STORAGEADAPTER_DOCUMENTDB /app/env-vars
     ```
 
-    Make a note of the connection string to use later.
+    Make a note of the connection string. You use this value later in the tutorial.
 
 1. To find the IoT Hub connection string, run the following command in the SSH session connected to the virtual machine:
 
@@ -173,7 +173,7 @@ In the tutorial, you work with Visual Studio solution that connects to the solut
     sudo grep IOTHUB_CONNSTRING /app/env-vars
     ```
 
-    Make a note of the connection string to use later.
+    Make a note of the connection string. You use this value later in the tutorial.
 
 > [!NOTE]
 > You can also find these connection strings in the Azure portal or by using the `az` command.
@@ -427,7 +427,7 @@ The `scripts/SwitchOn-method.js` file implements the **Switch On** method in a *
 
 ### Configure the device simulation service
 
-To limit the number of simulated devices connected to the solution during testing, configure the service to run a single chiller and a single lightbulb device. The configuration data is stored in the Cosmos DB instance in the solution's resource group. To edit the configuration data, use the **Cloud Explorer** view in Visual Studio:
+To limit the number of simulated devices that connect to the solution during testing, configure the service to run a single chiller and a single lightbulb device. The configuration data is stored in the Cosmos DB instance in the solution's resource group. To edit the configuration data, use the **Cloud Explorer** view in Visual Studio:
 
 1. To open the **Cloud Explorer** view in Visual Studio, choose **View** and then **Cloud Explorer**.
 
@@ -657,7 +657,7 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 ### Test the Chiller device type
 
-To test the updated **Chiller** device type, first test your device type behaves as expected by running a local copy of the **device-simulation** service. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
+To test the updated **Chiller** device type, first run a local copy of the **device-simulation** service to test your device type behaves as expected. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
 
 When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type.
 
