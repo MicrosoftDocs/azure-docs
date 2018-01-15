@@ -17,7 +17,8 @@
 
 4. Click **Create** to create a function app in Azure with these settings and deploy your function project code. 
 
-    >[!NOTE]An Azure storage account is required by the Functions runtime and by the portal. Because of this, a new Azure Storage account is created for you when you create a function app.
+    >[!NOTE]
+    >An Azure storage account is required by the Functions runtime and by the portal. Because of this, a new Azure Storage account is created for you when you create a function app.
 
 5. After the deployment is complete, make a note of the **Site URL** value, which is the address of your function app in Azure.
 
