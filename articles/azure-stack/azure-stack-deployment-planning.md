@@ -7,7 +7,7 @@ author: jeffgilb
 manager: femila
 editor: ''
 
-ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
+ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -81,7 +81,7 @@ For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates
 - You can use a single wildcard certificate or you can use a set of dedicated certificates, and use wildcards only for endpoints such as storage and Key Vault.
 - Certificates can be issued by a public trusted certificate authority (CA) or a customer-managed CA.
 
-For more information  about what PKI certificates are required to deploy Azure Stack, and how to obtain them, see, [Azure Stack Public Key Infrastructure certificate requirements](azure-stack-pki-certs).  
+For more information  about what PKI certificates are required to deploy Azure Stack, and how to obtain them, see, [Azure Stack Public Key Infrastructure certificate requirements](azure-stack-pki-certs.md).  
 
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ You must specify an IP for the time synchronization server, although most of the
 This section provides Azure Stack network infrastructure information that will help you make important decisions about how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
-> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns).
+> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ### Physical network design
 The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Below is a diagram of our recommended design:
