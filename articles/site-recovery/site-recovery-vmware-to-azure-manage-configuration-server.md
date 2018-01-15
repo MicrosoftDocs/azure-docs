@@ -5,11 +5,11 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/15/2017
 ms.author: anoopkv
 ---
 
-# Manage a configuration server
+# Manage the configuration server
 
 You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
@@ -42,6 +42,12 @@ Modify the proxy settings used by the configuration server machine for internet 
 1. Log onto the machine running the configuration server.
 2. Launch Azure Site Recovery Configuration Manager from the desktop shortcut. Or, open **https://configuration-server-name/IP:44315**.
 3. Click **Manage connectivity**, and update the proxy values. Then click **Save** to update the settings.
+
+## Add a network adapter
+
+The OVF template deploys the configuration server VM with a single network adapter. You can [add an additional adapter to the VM)](how-to-deploy-configuration-server.md#add-an-additional-adapter), but you need to do this before you register the configuration server in the vault.
+
+If you need to add an adapter after you've registered the configuration server in the vault, you need to add the adapter in the VM properties, and then reregister the server in the vault.
 
 
 ## Reregister a configuration server in the same vault
