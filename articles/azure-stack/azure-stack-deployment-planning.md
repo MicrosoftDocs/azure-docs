@@ -22,17 +22,12 @@ ms.reviewer: wfayed
 
 *Applies to: Azure Stack integrated systems*
 
-If you’re interested in an Azure Stack integrated system, you’ll want to understand some of the major planning considerations around deployment and how the system fits into your datacenter. This topic provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system so you’ll be prepared to work with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
+If you’re interested in an Azure Stack integrated system, you should understand some of the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
 
 > [!NOTE]
 > Azure Stack multi-node systems can only be purchased from authorized hardware vendors. 
 
-To deploy Azure Stack there are a set of decisions that you need to make to properly integrate Azure Stack within your environment. You will be asked to collect a set of information and you will have to make a set of decisions before you can proceed with deploying Azure Stack. You would be asked to provide this information to your solution provider during your planning process and have it ready for the hardware vendor before deployment starts to help the process go quickly and smoothly.
-
-The information you will be providing will be divided into two parts:
-
-- Customer and environment information
-- Network settings requirements
+To deploy Azure Stack there are a set of decisions that you need to make to properly integrate Azure Stack with your environment. You need to provide this information to your solution provider during the planning process and be ready for the hardware vendor before deployment starts to help the process go quickly and smoothly.
 
 The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
 
@@ -89,7 +84,7 @@ For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates
 - You can use a single wildcard certificate or you can use a set of dedicated certificates, and use wildcards only for endpoints such as storage and Key Vault.
 - Certificates can be issued by a public trusted certificate authority (CA) or a customer-managed CA.
 
-For more information  about what PKI certificates are required to deploy Azure Stack, and how to obtain them, see, [Azure Stack Public Key Infrastructure certificate requirements](.\azure-stack-pki-certs).  
+For more information  about what PKI certificates are required to deploy Azure Stack, and how to obtain them, see, [Azure Stack Public Key Infrastructure certificate requirements](azure-stack-pki-certs).  
 
 
 > [!IMPORTANT]
@@ -107,7 +102,7 @@ You must specify an IP for the time synchronization server, although most of the
 This section provides Azure Stack network infrastructure information that will help you make important decisions about how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
-> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](.\azure-stack-integrate-dns).
+> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns).
 
 ### Physical network design
 The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Below is a diagram of our recommended design:

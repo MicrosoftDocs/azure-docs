@@ -27,7 +27,7 @@ Azure Stack has a public infrastructure network using externally accessible publ
 
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
-- Certificates must be issued from either an internal Certificate Authority or a Public Certificate Authority who is included in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list here: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- Certificates must be issued from either an internal Certificate Authority or a Public Certificate Authority. If a public certificate authority is used, it must be included in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list here: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as storage and Key Vault where they are required. 
 - The certificate signature algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
