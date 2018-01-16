@@ -48,7 +48,6 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     <img src="http://azuredeploy.net/deploybutton.png"/>
     </a>
 
-    
     The Azure Resource Manager template is located in the GitHub repository for this project ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
     This template creates the following resources:
