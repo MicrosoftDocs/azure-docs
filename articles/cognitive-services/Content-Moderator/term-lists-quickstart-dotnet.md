@@ -47,7 +47,7 @@ In the Content Moderator Dashboard, you can find your subscription key in **Sett
 
 ### Install required packages
 
-Install the following NuGet packages for the TermLists project.
+Install the following NuGet packages for the TermLists project:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
@@ -207,8 +207,8 @@ You screen text using a term list with **ContentModeratorClient.TextModeration.S
 - The language of the terms in the term list.
 - A MIME type, which can be "text/html", "text/xml", "text/markdown", or "text/plain".
 - The text to screen.
-- A boolean value. Set this to **true** if you want Content Moderator to autocorrect the text before screening it.
-- A boolean value. Set this to **true** if you want Content Moderator to detect Personal Identifiable Information (PII) in the text.
+- A boolean value. Set this field to **true** to autocorrect the text before screening it.
+- A boolean value. Set this field to **true** to detect Personal Identifiable Information (PII) in the text.
 - The term list ID.
 
 For more information, see the [API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -243,7 +243,7 @@ Add the following method definition to namespace TermLists, class Program.
 
 ## Delete terms and lists
 
-Deleting a term or a list is straightforward. You can use the SDK to do the following tasks:
+Deleting a term or a list is straightforward. You use the SDK to do the following tasks:
 
 - Delete a term. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
 - Delete all the terms in a list without deleting the list. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
