@@ -34,7 +34,7 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
   * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) for more information about the request and response data that is written to the logs by Storage Analytics.
 
 > [!NOTE]
-> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) now support metrics and logging. ZRS Classic accounts do not support metrics or logging. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
+> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) support metrics and logging. ZRS Classic accounts do not support metrics or logging. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure portal**. You can configure metrics and logging for your storage account in the [Azure portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
   
