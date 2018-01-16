@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 
 ---
@@ -39,7 +39,7 @@ For more information, see [Use Data Lake Store with Azure Databricks](https://do
 
 Here are a few problems you might encounter with Databricks.
 
-### This subscription is not registered to use the namespace ‘Microsoft.Databricks’
+### Issue: This subscription is not registered to use the namespace ‘Microsoft.Databricks’
 
 #### Error message
 
@@ -52,7 +52,7 @@ Here are a few problems you might encounter with Databricks.
 3. In the list of resource providers, against **Microsoft.Databricks**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 
-### Your account {email} does not have the owner or contributor role on the Databricks workspace resource in the Azure portal
+### Issue: Your account {email} does not have the owner or contributor role on the Databricks workspace resource in the Azure portal
 
 #### Error message
 
@@ -77,13 +77,13 @@ The following are a couple of solutions to this issue:
     e. Launch the Databricks workspace as this user.
 
 
-### Your account {email} has not been registered in Databricks 
+### Issue: Your account {email} has not been registered in Databricks 
 
 #### Solution
 
 If you did not create the workspace, and you are added as a user, contact the person who created the workspace. Have that person add you by using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). If you created the workspace and still you get this error, try selecting **Initialize Workspace** again from the Azure portal.
 
-### Cloud provider launch failure while setting up the cluster
+### Issue: Cloud provider launch failure while setting up the cluster (PublicIPCountLimitReached)
 
 #### Error message
 
@@ -93,7 +93,7 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
 
-### A second type of cloud provider launch failure while setting up the cluster
+### Issue: A second type of cloud provider launch failure while setting up the cluster (MissingSubscriptionRegistration)
 
 #### Error message
 
@@ -108,6 +108,16 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 3. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 For more detailed instructions, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+
+### Issue: Azure Databricks need permissions to access resources in your organization that only an admin can grant.
+
+#### Background
+
+Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (e.g. on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
+
+#### Solution
+
+Log in as a global administrator to the Azure portal. For Azure Active Directory, go to the **User Settings** tab and make sure **Users can consent to apps accessing company data on their behalf** is set to **Yes**.
 
 ## Next steps
 
