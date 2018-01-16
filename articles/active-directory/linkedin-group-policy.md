@@ -4,13 +4,13 @@ description: Explains how to turn on LinkedIn integration for Microsoft apps in 
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 
+
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/16/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro

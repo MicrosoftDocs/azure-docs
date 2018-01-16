@@ -4,22 +4,22 @@ description: Explains how to enable or disable LinkedIn integration for Microsof
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 
+
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/16/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ---
 
 # Enabling LinkedIn integration in Azure Active Directory
-Enabling LinkedIn integration lets your users access both public LinkedIn data and, if they choose to, their personal LinkedIn network from within Microsoft apps. Each user can independently choose to connect their work account to their LinkedIn account.
+This article tells you how to enable LinkedIn integration for your users. Enable LinkedIn integration to provide users with access public LinkedIn data within Microsoft apps. They can also choose to share their personal LinkedIn network information. Each user can independently choose to connect their work account to their LinkedIn account.
 
-### LinkedIn integration from your end users’ perspective
+### LinkedIn integration from the end users perspective
 When end users in your organization connect their LinkedIn accounts to their work accounts, their LinkedIn connections and profile data can be used in your organization's Microsoft apps. They can opt out by removing permission for LinkedIn to share that data. The integration also uses publicly available profile information, and users can choose whether to share their public profile and network information with Microsoft applications through LinkedIn privacy settings.
 
 >[!NOTE]
@@ -31,11 +31,23 @@ LinkedIn integration for enterprises is enabled by default in Azure AD. So, when
 > [!IMPORTANT]
 > This feature is not available for go-local, sovereign, and government tenants. In addition, Azure AD service updates, such as LinkedIn integration capabilities, are not deployed to all Azure tenants at the same time. You cannot enable LinkedIn integration with Azure AD until this capability has been rolled out to your Azure tenant.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the directory.
+### Enable LinkedIn integration in the Azure portal
+
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
 2. Select **Users and groups**.
 3. On the **Users and groups** blade, select **User settings**.
 4. Under **LinkedIn Integration**, select Yes or No to enable or disable LinkedIn integration.
    ![Enabling LinkedIn integration](./media/linkedin-integration/LinkedIn-integration.PNG)
+
+### Disable LinkedIn integration using Group Policy
+
+1. Download the [Office 2016 Administrative Template files (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
+2. Extract the **ADMX** files and copy them to your **central repository**.
+3. Open Group Policy Management.
+4. Create a GPO with the following setting: User Configuration > Administrative Templates > Microsoft Office 2016 > Miscellaneous > Allow LinkedIn Integration
+5. Select **Enabled** or **Disabled**.
+  * **Enabled**: The **Show LinkedIn features in Office applications** setting found in Office Options is set to the enabled state.   
+  * **Disabled**: The **Show LinkedIn features in Office applications** setting found in Office Options is defaulted to the disabled state. End users cannot change this setting. All LinkedIn Features related to profiles and activity data are disabled in the product. 
 
 ### Learn more 
 * [LinkedIn information and features in your Microsoft apps](https://go.microsoft.com/fwlink/?linkid=850740)
