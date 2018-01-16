@@ -148,17 +148,17 @@ For more information about securing your storage account and encryption, see the
 
 ## Replication
 
-In order to ensure that your data is durable, Azure Storage has the ability to keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account is set up.
-
-All storage accounts have **locally-redundant storage (LRS)** which is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+In order to ensure that your data is durable, Azure Storage will keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account is set up.
 
 **Locally-redundant storage (LRS)**
 
-As explained above, with LRS you have multiple copies of your data in a single datacenter. This handles the problem of data becoming unavailable if a storage node fails or is taken offline to be updated, but not the case of an entire datacenter becoming unavailable.
+Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
 **Zone redundant storage (ZRS) (Preview)**
 
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
+Zone-redundant storage (ZRS) is designed to simplify the development of highly available applications. ZRS provides durability for storage objects of at least 99.9999999999% (twelve 9's) over a given year. ZRS replicates your data synchronously across multiple availability zones. Consider ZRS for scenarios like transactional applications where downtime is not acceptable. ZRS enables customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously and are strongly consistent.    
+
+The previous ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
 
 **Geo-redundant storage (GRS)**
 
