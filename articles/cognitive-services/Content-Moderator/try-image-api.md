@@ -97,4 +97,4 @@ You can use the Content Moderator OCR capability to detect text in images.
 
 ## Next steps
 
-* Learn how to use the [Text Moderation AP](try-text-api.md).
+Refer to the [image moderation .NET quickstart](image-moderation-quickstart-dotnet.md) to get started using .NET.
