@@ -17,7 +17,7 @@ ms.author: curtand
 ms.reviewer: rqureshi
 ms.custom: seohack1
 ---
-# Troubleshooting Aure role-based access control 
+# Troubleshooting Azure role-based access control 
 
 This document article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 
