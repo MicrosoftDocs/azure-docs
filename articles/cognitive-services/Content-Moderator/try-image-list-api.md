@@ -154,4 +154,4 @@ After you make changes to an image list, you must refresh its index for changes 
 
 ## Next steps
 
-* Learn how to use the [List Management API for term lists](try-terms-list-api.md).
+Use the REST API in your code or start with the [Image Lists .NET quickstart](image-lists-quickstart-dotnet.md) to integrate with your application.
