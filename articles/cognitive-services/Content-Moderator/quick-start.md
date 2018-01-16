@@ -52,7 +52,7 @@ Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-i
 
 ## Start with the APIs
 
-[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already. Browse all the [Content Moderator APIs](api-reference.md) and start with the one that you are interested in.
+[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already. Start with one of the following APIs:
 
 ### Image moderation
 
@@ -72,6 +72,6 @@ Scan videos and detect potential adult and racy content. Start with the [.NET qu
 
 Choose from the Job, Review, and the Workflow APIs.
 
-- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and uses default workflows to generate reviews in the review tool. 
-- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without scanning the content. 
+- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
+- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
 - The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
