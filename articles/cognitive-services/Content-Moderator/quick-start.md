@@ -17,7 +17,7 @@ ms.author: sajagtap
 You get started with Content Moderator APIs and review tool in the following ways:
 
 - [Start with the review tool](#start-with-the-review-tool) to create both, the API keys and a review team.
-- [Start with the Azure portal](#start-with-the-azure-portal) to subscribe to the APIs. You still need to sign up online to create a review team.
+- [Start with the APIs](#start-with-the-apis) by subscribing in the Azure portal. You still need to sign up online to create a review team.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
@@ -48,27 +48,30 @@ Review the auto-moderated tags, change if needed, and submit by using the **Next
 
 ### Next steps
 
-Learn how to use all the review tool's features or continue with the next section to learn about the APIs. Skip the sign up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
+Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
 
-## Start with the Azure portal
+## Start with the APIs
 
 [Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already. Browse all the [Content Moderator APIs](api-reference.md) and start with the one that you are interested in.
 
-### Use the image moderation APIs
+### Image moderation
 
-Scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information. 
+Scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information. Start with the [API console](try-image-api.md) or use the [.NET quickstart](image-moderation-quickstart-dotnet.md).
 
-### Use the text moderation APIs
+### Text moderation
 
-Scan text content. Profanity terms and personally identifiable information (PII) are returned. 
+Scan text content. Profanity terms and personally identifiable information (PII) are returned. Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md).
 
-### Use the video moderation API
 
-Scan videos and detect potential adult and racy content. 
+### Video moderation
 
-### Use the review APIs
+Scan videos and detect potential adult and racy content. Start with the [.NET quickstart](video-moderation-api.md).
+
+
+### Review APIs
 
 Choose from the Job, Review, and the Workflow APIs.
-- The Job API scans your content by using the moderation APIs and uses default workflows to generate reviews in the review tool. 
-- The Review API directly creates image, text, or video reviews for human moderators without scanning the content. 
-- The Workflow API creates, updates, and get details about the custom workflows that your team creates.
+
+- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and uses default workflows to generate reviews in the review tool. 
+- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without scanning the content. 
+- The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
