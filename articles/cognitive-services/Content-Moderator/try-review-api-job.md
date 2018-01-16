@@ -62,4 +62,4 @@ The simplest way to access a testing console is from the **Credentials** window.
 
 ## Next steps
 
-Use the REST API in your code or start with the [review API .NET quickstart](moderation-jobs-quickstart-dotnet.md) to integrate with your application.
+Use the REST API in your code or start with the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) to integrate with your application.
