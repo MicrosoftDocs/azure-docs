@@ -37,7 +37,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ## Open the Log Search portal 
 Start by opening the Log Search portal.   
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In the Log Analytics subscriptions pane, select a workspace and then select the **Log Search** tile.<br> ![Log Search button](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 You may have noticed the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -46,7 +46,7 @@ Log Analytics recently introduced a new query language to makes it easier to con
 
 Upgrading is simple.  Start the process by clicking on the banner that says **Learn more and upgrade**.  Read through the additional information about the upgrade on the upgrade information page and then click **Upgrade Now**.
 
-The process will take a few minutes to complete and during this time, you can track its progress under **Notifications** from the menu. You can learn more about the [Benefits of the new query language](log-analytics-log-search-upgrade.md#why-the-new-language).
+The process takes a few minutes to complete and during this time, you can track its progress under **Notifications** from the menu. You can learn more about the [Benefits of the new query language](log-analytics-log-search-upgrade.md#why-the-new-language).
 
 ## Create a simple search
 The quickest way to retrieve some data to work with is a simple query that returns all records in table.  If you have any Windows or Linux clients connected to your workspace, then you'll have data in either the Event (Windows) or Syslog (Linux) table.
