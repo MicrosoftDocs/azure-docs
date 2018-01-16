@@ -70,7 +70,7 @@ output "vm_public_name" {
     value = "${module.mycompute.public_ip_dns_name}"
 }
 
-output = "vm_public_ip" {
+output "vm_public_ip" {
     value = "${module.mycompute.public_ip_address}"
 }
 
