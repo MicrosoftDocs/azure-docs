@@ -3,7 +3,7 @@ title: Planning considerations for Azure Stack integrated systems | Microsoft Do
 description: Learn what you can do to plan now and prepare for multi-node Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: mabrigg
+ms.author: jeffgilb
 
 ---
 # Planning considerations for Azure Stack integrated systems
