@@ -19,7 +19,7 @@ ms.date: 05/30/2017
 ms.author: cynthn
 
 ---
-# Capture an image of an Azure Windows virtual machine created with the classic deployment model.
+# Capture an image of an Azure Windows virtual machine created with the classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For Resource Manager model information, see [Capture a managed image of a generalized VM in Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
