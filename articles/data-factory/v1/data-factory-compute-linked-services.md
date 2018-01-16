@@ -31,10 +31,12 @@ The following table provides a list of compute environments that are supported b
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
 ## HDInsight versions supported in Data Factory
-Azure HDInsight supports multiple Hadoop cluster versions that you can deploy at any time. Each supported version creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components in the distribution. Microsoft updates the list of supported HDInsight versions  with the latest Hadoop ecosystem components and fixes. For detailed information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+Azure HDInsight supports multiple Hadoop cluster versions that you can deploy at any time. Each supported version creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components in the distribution. 
+
+Microsoft updates the list of supported HDInsight versions  with the latest Hadoop ecosystem components and fixes. For detailed information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
 > Linux-based HDInsight version 3.3 was retired July 31, 2017. Data Factory version 1 on-demand HDInsight linked services customers were given until December 15, 2017, to test and upgrade to a later version of HDInsight. Windows-based HDInsight will be retired July 31, 2018.
@@ -46,7 +48,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that you can deploy at
 After December 15, 2017:
 
 - You can no longer create Linux-based HDInsight version 3.3 (or earlier versions) clusters by using an on-demand HDInsight linked service in Data Factory version 1. 
-- If the  [**osType** and **Version** property](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
+- If the  [**osType** and **Version** properties](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) are not explicitly specified in the JSON definition for an existing Data Factory version 1 on-demand HDInsight linked service, the default value is changed from **Version=3.1, osType=Windows** to **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
 
 After July 31, 2018:
 
@@ -57,17 +59,17 @@ After July 31, 2018:
 - To ensure that you can use the latest Hadoop ecosystem components and fixes, update the [**osType** and **Version** properties](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) of affected Data Factory version 1 on-demand HDInsight linked service definitions to newer Linux-based HDInsight versions (HDInsight 3.6). 
 - Before December 15, 2017, test Data Factory version 1 Hive, Pig, MapReduce, and Hadoop streaming activities that reference the affected linked service. Ensure that they are compatible with the new **osType** and **Version** default values (**Version=3.6**, **osType=Linux**) or the explicit HDInsight version and OS type that you are upgrading to. 
   To learn more about compatibility, see [Migrate from a Windows-based HDInsight cluster to a Linux-based cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) and [What are the Hadoop components and versions available with HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
-- To continue using a Data Factory version 1 on-demand HDInsight linked service to create Windows-based HDInsight clusters, explicitly set **osType** to **Windows** before December 15, 2017. We still recommend that you migrate to Linux-based HDInsight clusters before July 31, 2018. 
+- To continue using a Data Factory version 1 on-demand HDInsight linked service to create Windows-based HDInsight clusters, explicitly set **osType** to **Windows** before December 15, 2017. We recommend that you migrate to Linux-based HDInsight clusters before July 31, 2018. 
 - If you are using an on-demand HDInsight linked service to execute Data Factory version 1 DotNet Custom Activity, update the DotNet Custom Activity JSON definition to instead use an Azure Batch linked service. For more information, see [Use custom activities in a Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> If you use your existing, bring-your-own cluster HDInsight linked device in Data Factory version 1 or bring-your-own and on-demand HDInsight linked service in Azure Data Factory version 2, no action is required. In those scenarios, the latest version support policy of HDInsight clusters is already enforced. 
+> If you use your existing, bring-your-own cluster HDInsight linked device in Data Factory version 1 or a bring-your-own and on-demand HDInsight linked service in Azure Data Factory version 2, no action is required. In those scenarios, the latest version support policy of HDInsight clusters is already enforced. 
 >
 > 
 
 
 ## On-demand compute environment
-In an on-demand configuration, Data Factory fully manages the compute environment. Data Factory automatically creates the compute environment before a job is submitted. When the job is finished, Data Factory removes the compute environment. 
+In an on-demand configuration, Data Factory fully manages the compute environment. Data Factory automatically creates the compute environment before a job is submitted for processing data. When the job is finished, Data Factory removes the compute environment. 
 
 You can create a linked service for an on-demand compute environment. Use the linked service to configure the compute environment, and to control granular settings for job execution, cluster management, and bootstrapping actions.
 
@@ -76,7 +78,7 @@ You can create a linked service for an on-demand compute environment. Use the li
 > 
 
 ## Azure HDInsight on-demand linked service
-Data Factory can automatically create a Windows-based or Linux-based on-demand HDInsight cluster for processing data. The cluster is created in the same region as the storage account that's associated with the cluster. Use the **linkedServiceName** property in the JSON to create the cluster.
+Data Factory can automatically create a Windows-based or Linux-based on-demand HDInsight cluster for processing data. The cluster is created in the same region as the storage account that's associated with the cluster. Use the JSON **linkedServiceName** property to create the cluster.
 
 Note the following *key* points about on-demand HDInsight linked service:
 
@@ -109,9 +111,9 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. Dat
 ```
 
 > [!IMPORTANT]
-> The HDInsight cluster creates a *default container* in the Azure Blob storage that you specify in the JSON **linkedServiceName** property. By design, HDInsight doesn't delete this container when the cluster is deleted. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed, unless there's an existing live cluster (**TimeToLive**). The cluster is deleted when processing is finished. 
+> The HDInsight cluster creates a *default container* in the Azure Blob storage that you specify in the JSON **linkedServiceName** property. By design, HDInsight doesn't delete this container when the cluster is deleted. In an on-demand HDInsight linked service, an HDInsight cluster is created every time a slice needs to be processed, unless there's an existing live cluster (**timeToLive**). The cluster is deleted when processing is finished. 
 >
-> As more slices are processed, you see many containers in your Azure Blob storage. If you don't need the containers for troubleshooting jobs, you might want to delete the containers to reduce the storage cost. The names of these containers follow a pattern: `adf<your Data Factory name>-<linked service name>-<date and time stamp>`. You can use a tool like [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in Blob storage.
+> As more slices are processed, you see many containers in your Blob storage. If you don't need the containers for troubleshooting jobs, you might want to delete the containers to reduce the storage cost. The names of these containers follow a pattern: `adf<your Data Factory name>-<linked service name>-<date and time>`. You can use a tool like [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in Blob storage.
 >
 > 
 
@@ -120,11 +122,11 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. Dat
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Set the type property to **HDInsightOnDemand**. | Yes      |
 | clusterSize                  | The number of worker and data nodes in the cluster. The HDInsight cluster is created with 2 head nodes, in addition to the number of worker nodes that you specify for this property. The nodes are of size Standard_D3, which has 4 cores. A 4-worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). For details about the Standard_D3 tier, see [Create Linux-based Hadoop clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Yes      |
-| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive when an activity run is finished, if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and **TimeToLive** is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed in the 6-minute window, it's processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (it might take a while). Use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set the **TimeToLive** value to **0**, the cluster is deleted as soon as the activity run finishes. However, if you set a high value, the cluster might stay idle, unnecessarily resulting in high costs. It's important to set the appropriate value based on your needs.<br/><br/>If the **TimeToLive** value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
+| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive when an activity run is finished, if there are no other active jobs in the cluster.<br /><br />For example, if an activity run takes 6 minutes and **timeToLive** is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed in the 6-minute window, it's processed by the same cluster.<br /><br />Creating an on-demand HDInsight cluster is an expensive operation (it might take a while). Use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br /><br />If you set the **timeToLive** value to **0**, the cluster is deleted as soon as the activity run finishes. However, if you set a high value, the cluster might stay idle, unnecessarily resulting in high costs. It's important to set the appropriate value based on your needs.<br /><br />If the **timeToLive** value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
 | version                      | The version of the HDInsight cluster. For allowed HDInsight versions, see [Supported HDInsight versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). If this value isn't specified,  the [latest HDI default version](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions) is used. | No       |
 | linkedServiceName            | The Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this storage account.<p>Currently, you can't create an on-demand HDInsight cluster that uses Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in Data Lake Store, use Copy Activity to copy the data from Blob storage to Data Lake Store. </p> | Yes      |
-| additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service. Data Factory registers them on your behalf. These storage accounts must be in the same region as the HDInsight cluster. The HDInsight cluster is created in the same region as the storage account that's specified by the **linkedServiceName** property. | No       |
-| osType                       | The type of operating system. Allowed values are **Linux** and **Windows**. If this value isn't specified, **Linux** is used.  <br/><br/>We strongly recommend using Linux-based HDInsight clusters, because the retirement date for HDInsight on Windows is July 31, 2018. | No       |
+| additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service. Data Factory registers the storage accounts on your behalf. These storage accounts must be in the same region as the HDInsight cluster. The HDInsight cluster is created in the same region as the storage account that's specified by the **linkedServiceName** property. | No       |
+| osType                       | The type of operating system. Allowed values are **Linux** and **Windows**. If this value isn't specified, **Linux** is used.  <br /><br />We strongly recommend using Linux-based HDInsight clusters. The retirement date for HDInsight on Windows is July 31, 2018. | No       |
 | hcatalogLinkedServiceName    | The name of the Azure SQL linked service that points to the HCatalog database. The on-demand HDInsight cluster is created by using the SQL database as the metastore. | No       |
 
 #### Example: LinkedServiceNames JSON
@@ -209,19 +211,18 @@ If you want to create D4-size head nodes and worker nodes, specify **Standard_D4
 ```
 
 If you set an incorrect value for these properties, you might see the following message:
-
   Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. 
   
 If you see this message, ensure that you are using the cmdlet and API names from the table in [Virtual machine sizes](../../virtual-machines/linux/sizes.md).  
 
 > [!NOTE]
-> Currently, Data Factory doesn't support HDInsight clusters that use Data Lake Store as the primary store. Use Azure Storage as the primary store for HDInsight clusters. 
+> Currently, Data Factory doesn't support HDInsight clusters that use Data Lake Store as the primary store. Use Azure storage as the primary store for HDInsight clusters. 
 >
 > 
 
 
 ## Bring-your-own compute environment
-Users can register an existing compute environment as a linked service in Data Factory. The compute environment is managed by the user. The Data Factory service uses the compute environment to execute activities.
+You can register an existing compute environment as a linked service in Data Factory. You manage the compute environment. The Data Factory service uses the compute environment to execute activities.
 
 This type of configuration is supported for the following compute environments:
 
@@ -229,7 +230,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure SQL Database Warehouse, SQL Server
+* Azure SQL Database, Azure SQL Data Warehouse, SQL Server
 
 ## Azure HDInsight linked service
 You can create an HDInsight linked service to register your own HDInsight cluster with Data Factory.
@@ -263,11 +264,11 @@ You can create an HDInsight linked service to register your own HDInsight cluste
 ## Azure Batch linked service
 You can create a Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run Microsoft .NET custom activities by using either Batch or HDInsight.
 
-If you are new to using the Batch service, see the following articles:
+If you are new to using the Batch service:
 
-* [Azure Batch basics](../../batch/batch-technical-overview.md), for an overview of the Batch service.
-* The [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet, to create a Batch account, or the [Azure portal](../../batch/batch-account-create-portal.md), to create the Batch account by using the Azure portal. For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* The [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet, to create a Batch pool.
+* Learn about [Azure Batch basics](../../batch/batch-technical-overview.md).
+* Learn about the [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Learn about the [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet. Use this cmdlet to create a Batch pool.
 
 ### Example
 
@@ -336,15 +337,15 @@ You can create a Machine Learning linked service to register a Machine Learning 
 ## Azure Data Lake Analytics linked service
 You can create a Data Lake Analytics linked service to link a Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
-The following table describes the generic properties used in the JSON definition:
+The following table describes the generic properties that are used in the JSON definition:
 
 | Property                 | Description                              | Required                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | Set the type property to **AzureDataLakeAnalytics**. | Yes                                      |
-| **accountName**          | The Data Lake Analytics account name.  | Yes                                      |
-| **dataLakeAnalyticsUri** | The Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | The Azure subscription ID.                    | No (If not specified, the data factory subscription is used.) |
-| **resourceGroupName**    | The Azure resource group name.                | No (If not specified, the data factory resource group is used.) |
+| type                 | Set the type property to **AzureDataLakeAnalytics**. | Yes                                      |
+| accountName          | The Data Lake Analytics account name.  | Yes                                      |
+| dataLakeAnalyticsUri | The Data Lake Analytics URI.           | No                                       |
+| subscriptionId       | The Azure subscription ID.                    | No<br /><br />(If not specified, the data factory subscription is used.) |
+| resourceGroupName    | The Azure resource group name.                | No<br /><br /> (If not specified, the data factory resource group is used.) |
 
 ### Authentication options
 For your Data Lake Analytics linked service, you can choose between authentication by using a service principal or a user credential.
@@ -359,9 +360,9 @@ Use service principal authentication by specifying the following properties:
 
 | Property                | Description                              | Required |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | The application's client ID.     | Yes      |
-| **servicePrincipalKey** | The application's key.           | Yes      |
-| **tenant**              | The tenant information (domain name or tenant ID) where your application is located. You can get this information by hovering your mouse in the upper-right corner of the Azure portal. | Yes      |
+| servicePrincipalId  | The application's client ID.     | Yes      |
+| servicePrincipalKey | The application's key.           | Yes      |
+| tenant              | The tenant information (domain name or tenant ID) where your application is located. To get this information, hover your mouse in the upper-right corner of the Azure portal. | Yes      |
 
 **Example: Service principal authentication**
 ```json
@@ -383,12 +384,12 @@ Use service principal authentication by specifying the following properties:
 ```
 
 #### User credential authentication
-Alternatively, you can use user credential authentication for Data Lake Analytics by specifying the following properties:
+For user credential authentication for Data Lake Analytics, specify the following properties:
 
 | Property          | Description                              | Required |
 | :---------------- | :--------------------------------------- | :------- |
-| **authorization** | In Data Factory Editor, select the **Authorize** button. Enter your credential that assigns the autogenerated authorization URL to this property. | Yes      |
-| **sessionId**     | The OAuth session ID from the OAuth authorization session. Each session ID is unique and can be used only once. This setting is automatically generated when you use Data Factory Editor. | Yes      |
+| authorization | In Data Factory Editor, select the **Authorize** button. Enter the credential that assigns the autogenerated authorization URL to this property. | Yes      |
+| sessionId     | The OAuth session ID from the OAuth authorization session. Each session ID is unique and can be used only once. This setting is automatically generated when you use Data Factory Editor. | Yes      |
 
 **Example: User credential authentication**
 ```json
@@ -412,7 +413,6 @@ Alternatively, you can use user credential authentication for Data Lake Analytic
 The authorization code that you generated by selecting the **Authorize** button expires after a set interval. 
 
 You might see the following error message when the authentication token expires: 
-
   Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 The following table shows expirations by user account type: 
@@ -420,9 +420,9 @@ The following table shows expirations by user account type:
 | User type                                | Expires after                            |
 | :--------------------------------------- | :--------------------------------------- |
 | User accounts that are *not* managed by Azure AD (Hotmail, Live, and so on) | 12 hours.                                 |
-| User accounts that are managed by Azure AD | 14 days after the last slice run. <br/><br/>90 days, if a slice that's based on an OAuth-based linked service runs at least once every 14 days. |
+| User accounts that *are* managed by Azure AD | 14 days after the last slice run. <br /><br />90 days, if a slice that's based on an OAuth-based linked service runs at least once every 14 days. |
 
-To avoid or resolve this error, reauthorize by selecting the **Authorize** button when the *token expires*. Then, redeploy the linked service. You can also generate values for the **sessionId** and **authorization** properties programmatically:
+To avoid or resolve this error, reauthorize by selecting the **Authorize** button when the token expires. Then, redeploy the linked service. You can also generate values for the **sessionId** and **authorization** properties programmatically by using the following code:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -449,7 +449,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-For details about the Data Factory classes that are used in the code, see:
+For details about the Data Factory classes that are used in this code example, see:
 * [AzureDataLakeStoreLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
 * [AzureDataLakeAnalyticsLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
 * [AuthorizationSessionGetResponse class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)
