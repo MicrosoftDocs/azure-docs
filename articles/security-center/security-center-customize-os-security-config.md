@@ -119,7 +119,7 @@ These are the only fields that can be configured. If you violate the file format
 
 See [Error codes](#error-codes) for list of potential errors.
 
-Below you have examples of these rules and the attributes (in bold) that can be changed:
+Below you have some examples of these rules. Attributes ‘expectedValue’ and ‘state’ can be changed:
 
 **Rules Section:** baselineRegistryRules
 ```
@@ -136,11 +136,11 @@ Below you have examples of these rules and the attributes (in bold) that can be 
     "ruleName": "Network access: Restrict anonymous access to Named Pipes and
     Shares",
     "ruleType": "Registry",
-    **"expectedValue"**: "1",
+    "expectedValue": "1",
     "severity": "Warning",
     "analyzeOperation": "Equals",
     "source": "Microsoft",
-    **"state"**: "Disabled"
+    "state": "Disabled"
 
 }
 ```
@@ -154,11 +154,11 @@ Below you have examples of these rules and the attributes (in bold) that can be 
 "cceId": "CCE-11001-5",
 "ruleName": "Audit Policy: Account Management: Other Account Management Events",
 "ruleType": "AuditPolicy",
-"**expectedValue**": "Success and Failure",
+"expectedValue": "Success and Failure",
 "severity": "Critical",
 "analyzeOperation": "Equals",
 "source": "Microsoft",
-"**state**": "Enabled"
+"state": "Enabled"
 },
 ```
 
@@ -172,10 +172,11 @@ Below you have examples of these rules and the attributes (in bold) that can be 
 "cceId": "CCE-10548-6",
 "ruleName": "Increase a process working set",
 "ruleType": "SecurityPolicy",
-"**expectedValue**": "Administrators, Local Service",
+"expectedValue": "Administrators, Local Service",
 "severity": "Warning",
 "analyzeOperation": "Equals",
-"source": "Microsoft", "**state**": "Enabled"
+"source": "Microsoft",
+"state": "Enabled"
 },
 ```
 
