@@ -88,7 +88,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
 | Gallery Url | https://gallery.usgovcloudapi.net/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
-| Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index | https://manage.windowsazure.com/publishsettings/index |
+| Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
 
 ## Next steps
 For more information about Azure Government, see the following resources:
