@@ -56,8 +56,19 @@ Learn how to use all the review tool's features or continue with the next sectio
 
 ### Use the image moderation APIs
 
+Scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information. 
+
 ### Use the text moderation APIs
+
+Scan text content. Profanity terms and personally identifiable information (PII) are returned. 
 
 ### Use the video moderation API
 
+Scan videos and detect potential adult and racy content. 
+
 ### Use the review APIs
+
+Choose from the Job, Review, and the Workflow APIs.
+- The Job API scans your content by using the moderation APIs and uses default workflows to generate reviews in the review tool. 
+- The Review API directly creates image, text, or video reviews for human moderators without scanning the content. 
+- The Workflow API creates, updates, and get details about the custom workflows that your team creates.
