@@ -120,7 +120,7 @@ Now you have a new storage account and a reference to it.
 
 ## Manage the storage account
 
-Now that you have a reference to a new storage account or an existing storage account, the following section shows some of the commands you can use to manage your storage account.
+Now that you have a reference to a new storage account or an existing storage account, the following section shows some of the commands you can use to manage your storage account. Note that you can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these.
 
 ### Storage account properties
 
