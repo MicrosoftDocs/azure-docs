@@ -216,8 +216,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Since all Trial options are deployed to the publisher’s Microsoft product subscription, Trial cost optimization and management is controlled solely by the publisher.
 You can choose a free trial, interactive demo, or Test Drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost. 
 Reach out to cloudmarketplace@microsoft.com to begin the process of creating a Test Drive. 
-*(Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences))*  |   Trial      |
-|**Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
+*(Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences))*  |   Trial      | **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
 |**Availability/Uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled.      |  Trial|
 
@@ -500,8 +499,7 @@ The activities we provide differ depending on your solution status in our market
 
 To maximize the impact of these activities, we’d encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
 
-![alt text][logo]
-[logo] https://github.com/ellacroi/media/marketplace_publishing_seller_guide_publishing_and_growing/Marketplace GTM Promotions.png "Marketplace GTM Benefits"
+![Marketplace GTM Benefits](C:\users\ellacroi\azure-docs-pr\articles\marketplace-publishing-seller-guide-publishing-and-growing\Marketplace GTM Promotions.png)
 
 For support including templates, web content, training, and tools to promote your business, visit [www.MicrosoftGoToMarket.com](www.MicrosoftGoToMarket.com).
 
