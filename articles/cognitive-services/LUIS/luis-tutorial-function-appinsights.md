@@ -1,5 +1,5 @@
 ---
-title: Add LUIS endpoint information to Application Insights  | Microsoft Docs 
+title: Add LUIS endpoint information to Application Insights for C# | Microsoft Docs 
 description: Build an Azure Function to add LUIS query information to Application Insights.
 services: cognitive-services
 author: v-geberr
@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 
-# Use an Azure Function app to add LUIS information to Application Insights
+# Use an Azure Function app to add LUIS information to Application Insights for C#
 
 ## Prerequisites
 
