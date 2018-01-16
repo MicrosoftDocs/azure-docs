@@ -44,6 +44,7 @@ LinkedIn integration for enterprises is enabled by default in Azure AD. So, when
 The Group Policy Object created by the instructions in this section affects: 
 * only Office 2016 apps
 * only local computers
+
 Users can see LinkedIn features in profile cards throughout Office 365 even if they disabled LinkedIn in an Office 2016 app. 
 
 1. Download the [Office 2016 Administrative Template files (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
