@@ -28,11 +28,11 @@ One integrated system deployment (referred to as an *Azure Stack cloud*) makes u
 ## Information available through the Region management tile
 Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
- ![The region management tile](media/azure-stack-manage-region/image1.png)
+ ![The region management tile](media/azure-stack-manage-region/Image1.png)
 
  If you click a region in the Region management tile, you can access the following information:
 
-  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.PNG)
 
 1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
 

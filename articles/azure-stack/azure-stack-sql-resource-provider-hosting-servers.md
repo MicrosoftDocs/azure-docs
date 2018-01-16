@@ -66,7 +66,7 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
 3. Fill the form with the connection details of your SQL Server instance.
 
-  ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+  ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
     You can optionally include an instance name, and a port number can be provided if the instance is not assigned to the default port of 1433.
 
@@ -83,7 +83,7 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
 	An example:
 
-![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.PNG)
 
 >[!NOTE]
 > SKUs can take up to an hour to be visible in the portal. Users cannot create a database until the SKU is fully created.
@@ -127,7 +127,7 @@ To add SQL Always On hosting servers, follow these steps:
 
 4. Check this box to enable support for SQL Always On Availability Group instances.
 
-	![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+	![Hosting Servers](./media/azure-stack-sql-rp-deploy/alwayson.png)
 
 5. Add the SQL Always On instance to a SKU. You cannot mix standalone servers with Always On instances in the same SKU. That will be determined when adding the first hosting server. Attempting to mix types afterwards will result in an error.
 
@@ -136,7 +136,7 @@ To add SQL Always On hosting servers, follow these steps:
 
 Create plans and offers to make SQL databases available for users. Add the Microsoft.SqlAdapter service to the plan, and add either an existing Quota, or create a new one. If you create a quota, you specify the capacity to allow the user.
 
-![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.PNG)
 
 ## Maintenance of the SQL Adapter RP
 
