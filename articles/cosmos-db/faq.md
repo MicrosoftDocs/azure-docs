@@ -74,7 +74,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 
 To ask a technical question, you can post to one of these two question and answer forums:
 * [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackoverflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask). 
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask). 
 
 To request new features, create a new request on [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -241,7 +241,7 @@ You can share your feedback in any of the following ways:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackoverflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### What is the connection string that I need to use to connect to the Table API?
 The connection string is:
