@@ -46,8 +46,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 After December 15, 2017:
 
 - You will no longer be able to create Linux-based HDInsight version 3.3 (or earlier versions) clusters using On-Demand HDInsight Linked Service in Azure Data Factory v1. 
-
-- If the  [osType and/or Version property](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) are not explicitly specified in existing Azure Data Factory v1 On-Demand HDInsight Linked Service JSON definitions, the default value will be changed from **Version=3.1, osType=Windows** to **Version=3.6, osType=Linux**.
+- If the  [osType and/or Version property](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) are not explicitly specified in existing Azure Data Factory v1 On-Demand HDInsight Linked Service JSON definitions, the default value will be changed from **Version=3.1, osType=Windows** to **Version=[latest HDI default version](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
 
 After July 31, 2018:
 
@@ -55,10 +54,10 @@ After July 31, 2018:
 
  **Recommended actions** 
 
-- Update the [osType and/or Version property](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) of the impacted Azure Data Factory v1 On-Demand HDInsight Linked Service definitions to newer Linux-based HDInsight versions (HDInsight 3.6) to make sure you can use the latest Hadoop ecosystem components and fixes. 
-- Before December 15, 2017, test Azure Data Factory V1 Hive, Pig, MapReduce, and Hadoop streaming activities that reference the impacted Linked Service to make sure they are compatible with the new *osType* and/or *Version* default value (Version=3.6, osType=Linux) or the explicit HDInsight version and osType you are upgrading to. To learn more about compatibility, please review the [Migrate     from a Windows-based HDInsight cluster to a Linux-based cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) and [What are the Hadoop components and versions available with     HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) documentation webpages. 
+- Update the [osType and/or Version property](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) of the impacted Azure Data Factory v1 On-Demand HDInsight Linked Service definitions to newer Linux-based HDInsight versions (HDInsight 3.6) to make sure you can use the latest Hadoop ecosystem components and fixes. 
+- Before December 15, 2017, test Azure Data Factory V1 Hive, Pig, MapReduce, and Hadoop streaming activities that reference the impacted Linked Service to make sure they are compatible with the new *osType* and/or *Version* default value (Version=3.6, osType=Linux) or the explicit HDInsight version and osType you are upgrading to. To learn more about compatibility, please review the [Migrate     from a Windows-based HDInsight cluster to a Linux-based cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) and [What are the Hadoop components and versions available with     HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) documentation webpages. 
 - Explicitly set the osType to Windows before December 15, 2017, if you would like to continue using Azure Data Factory v1On-Demand HDInsight Linked Service to create Windows-based HDInsight clusters. However, we still recommend migrating to Linux-based HDInsight clusters before July 31, 2018. 
-- Update the DotNet Custom Activity JSON definition to use an Azure Batch Linked Service instead, if you are using On-Demand HDInsight Linked Service to execute Azure Data Factory v1DotNet Custom Activity. Learn more on the [Use custom activities in an Azure DataFactory pipeline](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) documentation webpage. 
+- Update the DotNet Custom Activity JSON definition to use an Azure Batch Linked Service instead, if you are using On-Demand HDInsight Linked Service to execute Azure Data Factory v1DotNet Custom Activity. Learn more on the [Use custom activities in an Azure DataFactory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) documentation webpage. 
 
 >[!Note]
 >For customers who use your existing Bring Your Own Cluster (BYOC) HDInsight Linked Service in Azure Data Factory v1 or those who are using BYOC and On-Demand HDInsightLinked Service in Azure Data Factory v2, the latest version support policy ofAzure HDInsight clusters is already enforced, therefore, no action is required. 
@@ -97,17 +96,15 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-To use a Windows-based HDInsight cluster, set **osType** to **windows** or do not use the property as the default value is: windows.  
 
 > [!IMPORTANT]
 > The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
@@ -122,10 +119,10 @@ To use a Windows-based HDInsight cluster, set **osType** to **windows** or do no
 | type                         | The type property should be set to **HDInsightOnDemand**. | Yes      |
 | clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. | Yes      |
 | timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
-| version                      | Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. | No       |
+| version                      | Version of the HDInsight cluster, refer to [supported HDInsight versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) for allowed HDInsight versions. If not specified, it uses the [latest HDI default version](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | No       |
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account.<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
 | additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. These storage accounts must be in the same region as the HDInsight cluster, which is created in the same region as the storage account specified by linkedServiceName. | No       |
-| osType                       | Type of operating system. Allowed values are: Windows (default) and Linux | No       |
+| osType                       | Type of operating system. Allowed values are: Linux and Windows. If not specified, Linux is used by default.  <br/>We strongly recommand using Linux based HDInsight clusters as the retirement date for HDInsight on Windows is July 31, 2018. | No       |
 | hcatalogLinkedServiceName    | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. | No       |
 
 #### additionalLinkedServiceNames JSON example
@@ -159,6 +156,8 @@ You can also specify the following properties for the granular configuration of 
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",

@@ -36,7 +36,6 @@ The following database solutions are supported with backup feature:
    - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
    - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
    - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
-   - [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

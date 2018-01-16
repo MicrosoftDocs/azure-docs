@@ -27,11 +27,11 @@ The Threat Modeling Tool can help you with your threat modeling needs. For a bas
 
 To open a blank page, select **Create A Model**.
 
-![Blank page](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Blank page](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 To see the features currently available in the tool, use the threat model created by our team in the [Get started](./azure-security-threat-modeling-tool-getting-started.md) example.
 
-![Basic threat model](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Basic threat model](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## Navigation
 
@@ -41,7 +41,7 @@ Before we discuss the built-in features, let's review the main components found 
 
 The experience is similar to other Microsoft products. Let's review the top-level menu items.
 
-![Menu items](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Menu items](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Label                               | Details      |
 | --------------------------------------- | ------------ |
@@ -73,11 +73,11 @@ The canvas is the space where you drag and drop elements. Drag and drop is the q
 
 #### Drop the stencil on the canvas
 
-![Canvas drop](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Canvas drop](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### Select the stencil
 
-![Element properties](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Element properties](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### Stencils
 
@@ -118,15 +118,15 @@ When you open the app, you see the **Welcome** screen.
 
 Hover over **Open A Model** to reveal two options: **Open From This Computer** and **Open From OneDrive**. The first option opens the **File Open** screen. The second option takes you through the sign-in process for OneDrive. After successful authentication, you can select folders and files.
 
-![Open model](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Open model](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Open from computer or OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Open from computer or OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### Feedback, suggestions, and issues
 
 When you select **Feedback, Suggestions and Issues**, you go to the MSDN Forum for SDL Tools. You can read what other people are saying about the tool, including workarounds and new ideas.
 
-![Feedback](./media/azure-security-threat-modeling-tool/feedback.png)
+![Feedback](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## Design view
 
@@ -152,17 +152,17 @@ You can connect elements in two ways:
 
 #### Before
 
-![Before](./media/azure-security-threat-modeling-tool/properties1.png)
+![Before](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### After
 
-![After](./media/azure-security-threat-modeling-tool/properties2.png)
+![After](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### Messages
 
 If you create a threat model and forget to connect data flows to elements, you get a notification. You can ignore the message, or you can follow the instructions to fix the issue. 
 
-![Messages](./media/azure-security-threat-modeling-tool/messages.png)
+![Messages](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### Notes
 
@@ -172,7 +172,7 @@ To add notes to your diagram, switch from the **Messages** tab to the **Notes** 
 
 After you build your diagram, select the **Analysis** symbol (the magnifying glass) on the shortcuts toolbar to switch to the **Analysis** view.
 
-![Analysis view](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analysis view](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### Generated threat selection
 
@@ -180,27 +180,27 @@ When you select a threat, you can use three distinct functions:
 
 | Feature                               | Information      |
 | --------------------------------------- | ------------ |
-| **Read indicator** | <p>The threat is marked as read, which helps you keep track of the items you reviewed.</p><p>![Read/unread indicator](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Interaction focus** | <p>Interaction in the diagram that belongs to a threat is highlighted.</p><p>![Interaction focus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Threat properties** | <p>Additional information about the threat appears in the **Threat Properties** window.</p><p>![Threat properties](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Read indicator** | <p>The threat is marked as read, which helps you keep track of the items you reviewed.</p><p>![Read/unread indicator](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Interaction focus** | <p>Interaction in the diagram that belongs to a threat is highlighted.</p><p>![Interaction focus](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Threat properties** | <p>Additional information about the threat appears in the **Threat Properties** window.</p><p>![Threat properties](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### Priority change
 
 You can change the priority level of each generated threat. Different colors make it easy to identify high-, medium-, and low-priority threats.
 
-![Priority change](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Priority change](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### Threat properties editable fields
 
 As seen in the preceding image, you can change the information generated by the tool. You can also add information to certain fields, such as justification. These fields are generated by the template. If you need more information for each threat, you can make modifications.
 
-![Threat properties](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Threat properties](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## Reports
 
 After you finish changing priorities and updating the status of each generated threat, you can save the file and/or print out a report. Go to **Report** > **Create Full Report**. Name the report, and you should see something similar to the following image:
 
-![Report](./media/azure-security-threat-modeling-tool/report.png)
+![Report](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## Next steps
 

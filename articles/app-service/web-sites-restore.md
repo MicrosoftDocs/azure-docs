@@ -25,7 +25,6 @@ your original app's backups. Azure App Service supports the following databases 
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
-- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling

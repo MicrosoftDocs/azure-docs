@@ -1,11 +1,11 @@
 ---
-title: 'Customize: Azure AD SSPR | Microsoft Docs'
+title: Self-service password reset customization - Azure Active Directory
 description: Customization options for Azure AD self-service password reset
 services: active-directory
 keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 

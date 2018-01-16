@@ -4,7 +4,7 @@ description: Learn how to use cloud-init and Key Vault to customze Linux VMs the
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -48,6 +48,8 @@ We are working with our partners to get cloud-init included and working in the i
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
+| | OpenLogic | CentOS | 7-CI | latest |
+| | RedHat | RHEL | 7-RAW-CI | latest
 
 
 ## Create cloud-init config file

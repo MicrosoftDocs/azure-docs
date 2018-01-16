@@ -41,23 +41,23 @@ Your proxy now exists as a new endpoint on your function app. From a client pers
 
 ## <a name="modify-requests-responses"></a>Modify requests and responses
 
-With Azure Functions Proxies, you can modify requests to and responses from the back end. These transformations can use variables as defined in [Use variables].
+With Azure Functions Proxies, you can modify requests to and responses from the back-end. These transformations can use variables as defined in [Use variables].
 
 ### <a name="modify-backend-request"></a>Modify the back-end request
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from proxies.json, see [Define a requestOverrides object].
+Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from *proxies.json*, see [Define a requestOverrides object].
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Currently, there is no portal experience for modifying responses. To learn how to apply this capability from proxies.json, see [Define a responseOverrides object].
+Currently, there is no portal experience for modifying responses. To learn how to apply this capability from *proxies.json*, see [Define a responseOverrides object].
 
 ## <a name="using-variables"></a>Use variables
 
-The configuration for a proxy does not need to be static. You can condition it to use variables from the original request, the back-end response, or application settings.
+The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -81,7 +81,7 @@ Response parameters can be used as part of modifying the response to the client.
 
 * **{backend.response.statusCode}**: The HTTP status code that's returned on the back-end response.
 * **{backend.response.statusReason}**: The HTTP reason phrase that's returned on the back-end response.
-* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the request, the value will be the empty string.
+* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the response, the value will be the empty string.
 
 ### <a name="use-appsettings"></a>Reference application settings
 
@@ -90,16 +90,16 @@ You can also reference [application settings defined for the function app](https
 For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* would have "%ORDER_PROCESSING_HOST%" replaced with the value of the ORDER_PROCESSING_HOST setting.
 
 > [!TIP] 
-> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back end for that environment.
+> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a proxies.json file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The feature must be [enabled](#enable) for the file to be processed. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The Azure Functions Proxies feature must be [enabled](#enable) for the file to be processed. 
 
 > [!TIP] 
-> If you have not set up one of the deployment methods, you can also work with the proxies.json file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
+> If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
 
-Proxies.json is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
+*Proxies.json* is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
 
 ```json
 {
@@ -126,15 +126,15 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 * **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
 
 > [!NOTE] 
-> The route property Azure Functions Proxies does not honor the routePrefix property of the Functions host configuration. If you want to include a prefix such as /api, it must be included in the route property.
+> The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
 The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
-* **backend.request.method**: The HTTP method that's used to call the back end.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
+* **backend.request.method**: The HTTP method that's used to call the back-end.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 
@@ -190,7 +190,7 @@ An example configuration might look like the following:
 }
 ```
 > [!NOTE] 
-> In this example, the body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
+> In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
 ## <a name="enable"></a>Enable Azure Functions Proxies
 

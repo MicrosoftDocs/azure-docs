@@ -44,13 +44,6 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 | Simulated device on PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
-In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub:
-
-| Gateway device               | Programming language | Platform         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-| Simulated gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
-
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md

@@ -3,7 +3,7 @@ title: Create your first function in Azure using Visual Studio | Microsoft Docs
 description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions Tools for Visual Studio. 
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/11/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -27,6 +27,8 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 In this topic, you learn how to use the Visual Studio 2017 tools for Azure Functions to create and test a "hello world" function locally. You will then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017 version 15.3, or a later version.
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
+
+If you prefer, you can instead [watch the video](#watch-the-video).
 
 ## Prerequisites
 
@@ -93,7 +95,11 @@ You must have a function app in your Azure subscription before you can publish y
 2. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
- 
+
+## Watch the video
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
 ## Next steps
 
 You have used Visual Studio to create a C# function app with a simple HTTP triggered function. 

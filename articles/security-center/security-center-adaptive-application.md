@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
 
 ---
@@ -30,18 +30,14 @@ Adaptive application controls help control which applications can run on your VM
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
 
-> [!NOTE]
-> Adaptive application controls are available to Azure Security Center Standard customers as a limited public preview. Send an email with your subscription IDs to [us](mailto:ASC_appcontrol@microsoft.com) to join the preview.
-
 ## How to enable adaptive application controls?
 Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
 
-1.	Open **Security Center** dashboard, and click **Overview**.
-2.	Under **Advanced cloud defense**, the **Adaptive application controls** tile shows how many VMs currently have the control in place compared to all the VMs. It also shows the number of issues that were found in last week: 
+1.	Open **Security Center** dashboard, and click **Adaptive application controls** located under **Advanced cloud defense** section in the left navigation pane.
 
-	![Adaptive application controls](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+	![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Click on the **Adaptive application controls** tile for more options.
+2. The **Adaptive application controls** page appears.
 
 	![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -69,7 +65,7 @@ In the **Select VMs**, review the list of recommended VMs and uncheck any you do
 
 - **NAME**: the full application path
 - **PROCESSES**: how many applications reside within every path
-- **COMMON**: true indicates that these processes have been executed on most VMs in this resource group.
+- **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group.
 - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval. 
 
 Once you finish your selections, click **Create** button. By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.

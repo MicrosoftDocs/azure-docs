@@ -4,7 +4,7 @@ description: Restoring the b2c-extensions-app
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 'parakhj'
 
 ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff

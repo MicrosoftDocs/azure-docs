@@ -19,12 +19,10 @@ ms.author: jomolesk
 
 ---
 
+# Planning (PL)
+
 > [!NOTE]
 > These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
-    
-    
-
-# Planning (PL)
 
 ## NIST 800-53 Control PL-1
 

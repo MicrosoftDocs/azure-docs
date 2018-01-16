@@ -91,7 +91,7 @@ For more information on SSH keys on Windows, see [How to create SSH keys on Wind
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault by using the following command:
 
 ```azurecli
-az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## Create a service principal 
@@ -122,7 +122,7 @@ Take note of the appId property returned from the command:
  > Be sure to create a secure password. Follow the
  > [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) guidance.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## Next steps
 
