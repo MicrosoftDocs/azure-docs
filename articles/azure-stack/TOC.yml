@@ -19,7 +19,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Azure Stack
+  - name: Evaluate Azure Stack
     href: azure-stack-deploy-overview.md
 - name: Tutorials
   items:
@@ -31,8 +31,6 @@
     href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
-  - name: Planning considerations
-    href: azure-stack-planning-considerations.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
@@ -43,7 +41,7 @@
     href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
-  - name: Deploy
+  - name: Deploy the ASDK
     items:
     - name: Prerequisites
       href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
       href: azure-stack-add-default-image.md
     - name: Create a test VM
       href: azure-stack-provision-vm.md
+  - name: Deploy Azure Stack integrated systems
+    items:
+    - name: Deployment planning considerations
+      href: azure-stack-deployment-planning.md
+    - name: Deployment planning decisions
+      href: azure-stack-deployment-decisions.md
+    - name: Deploy connected to Azure
+      href: azure-stack-connected-deployment.md
+    - name: Deploy disconnected from Azure
+      href: azure-stack-disconnected-deployment.md
+    - name: Azure Stack deployment PKI requirements
+      href: azure-stack-pki-certs.md
+      items:
+      - name: Get PKI certificates for Azure Stack deployment
+        href: azure-stack-get-pki-certs.md
+    - name: Register Azure Stack
+      href: azure-stack-registration.md
   - name: Datacenter integration
     items:
     - name: DNS
