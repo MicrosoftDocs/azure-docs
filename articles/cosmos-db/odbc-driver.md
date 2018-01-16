@@ -40,9 +40,11 @@ Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Serv
 
 1. Download the drivers for your environment:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows
-    * [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows
+    | Installer | Supported operating systems| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows| 64 bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows| 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows|32-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, and Windows Vista.|
 
     Run the msi file locally, which starts the **Microsoft Azure Cosmos DB ODBC Driver Installation Wizard**. 
 2. Complete the installation wizard using the default input to install the ODBC driver.
