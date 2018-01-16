@@ -48,7 +48,7 @@ Content Moderator uses the following APIs:
 
 ## Get started with the review tool
 
-Hybrid moderation by using the Content Moderator [Review tool](quick-start.md) is a good way to try out the Content Moderator APIs. It easily and intuitively augments automated moderation with human-in-the-loop capabilities. The Review tool internally calls the automated moderation APIs, and then presents the items for review, right in your web browser. In the Review tool, you can invite other users to review content, track pending invites, and assign permissions to team members.
+Hybrid moderation by using the Content Moderator [review tool](http://contentmoderator.cognitive.microsoft.com/) is a good way to try out the Content Moderator APIs. It easily and intuitively augments automated moderation with human-in-the-loop capabilities. The Review tool internally calls the automated moderation APIs, and then presents the items for review, right in your web browser. In the Review tool, you can invite other users to review content, track pending invites, and assign permissions to team members.
 
 Use the [Review API](review-api.md) to auto-moderate content in bulk and review tagged images or text in the Review tool. Provide your API callback point so that you are notified when reviewers submit their moderation decisions. You can use this feature to automate post-review workflows by integrating it with your own systems.
 
@@ -56,6 +56,10 @@ Use the [Review API](review-api.md) to auto-moderate content in bulk and review 
 
 If you sign up for the [review tool](http://contentmoderator.cognitive.microsoft.com/), to get your free tier key, select **Settings** > **Credentials**. Your subscription key is the value in the **Ocp-Apim-Subscription-Key** box.
 
+You can also [sign up in Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) for the Content Moderator API. Use the APIs to automatically moderate large amounts of content, and integrate with your review tools and processes. While you’re at it, apply to use the private preview of the [Video Moderation API](video-moderation-api.md).
+
 ![Your Content Moderator API subscription key](Review-Tool-User-Guide/images/credentials-trial-resource-workflow.PNG)
 
-You can also [sign up in Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) for the Content Moderator API. Use the APIs to automatically moderate large amounts of content, and integrate with your review tools and processes. While you’re at it, apply to use the private preview of the [Video Moderation API](video-moderation-api.md).
+## Next steps
+
+Use the [Quickstart](quick-start.md) to get started with Content Moderator.
