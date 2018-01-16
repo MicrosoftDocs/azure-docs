@@ -1,5 +1,5 @@
 ---
-title: Moderate text by using custom term lists in Azure Content Moderator | Microsoft Docs
+title: Moderate text with custom term lists in Azure Content Moderator | Microsoft Docs
 description: Test-drive custom term lists in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate text by using custom terms in the API console
+# Moderate text with custom term lists in the API console
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
@@ -163,4 +163,4 @@ After you make changes to a term list, you must refresh its index for changes to
 
 ## Next steps
 
-* Learn how to use the [List Management API for image lists](try-image-list-api.md).
+Use the REST API in your code or start with the [Term lists .NET quickstart](term-lists-quickstart-dotnet.md) to integrate with your application.
