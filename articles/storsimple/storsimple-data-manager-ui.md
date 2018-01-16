@@ -17,14 +17,14 @@ ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
-# Manage using the StorSimple Data Manager service
+# Manage the StorSimple Data Manager service in Azure portal
 
 This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Search.
 
 
 ## Use StorSimple Data Transformation
 
-The StorSimple Data Manager is the resource within which data transformation is instantiated. The Data Transformation service lets you move data from your StorSimple 8000 series on-premises device to blobs in Azure Storage. To transform the StorSimple native format data, you need to specify the details about your StorSimple 8000 series device and the data of interest that you want to move to the storage account.
+The StorSimple Data Manager is the resource within which data transformation is instantiated. The Data Transformation service lets you transform data from the StorSimple format to native format in blobs or Azure Files. To transform the StorSimple native format data, you need to specify the details about your StorSimple 8000 series device and the data of interest that you want to transform.
 
 ### Create a StorSimple Data Manager service
 
