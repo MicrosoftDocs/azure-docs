@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 1/15/18
 ms.author: v-jansko
 ---
-# Lanugages supported by the Microsoft Translator Speech API
+# Languages supported by the Microsoft Translator Speech API
 The following languages are supported for speech translation. If both languages are supported for speech translation, speech to speech or speech to text is available. If the target language is not supported for speech translation, only speech to text translation is available. 
 
 | Speech language    |
