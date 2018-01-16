@@ -22,9 +22,32 @@ ms.author: zachal
 # Introduction to the Azure Desired State Configuration extension handler
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-The Azure VM Agent and associated Extensions are part of the Microsoft Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations. For example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
+The Azure VM Agent and associated Extensions
+are part of the Microsoft Azure Infrastructure Services.
+VM Extensions are software components that extend the VM functionality
+and simplify various VM management operations.
 
-This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. The PowerShell DSC extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal.
+The primary use case for the Desired State Configuration Extension is
+to bootstrap a VM to the
+[Azure Automation DSC service](../../automation/automation-dsc-overview)
+that provides
+[benefits](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service)
+such as ongoing reporting and management of the VM
+as well as integration with Azure Log Analytics.
+It is also possible to use the DSC Extension independently
+from the Azure Automation DSC service,
+however this is a singular action that occurs during deployment
+and there is no ongoing reporting or management of the configuration
+other than locally within the VM.
+
+This article contains the detailed information regarding
+how to use the DSC Extension as a singular deployment mechanism
+as part of the Azure PowerShell SDK.
+You can use cmdlets to upload and apply a PowerShell DSC
+configuration on an Azure VM enabled with the PowerShell DSC extension.
+The PowerShell DSC extension calls into PowerShell DSC to enact
+the received DSC configuration on the VM.
+This functionality is also available through the Azure portal.
 
 ## Prerequisites
 **Local machine**
@@ -41,7 +64,12 @@ This guide presumes familiarity with the following concepts:
 * **Configuration Data** - A .psd1 file containing environmental data for a configuration
 
 ## Architectural overview
-The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension expects a .zip file containing at least a configuration document, and a set of parameters provided either through the Azure PowerShell SDK or through the Azure portal.
+The Azure DSC extension uses the Azure VM Agent framework
+to deliver, enact, and report on DSC configurations running on Azure VMs.
+The DSC extension accepts a .zip file containing
+at least a configuration document,
+and a set of parameters provided either through the Azure PowerShell SDK
+or through the Azure portal.
 
 When the extension is called for the first time, it runs an installation process. This process installs a version of the Windows Management Framework (WMF) using the following logic:
 
