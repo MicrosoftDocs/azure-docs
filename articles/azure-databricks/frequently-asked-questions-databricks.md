@@ -68,7 +68,7 @@ The following are a couple of solutions to this issue:
 
     a. In the Azure portal, go to Azure AD. Select **Users and Groups** > **Add a user**.
 
-    b. Add a user with an `@<tenant_name>.onmicrosoft.com` email instead of `@<your_domain>` email. You can find this in **Custom Domains**, under Azure AD in the Azure portal.
+    b. Add a user with an `@<tenant_name>.onmicrosoft.com` email instead of `@<your_domain>` email. You can find this option in **Custom Domains**, under Azure AD in the Azure portal.
     
     c. Grant this new user the **Contributor** role on the Databricks workspace resource.
     
@@ -87,7 +87,7 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 #### Error message
 
-"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. See the Databricks guide for more information. Azure error code: PublicIPCountLimitReached. Azure error message: Cannot create more than 60 public IP addresses for this subscription in this region."
+"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. For more information, see the Databricks guide. Azure error code: PublicIPCountLimitReached. Azure error message: Cannot create more than 60 public IP addresses for this subscription in this region."
 
 #### Solution
 
@@ -97,7 +97,7 @@ Databricks clusters use one public IP address per node. If your subscription has
 
 #### Error message
 
-"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. See the Databricks guide for more information.
+"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. For more information, see the Databricks guide.
 Azure error code: MissingSubscriptionRegistration
 Azure error message: The subscription is not registered to use namespace 'Microsoft.Compute'. See https://aka.ms/rps-not-found for how to register subscriptions."
 
@@ -113,7 +113,7 @@ For more detailed instructions, see [Resource providers and types](../azure-reso
 
 #### Background
 
-Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (e.g. on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
+Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This reqThis requires a consent. If the consent is not already available, you see the error.
 
 #### Solution
 
