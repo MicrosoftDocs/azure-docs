@@ -96,7 +96,7 @@ Each category has its own set of attributes. For existing rules, you can make ch
 
 - expectedValue: this attribute’s field data type must match the supported values per each Rule Type, for example:
 
-  - baselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85) defined in that rule.
+  - baselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) defined in that rule.
 
   - baselineAuditPolicyRules: the value should be a string value, one of the following:
 
