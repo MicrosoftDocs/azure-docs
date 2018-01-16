@@ -53,8 +53,11 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     This template creates the following resources:
 
     * A Kafka on HDInsight 3.6 cluster.
+
     * A Spark on HDInsight 3.6 cluster.
+
     * An Azure Virtual Network, which contains the HDInsight clusters.
+
     * An Azure Cosmos DB SQL API database.
 
     > [!IMPORTANT]
