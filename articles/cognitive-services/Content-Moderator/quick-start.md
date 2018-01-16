@@ -76,4 +76,4 @@ Start here by choosing from the Job, Review, and Workflow APIs.
 
 ## Next Steps
 
-Learn more about content moderation starting with the [image mdoeration API](image-moderation-api.md).
+Learn more about content moderation starting with the [image moderation API](image-moderation-api.md).
