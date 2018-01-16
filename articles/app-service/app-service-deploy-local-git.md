@@ -43,9 +43,9 @@ Perform the following tasks to create a new Git repository.
 1. Navigate to the directory where the content to deploy would be located.
 1. Use the following command to initialize a new Git repository:
 
-```bash
-git init
-```
+  ```bash
+  git init
+  ```
 
 ## <a name="Step2"></a>Step 2: Commit your content
 
@@ -56,15 +56,15 @@ App Service supports applications created in a variety of programming languages.
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 1. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
 
-```bash
-git add -A
-```
-
+    ```bash
+    git add -A
+    ```
+    
 1. Next, commit the changes to the repository by using the following command:
 
-```bash
-git commit -m "Hello Azure App Service"
-```
+    ```bash
+    git commit -m "Hello Azure App Service"
+    ```
 
 ## <a name="Step3"></a>Step 3: Enable the App Service app repository
 
@@ -99,9 +99,9 @@ Use the following steps to publish your app to App Service using Local Git.
 
 1. Push your content to App Service using the new **azure** remote you created.
 
-```bash
-git push azure master
-```
+  ```bash
+  git push azure master
+  ```
 
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 1. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.
