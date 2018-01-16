@@ -32,10 +32,6 @@ This is where the ODBC driver comes in. By using the ODBC driver, you can now re
 
 Now lets get started with the ODBC driver.
 
-## Prerequisites
-
-Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
-
 ## <a id="install"></a>Step 1: Install the Azure Cosmos DB ODBC driver
 
 1. Download the drivers for your environment:
