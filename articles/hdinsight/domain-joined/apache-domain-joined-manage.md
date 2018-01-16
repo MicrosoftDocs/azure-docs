@@ -3,7 +3,7 @@ title: Manage Domain-joined HDInsight clusters - Azure | Microsoft Docs
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight
 documentationcenter: ''
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
+ms.author: bhanupr
 
 ---
 # Manage Domain-joined HDInsight clusters
@@ -159,4 +159,3 @@ Domain-joined HDInsight have the following roles:
 ## Next steps
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
