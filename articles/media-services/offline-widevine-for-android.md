@@ -122,7 +122,7 @@ For some older Android devices, you must set values for the following **policy_o
 
 The values must be set to avoid an integer overflow bug. For more explanation about the issue, see https://github.com/google/ExoPlayer/issues/3150 and https://github.com/google/ExoPlayer/issues/3112. <br/>If you do not set the values explicitly, very large values for  **PlaybackDurationRemaining** and **LicenseDurationRemaining** will be assigned, (for example, 9223372036854775807, which is the maximum positive value for a 64-bit integer). As a result, the Widevine license appears expired and hence the decryption will not happen. 
 
-This issue does not occur on Android 5.0 Lollipop or later since Android 5.0 is the first Android version, which has been designed to fully support ARMv8 and 64-bit platforms, while Android 4.4 KitKat was originally designed to support ARMv7/32-bit platforms as with other older Android versions.
+This issue does not occur on Android 5.0 Lollipop or later since Android 5.0 is the first Android version, which has been designed to fully support  Azure Resource manager v8 and 64-bit platforms, while Android 4.4 KitKat was originally designed to support  Azure Resource manager v7 and 32-bit platforms as with other older Android versions.
 
 ## Using Xamarin to build an Android playback app
 
