@@ -25,15 +25,15 @@ It's easy to remove a user or a group from being assigned access to one of your 
 ## How do I remove a user or group assignment?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
+3. On the **Azure Active Directory - *directoryname*** pane (that is, the Azure AD pane for the directory you are managing), select **Enterprise applications**.
 
     ![Opening Enterprise apps](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
-4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
-5. On the **Enterprise applications - All applications** blade, select an app.
-6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Users & Groups**.
+4. On the **Enterprise applications** pane, select **All applications**. You see a list of the apps you can manage.
+5. On the **Enterprise applications - All applications** pane, select an app.
+6. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Users & Groups**.
 
     ![Selecting users or groups](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
-7. On the ***appname*** **- User & Group Assignment** blade, select one of more users or groups and then select the **Remove** command. Confirm your decision at the prompt.
+7. On the ***appname*** **- User & Group Assignment** pane, select one of more users or groups and then select the **Remove** command. Confirm your decision at the prompt.
 
     ![Selecting the Remove command](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
 
