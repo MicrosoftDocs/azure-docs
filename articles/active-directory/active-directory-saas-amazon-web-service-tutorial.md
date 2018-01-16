@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/12/2017
+ms.date: 1/16/2017
 ms.author: jeedes
 
 ---
@@ -114,8 +114,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name  | Attribute Value | Namespace |
 	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes/RoleSessionName |
+	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes/Role |
 	
 	>[!TIP]
 	>You need to configure the user provisioning in Azure AD to fetch all the roles from AWS Console. Refer the provisioning steps below.
@@ -129,6 +129,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. In the **Namespace** textbox, type the namespace value shown for that row.
 	
 	d. Click **Ok**.
 
@@ -265,6 +267,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	```
 
 	c. Click on **Review Policy button** to validate the policy.
+
+	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
 26. Define the **new policy** by performing the following steps:
 
