@@ -44,7 +44,7 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
-### [Troubleshooting alerts](active-directory-ds-troubleshooting-alerts.md)
+### [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md)
 #### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)
 #### [Restore missing service principals ](active-directory-ds-troubleshoot-service-principals.md)
 #### [Secure LDAP Errors](active-directory-ds-troubleshoot-ldaps.md)

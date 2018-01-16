@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Alerts | Microsoft Docs'
-description: Troubleshooting Alerts for Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Troubleshoot Alerts | Microsoft Docs'
+description: Troubleshoot Alerts for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 01/16/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshooting Alerts
+# Azure AD Domain Services - Troubleshoot Alerts
 This article provides troubleshooting guides for any alerts you may experience on your managed domain.
 
 
@@ -26,13 +26,13 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 | **Alert ID** | **Alert Message** | **Resolution** |
 | --- | --- | :--- |
 | AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Incorrect secure LDAP configuration](active-directory-ds-troubleshoot-ldaps.md) |
-| AADDS100 | *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.* | [Missing tenant](#aadds100-missing-tenant) |
+| AADDS100 | *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.* | [Missing directory](#aadds100-missing-directory) |
 | AADDS101 | *Azure AD Domain Services cannot be enabled in an Azure AD B2C Directory.* | [Azure AD B2C is running in this directory](#aadds101-azure-ad-b2c-is-running-in-this-directory) |
 | AADDS102 | *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Missing Service Principal](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.* | [Address is in a public IP range](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
 
-### AADDS100: Missing tenant
+### AADDS100: Missing directory
 **Alert Message:**
 
 *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.*
@@ -46,12 +46,12 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 ### AADDS101: Azure AD B2C is running in this directory
 **Alert Message:**
 
-*Azure AD Domain Services cannot be enabled in an Azure AD B2C Directory. *
+*Azure AD Domain Services cannot be enabled in an Azure AD B2C Directory.*
 
 **Remediation:**
 
 >[!NOTE]
->In order to continue to use Azure AD Domain Services, you must recreate your Azure AD Domain Services instance in a non-Azure AD B2C tenant.
+>In order to continue to use Azure AD Domain Services, you must recreate your Azure AD Domain Services instance in a non-Azure AD B2C directory.
 
 To restore your service, follow these steps:
 
@@ -72,7 +72,7 @@ To restore your service, follow these steps:
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your tenant.
+1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your directory.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Select the virtual network you plan to use for Azure AD Domain Services.
@@ -81,7 +81,7 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   5. Click on **Subnets** in the left-hand navigation.
   6. Click on the subnet you wish to edit in the table.
   7. Update the address range and save your changes.
-3. Follow [the Getting Started Using Azure AD Domain Services guide](#active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
+3. Follow [the Getting Started Using Azure AD Domain Services guide](active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 

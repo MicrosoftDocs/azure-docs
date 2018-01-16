@@ -21,14 +21,32 @@ ms.author: ergreenl
 
 
 
-## AADDS104: Network error
+# AADDS104: Network error
 
 **Alert Message:**
  *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
 
 The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
 
-### Creating a default NSG using PowerShell
+## Sample NSG
+The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
+
+![sample NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+
+>[!NOTE]
+> Azure AD Domain Services requires unrestricted outbound access. We recommend to not create any additional outboud rule to your NSGs.
+
+## Adding a rule to a Network Security group using the Azure portal
+If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. Follow these steps to create rules in your Network security group.
+
+1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
+2. Choose the NSG associated with your domain from the table.
+3. Under Settings in the left-hand navigation, click either **Inbound security rules** or **Outbound security rules**.
+4. Create the rule by clicking **Add** and filling in the information. Click **OK**.
+5. Verify your rule has been created by locating it in the rules table.
+
+
+## Create a default NSG using PowerShell
 
 Preceding are steps you can use to create a new NSG using PowerShell that keeps all of the ports needed to run Azure AD Domain Services open while denying any other unwanted access.
 
@@ -62,11 +80,11 @@ This resolution requires installing and running [Azure AD Powershell](https://do
   -DestinationPortRange 3389
   $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
-  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389
+  -SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 5986
   # Create the NSG with the 3 rules above
   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
-  -Name "NSG-Default" -SecurityRules $rule1,$rule2,$rule3
+  -Name "AADDS-NSG" -SecurityRules $rule1,$rule2,$rule3
   ```
 
 4. Lastly, the script associates the NSG with the vnet and subnet of choice.
@@ -80,13 +98,15 @@ This resolution requires installing and running [Azure AD Powershell](https://do
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 
-**Full Script**
+### Full Script
 
 ```PowerShell
 #Change the following values to match your deployment
 $resourceGroup = "ResourceGroupName"
 $vnetName = "exampleVnet"
 $subnetName = "exampleSubnet"
+
+$serviceIPs = "52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161"
 
 # Create the rules needed
 $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
@@ -101,7 +121,7 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Ma
 
 $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
--SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
+-SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389
 
 
@@ -127,22 +147,6 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 > [!NOTE]
 >This default NSG does not lock down access to the port used for Secure LDAP. To find out how to create a rule for this port, visit [this article](active-directory-ds-troubleshoot-ldaps.md).
 >
-
-### Sample NSG
-The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
-
-![sample NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
-
-
-### Adding a rule to a Network Security group using the Azure portal
-If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. Follow these steps to create rules in your Network security group.
-
-1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
-2. Choose the NSG associated with your domain from the table.
-3. Under Settings in the left-hand navigation, click either **Inbound security rules** or **Outbound security rules**.
-4. Create the rule by clicking **Add** and filling in the information. Click **OK**.
-5. Verify your rule has been created by locating it in the rules table.
-
 
 ## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
