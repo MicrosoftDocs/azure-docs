@@ -45,7 +45,7 @@ The completed application is provided at the end of this tutorial as well.
 
 2. In the menu at the top of the page, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 
-3. Select **More Services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
+3. Select **All services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
 
 4. Select **App registrations**, and then select **Add**.
 

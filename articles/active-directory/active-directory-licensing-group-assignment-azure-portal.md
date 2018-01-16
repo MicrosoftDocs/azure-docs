@@ -37,7 +37,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com) with an Administrator account. To manage licenses, the account must be a global administrator role or user account administrator.
 
-2. Select **More services** in the left navigation pane, and then select **Azure Active Directory**. You can add this blade to Favorites or pin it to the portal dashboard.
+2. Select **All services** in the left navigation pane, and then select **Azure Active Directory**. You can add this blade to Favorites or pin it to the portal dashboard.
 
 3. On the **Azure Active Directory** blade, select **Licenses**. This opens a blade where you can see and manage all licensable products in the tenant.
 

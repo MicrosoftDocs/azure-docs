@@ -24,7 +24,7 @@ It's easy to disable an enterprise application so that no users may sign in to i
 
 ## How do I disable user sign-ins?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3. On the **Azure Active Directory** -  ***directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
     ![Opening Enterprise apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)

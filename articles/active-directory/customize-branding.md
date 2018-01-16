@@ -81,7 +81,7 @@ Azure AD sign in gives the user the option to remain signed in when they close a
 ## Add company branding to your directory
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/customize-branding/user-management.png)
 3. On the **Users and groups** blade, select **Company branding**.
