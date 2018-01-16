@@ -144,7 +144,7 @@
 
                 @Override
                 public void onCancel() {
-                /* User canceled the authentication */
+                /* User cancelled the authentication */
                     Log.d(TAG, "User cancelled login.");
                 }
             };
@@ -185,7 +185,7 @@
 
                 @Override
                 public void onCancel() {
-                /* User canceled the authentication */
+                /* User cancelled the authentication */
                     Log.d(TAG, "User cancelled login.");
                 }
             };
