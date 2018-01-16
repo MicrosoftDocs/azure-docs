@@ -1,6 +1,6 @@
 
 ## Register your application
-You can register your application in either of two ways.
+You can register your application in either of two ways, as described in the next two sections.
 
 ### Option 1: Express mode
 You can quickly register your application by doing the following:
@@ -49,4 +49,4 @@ To register your application and add your application registration information t
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. In the `BrowserTabActivity` node, replace *[Enter the application Id here]* with the application ID.
+9. In the `BrowserTabActivity` node, replace `[Enter the application Id here]` with the application ID.
