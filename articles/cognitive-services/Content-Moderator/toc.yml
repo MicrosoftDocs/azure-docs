@@ -26,6 +26,8 @@
       href: text-moderation-quickstart-dotnet.md
     - name: Custom terms - API console
       href: try-terms-list-api.md
+    - name: Custom terms - .NET
+      href: term-lists-quickstart-dotnet.md 
     - name: Videos - .NET
       href: video-moderation-api.md
   - name: Review APIs
