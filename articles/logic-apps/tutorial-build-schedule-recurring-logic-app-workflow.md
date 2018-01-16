@@ -123,8 +123,8 @@ and choose **Rename**. Rename the trigger with this description:
    | **Time zone** | None | Applies only when you specify a start time. Useful for specifying a non-local time zone. | 
    | **Start time** | None | Delay the recurrence until a specific date and time. For more information, see [Schedule tasks and workflows that run regularly](../connectors/connectors-native-recurrence.md). | 
    | **On these days** | Monday,Tuesday,Wednesday,Thursday,Friday | Available only when **Frequency** is set to "Week" | 
-   | **At these hours** | 7,8,9 | Available only when **Frequency** is set to "Week" or "Day". Select the hours of the day to run this recurrence. This example runs at the 7, 8, and 9 hour marks. | 
-   | **At these minutes** | 0,15,30,45 | Available only when **Frequency** is set to "Week" or "Day". Select the minutes of the day to run this recurrence. This example runs every 15 minutes starting at the zero hour mark. | 
+   | **At these hours** | 7,8,9 | Available only when **Frequency** is set to "Week" or "Day". Select the hours of the day to run this recurrence. This example runs at the 7, 8, and 9-hour marks. | 
+   | **At these minutes** | 0,15,30,45 | Available only when **Frequency** is set to "Week" or "Day". Select the minutes of the day to run this recurrence. This example runs every 15 minutes starting at the zero-hour mark. | 
    ||||
 
    This trigger fires every weekday, every 15 minutes, 
