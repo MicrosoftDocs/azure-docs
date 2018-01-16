@@ -13,12 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
 
 ---
 
 # Patch the Windows operating system in your Service Fabric cluster
+
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
 
 The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
 
