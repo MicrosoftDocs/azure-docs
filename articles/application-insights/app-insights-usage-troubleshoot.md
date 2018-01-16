@@ -48,7 +48,7 @@ If your app is sending too many custom event names, change the name in code to b
 
 ## Next steps
 
-* [Usage analytics overview][app-insights-usage-overview.md]
+* [Usage analytics overview](app-insights-usage-overview.md)
 
 ## Get help
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
