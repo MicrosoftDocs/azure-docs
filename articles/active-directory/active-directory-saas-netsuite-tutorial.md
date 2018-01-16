@@ -187,7 +187,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. Click **New Role**.
 
-    d. Type in a **Name** for your new role, and select the **Single Sign-On Only** checkbox.
+    d. Type in a **Name** for your new role, and DO NOT select the **Single Sign-On Only** checkbox.
       
       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -197,7 +197,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
       
        ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Select **Set Up SAM Single Sign-on**, and then click **Add**.
+    g. Select **SAM Single Sign-on**, and then click **Add**.
 
     h. Click **Save**.
 
