@@ -60,16 +60,16 @@ Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Serv
     ![Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Data Source Name**: Your own friendly name for the ODBC DSN. This name is unique to your Azure Cosmos DB account, so name it appropriately if you have multiple accounts.
     - **Description**: A brief description of the data source.
-    - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys blade in the Azure portal, as shown in the following screenshot. 
-    - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys blade in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
-    ![Azure Cosmos DB Keys blade](./media/odbc-driver/odbc-driver-keys.png)
+    - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys page in the Azure portal, as shown in the following screenshot. 
+    - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys page in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
+    ![Azure Cosmos DB Keys page](./media/odbc-driver/odbc-driver-keys.png)
     - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
 4. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 5. Click **Advanced Options** and set the following values:
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
     - **Schema File**: You have a number of options here.
-        - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher start up time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
+        - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
         - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
         - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information. Upon creating the new schema file, please remember to go back to the **Advanced Options** window to include the newly created schema file.
 
@@ -150,4 +150,4 @@ If you receive the following error, ensure the **Host** and **Access Key** value
 
 ## Next steps
 
-To learn more about Azure Cosmos DB, see [What is Azure Cosmos DB?](introduction.md).
+To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
