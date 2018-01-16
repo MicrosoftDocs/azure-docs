@@ -65,15 +65,13 @@ Perform the following steps to generate an AAD service registration key.
 
 #### To generate the AAD service registration key
 
-1. In **StorSimple Device Manager**, go to **Management &gt;** **Keys**.
+1. In **StorSimple Device Manager**, go to **Management &gt;** **Keys**. You can also use the search bar to search for _Keys_.
     
-    ![Go to Keys](./media/storsimple-8000-aad-registration-key/aad-registration-key1.png)
-
 2. Click **Generate key**.
 
     ![Click regenerate](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
 
-3. Copy the new key. The older key will no longer work. 
+3. Copy the new key. The older key will no longer work.
 
     ![Confirm regenerate](./media/storsimple-8000-aad-registration-key/aad-registration-key2.png)
 
@@ -88,10 +86,9 @@ If using a StorSimple 8000 series device, use the following table to determine w
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
 | Update 5 or later and the device is offline. <br> You see an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL.<br> See [authentication URLs](#url-changes-for-aad-authentication). |
 | Update 5 or later and the device online.| No action is required.                                       |
-| Update 4 or earlier and the device is offline. | Modify the firewall rules to include the authentication URL.<br>[Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 4 or earlier and the device is offline. | Modify the firewall rules to include the authentication URL.<br>[Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
 | Update 4 or earlier and the device is online. |Modify the firewall rules to include the authentication URL.<br> Install Update 5 through the Azure portal.              |
-| Update 5 or later and was factory reset to a version before Update 5      |working             |  |The portal shows an AAD based registration key while the device is running older software. Use the [ACS key generation script](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Get-RegistrationKey.ps1) to get a service registartion key. Register with this key and continue working until the ACS is deprecated.              |
-| A new device running older software - Update 4 or earlier      |working               | |The portal shows an AAD based registration key while the device is running older software. Use the [ACS key generation script](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Get-RegistrationKey.ps1) to get a service registartion key. Register with this key and continue working until the ACS is deprecated.               |
+| Update 5 or later and was factory reset to a version before Update 5.      |The portal shows an AAD based registration key while the device is running older software. Follow the steps in the preceding scenario for when the device is running Update 4 or earlier.              |
 
 ## Next steps
 
