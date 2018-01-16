@@ -29,13 +29,13 @@ You can choose to deploy Azure Stack either connected to the internet (and to Az
 ![Azure Stack deployment and billing scenarios](media/azure-stack-deployment-decisions/azure-stack-scenarios.png)	
   
 > [!IMPORTANT]
-> This is a key decision point! Choosing ADFS or AAD is a one-time decision that you must make at deployment time. You can’t change this later without re-deploying the entire system.  
+> This is a key decision point! Choosing Active Directory Federation Services (AD FS) or Azure Active Directory (Azure AD) is a one-time decision that you must make at deployment time. You can’t change this later without re-deploying the entire system.  
 
 
 |Options|Connected to Azure|Disconnected from Azure|
 |-----|-----|-----|
-|Azure Active Directory (Azure AD)|![Supported](media/azure-stack-deployment-decisions/check.png)| |
-|Active Directory Federation Services (AD FS)|![Supported](media/azure-stack-deployment-decisions/check.png)|![Supported](media/azure-stack-deployment-decisions/check.png)|
+|Azure AD|![Supported](media/azure-stack-deployment-decisions/check.png)| |
+|AD FS|![Supported](media/azure-stack-deployment-decisions/check.png)|![Supported](media/azure-stack-deployment-decisions/check.png)|
 |Consumption-based billing|![Supported](media/azure-stack-deployment-decisions/check.png)| |
 |Capacity-based billing|![Supported](media/azure-stack-deployment-decisions/check.png)|![Supported](media/azure-stack-deployment-decisions/check.png)|
 |Download update packages directly to Azure Stack|![Supported](media/azure-stack-deployment-decisions/check.png)|  |

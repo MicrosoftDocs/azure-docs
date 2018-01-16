@@ -31,8 +31,6 @@
     href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
-  - name: Planning considerations
-    href: azure-stack-planning-considerations.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
@@ -67,15 +65,15 @@
       href: azure-stack-deployment-planning.md
     - name: Deployment planning decisions
       href: azure-stack-deployment-decisions.md
+    - name: Deploy connected to Azure
+      href: azure-stack-connected-deployment.md
+    - name: Deploy disconnected from Azure
+      href: azure-stack-disconnected-deployment.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
       - name: Get PKI certificates for Azure Stack deployment
         href: azure-stack-get-pki-certs.md
-    - name: Deploy connected to Azure
-      href: azure-stack-connected-deployment.md
-    - name: Deploy disconnected from Azure
-      href: azure-stack-disconnected-deployment.md
     - name: Register Azure Stack
       href: azure-stack-registration.md
   - name: Datacenter integration

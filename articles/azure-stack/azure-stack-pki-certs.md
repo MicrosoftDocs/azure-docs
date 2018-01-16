@@ -52,8 +52,8 @@ For your deployment, the [region] and [externalfqdn] values must match the regio
 |ARM Public|management.*&lt;region>.&lt;fqdn>*|ARM|*&lt;region>.&lt;fqdn>*|
 |ARM Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|ARM|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
+|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
+|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> The ACS certificate requires three wildcard SANs on a single certificate. Multiple wildcard SANs on a single certificate might not be supported by all Public Certificate Authorities. 
 
@@ -61,8 +61,8 @@ If you deploy Azure Stack using the Azure AD deployment mode, you only need to r
 
 |Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;region>.&lt;fqdn>* (SSL Certificate)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>* (SSL Certificate)|Graph|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate)|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -78,7 +78,7 @@ The following table describes the endpoints and certificates required for the SQ
 
 |Scope (per region)|Certificate|Required certificate subject and Subject Alternative Names (SANs)|SubDomain namespace|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL and MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>* (Wildcard SSL Certificate)|dbadapter.*&lt;region>.&lt;fqdn>*|
+|SQL, MySQL|SQL and MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|dbadapter.*&lt;region>.&lt;fqdn>*|
 |App Service|Web Traffic Default SSL Cert|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi Domain Wildcard SSL Certificate<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

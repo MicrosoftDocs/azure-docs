@@ -82,7 +82,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ### Register Azure Stack with Azure using the pay-as-you-use billing model
 Use the these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
-Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **.\RegisterWithAzure.psm1** module using PowerShell: 
+Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module using PowerShell: 
 
 PowerShell to run:
 
@@ -141,7 +141,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 
 
 ### Connect to Azure and register
-Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **.\RegisterWithAzure.psm1** module: 
+Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module: 
 
 PowerShell to run:
 ```powershell
@@ -156,7 +156,7 @@ Register-AzsEnvironment -RegistrationToken $registrationToken
 Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token:
 
  ```Powershell  
- $registrationToken = Get-Content -Path 'C:\Temp\<Registration Token File>'
+ $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
  Register-AzsEnvironment -RegistrationToken $registrationToken  
  ```
 > [!NOTE]  
@@ -164,7 +164,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 
 ## Verify Azure Stack registration
 Use these steps to verify that Azure Stack has successfully registered with Azure.
-1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.&#91;REGION&#93;.&#91;FQDN&#93;.
+1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 
 If you see a list of items available from Azure (such as WordPress), your activation was successful.
