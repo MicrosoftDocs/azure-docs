@@ -13,7 +13,7 @@ Welcome to the Marketplace Publisher Guide. This guide is designed to help candi
 - Where to create and publish offers
 - How to optimize a listing and use Go-to-Market resources to drive impact
 - Where to get help and support
-For questions about Azure Marketplace, AppSource, or this publishing guide please contact the Marketplace team at cloudmarketplace@microsoft.com. 
+For questions about Azure Marketplace, AppSource, or this publishing guide please contact the Marketplace team at **cloudmarketplace@microsoft.com**. 
 
 ## The Benefits of Participating in Marketplace
 
@@ -106,10 +106,8 @@ There are 3 typical Trial scenarios:
 
 |**Trial Option**  |**Key Benefits**  |**Choose this Option if...**  |
 |---------|---------|---------|
-|**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams
-    |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as ‘guest users’|
-**Test Drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup
-    |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer |
+|**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as ‘guest users’|
+**Test Drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer |
 |**Interactive Demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period     |
 
 #### Free Trial
@@ -122,7 +120,7 @@ Use a **Test Drive** when the solution is deployed via one or more Virtual Machi
 
 There are additional benefits to a **Test Drive**:
 
-- 27% of search results are refined to only show offers with test drives 
+- 27% of user searches on Marketplace are refined by users to only show offers with test drives 
 - Offers with test drives generate 38% more leads than offers without 
 - 36% of new customer acquisitions on Azure Marketplace come from customers that took a test drive 
 - Enable Microsoft field sellers to better understand your product for Co-Sell efforts
@@ -157,6 +155,7 @@ If you enable Pay-as-You-Go as an option:
 
 
 |Your License Cost   | $1.00 per hour        |
+|---------|---------|
 |Azure Usage Cost (D1/1-Core)     | $0.14 per hour  |
 |**Customer is billed by Microsoft**    | **$1.14 per hour**       |
 
@@ -164,6 +163,7 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published Virtu
 
 
 |**Microsoft bills** |**$1.14 per hour**  |
+|---------|---------|
 |Microsoft pays you 80% of your License Cost | $0.80 per hour        |
 |Microsoft keeps 20% of your License Cost    | $0.20 per hour        |
 |Microsoft keeps the Azure Usage Cost     |   $0.14 per hour      |
@@ -171,12 +171,14 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published Virtu
 Conversely, if you enable Bring Your Own License as an option:
 
 |Your License Cost     | License Fee negotiated and billed by Publisher        |
+|---------|---------|
 |Azure Usage Cost (D1/1-Core)    | $0.14 per hour         |
 |**Customer is billed by Microsoft**     | **$0.14 per hour**        |
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published Virtual Machine image. 
 
 |**Microsoft bills**    |   **$0.14 per hour**      |
+|---------|---------|
 |Microsoft keeps the Azure Usage Cost     |    $0.14 per hour     |
 |Microsoft keeps 0% of your License Cost     |  $0.00 per hour       |
 
@@ -194,7 +196,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 ## Prerequisites for Marketplace Publishing
 
-### For All Marketplace Trial Publishing Options
+### For All Marketplace Publishing Options
 
 
 |**Requirement**  |**Details**  |**Publishing Option**  |
@@ -206,7 +208,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 |**Privacy Policy and Terms of Use**     |   Your Privacy Policy must be available via a public URL and your Terms of Use must be input as text during publishing.      |   List, Trial, Transact      |
 |**Support**     |  Your Offer must include a publicly available support URL where customers can find help. For Trials, support must be provided at no additional cost for the Trial period.       |  Trial, Transact       |
 
-### Only for Marketplace Trial Publishing Options
+### Prerequisites specific to Trial Publishing
 
 |**Requirement**  | **Details**  |**Publishing Option**  |
 |---------|---------|---------|
@@ -214,13 +216,12 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Since all Trial options are deployed to the publisher’s Microsoft product subscription, Trial cost optimization and management is controlled solely by the publisher.
 You can choose a free trial, interactive demo, or Test Drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost. 
 Reach out to cloudmarketplace@microsoft.com to begin the process of creating a Test Drive. 
-*(Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences))* 
-       |   Trial      |
+*(Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences))*  |   Trial      |
 |**Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
 |**Availability/Uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled.      |  Trial|
 
-### Only for the Marketplace Transact Publishing Options
+### Prerequisites Specific to Transact Publishing
 
 
 |**Requirement**  |**Details** |**Publishing Option**  |
@@ -228,13 +229,13 @@ Reach out to cloudmarketplace@microsoft.com to begin the process of creating a T
 |**Billing and Metering**    |  Your Virtual Machine must support either Bring Your Own License or usage-based, monthly-billing.       |    Transact    |
 |**Azure-compatible virtual hard disk (VHD)**     |   Virtual Machines must be built on [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
 
-### Only for the Marketplace Consulting Services Publishing Option
+### Prerequisites Specific to Consulting Services Publishing
 
 
 |**Requirements** |**Details**  |**Publishing Option**  |
 |---------|---------|---------|
 |**Services Offer Characteristics**     | Your Consulting Service must be delivered as a fixed scope, fixed duration, fixed price (or free) engagement, primarily pre-sales oriented, limited to a single customer, and conducted on-site        |    List     |
-|**Partner Requirements for Consulting Services**    |   **AppSource only**  Dynamics 365 for Customer Engagement  [Silver or Gold Cloud Customer Relationship Management Competency](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 for Finance and Operations Enterprise edition: Silver or Gold [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months. •	Dynamics 365 for Finance and Operations, Business edition: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer.•	Power BI: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. PowerApps: Have a [Partner Showcase] (https://powerapps.microsoft.com/en-us/partner-showcase/) solution |    List     |
+|**Partner Requirements for Consulting Services**    |   **AppSource only.**  Dynamics 365 for Customer Engagement  [Silver or Gold Cloud Customer Relationship Management Competency](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 for Finance and Operations Enterprise edition: Silver or Gold [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months. Dynamics 365 for Finance and Operations, Business edition: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer. Power BI: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. PowerApps: Have a [Partner Showcase] (https://powerapps.microsoft.com/en-us/partner-showcase/) solution |    List     |
 
 ## Using Azure Active Directory to Enable Trials
 Azure Active Directory (AAD) is a cloud identity service that enables authentication with a Microsoft work or school account using the industry standard protocols: OAuth and OpenID Connect. Learn more about AAD [here](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
@@ -334,7 +335,7 @@ Before starting the publishing process, it’s helpful to understand the compone
 |---------|---------|
 |**Title (Max 50 char)**    |  Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
 |**Summary (Max 200 char)**    |  Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|Long Summary (Max 256 char)     |   Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)      |
+|**Long Summary (Max 256 char)**     |   Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)      |
 |**HTML-based Description (Max 3000 char)**    |  Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
 |**Company Logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transact – Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
 
@@ -347,7 +348,7 @@ Before starting the publishing process, it’s helpful to understand the compone
 |**Package file containing all the template files and createUIDefinitionFile**   |Transact – Azure Apps (Solution Templates and Managed Apps)         |
 |**Operating System Details**    |   Transact – Virtual Machines      |
 |**Ports and Protocols in Use**    |  Transact – Virtual Machines       |
-|Disk Version and SAS URL for each VHD in use     |  Transact – Virtual Machines       |
+|**Disk Version and SAS URL for each VHD in use**   |  Transact – Virtual Machines       |
 
 ## Become a Publisher
 
@@ -362,8 +363,7 @@ In this section, we explain the steps: to become a publisher in the Azure Market
 |Marketplace Nomination Form     |  1-3 Days       |  Partners need to submit the Nomination Form to start the approval process for the Marketplace. Once the form is submitted the Marketplace Onboarding team will review the application and validate the request.       |
 |Register in Developer Center     |    5-10 Days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the Partner is a valid legal entity with a valid TAX ID for the country in which it is registered. Developer Center will enable the Partner to be a registered Microsoft Developer and provide them with access to the Azure developer program. 
 
-*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*
-        |
+*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*  |
 |Log in to the Cloud Partner Portal     |  15 min       |   Once the Partner receives the approval from the Marketplace Team that their Nomination has been approved, Partner access to the [Cloud Partner Portal](https://cloudpartner.azure.com/) is enabled. Partner should use their Microsoft ID used in the Nomination form to login into their publisher profile in the Cloud Partner Portal. Once registered with Developer Center, the Partner will need to associate the Developer Center account with their Azure Marketplace Publisher Profile to publish.      |
 
 #### Create a Microsoft ID
@@ -383,7 +383,8 @@ Once the form is submitted the Marketplace team will review the application and 
 
 The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company’s information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
-*IMPORTANT: You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one.*
+>[!IMPORTANT]
+>IMPORTANT: You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one.
 
 During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts. In addition, you must complete the following Publisher profile components to progress through the various phases of offer creation and deployment:
 
@@ -423,11 +424,11 @@ This section walks you through marketing best practices for an offer, according 
 
 Your listing in marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in marketplace great!
 
-- Be found: Write your offer description using key words and terms your buyer will search for. 
-- Be visual: Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer’s top questions.
+- **Be found:** Write your offer description using key words and terms your buyer will search for. 
+- **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer’s top questions.
 - Provide an experience: Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you’ll generate. We’ve found that test drive leads result (on average) to 40% closed deals.
-- Help your audience learn: While we’d encourage you to keep your Overview space clear and simple, there’s also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it’s a fit for your customer’s needs; don’t be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
-- Leverage ratings & reviews: Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews will also help bump your offer up in search results and into key featured areas.
+- **Help your audience learn:** While we’d encourage you to keep your Overview space clear and simple, there’s also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it’s a fit for your customer’s needs; don’t be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
+- **Leverage ratings & reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews will also help bump your offer up in search results and into key featured areas.
 
 ### Build a Great Landing Page
 A landing page on your company website is a gateway from your demand generation activities to your marketplace listing in Azure Marketplace. 
@@ -499,7 +500,8 @@ The activities we provide differ depending on your solution status in our market
 
 To maximize the impact of these activities, we’d encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
 
-![Marketplace GTM Benefits](./media/marketplace_publishing_seller_guide_publishing_and_growing/Marketplace GTM Promotions.png)
+![alt text][logo]
+[logo] https://github.com/ellacroi/media/marketplace_publishing_seller_guide_publishing_and_growing/Marketplace GTM Promotions.png "Marketplace GTM Benefits"
 
 For support including templates, web content, training, and tools to promote your business, visit [www.MicrosoftGoToMarket.com](www.MicrosoftGoToMarket.com).
 
@@ -593,14 +595,11 @@ This is the list of the support options for the Azure Marketplace:
 |Support Channel  |Description  |
 |---------|---------|
 |Email: 
-azurecertified@microsoft.com
-    |   Provides support for Partners' Azure Marketplace publishing applications. Business hours in Pacific Time Zone.      |
+azurecertified@microsoft.com |   Provides support for Partners' Azure Marketplace publishing applications. Business hours in Pacific Time Zone.      |
 |Email:
-AzureMarketOnboard@microsoft.com
-    |   Provides support for the Azure Marketplace Solution Nomination Form and process. Business hours in Pacific Time Zone.      |
+AzureMarketOnboard@microsoft.com |   Provides support for the Azure Marketplace Solution Nomination Form and process. Business hours in Pacific Time Zone.      |
 |Email: 
-Amp-testdrive@microsoft.com
-   |   Provides onboarding access to Test Drives. Business hours in Pacific Time Zone.      |
+Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Business hours in Pacific Time Zone. | 
 
 **Azure Marketplace Portal Support:**
 
@@ -619,6 +618,7 @@ Amp-testdrive@microsoft.com
 - StackOverflow: [Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)
 - StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)
 - StackOverflow: [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine) |
+
 
 **Marketing Resources**
 
