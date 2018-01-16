@@ -211,6 +211,7 @@ If you want to create D4-size head nodes and worker nodes, specify **Standard_D4
 ```
 
 If you set an incorrect value for these properties, you might see the following message:
+
   Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. 
   
 If you see this message, ensure that you are using the cmdlet and API names from the table in [Virtual machine sizes](../../virtual-machines/linux/sizes.md).  
