@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
