@@ -14,9 +14,9 @@ ms.author: sajagtap
 
 # Get started with Content Moderator
 
-You get started with Content Moderator APIs and review tool in the following ways:
+You get started with Content Moderator APIs and the review tool in the following ways:
 
-- [Start with the review tool](#start-with-the-review-tool) to create both, the API keys and a review team.
+- [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team.
 - [Start with the APIs](#start-with-the-apis) by subscribing in the Azure portal. You still need to sign up online to create a review team.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
@@ -68,8 +68,12 @@ Start with the [.NET quickstart](video-moderation-api.md) to scan videos and det
 
 ### Review APIs
 
-Choose from the Job, Review, and the Workflow APIs.
+Start here by choosing from the Job, Review, and Workflow APIs.
 
-- Start with the [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
-- Start with the [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
-- Start with the [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
+- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
+- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
+- The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
+
+## Next Steps
+
+Learn more about content moderation starting with the [image mdoeration API](image-moderation-api.md).
