@@ -54,22 +54,22 @@ Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-i
 
 ### Image moderation
 
-Scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information. Start with the [API console](try-image-api.md) or use the [.NET quickstart](image-moderation-quickstart-dotnet.md).
+Start with the [API console](try-image-api.md) or use the [.NET quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
 
 ### Text moderation
 
-Scan text content. Profanity terms and personally identifiable information (PII) are returned. Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md).
+Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity and personally identifiable information (PII). 
 
 
 ### Video moderation
 
-Scan videos and detect potential adult and racy content. Start with the [.NET quickstart](video-moderation-api.md).
+Start with the [.NET quickstart](video-moderation-api.md) to scan videos and detect potential adult and racy content. 
 
 
 ### Review APIs
 
 Choose from the Job, Review, and the Workflow APIs.
 
-- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
-- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
-- The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
+- Start with the [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
+- Start with the [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
+- Start with the [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
