@@ -44,7 +44,7 @@ If your app is sending too many page view names, check whether these page view n
 
 * If the Application Insights JavaScript SDK is automatically sending page views names, you can either change your pages' titles or switch to manually sending page view names. The SDK sends the [title](https://developer.mozilla.org/docs/Web/HTML/Element/title) of each page as the page view name, by default. You could change your titles to be more general, but be mindful of SEO and other impacts this change could have. Manually specifying page view names with the `trackPageView` API overrides the automatically collected names, so you could send more general names in telemetry without changing page titles.   
 
-If your app is sending too many custom event names, change the name in code to be less specific. Again, avoid putting URLs and other per-page or dynamic information in the custom event names directly. Instead, move these details into custom properties of the custom event with the `trackEvent` API.
+If your app is sending too many custom event names, change the name in code to be less specific. Again, avoid putting URLs and other per-page or dynamic information in the custom event names directly. Instead, move these details into custom properties of the custom event with the `trackEvent` API. For example, instead of `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, we suggest something like `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
 ## Next steps
 
