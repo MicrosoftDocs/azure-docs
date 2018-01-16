@@ -34,7 +34,7 @@
 ### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Device management with IoT extension for Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2.0.md)
 ### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # How-to guides
@@ -173,7 +173,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
-## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)

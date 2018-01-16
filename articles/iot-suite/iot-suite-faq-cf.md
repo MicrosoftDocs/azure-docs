@@ -114,7 +114,7 @@ The simulation self registers the following devices:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or [iothub-explorer](https://github.com/azure/iothub-explorer) tool, you can check which devices are registered with the IoT hub your solution is using. To use these tools, you need the connection string for the IoT hub in your deployment.
+Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) tool, you can check which devices are registered with the IoT hub your solution is using. To use device explorer, you need the connection string for the IoT hub in your deployment. To use the IoT extension for Azure CLI 2.0, you need your IoT Hub name.
 
 ### How can I get log data from the simulation components?
 
