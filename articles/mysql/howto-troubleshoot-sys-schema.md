@@ -27,9 +27,9 @@ There are 52 views in the sys_schema, and each view has one of the following pre
 - User: Resources consumed and grouped by users. Examples are file I/Os, connections, and memory.
 - Wait: Wait events grouped by host or user.
 
-Now let’s look at some common usage patterns of the sys_schema. To begin with, we’ll group the usage patterns into two categories: **Performance Tuning** and **Database Maintenance**.
+Now let’s look at some common usage patterns of the sys_schema. To begin with, we’ll group the usage patterns into two categories: **Performance tuning** and **Database maintenance**.
 
-## Performance Tuning
+## Performance tuning
 
 ### *sys.user_summary_by_file_io*
 
@@ -55,7 +55,7 @@ To troubleshoot database performance issues, it may be beneficial to identify th
 
 In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That’s a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
 
-## Database Maintenance
+## Database maintenance
 
 ### *sys.innodb_buffer_stats_by_table*
 
