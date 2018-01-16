@@ -45,4 +45,4 @@ Before you can test-drive the API in the online console, you need your subscript
 
 ## Next steps
 
-* Learn how to use the [Image Moderation API](try-image-api.md).
+Use the REST API in your code or start with the [text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) to integrate with your application.
