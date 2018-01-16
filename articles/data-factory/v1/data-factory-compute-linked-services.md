@@ -33,7 +33,7 @@ The following table provides a list of compute environments that are supported b
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
-## <a name="supported-hdinsight-versions-in-azure-data-factory></a>HDInsight versions supported in Data Factory
+## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight versions supported in Data Factory
 Azure HDInsight supports multiple Hadoop cluster versions that you can deploy at any time. Each supported version creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components in the distribution. 
 
 Microsoft updates the list of supported HDInsight versions  with the latest Hadoop ecosystem components and fixes. For detailed information, see [Supported HDInsight versions](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
