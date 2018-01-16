@@ -17,15 +17,12 @@ ms.author: bwren
 
 ---
 # Log Analytics log search REST API
-This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS).
 
 > [!IMPORTANT]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to the [documentation for the new version of the log search API](https://dev.loganalytics.io/).  This legacy API may still work with an upgraded workspace, but it will be depracated soon.  You should modify any existing solutions to use the new API.
 
-> [!NOTE]
-> Log Analytics was previously called Operational Insights, which is why it is the name used in the resource provider.
->
->
+This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS).
+
 
 ## Overview of the Log Search REST API
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. This article provides examples of accessing the API through [ARMClient](https://github.com/projectkudu/ARMClient), an open source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights, which includes cmdlets for accessing search. With these tools, you can utilize the Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API outputs search results in JSON format, allowing you to use the search results in many different ways programmatically.
