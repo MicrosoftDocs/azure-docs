@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate images by using custom lists in the API console
+# Moderate with custom images lists in the API console
 
 You can use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
 
