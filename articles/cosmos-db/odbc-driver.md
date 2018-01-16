@@ -38,7 +38,7 @@ Now lets get started with the ODBC driver.
 
     | Installer | Supported operating systems|
     |---|---|
-    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows| Windows 10,Windows server 2012 R2, Windows server 2012, Windows 8.1 or later, Windows 8, Windows 7, Windows server 2008 R2|
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows| Windows 10, Windows server 2012 R2, Windows server 2012, Windows 8.1 or later, Windows 8, Windows 7, Windows server 2008 R2.|
     |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows| All Windows 32-bit operating systems|
     |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows| All Windows 32-bit operating systems|
 
