@@ -1,5 +1,5 @@
 ---
-title: 'FAQ: Azure AD SSPR | Microsoft Docs'
+title: Self-service password reset FAQ - Azure Active Directory
 description: Frequently asked questions about Azure AD self-service password reset
 services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 

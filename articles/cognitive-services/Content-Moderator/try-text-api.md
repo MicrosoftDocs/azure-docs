@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate text by using the online console
+# Moderate text from the API console
 
 Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content. The operation scans your content for profanity, and compares the content against custom and shared blacklists.
 
@@ -45,4 +45,4 @@ Before you can test-drive the API in the online console, you need your subscript
 
 ## Next steps
 
-* Learn how to use the [Image Moderation API](try-image-api.md).
+Use the REST API in your code or start with the [text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) to integrate with your application.

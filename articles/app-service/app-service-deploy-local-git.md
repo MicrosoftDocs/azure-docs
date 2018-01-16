@@ -74,6 +74,7 @@ Perform the following steps to enable a Git repository for your App Service app.
 1. In your App Service app's view, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
+
 1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
 
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
@@ -179,7 +180,7 @@ git config --global http.postBuffer 524288000
 
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
+* [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md)
 * [How to use PowerShell for Azure](/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
