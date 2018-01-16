@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate text with custom term lists in the API console
+# Moderate with custom term lists in the API console
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
