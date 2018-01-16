@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Moderate images by using the API console
+# Moderate images from the API console
 
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator to initiate scan-and-review moderation workflows for image content. The moderation job scans your content for profanity, and compares it against custom and shared blacklists.
 
