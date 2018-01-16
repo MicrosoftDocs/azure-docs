@@ -207,7 +207,7 @@ The following examples provide the steps to delegate subdomains in Azure DNS by 
 
 #### PowerShell
 
-The following PowerShell example demonstrates how this works. You can complete the same steps via the Azure portal, or via the cross-platform Azure CLI.
+The following PowerShell example demonstrates how this works. You can complete the same steps via the Azure portal, or via the cross-platform Azure CLI tool.
 
 ```powershell
 # Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
