@@ -197,7 +197,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
       
        ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Select **SAM Single Sign-on**, and then click **Add**.
+    g. Select **SAML Single Sign-on**, and then click **Add**.
 
     h. Click **Save**.
 
