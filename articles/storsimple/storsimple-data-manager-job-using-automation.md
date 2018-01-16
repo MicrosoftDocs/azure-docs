@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/20/2017
+ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
@@ -30,14 +30,14 @@ This article details how to create an Azure Automation runbook and then use it t
 
 Before you begin, ensure that you have:
 
-*	Azure Powershell installed on the client computer. [Download Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+*	Azure PowerShell installed on the client computer. [Download Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 *	A correctly configured job definition in a StorSimple Data Manager service within a resource group.
 *	Download  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) file from the GitHub repository. 
 *	Download [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script from the GitHub repository.
 
-## Step-by-step
+## Step-by-step procedure
 
-### Set up the Automation Account
+### Set up the Automation account
 
 1. Create an Azure Run As automation account in the Azure portal. To do so, go to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
