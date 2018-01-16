@@ -157,5 +157,3 @@ To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
 
-
-[use the gui](#bkmk_gui)
