@@ -265,6 +265,8 @@
       href: app-insights-analytics-troubleshooting.md
     - name: Java
       href: app-insights-java-troubleshoot.md
+    - name: Usage analytics
+      href: app-insights-usage-troubleshoot.md
 - name: Samples
   items:
   - name: Code samples
