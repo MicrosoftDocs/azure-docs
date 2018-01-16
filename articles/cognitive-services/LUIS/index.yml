@@ -73,7 +73,7 @@ sections:
     - html: Integrate LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
     - html: Build a LUIS app programmatically&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
     - html: Learn synonyms with a phrase list&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list">Luis.ai</a>
-    - html: Gain Application Insights with C# and Functions&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-function-appinsights">.Net</a>
+    - html: Gain Application Insights into LUIS&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-function-appinsights">.Net</a>
 - title: Reference
   items:
   - type: list
