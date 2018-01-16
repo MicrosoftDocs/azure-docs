@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: cherylmc
 
 ---
@@ -33,7 +33,7 @@ A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your vi
 
 Connecting clients can use the following authentication methods:
 
-* RADIUS server - Currently in Preview
+* RADIUS server
 * VPN Gateway native Azure certificate authentication
 
 This article helps you configure a P2S configuration with authentication using the native Azure certificate authentication. If you want to use RADIUS to authenticate connecting users, see [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md).
