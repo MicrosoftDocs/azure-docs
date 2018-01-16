@@ -73,9 +73,74 @@ In this tutorial, you will learn how to create an IoT Edge deployment. The examp
 
 ![Create IoT Edge device][4]
 
-### 5. Apply configuration to the IoT Edge device  
+### 5. Apply configuration to the IoT Edge device
 
-    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\yourLocation\edgeconfig.txt
+Save your deployment JSON template locally as a txt file. You will need the path to the file when you run the apply-configuration command.
+
+Below is a sample deployment JSON template which contains one tempSensor module:
+
+```json
+{
+  "moduleContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": ""
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+              "createOptions": "{}"
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+              "createOptions": "{}"
+            }
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {},
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "tempSensor": {
+      "properties.desired": {}
+    }
+  }
+}
+```
+
+    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<yourLocation>\edgeconfig.txt
 
 ![Apply configuration][5]
 
