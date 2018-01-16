@@ -29,13 +29,11 @@ This article contains an overview of the backup monitor and management tasks ava
 The Recovery Services vault dashboard shows you the details or attributes of a Recovery Services vault.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **More Services**.
-
-    ![Open list of Recovery Services vaults step 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Click **All services**. 
 
 3. You want to open a Recovery Services vault. In the dialog box, start typing **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults** to display the list of Recovery Services vaults in your subscription.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Open list of Recovery Services vaults step 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     The list of Recovery Services vaults opens.
 
