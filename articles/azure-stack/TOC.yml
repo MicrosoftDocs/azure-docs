@@ -10,6 +10,8 @@
       href: azure-stack-asdk-release-notes.md
     - name: Integrated systems release notes
       items:
+      - name: 1712 update
+        href: azure-stack-update-1712.md
       - name: 1711 update
         href: azure-stack-update-1711.md
       - name: 1710 update
@@ -121,6 +123,21 @@
         href: azure-stack-replace-disk.md
       - name: Replace component
         href: azure-stack-replace-component.md
+    - name: Back up Azure Stack
+      href: azure-stack-backup-infrastructure-backup.md
+      items:
+      - name: Enable Backup for Azure Stack from the administration console
+        href: azure-stack-backup-enable-backup-console.md
+      - name: Enable Backup for Azure Stack with PowerShell
+        href: azure-stack-backup-enable-backup-powershell.md
+      - name: Back up Azure Stack
+        href: azure-stack-backup-back-up-azure-stack.md
+      - name: Recover from catastrophic data loss
+        href: azure-stack-backup-recover-data.md
+      - name: Backup best practices
+        href: azure-stack-backup-best-practices.md
+      - name: Backup reference
+        href: azure-stack-backup-reference.md
   - name: Security, compliance & identity
     items:
     - name: Security overview
@@ -137,6 +154,8 @@
         href: Azure-stack-create-service-principals.md
       - name: Enable multi-tenancy
         href: azure-stack-enable-multitenancy.md
+    - name: Rotate secrets
+      href: azure-stack-rotate-secrets.md
   - name: Offer services
     items:
     - name: Overview of offering services
@@ -231,6 +250,8 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
+    - name: Validation for Azure Stack
+      href: azure-stack-diagnostic-test.md
     - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference

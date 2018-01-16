@@ -1,5 +1,5 @@
 ---
-title: Guest operating system support for Azure Stack | Microsoft Docs
+title: Supported guest operating systems for Azure Stack | Microsoft Docs
 description: These Guest operating systems can be used on Azure Stack.
 services: azure-stack
 documentationcenter: ''

@@ -12,7 +12,7 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
 ---
@@ -84,10 +84,6 @@ All the automation tasks you perform against resources using the Azure cmdlets i
 * **Runbooks** - are a set of tasks that perform some automated process in Azure Automation based on Windows PowerShell.    
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. Create Automation accounts in different regions if you have policies that require data and resources to be isolated to a specific region.
-
-> [!NOTE]
-> Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
-> 
 
 When you create an Automation account in the Azure portal, you automatically create two authentication entities:
 

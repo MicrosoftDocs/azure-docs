@@ -4,7 +4,7 @@ description: Learn how to log support request and start a support session on you
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
 
 ---
@@ -94,7 +94,7 @@ Perform the following steps to start a support session:
 
 #### To start a support session
 
-1. Access the device directly by using the serial console or through a telnet session from a remote computer. To do this, follow the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Access the device directly by using the serial console or through a telnet session from a remote computer. To do this, follow the steps in [Use PuTTY to connect to the device serial console](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. In the session that opens, press the **Enter** key to get a command prompt.
 3. In the serial console menu, select option 1, **Log in with full access**.
 4. At the prompt, type the following password:
@@ -112,4 +112,4 @@ Perform the following steps to start a support session:
 
 ## Next steps
 
-Learn how to [diagnose and solve problems related to your StorSimple 8000 series device](storsimple-troubleshoot-deployment.md)
+Learn how to [diagnose and solve problems related to your StorSimple 8000 series device](storsimple-8000-troubleshoot-deployment.md)
