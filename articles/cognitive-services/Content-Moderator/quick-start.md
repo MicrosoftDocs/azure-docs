@@ -16,12 +16,12 @@ ms.author: sajagtap
 
 You get started with Content Moderator APIs and review tool in the following ways:
 
-- [Use the review tool](#use-the-review-tool) to create both, the API keys and a review team.
-- [Use the Azure portal](#use-the-azure-portal) to subscribe to the APIs. You still need to sign up online to create a review team.
+- [Start with the review tool](#start-with-the-review-tool) to create both, the API keys and a review team.
+- [Start with the Azure portal](#start-with-the-azure-portal) to subscribe to the APIs. You still need to sign up online to create a review team.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
-## Use the review tool
+## Start with the review tool
 [Sign up](http://contentmoderator.cognitive.microsoft.com/) on the Content Moderator review tool web site.
 
 ![Content Moderator Home Page](images/homepage.PNG)
@@ -46,8 +46,18 @@ Review the auto-moderated tags, change if needed, and submit by using the **Next
 
 ![Review results](images/reviewresults.png)
 
-## Use the Azure portal
+### Next steps
 
-[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already.
+Learn how to use all the review tool's features or continue with the next section to learn about the APIs. Skip the sign up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
 
-Once you have explored the review tool, test drive the [Content Moderator APIs](api-reference.md), starting with the [Image moderation API](try-image-api.md) to scan your images, text, and videos in bulk and optionally, create reviews for human moderators.
+## Start with the Azure portal
+
+[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. You need to create an Azure account if you do not have one already. Browse all the [Content Moderator APIs](api-reference.md) and start with the one that you are interested in.
+
+### Use the image moderation APIs
+
+### Use the text moderation APIs
+
+### Use the video moderation API
+
+### Use the review APIs
