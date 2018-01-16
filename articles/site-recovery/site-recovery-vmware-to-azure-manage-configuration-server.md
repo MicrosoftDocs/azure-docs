@@ -5,23 +5,23 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/15/2017
 ms.author: anoopkv
 ---
 
-# Manage a Configuration Server
+# Manage the configuration server
 
-When you set up disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) service, an on-premises configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
+You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
-## Modify the VMware server
+## Modify VMware settings
 
 Modify settings for the VMware server to which the configuration server connects.
 
 1. Log onto the machine running the configuration server.
 2. Launch Azure Site Recovery Configuration Manager from the desktop shortcut. Or, open **https://configuration-server-name/IP:44315**.
 3. Click **Manage vCenter Server/vSPhere ESXi server**:
-    - To update the VMware server to which the configuration server connects for automatic discovery of VMs, click **Add vCenter Server/vSphere ESXi server**, and specify the server details.
-    - To update the credentials used to connect to the VMware server, click **Edit**, and specify the new credentials. Then click **OK** to update the settings.
+    - To associate a different VMware server with the configuration server, click **Add vCenter Server/vSphere ESXi server**, and specify the server details.
+    - To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, click **Edit**. Specify the new credentials, and then click **OK**.
 
         ![Modify VMware](./media/site-recovery-vmware-to-azure-manage-configuration-server/modify-vmware-server.png)
 
@@ -43,6 +43,12 @@ Modify the proxy settings used by the configuration server machine for internet 
 2. Launch Azure Site Recovery Configuration Manager from the desktop shortcut. Or, open **https://configuration-server-name/IP:44315**.
 3. Click **Manage connectivity**, and update the proxy values. Then click **Save** to update the settings.
 
+## Add a network adapter
+
+The OVF template deploys the configuration server VM with a single network adapter. You can [add an additional adapter to the VM)](how-to-deploy-configuration-server.md#add-an-additional-adapter), but you need to do this before you register the configuration server in the vault.
+
+If you need to add an adapter after you've registered the configuration server in the vault, you need to add the adapter in the VM properties, and then reregister the server in the vault.
+
 
 ## Reregister a configuration server in the same vault
 
@@ -63,7 +69,7 @@ You can reregister the configuration server in the same vault if you need to. f 
       net start obengine
       ```
 
-## Delete or unregister the configuration server
+## Delete or unregister a configuration server
 
 1. Disable [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all replication policies from the configuration server.
@@ -115,10 +121,13 @@ For configuration server deployments before May 2016, certificate expiry was set
 - A notification banner appears on the vault resource page. Click the banner for more details.
 - If you see an **Upgrade Now** button, this indicates that there are some components in your environment that haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade components before you renew the certificate. You can't renew on older versions.
 
-## Renew the certificate
+### Renew the certificate
 
 1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**, and click the required configuration server.
 2. The expiry date appears under **Configuration Server health**
 3. Click **Renew Certificates**. 
 
 
+## Next steps
+
+Review the tutorials for setting up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and physical servers(tutorial-physical-to-azure.md) to Azure.

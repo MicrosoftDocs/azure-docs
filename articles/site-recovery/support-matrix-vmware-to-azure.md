@@ -26,7 +26,7 @@ This article summarizes supported components and settings for disaster recovery 
 ## On-premises virtualization servers
 
 **Server** | **Requirements** | **Details**
---- | ---
+--- | --- | ---
 **VMware** | vCenter Server 6.5, 6.0 or 5.5 or vSphere 6.5, 6.0, 5.5 | We recommend you use a vCenter server
 **Physical servers** | NA
 

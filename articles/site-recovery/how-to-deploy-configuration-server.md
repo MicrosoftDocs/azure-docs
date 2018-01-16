@@ -6,19 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/15/2018
 ms.author: anoopkv
 ---
 
 # Deploy a configuration server
 
-When you set up disaster recovery to Azure for on-premises VMware VMs, and physical Windows/Linux servers with the [Azure Site Recovery](site-recovery-overview.md) service, you deploy an on-premises configuration server machine. The configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article walks you through the steps needed to deploy the configuration server.
+You deploy an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs and physical servers to Azure. WThe configuration server coordinates communications between on-premises VMware and Azure, and manages data replication. This article walks you through the steps needed to deploy the configuration server.
 
 ## Prerequisites
 
 We recommend that you deploy the configuration server as a highly available VMware VM. For physical server replication, the configuration server can be set up on a physical machine. Minimum hardware requirements are summarized in the following table.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+
 
 
 ## Capacity planning
@@ -46,20 +48,35 @@ Site Recovery provides a downloadable template to set up the configuration serve
 4. Download the Open Virtualization Format (OVF) template for the configuration server.
 
   > [!TIP]
-  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](http://aka.ms/unifiedsetup)
+  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver)
 
 
 ## Import the template in VMware
 
+
 1. Log onto the VMware vCenter server or vSphere ESXi host, using the VMWare vSphere Client.
-2. On the File menu, select **Deploy OVF Template**, to launch the Deploy OVF Template wizard.  
+2. On the **File** menu, select **Deploy OVF Template**, to launch the Deploy OVF Template wizard.  
 
-     ![OVF template](./media/how-to-deploy-configuration-server/vcenter-wizard.png)
-3. In the wizard > **Disk Format**, we recommend you choose the option **Thick Provision Eager Zeroed** for best performance.
-4. In **Ready to Complete**, don't select **Power on after deployment** if you want to add an additional NIC to the VM. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
+     ![OVF template](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 
-> [!NOTE]
-  You can't add an additional NIC after the configuration server is registered in the vault.
+3. In **Select source**, specify the location of the downloaded OVF.
+4. In **Review details**, click **Next**.
+5. In **Select name and folder**, and **Select configuration**, accept the default settings.
+6. In **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
+4. In the rest of the wizard pages, accept the default settings.
+5. In **Ready to complete**:
+  - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+  - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
+
+
+## Add an additional adapter
+
+If you want to add an additional NIC to the configuration server, do that before you register the server in the vault. Adding additional adapters isn't supported after registration.
+
+1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
+2. In **Hardware**, click **Add** > **Ethernet Adapter**. Then click **Next**.
+3. Select and adapter type, and a network. 
+4. To connect the virtual NIC when the VM is turned on, select **Connect at power on**. Click **Next** > **Finish**, and then click **OK**.
  
 
 ## Register the configuration server 
@@ -89,4 +106,10 @@ Site Recovery provides a downloadable template to set up the configuration serve
 
 ## Troubleshoot deployment issues
 
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issue
+[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
+
+
+
+## Next steps
+
+Review the tutorials for setting up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and [physical servers](tutorial-physical-to-azure.md) to Azure.

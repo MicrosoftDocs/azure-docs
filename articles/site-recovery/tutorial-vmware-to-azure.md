@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/11/2018
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -57,7 +57,7 @@ To set up the configuration server as a highly-available VMware VM, you download
 4. Download the Open Virtualization Format (OVF) template for the configuration server.
 
   > [!TIP]
-  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](http://aka.ms/unifiedsetup).
+  The latest version of the configuration server template can be downloaded directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ## Import the template in VMware
 
@@ -66,11 +66,25 @@ To set up the configuration server as a highly-available VMware VM, you download
 
      ![OVF template](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 
-3. In the wizard > **Disk Format**, we recommend you choose the option **Thick Provision Eager Zeroed** for best performance.
-4. In **Ready to Complete**, don't select **Power on after deployment** if you want to add an additional NIC to the VM. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
+3. In **Select source**, specify the location of the downloaded OVF.
+4. In **Review details**, click **Next**.
+5. In **Select name and folder**, and **Select configuration**, accept the default settings.
+6. In **Select storage**, for best performance select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
+4. In the rest of the wizard pages, accept the default settings.
+5. In **Ready to complete**:
+  - To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+  - If you want to add an additional network interface, clear **Power on after deployment**, and then select **Finish**. By default, the configuration server template is deployed with a single NIC, but you can add additional NICs after deployment.
 
-> [!NOTE]
-  You can't add an additional NIC after the configuration server is registered in the vault.
+  
+## Add an additional adapter
+
+If you want to add an additional NIC to the configuration server, do that before you register the server in the vault. Adding additional adapters isn't supported after registration.
+
+1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
+2. In **Hardware**, click **Add** > **Ethernet Adapter**. Then click **Next**.
+3. Select and adapter type, and a network. 
+4. To connect the virtual NIC when the VM is turned on, select **Connect at power on**. Click **Next** > **Finish**, and then click **OK**.
+
 
 ## Register the configuration server 
 
