@@ -1,4 +1,4 @@
-﻿---
+---
 title: Local Git Deployment to Azure App Service
 description: Learn how to enable local Git deployment to Azure App Service.
 services: app-service
@@ -40,8 +40,8 @@ To complete this tutorial, you need:
 Perform the following tasks to create a new Git repository.
 
 1. Start a command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
-2. Navigate to the directory where the content to deploy would be located.
-3. Use the following command to initialize a new Git repository:
+1. Navigate to the directory where the content to deploy would be located.
+1. Use the following command to initialize a new Git repository:
 
 ```bash
 git init
@@ -54,13 +54,13 @@ App Service supports applications created in a variety of programming languages.
 1. If your repository does not already include content simply populate with a static .html file as follows; or skip this step:
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
-2. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
+1. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
 
 ```bash
 git add -A
 ```
 
-3. Next, commit the changes to the repository by using the following command:
+1. Next, commit the changes to the repository by using the following command:
 
 ```bash
 git commit -m "Hello Azure App Service"
@@ -71,10 +71,10 @@ git commit -m "Hello Azure App Service"
 Perform the following steps to enable a Git repository for your App Service app.
 
 1. Log in to the [Azure portal].
-2. In your App Service app's view, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.
+1. In your App Service app's view, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
-3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
 
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -87,8 +87,8 @@ Use the following steps to publish your app to App Service using Local Git.
     ![](./media/app-service-deploy-local-git/git_url.png)
 
     **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
-2. Using the command line, verify that you are in the root of your local Git repository.
-3. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command looks similar to the following:
+1. Using the command line, verify that you are in the root of your local Git repository.
+1. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command looks similar to the following:
 
         git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
 
@@ -96,18 +96,18 @@ Use the following steps to publish your app to App Service using Local Git.
    > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
    >
 
-4. Push your content to App Service using the new **azure** remote you created.
+1. Push your content to App Service using the new **azure** remote you created.
 
 ```bash
 git push azure master
 ```
 
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
-5. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.
+1. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 
-6. Click the **Browse** button at the top of the app's blade to verify the content has been deployed.
+1. Click the **Browse** button at the top of the app's blade to verify the content has been deployed.
 
 ## <a name="Step5"></a>Troubleshooting
 
