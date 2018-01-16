@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/28/2017
+ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
@@ -21,9 +21,9 @@ ms.author: alkohli
 
 ## Overview
 
-This article explains how you can use the data transformation feature within the StorSimple Data Manager service to transform StorSimple device data. The transformed data is then consumed by other Azure services in the cloud. 
+This article explains how you can use the data transformation feature within the StorSimple Data Manager service to transform StorSimple device data. The transformed data is then consumed by other Azure services in the cloud.
 
-You can launch a data transformation job in two ways: 
+You can launch a data transformation job in two ways:
 
  - Use the .NET SDK
  - Use Azure Automation runbook
@@ -42,13 +42,13 @@ Before you begin, ensure that you have:
 *	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *	[`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.
 
-## Step-by-step
+## Step-by-step procedure
 
 Perform the following steps to use .NET to launch a data transformation job.
 
 1. To retrieve the configuration parameters, do the following steps:
-    1. Download the `Get-ConfigurationParams.ps1` from the github repository script in `C:\DataTransformation` location.
-    1. Run the `Get-ConfigurationParams.ps1` script from the github repository. Type the following command:
+    1. Download the `Get-ConfigurationParams.ps1` from the GitHub repository script in `C:\DataTransformation` location.
+    1. Run the `Get-ConfigurationParams.ps1` script from the GitHub repository. Type the following command:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
@@ -66,7 +66,7 @@ Perform the following steps to use .NET to launch a data transformation job.
 3. Using Visual Studio 2012, 2013 or 2015, create a C# .NET console application.
 
     1. Launch **Visual Studio 2012/2013/2015**.
-    1. Selelct **File > New > Project**.
+    1. Select **File > New > Project**.
 
         ![Create a project 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
     2. Select **Installed > Templates > Visual C# > Console Application**.

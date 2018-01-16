@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/19/2017
+ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
 # Change a blob path from the default path
 
-When the StorSimple Data Manager service transforms the data, by default it places the transformed blobs in a storage container as specified during the creation of the target repository. As the blobs arrive at this location, you may want to move these blobs to an alternate location. This article describes how to set up an Azure function to rename a default blob file path and hence move the blobs to a different location. 
+When the StorSimple Data Manager service transforms the data, by default it places the transformed blobs in a storage container as specified during the creation of the target repository. As the blobs arrive at this location, you may want to move these blobs to an alternate location. This article describes how to set up an Azure function to rename a default blob file path and hence move the blobs to a different location.
 
 ## Prerequisites
 
