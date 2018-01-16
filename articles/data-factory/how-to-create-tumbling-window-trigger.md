@@ -71,18 +71,18 @@ The following table provides a high-level overview of the major JSON elements th
 
 | JSON element | Description | Type | Allowed values | Required |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Type of the trigger. The type uses the fixed value "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Yes |
-| **runtimeState** | The current state of the trigger run time.<br>**Note**: This element is \<readOnly>. | String | "Started," "Stopped," "Disabled" | Yes |
+| **type** | The type of the trigger. The type is the fixed value "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Yes |
+| **runtimeState** | The current state of the trigger run time.<br/>**Note**: This element is \<readOnly>. | String | "Started," "Stopped," "Disabled" | Yes |
 | **frequency** | A string that represents the frequency unit (minutes or hours) at which the trigger recurs. If the **startTime** date values are more granular than the **frequency** value, the **startTime** dates are considered when the window boundaries are computed. For example, if the **frequency** value is hourly and the **startTime** value is 2016-04-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute," "hour"  | Yes |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "hour," the trigger recurs every 3 hours. | Integer | A positive integer. | Yes |
 | **startTime**| The first occurrence, which can be in the past. The first trigger interval is (**startTime**, **startTime** + **interval**). | DateTime | A DateTime value. | Yes |
 | **endTime**| The last occurrence, which can be in the past. | DateTime | A DateTime value. | Yes |
-| **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn’t alter the window **startTime**. (For example, a **delay** value of 00:10:00 implies a delay of 10 minutes.) | Timespan  | A time value where the default is 00:00:00. | No |
+| **delay** | The amount of time to delay the start of data processing for the window. The pipeline run is started after the expected execution time plus the amount of **delay**. The **delay** defines how long the trigger waits past the due time before triggering a new run. The **delay** doesn’t alter the window **startTime**. For example, a **delay** value of 00:10:00 implies a delay of 10 minutes. | Timespan  | A time value where the default is 00:00:00. | No |
 | **maxConcurrency** | The number of simultaneous trigger runs that are fired for windows that are ready. For example, to back fill hourly runs for yesterday results in 24 windows. If **maxConcurrency** = 10, trigger events are fired only for the first 10 windows (00:00-01:00 - 09:00-10:00). After the first 10 triggered pipeline runs are complete, trigger runs are fired for the next 10 windows (10:00-11:00 - 19:00-20:00). Continuing with this example of **maxConcurrency** = 10, if there are 10 windows ready, there are 10 total pipeline runs. If there's only 1 window ready, there's only 1 pipeline run. | Integer | An integer between 1 and 50. | Yes |
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed."  | Integer | An integer, where the default is 0 (no retries). | No |
 | **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. | No |
 
-### System variables: WindowStart and WindowEnd
+### WindowStart and WindowEnd system variables
 
 You can use the **WindowStart** and **WindowEnd** system variables of the tumbling window trigger in your **pipeline** definition (that is, for part of a query). Pass the system variables as parameters to your pipeline in the **trigger** definition. The following example shows you how to pass these variables as parameters:
 
@@ -118,7 +118,7 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 ### Execution order of windows in a backfill scenario
 When there are multiple windows up for execution (especially in a backfill scenario), the order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
-### Existing TriggerResource element updates
+### Existing TriggerResource elements
 The following points apply to existing **TriggerResource** elements:
 
 * If the value for the **frequency** element (or window size) of the trigger changes, the state of the windows that are already processed is *not* reset. The trigger continues to fire for the windows from the last window that it executed by using the new window size.
@@ -193,7 +193,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-    To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## Next steps
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
