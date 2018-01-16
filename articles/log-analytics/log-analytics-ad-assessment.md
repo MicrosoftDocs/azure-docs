@@ -105,7 +105,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ### To view recommendations for a focus area and take corrective action
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
 4. On the **Overview** page, click the **AD Health Check** tile. 
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.

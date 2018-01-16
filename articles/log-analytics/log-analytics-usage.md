@@ -41,7 +41,7 @@ The **Log Analytics usage** dashboard displays the following information:
 
 ### To work with usage data
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
-2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
+2. Click **All services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
     ![Azure hub](./media/log-analytics-usage/hub.png)
 3. The **Log Analytics** dashboard shows a list of your workspaces. Select a workspace.
 4. In the *workspace* dashboard, click **Log Analytics usage**.
