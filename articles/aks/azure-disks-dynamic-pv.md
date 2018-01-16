@@ -29,7 +29,7 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
-If these storage classes work for your needs, you do not need to created a new one.
+If these storage classes work for your needs, you do not need to create a new one.
 
 ## Create storage class
 
