@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/10/2018
+ms.date: 01/16/2018
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
