@@ -46,8 +46,6 @@ Review the auto-moderated tags, change if needed, and submit by using the **Next
 
 ![Review results](images/reviewresults.png)
 
-### Next steps
-
 Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
 
 ## Start with the APIs
