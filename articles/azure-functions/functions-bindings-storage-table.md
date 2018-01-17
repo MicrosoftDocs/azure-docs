@@ -631,6 +631,10 @@ The Table storage output binding supports the following scenarios:
 
   In JavaScript functions, access the table output using `context.bindings.<name>`.
 
+## Known Errors
+
+[!INCLUDE [Functions Binding Table Storage Errors](../../includes/functions-bindings-storage-table-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

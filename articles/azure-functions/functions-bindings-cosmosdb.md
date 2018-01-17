@@ -745,6 +745,10 @@ By default, when you write to the output parameter in your function, a document 
 > [!Note]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document. 
 
+## Known Errors
+
+[!INCLUDE [cosmos-db-errors](../../includes/functions-bindings-cosmos-db-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

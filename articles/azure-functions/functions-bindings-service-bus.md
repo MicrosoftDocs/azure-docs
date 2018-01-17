@@ -467,6 +467,10 @@ For creating multiple messages in a C# or C# script function, you can use `IColl
 
 In JavaScript, access the queue or topic by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*. You can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<name>`.
 
+## Known Errors
+
+[!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

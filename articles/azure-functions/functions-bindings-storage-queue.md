@@ -456,6 +456,11 @@ In C# and C# script, write multiple queue messages by using one of the following
 
 In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
 
+
+## Known Errors
+
+[!INCLUDE [Functions Binding Queue Storage Errors](../../includes/functions-bindings-storage-queue-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

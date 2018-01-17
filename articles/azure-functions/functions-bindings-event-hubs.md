@@ -404,6 +404,10 @@ In C# and C# script, send messages by using a method parameter such as `out stri
 
 In JavaScript, access the output event by using `context.bindings.<name>`. `<name>` is the value specified in the `name` property of *function.json*.
 
+## Known Errors
+
+[!INCLUDE [event-hub-errors](../../includes/functions-bindings-event-hub-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

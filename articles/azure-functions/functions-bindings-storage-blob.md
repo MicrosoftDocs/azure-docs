@@ -722,6 +722,10 @@ If you are reading text blobs, you can bind to a `string` type. This type is onl
 
 In JavaScript, access the blob data using `context.bindings.<name>`.
 
+## Known Errors
+
+[!INCLUDE [Functions Binding Blob Storage Errors](../../includes/functions-bindings-storage-blob-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

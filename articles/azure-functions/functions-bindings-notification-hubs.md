@@ -318,6 +318,10 @@ The name of this application setting is what goes in the output binding connecti
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+## Known Errors
+
+[!INCLUDE [notification-hub-errors](../../includes/functions-bindings-notification-hub-errors.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
