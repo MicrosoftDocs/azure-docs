@@ -54,4 +54,4 @@ In this sample script, change the highlighted lines to customize the admin usern
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh "Delete the resource group.")]
+[!code-azurecli-interactive[main](../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh "Delete the resource group.")]
