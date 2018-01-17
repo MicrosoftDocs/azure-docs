@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: storage
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 01/16/2018
 ms.author: tamram
 ---
 
@@ -43,7 +43,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 ## Locally-redundant storage
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-## Zone-redundant storage (Preview)
+## Zone-redundant storage
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
