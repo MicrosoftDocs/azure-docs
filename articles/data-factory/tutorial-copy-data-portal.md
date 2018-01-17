@@ -345,7 +345,7 @@ In this step, you manually trigger the pipeline you published in the previous st
 2. Switch to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the Actions column to view activity details and to rerun the pipeline.
 
     ![Monitor pipeline run](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. To see activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view.
+3. To see activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view. To refresh the view, click **Refresh**.
 
     ![View activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Verify that two more rows are added to the **emp** table in the Azure SQL database. 
