@@ -156,6 +156,10 @@ In addition, a Consumption plan requires two additional settings in the site con
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
                     "value": "~1"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "6.5.0"
                 }
             ]
         }
@@ -215,7 +219,8 @@ A function app has many child resources that you can use in your deployment, inc
         "alwaysOn": true,
         "appSettings": [
             { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~1" },
-            { "name": "Project", "value": "src" }
+            { "name": "Project", "value": "src" },
+            { "name": "WEBSITE_NODE_DEFAULT_VERSION", "value": "6.5.0" }
         ]
      }
   },
