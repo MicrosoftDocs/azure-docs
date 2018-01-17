@@ -58,7 +58,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Container Service (AKS)](#container-service-limits)
+* [Container Service (AKS) limits](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
