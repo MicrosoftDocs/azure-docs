@@ -39,10 +39,11 @@
 
 # How-to guides
 ## Plan
-### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
+### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
+### [Compare message and event routing](iot-hub-event-grid-routing-comparison.md)
 ## [Develop](iot-hub-how-to.md)
 ### [Developer guide](iot-hub-devguide.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
@@ -50,6 +51,7 @@
 #### [Send and receive messages](iot-hub-devguide-messaging.md)
 ##### [Send device-to-cloud messages to IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md)
+##### [React to IoT Hub events](iot-hub-event-grid.md)
 ##### [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md)
 ##### [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md)
