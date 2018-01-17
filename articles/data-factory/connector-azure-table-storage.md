@@ -30,7 +30,7 @@ This article outlines how to use the Copy activity in Azure Data Factory to copy
 
 You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Table storage connector supports copying data by using account key and service shared access signature authentications.
+Specifically, this Azure Table connector supports copying data by using account key and service shared access signature authentications.
 
 ## Get started
 
@@ -122,9 +122,9 @@ When you create a shared access signature URI, consider the following points:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by the Table storage dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Azure Table dataset.
 
-To copy data to and from Table storage, set the type property of the dataset to **AzureTable**. The following properties are supported.
+To copy data to and from Azure Table, set the type property of the dataset to **AzureTable**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -152,7 +152,7 @@ To copy data to and from Table storage, set the type property of the dataset to 
 
 ### Schema by Data Factory
 
-For schema-free data stores such as Table storage, Data Factory infers the schema in one of the following ways:
+For schema-free data stores such as Azure Table, Data Factory infers the schema in one of the following ways:
 
 * If you specify the structure of data by using the **structure** property in the dataset definition, Data Factory honors this structure as the schema. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
 * If you don't specify the structure of data by using the **structure** property in the dataset definition, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema, some columns are missed in the result of the copy operation.
@@ -161,11 +161,11 @@ For schema-free data sources, the best practice is to specify the structure of d
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Table storage source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure Table source and sink.
 
-### Table storage as a source
+### Azure Table as a source type
 
-To copy data from Table storage, set the source type in the Copy activity to **AzureTableSource**. The following properties are supported in the Copy activity source section.
+To copy data from Azure Table, set the source type in the Copy activity to **AzureTableSource**. The following properties are supported in the Copy activity source section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -175,13 +175,13 @@ To copy data from Table storage, set the source type in the Copy activity to **A
 
 ### azureTableSourceQuery examples
 
-If the Table storage column is of the datetime type:
+If the Azure Table column is of the datetime type:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-If the Table storage column is of the string type:
+If the Azure Table column is of the string type:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
@@ -189,9 +189,9 @@ If the Table storage column is of the string type:
 
 If you use the pipeline parameter, cast the datetime value to proper format according to the previous samples.
 
-### Table storage as a sink
+### Azure Table as a sink type
 
-To copy data to Table storage, set the sink type in the Copy activity to **AzureTableSink**. The following properties are supported in the Copy activity sink section.
+To copy data to Azure Table, set the sink type in the Copy activity to **AzureTableSink**. The following properties are supported in the Copy activity sink section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -199,9 +199,9 @@ To copy data to Table storage, set the sink type in the Copy activity to **Azure
 | azureTableDefaultPartitionKeyValue |The default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify the name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify the name of the column whose column values are used as the row key. If not specified, use a GUID for each row. |No |
-| azureTableInsertType |The mode to insert data into Table storage. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or replace entity](https://msdn.microsoft.com/library/azure/hh452242.aspx). |No |
-| writeBatchSize |Inserts data into the table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are integer (number of rows). |No (default is 10,000) |
-| writeBatchTimeout |Inserts data into the table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are timespan. An example is "00:20:00" (20 minutes). |No (default is 90 seconds, storage client's default timeout) |
+| azureTableInsertType |The mode to insert data into Azure Table. This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>Allowed values are **merge** (default) and **replace**. <br/><br> This setting applies at the row level not the table level. Neither option deletes rows in the output table that do not exist in the input. To learn about how the merge and replace settings work, see [Insert or merge entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or replace entity](https://msdn.microsoft.com/library/azure/hh452242.aspx). |No |
+| writeBatchSize |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are integer (number of rows). |No (default is 10,000) |
+| writeBatchTimeout |Inserts data into Azure Table when writeBatchSize or writeBatchTimeout is hit.<br/>Allowed values are timespan. An example is "00:20:00" (20 minutes). |No (default is 90 seconds, storage client's default timeout) |
 
 **Example:**
 
@@ -258,13 +258,13 @@ In the following example, source column DivisionID is mapped to the destination 
 }
 ```
 
-## Data type mapping for Table storage
+## Data type mapping for Azure Table
 
-When you copy data from and to Table storage, the following mappings are used from Table storage data types to Data Factory interim data types. To learn about how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from and to Azure Table, the following mappings are used from Azure Table data types to Data Factory interim data types. To learn about how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-When you move data to and from Table storage, the following [mappings defined by Table storage](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Table storage OData types to .NET type and vice versa.
+When you move data to and from Azure Table, the following [mappings defined by Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
 
-| Table storage data type | Data Factory interim data type | Details |
+| Azure Table data type | Data Factory interim data type | Details |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |An array of bytes up to 64 KB. |
 | Edm.Boolean |bool |A Boolean value. |

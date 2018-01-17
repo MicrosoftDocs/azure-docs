@@ -27,12 +27,12 @@ This article outlines how to use the Copy activity in Azure Data Factory to copy
 
 You can copy data from any supported source data store to Blob storage. You also can copy data from Blob storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
-Specifically, this blob connector supports:
+Specifically, this Azure Blob connector supports:
 
 - Copying blobs to and from general purpose Azure Storage accounts and hot/cool blob storage. 
 - Copying blobs by using both account key and service shared access signature authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
-- Copying blobs as is or parsing/generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Get started
 
@@ -44,7 +44,7 @@ The following sections provide details about properties that are used to define 
 
 ### Use an account key
 
-You can create a Storage linked service by using the account key. It provides the data factory with global access to Storage. The following properties are supported:
+You can create a Storage linked service by using the account key. It provides the data factory with global access to Storage. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -87,7 +87,7 @@ A shared access signature provides delegated access to resources in your storage
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-To use service shared access signature authentication, the following properties are supported:
+To use service shared access signature authentication, the following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -120,13 +120,13 @@ When you create a shared access signature URI, consider the following points:
 
 - Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used in your data factory.
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
-- The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to a blob container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
+- The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to an Azure Blob container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by the blob dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Azure Blob dataset.
 
-To copy data to and from a blob, set the type property of the dataset to **AzureBlob**. The following properties are supported.
+To copy data to and from Azure Blob, set the type property of the dataset to **AzureBlob**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -166,11 +166,11 @@ To copy data to and from a blob, set the type property of the dataset to **Azure
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). This section provides a list of properties supported by the blob source and sink.
+For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). This section provides a list of properties supported by the Azure Blob source and sink.
 
-### A blob as a source
+### Azure Blob as a source type
 
-To copy data from a blob, set the source type in the Copy activity to **BlobSource**. The following properties are supported in the Copy activity source section.
+To copy data from Azure Blob, set the source type in the Copy activity to **BlobSource**. The following properties are supported in the Copy activity source section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -209,9 +209,9 @@ To copy data from a blob, set the source type in the Copy activity to **BlobSour
 ]
 ```
 
-### A blob as a sink
+### Azure Blob as a sink type
 
-To copy data to the blob, set the sink type in the Copy activity to **BlobSink**. The following properties are supported in the sink section.
+To copy data to Azure Blob, set the sink type in the Copy activity to **BlobSink**. The following properties are supported in the sink section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
