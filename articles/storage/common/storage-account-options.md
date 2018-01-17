@@ -50,7 +50,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 To upgrade a GPv1 account to a GPv2 account using Azure CLI, use the following command, substituting the name of your resource group and storage account:
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --default-action Allow
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 The ability to upgrade Blob Storage Accounts to GPv2 is coming soon.
 
