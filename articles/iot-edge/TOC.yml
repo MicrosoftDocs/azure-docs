@@ -25,7 +25,7 @@
   - name: Deploy Azure Functions
     href: tutorial-deploy-function.md
   - name: Create an IoT Edge deployment using IoT extension for Azure CLI 2.0
-    href: tutorial-create-deployment-with-cli-extension.md
+    href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: How-to guides
   items:
   - name: Create gateways

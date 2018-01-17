@@ -162,10 +162,10 @@ In this tutorial, you created an Azure Function that contains code to filter raw
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-cli-extension/login.jpg
-[2]: ./media/tutorial-create-deployment-with-cli-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-cli-extension/create-hub.jpg
-[4]: ./media/tutorial-create-deployment-with-cli-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-cli-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-cli-extension/list-modules.PNG
+[1]: ./media/tutorial-create-deployment-with-cli-iot-extension/login.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
+[3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
+[4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
+[5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
 
