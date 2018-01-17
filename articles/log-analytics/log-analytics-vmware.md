@@ -188,12 +188,13 @@ There can be multiple reasons:
   1. Log Analytics listens to the port 1514. To verify that it is open, run the following command: `netstat -a | grep 1514`
   2. You should see port `1514/tcp` open. If you do not, verify that the omsagent is installed correctly. If you do not see the port information, then the syslog port is not open on the VM.
 
-     1. Verify that the OMS Agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
-     2. Open the `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` file.
+    a. Verify that the OMS Agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-         Verify that the proper user and group setting is valid, similar to: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    b. Open the `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` file.
 
-         If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
+    c. Verify that the proper user and group setting is valid, similar to: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+    d. If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
 * Use [Log Searches](log-analytics-log-searches.md) in Log Analytics to view detailed VMware host data.
