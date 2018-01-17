@@ -14,7 +14,7 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-
+ms.custom: seohack1
 ---
 
 # The elements of the B2B collaboration invitation email - Azure Active Directory
