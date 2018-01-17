@@ -52,6 +52,8 @@ Additionally, with our [Enterprise Integration Account][biztalk] you can scale t
 * **Extensibility baked-in** - Don't see the connector you need? Logic Apps is designed to work with your own APIs and code; you can easily create your own API app to use as a custom connector, or call into an [Azure Function](https://functions.azure.com) to execute snippets of code on-demand. 
 * **Real integration horsepower** - Start easy and grow as you need. Logic Apps can easily leverage the power of BizTalk, Microsoft's industry leading integration solution to enable integration professionals to build the solutions they need. Find out more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
+<a name="logic-app-concepts"></a>
+
 ## Logic App Concepts
 The following are some of the key pieces that comprise the Logic Apps experience. 
 
