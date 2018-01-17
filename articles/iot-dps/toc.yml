@@ -77,6 +77,8 @@
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
     href: how-to-control-access.md
+  - name: Use Azure CLI 2.0 and the IoT extension to manage device provisioning service
+    href: how-to-use-cli-to-manage-dps.md
 - name: Reference
   items:
   - name: REST
