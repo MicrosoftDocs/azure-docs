@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/20/2017
+ms.date: 01/17/2018
 ms.author: jgao
 
 ---
@@ -54,10 +54,10 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
     * **SSH username and password**: The default username is **sshuser**.  You can rename it. 
      
     Some properties have been hardcoded in the template.  You can configure these values from the template.
-
+    
     Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
-     
-     For more explanation of these properties, see [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+        
+    For more explanation of these properties, see [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. 
 
@@ -85,6 +85,8 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 4. In the **QUERY** tab, paste the following HiveQL statements into the worksheet:
    
         SHOW TABLES;
+
+    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive View Query Editor")
    
    > [!NOTE]
    > Semi-colon is required by Hive.       
