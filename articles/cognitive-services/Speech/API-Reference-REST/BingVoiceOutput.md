@@ -270,7 +270,7 @@ zh-TW | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apo
  *ar-EG supports Modern Standard Arabic (MSA).
 
 > [!NOTE]
-> Note that the previous service names Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit) and Microsoft Server Speech Text to Speech Voice (en-IE, Shaun) will be deprecated after 3/31/2018, in order to optimize the Bing Speech API’s capabilities. Please update your code with the updated names.
+> Note that the previous service names **Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)** and **Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)** will be deprecated after 3/31/2018, in order to optimize the Bing Speech API’s capabilities. Please update your code with the updated names.
 
 ## <a name="TrouNSupport"></a>Troubleshooting and support
 
