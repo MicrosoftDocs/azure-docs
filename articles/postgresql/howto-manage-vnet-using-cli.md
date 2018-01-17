@@ -44,7 +44,7 @@ Learn more about [built-in roles](https://docs.microsoft.com/azure/active-direct
 
 VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant, at the time of this preview.
 
-### Sample script to create an Azure Database for PostgreSQL database, create a VNet, VNet service end point and secure the server to the subnet with a VNet rule
+### Sample script to create an Azure Database for PostgreSQL database, create a VNet, VNet service endpoint and secure the server to the subnet with a VNet rule
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the SubscriptionID used in the `az account set --subscription` command with your own subscription identifier.
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=4,18,19 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
 
