@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 01/16/2018
 ms.author: jingwang
 
 ---
@@ -28,6 +28,10 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of Data Factory, which is generally available (GA), see [Data Factory version 1 - tutorial](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+
+### Video 
+Watching this video helps you understand the Data Factory UI: 
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
 ## Create a data factory
 
@@ -176,32 +180,9 @@ In this step, you deploy entities (linked services, datasets, pipelines) to Azur
 2. Click the **View Activity Runs** link under **Actions**. You see the status of the copy activity run in this page. 
 
     ![Pipeline activity runs](./media/quickstart-create-data-factory-portal/pipeline-activity-runs.png)
-3. To view details about the copy operation, click the link in the **Output** column. Here is the sample output: In the following example, the number of bytes read and written were 20, and the number of files read and written were 1. The copy operation took 2 seconds to complete. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). If there was an error, you see a link to the error message in the **Error** column. 
+3. To view details about the copy operation, click the **Details** (eye glasses image) link in the **Actions** column. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
-    ```json
-    {
-        "dataRead": 20,
-        "dataWritten": 20,
-        "filesRead": 1,
-        "filesWritten": 1,
-        "copyDuration": 2,
-        "throughput": 0.01,
-        "errors": [],
-        "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
-        "usedCloudDataMovementUnits": 4,
-        "usedParallelCopies": 1,
-        "billedDuration": 11,
-        "effectiveIntegrationRuntimes": [
-            {
-                "name": "DefaultIntegrationRuntime",
-                "type": "Managed",
-                "location": "East US",
-                "billedDuration": 0.06666666666666666,
-                "nodes": null
-            }
-        ]
-    }
-    ```
+    ![Copy operation details](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 4. Confirm that you see a new file in the **output** folder. 
 5. You can switch back to the **Pipeline Runs** view from the **Activity Runs** view by clicking **Pipelines** link. 
 
