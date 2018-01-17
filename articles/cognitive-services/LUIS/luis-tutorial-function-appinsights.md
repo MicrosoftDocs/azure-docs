@@ -156,5 +156,7 @@ Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Le
 
 ## Next steps
 
+You can edit the LUIS intents and entities for the HomeAutomation app based on the utterances in Application Insights. 
+
 > [!div class="nextstepaction"]
-> [Learn more about ](Train-Test.md)
+> [Learn more about example utterances](Add-example-utterances.md)
