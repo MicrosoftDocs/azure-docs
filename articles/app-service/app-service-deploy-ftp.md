@@ -37,13 +37,13 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 
 ## Step 2: Get FTP connection information
 
-1. In the [Azure portal](https://portal.azure.com), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
 
     ![FTP Connection Information](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > The **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
+    > The **FTP/Deployment User** user value as displayed by the Azure portal including the app name in order to provide proper context for the FTP server.
     > You can find the same information when you select **Properties** in the left menu. 
     >
     > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
@@ -52,7 +52,7 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 
 ## Step 3: Deploy files to Azure
 
-1. From your FTP client ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client), etc), 
+1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/) or [FileZilla](https://filezilla-project.org/download.php?type=client)), 
 use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
 4. Browse to your app's URL to verify the app is running properly. 

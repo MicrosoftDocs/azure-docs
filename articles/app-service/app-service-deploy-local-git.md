@@ -108,28 +108,28 @@ Use the following steps to publish your app to App Service using Local Git.
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 
-1. Click the **Browse** button at the top of the app's blade to verify the content has been deployed.
+1. Click the **Browse** button at the top of the web app page to verify the content has been deployed.
 
 ## <a name="Step5"></a>Troubleshooting
 
 The following are errors or problems commonly encountered when using Git to publish to an App Service app in Azure:
 
 ---
-**Symptom**: Unable to access '[siteURL]': Failed to connect to [scmAddress]
+**Symptom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
 **Cause**: This error can occur if the app is not up and running.
 
 **Resolution**: Start the app in the Azure portal. Git deployment is unavailable when the Web App is stopped.
 
 ---
-**Symptom**: Couldn't resolve host 'hostname'
+**Symptom**: `Couldn't resolve host 'hostname'`
 
 **Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.
 
 **Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
 
 ---
-**Symptom**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
+**Symptom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
 **Cause**: This error can occur if you do not specify a branch when performing a git push operation, or have not set the push.default value in `.gitconfig`.
 
@@ -140,7 +140,7 @@ git push azure master
 ```
 
 ---
-**Symptom**: src refspec [branchname] does not match any.
+**Symptom**: `src refspec [branchname] does not match any.`
 
 **Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
 
@@ -151,7 +151,7 @@ git push azure master
 ```
 
 ---
-**Symptom**: RPC failed; result=22, HTTP code = 5xx.
+**Symptom**: `RPC failed; result=22, HTTP code = 5xx.`
 
 **Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
 
@@ -162,7 +162,7 @@ git config --global http.postBuffer 524288000
 ```
 
 ---
-**Symptom**: Error - Changes committed to remote repository but your web app not updated.
+**Symptom**: `Error - Changes committed to remote repository but your web app not updated.`
 
 **Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
 
