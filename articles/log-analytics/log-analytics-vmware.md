@@ -24,7 +24,7 @@ The VMware Monitoring solution in Log Analytics is a solution that helps you cre
 
 The solution uses native syslog functionality of the ESXi host to push data to a target VM, which has OMS Agent. However, the solution doesn't write files into syslog within the target VM. The OMS agent opens port 1514 and listens to this. Once it receives the data, the OMS agent pushes the data into Log Analytics.
 
-## Installing and configuring the solution
+## Install and configure the solution
 Use the following information to install and configure the solution.
 
 * Add the VMware Monitoring solution to your subscription using the process described in [Add a management solution](log-analytics-add-solutions.md#add-a-management-solution).
@@ -62,7 +62,7 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. In the Azure Portal, perform a log search for `VMware_CL`. When Log Analytics collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
+9. In the Azure portal, perform a log search for `VMware_CL`. When Log Analytics collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
 
     ![type](./media/log-analytics-vmware/type.png)  
 
