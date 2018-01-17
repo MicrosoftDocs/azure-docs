@@ -40,7 +40,7 @@ To enable content sync from the [Azure portal](https://portal.azure.com), follow
    
    * **OneDrive**: `Apps\Azure Web Apps` 
    * **Dropbox**: `Dropbox\Apps\Azure`
-3. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available with the **Deployments** blade.
+3. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available on the **Deployments** page.
    
     ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
