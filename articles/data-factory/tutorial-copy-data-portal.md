@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
 ---
-# Copy data from Azure Blob to Azure SQL Database using Azure Data Factory (Azure portal)
-In this tutorial, you create a data factory by using the Azure portal. The pipeline in this data factory copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+# Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
 > - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
