@@ -30,7 +30,7 @@ A _pipeline run_ is a term in Azure Data Factory version 2 that defines an insta
 ## Manual execution (on-demand)
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
-For example, say you have a pipeline named **copyPipeline** that you want to execute. The pipeline is a simple pipeline with a single activity that copies from a source folder in Azure Blob Storage to a destination folder in the same storage. The following JSON definition shows this sample pipeline:
+For example, say you have a pipeline named **copyPipeline** that you want to execute. A simple pipeline that has a single activity that copies from a source folder in Azure Blob Storage to a destination folder in the same storage. The following JSON definition shows this sample pipeline:
 
 ```json
 {
@@ -133,9 +133,9 @@ For a complete sample, see the [Quickstart: Create a data factory by using the .
 ## Trigger execution
 Triggers are the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Azure Data Factory supports two types of triggers:
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
-- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Currently, Azure Data Factory doesn't support event-based triggers, such as a trigger of a pipeline run on the event of a file-arrival.
+- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Azure Data Factory doesn't currently support event-based triggers. For example, the trigger of a pipeline run on the event of a file-arrival.
 
-Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following JSON definition for a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
+Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 
 ### Basic trigger definition
 
@@ -165,12 +165,12 @@ Pipelines and triggers have a many-to-many relationship. Multiple triggers can k
 ```
 
 ## Schedule trigger
-A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM". The schedule trigger is flexible because it's dataset-pattern agnostic and doesn't discern between time-series and non-time-series data.
+A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset-pattern is agnostic and the trigger doesn't discern between time-series and non-time-series data.
 
-For more information about schedule triggers and examples, see [How to create a schedule trigger](how-to-create-schedule-trigger.md).
+For more information about schedule triggers and examples, see [Create a schedule trigger](how-to-create-schedule-trigger.md).
 
 ## Tumbling window trigger
-Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. For more information about tumbling window triggers and examples, see the instructions in [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
+Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. For more information about tumbling window triggers and examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
 ## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition. 
