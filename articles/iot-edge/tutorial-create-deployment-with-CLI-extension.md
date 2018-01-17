@@ -5,7 +5,7 @@ description: Deploy modules to an IoT Edge device using IoT extension for Azure 
 services: iot-edge
 keywords: 
 author: chrissie926
-manager: briz
+manager: timlt
 
 ms.author: menchi
 ms.date: 01/11/2018
@@ -22,25 +22,25 @@ ms.custom: mvc
 
 # Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open source cross platform command line tool that is available on Windows, Linux and MacOS. Azure CLI 2.0 includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI 2.0 to create an Azure VM or an IoT Hub. A CLI extension enables an Azure service to augment the Azure CLI, giving you access to additional service-specific capabilities. The IoT extension gives developers command line access to IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open source cross platform command line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux and MacOS.
 
 Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
-In this tutorial, first we will go through the steps to set up Azure CLI 2.0 and the IoT extension. Then we will demonstrate how to deploy modules to an IoT Edge device using the available CLI commands.
+In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to an IoT Edge device using the available CLI commands.
 
 ## Installation 
 
 ### Step 1 - Install Python
 
-Python 2.7x or Python 3.x is required.
+[Python 2.7x or Python 3.x](https://www.python.org/downloads/) is required.
 
 ### Step 2 - Install Azure CLI 2.0
 
-Follow the installation instructions on GitHub or Microsoft Docs to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use "az –version" to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the MSI.
+Follow the [installation instruction](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### Step 3 - Install IoT extension
 
-The IoT extension readme describes several ways to install the extension. The simplest way is to run "az extension add --name azure-cli-iot-ext". After installation, you can use "az extension list" to validate the currently installed extensions or "az extension show --name azure-cli-iot-ext" to see details about the IoT extension. To remove the extension, you can use "az extension remove --name azure-cli-iot-ext".
+[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-cli-iot-ext` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-cli-iot-ext`.
 
 
 ## Deploy modules to an IoT Edge device

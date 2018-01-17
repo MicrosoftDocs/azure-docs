@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI 2.0 tool for Azure IoT Hub devi
 services: iot-hub
 documentationcenter: ''
 author: chrissie926
-manager: briz
+manager: timlt
 tags: ''
 keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
 
@@ -56,11 +56,11 @@ Run Azure CLI 2.0 and the IoT extension for Azure CLI 2.0 with various managemen
 
 - Make sure your device is running with the client application during this tutorial.
 
-- Python 2.7x or Python 3.x
+- [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
-- Install Azure CLI 2.0. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows). You can also follow the installation instructions on [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use “az –version” to validate. 
+- Install Azure CLI 2.0. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows). You can also follow the installation instructions on [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI 2.0 in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –version` to validate. 
 
-- Install the IoT extension. The simplest way is to run “az extension add --name azure-cli-iot-ext”. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
+- Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
 
 
 ## Login to your Azure account
