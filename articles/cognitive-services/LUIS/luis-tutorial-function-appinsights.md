@@ -12,7 +12,6 @@ ms.date: 01/17/2018
 ms.author: v-geberr
 ---
 
-
 # Add LUIS results to Application Insights from a web app bot
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is a powerful analytics tools to help you diagnose telemetry issues and to understand what users actually do with your app.
 
