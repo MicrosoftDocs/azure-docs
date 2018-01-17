@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 Perform the following tasks to create a new Git repository.
 
-1. Start a command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
+1. Start a command-line tool, such as **Git Bash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
 1. Navigate to the directory where the content to deploy would be located.
 1. Use the following command to initialize a new Git repository:
 
@@ -51,7 +51,7 @@ Perform the following tasks to create a new Git repository.
 
 App Service supports applications created in a variety of programming languages.
 
-1. If your repository does not already include content, simply populate with a static .html file as follows; or skip this step:
+1. If your repository does not already include content, add a static .html file as follows; or skip this step:
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 1. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
@@ -105,7 +105,7 @@ Use the following steps to publish your app to App Service using Local Git.
     git push azure master
     ```
 
-    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
+    You are prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 1. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)

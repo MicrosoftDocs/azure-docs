@@ -25,7 +25,7 @@ App cloning is currently only supported for premium tier app service plans. The 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Cloning an existing App
-Scenario: An existing web app in South Central US region, and you want to clone the contents to a new web app in North Central US region. This can be accomplished by using the Azure Resource Manager version of the PowerShell cmdlet to create a new web app with the `-SourceWebApp` option.
+Scenario: An existing web app in South Central US region, and you want to clone the contents to a new web app in North Central US region. It can be accomplished by using the Azure Resource Manager version of the PowerShell cmdlet to create a new web app with the `-SourceWebApp` option.
 
 Knowing the resource group name that contains the source web app, you can use the following PowerShell command to get the source web app's information (in this case named `source-webapp`):
 
