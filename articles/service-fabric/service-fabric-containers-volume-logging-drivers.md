@@ -37,6 +37,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
+> [!NOTE]
+> Windows Server 2016 Datacenter does not support SMB mounts on the host ([only supported on Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). This prevents use of certain volume drivers such as Azure Files volume drivers. Instead, one can mount the shares directly within the container using **net use**. 
+>   
+
+
 ## Specify the plug-in or driver in the manifest
 The plug-ins are specified in the application manifest as follows:
 
