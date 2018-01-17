@@ -14,26 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
 
 ---
 # Auditing in Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Auditing](sql-data-warehouse-auditing-overview.md)
-> * [Threat detection](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
 SQL Data Warehouse auditing allows you to record events in your database to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. SQL Data Warehouse auditing also integrates with Microsoft Power BI for drill-down reporting and analysis.
 
 Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance. For more information about Azure programs that support standards compliance, see the <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
 
-* [Database Auditing basics]
-* [Set up auditing for your database]
-* [Analyze audit logs and reports]
-
-## <a id="subheading-1"></a>Azure SQL Data Warehouse Database Auditing basics
+## <a id="subheading-1"></a>Auditing basics
 SQL Data Warehouse database auditing allows you to:
 
 * **Retain** an audit trail of selected events. You can define categories of database actions  to be audited.
@@ -100,13 +91,37 @@ You can also configure auditing in Azure SQL Data Warehouse by using the followi
 
 * **PowerShell cmdlets**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## Downlevel clients support for auditing and dynamic data masking
+Auditing works with SQL clients that support TDS redirection.
+
+Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
+
+For "Downlevel clients", i.e. which support TDS version 7.3 and below - the server FQDN in the connection string should be modified:
+
+Original server FQDN in the connection string: <*server name*>.database.windows.net
+
+Modified server FQDN in the connection string: <*server name*>.database.**secure**.windows.net
+
+A partial list of "Downlevel clients" includes:
+
+* .NET 4.0 and below,
+* ODBC 10.0 and below.
+* JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
+* Tedious (for Node.JS)
+
+**Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
+
+
+
 
 <!--Anchors-->
 [Database Auditing basics]: #subheading-1
@@ -122,11 +137,3 @@ You can also configure auditing in Azure SQL Data Warehouse by using the followi
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
