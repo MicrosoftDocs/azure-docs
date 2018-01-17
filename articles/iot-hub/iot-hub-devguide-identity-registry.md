@@ -81,7 +81,7 @@ For detailed information about the import and export APIs, see [IoT Hub resource
 
 The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as table storage, blob storage, or Cosmos DB to store any additional device data.
 
-*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
+*Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation][lnk-dps].
 
 ## Device heartbeat
 
@@ -181,6 +181,11 @@ If you would like to try out some of the concepts described in this article, you
 
 * [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
 
+To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
+
+* [Azure IoT Hub Device Provisioning Service][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -202,3 +207,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

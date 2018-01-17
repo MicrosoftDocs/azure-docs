@@ -46,6 +46,10 @@ To complete this quickstart:
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
 
+>[!NOTE]
+> The sample application in this quickstart uses features that are not available on Windows 7.
+>
+
 ## Download the sample
 In a command window, run the following command to clone the sample app repository to your local machine.
 ```
