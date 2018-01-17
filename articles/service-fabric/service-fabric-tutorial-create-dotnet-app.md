@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2017
+ms.date: 01/17/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -65,7 +65,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (MVC)**. 
+6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (Model-View-Controller)**. 
    
    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -74,7 +74,9 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### Add AngularJS to the VotingWeb service
-Add [AngularJS](http://angularjs.org/) to your service using the built-in [Bower support](/aspnet/core/client-side/bower). Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
+Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **Web** and then **Bower Configuration File**.  The *bower.json* file is created.
+
+Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
 
 ```json
 {
@@ -82,10 +84,10 @@ Add [AngularJS](http://angularjs.org/) to your service using the built-in [Bower
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "angular": "v1.6.5",
+    "angular": "v1.6.8",
     "angular-bootstrap": "v1.1.0"
   }
 }
