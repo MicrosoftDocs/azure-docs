@@ -22,7 +22,7 @@ ms.author: LADocs; estfan
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 
-**Schedule - Recurrence** [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+**Schedule - Recurrence** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). 
 With this trigger, you can set a date and time for starting the recurrence 
 and a recurrence schedule for performing tasks, such as these examples and more:
 
