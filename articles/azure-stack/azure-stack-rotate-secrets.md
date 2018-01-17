@@ -30,8 +30,8 @@ The baseboard management controllers (BMC) monitor the physical state of your se
 
 1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The password for each BMC in your environment must be the same.
 2. Open a privileged endpoint in Azure Stack Sessions. For instruction, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcPassword` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter.  
-For example:
+3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcPassword` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
+
     ```powershell
     # Interactive Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
@@ -44,9 +44,10 @@ For example:
         Set-Bmcpassword -bmcpassword $using:NewBMCpwd
     }
     ```
-You can also use the static PowerShell version with the Passwords as code lines
-
-  ```powershell
+    
+    You can also use the static PowerShell version with the Passwords as code lines:
+    
+    ```powershell
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
@@ -60,7 +61,6 @@ You can also use the static PowerShell version with the Passwords as code lines
         Set-Bmcpassword -bmcpassword $using:NewBMCpwd
     }
     ```
-
 
 ## Next steps
 
