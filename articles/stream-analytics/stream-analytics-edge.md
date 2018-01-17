@@ -57,7 +57,7 @@ The high-level steps are described in the following table. More details are give
 | 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
 
 
