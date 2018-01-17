@@ -191,8 +191,9 @@ Locale | Gender | Service name mapping
 ---------|--------|------------
 ar-EG* | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
 ar-SA | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)"
+bg-BG | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
-cs-CZ | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
+cs-CZ | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
 da-DK | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -207,7 +208,7 @@ en-CA | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRU
 en-GB | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)"
 en-GB | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 en-GB | Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
-en-IE | Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
+en-IE | Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -230,6 +231,7 @@ he-IL| Male| "Microsoft Server Speech Text to Speech Voice (he-IL, Asaf)"
 hi-IN | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)"
 hi-IN | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana)"
 hi-IN | Male | "Microsoft Server Speech Text to Speech Voice (hi-IN, Hemant)"
+hr-HR | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)"
 hu-HU | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
@@ -239,6 +241,7 @@ ja-JP | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS
 ja-JP | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
 ja-JP | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
+ms-MY | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
 nl-NL | Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)"
 pl-PL | Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)"
@@ -249,9 +252,12 @@ ro-RO | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
 sk-SK | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
+sl-SI | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
+ta-IN | Female | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
 th-TH | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
+vi-VN | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
 zh-CN | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 zh-CN | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 zh-CN | Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"
@@ -262,6 +268,9 @@ zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, A
 zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)"
 zh-TW | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)"
  *ar-EG supports Modern Standard Arabic (MSA).
+
+> [!NOTE]
+> Note that the previous service names **Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)** and **Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)** will be deprecated after 3/31/2018, in order to optimize the Bing Speech API’s capabilities. Please update your code with the updated names.
 
 ## <a name="TrouNSupport"></a>Troubleshooting and support
 

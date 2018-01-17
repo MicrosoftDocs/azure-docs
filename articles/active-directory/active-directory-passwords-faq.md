@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
+ms.custom: seohack1
 
 ---
 # Password management frequently asked questions
