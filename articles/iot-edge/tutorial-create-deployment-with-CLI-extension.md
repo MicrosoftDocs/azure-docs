@@ -44,7 +44,7 @@ The IoT extension readme describes several ways to install the extension. The si
 
 
 ## Deploy modules to an IoT Edge device
-In this tutorial, you will learn how to create an IoT Edge deployment. The example shows you how to login to your Azure account, create an Azure Resource Group (a container that holds related resources for an Azure solution), create an IoT Hub, create three IoT Edge devices identity, set tags and then create an IoT Edge deployment that targets those devices. Complete the installation steps described previously before you begin. If you don't have an Azure account yet, you can [create a free account](https://azure.microsoft.com/en-us/free/?v=17.39a) today. 
+In this tutorial, you will learn how to create an IoT Edge deployment. The example shows you how to login to your Azure account, create an Azure Resource Group (a container that holds related resources for an Azure solution), create an IoT Hub, create three IoT Edge devices identity, set tags and then create an IoT Edge deployment that targets those devices. Complete the installation steps described previously before you begin. If you don't have an Azure account yet, you can [create a free account](https://azure.microsoft.com/free/?v=17.39a) today. 
 
 
 ### 1. Login to the Azure account
@@ -162,10 +162,10 @@ In this tutorial, you created an Azure Function that contains code to filter raw
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-CLI-extension/login.jpg
-[2]: ./media/tutorial-create-deployment-with-CLI-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-CLI-extension/create-hub.jpg
-[4]: ./media/tutorial-create-deployment-with-CLI-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-CLI-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-CLI-extension/list-modules.PNG
+[1]: ./media/tutorial-create-deployment-with-cli-extension/login.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-extension/create-resource-group.jpg
+[3]: ./media/tutorial-create-deployment-with-cli-extension/create-hub.jpg
+[4]: ./media/tutorial-create-deployment-with-cli-extension/Create-edge-device.png
+[5]: ./media/tutorial-create-deployment-with-cli-extension/apply-configuration.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-extension/list-modules.PNG
 

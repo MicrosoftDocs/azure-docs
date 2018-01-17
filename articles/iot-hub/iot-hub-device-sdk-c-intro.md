@@ -65,7 +65,7 @@ Now that you have the sample source code, the next thing to do is to get a set o
 There are several open source tools to help you manage your IoT hub.
 
 * A Windows application called [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* A cross-platform python CLI tool called [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* A cross-platform Python CLI tool called [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
 This tutorial uses the graphical *device explorer* tool. You can also use the *the IoT extension for Azure CLI 2.0* tool if you prefer to use a CLI tool.
 
