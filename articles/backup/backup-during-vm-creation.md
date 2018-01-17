@@ -11,7 +11,7 @@ ms.service: backup, virtual-machines
 ms.devlang: na 
 ms.topic: article 
 ms.workload: storage-backup-recovery 
-ms.date: 1/8/2018 
+ms.date: 01/08/2018 
 ms.author: trinadhk 
 --- 
 
@@ -51,9 +51,9 @@ If you are not already in signed in to your account, sign in to the [Azure porta
 
 9. On the summary page, once validation has passed, click **Create** to create a virtual machine that uses the configured backup settings. 
 
-## Initiating a backup after creating the VM 
+## Initiate a backup after creating the VM 
 
-Though the Backup policy has been created, it is good practice to create an initial backup. To view the backup details for the virtual machine once the VM creation template finishes, from the **Operations** setting on the left-hand menu, click **Backup**. You can use this to trigger an on-demand backup, restore a full VM or all disks, restore files from VM backup or change the backup policy associated with the virtual machine.  
+Though the Backup policy has been created, it is good practice to create an initial backup. To view the backup details for the virtual machine once the VM creation template finishes, from the **Operations** setting on the left-hand menu, click **Backup**. You can use this to trigger an on-demand backup, restore a full VM or all disks, restore files from VM backup, or change the backup policy associated with the virtual machine.  
 
 ## Frequently asked questions 
 
