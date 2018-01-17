@@ -56,7 +56,7 @@ ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create a contributor role assignment with a scope of the ACR resource. 
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Read --scopes $ACR_REGISTRY_ID --query password --output tsv)
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)

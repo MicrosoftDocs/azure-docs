@@ -42,7 +42,7 @@ For conceptual information on joining an Azure-SSIS IR to a VNet and configuring
 > [!NOTE]
 > For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
 
-## Use Azure portal
+## Azure portal
 
 ### Create a data factory
 
@@ -140,7 +140,7 @@ For conceptual information on joining an Azure-SSIS IR to a VNet and configuring
     ![Specify the type of integration runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. See the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section for the remaining steps to set up an Azure-SSIS IR.
 
-## Use Azure PowerShell
+## Azure PowerShell
 
 ### Create variables
 Define variables for use in the script in this tutorial:
@@ -409,7 +409,69 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## Azure Resource Manager template
+You can use an Azure Resource Manager template to create an Azure-SSIS integration runtime. Here is a sample walkthrough: 
 
+1. Create a JSON file with the following Resource Manager template. Replace values in the angled brackets (place holders) with your own values. 
+
+    ```json
+    {
+    	"contentVersion": "1.0.0.0",
+    	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    	"parameters": {},
+    	"variables": {},
+    	"resources": [{
+    		"name": "<Specify a name for your data factory>",
+    		"apiVersion": "2017-09-01-preview",
+    		"type": "Microsoft.DataFactory/factories",
+    		"location": "East US",
+    		"properties": {},
+    		"resources": [{
+    			"type": "integrationruntimes",
+    			"name": "<Specify a name for the Azure SSIS IR>",
+    			"dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+    			"apiVersion": "2017-09-01-preview",
+    			"properties": {
+    				"type": "Managed",
+    				"typeProperties": {
+    					"computeProperties": {
+    						"location": "East US",
+    						"nodeSize": "Standard_D1_v2",
+    						"numberOfNodes": 1,
+    						"maxParallelExecutionsPerNode": 1
+    					},
+    					"ssisProperties": {
+    						"catalogInfo": {
+    							"catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+    							"catalogAdminUserName": "<Azure SQL user",
+    							"catalogAdminPassword": {
+    								"type": "SecureString",
+    								"value": "<Azure SQL Password>"
+    							},
+    							"catalogPricingTier": "Basic"
+    						}
+    					}
+    				}
+    			}
+    		}]
+    	}]
+    }
+    ```
+2. To deploy the Resource Manager template, run the New-AzureRmResourceGroupDeployment command as shown in the following exmaple. In this example, ADFTutorialResourceGroup is the name of the resource group. ADFTutorialARM.json is the file that contains JSON definition for the data factory and the Azure-SSIS IR. 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    This command creates the data factory and creates an Azure-SSIS IR in it, but it does not start the IR. 
+3. To start the Azure-SSIS IR, run the Start-AzureRmDataFactoryV2IntegrationRuntime command: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## Deploy SSIS packages
 Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: &lt;servername&gt;.database.windows.net (for Azure SQL Database). See [Deploy packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) article for instructions. 
