@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 1/17/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -33,21 +33,34 @@ In this quickstart, we create a policy assignment and assign the *Audit Virtual 
 
 Follow these steps to create a new policy assignment.
 
-Run the following command to view all policy definitions and find the one you would like to assign:
+1. Register the Policy Insights resource provider in order to ensure that your subscription works with the resource provider. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
-```powershell
+    Run the following command to register the resource provider:
+
+    ```
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+```
+
+    You cannot unregister a resource provider while you have resource types from the resource provider in your subscription.
+
+    For more details about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md).
+
+2. After you register the resource provider, run the following command to view all policy definitions and find the one you want to assign:
+
+    ```powershell
 $definition = Get-AzureRmPolicyDefinition
 ```
 
-Azure Policy comes with already built-in policy definitions you can use. You will see built-in policy definitions such as:
+    Azure Policy comes with already built-in policy definitions you can use. You will see built-in policy definitions such as:
 
-- Enforce tag and its value
-- Apply tag and its value
-- Require SQL Server Version 12.0
+    - Enforce tag and its value
+    - Apply tag and its value
+    - Require SQL Server Version 12.0
 
-Next, assign the policy definition to the desired scope by using the `New-AzureRmPolicyAssignment` cmdlet.
+3. Next, assign the policy definition to the desired scope by using the `New-AzureRmPolicyAssignment` cmdlet.
 
-For this tutorial, we are providing the following information for the command:
+For this tutorial, we provide the following information for the command:
+
 - Display **Name** for the policy assignment. In this case, let’s use Audit Virtual Machines without Managed Disks.
 - **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*
 - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. In this example, we are assigning the policy definition to the **FabrikamOMS** resource group.
