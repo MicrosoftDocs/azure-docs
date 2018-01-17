@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Open the Palo Alto site as an administrator in another browser window.
+8. Open the Palo Alto Networks Firewall Admin UI as an administrator in another browser window.
 
 9. Click on **Device**.
 
