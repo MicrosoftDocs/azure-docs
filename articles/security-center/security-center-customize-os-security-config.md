@@ -1,6 +1,6 @@
 ---
-title: Customize OS security configurations in Azure Security Center [Preview] | Microsoft Docs
-description: This article teaches you how to customize security center assessments
+title: Customize OS security configurations in Azure Security Center (Preview) | Microsoft Docs
+description: This article demonstrates how to customize security center assessments
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -280,8 +280,8 @@ All potential errors are listed in the following table:
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | BaselineConfiguratiohSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
 | BaselineInvalidStringError               | The property *{0}* cannot contain *\\n*.                                                                                                         |
-| BaselineNullRuleError                    | Baseline configuration rules list contains a rule with value *null*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* is not unique.                                                                                                                  |
+| BaselineNullRuleError                    | The baseline configuration rules list contains a rule with value *null*.                                                                         |
+| BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |
 | BaselineRuleEmptyProperty                | The property *{0}* is missing or invalid.                                                                                                       |
 | BaselineRuleIdNotInDefault               | The rule has a source property *Microsoft* but it was not found in the Microsoft default ruleset.                                                   |
 | BaselineRuleIdNotUniqueError             | The rule Id is not unique.                                                                                                                       |
@@ -293,30 +293,30 @@ All potential errors are listed in the following table:
 | BaselineRuleNotInPlace                   | The rule matches a default rule with type {0} and is listed in {1} list.                                                                       |
 | BaselineRulePropertyTooLong              | The property *{0}* is too long. Max allowed length: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | The expected value *{0}* doesn't match the registry value type that is defined.                                                              |
-| BaselineRulesetAdded                     | Ruleset with the ID *{0}* was not found in the default configuration. Ruleset cannot be added.                                               |
+| BaselineRulesetAdded                     | The ruleset with the ID *{0}* was not found in the default configuration. The ruleset cannot be added.                                               |
 | BaselineRulesetIdMustBeUnique            | The given baseline ruleset *{0}* must be unique.                                                                                           |
 | BaselineRulesetNotFound                  | The ruleset with id *{0}* and name *{1}* was not found in the given configuration. The ruleset cannot be deleted.                                |
 | BaselineRuleSourceNotMatch               | The rule with ID *{0}* is already defined.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | The default rule type is *{0}*.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | The actual type of the rule is *{0}*, but the *ruleType* property is *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Only *expectedValue* and *state* properties are allowed to be changed.                                                                       |
-| BaselineTooManyRules                     | Maximum allowed customized rules number is {0} rules. The given configuration contains {1} rules. {2} default rules + {3} customized rules. |
+| BaselineTooManyRules                     | The maximum number of allowed customized rules is {0} rules. The given configuration contains {1} rules, {2} default rules, and {3} customized rules. |
 | ErrorNoConfigurationStatus               | No configuration status was found. State the desired configuration status: *Default* or *Custom*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | The configuration state is set to default. The *BaselineRulesets* list must be null or empty.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | The given configuration status is *Custom* but the *baselineRulesets* property is null or empty.                                             |
 | ErrorParsingBaselineConfig               | The given configuration is invalid. One or more of the defined values have a null value or an invalid type.                                  |
 | ErrorParsingIsDefaultProperty            | The given *configurationStatus* value *{0}* is invalid. The value can be only *Default* or *Custom*.                                         |
-| InCompatibleViewVersion                  | View version {0} is NOT supported on this workspace type.                                                                                   |
+| InCompatibleViewVersion                  | The view version *{0}* is *not* supported on this workspace type.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | The given baseline configuration was found with one or more type validation errors.                                                          |
-| ViewConversionError                      | View is older version that workspace supported. View conversion failed: {0}                                                                 |
+| ViewConversionError                      | The view is an older version than the workspace supports. View conversion failed: {0}.                                                                 |
 
 If you don’t have sufficient permissions, you might get a general failure error, as shown here:
 
 !["Save action failed" error message](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## Next steps
-This article showed you how to customize OS security configuration assessments in Security Center. To learn more about the configuration rules and remediation, see:
+This article discussed how to customize OS security configuration assessments in Security Center. To learn more about the configuration rules and remediation, see:
 
 - [Security Center common configuration identifiers and baseline rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Security Center uses common configuration enumeration (CCE) to assign unique identifiers for configuration rules. For more information, see [CCE](https://nvd.nist.gov/config/cce/index).
+- Security Center uses common configuration enumeration (CCE) to assign unique identifiers to configuration rules. For more information, see [CCE](https://nvd.nist.gov/config/cce/index).
 - To resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules, see [Remediate security configurations](security-center-remediate-os-vulnerabilities.md).
