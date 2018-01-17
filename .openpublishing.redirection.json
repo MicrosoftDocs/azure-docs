@@ -16152,9 +16152,13 @@
         "redirect_document_id": false
       },
       {
-            "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
-            "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
-            "redirect_document_id": false
+        "source_path": "articles/azure-stack/azure-stack-planning-considerations.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-deployment-planning",
+        "redirect_document_id": true
+      },
+      { "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
+        "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+        "redirect_document_id": false
       },
       {
             "source_path": "articles/cognitive-services/Translator/speech-overview.md",
