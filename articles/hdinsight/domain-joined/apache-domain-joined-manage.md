@@ -78,9 +78,8 @@ To find the fully qualified domain name of a headnode, use the information in th
 An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
 
 * **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to log on to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel, PowerBI, or Tableau).
-* **SSH user**:  This account can be used with SSH, and execute sudo commands. It has root privileges to the Linux VMs.
 
-A domain-joined HDInsight cluster has three new users in addition to Ambari Admin and SSH user.
+A domain-joined HDInsight cluster has three new users in addition to Ambari Admin.
 
 * **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 * **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
