@@ -59,7 +59,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 Using the `curl` command, contact the REST API endpoint provided by the container's application.
 
 ```bash
-curl -X GET http://<app_name>.azurewebsites.net/hello
+curl -X GET http://<app_name>.azurewebsites.net:8080/hello
 ```
 
 ```output
