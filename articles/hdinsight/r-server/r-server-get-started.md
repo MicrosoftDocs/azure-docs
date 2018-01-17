@@ -99,7 +99,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
 		ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark).
+   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 8. The quick create transitions you to the **Storage** pane. There, you select the storage account settings to be used for the primary location of the HDFS file system that the cluster uses. Select a new or existing Azure storage account, or select an existing Azure Data Lake Store account.
 
