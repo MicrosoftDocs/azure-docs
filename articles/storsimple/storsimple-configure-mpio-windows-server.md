@@ -129,12 +129,12 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 
 ## Step 4: Configure MPIO for high availability and load balancing
-For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
+For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to the iSCSI network and the device has two interfaces connected to the iSCSI network, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
 **We recommend that you have at least 8 active parallel sessions between the device and your application host.** This can be achieved by enabling 4 network interfaces on your Windows Server system. Use physical network interfaces or virtual interfaces via network virtualization technologies on the hardware or operating system level on your Windows Server host. With the two network interfaces on the device, this configuration would result in 8 active sessions. This configuration helps optimize the device and cloud throughput.
 
 > [!IMPORTANT]
-> **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
+> **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be of an identical type.**
 
 The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces. This gives you only 2 active sessions. Use this same procedure with a StorSimple device with two network interfaces connected to a host with four network interfaces. You will need to configure 8 instead of the 4 sessions described here.
 
@@ -151,15 +151,15 @@ The following procedure describes how to add sessions when a StorSimple device w
 6. In the **Advanced Settings** dialog box:
    
    * On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-   * On the **Initiator IP** drop-down list, select the IP address of the host.
-   * On the **Target Portal IP** drop-down list, select the IP address of the data interface enabled on the device.
+   * On the **Initiator IP** drop-down list, select the IP address corresponding to the first interface on the host (iSCSI interface).
+   * On the **Target Portal IP** drop-down list, select the IP address for the first data interface enabled on the device.
    * Click **OK** to return to the iSCSI Initiator Properties dialog box.
 7. Click **Properties**, and in the **Properties** dialog box, click **Add Session**.
 8. In the **Connect to Target** dialog box, select the **Enable multi-path** check box, and then click **Advanced**.
 9. In the **Advanced Settings** dialog box:
    
    1. On the **Local adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-   2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host.
+   2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host (iSCSI interface).
    3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
    4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box. You have now added a second session to the target.
 10. Repeat Steps 8-10 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions.
