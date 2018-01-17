@@ -19,13 +19,13 @@ ms.author: v-geberr
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Add ApplicationInsights library to a web app bot
-* Capture and send LUIS query results to ApplicationInsights
-* Query ApplicationInsights for top intent, score, and utterance
+* Add Application Insights library to a web app bot
+* Capture and send LUIS query results to Application Insights
+* Query Application Insights for top intent, score, and utterance
 
 ## Prerequisites
 
-* Your LUIS web app bot from the **[previous tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md)**. This tutorial configured ApplicationInsights **On** when you created the bot. 
+* Your LUIS web app bot from the **[previous tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md)**. This tutorial configured Application Insights **On** when you created the bot. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -41,11 +41,10 @@ The code in **app.js**, when you finished the [web app bot with Node.js tutorial
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
 ## Add Application Insights library to web app bot
-The Application Insights feature for the web app bot is turned on, currently Application Insights collects general state telemetry for the bot. It does not collect LUIS request and response information you need to check and fix your intents and entities. 
+The Application Insights feature for the web app bot is turned on. Currently, Application Insights collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
 
-In order to capture the LUIS request and response, the web app bot needs the NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights in a way that it is queryable. 
+In order to capture the LUIS request and response, the web app bot needs the **applicationinsights** NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
 
-### NPM install library 
 1. In the Azure portal, in the web app bot service, select **Build** under the **Bot Management** section. 
 
     ![Search for app insights](./media/luis-tutorial-appinsights/build.png)
@@ -54,7 +53,7 @@ In order to capture the LUIS request and response, the web app bot needs the NPM
 
     ![Search for app insights](./media/luis-tutorial-appinsights/kudu-console.png)
 
-3. In the console, enter the following command:
+3. In the console, enter the following command to install Application Insights and the Underscore packages:
 
     ```
     cd site\wwwroot && npm install applicationinsights && npm install underscore
@@ -81,7 +80,7 @@ In order to capture the LUIS request and response, the web app bot needs the NPM
 
     You are done with the kudu console browser tab.
 
-## Capture and send LUIS query results to ApplicationInsights
+## Capture and send LUIS query results to Application Insights
 1. In the App Service Editor browser tab, open the **app.js** file.
 
 2. Add the following NPM libraries under the existing `requires` lines:
@@ -94,9 +93,9 @@ In order to capture the LUIS request and response, the web app bot needs the NPM
 
 4. Add the **appInsightsLog** function:
 
-   [!code-javascript[Add the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=68-80 "Add the appInsightsLog function")]
+   [!code-javascript[Add the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=82-102 "Add the appInsightsLog function")]
 
-    The last line of the function is where the data is added to Application Insights. 
+    The last line of the function is where the data is added to Application Insights. The event's name is **LUIS-results**, a unique name apart from any other telemetry data collected by this web app bot. 
 
 5. Use the **appInsightsLog** function. You add it to every intent dialog:
 
@@ -148,7 +147,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
     | extend utterance = tostring(customDimensions.LUIS_text)
     ```
 
-4. Run the query. Scroll to the far right in the data table. The two new columns of topIntent and score are available. Click on the topIntent column to sort.
+4. Run the query. Scroll to the far right in the data table. The new columns of topIntent, score, and utterance are available. Click on the topIntent column to sort.
 
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
