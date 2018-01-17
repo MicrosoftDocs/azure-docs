@@ -36,7 +36,7 @@ All of the code in this tutorial is available on the [LUIS-Samples github reposi
 This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
 ## Web app bot with LUIS
-The code in **app.js**, when you finished the [web app bot with Node.js tutorial](luis-nodejs-tutorial-build-bot-framework-sample), should be: 
+The code in **app.js**, when you finished the [web app bot with Node.js tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md), should be: 
 
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
