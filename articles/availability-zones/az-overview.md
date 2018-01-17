@@ -41,7 +41,6 @@ The Azure services that support Availability Zones are:
 - Managed Disks
 - Load Balancer
 - Public IP address
-- Zone-redundant storage (ZRS) in East US 2, US Central, and France Central
 
 ## Get started with the Availability Zones preview
 
