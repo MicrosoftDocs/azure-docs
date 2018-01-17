@@ -22,7 +22,7 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
-  name: SDK preview
+- name: SDK [preview]
   href: sdk.md
 - name: How To Guides
   items:
