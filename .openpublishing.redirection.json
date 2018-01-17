@@ -16174,6 +16174,11 @@
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
             "redirect_url": "articles/cognitive-services/Translator/customization.md",
             "redirect_document_id": false
+	},     
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
+            "redirect_document_id": false
 	}     
 
    ]
