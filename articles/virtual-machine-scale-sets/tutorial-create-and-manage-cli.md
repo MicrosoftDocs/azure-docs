@@ -35,13 +35,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Create a resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-The resource group is specified when creating or modifying a scale set throughout this tutorial.
+The resource group name is specified when you create or modify a scale set throughout this tutorial.
 
 
 ## Create a scale set
@@ -58,7 +58,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VM instances. A load balancer is also created to distribute traffic to the individual VM instances.
+It takes a few minutes to create and configure all the scale set resources and VM instances. To distribute traffic to the individual VM instances, a load balancer is also created.
 
 
 ## View VM instances in a scale set
@@ -81,7 +81,7 @@ The following example output shows two VM instances in the scale set:
 ```
 
 
-The first column in the output shows an *InstanceId*. To view additional information about a specific VM instance, add the `--instance-id` parameter to [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) and specify an instance to view. The following example views information about VM instance *1*:
+The first column in the output shows an *InstanceId*. To view additional information about a specific VM instance, add the `--instance-id` parameter to [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). The following example views information about VM instance *1*:
 
 ```azurecli
 az vmss get-instance-view \
@@ -92,7 +92,7 @@ az vmss get-instance-view \
 
 
 ## List connection information for VMs
-A public IP address is assigned to a load balancer which routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a define port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
+A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
 
 To list the address and ports to connect to VM instances in a scale set, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
@@ -102,7 +102,7 @@ az vmss list-instance-connection-info \
   --name myScaleSet
 ```
 
-The following example output shows the instance ID, IP address, and port number:
+The following example output shows the instance name, public IP address of the load balancer, and port number that the NAT rules forward traffic to:
 
 ```bash
 {
@@ -117,7 +117,7 @@ SSH to your first VM instance. Specify your own public IP address and port numbe
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Once logged in to the VM instance, you could perform some manual configuration changes as needed. When you are finished, you close the SSH session as normal:
+Once logged in to the VM instance, you could perform some manual configuration changes as needed. When you are finished, close the SSH session as normal:
 
 ```bash
 exit
@@ -149,7 +149,7 @@ WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServe
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-A full list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images with an offer that matches *CentOS*. 
+To view a full list, add the `--all` argument. The image list can also be filtered by `--publisher` or `–-offer`. In the following example, the list is filtered for all images with an offer that matches *CentOS*:
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -168,9 +168,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170707   7.3.20170707
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
-To deploy a scale set that uses a specific image, use the value in the *Urn* column. When specifying the image, the image version number can be replaced with "latest", which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image. 
+To deploy a scale set that uses a specific image, use the value in the *Urn* column. When you specify the image, the image version number can be replaced with *latest*, which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image. 
 
-As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set. You can use the example as reference:
+As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurecli-interactive 
 az vmss create \
@@ -222,8 +222,8 @@ The output is similar to the following condensed example, which shows the resour
                 48        114688  Standard_NV12                        12           1047552                  696320
 ```
 
-### Create scale set with specific VM instance size
-When you created a scale set at the start of the tutorial, a `--vm-sku` of *Standard_D1_v2* was specified for the VM instances. You can specify a different VM instance size based on the output from [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set. You can use the example as reference:
+### Create a scale set with a specific VM instance size
+When you created a scale set at the start of the tutorial, a `--vm-sku` of *Standard_D1_v2* was specified for the VM instances. You can specify a different VM instance size based on the output from [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurecli-interactive 
 az vmss create \
@@ -237,9 +237,9 @@ az vmss create \
 
 
 ## Change the capacity of a scale set
-When you created a scale set, you requested *2* VM instances. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the VM instances to receive application traffic.
+When you created a scale set, you requested two VM instances. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
 
-To manually increase or decrease the number of virtual machines in the scale set, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VM instances in your scale set to *3*:
+To manually increase or decrease the number of VM instances in the scale set, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VM instances in your scale set to *3*:
 
 ```azurecli
 az vmss scale \
@@ -248,7 +248,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-If takes a few minutes to update the capacity of your scale set. If you decrease the capacity of a scale set, the VM instances with the highest instance IDs are removed first. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *sku.capacity*:
+If takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -290,7 +290,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## Delete resource group
-Deleting a resource group also deletes all resources contained within, such as the VM instances, virtual network, and disks. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --no-wait --yes
