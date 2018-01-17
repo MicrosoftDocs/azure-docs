@@ -70,7 +70,7 @@ Some features, such as virtual network integration, Azure Active Directory/third
 App Service on Linux is only supported with [Basic and Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. The following are also important restrictions for App Service on Linux:
 
 * You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.
-* When creating Web App for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different region than the existing App Service plan.
+* When creating Web App for Containers in a resource group containing non-Linux Web Apps, you must create an App Service plan in a different resource group than the existing App Service plan.
 
 ## Troubleshooting
 
