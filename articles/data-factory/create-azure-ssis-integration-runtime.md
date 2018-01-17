@@ -410,7 +410,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## Azure Resource Manager template
-You can use an Azure Resource Manager template to create an Azure-SSIS integration runtime. 
+You can use an Azure Resource Manager template to create an Azure-SSIS integration runtime. Here is a sample walkthrough: 
 
 1. Create a JSON file with the following Resource Manager template. Replace values in the angled brackets (place holders) with your own values. 
 
@@ -461,7 +461,7 @@ You can use an Azure Resource Manager template to create an Azure-SSIS integrati
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
-    ```powershell
+    ```
 
     This command creates the data factory and creates an Azure-SSIS IR in it, but it does not start the IR. 
 3. To start the Azure-SSIS IR, run the Start-AzureRmDataFactoryV2IntegrationRuntime command: 
