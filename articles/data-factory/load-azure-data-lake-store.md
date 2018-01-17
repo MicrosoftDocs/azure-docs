@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
 
 ---
@@ -122,7 +122,11 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 
     ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Verify that the data is copied into your Azure Data Lake Store. 
+15. You can further monitor each copy activity's execution details, by clicking the "Details" button under Actions in activity monitoring view. It shows you information including volume of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations.
+
+    ![Monitor activity run details](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Verify that the data is copied into your Azure Data Lake Store. 
 
     ![Verify Data Lake Store output](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
