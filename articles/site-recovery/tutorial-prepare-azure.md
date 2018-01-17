@@ -5,17 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
 
 ---
 # Prepare Azure resources for replication of on-premises machines
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business
-continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running
-available during planned and unplanned outages. Site Recovery manages and orchestrates disaster
-recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover,
+The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover,
 and recovery.
 
 This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V or VMware), or Windows/Linux physical servers to Azure. In this tutorial, you learn how to:
@@ -49,11 +46,11 @@ required to manage Site Recovery operations in a Recovery Services vault.
 Images of replicated machines are held in Azure storage. Azure VMs are created from the storage
 when you fail over from on-premises to Azure.
 
-1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Storage** > **Storage account**.
-2. Enter a name for your storage account. For these tutorials we will use the name **contosovmsacct1910171607**. The name must be unique within Azure, and be between 3 and 24
+1. In the [Azure portal](https://portal.azure.com) menu, click **New** -> **Storage** -> **Storage account**.
+2. In **Create storage account**, enter a name for the account. For these tutorials we will use the name **contosovmsacct1910171607**. The name must be unique within Azure, and be between 3 and 24
    characters, with numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
-4. Select **General purpose** > **Standard**.
+4. Select **General purpose** > **Standard**. Don't select blob storage.
 5. Select the default **RA-GRS** for storage redundancy.
 6. Select the subscription in which you want to create the new storage account.
 7. Specify a new resource group. An Azure resource group is a logical container into which Azure

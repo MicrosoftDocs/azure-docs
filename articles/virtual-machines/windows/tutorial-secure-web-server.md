@@ -21,7 +21,7 @@ ms.custom: mvc
 ---
 
 # Secure IIS web server with SSL certificates on a Windows virtual machine in Azure
-To secure web servers, a Secure Sockets Later (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Windows virtual machines (VMs) in Azure. In this tutorial you learn how to:
+To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Windows virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Key Vault
