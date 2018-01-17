@@ -21,7 +21,7 @@ ms.author: ergreenl
 
 
 
-# AADDS104: Network error
+## AADDS104: Network error
 
 **Alert message:**
  *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
