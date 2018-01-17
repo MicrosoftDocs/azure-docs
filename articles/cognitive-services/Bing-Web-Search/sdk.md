@@ -14,13 +14,15 @@ ms.author: v-gedod
 # Bing Web Search SDK preview
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-    * [.NET libraries](https://github.com/Azure/azure-sdk-for-net/)
+    The code samples include search scenarios for web pages, news, images, entities, videos, as well as custom searches and spell check.
+    * See the [.NET libraries](https://github.com/Azure/azure-sdk-for-net/) for dependencies.
 * [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-    * [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/)
+    The code samples include the same search scenarios as the .NET samples. 
+    * See the [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/) for dependencies.
 * [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-    * [Java libraries](https://github.com/Azure/azure-sdk-for-java/)
+    * See the [Java libraries](https://github.com/Azure/azure-sdk-for-java/) for dependencies.
 * [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-    * [Python libraries](https://github.com/Azure/azure-sdk-for-python/)
+    * See the [Python libraries](https://github.com/Azure/azure-sdk-for-python/) for dependencies.
 
 SDK samples for each language include a ReadMe file with details about installing and running the samples.
 
