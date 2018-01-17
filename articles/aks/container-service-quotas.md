@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service(AKS) quotas and region availability
+title: Azure Container Service (AKS) quotas and region availability
 description: The default quotas and region availability of the Azure Container Service (AKS).
 services: container-service
 author: david-stanford
@@ -24,7 +24,7 @@ All other network, compute, and storage limitations apply to the provisioned inf
 
 ## Region availability
 
-Azure Container Service(AKS) is available for preview in the following regions:
+Azure Container Service (AKS) is available for preview in the following regions:
 - East US
 - West Europe
 - Central US
