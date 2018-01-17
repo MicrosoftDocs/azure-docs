@@ -171,7 +171,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 14. Notice that the **Monitor** tab on the left is automatically selected. You see the links to view activity run details and to rerun the pipeline in the **Actions** column. Click **Refresh** to refresh the list. 
 
     ![Monitor pipeline runs](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. There is only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, click **Pipelines** link at the top. Click **Refresh** to refresh the list. 
+15. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. There is only one activity (copy activity) in the pipeline, so you see only one entry. For details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. To switch back to the pipeline runs view, click **Pipelines** link at the top. To refresh the view, click **Refresh**. 
 
     ![Monitor activity runs](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
 16. Click the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool using the editor. Click **Code** to view the JSON code associated with the entity opened in the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
