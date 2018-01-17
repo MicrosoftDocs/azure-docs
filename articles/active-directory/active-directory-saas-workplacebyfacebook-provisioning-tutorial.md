@@ -72,7 +72,7 @@ Azure AD supports the ability to automatically synchronize the account details o
 
     ![provisioning](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Under the **Admin Credentials** section, enter the Secret Token of your Workplace by Facebook administrator and the Tenant URL value is `https://www.facebook.com/scim/v1/` .
+5. Under the **Admin Credentials** section, enter the Secret Token of your Workplace by Facebook administrator and set the Tenant URL value to `https://www.facebook.com/scim/v1/` .
 
 6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Workplace by Facebook app. If the connection fails, ensure your Workplace by Facebook account has Team Admin permissions.
 
