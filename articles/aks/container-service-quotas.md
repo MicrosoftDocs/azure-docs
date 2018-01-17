@@ -2,7 +2,7 @@
 title: Azure Container Service(AKS) quotas and region availability
 description: The default quotas and region availability of the Azure Container Service (AKS).
 services: container-service
-author: dastanfo
+author: david-stanford
 manager: timlt
 
 ms.service: container-service
@@ -17,6 +17,10 @@ All Azure services include certain default limits and quotas for resources and f
 ## Service quotas and limits
 
 [!INCLUDE [container-service-limits](../../includes/container-service-limits.md)]
+
+## Provisioned Infrastructure
+
+All other network, compute, and storage limitations apply to the provisioned infrastructure. See [azure-subscription-service-limits](../azure-subscription-service-limits.md) for the relevant limits.
 
 ## Region availability
 

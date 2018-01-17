@@ -127,7 +127,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
 ### Container Service (AKS) limits
-[!INCLUDE [container-service-limits](../includes/container-instances-limits.md)]
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
