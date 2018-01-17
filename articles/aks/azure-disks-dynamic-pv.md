@@ -35,7 +35,7 @@ If these storage classes work for your needs, you do not need to create a new on
 
 If you would like to create a new storage class configured for Azure disks, you can do so using the following sample manifest. 
 
-The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. 
+The `storageaccounttype` value of `Standard_LRS` indicates that a standard disk is created. This value can be changed to `Premium_LRS` to create a [premium disk][premium-storage]. To use premium disks, the AKS node virtual machine must have a size compatible with premium disks. See [this document][premium-storage] for a list of compatible sizes.
 
 ```yaml
 apiVersion: storage.k8s.io/v1beta1
@@ -48,11 +48,13 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
+
+
 ## Create persistent volume claim
 
 A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
-This example manifest creates a persistent volume claim using the `managed-premium` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+This example manifest creates a persistent volume claim using the `azure-managed-disk` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
 ```yaml
 apiVersion: v1
@@ -60,7 +62,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
   annotations:
-    volume.beta.kubernetes.io/storage-class: managed-premium
+    volume.beta.kubernetes.io/storage-class: azure-managed-disk
 spec:
   accessModes:
   - ReadWriteOnce
