@@ -25,7 +25,7 @@ This article describes how you can use the Surface Hub solution in Log Analytics
 
 Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to Log Analytics. Log files are read from your Surface Hubs and are then are sent to Log Analytics. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in the Surface Hub dashboard in Log Analytics. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.
 
-## Installing and configuring the solution
+## Install and configure the solution
 Use the following information to install and configure the solution. In order to manage your Surface Hubs in Log Analytics, you'll need the following:
 
 * A [Log Analytics subscription](https://azure.microsoft.com/pricing/details/log-analytics/) level that will support the number of devices you want to monitor. Log Analytics pricing varies depending on how many devices are enrolled, and how much data it processes. You'll want to take this into consideration when planning your Surface Hub rollout.
