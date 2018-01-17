@@ -25,7 +25,7 @@ In this sample script, change the highlighted lines to customize the admin usern
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
 
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
