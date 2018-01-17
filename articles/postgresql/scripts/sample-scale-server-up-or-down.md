@@ -21,11 +21,11 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the SubscriptionID used in the az monitor commands with your own subscription identifier.
-[!code-azurecli-interactive[main](../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-[!code-azurecli-interactive[main](../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
 
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.

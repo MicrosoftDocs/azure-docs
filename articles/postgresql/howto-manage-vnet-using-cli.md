@@ -46,7 +46,7 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 ### Sample script to create an Azure Database for PostgreSQL database, create a VNet, VNet service end point and secure the server to the subnet with a VNet rule
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the SubscriptionID used in the `az account set --subscription` command with your own subscription identifier.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=4,18,19 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=4,18,19 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
 
 > [!IMPORTANT]
 > **Virtual Network service endpoint:** A [Virtual Network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. VNet services endpoints use the service type name **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it configures service endpoint traffic for all Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
@@ -54,4 +54,4 @@ In this sample script, change the highlighted lines to customize the admin usern
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
