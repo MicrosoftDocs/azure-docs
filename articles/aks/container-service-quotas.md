@@ -18,9 +18,9 @@ All Azure services include certain default limits and quotas for resources and f
 
 [!INCLUDE [container-service-limits](../../includes/container-service-limits.md)]
 
-## Provisioned Infrastructure
+## Provisioned infrastructure
 
-All other network, compute, and storage limitations apply to the provisioned infrastructure. See [azure-subscription-service-limits](../azure-subscription-service-limits.md) for the relevant limits.
+All other network, compute, and storage limitations apply to the provisioned infrastructure. See [Azure subscription and service limits](../azure-subscription-service-limits.md) for the relevant limits.
 
 ## Region availability
 
