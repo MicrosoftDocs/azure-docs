@@ -23,7 +23,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Running the walkthrough
 
-Please set `subscriptionKey` below to your API key for the Bing API service.
+First, set `subscription_key` to your API key for the Bing API service.
 
 
 ```python

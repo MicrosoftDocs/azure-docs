@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
-This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. Please refer to the [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) for more details on the REST APIs.  
+This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. Refer to the [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) for more details on the REST APIs.  
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -25,7 +25,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
-To continue with the walkthrough, please set `subscriptionKey` below to your API key for the Bing API service.
+To continue with the walkthrough, set `subscription_key` below to your API key for the Bing API service.
 
 
 ```python
@@ -33,21 +33,21 @@ subscription_key = "96d05359d76f4e758906539daeab939e"
 assert subscription_key
 ```
 
-Next, please verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter unexpected authorization errors, double-check this value against the endpoint for your Bing search instance in your Azure dashboard.
+Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter unexpected authorization errors, double-check this value against the endpoint for your Bing search instance in your Azure dashboard.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
 ```
 
-We will now search Bing for images of puppies!
+Set `search_term` to look for images of puppies.
 
 
 ```python
 search_term = "puppies"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing seach APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, please see the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) documentation.
 
 
 ```python
@@ -60,7 +60,7 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-The `search_results` object contains the actual images along with rich metadata such as related items. For example, we can extract the thumbnail URLS for the first 16 results using the following line of code.
+The `search_results` object contains the actual images along with rich metadata such as related items. For example, the following line of code can extract the thumbnail URLS for the first 16 results.
 
 
 ```python

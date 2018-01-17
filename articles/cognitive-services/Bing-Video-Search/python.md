@@ -20,11 +20,11 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 
 ## Prerequisites
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
 
-Please set `subscriptionKey` below to your API key for the Bing API service.
+First, set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
@@ -32,21 +32,21 @@ subscription_key = "96d05359d76f4e758906539daeab939e"
 assert subscription_key
 ```
 
-Next, please verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter unexpected authorization errors, double-check this value against the endpoint for your Bing search instance in your Azure dashboard.
+Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter unexpected authorization errors, double-check this value against the endpoint for your Bing search instance in your Azure dashboard.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search"
 ```
 
-We will now search Bing for videos of kittens!
+Set `search_term` to look for videos of kittens
 
 
 ```python
 search_term = "kittens"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing seach APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, please see the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) documentation.
 
 
 ```python
@@ -59,7 +59,7 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-The `search_results` object contains the relevant videos along with rich metadata. To view one of the videos, we can use its `embedHtml` property and insert it into an `IFrame`.
+The `search_results` object contains the relevant videos along with rich metadata. To view one of the videos, use its `embedHtml` property and insert it into an `IFrame`.
 
 
 ```python
