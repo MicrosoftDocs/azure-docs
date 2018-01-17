@@ -117,12 +117,14 @@ If you are writing a quick prototype and don't want to provision Azure resources
     ```xml
     <configBuilders>
         <builders>
+	    <!-- Store your secrets file outside the application -->
             <add name="Secrets"
                  userSecretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
                     Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```
+    The `userSecretsFile` can also be local to your application, for example `userSecretsFile="~/App_Config/Secrets.config"`
 
 4. Specify appSettings section is using the secret configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 
