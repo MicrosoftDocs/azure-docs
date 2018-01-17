@@ -24,10 +24,9 @@ This tutorial walks through a sample configuration that uses IoT Hub and Event g
 In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
-> * Create a logic app that monitors for events via HTTP.
-> * Publish events from IoT Hub using Event Grid
-> * Send email notifications when an IoT Hub event occurs.
-> * Add a filter to only receive events from specific devices. 
+> * Create a logic app that sends email notifications when triggered.
+> * Publish events from IoT Hub to trigger the logic app. 
+> * Use filters in Event Grid to publish events only from specific devices. 
 
 ## Prerequisites
 
@@ -119,12 +118,17 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
      "metadataVersion": "1"
    }]
    ```
+5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
+
 
 ### Create an action
 
 Actions are any steps that occur after the trigger starts the logic app workflow. For this tutorial, the action is to send an email notification from your email provider. 
 
 1. Select **New step** then **Add an action**. 
+
+   ![New step, add an action](./media/publish-iot-hub-events-to-logic-apps/new-step.png)
+
 2. Search for **Email**. 
 3. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar. 
 
@@ -132,25 +136,14 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 4. Select the **Send an email** action. 
 5. If prompted, sign in to your email account. 
-6. Build your email template with the following values: 
-   * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access. 
-   * **Subject**: Enter the content for the email subject, using the selectable pieces to include JSON parameters. For this tutorial, write something like the following text:
+6. Build your email template. 
+   * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing. 
+   * **Subject** and **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data.  
 
-      ```input
-      IoT Hub alert: {eventType}
-      ```
-    
-   * **Body**: Enter the content for the email's body. To add blank lines press `Shift + Enter`. For this tutorial, write something like the following text:
-
-      ```input
-      This is an automated email to inform you that {eventType} occurred at {eventTime}. 
-
-      IoT hub: {hubName}
-      Device ID: {deviceId}
-      Connection state: {connectionState}
-      ```
+   Your email template may look like this example:
 
    ![Fill out email information](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
+
 7. Save your logic app. 
 
 ### Copy the HTTP URL
@@ -159,6 +152,9 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
 2. Copy the value of **HTTP POST URL** by selecting the copy button next to it. 
+
+   ![Copy the HTTP POST URL](./media/publish-iot-hub-events-to-logic-apps/copy-url.png)
+
 3. Save this URL so that you can refer to it in the next section. 
 
 ## Publish an event from IoT Hub
@@ -168,10 +164,11 @@ In this section, you configure your IoT Hub to publish events as they occur.
 1. In the Azure portal, navigate to your IoT hub. 
 2. Select **Event Grid**.
 3. Select **Event subscription**. 
+4. Uncheck **Subscribe to all event types**
 4. Create the event subscription with the following values: 
    * **Name**: Provide a descriptive name.
-   * **Event type**: Select **DeviceCreated**.
-   * **Subscriver endpoint**: Paste the URL that you copied from your logic app. 
+   * **Event types**: Select **DeviceCreated**.
+   * **Subscriber endpoint**: Paste the URL that you copied from your logic app. 
 
    You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
 
@@ -196,6 +193,10 @@ Test your logic app by creating a new device to trigger an event notification em
 
 Once you've added a few devices to your IoT hub, check your email to see which ones triggered the logic app. 
 
+## Use the Azure CLI
+
+Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/iot/device)
+
 ## Clean up resources
 
 This tutorial used resources that incur charges on your Azure subscription. When you're done trying out the tutorial and testing your results, disable or delete resources that you don't want to keep. 
@@ -214,5 +215,6 @@ Each subscription can have one free IoT hub. If you created a free hub for this 
 
 Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
 
+Learn about what else you can do with [Event Grid](overview.md).
 
 

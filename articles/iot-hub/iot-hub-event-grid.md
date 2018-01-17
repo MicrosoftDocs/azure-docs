@@ -14,19 +14,23 @@ ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
 ---
-# React to IoT Hub events by using Event Grid to trigger actions 
+# React to IoT Hub events by using Event Grid to trigger actions - Preview
 
 Automate your Internet of Things (IoT) scenario by setting alerts based on Azure IoT Hub service events and triggering downstream processes. Azure IoT Hub works with [Azure Event Grid][lnk-eg-overview] for near-real time event routing.   
 
 Azure Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services, including serverless applications like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), as well as non-Azure services using webhooks. 
 
-The integration of Iot Hub and Event Grid enables publishing IoT Hub device lifecycle events in a reliable and scalable way. For example, automate a system where a database is updated, a work ticket is created, and an email notification is delivered every time a new IoT device is added to your hub. 
+The integration of Iot Hub and Event Grid enables publishing IoT Hub device lifecycle events in a reliable and scalable way. For example, build an application to automatically perform multiple actions like updating a database, creating a ticket, and delivering an email notification every time a new IoT device is registered to your IoT hub. 
 
 For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid][lnk-eg-overview]. 
 
 ![Azure Event Grid architecture](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## Available event types
+## Regional availability
+
+The Event Grid integration requires that your IoT Hub be located in a region that supports Azure Event Grid. For the most recent list of supported regions, see [An introduction to Azure Event Grid][lnk-eg-overview]
+
+## Event types
 
 IoT Hub publishes the following event types: 
 
@@ -35,7 +39,7 @@ IoT Hub publishes the following event types:
 | Microsoft.Devices.DeviceCreated | Published when a device is registered to an IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. | 
 
-Use either the Azure portal or Azure CLI to configure which events to publish. 
+Use either the Azure portal or Azure CLI to configure which events to publish from each IoT hub. For an example, try the tutorial [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
 
 ## Event schema
 
@@ -96,7 +100,7 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 ## Filter events
 
-IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **begins with** and **ends with** matches, so that events with a matching subject are delivered to the subscriber. 
+IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **prefix** and **suffix** matches, so that events with a matching subject are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 
