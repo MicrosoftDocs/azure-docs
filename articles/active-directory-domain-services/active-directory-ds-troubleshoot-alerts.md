@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshoot Alerts | Microsoft Docs'
-description: Troubleshoot Alerts for Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft Docs'
+description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -17,7 +17,7 @@ ms.date: 01/16/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshoot Alerts
+# Azure AD Domain Services - Troubleshoot alerts
 This article provides troubleshooting guides for any alerts you may experience on your managed domain.
 
 
@@ -32,8 +32,8 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 | AADDS103 | *The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.* | [Address is in a public IP range](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
 
-### AADDS100: Missing directory
-**Alert Message:**
+## AADDS100: Missing directory
+**Alert message:**
 
 *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.*
 
@@ -43,8 +43,8 @@ This error is usually caused by incorrectly moving your Azure subscription to a 
 
 This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and recreate it in your new directory. If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](active-directory-ds-contact-us.md).
 
-### AADDS101: Azure AD B2C is running in this directory
-**Alert Message:**
+## AADDS101: Azure AD B2C is running in this directory
+**Alert message:**
 
 *Azure AD Domain Services cannot be enabled in an Azure AD B2C Directory.*
 
@@ -59,9 +59,9 @@ To restore your service, follow these steps:
 2. Create a new directory that is not an Azure AD B2C directory.
 3. Follow the [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
 
-### AADDS103: Address is in a public IP range
+## AADDS103: Address is in a public IP range
 
-**Alert Message:**
+**Alert message:**
 
 *The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.*
 
@@ -86,5 +86,5 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 8. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

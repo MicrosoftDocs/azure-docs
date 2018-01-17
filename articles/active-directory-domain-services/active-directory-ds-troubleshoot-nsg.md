@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group Configuration | Microsoft Docs'
-description: Troubleshooting NSG Configuration for Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
+description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -17,13 +17,13 @@ ms.date: 01/09/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshooting Network Security Group Configuration
+# Azure AD Domain Services - Troubleshooting Network Security Group configuration
 
 
 
 # AADDS104: Network error
 
-**Alert Message:**
+**Alert message:**
  *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
 
 The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
@@ -36,7 +36,7 @@ The following table depicts a sample NSG that would keep your managed domain sec
 >[!NOTE]
 > Azure AD Domain Services requires unrestricted outbound access. We recommend to not create any additional outboud rule to your NSGs.
 
-## Adding a rule to a Network Security group using the Azure portal
+## Adding a rule to a Network Security Group using the Azure portal
 If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. Follow these steps to create rules in your Network security group.
 
 1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
@@ -98,7 +98,7 @@ This resolution requires installing and running [Azure AD Powershell](https://do
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 
-### Full Script
+### Full script
 
 ```PowerShell
 #Change the following values to match your deployment
@@ -148,5 +148,5 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 >This default NSG does not lock down access to the port used for Secure LDAP. To find out how to create a rule for this port, visit [this article](active-directory-ds-troubleshoot-ldaps.md).
 >
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

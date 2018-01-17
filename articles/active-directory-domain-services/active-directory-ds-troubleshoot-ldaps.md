@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Secure LDAP Configuration | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Troubleshooting Secure LDAP configuration | Microsoft Docs'
 description: Troubleshooting Secure LDAP for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 01/17/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshooting Secure LDAP Configuration
+# Azure AD Domain Services - Troubleshooting Secure LDAP configuration
 
 This article provides resolutions for common issues when [configuring secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) for Azure AD Domain Services.
 
-## AADDS101: Secure LDAP Network Security Group Configuration
+## AADDS101: Secure LDAP Network Security Group configuration
 
 **Alert message:**
 
 *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.*
 
-### Secure LDAP Port
+### Secure LDAP port
 
 When secure LDAP is enabled, we recommend creating additional rules to allow inbound LDAPS access only from certain IP addresses. These rules protect your domain from brute force attacks that could pose a security threat. Port 636 allows access to your managed domain. Here is how to update your NSG to allow access for Secure LDAP:
 
@@ -46,5 +46,5 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 6. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

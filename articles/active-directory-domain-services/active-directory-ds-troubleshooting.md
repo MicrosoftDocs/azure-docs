@@ -155,5 +155,5 @@ The user account remains in the disabled state in your managed domain, even if y
 To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the `Remove-MsolUser` PowerShell cmdlet with the `-RemoveFromRecycleBin` option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

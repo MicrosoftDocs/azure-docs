@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Service Principal Configuration| Microsoft Docs'
-description: Troubleshooting Service Principal Configuration for Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Troubleshooting Service Principal configuration| Microsoft Docs'
+description: Troubleshooting Service Principal configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/17/2018
 ms.author: ergreenl
 
 ---
@@ -21,9 +21,9 @@ ms.author: ergreenl
 
 To service, manage, and update your domain, Microsoft uses various [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects) to communicate with your directory. If one is misconfigured or deleted, it can cause a disruption in your service.
 
-## AADDS102: Service principal not found
+## AADDS102: Service Principal not found
 
-**Alert Message:**
+**Alert message:**
 
 *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
