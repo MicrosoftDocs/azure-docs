@@ -29,7 +29,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
@@ -118,7 +118,7 @@ $securePassword = "P@ssword!"
 $adminUsername = "azureuser"
 ```
 
-You define a scale with with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig). The configuration details the number of VM instances to create and the VM size to use. You can also define the `-UpgradePolicyMode`. This setting controls how the VM instances respond when you make an adjustment to the scale set, such as if you apply an application to be installed. When the upgrade policy is set to *Automatic*, the VM instances automatically apply the requested changes.
+You define a scale set with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig). The configuration details the number of VM instances to create and the VM size to use. You can also define the `-UpgradePolicyMode`. This setting controls how the VM instances respond when you make an adjustment to the scale set, such as if you apply an application to be installed. When the upgrade policy is set to *Automatic*, the VM instances automatically apply the requested changes.
 
 ```azurepowershell-interactive
 $vmssConfig = New-AzureRmVmssConfig `
@@ -244,12 +244,12 @@ The following table categorizes common VM sizes into use cases.
 
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](../virtual-machines/linux/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| [High performance](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| [General purpose](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../virtual-machines/windows/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 ### Find available VM instance sizes
 To see a list of VM instance sizes available in a particular region, use the [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) command. 
