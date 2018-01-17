@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot usage analytics in Application Insights
+title: Troubleshoot usage analytics in Azure Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -21,7 +21,7 @@ Have questions about the [usage analytics tools in Application Insights](app-ins
 ## Counting Users
 **The usage analytics tools show that my app has one user/session, but I know my app has many users/sessions. How can I fix these incorrect counts?**
 
-All telemetry events in Application Insights have an [anonymous user ID](application-insights-data-model-context.md) and a [session ID](application-insights-data-model-context.md) as two of their standard properties. All of the usage analytics tools count users and sessions based on these IDs, by default. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
+All telemetry events in Application Insights have an [anonymous user ID](application-insights-data-model-context.md) and a [session ID](application-insights-data-model-context.md) as two of their standard properties. By default, all of the usage analytics tools count users and sessions based on these IDs. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
 
 If you're monitoring a web app, the easiest solution is to add the [Application Insights JavaScript SDK](app-insights-javascript.md) to your app, and make sure the script snippet is loaded on each page you want to monitor. The JavaScript SDK automatically generates anonymous user and session IDs, then populates telemetry events with these IDs as they're sent from your app.
 
@@ -42,9 +42,9 @@ If your app is sending too many page view names, check whether these page view n
 
 * If the page view names are manually specified in code using the [`trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), change the name to be less specific. Avoid common mistakes like putting the URL in the name of the page view. Instead, use the URL parameter of the `trackPageView` API. Move other details from the page view name into custom properties.
 
-* If the Application Insights JavaScript SDK is automatically sending page views names, you can either change your pages' titles or switch to manually sending page view names. The SDK sends the [title](https://developer.mozilla.org/docs/Web/HTML/Element/title) of each page as the page view name, by default. You could change your titles to be more general, but be mindful of SEO and other impacts this change could have. Manually specifying page view names with the `trackPageView` API overrides the automatically collected names, so you could send more general names in telemetry without changing page titles.   
+* If the Application Insights JavaScript SDK is automatically sending page view names, you can either change your pages' titles or switch to manually sending page view names. The SDK sends the [title](https://developer.mozilla.org/docs/Web/HTML/Element/title) of each page as the page view name, by default. You could change your titles to be more general, but be mindful of SEO and other impacts this change could have. Manually specifying page view names with the `trackPageView` API overrides the automatically collected names, so you could send more general names in telemetry without changing page titles.   
 
-If your app is sending too many custom event names, change the name in code to be less specific. Again, avoid putting URLs and other per-page or dynamic information in the custom event names directly. Instead, move these details into custom properties of the custom event with the `trackEvent` API. For example, instead of `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, we suggest something like `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
+If your app is sending too many custom event names, change the name in the code to be less specific. Again, avoid putting URLs and other per-page or dynamic information in the custom event names directly. Instead, move these details into custom properties of the custom event with the `trackEvent` API. For example, instead of `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, we suggest something like `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
 ## Next steps
 
