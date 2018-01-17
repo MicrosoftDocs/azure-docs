@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 

@@ -15,7 +15,8 @@
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. Choose **New** to create a new resource group.|
     | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** after you click **New** to create a new plan. Also, choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.  |
 
-    An Azure storage account is required by the Functions runtime. Because of this, a new Azure Storage account is created for you when you create a function app.
+    >[!NOTE]
+    >An Azure storage account is required by the Functions runtime. Because of this, a new Azure Storage account is created for you when you create a function app.
 
 4. Click **Create** to create a function app and related resources in Azure with these settings and deploy your function project code. 
 
