@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Structured Streaming from Kafka to Cosmos DB - Azure HDInsight | Microsoft Docs
+title: Apache Spark Structured Streaming from Kafka to Azure Cosmos DB - Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: larryfr
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight, and then store the data into Azure Cosmos DB.
 
-Azure Cosmos DB is a globally distributed, multi-model database. This example uses a SQL API database model. For more information on Cosmos DB, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
+Azure Cosmos DB is a globally distributed, multi-model database. This example uses a SQL API database model. For more information, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
 
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) at Apache.org.
 
@@ -149,11 +149,11 @@ Once the files have been uploaded, select the __Stream-taxi-data-to-kafka.ipynb_
 
 ## Process tweets using Spark Structured Streaming
 
-From the Jupyter Notebook home page, select the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entry. Follow the steps in the notebook to stream data from Kafka and into Cosmos DB using Spark Structured Streaming.
+From the Jupyter Notebook home page, select the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entry. Follow the steps in the notebook to stream data from Kafka and into Azure Cosmos DB using Spark Structured Streaming.
 
 ## Next steps
 
-Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark, Kafka, and Cosmos DB:
+Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark, Kafka, and Azure Cosmos DB:
 
 * [How to use Spark streaming (DStream) with Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Start with Jupyter Notebook and Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)
