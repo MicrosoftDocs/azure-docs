@@ -169,7 +169,10 @@ A schedule trigger runs pipelines on a wall-clock schedule. This trigger support
 
 For more information about schedule triggers and examples, see [How to create a schedule trigger](how-to-create-schedule-trigger.md).
 
-### Schedule trigger definition
+## Tumbling window trigger
+Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. For more information about tumbling window triggers and examples, see the instructions in [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
+
+## Schedule trigger definition
 When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition. 
 
 To have your schedule trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
@@ -344,9 +347,6 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Run on the fifth Friday of every month at the specified start time. When there's no fifth Friday in a month, the pipeline doesn't run, since it's scheduled to run only on fifth Fridays. To run the trigger on the last occurring Friday of the month, consider using -1 instead of 5 for the **occurrence** value. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
-
-## Tumbling window trigger
-Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. For more information about tumbling window triggers and examples, see the instructions in [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
 ## Trigger type comparison
 The tumbling window trigger and the schedule trigger both operate on time heartbeats, so what makes them different?
