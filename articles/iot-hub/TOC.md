@@ -174,6 +174,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
 ## [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
