@@ -36,11 +36,11 @@ To enable content sync from the [Azure portal](https://portal.azure.com), follow
    > Because of underlying differences in the APIs, **OneDrive for Business** is not supported at this time. 
    > 
    > 
-2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox where all of your App Service content will be stored. After authorization the App Service platform will give you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
+2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox, where all of your App Service content are stored. After authorization, the App Service platform gives you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
    
    * **OneDrive**: `Apps\Azure Web Apps` 
    * **Dropbox**: `Dropbox\Apps\Azure`
-3. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available on the **Deployments** page.
+3. After the initial content sync, the content sync can be initiated on demand from the Azure portal. Deployment history is available on the **Deployments** page.
    
     ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
 

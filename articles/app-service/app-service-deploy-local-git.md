@@ -51,7 +51,7 @@ Perform the following tasks to create a new Git repository.
 
 App Service supports applications created in a variety of programming languages.
 
-1. If your repository does not already include content simply populate with a static .html file as follows; or skip this step:
+1. If your repository does not already include content, simply populate with a static .html file as follows; or skip this step:
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 1. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
@@ -75,7 +75,7 @@ Perform the following steps to enable a Git repository for your App Service app.
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
 
-1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
 
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -87,7 +87,7 @@ Use the following steps to publish your app to App Service using Local Git.
 
     ![](./media/app-service-deploy-local-git/git_url.png)
 
-    **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
+    **Git URL** is the remote reference to deploy to from your local repository. You use this URL in the next steps.
 1. Using the command line, verify that you are in the root of your local Git repository.
 1. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command looks similar to the following:
 
@@ -131,7 +131,7 @@ The following are errors or problems commonly encountered when using Git to publ
 ---
 **Symptom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Cause**: This error can occur if you do not specify a branch when performing a git push operation, or have not set the push.default value in `.gitconfig`.
+**Cause**: This error can occur if you do not specify a branch during `git push`, or if you have not set the `push.default` value in `.gitconfig`.
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
@@ -171,10 +171,10 @@ git config --global http.postBuffer 524288000
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
 * **Native module that does not have a binary distribution for Windows**:
 
-  * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+  * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
       OR
-  * npm ERR! [modulename@version] preinstall: \`make || gmake\`
+  * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## Additional Resources
 
