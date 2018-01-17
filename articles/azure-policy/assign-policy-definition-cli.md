@@ -33,7 +33,8 @@ Follow these steps to create a new policy assignment:
 
     Register the resource provider by running the following command:
 
-    ```az provider register --namespace Microsoft.PolicyInsights
+    ```azurecli
+    az provider register --namespace Microsoft.PolicyInsights
     ```
 
     The command returns a message stating that registration is on-going.
