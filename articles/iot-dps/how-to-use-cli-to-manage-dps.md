@@ -17,11 +17,11 @@ ms.custom: mvc
 
 # How to use Azure CLI 2.0 and the IoT extension to manage device provisioning service
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open source cross platform command line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux and MacOS. Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS. Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box.
 
 The IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
-In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the IoT extension. Then you learn how to run CLI commands to perform basic device provisioning service operations. 
+In this tutorial, you first complete the steps to setup Azure CLI 2.0 and the IoT extension. Then you learn how to run CLI commands to perform basic device provisioning service operations. 
 
 ## Installation 
 
@@ -39,12 +39,12 @@ Follow the [installation instruction](https://docs.microsoft.com/en-us/cli/azure
 
 
 ## Basic device provisioning service operations
-The example shows you how to login to your Azure account, create an Azure Resource Group (a container that holds related resources for an Azure solution), create an IoT Hub, create a device provisioning servie, list the existing device provisioning services and create a linked iot hub with CLI commands. 
+The example shows you how to log in to your Azure account, create an Azure Resource Group (a container that holds related resources for an Azure solution), create an IoT Hub, create a device provisioning servie, list the existing device provisioning services and create a linked IoT hub with CLI commands. 
 
 Complete the installation steps described previously before you begin. If you don't have an Azure account yet, you can [create a free account](https://azure.microsoft.com/free/?v=17.39a) today. 
 
 
-### 1. Login to the Azure account
+### 1. Log in to the Azure account
   
     az login
 
