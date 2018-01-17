@@ -126,7 +126,7 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
 
-16. You can further monitor each copy activity's execution details, by clicking the "Details" button under Actions in activity monitoring view. It shows you information including volume of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations.
+16. You can further monitor each copy activity's execution details, by clicking the **Details** link under **Actions** in activity monitoring view. It shows you information including volume of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations.
 
     ![Monitor activity run details](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
