@@ -33,7 +33,7 @@ Many development teams do an excellent job capturing the functional requirements
 [Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
 
 ### What to threat model
-You should thread model the solution as a whole and also focus in the following areas:
+You should threat model the solution as a whole and also focus in the following areas:
 
 * The security and privacy features
 * The features whose failures are security relevant
