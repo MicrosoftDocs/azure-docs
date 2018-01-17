@@ -98,13 +98,13 @@ In order to capture the LUIS request and response, the web app bot needs the NPM
 
     The last line of the function is where the data is added to Application Insights. 
 
-5. Use the **appInsightsLog** function. You need to add it to every intent dialog:
+5. Use the **appInsightsLog** function. You add it to every intent dialog:
 
    [!code-javascript[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=117-118 "Use the appInsightsLog function")]
 
     All the code is available in the [LUIS-Samples repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) and each line associated with this tutorial is commented with `//APPINSIGHT:`.
 
-6. Use the **Test in Web Chat** feature to test your web app bot. You should see no difference because all the work is in Application Insights, not in the bot responses.
+6. To test your web app bot, use the **Test in Web Chat** feature . You should see no difference because all the work is in Application Insights, not in the bot responses.
 
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
@@ -136,7 +136,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
     ![Analytics button](./media/luis-tutorial-appinsights/analytics-button.png)
 
-2. A new window opens with a query window above and a data table window below. If you have used databases before, this arrangement is familiar. The query includes all items from the last 24 hours beginning with the name `LUIS-results`. The **CustomDimensions** column has the LUIS query results as name/value pairs.
+2. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query includes all items from the last 24 hours beginning with the name `LUIS-results`. The **CustomDimensions** column has the LUIS query results as name/value pairs.
 
     ![Analytics query window](./media/luis-tutorial-appinsights/analytics-query-window.png)
 
