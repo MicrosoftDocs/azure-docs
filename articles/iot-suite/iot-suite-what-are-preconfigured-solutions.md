@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
 
 ---
@@ -59,7 +59,7 @@ The following table shows how the solutions map to specific IoT features:
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Remote monitoring](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
 | [Predictive maintenance](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
-| [Connected factory](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
+| [Connected factory](iot-suite-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
