@@ -101,7 +101,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp.SiteConfig.NumberOfWorkers is different form $newapp.MaxNumberOfWorkers. Per app scaling uses $newapp.SiteConfig.NumberOfWorkers to determine the scale characteristics of the app.
+> $newapp.SiteConfig.NumberOfWorkers is different from $newapp.MaxNumberOfWorkers. Per app scaling uses $newapp.SiteConfig.NumberOfWorkers to determine the scale characteristics of the app.
 
 ### Per app scaling using Azure Resource Manager
 
