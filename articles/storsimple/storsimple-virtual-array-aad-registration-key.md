@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/17/2018
 ms.author: alkohli
 
 ---
@@ -75,15 +75,15 @@ Perform the following steps to generate an AAD service registration key.
 
 1. In **StorSimple Device Manager**, go to **Management &gt;** **Keys**.
     
-    ![Go to Keys](./media/storsimple-8000-aad-registration-key/aad-registration-key1.png)
+    ![Go to Keys](./media/storsimple-virtual-array-aad-registration-key/)
 
 2. Click **Generate key**.
 
-    ![Click regenerate](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
+    ![Click regenerate](./media/storsimple-virtual-array-aad-registration-key/)
 
 3. Copy the new key. The older key no longer works.
 
-    ![Confirm regenerate](./media/storsimple-8000-aad-registration-key/aad-registration-key2.png)
+    ![Confirm regenerate](./media/storsimple-virtual-array-aad-registration-key/)
 
 ## Next steps
 
