@@ -29,6 +29,10 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
+### Video 
+Watching this video helps you understand the Data Factory UI: 
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
+
 ## Create a data factory
 
 1. Navigate to the [Azure portal](https://portal.azure.com). 
