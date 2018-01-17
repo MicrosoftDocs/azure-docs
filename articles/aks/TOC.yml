@@ -49,6 +49,8 @@
     href: kubernetes-service-principal.md
   - name: Configure data volumes
     items:
+    - name: Azure Disks - Persistent Volume
+      href: azure-disks-dynamic-pv.md
     - name: Azure Files - Persistent Volume
       href: azure-files-dynamic-pv.md
     - name: Azure Files - Volume

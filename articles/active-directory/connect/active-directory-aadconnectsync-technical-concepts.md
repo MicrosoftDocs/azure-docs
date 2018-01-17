@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Technical concepts | Microsoft Docs'
 description: Explains the technical concepts of Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: ''
 
