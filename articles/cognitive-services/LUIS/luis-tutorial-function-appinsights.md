@@ -43,7 +43,7 @@ The code in **app.js**, when you finished the [web app bot with Node.js tutorial
 ## Add Application Insights library to web app bot
 The Application Insights feature for the web app bot is turned on. Currently, Application Insights collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
 
-In order to capture the LUIS request and response, the web app bot needs the **applicationinsights** NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
+In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
 
 1. In the Azure portal, in the web app bot service, select **Build** under the **Bot Management** section. 
 
@@ -103,7 +103,7 @@ In order to capture the LUIS request and response, the web app bot needs the **a
 
     All the code is available in the [LUIS-Samples repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) and each line associated with this tutorial is commented with `//APPINSIGHT:`.
 
-6. To test your web app bot, use the **Test in Web Chat** feature . You should see no difference because all the work is in Application Insights, not in the bot responses.
+6. To test your web app bot, use the **Test in Web Chat** feature. You should see no difference because all the work is in Application Insights, not in the bot responses.
 
 ## View LUIS entries in Application Insights
 Open Application Insights to see the LUIS entries. 
