@@ -219,7 +219,7 @@
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
