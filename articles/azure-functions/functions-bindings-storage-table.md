@@ -633,7 +633,7 @@ The Table storage output binding supports the following scenarios:
 
 ## Known Errors
 
-[!INCLUDE [Functions Binding Table Storage Errors](../../includes/functions-bindings-storage-table-errors.md)]
+[!INCLUDE [Functions Binding Table Storage Errors](../../includes/functions-bindings-table-storage-errors.md)]
 
 ## Next steps
 

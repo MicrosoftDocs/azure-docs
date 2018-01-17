@@ -724,7 +724,7 @@ In JavaScript, access the blob data using `context.bindings.<name>`.
 
 ## Known Errors
 
-[!INCLUDE [Functions Binding Blob Storage Errors](../../includes/functions-bindings-storage-blob-errors.md)]
+[!INCLUDE [Functions Binding Blob Storage Errors](../../includes/functions-bindings-blob-storage-errors.md)]
 
 ## Next steps
 

@@ -19,15 +19,15 @@ ms.author: cfowler
 
 # Azure Functions Binding Error Codes
 
-Azure Function provides a wrapper to common services within Azure. Often times while developing your Functions, you may have errors bubble up from the underlying Azure Services SDKs. The following table is a reference off to the Error Code documentation for the services that we wrap.
+Azure Function provides a wrapper to common services within Azure. When developing your functions, you may have errors bubble up from the underlying Azure Services SDKs. The following table is a reference off to the error code documentation for the services that we expose.
+
+## Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-errors](../../includes/functions-bindings-cosmos-db-errors.md)]
 
 ## Azure Storage
 
 [!INCLUDE [storage-binding-errors](../../includes/functions-bindings-storage-errors.md)]
-
-## Service Bus
-
-[!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
 
 ## Event Hub
 
@@ -37,6 +37,6 @@ Azure Function provides a wrapper to common services within Azure. Often times w
 
 [!INCLUDE [notification-hub-errors](../../includes/functions-bindings-notification-hub-errors.md)]
 
-## DocumentDB
+## Service Bus
 
-[!INCLUDE [document-db-errors](../../includes/functions-bindings-document-db-errors.md)]
+[!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]

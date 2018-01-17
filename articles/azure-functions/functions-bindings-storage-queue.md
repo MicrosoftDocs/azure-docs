@@ -459,7 +459,7 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 
 ## Known Errors
 
-[!INCLUDE [Functions Binding Queue Storage Errors](../../includes/functions-bindings-storage-queue-errors.md)]
+[!INCLUDE [Functions Binding Queue Storage Errors](../../includes/functions-bindings-queue-storage-errors.md)]
 
 ## Next steps
 
