@@ -80,11 +80,11 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 | IoT Hub              | Yes                |                        | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
-| Container Services   | Yes                |                        | Yes               |
+| Container Services   | Yes                |                        |                   |
 | Stream Analytics     |                    | Yes                    |                   |
 | Web Apps             | Yes                | Yes                    | Yes               |
-| Cosmos DB            | Yes                | Yes                    | Yes               |
-| Azure Tables         |                    | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    |                    |
+| Azure Storage         |                    | Yes                    | Yes               |
 
 > [!NOTE]
 > For more information about the resources deployed in the remote monitoring preconfigured solution, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
