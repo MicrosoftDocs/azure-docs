@@ -48,13 +48,17 @@
   - name: Upgrade a Classic registry
     href: container-registry-upgrade.md
   - name: Use ACR webhooks
-    href: ./container-registry-webhook.md
+    href: container-registry-webhook.md
   - name: Authentication
     items:
     - name: Authentication overview
       href: container-registry-authentication.md
+    - name: Authenticate using service principal
+      href: container-registry-auth-service-principal.md
+    - name: Azure Container Instances
+      href: container-registry-auth-aci.md
     - name: Azure Container Service
-      href: ./container-registry-auth-aks.md
+      href: container-registry-auth-aks.md
 - name: Reference
   items:
   - name: Azure CLI

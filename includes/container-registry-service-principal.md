@@ -1,9 +1,3 @@
-## Service principal
-
-Azure Active Directory *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources.
-
-You can configure a service principal with access rights scoped only to those resources you specify. Then, you can configure your application or service to use the service principal's credentials to access those resources.
-
 ## Create a service principal
 
 In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
@@ -39,6 +33,12 @@ echo "Service principal password: $SP_PASSWD"
 ```
 
 After you run the script, take note of the service principal's **ID** and **password**. Now that you have its credentials, you can configure your applications and services to authenticate to your container registry as the service principal.
+
+## Use an existing service principal
+
+In addition to creating a new service principal with rights to your registry, you can grant rights to an existing service principal. For example, you might want to grant rights to a service principal created for you when you created an AKS cluster.
+
+
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

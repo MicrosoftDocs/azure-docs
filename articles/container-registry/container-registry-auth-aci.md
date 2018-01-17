@@ -27,8 +27,8 @@ To launch a container in Azure Container Instances using a service principal, sp
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.io \
-    --registry-login-server myregistry.com \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password  <service-principal-password>
 ```
