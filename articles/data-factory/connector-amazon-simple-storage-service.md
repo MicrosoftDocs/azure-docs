@@ -168,7 +168,7 @@ To copy data from Amazon S3, set the source type in the copy activity to **FileS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

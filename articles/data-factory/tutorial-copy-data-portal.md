@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
 ---
-# Copy data from Azure Blob to Azure SQL Database using Azure Data Factory (Azure portal)
-In this tutorial, you create a data factory by using the Azure portal. The pipeline in this data factory copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+# Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
 > - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -345,7 +345,7 @@ In this step, you manually trigger the pipeline you published in the previous st
 2. Switch to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the Actions column to view activity details and to rerun the pipeline.
 
     ![Monitor pipeline run](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. To see activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view.
+3. To see activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view. To refresh the view, click **Refresh**.
 
     ![View activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Verify that two more rows are added to the **emp** table in the Azure SQL database. 
