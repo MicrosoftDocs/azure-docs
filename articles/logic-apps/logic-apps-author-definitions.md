@@ -20,7 +20,7 @@ ms.author: LADocs; jehollan
 ---
 # Create workflow definitions for logic apps using JSON
 
-You can create workflow definitions for [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 
+You can create workflow definitions for [Azure Logic Apps](logic-apps-overview.md) 
 with simple, declarative JSON language. If you haven't already, first review 
 [how to create your first logic app with Logic App Designer](logic-apps-create-a-logic-app.md). 
 Also, see the [full reference for the Workflow Definition Language](http://aka.ms/logicappsdocs).

@@ -22,7 +22,7 @@ ms.author: LADocs; estfan
 
 To integrate systems and services more quickly for your organization, 
 you can automate workflows and business processes with 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
 This quickstart introduces how easily you can build 
 and run an automated workflow by creating a logic app. 
 The example app shows how to automate a workflow that 
@@ -121,7 +121,7 @@ Under **Templates**, choose **Blank Logic App**.
 
 ## Add a trigger to detect new items
 
-Every logic app workflow starts with a [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+Every logic app workflow starts with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). 
 The trigger fires when a specific event happens or when new data meets 
 the condition that you set. Each time the trigger fires, 
 the Logic Apps engine creates a logic app instance that starts and runs your workflow.
@@ -155,7 +155,7 @@ This example checks the feed every five minutes.
 ## Add an action to send email
 
 Now that you have a trigger, add an 
-[action](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+[action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 that sends email when a new item appears in the RSS feed. 
 Your workflow performs this action after the trigger fires.
 
