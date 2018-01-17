@@ -71,7 +71,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 
 
 ## Create a load balancer
-The VM instances in a scale set are connected to a load balancer. An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. To allow remote connectivity to the VM instances, Network Address Translation (NAT) rules are created with [New-AzureRmLoadBalancerInboundNatPoolConfig](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancerInboundNatPoolConfig). The load balancer is created with the required pools, IP address, and NAT rules with [New-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancer):
+The VM instances in a scale set are connected to a load balancer. An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. To allow remote connectivity to the VM instances, Network Address Translation (NAT) rules are created with [New-AzureRmLoadBalancerInboundNatPoolConfig](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancerInboundNatPoolConfig). The load balancer with the required address pools, IP address assignment, and NAT rules is created with [New-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancer):
 
 ```azurepowershell-interactive
 # Create a frontend and backend IP pool
@@ -99,26 +99,16 @@ $lb = New-AzureRmLoadBalancer `
   -InboundNatPool $inboundNATPool
 ```
 
-To attach the VM instances in a scale set to the load balancer and virtual network, create a network configuration with [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig):
-
-```azurepowershell-interactive
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
-  -SubnetId $vnet.Subnets[0].Id
-```
-
 
 ## Create a scale set
 The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
 
 ```azurepowershell-interactive
-$securePassword = "P@ssword!"
 $adminUsername = "azureuser"
+$securePassword = "P@ssword!"
 ```
 
-You define a scale set with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig). The configuration details the number of VM instances to create and the VM size to use. You can also define the `-UpgradePolicyMode`. This setting controls how the VM instances respond when you make an adjustment to the scale set, such as if you apply an application to be installed. When the upgrade policy is set to *Automatic*, the VM instances automatically apply the requested changes.
+You define a scale set with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig). The configuration details the number of VM instances to create and the VM size, or *SKU*, to use. You also define the `-UpgradePolicyMode`. This policy controls how the VM instances respond when you make an adjustment to the scale set, such as to deploy an application. When the upgrade policy is set to *Automatic*, the VM instances automatically apply the requested changes.
 
 ```azurepowershell-interactive
 $vmssConfig = New-AzureRmVmssConfig `
@@ -147,7 +137,17 @@ Set-AzureRmVmssOsProfile $vmssConfig `
   -ComputerNamePrefix "myVM"
 ```
 
-Apply the network configuration that you previously created to the scale set configuration with [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration):
+To attach the VM instances in a scale set to the load balancer and virtual network, create a network configuration with [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig):
+
+```azurepowershell-interactive
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
+```
+
+Apply the network configuration to the scale set configuration with [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration):
 
 ```azurepowershell-interactive
 Add-AzureRmVmssNetworkInterfaceConfiguration `
@@ -185,7 +185,7 @@ MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeede
 MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
 ```
 
-The first column in the output shows an *InstanceId*. To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example views information about VM instance *1*:
+To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example views information about VM instance *1*:
 
 ```azurepowershell-interactive
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -225,7 +225,7 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-You can use this information to create scale sets that use different platform images. The following example defines a configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) that use Windows Server 2016 Datacenter Core.
+You can use this information to create scale sets that use different platform images. The following example would define a configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) that use Windows Server 2016 Datacenter Core.
 
 ```azurepowershell-interactive
 Set-AzureRmVmssStorageProfile $vmssConfig `
@@ -276,6 +276,14 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
+You can use this information to create scale sets that use a different VM size. The following example would define a configuration with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) that uses the *Standard_F1* VM instance size:
+
+```azurepowershell-interactive
+$vmssConfig = New-AzureRmVmssConfig `
+    -Location "EastUS" `
+    -SkuCapacity 2 `
+    -SkuName "Standard_F1"
+```
 
 ## Change the capacity of a scale set
 When you created a scale set, you requested two VM instances. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
@@ -291,7 +299,7 @@ $vmss.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
-If takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) and query on *sku.capacity*:
+If takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
 ```azurepowershell-interactive
 Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
