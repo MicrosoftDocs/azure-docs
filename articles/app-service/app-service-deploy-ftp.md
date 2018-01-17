@@ -40,7 +40,7 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
     ![FTP Connection Information](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > The **FTP/Deployment User** user value as displayed by the Azure portal including the app name in order to provide proper context for the FTP server.
+    > To provide proper context for the FTP server, the **FTP/Deployment User** value displayed by the Azure portal includes the app name.
     > You can find the same information when you select **Properties** in the left menu. 
     >
     > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
@@ -61,7 +61,7 @@ use the connection information you gathered to connect to your app.
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
-> You must restore, build, and generate these necessary files manually on your local machine and deploy them together with your app.
+> Generate these necessary files manually on your local machine, and then deploy them together with your app.
 >
 >
 

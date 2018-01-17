@@ -66,7 +66,7 @@ Knowing the resource group name that contains the source web app, you can use th
 $srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Knowing the ASE's nam, and the resource group name that the ASE belongs to, you can use the `New-AzureRmWebApp` command to create the new web app in the existing ASE, as shown in the following command:
+Knowing the ASE's name, and the resource group name that the ASE belongs to, you can create the new web app in the existing ASE, as shown in the following command:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
@@ -83,7 +83,7 @@ Knowing the resource group name that contains the source web app, you can use th
 $srcappslot = Get-AzureRmWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-webapp -Slot source-webappslot
 ```
 
-The following demonstrates creating a clone of the source web app to a new web app:
+The following command demonstrates creating a clone of the source web app to a new web app:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
@@ -93,14 +93,14 @@ $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -N
 Creating multi-region web apps and configuring Azure Traffic Manager to route traffic to all these web apps, is an important scenario to ensure that customers' apps are highly available. When cloning an existing web app, you have the option to connect both web apps to either a new traffic manager profile or an existing one. Only Azure Resource Manager version of Traffic Manager is supported.
 
 ### Creating a new Traffic Manager profile while cloning an app
-Scenario: You want to clone a web app to another region, while configuring an Azure Resource Manager traffic manager profile that includes both web apps. The following demonstrates creating a clone of the source web app to a new web app while configuring a new Traffic Manager profile:
+Scenario: You want to clone a web app to another region, while configuring an Azure Resource Manager traffic manager profile that includes both web apps. The following command demonstrates creating a clone of the source web app to a new web app while configuring a new Traffic Manager profile:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### Adding new cloned Web App to an existing Traffic Manager profile
-Scenario: You already have an Azure Resource Manager traffic manager profile and want to add both web apps as endpoints. To do so, you first need to assemble the existing traffic manager profile ID. You need the subscription ID, resource group name and the existing traffic manager profile name.
+Scenario: You already have an Azure Resource Manager traffic manager profile and want to add both web apps as endpoints. To do so, you first need to assemble the existing traffic manager profile ID. You need the subscription ID, the resource group name, and the existing traffic manager profile name.
 
 ```PowerShell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
@@ -113,7 +113,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest
 ```
 
 ## Current Restrictions
-This feature is currently in preview, and new capabilities are added over time. The following list are the known restrictions on the current version of app cloning:
+This feature is currently in preview, and new capabilities are added over time. Here are the known restrictions on the current version of app cloning:
 
 * Auto scale settings are not cloned
 * Backup schedule settings are not cloned

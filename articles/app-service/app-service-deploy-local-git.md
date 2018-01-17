@@ -91,7 +91,9 @@ Use the following steps to publish your app to App Service using Local Git.
 1. Using the command line, verify that you are in the root of your local Git repository.
 1. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command looks similar to the following:
 
-        git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
+    ```
+    git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
+    ```
 
    > [!NOTE]
    > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
@@ -99,9 +101,9 @@ Use the following steps to publish your app to App Service using Local Git.
 
 1. Push your content to App Service using the new **azure** remote you created.
 
-  ```bash
-  git push azure master
-  ```
+    ```bash
+    git push azure master
+    ```
 
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 1. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.

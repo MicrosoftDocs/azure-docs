@@ -18,7 +18,7 @@ ms.author: dariagrigoriu
 
 ---
 # Sync content from a cloud folder to Azure App Service
-This tutorial shows you how to deploy to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by syncing your content from popular cloud storage services like Dropbox and OneDrive. 
+This tutorial shows you how to sync your content to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) from popular cloud storage services like Dropbox and OneDrive. 
 
 ## <a name="overview"></a>Overview of content sync deployment
 The on-demand content sync deployment is powered by the [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki) 
@@ -36,7 +36,7 @@ To enable content sync from the [Azure portal](https://portal.azure.com), follow
    > Because of underlying differences in the APIs, **OneDrive for Business** is not supported at this time. 
    > 
    > 
-2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox, where all of your App Service content are stored. After authorization, the App Service platform gives you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
+2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox, where all of your App Service content is stored. After authorization, the App Service platform gives you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
    
    * **OneDrive**: `Apps\Azure Web Apps` 
    * **Dropbox**: `Dropbox\Apps\Azure`
