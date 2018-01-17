@@ -50,7 +50,7 @@ Site Recovery can manage replication for:
 
 **Supported** | **Details**
 --- | ---
-**Replication scenarion** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
+**Replication scenarios** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
 **Regions** | Review [supported regions](https://azure.microsoft.com/regions/services/) for Site Recovery. |
 **Replicated machines** | Review the replication requirements for [Azure VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [on-premises VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and [physical servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
 **VMware servers/hosts** | VMware VMs you want to replicate can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).

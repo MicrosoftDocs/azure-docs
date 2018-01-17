@@ -3,7 +3,7 @@ title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: fimguy
+author: billmath
 manager: bhu
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
+ms.author: billmath
 
 ---
 # Generic SQL Connector technical reference
