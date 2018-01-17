@@ -113,8 +113,6 @@ In this step, you create a gateway subnet and a Dynamic routing gateway. In the 
 
   ![Client address space](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Select the **Create gateway immediately** checkbox.
-
-  ![Create gateway immediately](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
 6. Click **Optional gateway configuration** to open the **Gateway configuration** page.
 
   ![Click optional gateway configuration](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
