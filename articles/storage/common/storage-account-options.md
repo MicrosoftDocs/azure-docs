@@ -22,13 +22,13 @@ Azure Storage provides three distinct account options, with different pricing an
 * **General-purpose v1 (GPv1)** accounts
 * **Blob storage** accounts
 
-Each type of account is described in greater detail in the following section.
+Each type of account is described in greater detail in the following section:
 
 ## Storage account options
 
 ### General-purpose v2
 
-**General-purpose v2 (GPv2) acounts** are storage accounts which support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per-GB prices, and industry competitive transaction prices.
+**General-purpose v2 (GPv2) accounts** are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
 You can upgrade your GPv1 account to a GPv2 account using PowerShell or Azure CLI. 
 
@@ -37,7 +37,7 @@ For block blobs in a GPv2 storage account, you can choose between hot and cool s
 GPv2 storage accounts expose the **Access Tier** attribute at the account level, which specifies the default storage account tier as **Hot** or **Cool**. The default storage account tier is applied to any blob that does not have an explicit tier set at the blob level. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The **archive tier** can only be applied at the blob level.
 
 > [!NOTE]
-> Changing the storage tier may result in additional charges. See the [Pricing and billing](#pricing-and-billing) section for more details.
+> Changing the storage tier may result in additional charges. For more information, see the [Pricing and billing](#pricing-and-billing) section.
 >
 > Microsoft recommends using general-purpose v2 storage accounts over Blob storage accounts for most scenarios.
 
@@ -63,13 +63,13 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ### General-purpose v1
 
-General-purpose v1 (GPv1) accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per-GB pricing. For example, cool and archive storage are not supported in GPv1. Pricing is lower for GPv1 transactions, so workloads with high churn or high read rates may benefit from this account type.
+General-purpose v1 (GPv1) accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. For example, cool storage and archive storage are not supported in GPv1. Pricing is lower for GPv1 transactions, so workloads with high churn or high read rates may benefit from this account type.
 
 General-purpose v1 (GPv1) storage accounts are the oldest type of storage account, and the only kind that can be used with the classic deployment model. 
 
 ### Blob storage accounts
 
-**Blob storage accounts** support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to that in General-purpose v2. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. Note that this upgrade cannot be undone.
+**Blob storage accounts** support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. This upgrade cannot be undone.
 
 The ability to upgrade Blob storage Accounts to GPv2 is coming soon.
 
@@ -78,9 +78,9 @@ The ability to upgrade Blob storage Accounts to GPv2 is coming soon.
 
 ## Recommendations
 
-See [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information on storage accounts.
+For more information on storage accounts, see [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-For applications requiring only block or append blob storage, we recommend using GPv2 storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand this might not be possible under certain circumstances where using GPv1 storage accounts would be advisable, such as:
+For applications requiring only block or append blob storage, using GPv2 storage accounts is recommended, to take advantage of the differentiated pricing model of tiered storage. However, you may want to use GPv1 in certain scenarios, such as:
 
 * You still need to use the classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
 
@@ -100,14 +100,14 @@ All storage accounts use a pricing model for blob storage based on the tier of e
 
 * **Transaction costs**: There is a per-transaction charge for all tiers that increases as the tier gets cooler.
 
-* **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
+* **Geo-Replication data transfer costs**: This charge only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
 
 * **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
 
 * **Changing the storage tier**: Changing the account storage tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. However, changing the account storage tier from hot to cool incurs a charge equal to writing all the data into the cool tier (GPv2 accounts only).
 
 > [!NOTE]
-> For more details on the pricing model for Blob storage accounts, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
+> For more information on the pricing model for Blob storage accounts, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
 ## Quickstart scenarios
 
@@ -131,17 +131,15 @@ You cannot set the access tier to archive in the following examples because this
 
 4. Select **Resource Manager** as the deployment model.
 
-    Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).  
+    Tiered storage can only be used with Resource Manager storage accounts; Resource Manager is the recommended deployment model for new resources. For more information, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).  
 
-5. In the Account Kind dropdown list, select **General-purpose v2**.
+5. In the **Account Kind** dropdown list, select **General-purpose v2**.
 
-    This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.     
-
-    When you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
+    When you select GPv2, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
 
 6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+    LRS = locally redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
 
     For more details on Azure Storage replication options, check out [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -161,11 +159,11 @@ You cannot set the access tier to archive in the following examples because this
 
 2. To navigate to your storage account, select All Resources, then select your storage account.
 
-3. In the Settings blade, click **Configuration**.
+3. In the Settings section, click **Configuration**.
 
-4. Under Account kind, click on **Upgrade**.
+4. Under **Account kind**, click on **Upgrade**.
 
-5. A new blade on the right will appear for confirmation. Under Confirm upgrade, type in the name of your account. 
+5. Under **Confirm upgrade**, type in the name of your account. 
 
 5. Click Upgrade at the bottom of the blade.
 
@@ -192,7 +190,7 @@ You cannot set the access tier to archive in the following examples because this
 5. Click Save at the top of the blade.
 
 > [!NOTE]
-> Changing the storage tier may result in additional charges. See the [Pricing and Billing](#pricing-and-billing) section for more details.
+> Changing the storage tier may result in additional charges. For more information, see the [Pricing and Billing](#pricing-and-billing) section.
 
 
 ## Evaluating and migrating to GPv2 storage accounts
@@ -215,7 +213,7 @@ In order to estimate the cost of storing and accessing data stored in a GPv2 sto
 
 To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the storage service for GPv1, GPv2, and Blob storage account types. This data is stored in well-known tables in the same storage account.
 
-For more details, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
 > Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account. GPv1 ZRS storage accounts do not support metrics data.
@@ -223,10 +221,10 @@ For more details, see [About Storage Analytics Metrics](https://msdn.microsoft.c
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
-To monitor data access patterns for Blob storage, you need to enable the hourly transaction metrics at an API level. With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint when using RA-GRS storage accounts.
+To monitor data access patterns for Blob storage, you need to enable the hourly transaction metrics from the API. With hourly transaction metrics enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint when using RA-GRS storage accounts.
 
 > [!NOTE]
-> In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks, or queues, files, or tables, alongside block and append blob data, this estimation process is not applicable. This is because the capacity data does not differentiate block blobs from other types, and does not give capacity data for other data types. If you use these types, an alternative methodology is to look at the quantities on your most recent bill.
+> If you have a general-purpose storage account in which you have stored page blobs and virtual machine disks, or queues, files, or tables, alongside block and append blob data, this estimation process is not applicable. The capacity data does not differentiate block blobs from other types, and so does not give capacity data for other data types. If you use these types, an alternative methodology is to look at the quantities on your most recent bill.
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
@@ -272,9 +270,9 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Migrating existing data
 
-A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need for moving data around. This is one of the primary benefits of GPv2 vs. Blob storage accounts.
+A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts.
 
-However, if you need to migrate to a Blob storage account, you can use the below instructions.
+However, if you need to migrate to a Blob storage account, you can use the following instructions.
 
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage
 accounts, which allow you to store tables, queues, files, and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
@@ -285,22 +283,22 @@ You can use the following methods to migrate existing data into Blob storage acc
 
 AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Data movement library
 
-Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
+The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use it to take advantage of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
 
-For more details, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+For more information, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### REST API or client library
 
 You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-For more details, see [Get Started with Azure Blob storage](../blobs/storage-dotnet-how-to-use-blobs.md).
+For more information, see [Get Started with Azure Blob storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more details regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## FAQ
 
@@ -336,7 +334,7 @@ While we do not enforce a limitation on how frequently the storage tier can be c
 
 Blobs in the hot storage tier of GPv2 and Blob storage accounts have the same latency as blobs in GPv1 storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in the hot tier. Blobs in the archive storage tier have several hours of latency.
 
-Blobs in the cool storage tier have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
+Blobs in the cool storage tier have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
 
 **Can I store page blobs and virtual machine disks in Blob storage accounts?**
 
