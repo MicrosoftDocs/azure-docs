@@ -165,7 +165,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Table as a source type
 
-To copy data from Azure Table, set the source type in the Copy activity to **AzureTableSource**. The following properties are supported in the Copy activity source section.
+To copy data from Azure Table, set the source type in the Copy activity to **AzureTableSource**. The following properties are supported in the Copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -191,7 +191,7 @@ If you use the pipeline parameter, cast the datetime value to proper format acco
 
 ### Azure Table as a sink type
 
-To copy data to Azure Table, set the sink type in the Copy activity to **AzureTableSink**. The following properties are supported in the Copy activity sink section.
+To copy data to Azure Table, set the sink type in the Copy activity to **AzureTableSink**. The following properties are supported in the Copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

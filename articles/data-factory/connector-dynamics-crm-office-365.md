@@ -1,6 +1,6 @@
 ---
 title: Copy data from and to Dynamics CRM or Dynamics 365 by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores (OR) from supported source data stores to Dynamics CRM or Dynamics 365 by using a Copy activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a Copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -31,7 +31,7 @@ This Dynamics connector supports the following Dynamics versions and authenticat
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 online <br> Dynamics CRM Online | Office365 | [Dynamics online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with IFD <br> Dynamics CRM 2016 on-premises with IFD <br> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics on-premises with IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 For Dynamics 365 specifically, the following application types are supported:
@@ -55,7 +55,7 @@ The following sections provide details about properties that are used to define 
 
 The following properties are supported for the Dynamics linked service.
 
-### Dynamics 365 and Dynamics CRM online
+### Dynamics 365 and Dynamics CRM Online
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -208,7 +208,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Dynamics as a source type
 
-To copy data from Dynamics, set the source type in the Copy activity to **DynamicsSource**. The following properties are supported in the Copy activity source section.
+To copy data from Dynamics, set the source type in the Copy activity to **DynamicsSource**. The following properties are supported in the Copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -269,7 +269,7 @@ To copy data from Dynamics, set the source type in the Copy activity to **Dynami
 
 ### Dynamics as a sink type
 
-To copy data to Dynamics, set the sink type in the Copy activity to **DynamicsSink**. The following properties are supported in the Copy activity sink section.
+To copy data to Dynamics, set the sink type in the Copy activity to **DynamicsSink**. The following properties are supported in the Copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
