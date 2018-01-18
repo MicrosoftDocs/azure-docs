@@ -21,7 +21,7 @@ ms.author: apimpm
 This guide shows you how to enable access to the developer portal for users from Azure Active Directory. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
 
 > [!WARNING]
-> Azure Active Directory integration is available in the [Developer, Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tiers only.
+> Azure Active Directory integration is available in the [Developer, Standard and Premium](https://azure.microsoft.com/pricing/details/api-management/) tiers only.
 
 ## Prerequisites
 
