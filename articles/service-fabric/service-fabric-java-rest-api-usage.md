@@ -29,7 +29,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 
 1. Install nodejs and NPM on your machine
 
-	If you are using linux then:
+	If you are using Linux then:
 	```bash
 	sudo apt-get install npm
 	sudo apt install nodejs
@@ -47,9 +47,13 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 3. Fork and clone [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs)  repository in your local machine and go to the cloned location from the terminal of your machine.
 
 
-4. Execute the following commands on the terminal to generate the client code.
+4. Go to the location mentioned below in your cloned repo.
 	```bash
 	cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
+        ```
+
+5. Run the following autorest command to generate the java client code.
+	```bash
 	autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
 	```
    Below is an example demonstrating the usage of autorest.
@@ -63,7 +67,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 
 ## Include and use the generated client in your project
 
-1. Add the generated code appropriately into your project. We recommened you to create a library out of the generated code and include it in your project.
+1. Add the generated code appropriately into your project. We recommend that you create a library using the generated code and include this library in your project.
 2. If you are creating a library then include the following dependency in your library's project. If you are following a different approach then include the dependency appropriately.
 
 	```
@@ -71,7 +75,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 		Artifactid: client-runtime
 		Version: 1.2.1
 	```
-For example, if you are using maven build system include the following in your ``pom.xml`` file:
+For example, if you are using Maven build system include the following in your ``pom.xml`` file:
 
 	```xml
 		<dependency>
