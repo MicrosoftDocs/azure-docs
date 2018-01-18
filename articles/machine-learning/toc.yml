@@ -1,7 +1,7 @@
 - name: Azure Machine Learning services (preview)
   href: preview/index.yml
 - name: Azure Machine Learning Studio
-  href: studio/index.md
+  href: studio/index.yml
 - name: Data Science Virtual Machine
   href: data-science-virtual-machine/index.yml
 - name: Team Data Science Process
