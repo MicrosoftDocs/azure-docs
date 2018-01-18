@@ -34,9 +34,9 @@ During deployment, Azure Stack will ensure that a suitable version of the guest 
 | Windows Server 2016 | 64-bit | Microsoft | Windows | Datacenter, Datacenter Core, Datacenter with Containers |
 | Windows 7 | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
 | Windows 8.1 | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
-| Windows 10 * | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
+| Windows 10 *(see note 1)* | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
 
-* *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Note 1:***  *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
 
 
 ## Linux
