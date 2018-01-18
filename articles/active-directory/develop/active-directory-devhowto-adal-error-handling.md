@@ -573,7 +573,7 @@ window.Logging = {
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
-
+[![Sign in button][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
