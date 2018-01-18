@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the Salesforce connector
 The Salesforce Connector provides an API to work with Salesforce objects.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Salesforce connector
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
@@ -55,5 +55,5 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/salesforce/). 
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

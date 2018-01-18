@@ -52,5 +52,5 @@ For more information, see [Logic Apps Pricing](https://azure.microsoft.com/prici
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: logic-apps-overview.md
-[create]: logic-apps-create-a-logic-app.md
+[create]: quickstart-create-first-logic-app-workflow.md
 

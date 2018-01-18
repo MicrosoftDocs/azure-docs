@@ -33,7 +33,7 @@ in Azure. Learn
 
 * To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
 in your logic app, you have to create a logic app first. Learn 
-[how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+[how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## Check Event Hubs namespace permissions and find the connection string

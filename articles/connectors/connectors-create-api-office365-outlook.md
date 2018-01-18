@@ -34,7 +34,7 @@ This topic shows you how to use the Office 365 Outlook connector in a logic app,
 > 
 > 
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Office 365
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
@@ -92,5 +92,5 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/office365connector/). 
 
 ## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
