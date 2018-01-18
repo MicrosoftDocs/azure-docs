@@ -239,16 +239,15 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-      
+  - name: IoT Edge
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/iot-edge/      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
   - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/
-  - name: IoT Edge
-    tocHref: /azure/iot-edge/
-    topicHref: /azure/iot-edge/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
