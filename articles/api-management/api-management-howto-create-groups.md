@@ -28,10 +28,8 @@ In addition to these system groups, administrators can create custom groups or [
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-> [!NOTE]
-> In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
-> 
-> 
+In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
+
 ## Prerequisites
 
 Complete tasks in this article: [Create an Azure API Management instance](get-started-create-service-instance.md).
