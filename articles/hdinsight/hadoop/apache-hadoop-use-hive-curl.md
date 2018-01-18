@@ -47,7 +47,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     You receive a response similar to the following text:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     The parameters used in this command are as follows:
 
