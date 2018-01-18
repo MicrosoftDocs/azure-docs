@@ -32,6 +32,7 @@ To deploy and run [Azure Service Fabric applications](service-fabric-application
 The following operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
+* RHEL 7.4
 
 ## Installation Methods
 
@@ -141,9 +142,15 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 
 1. Install nodejs and NPM on your machine
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
+  ```
+Redhat
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
   ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
@@ -167,9 +174,17 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
-  ```bash
+Ubuntu 
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
+  ```
+
+Redhat
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
   ```
 
 ## Install the Eclipse Neon plug-in (optional)
