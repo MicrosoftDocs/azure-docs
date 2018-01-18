@@ -70,7 +70,7 @@ To configure the integration of Palo Alto Networks - Admin UI into Azure AD, you
 
 4. In the search box, type **Palo Alto Networks - Admin UI**, select **Palo Alto Networks - Admin UI** from result panel then click **Add** button to add the application.
 
-	![Palo Alto Networks - Admin UI in the results list](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-Add-from-the-gallery.png)
+	![Palo Alto Networks - Admin UI in the results list](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## Configure and test Azure AD single sign-on
 
