@@ -217,7 +217,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Dome9 Arc test user
 
-To enable Azure AD users to log in to Dome9 Arc, they must be provisioned into Dome9 Arc. Users have to select particular **Role** for the user as specified by [Dome9 Arc Client support team](https://dome9.com/about/contact-us/).
+To enable Azure AD users to log in to Dome9 Arc, they must be provisioned into application. Dome9 Arc supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
 
    >[!Note] 
    >For **Role** creation and other details contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/).
