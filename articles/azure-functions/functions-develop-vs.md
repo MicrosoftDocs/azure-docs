@@ -59,7 +59,7 @@ When you create a new project using the Azure Functions template, you get an emp
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  To set the storage account connection string:
 
@@ -121,12 +121,23 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not added automatically. You can add required settings to your function app in one of these ways:
->
->* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
->* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+## Update application settings in Azure  
+
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish. 
+
+The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+This displays the Application Settings dialog for your function app where you can add new settings or modify existing ones.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+You can also manage application settings in one of these other ways:
+
+* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## Next steps
 
