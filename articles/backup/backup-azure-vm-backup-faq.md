@@ -71,3 +71,13 @@ Yes, you can use the backups taken before migrating disks from unmanaged to mana
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?
 When a new policy is applied on VM(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted. 
+
+### How can I move a VM enrolled in Azure backup between resource groups?
+Follow the below steps to successfully move the backed-up VM to the target resource group 
+1. Temporarily stop backup and retain backup data
+2. Move the VM to the target resource group
+3. Re-protect it with same/new vault
+
+Users can restore from the available restore points created before the move operation.
+
+
