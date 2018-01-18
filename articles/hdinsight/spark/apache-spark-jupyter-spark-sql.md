@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2017
+ms.date: 01/18/2018
 ms.author: jgao
 
 ---
@@ -47,7 +47,7 @@ Create an HDInsight Spark cluster using an [Azure Resource Manager template](../
 	* **Cluster login name and password**: The default login name is admin.
 	* **SSH user name and password**.
 
-3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about 20 minutes to create the cluster.
+3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled **Deploying Template deployment**. It takes about 20 minutes to create the cluster.
 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
@@ -66,7 +66,7 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 
 2. Open the Spark cluster you created. For the instructions, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
-3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+3. From the portal, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
    ![Open Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter Notebook to run interactive Spark SQL query")
 
@@ -96,18 +96,29 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 
 **To run Spark SQL**
 
-1.  From the notebook, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. 
+1. When you start the notebook for the first time, the kernel performs some tasks in the background. Wait for the kernel to be ready. The kernel is ready when you see a hollow circle next to the kernel name in the notebook. Solid circle denotes that the kernel is busy.
+
+    ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive query in HDInsight Spark")
+
+2. When the kernel is ready, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The output should list a `hivesampletable` that is available on the cluster, by default.
 
     ```PySpark
 	%%sql
-    SELECT * FROM hivesampletable LIMIT 10
+    SHOW TABLES
     ```
 
     ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive query in HDInsight Spark")
 
     When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that comes with all HDInsight clusters by default. For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
 
-    Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
+    Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner.
+    
+2. Run another query to see the data in `hivesampletable`.
+
+    ```PySpark
+	%%sql
+    SELECT * FROM hivesampletable LIMIT 10
+    ```
     
     The screen shall refresh to show the query output.
 
