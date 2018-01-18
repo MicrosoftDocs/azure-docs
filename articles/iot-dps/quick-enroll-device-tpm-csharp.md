@@ -55,26 +55,24 @@ For the sample in this Quickstart, you need the connection string for your provi
     ```
     
 5. Add the following fields to the **Program** class.  
-
-    - Replace the **ProvisioningConnectionString** placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
-    - You may optionally change the registration ID, endorsement key, device ID, and provisioning status. 
-    - If you are using this Quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted down in that Quickstart. You can replace the device ID with the value suggested in that Quickstart, use your own value, or use the default value in this sample.
-    
-    
-    ```csharp
-    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
-    private const string RegistrationId = "sample-registrationid-csharp";
-    private const string TpmEndorsementKey =
-        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
-        "cTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3d" +
-        "yKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKR" +
-        "dln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFe" +
-        "WlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==";
+   - Replace the **ProvisioningConnectionString** placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
+   - You may optionally change the registration ID, endorsement key, device ID, and provisioning status. 
+   - If you are using this Quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted down in that Quickstart. You can replace the device ID with the value suggested in that Quickstart, use your own value, or use the default value in this sample.
         
-    // Optional parameters
-    private const string OptionalDeviceId = "myCSharpDevice";
-    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
-    ```
+   ```csharp
+   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private const string RegistrationId = "sample-registrationid-csharp";
+   private const string TpmEndorsementKey =
+       "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
+       "cTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3d" +
+       "yKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKR" +
+       "dln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFe" +
+       "WlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==";
+       
+   // Optional parameters
+   private const string OptionalDeviceId = "myCSharpDevice";
+   private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
+   ```
     
 6. Add the following method to the **Program** class.  This code creates individual enrollment entry and then calls the **CreateOrUpdateIndividualEnrollmentAsync** method on the **ProvisioningServiceClient** to add the individual enrollment to the provisioning service.
    
