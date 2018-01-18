@@ -58,6 +58,22 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
+## Delete the container
+When you are done with the container, you can remove it using the [az container delete][az-container-delete] command:
+
+```azurecli-interactive
+az container delete --resource-group myResourceGroup --name mycontainer
+```
+
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+
+```azurecli-interactive
+az container list --resource-group myResourceGroup --output table
+```
+
+The **mycontainer** container should not appear in the command's output. If you have no other containers in the resource group, no output is displayed.
+
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
