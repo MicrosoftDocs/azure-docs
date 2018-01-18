@@ -36,12 +36,11 @@ To create a new firewall rule on the server, run the [az postgres server firewal
 
 By specifying 0.0.0.0 as the `--start-ip-address` and 255.255.255.255 as the `--end-ip-address` range, the following example allows all IP addresses to access the server **mypgserver-20170401.postgres.database.azure.com**
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup  --server-name mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mypgserver-20170401 --name AllowIpRange --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example.
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup  
---server-name mypgserver-20170401 --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mypgserver-20170401 --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
 Upon success, the command output lists the details of the firewall rule you have created, by default in JSON format. If there is a failure, the output shows an error message instead.
 
