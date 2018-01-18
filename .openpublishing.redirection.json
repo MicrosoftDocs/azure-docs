@@ -16147,11 +16147,6 @@
         "redirect_document_id": false
       },
       {
-        "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
-        "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
-        "redirect_document_id": false
-      },
-      {
         "source_path": "articles/azure-stack/azure-stack-planning-considerations.md",
         "redirect_url": "/azure/azure-stack/azure-stack-deployment-planning",
         "redirect_document_id": true
