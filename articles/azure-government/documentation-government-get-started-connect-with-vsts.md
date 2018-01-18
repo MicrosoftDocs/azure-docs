@@ -37,7 +37,7 @@ To learn more about Visual Studio Team Services, click [here](https://docs.micro
 
 ## Prerequisites
 
-Before starting this tutorial you must have the following:
+Before starting this tutorial, you must have the following:
 + An active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 + Have a [VSTS account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) and [Team Project](https://docs.microsoft.com/vsts/accounts/create-team-project?tabs=vsts)
@@ -46,11 +46,10 @@ If you don't have an Azure Government subscription, create a [free account](http
 ### Create Azure Government app service 
 
 [Create an App service in your Azure Government subscription](documentation-government-howto-deploy-webandmobile.md). 
-We will set up our CD process to deploy to this Web App. 
+The following steps will set up a CD process to deploy to this Web App. 
 
 ### Set up Build and Source control integration
-We must set up a build for continous integration to our app. 
-Follow through one of the quickstarts below for your specific type of app: 
+Follow through one of the quickstarts below to set up a Build for your specific type of app: 
 
 - [ASP.NET Core app](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core?tabs=github%2Cweb%2Cdeploy-windows)
 - [ASP.NET 4 app](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-4?tabs=vsts)
@@ -59,18 +58,19 @@ Follow through one of the quickstarts below for your specific type of app:
 ### Generate a service principal 
 
 1. Download or copy and paste [this powershell script](https://github.com/Microsoft/vsts-rm-documentation/blob/master/Azure/SPNCreation.ps1) into an IDE or editor. 
-2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with "AzureUSGovernment". This will set the service principal to be created in Azure Government.
+2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with 
+AzureUSGovernment." This sets the service principal to be created in Azure Government.
 3. Open your Powershell window and run the following command: 
     `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass ` 
-    This will enable running local files. Enter "A" when you are shown the following: 
+    Setting this policy enables running local files. Enter "A" when you are shown the following: 
 
     ![ps1](./media/documentation-government-vsts-img8.png)
 
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
     `./<name of script file you saved> `
-6. You will be prompted for the "subscriptionName" parameter, which can be found by logging into your Azure Government subscription with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
-7. You will be prompted for the "password" parameter, where you can enter your desired password. 
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Login-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+7. When prompted for the "password" parameter, you can enter your desired password. 
 
     ![ps2](./media/documentation-government-vsts-img9.png)
 8. After providing your Azure Government subscription credentials you should see the following: 
@@ -129,7 +129,7 @@ Follow through one of the quickstarts below for your specific type of app:
 	- Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
 		
 	
-6. Edit the name of the release definition, choose Save, and choose OK. Note that the default environment is named Environment1, which you can edit by clicking directly on the name.
+6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
 Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/en-us/vsts/build-release/) to your applications in Azure Government. 
 
