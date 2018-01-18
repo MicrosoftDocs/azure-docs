@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 
 # Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
-In this tutorial, you use Azure portal to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores. 
+In this tutorial, you use the Azure Data Factory user interface (UI) to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores. 
 
 > [!NOTE]
 > This article applies to version 2 of Azure Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -264,7 +264,7 @@ Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 1. Switch to the **Monitor** tab. You see the pipeline that you manually trigger in the previous step. 
 
     ![Pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-2. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. You see only activity runs since there is only one activity in the pipeline. To switch back to the pipeline runs view, click **Pipelines** link at the top of the window. 
+2. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. You see only activity runs since there is only one activity in the pipeline. To see details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. You can switch back to pipeline runs view by clicking **Pipelines** at the top.
 
     ![Activity runs](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 

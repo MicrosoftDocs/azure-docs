@@ -28,7 +28,7 @@ Azure Storage provides three distinct account options, with different pricing an
 * **General Purpose v1 (GPv1)** accounts provide use of all Azure Storage Services, but may not have the latest features or the lowest GB pricing. For example, cool and archive storage are not supported in GPv1.  Pricing is lower for transactions, so workloads with high churn or high read rates may benefit from this account type.
 
 ### Changing account kind
-Users can upgrade either a GPv1 or Blob Storage accounts to a GPv2 account at any time via the portal, CLI, or PowerShell. This change cannot be reversed, and no other changes are permitted.
+Users can upgrade a GPv1 account to a GPv2 account at any time via the portal, CLI, or PowerShell. This change cannot be reversed, and no other changes are permitted. The ability to upgrade Blob Storage Accounts to GPv2 is coming soon.
 
 ## General Purpose v2
 **General Purpose v2 (GPv2)** are storage accounts which support all features for all storage services, including Blobs, Files, Queues, and Tables. For Block Blobs, You can choose between hot and cool storage tiers at account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. Importantly, any GPv1 account can be upgraded to a GPv2 account in the portal, CLI, or PowerShell. GPv2 accounts support all API's and features supported in Blob Storage and GPv1 accounts, share all the great durability, availability, scalability, and performance features in those account types.
@@ -127,7 +127,7 @@ You cannot set the access tier to archive in the following examples because this
 
 11. Click **Create** to create the storage account.
 
-### Convert a GPv1 or Blob Storage account to a GPv2 storage account using the Azure portal
+### Convert a GPv1 account to a GPv2 storage account using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -244,7 +244,7 @@ The cost of geo-replication data transfer for Blob Storage accounts can also be 
 
 ## Migrating existing data
 
-A GPv1 or Blob Storage account can be easily upgraded to GPv2 with no downtime or API changes, and without the need for moving data around. This is one of the primary benefits of GPv2 vs. Blob Storage accounts.
+A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need for moving data around. This is one of the primary benefits of GPv2 vs. Blob Storage accounts.
 
 However, if you need to migrate to a Blob Storage account, you can use the below instructions.
 
@@ -278,21 +278,25 @@ For more details, see [Get Started with Azure Blob Storage](../blobs/storage-dot
 
 **Are existing storage accounts still available?**
 
-Yes, existing storage accounts are still available and are unchanged in pricing or functionality.  They do not have the ability to choose a storage tier and will not have tiering capabilities in the future.
+Yes, existing storage accounts (GPv1) are still available and are unchanged in pricing or functionality.  GPv1 accounts do not have the ability to choose a storage tier and will not have tiering capabilities in the future.
 
 **Why and when should I start using GPv2 storage accounts?**
 
 GPv2 storage accounts are specialized for providing the lowest GB storage costs, while delivering industry competitive transaction and data access costs. Going forward, GPv2 storage accounts are the recommended way for storing blobs, as future capabilities such as change notifications will be introduced based on this account type. However, it is up to you when you would like to upgrade based on your business requirements.  For example, you may choose to optimize your transaction patterns prior to upgrade.
 
+Downgrade from GPv2 is not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
+
 **Can I upgrade my existing storage account to a GPv2 storage account?**
 
-Yes. GPv1 or Blob Storage accounts can easily be upgraded to GPv2 in the portal.
+Yes. GPv1 accounts can easily be upgraded to GPv2 in the portal, or using PowerShell or CLI. Blob Storage accounts can be upgraded to GPv2 using PowerShell or CLI. The ability to upgrade a Blob Storage account to GPv2 in the portal is coming soon.
+
+Downgrade from GPv2 is not supported, so consider all pricing implications prior to upgrading your accounts to GPv2.
 
 **Can I store objects in both storage tiers in the same account?**
 
 Yes. The **Access Tier** attribute set at an account level is the default tier that applies to all objects in that account without an explicit set tier. However, blob-level tiering allows you to set the access tier on at the object level regardless of what the access tier setting on the account is. Blobs in any of the three storage tiers (hot, cool, or archive) may exist within the same account.
 
-**Can I change the storage tier of my GPv2  storage account?**
+**Can I change the storage tier of my GPv2 storage account?**
 
 Yes, you can change the account storage tier by setting the **Access Tier** attribute on the storage account. Changing the account storage tier applies to all objects stored in the account that do not have an explicit tier set. Changing the storage tier from hot to cool incurs write operations (per 10,000) charges (GPv2 storage accounts only), while changing from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for reading all the data in the account.
 
@@ -313,6 +317,8 @@ No. Blob Storage accounts support only block and append blobs, and not page blob
 **Do I need to change my existing applications to use GPv2 storage accounts?**
 
 GPv2 storage accounts are 100% API consistent with GPv1 and Blob Storage accounts. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater your application should work. If you are using an older version of the protocol, then you must update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
+
+GPv2 pricing is generally higher than GPv1 for transactions and bandwidth. Therefore, it may be necessary to optimize your transaction patterns prior to upgrade so that your total bill will not increase.
 
 **Is there a change in user experience?**
 

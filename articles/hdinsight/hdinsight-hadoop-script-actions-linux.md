@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
 
 ---
@@ -115,7 +115,7 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 
@@ -311,7 +311,7 @@ fi
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
-Here are the steps we took when preparing to deploy these scripts:
+Here are the steps take when preparing to deploy a script:
 
 * Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. For example, the default storage for the cluster. Files can also be stored in publicly readable hosting services.
 * Verify that the script is impotent. Doing so allows the script to be executed multiple times on the same node.
