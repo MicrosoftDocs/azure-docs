@@ -12,7 +12,7 @@ ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/18/2018
 ms.author: denlee
 
 ---
