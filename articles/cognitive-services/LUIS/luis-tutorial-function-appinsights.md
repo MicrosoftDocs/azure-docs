@@ -1,5 +1,5 @@
 ---
-title: Add LUIS endpoint information to Application Insights with a bot using Node.js | Microsoft Docs 
+title: Add LUIS data to Application Insights using Node.js | Microsoft Docs 
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services
 author: v-geberr
@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Add LUIS results to Application Insights from a web app bot
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is a powerful analytics tools to help you diagnose telemetry issues and to understand what users actually do with your app.
+This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
 In this tutorial, you learn how to:
 
@@ -24,23 +24,20 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Your LUIS web app bot from the **[previous tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md)**. This tutorial configured Application Insights **On** when you created the bot. 
+* Your LUIS web app bot from the **[previous tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md)** with Application Insights turned on. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs). 
-
-## Scenario
-This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) and each line associated with this tutorial is commented with `//APPINSIGHT:`. 
 
 ## Web app bot with LUIS
-The code in **app.js**, when you finished the [web app bot with Node.js tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md), should be: 
+This tutorial assumes you have code that looks like the following or that you have completed the [other tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md): 
 
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
 ## Add Application Insights library to web app bot
-The Application Insights feature for the web app bot is turned on. Currently, Application Insights collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
+Currently, Application Insights in this web app bot collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
 
 In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
 
@@ -99,8 +96,6 @@ In order to capture the LUIS request and response, the web app bot needs the **[
 5. Use the **appInsightsLog** function. You add it to every intent dialog:
 
    [!code-javascript[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=117-118 "Use the appInsightsLog function")]
-
-    All the code is available in the [LUIS-Samples repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) and each line associated with this tutorial is commented with `//APPINSIGHT:`.
 
 6. To test your web app bot, use the **Test in Web Chat** feature. You should see no difference because all the work is in Application Insights, not in the bot responses.
 
