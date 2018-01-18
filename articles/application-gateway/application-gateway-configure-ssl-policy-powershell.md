@@ -164,7 +164,8 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsettin
 # Create a new port for SSL
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 # Upload an existing pfx certificate for SSL offload
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password "P@ssw0rd"
+$password = ConvertTo-SecureString -String "P@ssw0rd" -AsPlainText -Force
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password $password
 # Create a frontend IP configuration for the public IP address
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 # Create a new listener with the certificate, port, and frontend ip.
@@ -193,15 +194,13 @@ $RG = "YourResourceGroupName"
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
 # SSL Custom Policy
-# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
 # SSL Predefined Policy
-# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
 
-# Update AppGW
-# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+# Update Application Gateway. The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
-
 
 
 ## Next steps
