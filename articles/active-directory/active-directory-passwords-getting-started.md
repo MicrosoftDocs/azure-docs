@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Azure AD SSPR | Microsoft Docs'
+title: Self-service password reset quickstart - Azure Active Directory
 description: Rapidly deploy Azure AD self-service password reset
 services: active-directory
 keywords: 
@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/22/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # Azure AD self-service password reset rapid deployment
