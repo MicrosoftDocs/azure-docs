@@ -3,7 +3,7 @@ title: Optimize Spark jobs for performance - Azure HDInsight | Microsoft Docs
 description: Shows common strategies for the best performance of Spark clusters.
 services: hdinsight
 documentationcenter: ''
-author: Maxluk
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,25 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: Maxluk
+ms.author: maxluk
 
 ---
 # Optimize Spark jobs
 
 Learn how to optimize Spark cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 
-The following sections describe common Spark job optimizations and recommendations:
-
-* [Choose the data abstraction](#choose-the-data-abstraction)
-* [Use optimal data format](#use-optimal-data-format)
-* [Select default storage](#select-default-storage)
-* [Use the cache](#use-the-cache)
-* [Use memory efficiently](#use-memory-efficiently)
-* [Optimize data serialization](#optimize-data-serialization)
-* [Use bucketing](#use-bucketing)
-* [Optimize joins and shuffles](#optimize-joins-and-shuffles)
-* [Customize cluster configuration](#customize-cluster-configuration)
-* [Optimize job execution](#optimize-job-execution)
+The following sections describe common Spark job optimizations and recommendations.
 
 ## Choose the data abstraction
 
@@ -223,7 +212,7 @@ Key to Spark 2.x query performance is the Tungsten engine, which depends on whol
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ```
 
-## See also
+## Next steps
 
 * [Debug Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md)
 * [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)

@@ -3,7 +3,7 @@ title: Use Spark to read and write HBase data - Azure HDInsight | Microsoft Docs
 description: Use the Spark HBase Connector to read and write data from a Spark cluster to an HBase cluster.
 services: hdinsight
 documentationcenter: ''
-author: Maxluk
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: Maxluk
+ms.author: maxluk
 
 ---
 # Use Spark to read and write HBase data
@@ -33,12 +33,12 @@ Apache HBase is typically queried either with its low-level API (scans, gets, an
 
 The high-level process for enabling your Spark cluster to query your HDInsight cluster is as follows:
 
-1. [Prepare some sample data in HBase.](#prepare-sample-data-in-hbase)
-2. [Acquire the hbase-site.xml file from your HBase cluster configuration folder (/etc/hbase/conf).](#acquire-hbase-site.xml-from-your-hbase-cluster)
-3. [Place a copy of hbase-site.xml in your Spark 2 configuration folder (/etc/spark2/conf).](#put-hbase-site.xml-on-your-spark-cluster)
-4. [Run `spark-shell` referencing the Spark HBase Connector by its Maven coordinates in the packages switch.](#run-spark-shell-referencing-the-spark-hbase-connector)
-5. [Define a catalog that maps the schema from Spark to HBase.](#define-a-catalog-and-query)
-6. [Interact with the HBase data using either the RDD or DataFrame APIs.](#insert-new-data)
+1. Prepare some sample data in HBase.
+2. Acquire the hbase-site.xml file from your HBase cluster configuration folder (/etc/hbase/conf).
+3. Place a copy of hbase-site.xml in your Spark 2 configuration folder (/etc/spark2/conf).
+4. Run `spark-shell` referencing the Spark HBase Connector by its Maven coordinates in the `packages` option.
+5. Define a catalog that maps the schema from Spark to HBase.
+6. Interact with the HBase data using either the RDD or DataFrame APIs.
 
 ## Prepare sample data in HBase
 
@@ -244,6 +244,6 @@ In this step, you define a catalog object that maps the schema from Spark to HBa
         |  8396|5415 San Gabriel Dr.|  230-555-0191| Calvin Raji|  230-555-0191|
         +------+--------------------+--------------+------------+--------------+
 
-## See also
+## Next steps
 
 * [Spark HBase Connector](https://github.com/hortonworks-spark/shc)

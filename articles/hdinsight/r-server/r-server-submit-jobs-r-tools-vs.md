@@ -3,7 +3,7 @@ title: Submit jobs from R Tools for Visual Studio - Azure HDInsight | Microsoft 
 description: Submit R jobs from your local Visual Studio machine to an HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
-author: Maxluk
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: Maxluk
+ms.author: maxluk
 
 ---
 # Submit jobs from R Tools for Visual Studio
@@ -140,7 +140,7 @@ Using a Microsoft R Server/Microsoft R Client from a Windows computer equipped w
     rxStopEngine(mySparkCluster)
     ```
 
-## See also
+## Next steps
 
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Combining ScaleR and SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) provides an example of airline flight delay predictions.
