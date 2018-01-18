@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
+ms.date: 12/14/2017
+ms.author: sdash
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -28,7 +28,7 @@ There are two types of availability tests:
 
 You can create up to 100 availability tests per application resource.
 
-## <a name="create"></a>1. Open a resource for your availability test reports
+## <a name="create"></a>Open a resource for your availability test reports
 
 **If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ You can create up to 100 availability tests per application resource.
 
 Click **All resources** to open the Overview blade for the new resource.
 
-## <a name="setup"></a>2. Create a URL ping test
+## <a name="setup"></a>Create a URL ping test
 Open the Availability blade and add a test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -65,7 +65,7 @@ Open the Availability blade and add a test.
 Add more tests. For example, In addition to testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
-## <a name="monitor"></a>3. See your availability test results
+## <a name="monitor"></a>See your availability test results
 
 After a few minutes, click **Refresh** to see test results. 
 
@@ -99,14 +99,12 @@ Click a red dot.
 From an availability test result, you can:
 
 * Inspect the response received from your server.
-* Open the telemetry sent by your server app while processing the failed request instance.
+* Diagnose failure with server side telemetry collected while processing the failed request instance.
 * Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-
-*Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
-
-*No related items?* If you have Application Insights set up for your server-side application, that may be because [sampling](app-insights-sampling.md) is in operation. 
+*Looks OK but reported as a failure?* 
+See [FAQ](#qna) for ways to reduce noise.
 
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
@@ -253,6 +251,20 @@ When the test is complete, you are shown response times and success rates.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## <a name="qna"></a>Questions? Problems?
+* *Intermittent test failure with a protocol violation error?*
+
+    The error ("protocol violation..CR must be followed by LF") indicates an issue with the server (or dependencies). This happens when malformed headers are set in the response. It can be caused by load balancers or CDNs. Specifically, some headers might not be using CRLF to indicate end-of-line, which violates the HTTP specification and therefore fail validation at the .NET WebRequest level. Inspect the response to spot headers which might be in violation.
+    
+    Note: The URL may not fail on browsers that have a relaxed validation of HTTP headers. See this blog post for a detailed explanation of this issue: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Site looks okay but I see test failures?*
+
+    * Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK. To desensitize the test to such resource failures, simply uncheck the "Parse Dependent Requests" from the test configuration. 
+
+    * To reduce odds of noise from transient network blips etc., ensure "Enable retries for test failures" configuration is checked. You can also test from more locations and manage alert rule threshold accordingly to prevent location specific issues causing undue alerts.
+    
+* *I don't see any related server side telemetry to diagnose test failures?*
+    
+    If you have Application Insights set up for your server-side application, that may be because [sampling](app-insights-sampling.md) is in operation.
 * *Can I call code from my web test?*
 
     No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are several plug-ins that you might find helpful.

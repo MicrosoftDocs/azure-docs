@@ -263,7 +263,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## Attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
 
 The attribute's constructor parameters and properties are described in the [configuration](#configuration) section.
 

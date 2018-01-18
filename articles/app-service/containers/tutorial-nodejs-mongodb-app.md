@@ -19,6 +19,10 @@ ms.custom: mvc
 ---
 # Build a Node.js and MongoDB web app in Azure App Service on Linux
 
+> [!NOTE]
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a Node.js and MongoDB web app in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
+
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app, connect it locally to a MongoDB database, then deploy to Azure connected to a CosmosDB database using the MongoDB API. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)

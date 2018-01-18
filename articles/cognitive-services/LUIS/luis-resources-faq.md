@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: v-demak
 ---
 # Language Understanding FAQ
@@ -60,11 +60,11 @@ If you've considered hierarchical, composite, and list entities and still need m
 The maximum length of a [phrase list](./luis-concept-feature.md) is 5,000 items. You can use a maximum of 10 phrase lists per LUIS app.
 
 ## What are the limits on example utterances?
-The maximum length of an utterance is 500 characters. You can have a maximum of 10,000 example utterances in your LUIS app.
+The maximum length of an utterance is 500 characters. You can have a maximum of 15,000 example utterances in your LUIS app.
 
 ## What is the best way to start building my app in LUIS?
 
-The best way to build your app is through an incremental process. First start by defining what intents and entities your app requires. For every intent and entity model, you can start by providing a few examples. Train and publish your app to get an endpoint. Then, begin to [review user utterances](./label-suggested-utterances.md) to select the most informative utterances to label. You can select the intent or entity that you want to improve, and then label the utterances that are suggested by LUIS. <!-- Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge. -->
+The best way to build your app is through an incremental process. First start by defining what intents and entities your app requires. For every intent and entity model, you can start by providing a few examples. Train and publish your app to get an endpoint. Then, begin to [review endpoint utterances](./label-suggested-utterances.md) to select the most informative utterances to label. You can select the intent or entity that you want to improve, and then label the utterances that are suggested by LUIS. <!-- Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge. -->
 
 ## What is a good practice to model the intents of my app? Should I create more specific or more generic intents?
 
@@ -125,7 +125,7 @@ You can turn off the logging of user utterances by setting `log=false` in the En
 ## Can I delete data from LUIS? 
 
 * You can always delete example utterances used for training LUIS. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
-* You can delete utterances from the list of user utterances that LUIS suggests in the **Review user utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+* You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
 ## How do I edit my LUIS app programmatically?

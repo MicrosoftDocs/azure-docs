@@ -1,5 +1,5 @@
 ---
-title: Build a PHP and MySQL web app in Azure | Microsoft Docs 
+title: Build a PHP and MySQL web app in Azure App Service on Linux | Microsoft Docs 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
 services: app-service\web
 documentationcenter: nodejs
@@ -13,7 +13,11 @@ ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a PHP and MySQL web app in Azure
+# Build a PHP and MySQL web app in Azure App Service on Linux
+
+> [!NOTE]
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a PHP and MySQL web app in Azure](../app-service-web-tutorial-php-mysql.md).
+>
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP web app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on App Service on Linux.
 
@@ -155,7 +159,7 @@ Create a server in Azure Database for MySQL (Preview) with the [az mysql server 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -193,7 +197,7 @@ In the terminal window, connect to the MySQL server in Azure. Use the value you 
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database.
+When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database server.
 
 ### Create a production database
 
@@ -234,7 +238,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017

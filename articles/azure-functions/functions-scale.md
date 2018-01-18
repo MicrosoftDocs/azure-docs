@@ -88,14 +88,14 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the Consumption plan works
 
-In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a funciton app share resources within an instance and scale at the same time.
+In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a function app share resources within an instance and scale at the same time.
 
 When you use the Consumption hosting plan, function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as an Event Grid subscription or a queue message that contains the blob name. For an example, see the [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example).
+> - Use another mechanism to trigger the blob processing, such as an Event Grid subscription or a queue message that contains the blob name. For an example, see the [examples for the blob input binding](functions-bindings-storage-blob.md#input---example).
 
 ### Runtime scaling
 
@@ -117,7 +117,7 @@ Different triggers may also have different scaling limits as well as documented 
 
 ### Best practices and patterns for scalable apps
 
-There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource effeciency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices) for more information.
+There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices) for more information.
 
 ### Billing model
 

@@ -12,7 +12,7 @@ ms.date: 08/03/2017
 ms.author: sajagtap
 ---
 
-# Run content moderation jobs in the API console
+# Start a moderation job from the API console
 
 Use the Review API's [job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 
@@ -62,4 +62,4 @@ The simplest way to access a testing console is from the **Credentials** window.
 
 ## Next steps
 
-* Learn how to [create reviews with no scanning](try-review-api-review.md).
+Use the REST API in your code or start with the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) to integrate with your application.

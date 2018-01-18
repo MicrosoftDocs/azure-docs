@@ -1,5 +1,5 @@
 ---
-title: 'Reporting: Azure AD SSPR | Microsoft Docs'
+title: Self-service password reset reports - Azure Active Directory
 description: Reporting on Azure AD self-service password reset events
 services: active-directory
 keywords: 
@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
+ms.custom: it-pro;seohack1
 
 ---
 # Reporting options for Azure AD password management
@@ -61,6 +61,12 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 The Azure AD Reports and Events API supports the retrieval of all the information included in password reset and password reset registration reports. By using this API, you can download individual password reset and password reset registration events and integrate them with the reporting technology of your choice.
 
+> [!IMPORTANT]
+> Currently, the Azure AD Reports and Events API retrieves up to *75,000 individual events* of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types. The API spans the last 30 days.
+> 
+> If you need to retrieve or store data beyond this window, we suggest persisting it in an external database by using the API to query the deltas that result. We recommend that you begin to retrieve this data when you start using SSPR in your organization. Persist it externally, and then continue to track the deltas from that point forward.
+>
+
 ### How to get started with the reporting API
 
 To access this data, you need to write a small application or script to retrieve it from our servers. For more information, see [Get started with the Azure AD reporting API](active-directory-reporting-api-getting-started.md).
@@ -69,12 +75,6 @@ After you have a working script, you'll want to examine the password reset and r
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Lists the columns available for password reset events.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events.
-
-### Reporting API data retrieval limitations
-
-Currently, the Azure AD Reports and Events API retrieves up to *75,000 individual events* of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types. The API spans the *last 30 days*.
-
-If you need to retrieve or store data beyond this window, we suggest persisting it in an external database by using the API to query the deltas that result. We recommend that you begin to retrieve this data when you start using SSPR in your organization. Persist it externally, and then continue to track the deltas from that point forward.
 
 ## Description of the report columns in the Azure portal
 

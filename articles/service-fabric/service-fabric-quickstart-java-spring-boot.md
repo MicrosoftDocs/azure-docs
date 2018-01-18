@@ -22,9 +22,9 @@ ms.custom: mvc, devcenter
 # Deploy a Spring Boot Application
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
-This quickstart demonstrates how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command line tools, this quickstart will walk you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
+This quickstart demonstrates how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
 
-![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 In this quickstart, you learn how to:
 
@@ -33,7 +33,7 @@ In this quickstart, you learn how to:
 > * Deploy the application to your local cluster 
 > * Deploy the application to a cluster in Azure
 > * Scale-out the application across multiple nodes
-> * Perform failover of your service with no hit to availablility
+> * Perform failover of your service with no hit to availability
 
 ## Prerequisites
 To complete this quickstart:
@@ -49,7 +49,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## Package the Spring Boot application 
-1. Inside the `gs-spring-boot` directory that was just cloned, run the `yo azuresfguest` command. 
+1. Inside the `gs-spring-boot` directory that was cloned, run the `yo azuresfguest` command. 
 
 2. Enter the following details for each prompt. 
 
@@ -74,7 +74,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ```
     The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running. 
     
-    ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Local cluster healthy](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
 2. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
 3. Run the following command to connect to your local cluster. 
@@ -90,9 +90,9 @@ At this stage, you have created a Service Fabric application for the Spring Boot
 
 5. Open your favorite web browser and access the application by accessing **http://localhost:8080**. 
 
-    ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+    ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
     
-You can now access the Spring Boot application which was deployed to a Service Fabric cluster.  
+You can now access the Spring Boot application that was deployed to a Service Fabric cluster.  
 
 ## Deploy the application to Azure
 
@@ -117,7 +117,7 @@ Now that the application and your cluster are ready, you can deploy it to the cl
     sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
     ```
     
-    If the cluster is secured with a self-signed certficiate, the command you run will be: 
+    If the cluster is secured with a self-signed certificate, the command you run is: 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -130,50 +130,54 @@ Now that the application and your cluster are ready, you can deploy it to the cl
 
 4. Open your favorite web browser and access the application by accessing **http://\<ConnectionIPOrUrl>:8080**. 
 
-    ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springsfazure.png)
+    ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
     
-You can now access the Spring Boot application which was deployed to a Service Fabric cluster.  
+You can now access the Spring Boot application that was deployed to a Service Fabric cluster.  
     
 ## Scale applications and services in a cluster
-Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from Service Fabric CLI (sfctl). In this example, we are using Service Fabric Explorer.
+Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from Service Fabric CLI (sfctl). In this example, Service Fabric Explorer is used.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://localhost:19080`.
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
 2. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
 
-    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/springbootsfhowtoscale.png)
+    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     You can now choose to scale the number of instances of the service.
 
-3. Change the number to **5** and click **Scale Service**.
+3. Change the number to **3** and click **Scale Service**.
 
     An alternative way to scale the service using command line is as follows.
 
     ```bash 
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 5 --stateless 
+    # Connect to your local cluster
+    sfctl cluster select --endpoint http://localhost:19080
+
+    # Run Bash command to scale instance count for your service
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
     ``` 
 
 4. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
 
-    ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java-spring-boot/springsfscaled.png)
+    ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
-    You can now see that the service has five instances, and in the tree view you see which nodes the instances run on.
+    The service has three instances, and the tree view shows which nodes the instances run on.
 
-By this simple management task, we increased the resources available for our Spring service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
+By this simple management task, the resources available are increased for the Spring service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
 
-## Failover services in a cluster 
-To demonstrate service failover, we can simulate a node restart by using Service Fabric Explorer. Ensure only 1 instance of your service is running. 
+## Fail over services in a cluster 
+To demonstrate service failover, a node restart is simulated by using Service Fabric Explorer. Ensure only one instance of your service is running. 
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
 2. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node. 
 
-    ![Service Fabric Explorer Restart Node](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestart.png)
-3. The instance of your service will now be moved to a different node and your application will have no downtime. 
+    ![Service Fabric Explorer Restart Node](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+3. The instance of your service is moved to a different node and your application has no downtime. 
 
-    ![Service Fabric Explorer Restart Node Succeed](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestartsucceed.png)
+    ![Service Fabric Explorer Restart Node Succeed](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
 ## Next steps
 In this quickstart, you learned how to:
@@ -183,8 +187,8 @@ In this quickstart, you learned how to:
 > * Deploy the application to your local cluster 
 > * Deploy the application to a cluster in Azure
 > * Scale-out the application across multiple nodes
-> * Perform failover of your service with no hit to availablility
+> * Perform failover of your service with no hit to availability
 
 * Learn more about [building Java microservices using Service Fabric Programming Models](service-fabric-quickstart-java-reliable-services.md)
-* Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+* Learn about [setting up your continuous integration & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)

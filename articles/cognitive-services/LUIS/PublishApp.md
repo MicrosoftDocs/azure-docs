@@ -26,7 +26,7 @@ You can either publish your app directly to the **Production Slot**, or you can 
 
     ![Publish page-](./media/luis-how-to-publish-app/luis-first-publish.png)
  
-    If you have previously published this app, this page looks like the following image: 
+    When you publish an app, this page looks like the following image: 
  
     ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
 
