@@ -47,7 +47,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     You receive a response similar to the following text:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     The parameters used in this command are as follows:
 
@@ -62,7 +64,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     This request returns a response similar to the following text:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Use the following to create a table named **log4jLogs**:
 
@@ -102,7 +106,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
    This command returns a job ID that can be used to check the status of the job.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. To check the status of the job, use the following command:
 
