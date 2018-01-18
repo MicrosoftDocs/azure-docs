@@ -25,7 +25,7 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-- name: How to
+- name: How-to guides
   items:
   - name: Develop
     items:
