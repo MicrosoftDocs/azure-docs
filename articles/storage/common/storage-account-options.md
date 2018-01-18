@@ -28,7 +28,7 @@ Each type of account is described in greater detail in the following section:
 
 ### General-purpose v2
 
-**General-purpose v2 (GPv2) accounts** are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
+General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
 You can upgrade your GPv1 account to a GPv2 account using PowerShell or Azure CLI. 
 
@@ -69,7 +69,7 @@ General-purpose v1 (GPv1) storage accounts are the oldest type of storage accoun
 
 ### Blob storage accounts
 
-**Blob storage accounts** support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. This upgrade cannot be undone.
+Blob storage accounts support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. This upgrade cannot be undone.
 
 The ability to upgrade Blob storage Accounts to GPv2 is coming soon.
 
@@ -235,13 +235,13 @@ For details on enabling, collecting, and viewing metrics data, see [Enabling Azu
 
 ### Utilizing usage metrics to estimate costs
 
-### Storage costs
+#### Storage costs
 
 The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data. The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
 
 This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account. The same method can also be used for estimating storage costs in GPv1 storage accounts.
 
-### Transaction costs
+#### Transaction costs
 
 The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *For example*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
 
