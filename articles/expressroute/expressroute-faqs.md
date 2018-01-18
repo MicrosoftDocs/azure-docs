@@ -118,11 +118,11 @@ Yes. Each ExpressRoute circuit has a redundant pair of cross connections configu
 
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 
-You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
+You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network and provide high availability of your ExpressRoute circuit. You can additionally create a circuit in a different peering location to achieve circuit-level resilience.
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting multiple ExpressRoute circuits in different peering locations to your virtual network. For example, if one ExpressRoute site goes down, connectivity will fail over to another ExpressRoute site. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one connection to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
+You can achieve high availability by connecting ExpressRoute circuits in different peering locations (e.g. Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
