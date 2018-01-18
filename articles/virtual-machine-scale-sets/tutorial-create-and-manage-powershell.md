@@ -192,6 +192,50 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ```
 
 
+## List connection information for VMs
+A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
+
+To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Then, view the inbound NAT rules with [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
+
+```azurepowershell-interactive
+# Get the load balancer object
+$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+
+# View the list of inbound NAT rules
+Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+```
+
+The following example output shows the instance name, public IP address of the load balancer, and port number that the NAT rules forward traffic to:
+
+```powershell
+Name        Protocol FrontendPort BackendPort
+----        -------- ------------ -----------
+myRDPRule.0 Tcp             50001        3389
+myRDPRule.1 Tcp             50002        3389
+```
+
+View the public IP address of the load balancer with with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
+```
+
+Example output:
+
+```powershell
+IpAddress
+---------
+52.168.121.216
+```
+
+RDP to your first VM instance. Specify your own public IP address and port number, as shown from the preceding commands:
+
+```powershell
+mstsc /v 52.168.121.216:50001
+```
+
+
+
 ## Understand VM instance images
 When you defined a scale set configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) in a previous step, you used a Windows Server 2016 Datacenter image. The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command.
 
