@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
 
 ---
@@ -372,9 +372,6 @@ Use the following information to install and configure the solution.
 - If you want to view wire data for a specific solution, you need to have the solution already added to your workspace.
 
 After you have agents installed and you install the solution, the Wire Data 2.0 tile appears in your workspace.
-
-> [!NOTE]
-> Currently, you must use the OMS portal to view wire data. You cannot use the Azure portal to view wire data.
 
 ![Wire Data tile](./media/log-analytics-wire-data/wire-data-tile.png)
 
