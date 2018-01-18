@@ -27,6 +27,24 @@
     href: automation-tutorial-troubleshoot-changes.md
 - name: How to
   items:
+    - name: Update Management
+      items:
+      - name: Overview
+        href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+      - name: Manage updates for multiple VMs
+        href: manage-update-multi.md
+      - name: Integrate SCCM with OMS Update Management
+        href: oms-solution-updatemgmt-sccmintegration.md
+    - name: Change tracking
+      items:
+      - name: Overview
+        href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
+      - name: Track changes in your VMs
+        href: automation-vm-change-tracking.md
+    - name: Inventory
+      items:
+      - name: Manage a VM with inventory collection
+        href: automation-vm-inventory.md
     - name: Authentication and security
       items:
       - name: Create standalone Automation account
@@ -135,8 +153,8 @@
           href: automation-scenario-aws-deployment.md
         - name: Remediate Azure VM alert
           href: automation-azure-vm-alert-integration.md
-        - name: Start/stop VM with JSON tags
-          href: automation-scenario-start-stop-vm-wjson-tags.md
+        - name: Start/stop VMs during off-hours
+          href: automation-solution-vm-management.md
         - name: Remove resource group
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
@@ -147,22 +165,6 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
-    - name: Solutions
-      items:
-        - name: Update Management
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Manage updates for multiple VMs
-          href: manage-update-multi.md
-        - name: Integrate SCCM with OMS Update Management
-          href: oms-solution-updatemgmt-sccmintegration.md
-        - name: Change tracking
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Track changes in your VMs
-          href: automation-vm-change-tracking.md
-        - name: Manage a VM with inventory collection
-          href: automation-vm-inventory.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
     - name: Monitor
       items:
         - name: Forward Azure Automation job data to Log Analytics
