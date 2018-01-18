@@ -246,6 +246,9 @@
   - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/
+  - name: IoT Edge
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/iot-edge/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
