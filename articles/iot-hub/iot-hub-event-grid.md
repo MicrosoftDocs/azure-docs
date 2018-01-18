@@ -28,7 +28,14 @@ For a complete list of the event handlers that Event Grid supports, see [An intr
 
 ## Regional availability
 
-The Event Grid integration requires that your IoT Hub be located in a region that supports Azure Event Grid. For the most recent list of supported regions, see [An introduction to Azure Event Grid][lnk-eg-overview]
+The Event Grid integration is in public preview, so is available in a limited number of regions. The integration works for IoT hubs located in the following regions:
+
+* Central US
+* East US
+* East US 2
+* West Central US
+* West US
+* West US 2
 
 ## Event types
 

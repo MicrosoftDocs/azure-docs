@@ -38,7 +38,7 @@ While both message routing and Event Grid enable alert configuration, there are 
 
 IoT Hub message routing and Event Grid have similarities too, some of which are detailed in the following table:
 
-| Feature | Message routing | Event Grid | 
+| Feature | IoT Hub message routing | IoT Hub integration with Event Grid |
 | ------- | --------------- | ---------- |
 | **Reliability** | High: Delivers each message to the endpoint at least once for each route. Expires all messages that are not delivered within one hour. | High: Delivers each message to the webhook at least once for each subscription. Expires all events that are not delivered within 24 hours. | 
 | **Scalability** | High: Optimized to support millions of simultaneously connected devices sending billions of messages. | High: Capable of routing 10,000,000 events per second per region. |
@@ -52,21 +52,21 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
 * **What kind of data will you send to the endpoints?**
 
-Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message headers and message bodies. 
+   Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message headers and message bodies. 
 
-The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include device creation and deletion. 
+   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include device creation and deletion. 
 
 * **What endpoints need to receive this information?**
 
-IoT Hub message routing supports limited endpoints, but you can build connectors to reroute the data and events to additional endpoints. For a complete list of supported endpoints, see the table in the previous section. 
+   IoT Hub message routing supports limited endpoints, but you can build connectors to reroute the data and events to additional endpoints. For a complete list of supported endpoints, see the table in the previous section. 
 
-The IoT Hub integration with Event Grid supports more endpoints. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third party business applications. 
+   The IoT Hub integration with Event Grid supports more endpoints. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third party business applications. 
 
 * **Does is matter if your data arrives in order?**
 
-IoT Hub message routing maintains the order in which messages are sent, so that they arrive in the same way.
+   IoT Hub message routing maintains the order in which messages are sent, so that they arrive in the same way.
 
-Event Grid does not guarantee that events will be received by endpoints in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
+   Event Grid does not guarantee that events will be received by endpoints in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
 
 ## Next steps
 
