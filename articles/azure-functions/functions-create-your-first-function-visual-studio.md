@@ -42,7 +42,7 @@ To complete this tutorial:
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## Create an HTTP triggered function in Visual Studio
+## Create a function app project
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
