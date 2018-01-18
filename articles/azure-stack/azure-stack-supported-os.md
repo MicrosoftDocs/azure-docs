@@ -3,19 +3,19 @@ title: Supported guest operating systems for Azure Stack | Microsoft Docs
 description: These Guest operating systems can be used on Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGoldner
-
+ms.date: 01/18/2018
+ms.author: brenduns
+ms.reviewer: JeffGoldner
 ---
 # Guest operating systems supported on Azure Stack
 
@@ -34,14 +34,18 @@ During deployment, Azure Stack will ensure that a suitable version of the guest 
 | Windows Server 2016 | 64-bit | Microsoft | Windows | Datacenter, Datacenter Core, Datacenter with Containers |
 | Windows 7 | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
 | Windows 8.1 | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
-| Windows 10 | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
+| Windows 10 * | 64-bit, Pro and Enterprise | Microsoft | Windows | No |
+
+* *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+
 
 ## Linux
 
-Linux distributions listed here include the necessary Windows Azure Linux Agent (WALA). 
+Linux distributions listed here include the necessary Windows Azure Linux Agent (WALA).
 
-> [!NOTE]
-> Images built with WALA versions older than 2.2.3 are *not* supported and are unlikely to deploy.
+> [!NOTE]   
+> Images built with WALA versions older than 2.2.3 are *not* supported and are unlikely to deploy. Some WALA agent versions are known to not function on Azure Stack VMs, including versions 2.2.12 and 2.2.13.
+
 
 | Distribution | Description | Publisher | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -59,7 +63,3 @@ Linux distributions listed here include the necessary Windows Azure Linux Agent 
 | Ubuntu 16.04-LTS | 64-bit | Canonical | Yes |
 
 Other Linux distributions may be supported in the future.
-
-
-
-
