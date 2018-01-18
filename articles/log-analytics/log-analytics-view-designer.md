@@ -29,6 +29,10 @@ Other articles available for View Designer are:
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 ## Concepts
+Access views on the **Overview** page of your Log Analytics workspace in the Azure portal.  The tile for each custom view will be displayed alphabetically with the tiles for the solutions installed the same workspace.
+
+![Overview page](media/log-analytics-view-designer/overview-page.png)
+
 Views created with the View Designer contain the elements in the following table.
 
 | Part | Description |
