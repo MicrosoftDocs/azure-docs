@@ -105,6 +105,19 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 sudo pip3 install sfctl
 ```
 
+### RHEL
+
+To install Serivice Fabric CLI on Redhat, run the following commands:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+easy_install-3.4 pip
+pip3 install sfctl
+```
+
+For testing the installation you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
+
 <a name = "cli-mac"></a>
 ### MacOS
 
