@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/18/2018
 ms.author: tamram
 
 ---
@@ -40,22 +40,24 @@ To use Azure Storage, you need to download and use the Ruby azure package, which
 
 ### Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type "gem install azure" in the command window to install the gem and dependencies.
+2. Type "gem install azure-storage-blob" in the command window to install the gem and dependencies.
 
 ### Import the package
 Using your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
 
 ```ruby
-require "azure"
+require "azure/storage/blob"
 ```
 
 ## Set up an Azure Storage Connection
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
-for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::Blob::BlobService** with the following code:
+for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information using **Azure::Blob::BlobService::create** with the following code:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+	)
 ```
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:
@@ -69,12 +71,12 @@ To obtain these values from a classic or Resource Manager storage account in the
 ## Create a container
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-The **Azure::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
+The **Azure::Storage::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 
 The following code example creates a container or prints the error if there is any.
 
 ```ruby
-azure_blob_service = Azure::Blob::BlobService.new
+azure_blob_service = Azure::Storage::Blob::BlobService.create_from_env
 begin
     container = azure_blob_service.create_container("test-container")
 rescue
@@ -153,6 +155,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 To learn about more complex storage tasks, follow these links:
 
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+* [Azure Storage SDK for Ruby](https://github.com/azure/azure-storage-ruby) repository on GitHub
 * [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
