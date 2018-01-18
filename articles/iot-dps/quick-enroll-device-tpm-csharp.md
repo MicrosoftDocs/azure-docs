@@ -54,8 +54,9 @@ For the sample in this Quickstart, you need the connection string for your provi
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
     
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the provisioning service that you want to create the enrollment for. 
+5. Add the following fields to the **Program** class.  
 
+    - Replace the **ProvisioningConnectionString** placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
     - You may optionally change the registration ID, endorsement key, device ID, and provisioning status. 
     - If you are using this Quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted down in that Quickstart. You can replace the device ID with the value suggested in that Quickstart, use your own value, or use the default value in this sample.
    
@@ -129,17 +130,17 @@ For the sample in this Quickstart, you need the connection string for your provi
 
 ## Run the individual enrollment sample
   
-3. Run the sample in Visual Studio to create the individual enrollment for your TPM device.
+1. Run the sample in Visual Studio to create the individual enrollment for your TPM device.
  
-3. On successful creation, the command window displays the properties of the new individual enrollment.
+2. On successful creation, the command window displays the properties of the new individual enrollment.
 
     ![Enrollment properties in the command output](media/quick-enroll-device-tpm-csharp/output.png)
 
-4. To Verify that the individual enrollment has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Individual Enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the endorsement key and other properties for the entry.
+3. To Verify that the individual enrollment has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Individual Enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the endorsement key and other properties for the entry.
 
     ![Enrollment properties in the portal](media/quick-enroll-device-tpm-csharp/verify-enrollment-portal.png)
  
-5. (Optional) If you've been following the steps in the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart, you can continue with the remaining steps in that Quickstart to enroll your simulated device. Be sure to skip the steps to create an individual enrollment using the Azure portal.
+4. (Optional) If you've been following the steps in the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart, you can continue with the remaining steps in that Quickstart to enroll your simulated device. Be sure to skip the steps to create an individual enrollment using the Azure portal.
 
 ## Clean up resources
 If you plan to explore the C# service sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
