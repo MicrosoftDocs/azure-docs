@@ -1,6 +1,6 @@
 ---
 title: Azure IoT device management with iothub-explorer | Microsoft Docs
-description: Use the iothub-explorer CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
+description: Use the iothub-explorer CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -27,7 +27,7 @@ ms.author: xshi
 [iothub-explorer](https://github.com/azure/iothub-explorer) is a CLI tool that you run on a host computer to manage device identities in your IoT hub registry. It comes with management options that you can use to perform various tasks.
 
 | Management option          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
 | Twin desired properties    | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
 | Twin reported properties   | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
@@ -51,9 +51,9 @@ Run iothub-explorer with various management options.
 ## What you need
 
 - Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-  - An active Azure subscription.
-  - An Azure IoT hub under your subscription.
-  - A client application that sends messages to your Azure IoT hub.
+- An active Azure subscription.
+- An Azure IoT hub under your subscription.
+- A client application that sends messages to your Azure IoT hub.
 - Make sure your device is running with the client application during this tutorial.
 - iothub-explorer, [Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine.
 
@@ -79,7 +79,7 @@ Invoke the `stop` method in the device app to stop sending messages to your IoT 
 iothub-explorer device-method <your device Id> stop
 ```
 
-## Use iothub-explorer with twin’s desired properties
+## Use iothub-explorer with twin's desired properties
 
 Set a desired property interval = 3000 by running the following command:
 
@@ -89,7 +89,7 @@ iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"int
 
 This property can be read by your device.
 
-## Use iothub-explorer with twin’s reported properties
+## Use iothub-explorer with twin's reported properties
 
 Get the reported properties of the device by running the following command:
 
@@ -99,7 +99,7 @@ iothub-explorer get-twin <your device id>
 
 One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
 
-## Use iothub-explorer with twin’s tags
+## Use iothub-explorer with twin's tags
 
 Display the tags and properties of the device by running the following command:
 
@@ -111,7 +111,6 @@ Add a field role = temperature&humidity to the device by running the following c
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## Use iothub-explorer with Cloud-to-device messages

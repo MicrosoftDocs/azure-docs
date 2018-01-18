@@ -129,7 +129,7 @@ The final step is deployment of the trained sentiment prediction model to a web 
 
 ![Kubernetes dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
 
 ## Conclusion
 
@@ -138,11 +138,11 @@ In this article, you learned how to train a word-embedding model by using the Wo
 
 ## References
 
-* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [TDSP project templates for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
 * [US income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedical entity recognition by using TDSP templates](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Biomedical entity recognition by using TDSP templates](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
 * [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems." 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)
