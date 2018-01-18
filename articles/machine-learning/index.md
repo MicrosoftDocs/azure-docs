@@ -15,84 +15,92 @@ ms.author: carolz
 ---
 # Azure Machine Learning
 
-Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models. Learn how to build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
+Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. Learn how to build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/machine-learning/preview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/azure/machine-learning/preview">
                         <div class="cardImage">
                             <img src="media/index/machine-learning.svg" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
+                        <a href="/azure/machine-learning/preview">
                         <h3>Learn about Azure Machine Learning services (preview)</h3>
-                        Azure Machine Learning services (preview) enable building, deploying, and managing machine learning and AI models using any Python tools and libraries. Includes Experimentation Service, Model Management Service, and Workbench.
+                        </a>
+                        Azure Machine Learning services (preview) enable building, deploying, and managing machine learning and AI models using any Python tools and libraries.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/studio">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/azure/machine-learning/studio">
                         <div class="cardImage">
                             <img src="media/index/machine-learning-studio.svg" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
+                        <a href="/azure/machine-learning/studio">
                         <h3>Learn about Azure Machine Learning Studio</h3>
-                        Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.
+                        </a>
+                        Azure Machine Learning Studio is a collaborative, drag-and-drop tool for developing predictive analytics solutions.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/data-science-virtual-machine">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/azure/machine-learning/data-science-virtual-machine">
                         <div class="cardImage">
                             <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
+                        <a href="/azure/machine-learning/data-science-virtual-machine">
                         <h3>Learn about the Data Science Virtual Machine</h3>
+                        </a>
                         The Data Science Virtual Machine (DSVM) is a customized VM image on Azure built specifically for doing data science. 
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/team-data-science-process">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/azure/machine-learning/team-data-science-process">
                         <div class="cardImage">
                             <img src="media/index/gear.svg" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
+                        <a href="/azure/machine-learning/team-data-science-process">
                         <h3>Learn about the Team Data Science Process</h3>
-                        The Team Data Science Process is an agile, iterative, team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+                        </a>
+                        The Team Data Science Process is an agile, iterative, team-oriented data science methodology.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

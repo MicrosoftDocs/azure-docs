@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (Preview)
+title: Azure Machine Learning services (preview) Documentation
 metadata:
-  title: Azure Machine Learning Documentation (Preview)
-  meta.description: Learn how to use Azure Machine Learning public preview features.
+  title: Azure Machine Learning services (preview) Documentation
+  meta.description: Learn how to use Azure Machine Learning services (preview).
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -11,10 +11,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/06/2017
+  ms.date: 01/18/2018
   ms.author: garye
 abstract:
-  description: Learn how to prepare data, and build and deploy models with our quickstarts and tutorials. The preview features of Azure Machine Learning enable building, deploying, and managing ML and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure in order to store and process your data.
+  description: Azure Machine Learning services (preview) enable building, deploying, and managing machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure to store and process your data.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -34,7 +34,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-classifying-iris-part-1">Walk through the basics of  Machine Learning services (preview)</a>
+    - html: <a href="tutorial-classifying-iris-part-1">Walk through the basics of Machine Learning services (preview)</a>
     - html: <a href="tutorial-classifying-iris-part-2">Use the Machine Learning Workbench to build a model with the Iris flower dataset</a>
     - html: <a href="tutorial-classifying-iris-part-3">Learn how to deploy a Machine Learning model</a>
     - html: <a href="tutorial-bikeshare-dataprep">Use Azure Machine Learning Workbench for advanced data prep</a>
