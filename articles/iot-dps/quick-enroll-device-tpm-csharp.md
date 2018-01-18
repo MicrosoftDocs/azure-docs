@@ -59,6 +59,7 @@ For the sample in this Quickstart, you need the connection string for your provi
     - Replace the **ProvisioningConnectionString** placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
     - You may optionally change the registration ID, endorsement key, device ID, and provisioning status. 
     - If you are using this Quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted down in that Quickstart. You can replace the device ID with the value suggested in that Quickstart, use your own value, or use the default value in this sample.
+
    
     ```csharp
     private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
