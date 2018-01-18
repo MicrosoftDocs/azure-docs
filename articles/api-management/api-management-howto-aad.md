@@ -63,24 +63,25 @@ This guide shows you how to enable access to the developer portal for users from
 21. To find your app, select **App registrations** and search by name.
 
     ![App registration](./media/api-management-howto-aad/find-your-app.png)
-21. If you want to configure your application (for example, change **App ID URL**) select **Properties**.
+22. After the application is registered, go to **Reply URL** and make sure the "Redirect URL" is set to the value you got from step 9. 
+23. If you want to configure your application (for example, change **App ID URL**) select **Properties**.
 
     ![App registration](./media/api-management-howto-aad/api-management-with-aad004.png)
 
     If multiple Azure Active Directories are going to be used for this application, click **Yes** for **Application is multi-tenant**. The default is **No**.
-22. Set application permissions by selecting **Required permissions**.
-23. Select the your application and check **Read directory data** and **Sign in and read user profile**.
+24. Set application permissions by selecting **Required permissions**.
+25. Select the your application and check **Read directory data** and **Sign in and read user profile**.
 
     ![App registration](./media/api-management-howto-aad/api-management-with-aad005.png)
 
     For more information about application and delegated permissions, see [Accessing the Graph API][Accessing the Graph API].
-24. In the left window, copy the **Application ID** value.
+26. In the left window, copy the **Application ID** value.
 
     ![App registration](./media/api-management-howto-aad/application-id.png)
-25. Switch back to your API Management application. The **Add identity provider** window should be displayed. <br/>Paste the **Application ID** value in the **Client Id** box.
-26. Switch back to the Azure Active Directory configuration, and click on **Keys**.
-27. Create a new key by speicifying a name and duration. 
-28. Click **Save**. The key gets generated.
+27. Switch back to your API Management application. The **Add identity provider** window should be displayed. <br/>Paste the **Application ID** value in the **Client Id** box.
+28. Switch back to the Azure Active Directory configuration, and click on **Keys**.
+29. Create a new key by speicifying a name and duration. 
+30. Click **Save**. The key gets generated.
 
     Copy the key to the clipboard.
 
@@ -90,16 +91,14 @@ This guide shows you how to enable access to the developer portal for users from
     > Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
     > 
     > 
-29. Switch back to your API Management application. <br/>In the **Add identity provider** window, paste the key into the **Client secret** text box.
-30. The **Add identity provider** window, contains the **Allowed Tenants** text box, in you specify which directories have access to the APIs of the API Management service instance. <br/>Specify the domains of the Azure Active Directory instances to which you want to grant access. You can separate multiple domains with newlines, spaces, or commas.
+31. Switch back to your API Management application. <br/>In the **Add identity provider** window, paste the key into the **Client secret** text box.
+32. The **Add identity provider** window, contains the **Allowed Tenants** text box, in you specify which directories have access to the APIs of the API Management service instance. <br/>Specify the domains of the Azure Active Directory instances to which you want to grant access. You can separate multiple domains with newlines, spaces, or commas.
 
     Multiple domains can be specified in the **Allowed Tenants** section. Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent), type in the domain name of the Active Directory tenant they want to give access to and click Submit. In the following example, a global administrator from `miaoaad.onmicrosoft.com` is trying to give permission to this particular developer portal. 
 
-31. Once the desired configuration is specified, click **Add**.
+33. Once the desired configuration is specified, click **Add**.
 
     ![App registration](./media/api-management-howto-aad/api-management-with-aad007.png)
-
-32. After the application is registered, go to **Reply URL** and use the "Redirect URL" you got from step 9. 
 
 Once the changes are saved, the users in the specified Azure Active Directory can sign in to the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account](#log_in_to_dev_portal).
 
