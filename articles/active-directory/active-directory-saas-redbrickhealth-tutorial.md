@@ -108,15 +108,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL:
 	
-	* For Testing Environment: `http://www-test.redbrickhealth.com`
+	For Testing Environment: `http://www-test.redbrickhealth.com`
 	
-	* For Production Environment: `http://www.redbrickhealth.com`
+	For Production Environment: `http://www.redbrickhealth.com`
 	
 	b. In the **Reply URL** textbox, type a URL:
 	
-	* For Testing Environment: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+	For Testing Environment: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
 	
-	* For Production Environment: `https://sso.redbrickhealth.com/sp/ACS.saml2`
+	For Production Environment: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
 	c. Click **Show advanced URL settings**.
 	
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api.redbricklabs.com/identity/sso/inbound?target=https://toyota.redbrickhealth.com/portal&connection=ex.ampletoyota`
 	
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get these values.
+	> Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
 
 4. The RedBrick Health application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
 
