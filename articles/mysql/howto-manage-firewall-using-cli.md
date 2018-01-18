@@ -84,7 +84,7 @@ az mysql server firewall-rule create --resource-group myResourceGroup --server-n
 To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  
---server mysql --name "Firewall Rule to Allow Azure connections" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+--server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]
