@@ -40,7 +40,7 @@ Each messaging entity is assigned a specific container. A container is a logical
 
 When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. The gateway node authorizes the request. If the request concerns a messaging entity (queue, topic, subscription), the gateway node looks up the entity in the gateway store and determines in which messaging store the entity is located. It then looks up which messaging broker node is currently servicing this container, and sends the request to that messaging broker node. The messaging broker node processes the request and updates the entity state in the container store. The messaging broker node then sends the response back to the gateway node, which sends an appropriate response back to the client that issued the original request.
 
-![Processing of Incoming Messaging Requests](./media/service-bus-architecture/ic690644.png)
+![Processing of Incoming Messaging Requests](./media/service-bus-architecture/IC690644.png)
 
 ## Next steps
 
