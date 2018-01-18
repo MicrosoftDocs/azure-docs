@@ -28,12 +28,12 @@ To deploy Azure Stack there are a set of decisions that you need to make to prop
 
 The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
 
-While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up to help you with your planning.
+While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, and configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up and involved throughout the deployment project to help you with your planning.
 
 ## Management considerations
 Azure Stack is a sealed system, where the infrastructure is locked down both from a permissions and network perspective. Network access control lists (ACLs) are applied to block all unauthorized incoming traffic and all unnecessary communications between infrastructure components. This makes it difficult for unauthorized users to access the system.
 
-For daily management and operations, there is no unrestricted administrator access to the infrastructure. Azure Stack operators must manage the system through the administrator portal or through Azure Resource Manager (via PowerShell or the REST API). There is no access to the system by other management tools such as Hyper-V Manager or Failover Cluster Manager. To help protect the system, third-party software (for example, agents) can't be installed inside the components of the Azure Stack infrastructure. Interoperability with external management and security software occurs via PowerShell or the REST API.
+For daily management and operations, there is no unrestricted administrator access to the infrastructure. Azure Stack operators must manage the system through the administrator portal or through Azure Resource Manager (via Azure CLI, PowerShell, or the REST API). There is no access to the system by other management tools such as Hyper-V Manager or Failover Cluster Manager. To help protect the system, third-party software (for example, agents) can't be installed inside the components of the Azure Stack infrastructure. Interoperability with external management and security software occurs via Azure CLI, PowerShell, or the REST API.
 
 When a higher level of access is needed for troubleshooting issues that aren’t resolved through alert mediation steps, you must work with Support. Through Support, there is a method to provide temporary full administrator access to the system to perform more advanced operations. 
 
@@ -42,7 +42,7 @@ When a higher level of access is needed for troubleshooting issues that aren’t
 ### Choose identity provider
 You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment.
 
-Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
+Your identity provider choice has no bearing on tenant virtual machines, the identity system and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
 You can learn more about choosing an identity provider in the [deployment decisions for Azure Stack integrated systems article](.\azure-stack-deployment-decisions.md).
 
@@ -90,9 +90,9 @@ For more information  about what PKI certificates are required to deploy Azure S
 
 
 ## Time synchronization
-You must choose a specific time server with is used to synchronize Azure Stack.  Time symbolization is critical to Azure Stack and its Infrastructure Roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
+You must choose a specific time server with is used to synchronize Azure Stack.  Time synchronization is critical to Azure Stack and its Infrastructure Roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
 
-You must specify an IP for the time synchronization server, although most of the components in the infrastructure can resolve an URL, some can only support IP addresses. If you’re are using the Disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack.
+You must specify an IP for the time synchronization server, as although most of the components in the infrastructure can resolve a URL, some can only support IP addresses. If you’re are using the Disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack. This may require additional consideration during the planning of the network integration portion of the deployment project.
 
 
 ## Network connectivity
@@ -117,31 +117,31 @@ The network infrastructure for Azure Stack consists of several logical networks 
 ![Logical network diagram and switch connections](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### BMC network
-This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host will be located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the hardware lifecycle host (HLH) will be located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
 
 #### Private network
-This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
+This /24 (254 host IPs) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
 
-- **Storage network**. A /25 (126 host IP’s) network used to support the use of Spaces Direct and Server Message Block (SMB) storage traffic and virtual machine live migration. 
-- **Internal virtual IP network**. A /25 network dedicated to internal-only VIPs for the software load balancer.
+- **Storage network**. A /25 (126 host IPs) network used to support the use of Storage Spaces Direct (S2D) and Server Message Block (SMB) storage traffic, and virtual machine live migration. 
+- **Internal virtual IP network**. A /25 network dedicated to internal-only VIPs for the software load balancer (SLB).
 
 #### Azure Stack infrastructure network
-This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs) , It isn’t expected to be routed beyond the border switches except for a very small range equivalent in size to a /27 network utilized by some of these services when they require access to external resources and/or the internet. 
+This /24 network is dedicated to internal Azure Stack components so that they can communicate and exchange data among themselves. This subnet requires routable IP addresses, but is kept private to the solution by using Access Control Lists (ACLs).  It isn’t expected to be routed beyond the border switches except for a very small range equivalent in size to a /27 network, which is utilized by some of these services when they require access to external resources and/or the internet. 
 
 #### Public infrastructure network
-This /27 network is the very small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS), the ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
+This /27 network is the very small range from the Azure Stack infrastructure subnet mentioned earlier, it does not require public IP addresses, but it does require internet access through a NAT or Transparent Proxy. This network will be allocated for the Emergency Recovery Console System (ERCS). The ERCS VM requires internet access during registration to Azure and should be routable to your management network for troubleshooting purposes.
 
 #### Public VIP network
 The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure uses at least 8 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
 
 #### Switch infrastructure network
-This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IP’s) subnets and the loopbacks which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, they may be private or public IPs.
+This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IP’s) subnets and the loopbacks which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, and they may be private or public IPs. For example, within a multi-tenanted Service Provider scenario public IPs may be required, while within a tightly controlled Enterprise deployment, private IPs may be preferred.
 
 #### Switch management network
 This /29 (6 host IPs) network is dedicated to connecting the management ports of the switches. It allows out-of-band access for deployment, management, and troubleshooting. It is calculated from the switch infrastructure network mentioned above.
 
 ### TRANSPARENT PROXY
-The Azure Stack solution doesn’t support normal web proxies. If the datacenter requires all traffic to use a proxy, you must configure a transparent proxy to process all traffic from the rack to handle it according to policy, separating traffic between the zones on your network. A transparent proxy (also known as an intercepting, inline, or forced proxy) intercepts normal communication at the network layer without requiring any special client configuration. Clients need not to be aware of the existence of the proxy.
+The Azure Stack solution doesn’t support normal web proxies. If the datacenter requires all traffic to use a proxy, you must configure a transparent proxy to process all traffic from the rack to handle it according to policy, separating traffic between the zones on your network. A transparent proxy (also known as an intercepting, inline, or forced proxy) intercepts normal communication at the network layer without requiring any special client configuration. Clients need not be aware of the existence of the proxy.
 
 ### Publish Azure Stack services
 
@@ -200,7 +200,7 @@ The following diagram shows ExpressRoute for a multi-tenant scenario.
 ## External monitoring
 To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can integrate Azure Stack with external datacenter monitoring solutions.
 
-Included with the Azure Stack solution, the hardware lifecycle host is a computer outside Azure Stack that runs OEM vendor-provided management tools for hardware. You can use these tools or other solutions that directly integrate with existing monitoring solutions in your datacenter.
+Included with the Azure Stack solution, the hardware lifecycle host (HLH) is a computer outside Azure Stack that runs OEM vendor-provided management tools for hardware. You can use these tools or other solutions that directly integrate with existing monitoring solutions in your datacenter.
 
 The following table summarizes the list of currently available options.
 
