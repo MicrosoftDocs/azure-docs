@@ -1,6 +1,6 @@
 ---
-title: Azure How to - How to use Azure CLI 2.0 and the IoT extension to manage device provisioning service | Microsoft Docs
-description: Azure How to - How to use Azure CLI 2.0 and the IoT extension to manage device provisioning service | Microsoft Docs
+title: How to use Azure CLI 2.0 and the IoT extension to manage device provisioning services | Microsoft Docs
+description: Learn how to use Azure CLI 2.0 and the IoT extension to manage device provisioning services
 services: iot-dps 
 keywords: 
 author: chrissie926
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# How to use Azure CLI 2.0 and the IoT extension to manage device provisioning service
+# How to use Azure CLI 2.0 and the IoT extension to manage device provisioning services
 
 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS. Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box.
 
@@ -85,12 +85,12 @@ Complete the installation steps described previously before you begin. If you do
 ![Link Hub][5]
 
 <!-- Images -->
-[1]: ./media/how-to-use-cli-to-manage-dps/login.jpg
-[2]: ./media/how-to-use-cli-to-manage-dps/create-resource-group.jpg
-[3]: ./media/how-to-use-cli-to-manage-dps/create-dps.jpg
-[4]: ./media/how-to-use-cli-to-manage-dps/list-dps.jpg
-[5]: ./media/how-to-use-cli-to-manage-dps/create-hub.jpg
-[6]: ./media/how-to-use-cli-to-manage-dps/link-hub.jpg
+[1]: ./media/how-to-manage-dps-with-cli/login.jpg
+[2]: ./media/how-to-manage-dps-with-cli/create-resource-group.jpg
+[3]: ./media/how-to-manage-dps-with-cli/create-dps.jpg
+[4]: ./media/how-to-manage-dps-with-cli/list-dps.jpg
+[5]: ./media/how-to-manage-dps-with-cli/create-hub.jpg
+[6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
 
 
 ## Next steps
