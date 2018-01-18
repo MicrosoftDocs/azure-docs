@@ -54,7 +54,7 @@ Or through the **Microsoft Graph API**:
 We can query the Microsoft Graph API through the Microsoft Graph explorer: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
 
 >[!NOTE]
-> You need to explicitely ask for the attribute to be returned. This can be done by explicitly selecting the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division For more information please check [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
+> You need to explicitly ask for the attribute to be returned. This can be done by explicitly selecting the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division For more information please check [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
