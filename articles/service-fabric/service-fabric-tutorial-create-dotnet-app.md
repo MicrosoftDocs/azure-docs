@@ -154,7 +154,7 @@ Open the *Views/Home/Index.cshtml* file, the view specific to the Home controlle
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -164,7 +164,7 @@ Open the *Views/Home/Index.cshtml* file, the view specific to the Home controlle
             </div>
         </div>
 
-        <hr />
+        <hr/>
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
@@ -204,26 +204,26 @@ Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET 
 <!DOCTYPE html>
 <html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/site.css" rel="stylesheet"/>
 
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+<div class="container body-content">
+    @RenderBody()
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/angular/angular.js"></script>
-    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="~/js/site.js"></script>
 
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 </body>
 </html>
 ```
@@ -240,24 +240,38 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 {
     return new ServiceInstanceListener[]
     {
-        new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
-            {
-                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+        new ServiceInstanceListener(
+            serviceContext =>
+                new KestrelCommunicationListener(
+                    serviceContext,
+                    "ServiceEndpoint",
+                    (url, listener) =>
+                    {
+                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
 
-                return new WebHostBuilder().UseWebListener()
+                        return new WebHostBuilder()
+                            .UseKestrel()
                             .ConfigureServices(
                                 services => services
-                                    .AddSingleton<StatelessServiceContext>(serviceContext)
-                                    .AddSingleton<HttpClient>())
+                                    .AddSingleton<HttpClient>(new HttpClient())
+                                    .AddSingleton<FabricClient>(new FabricClient())
+                                    .AddSingleton<StatelessServiceContext>(serviceContext))
                             .UseContentRoot(Directory.GetCurrentDirectory())
                             .UseStartup<Startup>()
-                            .UseApplicationInsights()
                             .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                             .UseUrls(url)
                             .Build();
-            }))
+                    }))
     };
+}
+```
+
+Also add the `GetVotingDataServiceName` method, which returns the service name when polled:
+
+```csharp
+internal static Uri GetVotingDataServiceName(ServiceContext context)
+{
+    return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
 }
 ```
 
@@ -267,17 +281,20 @@ Add a controller which defines voting actions. Right-click on the **Controllers*
 Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file will be modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
-
 namespace VotingWeb.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Fabric;
+    using System.Fabric.Query;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+
     [Produces("application/json")]
     [Route("api/Votes")]
     public class VotesController : Controller
@@ -304,7 +321,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### Configure the listening port
-When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer.
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port.  The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer.
 
 ```xml
 <Resources>
@@ -341,9 +358,7 @@ Service Fabric allows you to consistently and reliably store your data right ins
 In this tutorial, you create a service which stores a counter value in a reliable collection.
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
-   
-    ![Adding a new service to an existing application](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
-
+    
 2. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, and name the service **VotingData** and press **OK**.
 
     ![New service dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
@@ -363,17 +378,20 @@ In this tutorial, you create a service which stores a counter value in a reliabl
 In the **VotingData** project right-click on the **Controllers** folder, then select **Add->New item->Class**. Name the file "VoteDataController.cs" and click **Add**. Replace the file contents with the following, then save your changes.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.ServiceFabric.Data;
-using System.Threading;
-using Microsoft.ServiceFabric.Data.Collections;
+// ------------------------------------------------------------
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
+// ------------------------------------------------------------
 
 namespace VotingData.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.ServiceFabric.Data;
+    using Microsoft.ServiceFabric.Data.Collections;
+
     [Route("api/[controller]")]
     public class VoteDataController : Controller
     {
@@ -388,24 +406,24 @@ namespace VotingData.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var ct = new CancellationToken();
+            CancellationToken ct = new CancellationToken();
 
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                var list = await votesDictionary.CreateEnumerableAsync(tx);
+                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                var enumerator = list.GetAsyncEnumerator();
+                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
-                var result = new List<KeyValuePair<string, int>>();
+                List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
                 while (await enumerator.MoveNextAsync(ct))
                 {
                     result.Add(enumerator.Current);
                 }
 
-                return Json(result);
+                return this.Json(result);
             }
         }
 
@@ -413,7 +431,7 @@ namespace VotingData.Controllers
         [HttpPut("{name}")]
         public async Task<IActionResult> Put(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -428,7 +446,7 @@ namespace VotingData.Controllers
         [HttpDelete("{name}")]
         public async Task<IActionResult> Delete(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -462,70 +480,114 @@ In this tutorial, we are using [ASP.NET Core Web API](service-fabric-reliable-se
 In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
+{
+    private readonly HttpClient httpClient;
+    private readonly FabricClient fabricClient;
+    private readonly StatelessServiceContext serviceContext;
+
+    public VotesController(HttpClient httpClient, StatelessServiceContext context, FabricClient fabricClient)
     {
-        private readonly HttpClient httpClient;
-        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
-        string partitionKind = "Int64Range";
-        string partitionKey = "0";
+        this.fabricClient = fabricClient;
+        this.httpClient = httpClient;
+        this.serviceContext = context;
+    }
 
-        public VotesController(HttpClient httpClient)
+    // GET: api/Votes
+    [HttpGet("")]
+    public async Task<IActionResult> Get()
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+
+        ServicePartitionList partitions = await this.fabricClient.QueryManager.GetPartitionListAsync(serviceName);
+
+        List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+
+        foreach (Partition partition in partitions)
         {
-            this.httpClient = httpClient;
-        }
+            string proxyUrl =
+                $"{proxyAddress}/api/VoteData?PartitionKey={((Int64RangePartitionInformation) partition.PartitionInformation).LowKey}&PartitionKind=Int64Range";
 
-        // GET: api/Votes
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            IEnumerable<KeyValuePair<string, int>> votes;
-
-            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            using (HttpResponseMessage response = await this.httpClient.GetAsync(proxyUrl))
             {
-                return this.StatusCode((int)response.StatusCode);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    continue;
+                }
+
+                result.AddRange(JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync()));
             }
-
-            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
-
-            return Json(votes);
         }
 
-        // PUT: api/Votes/name
-        [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name)
+        return this.Json(result);
+    }
+
+    // PUT: api/Votes/name
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Put(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        StringContent putContent = new StringContent($"{{ 'name' : '{name}' }}", Encoding.UTF8, "application/json");
+        putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+        using (HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent))
         {
-            string payload = $"{{ 'name' : '{name}' }}";
-            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
-            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
-
-            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
-
             return new ContentResult()
             {
-                StatusCode = (int)response.StatusCode,
+                StatusCode = (int) response.StatusCode,
                 Content = await response.Content.ReadAsStringAsync()
             };
         }
+    }
 
-        // DELETE: api/Votes/name
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> Delete(string name)
+    // DELETE: api/Votes/name
+    [HttpDelete("{name}")]
+    public async Task<IActionResult> Delete(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        using (HttpResponseMessage response = await this.httpClient.DeleteAsync(proxyUrl))
         {
-            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                return this.StatusCode((int)response.StatusCode);
+                return this.StatusCode((int) response.StatusCode);
             }
-
-            return new OkResult();
-
         }
+
+        return new OkResult();
     }
+
+
+    /// <summary>
+    /// Constructs a reverse proxy URL for a given service.
+    /// Example: http://localhost:19081/VotingApplication/VotingData/
+    /// </summary>
+    /// <param name="serviceName"></param>
+    /// <returns></returns>
+    private Uri GetProxyAddress(Uri serviceName)
+    {
+        return new Uri($"http://localhost:19081{serviceName.AbsolutePath}");
+    }
+
+    /// <summary>
+    /// Creates a partition key from the given name.
+    /// Uses the zero-based numeric position in the alphabet of the first letter of the name (0-25).
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private long GetPartitionKey(string name)
+    {
+        return Char.ToUpper(name.First()) - 'A';
+    }
+}
 ```
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
