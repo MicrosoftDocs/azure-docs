@@ -15,12 +15,6 @@ metadata:
   ms.author: tarcher
 abstract:
   description: Use <a href="http://www.ansible.com">Ansible</a> to automate cloud provisioning, configuration management, and application deployments.
-  aside:
-    image:
-      alt: Ansible logo.
-      height: 110
-      src: media/Ansible-Mark-RGB_Outline-Black.svg
-      width: 250  
 sections:
 sections:
 - title: 5-Minute Quickstarts
