@@ -50,15 +50,14 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 4. Go to the location mentioned below in your cloned repo.
 	```bash
 	cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
-        ```
-
+	```
 5. Run the following autorest command to generate the java client code.
 	```bash
 	autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
 	```
    Below is an example demonstrating the usage of autorest.
    ```bash
-   	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
+	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
    ```
    The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implemenation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
 > [!NOTE]
@@ -77,13 +76,13 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	```
 For example, if you are using Maven build system include the following in your ``pom.xml`` file:
 
-	```xml
-		<dependency>
-		  <groupId>com.microsoft.rest</groupId>
-		  <artifactId>client-runtime</artifactId>
-		  <version>1.2.1</version>
-		</dependency>
-	```
+```xml
+	<dependency>
+	  <groupId>com.microsoft.rest</groupId>
+	  <artifactId>client-runtime</artifactId>
+	  <version>1.2.1</version>
+	</dependency>
+```
 
 3. Create a RestClient using the following code:
 
