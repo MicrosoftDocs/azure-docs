@@ -59,11 +59,11 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 ## Delete the container
-When you are done with the container, you can remove it by going to All resources tab in the Azure portal.  This tab is available either via your favorites bar or by navigating to All services and then locating All resources.
+When you are done with the container, you can remove it by going to the All resources tab in the Azure portal.  This tab is available by selecting **All services** > **All resources**, or selecting **All resources** from your favorites list.
 
 ![Navigating to the All resources tab in the browser via All services][aci-portal-10]
 
-Once you have arrived at the all resources screen, click the checkbox next to the resource and then click on the delete button.
+Once you have arrived at the all resources screen, click the checkbox next to the resource and then click **Delete**.
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
 
