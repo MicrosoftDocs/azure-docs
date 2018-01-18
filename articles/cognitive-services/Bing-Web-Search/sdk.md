@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # Bing Web Search SDK preview
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
-* The [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) include search scenarios that: 1. Use a single text query and print out name and url for first web, image, news and videos results; 2. Query on Best restaurants in Seattle, verify number of results and print out name and url of first result; 3. Query on Microsoft with response filters to news and print details of news; 4. Query on Lady Gaga with `answerCount` and `promote` parameters then print details of answers.
+* The [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) include search scenarios that: 1. Use a single word query `Xbox` and print out name and url for first web, image, news and videos results; 2. Query on `Best restaurants in Seattle`, verify number of results and print out name and url of first result; 3. Query on Microsoft with response filters to news and print details of news; 4. Query on Lady Gaga with `answerCount` and `promote` parameters then print details of answers.
     * See the [.NET libraries](https://github.com/Azure/azure-sdk-for-net/) for NuGet package dependencies.
 * [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) The NOdeJS code samples include the same search scenarios as the .NET samples. 
     * See the [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/) for dependencies.
