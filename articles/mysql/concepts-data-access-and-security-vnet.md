@@ -81,8 +81,6 @@ Any virtual network rule is limited to the region that its underlying endpoint a
 
 Each virtual network rule applies to your whole Azure Database for MySQL server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
 
-- In contrast, IP rules can apply at either level.
-
 #### Security administration roles
 
 There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
