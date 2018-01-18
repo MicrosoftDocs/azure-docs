@@ -1586,7 +1586,17 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/",
+            "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-azure-vm-alert-integration.md",
+            "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-scenario-start-stop-vm-wjson-tags.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
         },
         {
@@ -16147,17 +16157,12 @@
         "redirect_document_id": false
       },
       {
-        "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
-        "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
-        "redirect_document_id": false
-      },
-      {
         "source_path": "articles/azure-stack/azure-stack-planning-considerations.md",
         "redirect_url": "/azure/azure-stack/azure-stack-deployment-planning",
         "redirect_document_id": true
       },
       { "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
-        "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+        "redirect_url": "/azure/cognitive-services/translator/ctf-reporting",
         "redirect_document_id": false
       },
       {
@@ -16167,12 +16172,12 @@
         },
 	{
             "source_path": "articles/cognitive-services/Translator/text-overview.md",
-            "redirect_url": "articles/cognitive-services/Translator/index.yml",
+            "redirect_url": "/azure/cognitive-services/translator/",
             "redirect_document_id": false
 	},
 	{
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
-            "redirect_url": "articles/cognitive-services/Translator/customization.md",
+            "redirect_url": "/azure/cognitive-services/translator/customization",
             "redirect_document_id": false
 	},     
 	{
