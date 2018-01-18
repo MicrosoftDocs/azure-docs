@@ -363,7 +363,7 @@ You must first register for the cross-subscription, cross-deployment model featu
 
     ```powershell    
     Get-AzureRmProviderFeature `
-      -FeatureName FeatureName AllowClassicCrossSubscriptionPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     ```
 

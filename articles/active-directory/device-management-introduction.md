@@ -4,7 +4,7 @@ description: Learn how device management can help you to get control over the de
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -133,12 +133,31 @@ With device management in Azure AD, you can:
 
 As a rule of a thumb, you should use:
 
-- Azure AD registered devices for personal devices
+- Azure AD registered devices:
 
-- Azure AD joined devices for devices that are not joined to an on-premises AD 
+    - For personal devices 
+
+    - To manually register devices with Azure AD
+
+- Azure AD joined devices: 
+
+    - For devices that are owned by your organization
+
+    - For devices that are **not** joined to an on-premises AD
+
+    - To manually register devices with Azure AD
+
+    - To change the local state of a device
 
 - Hybrid Azure AD joined devices for devices that are joined to an on-premises AD     
 
+    - For devices that are owned by your organization
+
+    - For devices that are joined to an on-premises AD
+
+    - To automatically register devices with Azure AD
+
+    - To change the local state of a device
 
 
 

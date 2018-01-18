@@ -65,9 +65,9 @@ Now that you have the sample source code, the next thing to do is to get a set o
 There are several open source tools to help you manage your IoT hub.
 
 * A Windows application called [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* A cross-platform node.js CLI tool called [iothub-explorer](https://github.com/azure/iothub-explorer).
+* A cross-platform Python CLI tool called [the IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-This tutorial uses the graphical *device explorer* tool. You can also use the *iothub-explorer* tool if you prefer to use a CLI tool.
+This tutorial uses the graphical *device explorer* tool. You can also use the *the IoT extension for Azure CLI 2.0* tool if you prefer to use a CLI tool.
 
 The device explorer tool uses the Azure IoT service libraries to perform various functions on IoT Hub, including adding devices. If you use the device explorer tool to add a device, you get a connection string for your device. You need this connection string to run the sample applications.
 
@@ -567,11 +567,11 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

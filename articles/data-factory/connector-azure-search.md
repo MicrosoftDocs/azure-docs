@@ -32,7 +32,8 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store into Azure Search index. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Search connector.
 
@@ -48,7 +49,7 @@ The following properties are supported for Azure Search linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime] (concepts-integration-runtime.md#azure-integration-runtime).
+> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 

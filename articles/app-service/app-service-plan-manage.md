@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Manage an App Service plan in Azure
 
-An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan. 
+An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -53,9 +53,20 @@ In the **Menu**, look for the **App Service Plan** section.
 
 Select **Change App Service plan** to start the process.
 
-**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. Only plans in the same resource group and region are displayed. If you just created an App Service plan in the same resource group and region, but it is not displayed in the list, try refreshing your browser page.
+**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. 
+
+> [!IMPORTANT]
+> The **Select App Service plan** page is filtered by the following criteria: 
+> - Exists in the same resource group 
+> - Exists in the same geographical region 
+> - Exists in the same webspace  
+> 
+> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers using App Service. Currently, App Service resources aren’t able to be moved between webspaces. 
+> 
 
 ![App Service plan selector.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier, enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher tiered plan to a lower tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. For example, if one of your apps uses SSL certificates, you might see the error message: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`In this case, you need to scale up the pricing tier of the target plan to **Basic** or higher, or you need to remove all SSL connections to your app, before you can move the app to the target plan.
 
@@ -70,7 +81,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 ## Scale an App Service plan
 
-To scale up ah App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
+To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
 
 To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

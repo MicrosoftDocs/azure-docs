@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 10/19/2017
 ms.author: dobett
 
 ---
@@ -267,7 +267,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, node-based [iothub-explorer][lnk-iothub-explorer] command-line utility.
+> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, Python-based [The IoT extension for Azure CLI 2.0][lnk-IoT-extension-CLI-2.0] command-line utility.
 
 ### Use a shared access policy
 
@@ -470,7 +470,7 @@ If you would like to try out some of the concepts described in this article, see
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
-[lnk-cbs]: https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc
+[lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-management-portal]: https://portal.azure.com
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
@@ -487,7 +487,7 @@ If you would like to try out some of the concepts described in this article, see
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

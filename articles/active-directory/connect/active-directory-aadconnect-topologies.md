@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe

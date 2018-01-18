@@ -4,7 +4,7 @@ description: How to install replica DCs for an on-premises Active Directory doma
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0

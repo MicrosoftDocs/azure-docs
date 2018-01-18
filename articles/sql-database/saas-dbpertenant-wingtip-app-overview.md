@@ -20,11 +20,11 @@ ms.author: sstein
 
 The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes!
 
-Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, [download the Learning Modules folder](#download-and-unblock-the-wingtip-saas-scripts) to your local computer.
+Application source code and management scripts are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Application architecture
 
-The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency. For provisioning and mapping tenants to their data, a catalog database is used. The core Wingtip SaaS application, uses a pool with three sample tenants, plus the catalog database. Completing many of the Wingtip SaaS tutorials result in add-ons to the intial deployment, by introducing analytic databases, cross-database schema management, etc.
+The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency. For provisioning and mapping tenants to their data, a catalog database is used. The core Wingtip SaaS application, uses a pool with three sample tenants, plus the catalog database. Completing many of the Wingtip SaaS tutorials result in add-ons to the initial deployment, by introducing analytic databases, cross-database schema management, etc.
 
 
 ![Wingtip SaaS architecture](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
@@ -39,7 +39,7 @@ After deploying the app, explore the following tutorials that build upon the ini
 
 | Tutorial | Description |
 |:--|:--|
-| [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-dbpertenant-wingtip-app-guidance-tips.md) | **START HERE!** Download and run PowerShell scripts to prepare parts of the application. |
+| [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-tenancy-wingtip-app-guidance-tips.md) | **START HERE!** Download and run PowerShell scripts to prepare parts of the application. |
 |[Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)|  Deploy and explore the Wingtip SaaS application to your Azure subscription. |
 |[Provision and catalog tenants](saas-dbpertenant-provision-and-catalog.md)| Learn how the application connects to tenants using a catalog database, and how the catalog maps tenants to their data. |
 |[Monitor and manage performance](saas-dbpertenant-performance-monitoring.md)| Learn how to use monitoring features of SQL Database, and how to set alerts when performance thresholds are exceeded. |
@@ -52,6 +52,6 @@ After deploying the app, explore the following tutorials that build upon the ini
 
 ## Next steps
 
-- [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-dbpertenant-wingtip-app-guidance-tips.md)
+- [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Deploy the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)

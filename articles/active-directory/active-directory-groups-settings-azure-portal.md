@@ -5,7 +5,7 @@ description: How to edit the properties and other configuration settings for a g
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 2f058f9a-5a8f-4b4b-b3b7-885ff10cb1be

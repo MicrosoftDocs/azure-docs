@@ -4,7 +4,7 @@ description: How to build a Windows Phone application that integrates with Azure
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD with a Windows Phone App
+# Azure AD Windows Phone getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -69,7 +69,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* In the DirectorySearcher project, open `MainPage.xaml.cs`.  Replace the values in the `Config Values` region to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
+* In the DirectorySearcher project, open `MainPage.xaml.cs`.  Replace the values in the `Config Values` region to reflect the values you input into the Azure portal.  Your code will reference these values whenever it uses ADAL.
   * The `tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
   * The `clientId` is the clientId of your application you copied from the portal.
 * You now need to discover the callback uri for your Windows Phone app.  Set a breakpoint on this line in the `MainPage` method:
@@ -153,7 +153,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's id on the page:
+* You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's ID on the page:
 
 ```C#
 // Update the Page UI to represent the signed in user

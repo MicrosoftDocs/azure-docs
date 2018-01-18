@@ -332,7 +332,7 @@ Load Balancer Standard is currently available in these regions:
 
 ## SKU service limits and abilities
 
-Azure [Service Limits for Networking](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
+Azure [Service Limits for Networking](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
 
 The following table compares the limits and abilities of the Load Balancer Basic and Standard SKUs:
 

@@ -54,7 +54,7 @@ To locate the credentials your device must use to connect to the preconfigured s
 
 1. Locate the resource group that contains the Azure services your remote monitoring solution uses. The resource group has the same name as the remote monitoring solution you provisioned.
 
-1. Navigate to the IoT hub in this resource group. Then choose **Device explorer**:
+1. Navigate to the IoT hub in this resource group. Then choose **IoT Devices**:
 
     ![Device explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
 

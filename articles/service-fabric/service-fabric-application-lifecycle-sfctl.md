@@ -135,7 +135,7 @@ After you delete the application, you can unprovision the application type if yo
 the application type, use the following command:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 The type name and type version must match the name and version in the previously provisioned application manifest.

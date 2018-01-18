@@ -20,7 +20,6 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand and invoke direct methods from IoT Hub
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
-
 Each device method targets a single device. [Jobs][lnk-devguide-jobs] provide a way to invoke direct methods on multiple devices, and schedule method invocation for disconnected devices.
 
 Anyone with **service connect** permissions on IoT Hub may invoke a method on a device.
@@ -30,7 +29,7 @@ Direct methods follow a request-response pattern and are meant for communication
 Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
 
 ## Method lifecycle
-Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`). We may support direct methods on additional device-side networking protocols in the future.
+Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (`IoThub-methodname` and `IoThub-status` application properties). 
 
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -41,7 +40,7 @@ Direct methods are synchronous and either succeed or fail after the timeout peri
 
 Direct methods are HTTPS-only from the cloud side, and MQTT or AMQP from the device side.
 
-The payload for method requests and responses is a JSON document up to 8 KB.
+The payload for method requests and responses is a JSON document up to 128 KB.
 
 ## Invoke a direct method from a back-end app
 ### Method invocation
@@ -72,8 +71,7 @@ The back-end app receives a response that comprises:
 * *Headers* that contain the ETag, request ID, content type, and content encoding
 * A JSON *body* in the following format:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -82,7 +80,8 @@ The back-end app receives a response that comprises:
    Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
 ## Handle a direct method on a device
-### Method invocation
+### MQTT
+#### Method invocation
 Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 The body that the device receives is in the following format:
@@ -96,13 +95,30 @@ The body that the device receives is in the following format:
 
 Method requests are QoS 0.
 
-### Response
+#### Response
 The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`, where:
 
 * The `status` property is the device-supplied status of method execution.
 * The `$rid` property is the request ID from the method invocation received from IoT Hub.
 
 The body is set by the device and can be any status.
+
+### AMQP
+#### Method invocation
+The device receives direct method requests by creating a receive link on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+The AMQP message arrives on the receive link that represents the method request. It contains the following:
+* The correlation ID property, which contains a request ID that should be passed back with the corresponding method response
+* An application property named `IoThub-methodname`, which contains the name of the method being invoked
+* The AMQP message body containing the method payload as JSON
+
+#### Response
+The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+The method’s response is returned on the sending link and is structured as follows:
+* The correlation ID property, which contains the request ID passed in the method’s request message
+* An application property named `IoThub-status`, which contains the user supplied method status
+* The AMQP message body containing the method response as JSON
 
 ## Additional reference material
 Other reference topics in the IoT Hub developer guide include:

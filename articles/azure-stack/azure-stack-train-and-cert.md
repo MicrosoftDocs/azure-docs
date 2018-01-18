@@ -27,4 +27,4 @@ Azure Stack certifications are currently under development. Check back for the l
 
 ## Next steps
 
-[Azure Stack documentation](https://docs.microsoft.com/en-us/azure/azure-stack/)
+[Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/)

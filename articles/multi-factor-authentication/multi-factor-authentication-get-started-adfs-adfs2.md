@@ -4,7 +4,7 @@ description: This is the Azure Multi-Factor authentication page that describes h
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 
 ms.custom: H1Hack27Feb2017, it-pro
 ---

@@ -4,7 +4,7 @@ description: Step by step instructions for configuring a Managed Service Identit
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -26,7 +26,7 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Enable MSI during creation of an Azure VM
 
