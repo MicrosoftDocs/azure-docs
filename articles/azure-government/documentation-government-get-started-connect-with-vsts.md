@@ -87,11 +87,10 @@ Follow through one of the quickstarts below for your specific type of app:
 
 ### Configure the VSTS Endpoint
 
-    > [!NOTE]
-    > Make sure that you add the endpoint soon after running the Powershell script above, as the key expires. 
-    > If not, you navigate to the [Azure Government portal](https://portal.azure.us) -> AAD -> App registrations -> Add Key
-    > 
-    > 
+> [!NOTE]
+> Make sure that you add the endpoint soon after running the Powershell script above, as the key expires. 
+> If not, you navigate to the [Azure Government portal](https://portal.azure.us) -> AAD -> App registrations -> Add Key
+>
 
 1. Navigate to your Team Project from your Visual Studio Account. 
 2. Navigate to the Services tab and click on "New Service Endpoint".    
@@ -122,13 +121,12 @@ Follow through one of the quickstarts below for your specific type of app:
 	In "Source..." make sure your CI build definition for the Web deploy package is selected as the artifact source.
 4. Select the Continuous deployment check box, and then choose Create.
 5. Select the Deploy Azure App Service task and configure it as follows:
-
-		• Azure Subscription: Select the endpoint configured earlier
-		• App Service Name: the name of the web app (the part of the URL without .azurewebsites.net).
-		• Deploy to Slot: make sure this is cleared (the default)
-		• Virtual Application: leave blank
-		• Web Deploy Package: $(System.DefaultWorkingDirectory)\**\*.zip (the default)
-		• Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
+ 	- Azure Subscription: Select the endpoint configured earlier
+	- App Service Name: the name of the web app (the part of the URL without .azurewebsites.us).
+	- Deploy to Slot: make sure this is cleared (the default)
+	- Virtual Application: leave blank
+	- Web Deploy Package: $(System.DefaultWorkingDirectory)\**\*.zip (the default)
+	- Advanced: Take App Offline: If you run into locked .DLL problems when you test the release, as explained below, try selecting this check box.
 		
 	
 6. Edit the name of the release definition, choose Save, and choose OK. Note that the default environment is named Environment1, which you can edit by clicking directly on the name.
