@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
 
 ---
