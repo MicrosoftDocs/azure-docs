@@ -1590,6 +1590,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-scenario-start-stop-vm-wjson-tags.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-solution-startstopvm-graphical.md",
             "redirect_url": "https://docs.microsoft.com/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
