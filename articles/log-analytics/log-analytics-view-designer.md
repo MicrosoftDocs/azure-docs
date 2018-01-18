@@ -51,7 +51,7 @@ When you open a view that was created with View Designer, it will have a menu wi
 | Option | Description |
 |:--|:--|
 | Refresh   | Refresh the view with the latest data. | 
-| Analytics | Open the [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal.md) to analyze data with log searches.(log-analytics-log-search-portals.md#advanced-analytics-portal). |
+| Analytics | Open the [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal) to analyze data with log searches.(log-analytics-log-search-portals.md#advanced-analytics-portal). |
 | Filter    | Set a time filter for the data included in the view. |
 | Edit      | Open the view in View Designer to edit its contents and configuration.   |
 | Clone     | Create a new view and open it in the View Designer.  The new view has the same name as the original with "Copy" appended to the end of it. |
