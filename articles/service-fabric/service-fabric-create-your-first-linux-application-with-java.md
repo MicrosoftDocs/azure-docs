@@ -28,24 +28,12 @@ ms.author: ryanwi
 This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
 ## Prerequisites
-Before you get started, install the Service Fabric SDK, the Service Fabric CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
+Before you get started, install the Service Fabric SDK, the Service Fabric CLI, Yeoman, setup Java development environment, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
 Also install the [Service Fabric CLI](service-fabric-cli.md).
 
 ### Install and set up the generators for Java
-Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for Java working on your machine.
-1. Install nodejs and NPM on your machine
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. Install the Service Fabric Yeoman Java application generator from NPM
+Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Before you proceed further make sure that you have Yeoman installed on your machine if not refer [this](service-fabric-get-started-linux.md). Please run the below command to install Service Fabric yeoman template generator for Java on your machine.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -190,7 +178,7 @@ public class HelloWorldActorHost {
 
 ## Build the application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal.
-Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If not yet installed, you can run the following to install JDK(openjdk-8-jdk) and Gradle -
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If not yet installed, please refer [this](service-fabric-get-started-linux.md).
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
