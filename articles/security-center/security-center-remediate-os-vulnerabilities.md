@@ -23,7 +23,7 @@ Azure Security Center analyzes daily the operating system (OS) of your virtual m
 For more information about the specific configurations that are being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). To learn how to customize security configuration assessments, see [Customize OS security configurations in Azure Security Center (Preview)](security-center-customize-os-security-config.md).
 
 ## Implement the recommendation
-"Remediate security configurations mismatch" is presented as a recommendation in Security Center. The recommendation is displayed under **Recommendations** > **Compute**.
+"Remediate security configurations" is presented as a recommendation in Security Center. The recommendation is displayed under **Recommendations** > **Compute**.
 
 This example covers the "Remediate security configurations" recommendation under **Compute**.
 1. In Security Center, in the left pane, select **Compute**.  
@@ -49,7 +49,7 @@ This example covers the "Remediate security configurations" recommendation under
   - **Name**: The name of the failed rule.
   - **Rule type**: The *Registry key*, *Security policy*, or *Audit policy* rule type.
   - **No. of VMs & computers**: The total number of VMs and computers that the fail ruled applies to.
-  - **Rule severity**: The *Critical, *Important*, or *Warning* CCE severity value.
+  - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
   - **State**: The current state of the recommendation:
 
     - **Open**: The recommendation has not been addressed yet.
@@ -62,10 +62,10 @@ This example covers the "Remediate security configurations" recommendation under
 
    The detailed view displays the following information:
 
-   - **Name***: The name of the rule.
+   - **Name**: The name of the rule.
    - **CCIED**: The CCE unique identifier for the rule.
    - **OS version**: The OS version of the VM or computer.
-   - **Rule severity**: The *Critical, *Important*, or *Warning* CCE severity value.
+   - **Rule severity**: The CCE value *Critical, *Important*, or *Warning*.
    - **Full description**: The description of the rule.
    - **Vulnerability**: The explanation of vulnerability or risk if the rule is not applied.
    - **Potential impact**: The business impact when the rule is applied.
@@ -96,14 +96,14 @@ To review the specific configurations that are being monitored, see [list of rec
 
 To learn more about Security Center, see the following resources:
 
-* [Supported platforms in Azure Security Center](security-center-os-coverage.md). Get a list of supported Windows and Linux VMs.
-* [Setting security policies in Azure Security Center](security-center-policies.md). Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing security recommendations in Azure Security Center](security-center-recommendations.md). Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md). Get answers to frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* For a list of supported Windows and Linux VMs, see [Supported platforms in Azure Security Center](security-center-os-coverage.md). 
+* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](security-center-policies.md). 
+* To learn how recommendations help you protect your Azure resources, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md). 
+* To learn how to monitor the health of your Azure resources, see [Security health monitoring in Azure Security Center](security-center-monitoring.md). 
+* To learn how to manage and respond to security alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
+* To learn how to monitor the health status of your partner solutions, see [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
+* For answers to frequently asked questions about using the service, see [Azure Security Center FAQ](security-center-faq.md).
+* For blog posts about Azure security and compliance, see [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png
