@@ -3,7 +3,7 @@ title: Differences and considerations for virtual machines in Azure Stack | Micr
 description: Learn about differences and considerations when working with virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
+ms.date: 11/17/2018
+ms.author: brenduns
 
 ---
 
@@ -57,7 +57,7 @@ Virtual Machine sizes and their associated resource quantities are consistent be
 
 ## Virtual machine extensions
 
- The Azure Stack Development Kit supports the following virtual machine extension versions:
+ The Azure Stack supports the following virtual machine extension versions:
 
 ![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -73,7 +73,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## API versions
 
-Virtual machine features in Azure Stack Development Kit support the following API versions:
+Virtual machine features in Azure Stack support the following API versions:
 
 ![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
