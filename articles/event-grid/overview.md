@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/18/2018
 ms.author: babanisa
 ---
 
@@ -19,9 +19,13 @@ You can use filters to route specific events to different endpoints, multicast t
 
 Currently, Event Grid supports the following regions:
 
+* Asia Southeast
+* Asia East
 * Central US
 *	East US
 *	East US 2
+* Europe West
+* Europe North
 *	West Central US
 *	West US
 *	West US 2
@@ -39,7 +43,9 @@ Currently, the following Azure services have built-in publisher support for even
 * Azure Subscriptions (management operations)
 * Custom Topics
 * Event Hubs
+* IoT Hub
 * Resource Groups (management operations)
+* Service Bus
 * Storage Blob
 
 Other Azure services will be added this year.
@@ -110,7 +116,7 @@ Event Grid connects your app with other services. For example, create a custom t
 
 Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use.
 
-Event Grid costs $0.60 per million operations ($0.30 during preview) and the first 100,000 operation per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls.  More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+Event Grid costs $0.60 per million operations and the first 100,000 operation per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls.  More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Next steps
 
