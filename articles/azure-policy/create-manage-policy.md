@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Create and manage policies to enforce compliance
 
-Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements. In this tutorial, you'll learn to use Azure Policy to do some of the more common tasks related to creating, assigning and managing policies across your organization, such as:
+Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements. In this tutorial, you learn to use Azure Policy to do some of the more common tasks related to creating, assigning and managing policies across your organization, such as:
 
 > [!div class="checklist"]
 > * Assign a policy to enforce a condition for resources you create in the future
@@ -25,7 +25,7 @@ If you would like to assign a policy to identify the current compliance state of
 
 ## Assign a policy
 
-The first step in enforcing compliance with Azure Policy is to assign a policy definition. A policy definition defines under what condition a policy is enforced, and what action to take. In this example, we assign a built-in policy definition called *Require SQL Server Version 12.0*, to enforce the condition that all SQL Server databases must be v12.0 to be compliant.
+The first step in enforcing compliance with Azure Policy is to assign a policy definition. A policy definition defines under what condition a policy is enforced, and what action to take. In this example, assign a built-in policy definition called *Require SQL Server Version 12.0*, to enforce the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Launch the Azure Policy service in the Azure portal by searching for and selecting **Policy** in the left pane.
 
@@ -48,17 +48,17 @@ The first step in enforcing compliance with Azure Policy is to assign a policy d
 
 7. Change the pricing tier to **Standard** to ensure that the policy gets applied to existing resources.
 
-   There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
+   There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because Azure Policy is in Preview, there is not yet a released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Select the **Scope** - the subscription (or resource group) you previously registered. A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 
-   For this example we are using this subscription - **Azure Analytics Capacity Dev**. Your subscription will differ.
+   This example uses the **Azure Analytics Capacity Dev** subscription. Your subscription will differ.
 
 10. Select **Assign**.
 
 ## Implement a new custom policy
 
-Now that you've assigned a built-in policy definition, you can do more with Azure Policy. Next, create a new custom policy to save costs by ensuring that VMs created in your environment cannot be in the G series. This way, every time a user in your organization tries to create VM in the G series, the request will get denied.
+Now that you've assigned a built-in policy definition, you can do more with Azure Policy. Next, create a new custom policy to save costs by ensuring that VMs created in your environment cannot be in the G series. This way, every time a user in your organization tries to create VM in the G series, the request is denied.
 
 1. Select **Definition** under **Authoring** in the left pane.
 
@@ -69,7 +69,7 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
 
    - The name of the policy definition - *Require VM SKUs smaller than the G series*
    - The description of what the policy definition is intended to do – This policy definition enforces that all VMs created in this scope have SKUs smaller than the G series to reduce cost.
-   - The subscription in which the policy definition will live in – In this case, our policy definition will live in  **Advisor Analytics Capacity Dev**. Your subscription list will differ.
+   - The subscription in which the policy definition resides. In this case, the policy definition resides in **Advisor Analytics Capacity Dev**. Your subscription list will differ.
    - Chose from existing options, or create a new category for this policy definition.
    - Copy the following json code and then update it for your needs with:
       - The policy parameters.
@@ -333,7 +333,7 @@ With an initiative definition, you can group several policy definitions to achie
 2. Select **Initiative Definition** at the top of the page, this selection takes you to the **Initiative Definition** form.
 3. Enter the name and description of the initiative.
 
-   In this example, we want to ensure that resources are in compliance with policy definitions about getting secure, the name of the initiative would be **Get Secure**, and the description would be: **This initiative has been created to handle all policy definitions associated with securing resources**.
+   In this example, ensure that resources are in compliance with policy definitions about getting secure. So, the name of the initiative would be **Get Secure**, and the description would be: **This initiative has been created to handle all policy definitions associated with securing resources**.
 
    ![Initiative definition](media/create-manage-policy/initiative-definition.png)
 
@@ -346,7 +346,7 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Initiative definitions](media/create-manage-policy/initiative-definition-2.png)
 
-   After selecting the policy definitions from the list you'll see it under **Policies and parameters**, as shown above.
+   After selecting the policy definitions from the list you see it under **Policies and parameters**, as shown in the preceding image.
 
 5. Use **Definition location** to select a subscription to store the definition. Select **Save**.
 
@@ -368,7 +368,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 ## Resolve a non-compliant or denied resource
 
-Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we're walking through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion. The exclusion essentially prevents policy enforcement. An exclusion can apply to a resource group, or you can narrow the exclusion to individual resources.
+Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, you walk through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion. The exclusion essentially prevents policy enforcement. An exclusion can apply to a resource group, or you can narrow the exclusion to individual resources.
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and open the *Require SQL Server version 12.0* assignment.
