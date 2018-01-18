@@ -192,7 +192,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ```
 
 
-## List connection information for VMs
+## List connection information
 A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
 
 To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Then, view the inbound NAT rules with [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
@@ -236,7 +236,7 @@ RDP to your first VM instance. Specify your own public IP address and port numbe
 mstsc /v 52.168.121.216:50001
 ```
 
-Once logged in to the VM instance, you could perform some manual configuration changes as needed. When you are finished, close the RDP connection.
+Once logged in to the VM instance, you could perform some manual configuration changes as needed. For now, close the RDP connection.
 
 
 ## Understand VM instance images

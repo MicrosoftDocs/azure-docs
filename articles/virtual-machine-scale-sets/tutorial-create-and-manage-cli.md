@@ -91,7 +91,7 @@ az vmss get-instance-view \
 ```
 
 
-## List connection information for VMs
+## List connection information
 A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
 
 To list the address and ports to connect to VM instances in a scale set, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
@@ -117,7 +117,7 @@ SSH to your first VM instance. Specify your own public IP address and port numbe
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Once logged in to the VM instance, you could perform some manual configuration changes as needed. When you are finished, close the SSH session as normal:
+Once logged in to the VM instance, you could perform some manual configuration changes as needed. For now, close the SSH session as normal:
 
 ```bash
 exit
