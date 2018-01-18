@@ -5,7 +5,7 @@ services: automation
 keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/11/2017
+ms.date: 01/11/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -44,10 +44,10 @@ Take the following example and create a runbook called **Stop-AzureVmInResponset
 ```powershell-interactive
 <#
 .SYNOPSIS
-  This runbook will stop an ARM (V2) VM in response to an Azure alert trigger.
+  This runbook will stop a resource management VM in response to an Azure alert trigger.
 
 .DESCRIPTION
-  This runbook will stop an ARM (V2) VM in response to an Azure alert trigger.
+  This runbook will stop an resource management VM in response to an Azure alert trigger.
   Input is alert data with information needed to identify which VM to stop.
   
   DEPENDENCIES
@@ -118,11 +118,11 @@ if ($WebhookData)
         Write-Verbose "resourceGroupName: $ResourceGroupName" -Verbose
         Write-Verbose "subscriptionId: $SubId" -Verbose
 
-        # Do work only if this is a V2 VM
+        # Do work only if this is a resource management VM
         if ($ResourceType -eq "Microsoft.Compute/virtualMachines")
         {
-            # This is an ARM (V2) VM
-            Write-Verbose "This is an ARM (V2) VM." -Verbose
+            # This is the VM
+            Write-Verbose "This is a resource management VM." -Verbose
 
             # Authenticate to Azure with service principal and certificate and set subscription
             Write-Verbose "Authenticating to Azure with service principal and certificate" -Verbose
@@ -138,7 +138,7 @@ if ($WebhookData)
             Write-Verbose "Setting subscription to work against: $SubId" -Verbose
             Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
-            # Stop the ARM (V2) VM
+            # Stop the VM
             Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
             Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
             # [OutputType(PSAzureOperationResponse")]
