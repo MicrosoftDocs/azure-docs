@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
-This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. Refer to the [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference) for more details on the REST APIs.  
+This walkthrough demonstrates a simple example of calling into the Bing Image Search API and post-processing the resulting JSON object. For more information, see [Bing Image Search documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference).
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -25,7 +25,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
-To continue with the walkthrough, set `subscription_key` below to your API key for the Bing API service.
+To continue with the walkthrough, set `subscription_key` to your API key for the Bing API service.
 
 
 ```python

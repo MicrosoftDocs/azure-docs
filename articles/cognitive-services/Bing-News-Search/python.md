@@ -11,7 +11,7 @@ ms.author: v-jerkin
 ---
 
 # Quickstart for Bing News Search API with Python
-This walkthrough demonstrates a simple example of calling into the Bing News Search API and post-processing the resulting JSON object. Refer to the [Bing New Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for more details on the REST APIs.  
+This walkthrough demonstrates a simple example of calling into the Bing News Search API and post-processing the resulting JSON object. For more information, see [Bing New Search documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -22,7 +22,6 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Running the walkthrough
-
 First, set `subscription_key` to your API key for the Bing API service.
 
 
@@ -58,14 +57,14 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-The `search_results` object contains the relevant new articles along with rich metadata. For example, the following line of code will extract the descriptions of the articles.
+The `search_results` object contains the relevant new articles along with rich metadata. For example, the following line of code extracts the descriptions of the articles.
 
 
 ```python
 descriptions = [article["description"] for article in search_results["value"]]
 ```
 
-These can then be rendered as a table with the search keyword highlighted in **bold**.
+These descriptions can then be rendered as a table with the search keyword highlighted in **bold**.
 
 
 ```python

@@ -12,7 +12,7 @@ ms.author: v-jerkin
 
 # Quickstart for Bing Video Search API with Python
 
-This walkthrough shows you how use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
+This walkthrough shows you how to use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 

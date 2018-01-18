@@ -12,7 +12,7 @@ ms.author: v-jerkin
 
 # Call and response: your first Bing Web Search query in Python
 
-The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+The Bing Web Search API provides an experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
 Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
 
@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Running the walkthrough
 
-Set `subscription_key` below to your API key for the Bing API service.
+Set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
@@ -41,7 +41,7 @@ Next, verify that the `search_url` endpoint is correct. At this writing, only on
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```
 
-We will now search Bing for Microsoft Cognitive Services.
+Set `search_term` to query Bing for Microsoft Cognitive Services.
 
 
 ```python
