@@ -3,8 +3,8 @@ title: Resolution for VMs and Role Instances
 description: 'Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server '
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
+ms.author: jdial
 
 ---
 # Name Resolution for VMs and Role Instances
