@@ -58,9 +58,7 @@ This guide shows you how to enable access to the developer portal for users from
     The **Create** window appears on the right. That is where you enter the AAD app relavent information.
 17. Eneter a name for the application.
 18. For the application type, select **Web app/API**.
-19. In the **Sign-on URL**, paste the URL that you got from the **Redirect URL** in step 9.
-
-    ![App registration](./media/api-management-howto-aad/api-management-with-aad003.png)
+19. For Sign-on URL, enter the sign-on URL of your developer portal. In this example, the Sign-on URL is: https://apimwithaad.portal.azure-api.net/signin.
 20. Click **Create** to create the application.
 21. To find your app, select **App registrations** and search by name.
 
@@ -101,6 +99,8 @@ This guide shows you how to enable access to the developer portal for users from
 
     ![App registration](./media/api-management-howto-aad/api-management-with-aad007.png)
 
+32. After the application is registered, go to **Reply URL** and use the "Redirect URL" you got from step 9. 
+
 Once the changes are saved, the users in the specified Azure Active Directory can sign in to the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account](#log_in_to_dev_portal).
 
 ![Permissions](./media/api-management-howto-aad/api-management-aad-consent.png)
@@ -110,6 +110,7 @@ In the next screen, the global administrator will be prompted to confirm giving 
 ![Permissions](./media/api-management-howto-aad/api-management-permissions-form.png)
 
 If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.
+
 ## How to add an external Azure Active Directory Group
 
 After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.
