@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: samples
 ms.tgt_pltfrm:
 ms.workload:
-ms.date: 11/13/2017
+ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
 

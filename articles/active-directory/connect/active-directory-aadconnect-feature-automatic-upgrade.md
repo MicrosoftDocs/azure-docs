@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Automatic upgrade | Microsoft Docs'
 description: This topic describes the built-in automatic upgrade feature in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 

@@ -113,4 +113,4 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |United States|Spanish|es-US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

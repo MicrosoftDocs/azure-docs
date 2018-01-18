@@ -9,50 +9,92 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory
-    items:
-    - name: PowerShell
-      href: quickstart-create-data-factory-powershell.md
-    - name: .NET
-      href: quickstart-create-data-factory-dot-net.md
-    - name: Python
-      href: quickstart-create-data-factory-python.md
-    - name: REST
-      href: quickstart-create-data-factory-rest-api.md
-    - name: Portal
-      href: quickstart-create-data-factory-portal.md
-    - name: Resource Manager template
-      href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data factory - User Interface (UI)
+    href: quickstart-create-data-factory-portal.md      
+  - name: Create data factory - Copy Data tool   
+    href: quickstart-create-data-factory-copy-data-tool.md            
+  - name: Create data factory - Azure PowerShell
+    href: quickstart-create-data-factory-powershell.md
+  - name: Create data factory - .NET
+    href: quickstart-create-data-factory-dot-net.md
+  - name: Create data factory - Python
+    href: quickstart-create-data-factory-python.md
+  - name: Create data factory - REST
+    href: quickstart-create-data-factory-rest-api.md
+  - name: Create data factory - Resource Manager template
+    href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
   - name: 1 - Deploy SSIS packages to Azure
-    href: tutorial-deploy-ssis-packages-azure.md
+    items:
+    - name: User Interface (UI)
+      href: tutorial-create-azure-ssis-runtime-portal.md
+    - name: Azure PowerShell
+      href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
-    href: tutorial-copy-data-dot-net.md
+    items:
+    - name: Copy Data tool
+      href: tutorial-copy-data-tool.md
+    - name: User Interface (UI)
+      href: tutorial-copy-data-portal.md    
+    - name: Azure PowerShell
+      href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
-    href: tutorial-hybrid-copy-powershell.md
+    items:
+    - name: Copy Data tool
+      href: tutorial-hybrid-copy-data-tool.md    
+    - name: User Interface (UI)
+      href: tutorial-hybrid-copy-portal.md          
+    - name: Azure PowerShell
+      href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
-    href: tutorial-bulk-copy.md
+    items:
+    - name: User Interface (UI)
+      href: tutorial-bulk-copy-portal.md    
+    - name: Azure PowerShell
+      href: tutorial-bulk-copy.md
   - name: 5 - Copy data incrementally
     href: tutorial-incremental-copy-overview.md
     items:
     - name: 5.1 - Copy from one table
-      href: tutorial-incremental-copy-powershell.md
-    - name: 5.2 - Copy from multiple tables
-      href: tutorial-incremental-copy-multiple-tables-powershell.md
-    - name: 5.3 - Use change tracking feature
-      href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      items: 
+      - name: User Interface (UI)
+        href: tutorial-incremental-copy-portal.md      
+      - name: Azure PowerShell
+        href: tutorial-incremental-copy-powershell.md
+    - name: 5.2 - Copy from multiple tables 
+      items:
+      - name: Azure PowerShell
+        href: tutorial-incremental-copy-multiple-tables-powershell.md
+    - name: 5.3 - Use change tracking feature 
+      items:
+      - name: User Interface (UI)
+        href: tutorial-incremental-copy-change-tracking-feature-portal.md      
+      - name: Azure PowerShell
+        href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
-    href: tutorial-transform-data-spark-powershell.md
+    items: 
+    - name: User Interface (UI)
+      href: tutorial-transform-data-spark-portal.md   
+    - name: Azure PowerShell
+      href: tutorial-transform-data-spark-powershell.md
   - name: 7 - Transform data in virtual network
-    href: tutorial-transform-data-hive-virtual-network.md
+    items: 
+    - name: User Interface (UI)
+      href: tutorial-transform-data-hive-virtual-network-portal.md          
+    - name: Azure PowerShell
+      href: tutorial-transform-data-hive-virtual-network.md       
   - name: 8 - Control flow
-    href: tutorial-control-flow.md
+    items:
+    - name: User Interface (UI)
+      href: tutorial-control-flow-portal.md    
+    - name: Azure PowerShell
+      href: tutorial-control-flow.md    
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
-  - name: PowerShell
+  - name: Azure PowerShell
     href: samples-powershell.md
 - name: Concepts
   items:
@@ -66,10 +108,19 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
+  - name: Visually author data factories
+    href: author-visually.md
   - name: Copy data
     items:
-    - name: Copy data from supported sources to destinations
+    - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Copy Data tool
+      href: copy-data-tool.md  
+      items:
+      - name: Load Data Lake Store
+        href: load-azure-data-lake-store.md    
+      - name: Load SQL Data Warehouse
+        href: load-azure-sql-data-warehouse.md
     - name: Read or write partitioned data
       href: how-to-read-write-partitioned-data.md
     - name: Connectors
@@ -289,8 +340,6 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Create Azure-SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Manage Azure-SSIS integration runtime
