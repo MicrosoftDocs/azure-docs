@@ -16152,7 +16152,7 @@
         "redirect_document_id": true
       },
       { "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
-        "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+        "redirect_url": "/azure/cognitive-services/translator/ctf-reporting",
         "redirect_document_id": false
       },
       {
