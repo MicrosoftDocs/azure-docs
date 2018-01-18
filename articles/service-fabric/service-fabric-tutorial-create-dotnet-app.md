@@ -41,15 +41,12 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+- [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.3 or later with the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Create an ASP.NET Web API service as a reliable service
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
 To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
-
-> [!NOTE]
-> This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
 
 1. Launch Visual Studio as an **administrator**.
 
@@ -276,9 +273,9 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 ```
 
 ### Add the VotesController.cs file
-Add a controller which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  
+Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  
 
-Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file will be modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
+Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file is modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -351,7 +348,7 @@ At this point, your web app should look like this:
 To stop debugging the application, go back to Visual Studio and press **Shift+F5**.
 
 ## Add a stateful back-end service to your application
-Now that we have an ASP.NET Web API service running in our application, let's go ahead and add a stateful reliable service to store some data in our application.
+Now that an ASP.NET Web API service is running in the application, go ahead and add a stateful reliable service to store some data in the application.
 
 Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has used C# collections.
 
@@ -468,11 +465,11 @@ namespace VotingData.Controllers
 
 
 ## Connect the services
-In this next step, we will connect the two services and make the front-end Web application get and set voting information from the back-end service.
+In this next step, connect the two services and make the front-end Web application get and set voting information from the back-end service.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-In this tutorial, we are using [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -606,12 +603,12 @@ When you vote in the application the following events occur:
 3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
-When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, we store data in our back-end service, using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
+When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, store data in the back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
-1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63) - You can search for the file in the Solution Explorer in Visual Studio.
 
-2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
+2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     
@@ -619,18 +616,18 @@ To look at what happens in the code, complete the following steps:
     
     ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. First we construct the URL to the ReverseProxy for our back-end service **(1)**.
-    3. Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
-    4. Finally the we return the response from the back-end service to the client **(3)**.
+    2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
+    3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
+    4. Finally the return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
     1. You are now at the break point in the back-end service.
     
     ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
+    2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
     3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    4. In the transaction, we then update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+    4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 5. Press **F5** to continue
 
 To stop the debugging session, press **Shift+F5**.
