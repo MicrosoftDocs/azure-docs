@@ -499,7 +499,7 @@ The activities we provide differ depending on your solution status in our market
 
 To maximize the impact of these activities, we’d encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
 
-![Marketplace GTM Benefits](.media/articles/marketplace/seller-guide/media/cloud-partner-portal-seller-guide/Marketplace GTM Promotion.png)
+![Marketplace GTM Benefits](./media/cloud-partner-portal-seller-guide/Marketplace GTM Promotion.png)
 
 For support including templates, web content, training, and tools to promote your business, visit [www.MicrosoftGoToMarket.com](www.MicrosoftGoToMarket.com).
 
