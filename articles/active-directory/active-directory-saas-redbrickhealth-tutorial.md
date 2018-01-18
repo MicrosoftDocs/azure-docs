@@ -141,11 +141,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| principal name | ********** |
 	| client id | ********** |
 	| participant id | ********** |
-
+	
 	> [!NOTE]
 	> For principal name, client id, and participant id update the Attribute Value as per your organization.
-
-
+	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_attribute_04.png)
