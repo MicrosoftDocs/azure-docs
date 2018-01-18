@@ -3,11 +3,10 @@ title: Integrating Applications with Azure Active Directory
 description: How to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: PatAltimore
+manager: mtillman
 editor: mbaldwin
 
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -107,7 +106,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 - Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent. 
 
   > [!NOTE]
-  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure classic portal. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
 
 #### To add application credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).

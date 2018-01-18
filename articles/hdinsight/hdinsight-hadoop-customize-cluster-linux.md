@@ -74,9 +74,6 @@ A script action is Bash script that you provide a URI to, and parameters for. Th
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
 
-  > [!NOTE]
-  > When used with HDInsight Premium, you can specify that the script should be used on the edge node.
-
 * Can be **persisted** or **ad hoc**.
 
     **Persisted** scripts are applied to worker nodes added to the cluster after the script runs. For example, when scaling up the cluster.

@@ -50,10 +50,10 @@ Test your workflow by using the "Execute Workflow" button.
 
 Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. Follow these steps:
 
-1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page.
+1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
 2. Open the newly created Function App.
 3. Within the App, navigate to **Platform features -> Application Settings**
-4. Define the following [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
+4. Define the following [application settings](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
 
     | App Setting | Description   | 
     | -------------------- |-------------|
@@ -68,7 +68,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by following these steps:
 
-    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
+    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **+** add to create new function.
     3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
     4. Click on the tile that says **HttpTrigger-CSharp**.
@@ -78,7 +78,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 6. Create a new **HttpTrigger-CSharp** function named **CMListener**. This function receives events from Facebook. Follow these steps to create this function.
 
-    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
+    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **+** add to create new function.
     3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
     4. Click on the tile that says **HttpTrigger-CSharp**
@@ -152,6 +152,6 @@ Developers using Cognitive Services, including this client library & sample, are
 
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
 1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-github-webhook-triggered-function
+1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

@@ -4,7 +4,7 @@ description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain 
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096

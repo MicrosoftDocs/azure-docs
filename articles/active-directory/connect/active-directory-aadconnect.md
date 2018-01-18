@@ -5,7 +5,7 @@ keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -140,7 +140,7 @@ if your ADFS server has not been configured to automatically update certificates
 | --- | --- |
 |All AD FS articles | [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)|
 |Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)|
-|Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
+|Manage AD FS farm | [AD FS management and customization with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
 |Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## More information and references

@@ -8,7 +8,7 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 12/12/2017
 ms.author: luisca
 ---
 
@@ -31,7 +31,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Notes       |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|
-| Danish      | `da`          | ✔ \*     |             |             |
+| Danish      | `da`          | ✔ \*     | ✔           |             |
 | Dutch       | `nl`          | ✔ \*     | ✔          |             |
 | English     | `en`          | ✔        | ✔           |             | 
 | Finnish     | `fi`          | ✔ \*     | ✔           |             |
@@ -40,11 +40,11 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Greek       | `el`          | ✔ \*     |             |            |
 | Italian     | `it`          | ✔ \*     | ✔           |             |
 | Japanese    | `ja`          |          | ✔           |            |
-| Norwegian   | `no`          | ✔ \*     |             |             |
+| Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |
 | Polish      | `pl`          | ✔ \*     |  ✔          |             |
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |
-| Russian     | `ru`          | ✔ \*     |             |             |
+| Russian     | `ru`          | ✔ \*     | ✔           |             |
 | Spanish     | `es`          | ✔        | ✔           |             |
 | Swedish     | `sv`          | ✔ \*     | ✔           |             |
 | Turkish     | `tr`          | ✔ \*     |             |             |

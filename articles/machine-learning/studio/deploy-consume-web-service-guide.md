@@ -3,7 +3,7 @@ title: 'Azure Machine Learning Web Services: Deployment and consumption | Micros
 description: Resources for deploying and consuming web services.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: ''
 

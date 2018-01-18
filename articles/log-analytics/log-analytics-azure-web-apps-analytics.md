@@ -36,7 +36,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | No | The solution does not collect information from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |

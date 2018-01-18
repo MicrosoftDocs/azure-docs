@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Directory extensions | Microsoft Docs'
 description: This topic describes the directory extensions feature in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193

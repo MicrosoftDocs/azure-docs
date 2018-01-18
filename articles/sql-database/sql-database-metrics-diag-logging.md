@@ -315,7 +315,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |query_id_d|ID of the query in Query Store.|
 |plan_id_d|ID of the plan in Query Store.|
 
-Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Learn more about [Query Store runtime statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### Query Store wait statistics
 
@@ -353,7 +353,7 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 |query_id_d|ID of the query in Query Store.|
 |plan_id_d|ID of the plan in Query Store.|
 
-Learn more about [Query Store wait statistics data](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Learn more about [Query Store wait statistics data](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### Errors dataset
 
@@ -411,7 +411,7 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 |delta_wait_time_ms_d|Total wait time in the period.|
 |delta_waiting_tasks_count_d|Number of waiting tasks.|
 
-Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Learn more about [database wait statistics](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### Time-outs dataset
 

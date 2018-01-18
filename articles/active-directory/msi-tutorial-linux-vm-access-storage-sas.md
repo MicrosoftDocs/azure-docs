@@ -4,7 +4,7 @@ description: A tutorial that shows you how to use a Linux VM Managed Service Ide
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.service: active-directory

@@ -73,6 +73,9 @@
       href: sizes-compute.md    
     - name: Memory optimized
       href: sizes-memory.md    
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md    
     - name: GPU optimized
@@ -121,6 +124,8 @@
     items:
     - name: Infrastructure guidelines
       href: infrastructure-example.md
+    - name: vCPU quotas
+      href: quotas.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -164,6 +169,8 @@
     items:
     - name: Prepay for VMs - Reserved Instances
       href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -190,6 +197,10 @@
         href: update-agent.md
     - name: Planned maintenance
       href: maintenance-notifications.md
+    - name: Mitigating speculative execution
+      href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -260,11 +271,11 @@
         href: cloudinit-update-vm.md
       - name: Add a user on a VM
         href: cloudinit-add-user.md
-        name: Configure swapfile
+      - name: Configure swapfile
         href: cloudinit-configure-swapfile.md
-        name: Run existing bash script
+      - name: Run existing bash script
         href: cloudinit-bash-script.md
-        name: Prepare existing VM for cloud-init
+      - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
@@ -379,6 +390,8 @@
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Use multiple NICs
       href: multiple-nics.md
+    - name: Use accelerated networking
+      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: DNS resolution

@@ -4,7 +4,7 @@ description: The types of applications you can build in the Azure Active Directo
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: bb9d4abe-0db7-4bd9-b0c4-2f43b2c9cf33

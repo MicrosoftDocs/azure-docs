@@ -97,7 +97,7 @@ Services for storing and managing data:
 
 -   Azure SQL Database
 
--   Azure DocumentDB
+-   Azure Cosmos DB
 
 -   Microsoft Azure StorSimple
 

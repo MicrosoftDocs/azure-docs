@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Configure filtering | Microsoft Docs'
 description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506

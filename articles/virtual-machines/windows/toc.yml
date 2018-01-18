@@ -66,6 +66,9 @@
     - name: Compute optimized
       href: sizes-compute.md    
     - name: Memory optimized
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
       href: sizes-memory.md    
     - name: Storage optimized
       href: sizes-storage.md    
@@ -113,6 +116,8 @@
     items:
     - name: Infrastructure guidelines
       href: infrastructure-example.md
+    - name: vCPU quotas
+      href: quotas.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -120,7 +125,11 @@
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
-      href: create-vm-specialized.md
+      items:
+      - name: Portal
+        href: create-vm-specialized-portal.md
+      - name: PowerShell
+        href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -164,6 +173,8 @@
     items:
     - name: Prepay for VMs - Reserved Instances
       href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
@@ -184,6 +195,10 @@
       href: agent-user-guide.md
     - name: Planned maintenance
       href: maintenance-notifications.md
+    - name: Mitigating speculative execution
+      href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -297,6 +312,8 @@
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use multiple NICs
       href: multiple-nics.md
+    - name: Use accelerated networking
+      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: DNS resolution

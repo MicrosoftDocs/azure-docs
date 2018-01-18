@@ -4,7 +4,7 @@ description: Learn how to customize the claims issued in the SAML token for ente
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803

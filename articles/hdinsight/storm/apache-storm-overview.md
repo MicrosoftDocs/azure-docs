@@ -16,13 +16,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
 
 ---
 # What is Apache Storm on Azure HDInsight?
 
 [Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## Why use Storm on HDInsight?
 
@@ -45,7 +47,7 @@ Storm on HDInsight provides the following features:
 
 * **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Store.
 
-    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Storm on HDInsight](https://azure.microsoft.com/en-us/resources/samples/hdinsight-java-storm-eventhub/).
+    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 

@@ -20,6 +20,16 @@ ms.author: saveenr
 
 # Tutorial: Get started with extending U-SQL with Python
 
+## Prerequisites
+
+Before you begin, ensure the Python extensions are installed in your Azure Data Lake Analytics account.
+
+* Navigate to you Data Lake Analytics Account in the Azure portal
+* In the left menu, under **GETTING STARTED** click on **Sample Scripts**
+* Click **Install U-SQL Extensions** then **OK**
+
+## Overview 
+
 Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The following example illustrates the basic steps:
 
 * Use the `REFERENCE ASSEMBLY` statement to enable Python extensions for the U-SQL Script

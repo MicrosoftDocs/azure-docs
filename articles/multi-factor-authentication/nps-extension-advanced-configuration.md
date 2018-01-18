@@ -4,7 +4,7 @@ description: After you install the NPS extension, use these steps for advanced c
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: multi-factor-authentication

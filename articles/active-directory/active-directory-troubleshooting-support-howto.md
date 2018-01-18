@@ -4,7 +4,7 @@ description: How to get support for Azure Active Directory
 services: active-directory
 documentationcenter: na
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 

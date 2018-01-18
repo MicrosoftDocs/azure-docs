@@ -40,7 +40,7 @@ By using the [Import Data][import-data] module, you can access data from one of 
 * Azure SQL database or SQL Server on Azure VM
 * On-premises SQL Server database
 * A data feed provider, OData currently
-* Azure CosmosDB (previously called DocumentDB)
+* Azure Cosmos DB
 
 To access online data sources in your Studio experiment, add the [Import Data][import-data] module to your, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
