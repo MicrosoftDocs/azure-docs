@@ -1586,7 +1586,12 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/",
+            "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-azure-vm-alert-integration.md",
+            "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
         },
         {
