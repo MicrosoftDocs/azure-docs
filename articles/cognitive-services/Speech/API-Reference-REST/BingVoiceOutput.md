@@ -254,7 +254,7 @@ ru-RU | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apol
 sk-SK | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
-ta-IN | Female | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
+ta-IN | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
 th-TH | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
 vi-VN | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
