@@ -121,9 +121,9 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## Update application settings in Azure  
+## Function app settings   
 
-Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish. 
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. 
 
 The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
 
