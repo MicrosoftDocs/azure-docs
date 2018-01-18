@@ -77,8 +77,7 @@ Once you have arrived at the all resources screen, click the checkbox next to th
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 [aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
-[aci-portal-10]:
-./media/container-instances-quickstart-portal/qs-portal-10.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## Next steps
 
