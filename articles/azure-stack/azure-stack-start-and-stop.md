@@ -48,7 +48,7 @@ Get the startup for the Azure Stack startup routine with the following steps:
 2. From the PEP, run:
 
     ```powershell
-      Run Get-ActionStatus Start-AzureStack
+      Get-ActionStatus Start-AzureStack
     ```
 
 ## Start Azure Stack 
@@ -57,7 +57,7 @@ Start Azure Stack with the following steps. Follow these steps regardless of how
 
 1. Power on each of the physical nodes in your Azure Stack environment. Verify the power on instructions for the physical nodes by following the instructions from the Original Equipment Manufacturer (OEM) who supplied the hardware for your Azure Stack.
 
-2. Wait until the Azure Stack infrastructure services starts. Azure Stack infrastructure services can require two hours to finishing the start process. 
+2. Wait until the Azure Stack infrastructure services starts. Azure Stack infrastructure services can require two hours to finishing the start process. You can verify the start status of Azure Stack with the [**Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## Troubleshoot startup and shutdown of Azure Stack
 
