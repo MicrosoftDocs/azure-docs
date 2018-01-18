@@ -35,34 +35,27 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 ## Schema and table names
 In SQL Data Warehouse, a data warehouse is a type of database. All of the tables in the data warehouse are contained within the same database.  You cannot join tables across multiple data warehouses. This behavior is different from SQL Server which supports cross-database joins. 
 
-In a SQL Server database, you might use fact, dim, or integrate for the schema names. If you are transferring a SQL Server database to SQL Data Warehouse, it works best to migrate store all of the fact, dimension, and integration tables to one schema in SQL Data Warehouse. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called WWI. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called WWI.
+In a SQL Server database, you might use fact, dim, or integrate for the schema names. If you are transferring a SQL Server database to SQL Data Warehouse, it works best to migrate store all of the fact, dimension, and integration tables to one schema in SQL Data Warehouse. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-To show the organization of the tables in SQL Data Warehouse, use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW. It compares the names in SQL Server and SQL Data Warehouse. 
+To show the organization of the tables in SQL Data Warehouse, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW. It compares the names in SQL Server with names in SQL Data Warehouse. 
 
-| WWI Dimension Tables  | SQL Server | SQL Data Warehouse |
+| WideWorldImportersDW table  | Table type | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| City | Dimension.City | WWI.DimCity |
-| Customer | Dimension.Customer | WWI.DimCustomer |
-| Date | Dimension.Date | WWI.DimDate |
-
-| WWI Fact Tables | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Order | Fact.Order | WWI.FactOrder |
-| Sale  | Fact.Sale  | WWI.FactSale  |
-| Purchase | Fact | WWI.FactPurchase |
+| City | Dimension | Dimension.City | wwi.DimCity |
+| Order | Fact | Fact.Order | wwi.FactOrder |
 
 
-## Table definition 
+## Table persistence 
 
-The following concepts explain key aspects of defining tables. 
+Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to data warehouse.
 
-### Standard table
+### Regular table
 
-A standard table is stored in Azure Storage as part of the data warehouse. The table and the data persist regardless of whether a session is open.  This example creates a table with two columns. 
+A regular table stores data in Azure Storage as part of the data warehouse. The table and the data persist regardless of whether a session is open.  This example creates a regular table with two columns. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -74,17 +67,30 @@ A temporary table only exists for the duration of the session. You can use a tem
 ### External table
 An external table points to data located in Azure blob storage or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
-### Data types
+## Data types
 SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. Minimizing the size of data types helps to improve query performance. For guidance on data types, see [Data types](sql-data-warehouse-tables-data-types.md).
 
-### Distributed tables
-A fundamental feature of SQL Data Warehouse is the way it can store tables across 60 distributed locations, called distributions, in the distributed system.  SQL Data Warehouse can store a table in one of these three ways:
+## Distributed tables
+A fundamental feature of SQL Data Warehouse is the way it can store tables across 60 distributed locations, called distributions, in the distributed system.  The table are distributed using a round-robin, hash, or replication method.
 
-- **Round-robin** stores table rows randomly, but evenly across the distributions. The round-robin table achieves fast loading performance, but requires more data movement than the other methods for queries that join columns. 
-- **Hash** distribution distributes rows based on the value in the distribution column. The hash-distributed table has the most potential to achieve high performance for query joins on large tables. There are several factors that affect the choice of the distribution column. For more information, see [Distributed tables](sql-data-warehouse-tables-distribute.md).
-- **Replicated** tables make a full copy of the table available on every Compute node. Queries run fast on replicated tables since joins on replicated tables do not require data movement. Replication requires extra storage, though, and is not practical for large tables. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
+### Hash-distributed tables
+The hash distribution distributes rows based on the value in the distribution column. The hash-distributed table has the most potential to achieve high performance for query joins on large tables. There are several factors that affect the choice of the distribution column. 
 
-The table category often determines which option to choose for distributing the table.  
+For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
+
+### Replicated tables
+A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables since joins on replicated tables do not require data movement. Replication requires extra storage, though, and is not practical for large tables. 
+
+For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
+
+### Round-robin tables
+A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is very fast.  However, queries can require more data movement than the other distribution methods. 
+
+For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
+
+
+### Common distribution methods for tables
+The table category often determines which option to choose for distributing the table. Tables are usually distributed according to the type of table. 
 
 | Table category | Recommended distribution option |
 |:---------------|:--------------------|
@@ -92,18 +98,18 @@ The table category often determines which option to choose for distributing the 
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to a production tables. |
 
-### Table partitions
+## Table partitions
 A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Data Warehouse is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).
 
-### Columnstore indexes
+## Columnstore indexes
 By default, SQL Data Warehouse stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.
 
 For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### Statistics
+## Statistics
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to create statistics on individual columns, especially columns used in query joins. Creating and updating statistics does not happen automatically. [Create statistics](/sql/t-sql/statements/create-statistics-transact-sql) after creating a table. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](sql-data-warehouse-tables-statistics.md).
 
-## Ways to create tables
+## Commands for creating tables
 You can create a table as a new empty table. You can also create and populate a table with the results of a select statement. The following are the T-SQL commands for creating a table.
 
 | T-SQL Statement | Description |
