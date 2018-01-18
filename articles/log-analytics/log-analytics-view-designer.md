@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/18/2018
 ms.author: bwren
 
 ---
@@ -29,7 +29,7 @@ Other articles available for View Designer are:
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 ## Concepts
-Access views on the **Overview** page of your Log Analytics workspace in the Azure portal.  The tile for each custom view will be displayed alphabetically with the tiles for the solutions installed the same workspace.
+Views are displayed on the **Overview** page of your Log Analytics workspace in the Azure portal.  The tile for each custom view will be displayed alphabetically with the tiles for the solutions installed the same workspace.
 
 ![Overview page](media/log-analytics-view-designer/overview-page.png)
 
@@ -42,16 +42,8 @@ Views created with the View Designer contain the elements in the following table
 | Visualization Parts |Visualization of data in the Log Analytics workspace based on one or more [log searches](log-analytics-log-searches.md).  Most parts will include a Header that provides a high level visualization and a List of the top results.  Different part types provide different visualizations of records in the Log Analytics workspace.  Click on elements in the part to perform a log search providing detailed records. |
 
 
-## Create a new view
-Create a new view in the **View Designer** by clicking on the View Designer tile on the overview page of your Log Analytics workspace in the Azure portal.
-
-![View Designer tile](media/log-analytics-view-designer/view-designer-tile.png)
-
-
 ## Work with an existing view
-The **Overview** menu of the Log Analytics workspace in the Azure portal displays the overview tile for each solution and view installed in your workspace.  Click on the tile  to view the underlying dashboard.  
-
-If the view was created with View Designer, it will have a menu with the options in the following table.
+When you open a view that was created with View Designer, it will have a menu with the options in the following table.
 
 ![Overview menu](media/log-analytics-view-designer/overview-menu.png)
 
@@ -59,15 +51,21 @@ If the view was created with View Designer, it will have a menu with the options
 | Option | Description |
 |:--|:--|
 | Refresh   | Refresh the view with the latest data. | 
-| Analytics | Open the [Advanced Analytics portal] to analyze data with log searches.(log-analytics-log-search-portals.md#advanced-analytics-portal). |
+| Analytics | Open the [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal.md) to analyze data with log searches.(log-analytics-log-search-portals.md#advanced-analytics-portal). |
 | Filter    | Set a time filter for the data included in the view. |
 | Edit      | Open the view in View Designer to edit its contents and configuration.   |
 | Clone     | Create a new view and open it in the View Designer.  The new view has the same name as the original with "Copy" appended to the end of it. |
 
 
+## Create a new view
+Create a new view in the **View Designer** by clicking on the View Designer tile on the overview page of your Log Analytics workspace in the Azure portal.
+
+![View Designer tile](media/log-analytics-view-designer/view-designer-tile.png)
 
 
 ## Working with View Designer
+You'll work with View Designer whether you're creating a new view or editing an existing one.  
+
 The View Designer has three panes.  The **Design** pane contains the custom view that you're creating or editing.  You add tiles and parts from the **Control** pane to the **Design** pane.  The **Properties** pane will display the properties for the tile or selected part.
 
 ![View Designer](media/log-analytics-view-designer/view-designer-screenshot.png)
@@ -84,7 +82,7 @@ You can remove a visualization part from the view by clicking the **X** button i
 
 
 ### Menu options
-When you're working with a view in edit mode, you have the options in the following table.
+When you're working with a view in edit mode, you have the menu options in the following table.
 
 ![Edit menu](media/log-analytics-view-designer/edit-menu.png)
 
