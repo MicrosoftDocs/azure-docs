@@ -30,7 +30,7 @@ subscription_key = "96d05359d76f4e758906539daeab939e"
 assert subscription_key
 ```
 
-Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter unexpected authorization errors, double-check this value against the endpoint for your Bing search instance in your Azure dashboard.
+Next, verify that the `search_url` endpoint is correct. At this writing, only one endpoint is used for Bing search APIs.  In the future, regional endpoints may be available.  If you encounter authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
 
 
 ```python
