@@ -76,7 +76,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a data factory
 
-1. Select **New** on the left menu, select **Data + Analytics**, and select **Data Factory**. 
+1. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**. 
@@ -99,7 +99,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
 7. Select **Pin to dashboard**.     
 8. Select **Create**.
-9. On the dashboard, you see the following tile with the status **Deploying Data Factory**. 
+9. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
 
    !["Deploying Data Factory" tile](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
 10. After the creation is complete, you see the **Data factory** page. Select the **Author & Monitor** tile to start the Data Factory UI application on a separate tab.
@@ -118,7 +118,7 @@ You author two linked services in this section:
 
    !["Let's get started" page](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
-2. Select **Connections** at the bottom of the window, and select **+ New**. 
+2. Select **Connections** at the bottom of the window, and then select **+ New**. 
 
    ![Buttons for creating a new connection](./media/tutorial-transform-data-spark-portal/new-connection.png)
 3. In the **New Linked Service** window, select **Data Store** > **Azure Blob Storage**, and then select **Continue**. 
@@ -164,11 +164,11 @@ You author two linked services in this section:
    ![HDInsight linked service settings](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 
 > [!NOTE]
-> Azure HDInsight limits the total number of cores that you can use in each Azure region that it supports. For the on-demand HDInsight linked service, the HDInsight cluster will be created in the same Azure Storage location that's used as its primary storage. Ensure that you have enough core quotas for the cluster to be created successfully. For more information, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). 
+> Azure HDInsight limits the total number of cores that you can use in each Azure region that it supports. For the on-demand HDInsight linked service, the HDInsight cluster is created in the same Azure Storage location that's used as its primary storage. Ensure that you have enough core quotas for the cluster to be created successfully. For more information, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## Create a pipeline
 
-1. Select the **+** (plus) button, and select **Pipeline** in the menu.
+1. Select the **+** (plus) button, and then select **Pipeline** on the menu.
 
    ![Buttons for creating a new pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
 2. In the **Activities** toolbox, expand **HDInsight**. Drag the **Spark** activity from the **Activities** toolbox to the pipeline designer surface. 
@@ -189,7 +189,7 @@ You author two linked services in this section:
 
    ![Specifying the Spark script on the "Script/Jar" tab](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    
-   c. Browse to the **adftutorial/spark/script** folder, select **WordCount_Spark.py**, and select **Finish**.      
+   c. Browse to the **adftutorial/spark/script** folder, select **WordCount_Spark.py**, and then select **Finish**.      
 
 5. To validate the pipeline, select the **Validate** button on the toolbar. Select the **>>** (right arrow) button to close the validation window. 
     
@@ -200,7 +200,7 @@ You author two linked services in this section:
 
 
 ## Trigger a pipeline run
-Select **Trigger** on the toolbar, and select **Trigger Now**. 
+Select **Trigger** on the toolbar, and then select **Trigger Now**. 
 
 !["Trigger" and "Trigger Now" buttons](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
