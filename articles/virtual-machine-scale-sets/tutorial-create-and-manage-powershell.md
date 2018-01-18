@@ -101,7 +101,7 @@ $lb = New-AzureRmLoadBalancer `
 
 
 ## Create a scale set
-The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
+The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates two VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
 
 ```azurepowershell-interactive
 $adminUsername = "azureuser"
@@ -214,7 +214,9 @@ myRDPRule.0 Tcp             50001        3389
 myRDPRule.1 Tcp             50002        3389
 ```
 
-View the public IP address of the load balancer with with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+The *Name* of the rule aligns with the name of the VM instance as shown in a previous [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) command. For example, to connect to VM instance *0*, you use *myRDPRule.0* and connect to port *50001*. To connect to VM instance *1*, use the value from *myRDPRule.1* and connect to port *50002*.
+
+View the public IP address of the load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
@@ -228,12 +230,13 @@ IpAddress
 52.168.121.216
 ```
 
-RDP to your first VM instance. Specify your own public IP address and port number, as shown from the preceding commands:
+RDP to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssw0rd!*). The following example connects to VM instance *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
 ```
 
+Once logged in to the VM instance, you could perform some manual configuration changes as needed. When you are finished, close the RDP connection.
 
 
 ## Understand VM instance images
