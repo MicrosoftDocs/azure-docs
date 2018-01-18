@@ -44,7 +44,19 @@ For conceptual information on joining an Azure-SSIS IR to a VNet and configuring
 > [!NOTE]
 > For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
 
+This article shows different ways of provisioning an Azure-SSIS IR:
+
+- [Azure portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure Resource Manager template](#azure-resource-manager-template)
+
+
+When you create an Azure-SSIS IR, Data Factory connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
+
+When you provision an instance of SQL Database to host SSISDB, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
+
 ## Azure portal
+In this section, you use the Azure portal, specifically the Data Factory UI, to create an Azure-SSIS IR. 
 
 ### Create a data factory
 
@@ -143,6 +155,7 @@ For conceptual information on joining an Azure-SSIS IR to a VNet and configuring
 4. See the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section for the remaining steps to set up an Azure-SSIS IR.
 
 ## Azure PowerShell
+In this section, you use the Azure PowerShell to create an Azure-SSIS IR.
 
 ### Create variables
 Define variables for use in the script in this tutorial:
@@ -412,7 +425,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## Azure Resource Manager template
-You can use an Azure Resource Manager template to create an Azure-SSIS integration runtime. Here is a sample walkthrough: 
+In this section, you use an Azure Resource Manager template to create an Azure-SSIS integration runtime. Here is a sample walkthrough: 
 
 1. Create a JSON file with the following Resource Manager template. Replace values in the angled brackets (place holders) with your own values. 
 
