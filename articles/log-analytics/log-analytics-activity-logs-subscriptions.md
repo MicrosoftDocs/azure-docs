@@ -137,7 +137,7 @@ To get the event Hub name and connection string, follow the steps in [Check Even
 
 The Logic Apps Designer now shows you available connectors and their triggers, which you use for starting your logic app workflow.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### Add Event Hub trigger
 

@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the Dropbox connector
 Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Dropbox
 Before your logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
