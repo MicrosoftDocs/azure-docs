@@ -227,7 +227,7 @@ Skus                                  Offer         PublisherName          Locat
 
 You can use this information to create scale sets that use different platform images. The following example would define a configuration with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) that use Windows Server 2016 Datacenter Core.
 
-```azurepowershell-interactive
+```powershell
 Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher "MicrosoftWindowsServer" `
   -ImageReferenceOffer "WindowsServer" `
@@ -278,7 +278,7 @@ Standard_NV12                     12     114688               48        1047552 
 
 You can use this information to create scale sets that use a different VM size. The following example would define a configuration with [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) that uses the *Standard_F1* VM instance size:
 
-```azurepowershell-interactive
+```powershell
 $vmssConfig = New-AzureRmVmssConfig `
     -Location "EastUS" `
     -SkuCapacity 2 `
@@ -345,7 +345,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 ## Delete resource group
 When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
-```azurepowershell-interactive-interactive
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force
 ```
 
