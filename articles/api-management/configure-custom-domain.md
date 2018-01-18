@@ -53,7 +53,7 @@ To perform the steps described in this article, you must have:
 1. Click Apply.
 
     >[!NOTE]
-    >The process of assigning the certificate may take 15 minutes or so.
+    >The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKU's do not have downtime.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
