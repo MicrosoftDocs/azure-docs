@@ -3,8 +3,8 @@ title: How to create a Web App with Redis Cache | Microsoft Docs
 description: Learn how to create a Web App with Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to create a Web App with Redis Cache
