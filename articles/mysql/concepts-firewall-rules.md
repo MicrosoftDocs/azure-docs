@@ -9,7 +9,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 1/17/2018
+ms.date: 1/18/2018
 ---
 
 # Azure Database for MySQL server firewall rules

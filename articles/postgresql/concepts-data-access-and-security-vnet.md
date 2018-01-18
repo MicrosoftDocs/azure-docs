@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 01/18/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
