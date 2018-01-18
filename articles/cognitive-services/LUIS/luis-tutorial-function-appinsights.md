@@ -1,5 +1,6 @@
 ---
 title: Add LUIS data to Application Insights using Node.js | Microsoft Docs 
+titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services
 author: v-geberr
@@ -8,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/18/2018
 ms.author: v-geberr
 ---
 
