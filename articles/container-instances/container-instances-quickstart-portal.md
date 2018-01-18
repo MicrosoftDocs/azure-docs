@@ -73,7 +73,6 @@ When you are done with the container, you can remove it by going to the **All re
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 [aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
-[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## Next steps
 
