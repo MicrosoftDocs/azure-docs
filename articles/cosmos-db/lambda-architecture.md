@@ -24,9 +24,9 @@ To implement a lambda architecture on Azure, you can combine the following techn
 * [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/), the industry's first globally distributed, multi-model database service. 
 * [Apache Spark for Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/), a processing framework that runs large-scale data analytics applications
 * Azure Cosmos DB [change feed](change-feed.md), which streams new data to the batch layer for HDInsight to process
-* The [Spark Connector](spark-connector.md)
+* The [Spark to Azure Cosmos DB Connector](spark-connector.md)
 
-This article describes how to implement both a lambda architecture based on the original multi-layer design, or a "rearchitected" lambda architecture that simplifies operations.  
+This article describes the fundamentals of a lambda architecture based on the original multi-layer design and the benefits of a "rearchitected" lambda architecture that simplifies operations.  
 
 For an overview of the lambda architecture and the resources available in the lambda architecture sample, watch the following video:
 
@@ -48,7 +48,7 @@ The basic principles of a lambda architecture are described in the preceding dia
  4. The **speed layer** compensates for processing time (to the serving layer) and deals with recent data only.
  5. All queries can be answered by merging results from batch views and real-time views or pinging them individually.
 
-To implement this architecture, you need:
+Upon further reading, we will be able to implement this architecture using only the following:
 
 * Azure Cosmos DB collection(s)
 * HDInsight (Apache Spark 2.1) cluster
@@ -72,7 +72,7 @@ To run a quick prototype of the Azure Cosmos DB change feed as part of the **spe
 
 The following code snippet shows how to configure `spark-shell` to run a structured streaming job to connect to an Azure Cosmos DB change feed, which reviews the real-time Twitter data stream, to perform a running interval count.
 
-```
+```scala
 // Import Libraries
 import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.schema._
@@ -187,7 +187,7 @@ val writeConfig = Config(writeConfigMap)
 
 ```
 
-After specifying the `SaveMode` (indicating whether to Overwrite or Append documents), create a `tweets_bytags` DataFrame similar to the Spark SQL query in the previous example.  With the `tweets_bytags` DataFrame created, you can save it using the `write` method using the previously specified `writeConfig`.
+After specifying the `SaveMode` (indicating whether to `Overwrite` or `Append` documents), create a `tweets_bytags` DataFrame similar to the Spark SQL query in the previous example.  With the `tweets_bytags` DataFrame created, you can save it using the `write` method using the previously specified `writeConfig`.
 
 ```
 // Import SaveMode so you can Overwrite, Append, ErrorIfExists, Ignore
@@ -209,7 +209,7 @@ For complete code samples, see [azure-cosmosdb-spark/lambda/samples](vhttps://gi
 * Lambda Architecture Rearchitected - Batch to Serving Layer [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 
 ## Speed layer
-As previously noted, using the Azure Cosmos DB Change Feed Library allows you to simplify the operations between the batch and speed layers. In this architecture, use Apache Spark (via HDInsight) to perform the *structured streaming* queries against the data. Tou may also want to temporarily persist the results of your structured streaming queries so other systems can access this data.
+As previously noted, using the Azure Cosmos DB Change Feed Library allows you to simplify the operations between the batch and speed layers. In this architecture, use Apache Spark (via HDInsight) to perform the *structured streaming* queries against the data. You may also want to temporarily persist the results of your structured streaming queries so other systems can access this data.
 
 ![Diagram highlighting the speed layer of the lambda architecture](./media/lambda-architecture/lambda-architecture-speed.png)
 
