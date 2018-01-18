@@ -1,8 +1,6 @@
 ## Create a service principal
 
-In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
-
-You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to specify different permissions. By default, the script configures the service principal for both *push* and *pull* permissions.
+You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions. By default, the script configures the service principal for both *push* and *pull* permissions.
 
 ```bash
 #!/bin/bash
@@ -23,7 +21,7 @@ ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 # reader:      pull only
 # contributor: push and pull
 # owner:       push, pull, and assign roles
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role reader --query password --output tsv)
 SP_APP_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 
 # Output the service principal's credentials; use these in your services and
@@ -36,9 +34,29 @@ After you run the script, take note of the service principal's **ID** and **pass
 
 ## Use an existing service principal
 
-In addition to creating a new service principal with rights to your registry, you can grant rights to an existing service principal. For example, you might want to grant rights to a service principal created for you when you created an AKS cluster.
+In addition to creating a service principal with rights to your registry, you can grant access to an *existing* service principal.
 
+To grant registry access to an existing service principal, you must assign a new role to the service principal. As with creating a new service principal, you can grant pull, push and pull, and owner access.
 
+```bash
+#!/bin/bash
+
+# Modify for your environment. The ACR_NAME is the name of your Azure Container
+# Registry, and the SERVICE_PRINCIPAL_ID is the service principal's 'appId' or
+# one of its 'servicePrincipalNames' values.
+ACR_NAME=myregistryname
+SERVICE_PRINCIPAL_ID=<service-principal-ID>
+
+# Populate value required for subsequent command args
+ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+
+# Assign the desired role to the service principal. Modify the '--role' argument
+# value as desired:
+# reader:      pull only
+# contributor: push and pull
+# owner:       push, pull, and assign roles
+az role assignment create --assignee $SERVICE_PRINCIPAL_ID --scope $ACR_REGISTRY_ID --role reader
+```
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

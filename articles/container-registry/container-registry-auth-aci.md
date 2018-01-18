@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/23/2018
 ms.author: marsma
 ---
 
