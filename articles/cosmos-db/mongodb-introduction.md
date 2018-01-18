@@ -60,7 +60,7 @@ Follow the MongoDB quickstarts to create an Azure Cosmos DB account and migrate 
 Information about Azure Cosmos DB's MongoDB API is integrated into the overall Azure Cosmos DB documentation, but here are a few pointers to get you started:
 
 * Follow the [Connect to a MongoDB account](connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
-* Follow the [Use MongoChef with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in MongoChef.
+* Follow the [Use Studio 3T (MongoChef) with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 * Follow the [Migrate data to Azure Cosmos DB with protocol support for MongoDB](mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Connect to an API for MongoDB account using [Robomongo](mongodb-robomongo.md).
 * Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](request-units.md#GetLastRequestStatistics).
