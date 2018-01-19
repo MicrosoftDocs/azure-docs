@@ -155,7 +155,7 @@ The schedule on the output dataset is defined as hourly. The pipeline end time i
 
     ![Activity windows](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-windows.png)
 
-For more information about mointoring pipelines, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
+For more information about monitoring pipelines, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
 
 ## Azure PowerShell
 In this section you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
