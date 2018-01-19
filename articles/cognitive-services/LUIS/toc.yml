@@ -145,3 +145,5 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS 
+  - name: LUIS Blog
+    href: https://blog.botframework.com/category/luis/
