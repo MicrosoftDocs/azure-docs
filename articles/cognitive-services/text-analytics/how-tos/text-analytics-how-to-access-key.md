@@ -22,7 +22,7 @@ If you need help finding the key, or to determine whether your subscription alre
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
-2. In the left navigation pane, scroll down and click **More services >**.
+2. In the left navigation pane, select **All services**.
 
 3. In Filter, type *Cognitive Services*. If your subscription has Text Analytics, it appears in the list, with an API Type of **Text Analytics API**.
 
