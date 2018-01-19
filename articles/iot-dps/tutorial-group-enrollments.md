@@ -32,9 +32,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
-> [!NOTE]
-> This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
->
+    > [!NOTE]
+    > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
+    >
 
 1. Create the enrollment group information:
 
@@ -161,7 +161,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Enter the enrollment group information in the following way:
 
-    1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Open your **_{deviceName}-public.pem_** file and include this value as your _Client Cert_. Open your **_{deviceName}-all.pem_** file and copy the text from _-----BEGIN PRIVATE KEY-----_ to _-----END PRIVATE KEY-----_.  Use this as your _Client Cert Private Key_.
+    - Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Open your **_{deviceName}-public.pem_** file and include this value as your _Client Cert_. Open your **_{deviceName}-all.pem_** file and copy the text from _-----BEGIN PRIVATE KEY-----_ to _-----END PRIVATE KEY-----_.  Use this as your _Client Cert Private Key_.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
