@@ -33,7 +33,7 @@ This guide will show you how to perform common scenarios using Blob storage. The
 
 ## Create a Ruby application
 Create a Ruby application. For instructions,
-see [Ruby on Rails Web application on an Azure VM](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+see [Ruby on Rails Web application on an Azure VM](../../virtual-machines/linux/classic/ruby-rails-web-app.md)
 
 ## Configure your application to access Storage
 To use Azure Storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
