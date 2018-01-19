@@ -171,8 +171,8 @@ The main changes made are the following:
     ```
 
 
-> [!NOTE]
-> If you added the `applicationDiagnosticsStorageAccountName` as a variable, make sure to modify each reference to it to `variables('applicationDiagnosticsStorageAccountName')` instead of `parameters('applicationDiagnosticsStorageAccountName')`.
+    > [!NOTE]
+    > If you added the `applicationDiagnosticsStorageAccountName` as a variable, make sure to modify each reference to it to `variables('applicationDiagnosticsStorageAccountName')` instead of `parameters('applicationDiagnosticsStorageAccountName')`.
 
 5. Deploy the template as a Resource Manager upgrade to your cluster. This is done using the `New-AzureRmResourceGroupDeployment` API in the AzureRM PowerShell module. An example command would be:
 
