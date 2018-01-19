@@ -84,4 +84,4 @@ When a user creates a group, they are automatically added as an owner for that g
 
 ### How to assign a group owner
 
-See [Managing Owners for a Group](lkj nactive-directory-accessmanagement-managing-group-owners.md).
+See [Managing Owners for a Group](active-directory-accessmanagement-managing-group-owners.md).
