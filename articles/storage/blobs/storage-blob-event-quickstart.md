@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
 ---
@@ -27,7 +27,7 @@ When you complete the steps described in this article, you see that the event da
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.14 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
@@ -73,13 +73,12 @@ Before subscribing to events from the Blob storage account, let's create the end
 You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your event subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<resource_group_name>` and `<storage_account_name>`, use the values you created earlier. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## Trigger an event from Blob storage
@@ -118,7 +117,9 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```
