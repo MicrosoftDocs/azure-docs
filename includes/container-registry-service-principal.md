@@ -36,6 +36,8 @@ After you run the script, take note of the service principal's **ID** and **pass
 
 To grant registry access to an existing service principal, you must assign a new role to the service principal. As with creating a new service principal, you can grant pull, push and pull, and owner access.
 
+The following script uses the [az role assignment create][az-role-assignment-create] command to grant *pull* permissions to a service principal you specify in the `SERVICE_PRINCIPAL_ID` variable. Adjust the `--role` value if you'd like to grant a different level of access.
+
 ```bash
 #!/bin/bash
 
@@ -58,3 +60,4 @@ az role assignment create --assignee $SERVICE_PRINCIPAL_ID --scope $ACR_REGISTRY
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

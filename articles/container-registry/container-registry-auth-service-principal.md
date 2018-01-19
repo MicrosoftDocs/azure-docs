@@ -31,7 +31,9 @@ For example, your web application can use a service principal that provides it w
 
 ## Next steps
 
-Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction. While configuring external applications is outside the scope of this article, you can find instructions for some specific services and platforms here:
+Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction.
+
+While configuring individual applications to use service principal credentials is outside the scope of this article, you can find instructions for some specific services and platforms here:
 
 * [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
 * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)
