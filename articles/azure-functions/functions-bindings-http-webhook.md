@@ -349,9 +349,6 @@ The [configuration](#trigger---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
