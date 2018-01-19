@@ -1,6 +1,6 @@
 ---
-title: Remediate OS vulnerabilities in Azure Security Center | Microsoft Docs
-description: This document shows you how to implement the Azure Security Center recommendation **Remediate OS vulnerabilities**.
+title: Remediate security configurations in Azure Security Center | Microsoft Docs
+description: This document shows you how to implement the Azure Security Center recommendation **Remediate security configurations**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -13,29 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
-# Remediate OS vulnerabilities in Azure Security Center
-Azure Security Center analyzes daily the operating system (OS) of your virtual machines (VMs) and computers for a configuration that could make the VMs and computers more vulnerable to attack. Security Center recommends that you resolve vulnerabilities when your OS configuration does not match the recommended configuration rules and recommends configuration changes to address these vulnerabilities.
+# Remediate security configurations in Azure Security Center
+Azure Security Center analyzes daily the operating system (OS) of your virtual machines (VMs) and computers for a configuration that could make the VMs and computers more vulnerable to attack. Security Center recommends that you resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules and recommends configuration changes to address these vulnerabilities.
 
-> [!NOTE]
-> For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) to learn how to customize security configuration assessments in Security Center.
 
 ## Implement the recommendation
-Remediate OS vulnerabilities is presented as a recommendation in Security Center. This recommendation will be displayed under **Recommendations** and under **Compute**.
+Remediate security configurations mismatch is presented as a recommendation in Security Center. This recommendation will be displayed under **Recommendations** and under **Compute**.
 
-In this example, we will look at the **Remediate OS vulnerabilities (by Microsoft)** recommendation under **Compute**.
+In this example, we will look at the **Remediate security configurations** recommendation under **Compute**.
 1. Select **Compute** under the Security Center main menu.
 
-   ![Remediate OS vulnerabilities][1]
+   ![Remediate security configurations][1]
 
-2. Under **Compute**, select **Remediate OS vulnerabilities (by Microsoft)**. The **OS Vulnerabilities (by Microsoft) mismatch** dashboard opens.
+2. Under **Compute**, select **Remediate security configurations**. **Security configurations** opens.
 
-   ![Remediate OS vulnerabilities][2]
+   ![Security configurations][2]
 
   The top of the dashboard provides:
 
@@ -74,11 +71,11 @@ In this example, we will look at the **Remediate OS vulnerabilities (by Microsof
   - ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the rule
   - RULE OPERATION -- Rule operation used by Security Center during analysis of your VM OS configuration against the rule
 
-4. Select the **Search** icon in the top ribbon. Search opens listing workspaces that have VMs and computers with the selected OS vulnerability. This workspace selection blade is only shown if the selected rule applies to multiple VMs that are connected to different workspaces.
+4. Select the **Search** icon in the top ribbon. Search opens listing workspaces that have VMs and computers with the selected security configurations mismatch. This workspace selection blade is only shown if the selected rule applies to multiple VMs that are connected to different workspaces.
 
   ![Listed workspaces][4]
 
-5. Select a workspace. A Log Analytics search query opens filtered to the workspace with the OS vulnerability.
+5. Select a workspace. A Log Analytics search query opens filtered to the workspace with the security configurations mismatch.
 
   ![Workspace with OS vulnerability][5]
 
@@ -87,7 +84,9 @@ In this example, we will look at the **Remediate OS vulnerabilities (by Microsof
   ![Filtered for that computer][6]
 
 ## Next steps
-This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
+This article showed you how to implement the Security Center recommendation "Remediate security configurations." See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) to learn how to customize security configuration assessments in Security Center.
+
+You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
 
 To learn more about Security Center, see the following resources:
 

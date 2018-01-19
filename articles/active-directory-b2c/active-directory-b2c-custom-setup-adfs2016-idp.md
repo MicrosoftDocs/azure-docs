@@ -4,7 +4,7 @@ description: A How-To article on setting up ADFS 2016 using SAML protocol and cu
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

@@ -3,7 +3,7 @@ title: Getting started with Azure Automation DSC | Microsoft Docs
 description: Explanation and examples of the most common tasks in Azure Automation Desired State Configuration (DSC)
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -14,26 +14,26 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: magoedte;eslesar
+ms.author: magoedte;gwallace
 
 ---
 # Getting started with Azure Automation DSC
-This topic explains how to do the most common tasks with Azure Automation Desired State Configuration (DSC), such as creating, importing, and compiling configurations, onboarding machines to 
+This article explains how to do the most common tasks with Azure Automation Desired State Configuration (DSC), such as creating, importing, and compiling configurations, onboarding machines to 
 manage, and viewing reports. For an overview of what Azure Automation DSC is, see [Azure Automation DSC Overview](automation-dsc-overview.md). For DSC documentation, see 
 [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-This topic provides a step-by-step guide to using Azure Automation DSC. If you want a sample environment that is already set up without following the steps described in this topic,
-you can use [the following ARM template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
+This article provides a step-by-step guide to using Azure Automation DSC. If you want a sample environment that is already set up without following the steps described in this article,
+you can use the following [Resource Manager template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
 
 ## Prerequisites
-To complete the examples in this topic, the following are required:
+To complete the examples in this article, the following are required:
 
 * An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
 * An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see 
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creating a DSC configuration
-We will create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures either the presence or absence of the **Web-Server** Windows Feature (IIS),
+You create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures either the presence or absence of the **Web-Server** Windows Feature (IIS),
 depending on how you assign nodes.
 
 1. Start the Windows PowerShell ISE (or any text editor).
@@ -70,7 +70,7 @@ This configuration calls one resource in each node block, the [WindowsFeature re
 or absence of the **Web-Server** feature.
 
 ## Importing a configuration into Azure Automation
-Next, we'll import the configuration into the Automation account.
+Next, you import the configuration into the Automation account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, click **All resources** and then the name of your Automation account.
@@ -139,8 +139,8 @@ applied by one or more nodes. You can view the node configurations in your Autom
     ![Screenshot of the DSC Node Configurations blade](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## Onboarding an Azure VM for management with Azure Automation DSC
-You can use Azure Automation DSC to manage Azure VMs (both Classic and Resource Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical machines. In this topic, 
-we cover how to onboard only Azure Resource Manager VMs. For information about onboarding other types of machines, see 
+You can use Azure Automation DSC to manage Azure VMs (both Classic and Resource Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical machines. In this article, 
+you learn how to onboard only Azure Resource Manager VMs. For information about onboarding other types of machines, see 
 [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
 
 ### To onboard an Azure Resource Manager VM for management by Azure Automation DSC
@@ -164,12 +164,12 @@ we cover how to onboard only Azure Resource Manager VMs. For information about o
    
     ![Screenshot of the Registration blade](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    The node configuration you specified will be applied to the VM at intervals specified by the **Configuration Mode Frequency**,
-   and the VM will check for updates to the node configuration at intervals specified by the **Refresh Frequency**. For more information about how these values are used, see
+    The node configuration you specified are applied to the VM at intervals specified by the **Configuration Mode Frequency**,
+   and the VM checks for updates to the node configuration at intervals specified by the **Refresh Frequency**. For more information about how these values are used, see
    [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
 9. In the **Add Azure VMs** blade, click **Create**.
 
-Azure will start the process of onboarding the VM. When it is complete, the VM will show up in the **DSC Nodes** blade in the Automation account.
+Azure starts the process of onboarding the VM. When it is complete, the VM shows up in the **DSC Nodes** blade in the Automation account.
 
 ## Viewing the list of DSC nodes
 You can view the list of all machines that have been onboarded for management in your Automation account in the **DSC Nodes** blade.

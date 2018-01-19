@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: Authentication, sign-up, edit profile .NET Azure Active Directory B2C | Microsoft Docs
 description: How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-
+ms.custom: seohack1
 ---
 # Azure AD B2C: Build a Windows desktop app
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
@@ -29,8 +29,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Include a **native client** in the application.
 * Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
 * Copy the **Application ID** that is assigned to your app. You will need it later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the

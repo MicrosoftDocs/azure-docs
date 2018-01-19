@@ -70,4 +70,3 @@ When the consumer deletes the managed application, the managed resource group is
 * For an introduction to defining and deploying a managed application, see [Create and deploy an Azure managed application with Azure CLI](managed-apps-quickstart-cli.md)
 * For information about publishing an internal application, see [Create service catalog application](publish-service-catalog-app.md).
 * For information about publishing managed applications to the marketplace, see [Create marketplace application](publish-marketplace-app.md).
-

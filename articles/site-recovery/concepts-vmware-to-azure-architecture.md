@@ -1,19 +1,10 @@
 ---
-title: Review the architecture for VMware replication to Azure | Microsoft Docs
+title: VMware to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with the Azure Site Recovery service
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 01/15/2018
 ms.author: raynew
 ---
 
@@ -29,11 +20,9 @@ The following table and graphic provide a high-level view of the components used
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure storage account, and Azure network. | Replicated data from on-premises VMs is stored in the storage account. Azure VMs are created with the replicated data when you run a fail over from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
-**Configuration server** | A single on-premises VMware VM is deployed to run all of the on-premises Site Recovery components. The VM runs the configuration server, process server, and master target server. | The configuration server coordinates communications between on-premises and Azure, and manages data replication.
- **Process server**:  | Installed by default together with the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of VMs on on-premises VMware servers.<br/><br/> As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.
- **Master target server** | Installed by default together with the configuration server. | Handles replication data during failback from Azure.<br/><br/> For large deployments, you can add an additional, separate master target server for failback.
+**Configuration server machine** | A single on-premises machine. We recommend you run it as a VMware VM that can deployed from a downloaded OVF template.<br/><br/> The machine runs all on-premises Site Recovery components, including the configuration server, process server, and master target server. | **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication.<br/><br/> **Process server**:  Installed by default on the configuration server. It receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage. The process server also installs the Mobility service on VMs you want to replicate, and performs automatic discovery of on-premises machines. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.<br/><br/>  **Master target server**: Installed by default on the configuration server. It handles replication data during failback from Azure. For large deployments, you can add an additional, separate master target server for failback.
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
-**Replicated machines** | The Mobility service is installed on each VMware VM that you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager. 
+**Replicated machines** | The Mobility service is installed on each VMware VM that you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager.
 
 **VMware to Azure architecture**
 
@@ -41,15 +30,17 @@ The following table and graphic provide a high-level view of the components used
 
 ## Replication process
 
-1. You set up the deployment, including on-premises and Azure components. In the Recovery Services vault, you specify the replication source and target, set up the configuration server, create a replication policy, and enable replication.
-2. Machines replicate in accordance with the replication policy, and an initial copy of the VM data is replicated to Azure storage.
-3. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
+1.	You prepare Azure resources, and on-premises components.
+2.	In the Recovery Services vault, you specify source replication settings. As part of this process, you set up the on-premises configuration server. To deploy this server as a VMware VM, you download a prepared OVF template, and import it to VMware to create the VM.
+3. You specify target replication settings, create a replication policy, and enable replication for your VMware VMs.
+4.	Machines replicate in accordance with the replication policy, and an initial copy of the VM data is replicated to Azure storage.
+5.	After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
     - Machines communicate with the configuration server on port HTTPS 443 inbound, for replication management.
     - Machines send replication data to the process server on port HTTPS 9443 inbound (can be modified).
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-4. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+6.	Traffic replicates to Azure storage public endpoints, over the internet. Alternately, you can use zure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 
 **VMware to Azure replication process**
@@ -82,6 +73,4 @@ When your primary on-premises site is available again, you can fail back.
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable VMware to Azure replication.
-Run a failover and failback.
+Follow [this tutorial](tutorial-vmware-to-azure.md) to enable VMware to Azure replication.

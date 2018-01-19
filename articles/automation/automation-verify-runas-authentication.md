@@ -3,7 +3,7 @@ title: Validate Azure Automation account configuration | Microsoft Docs
 description: This article describes how to confirm the configuration of your Automation account is setup correctly.  
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
 ---
@@ -63,9 +63,9 @@ Use the sample code below to [create a PowerShell runbook](automation-creating-i
 
 Notice the cmdlet used for authenticating in the runbook - **Add-AzureRmAccount**, uses the *ServicePrincipalCertificate* parameter set.  It authenticates by using service principal certificate, not credentials.  
 
-When you [run the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) to validate your Run As account, a [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  When the runbook job completes, we should see a status of **Completed**.
+When you [run the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) to validate your Run As account, a [runbook job](automation-runbook-execution.md) is created, the job page is displayed, and the job status displayed in the **Job Summary** tile. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  When the runbook job completes, we should see a status of **Completed**.
 
-To see the detailed results of the runbook, click on the **Output** tile.  On the **Output** blade, you should see it has successfully authenticated and returns a list of all resources in all resource groups in your subscription.  
+To see the detailed results of the runbook, click on the **Output** tile.  On the **Output** page, you should see it has successfully authenticated and returns a list of all resources in all resource groups in your subscription.  
 
 Just remember to remove the block of code starting with the comment `#Get all ARM resources from all resource groups` when you reuse the code for your runbooks.
 
@@ -99,9 +99,9 @@ Use the sample code below to [create a PowerShell runbook](automation-creating-i
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-When you [run the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) to validate your Run As account, a [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  When the runbook job completes, we should see a status of **Completed**.
+When you [run the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) to validate your Run As account, a [runbook job](automation-runbook-execution.md) is created, the Job page is displayed, and the job status displayed in the **Job Summary** tile. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  When the runbook job completes, we should see a status of **Completed**.
 
-To see the detailed results of the runbook, click on the **Output** tile.  On the **Output** blade, you should see it has successfully authenticated and returns a list of all Azure VMs by VMName that are deployed in your subscription.  
+To see the detailed results of the runbook, click on the **Output** tile.  On the **Output** page, you should see it has successfully authenticated and returns a list of all Azure VMs by VMName that are deployed in your subscription.  
 
 Just remember to remove the cmdlet **Get-AzureVM** when you reuse the code for your runbooks.
 

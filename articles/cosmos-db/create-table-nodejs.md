@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 
 ---
@@ -35,6 +35,10 @@ In addition:
 * [Git](http://git-scm.com/)
 
 ## Create a database account
+
+> [!IMPORTANT] 
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -71,8 +75,6 @@ Now let's clone a Table app from github, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
-
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
@@ -81,7 +83,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 
-2. Open the app.config file, and copy the required connection string properties into the config file.
+2. Copy the PRIMARY CONNECTION STRING using the copy button on the right-side.
+
+3. Open the app.config file, and paste the value into the connectionString on line three. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    >
 
 3. Save the app.config file.
 
@@ -91,14 +99,19 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. In the git terminal window, run the following commands to run start the Java application.
+2. Run the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the package.json file
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. In the git terminal window, run the following commands to run start the Node application.
+
+    ```
     node ./tableSample.js 
     ```
 

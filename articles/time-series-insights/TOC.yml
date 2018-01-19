@@ -44,6 +44,8 @@
     href: time-series-insights-send-events.md
   - name: Scale your environment
     href: time-series-insights-how-to-scale-your-environment.md
+  - name: Manage resources using templates
+    href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
 - name: Reference
   items:
   - name: Query API
@@ -74,3 +76,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights

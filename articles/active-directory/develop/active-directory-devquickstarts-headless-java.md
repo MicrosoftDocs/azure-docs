@@ -4,7 +4,7 @@ description: How to build a Java command line app that signs users in to access 
 services: active-directory
 documentationcenter: java
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1

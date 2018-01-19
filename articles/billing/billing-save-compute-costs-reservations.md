@@ -43,7 +43,7 @@ You can change the scope after you buy a Reserved VM Instance. To change the sco
 
 The reservation discount only applies to virtual machines in subscriptions with enterprise or Pay-As-You-Go offer types. Virtual machines running in a subscription with other offer types do not receive the reservation discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the Reserved Instance benefits.
 
-How reservation affects the virtual machine billing is explained in [understanding the application of reservation billing benefit](https://go.microsoft.com/fwlink/?linkid=861721).
+How reservation affects the virtual machine billing is explained in [understanding the application of reservation billing benefit](https://go.microsoft.com/fwlink/?linkid=863405).
 
 ## What happens when the reservation term expires?
 At the end of the reservation term, the billing discount expires, and the virtual machine infrastructure is billed at the pay-as-you go price. Reservations do not auto-renew. To continue getting the billing discount, you must buy a new Reserved Virtual Machine Instance. 

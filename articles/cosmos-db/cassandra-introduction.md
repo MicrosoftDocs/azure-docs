@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
 ---
 
@@ -33,7 +33,10 @@ Azure Cosmos DB can be used as the data store for apps written for [Apache Cassa
 
 ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language based tools (like CQLSH) and Cassandra client drivers you’re already familiar with.
+The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language based tools (like CQLSH) and Cassandra client drivers you’re already familiar with. Learn more about it in this Microsoft Mechanics video with Principal Engineering Manager Kirill Gavrylyuk.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## What is the benefit of using Apache Cassandra API for Azure Cosmos DB?
 
@@ -53,17 +56,34 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Enterprise grade**: Secure and compliant by default – Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform without worrying about compliance issues. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.  
 
+<a id="sign-up-now"></a>
+## Sign up now 
+
+If you already have an Azure subscription, you can sign up to join the Cassandra API (preview) program in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the Cassandra API (preview) program.
+
+1. In the [Azure portal](https://portal.azure.com), click **New** > **Databases** > **Azure Cosmos DB**. 
+
+2. In the New Account page, select **Cassandra** in the API box. 
+
+3. In the **Subscription** box, select the Azure subscription that you want to use for this account.
+
+4. Click **Sign up to preview today**.
+
+    ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. In the Sign up to preview today pane, click **OK**. 
+
+    Once you submit the request, the status changes to **Pending approval** in the New account pane. 
+
+After you submit your request, wait for email notification that your request has been approved. Due to the high volume of requests, you should receive notification within a week. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received. 
+
 ## How to get started
-Follow the Cassandra API quickstarts to create an Azure Cosmos DB Cassandra API account and create a Cassandra app:
+Once you've joined the preview program, follow the Cassandra API quickstarts to create an app by using the Cassandra API:
 
 * [Quickstart: Build a Cassandra web app with Node.js and Azure Cosmos DB](create-cassandra-nodejs.md)
 * [Quickstart: Build a Cassandra web app with Java and Azure Cosmos DB](create-cassandra-java.md)
 * [Quickstart: Build a Cassandra web app with .NET and Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Quickstart: Build a Cassandra web app with Python and Azure Cosmos DB](create-cassandra-python.md)
-
-## Sign up now 
-
-If you already have an Azure subscription, you can sign up for the Cassandra API (preview) in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup). If you’re new to Azure, signing up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB.
 
 ## Next steps
 

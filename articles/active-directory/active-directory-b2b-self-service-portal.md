@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration supports your cross-compan
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

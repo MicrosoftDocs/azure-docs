@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
-ms.author: cherylmc
+ms.date: 12/04/2017
+ms.author: anzaman
 
 ---
-# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell (Preview)
+# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell
 
 This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
-
->[!NOTE]
->P2S RADIUS authentication is currently in Preview.
->
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 

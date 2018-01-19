@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
@@ -27,7 +27,7 @@ We currently have the following Azure security best practices and patterns artic
 * [Azure IaaS Security Best Practices] (azure-security-iaas.md)
 * [Azure boundary security best practices](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS Best Practices] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure provides a secure platform on which you can build your solutions. We also provide services and technologies to make your solutions on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft recommends as best practices and patterns for improving security.
 
