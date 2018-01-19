@@ -88,7 +88,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                     <div class="cardImageOuter">
                         <a href="/azure/machine-learning/team-data-science-process">
                         <div class="cardImage">
-                            <img src="media/index/gear.svg" alt="" />
+                            <img src="media/index/tdsp.png" alt="" />
                         </div>
                         </a>
                     </div>
