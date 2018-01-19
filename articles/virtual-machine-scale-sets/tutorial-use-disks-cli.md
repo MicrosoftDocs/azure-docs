@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/18/2018
+ms.date: 01/19/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -44,12 +44,12 @@ When a scale set is created or scaled, two disks are automatically attached to e
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
 |----|----|----|
-| [General purpose](sizes-general.md) | A, B, and D series | 1600 |
-| [Compute optimized](sizes-compute.md) | F series | 576 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D, E, G, and M series | 6144 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 5630 |
-| [GPU](sizes-gpu.md) | N series | 1440 |
-| [High performance](sizes-hpc.md) | A and H series | 2000 |
+| [General purpose](../virtual-machines/linux/sizes-general.md) | A, B, and D series | 1600 |
+| [Compute optimized](../virtual-machines/linux/sizes-compute.md) | F series | 576 |
+| [Memory optimized](../virtual-machines/linux/sizes-memory.md) | D, E, G, and M series | 6144 |
+| [Storage optimized](../virtual-machines/linux/sizes-storage.md) | L series | 5630 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | N series | 1440 |
+| [High performance](../virtual-machines/linux/sizes-hpc.md) | A and H series | 2000 |
 
 
 ## Azure data disks
@@ -58,12 +58,12 @@ Additional data disks can be added for installing applications and storing data.
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
 |----|----|----|
-| [General purpose](sizes-general.md) | A, B, and D series | 64 |
-| [Compute optimized](sizes-compute.md) | F series | 64 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D, E, G, and M series | 64 |
-| [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |
-| [GPU](sizes-gpu.md) | N series | 64 |
-| [High performance](sizes-hpc.md) | A and H series | 64 |
+| [General purpose](../virtual-machines/linux/sizes-general.md) | A, B, and D series | 64 |
+| [Compute optimized](../virtual-machines/linux/sizes-compute.md) | F series | 64 |
+| [Memory optimized](../virtual-machines/linux/sizes-memory.md) | D, E, G, and M series | 64 |
+| [Storage optimized](../virtual-machines/linux/sizes-storage.md) | L series | 64 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | N series | 64 |
+| [High performance](../virtual-machines/linux/sizes-hpc.md) | A and H series | 64 |
 
 
 ## VM disk types
@@ -82,7 +82,7 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | Max IOPS per disk | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](../virtual-machines/linux/sizes.md).
 
 
 ## Create and attach disks to a scale set
@@ -120,6 +120,7 @@ az vmss disk attach \
   --size-gb 128
 ```
 
+
 ## Prepare the data disks
 The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. This step involves creating a partition, creating a filesystem, and mounting them. To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance. The following example executes a script from a GitHub samples repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
 
@@ -133,7 +134,27 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-From `sudo fdisk -l` on a VM:
+To confirm that the disks have been prepared correctly, SSH to one of the VM instances. List the connection information for your scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+
+```azurecli-interactive
+az vmss list-instance-connection-info \
+  --resource-group myResourceGroup \
+  --name myScaleSet
+```
+
+Use your own public IP address and port number to connect to the first VM instance, as shown in the following example:
+
+```azurecli-interactive
+ssh azureuser@52.226.67.166 -p 50001
+```
+
+Examine the partitions on the VM instance as follows:
+
+```bash
+sudo fdisk -l
+```
+
+The following example output shows that three disks are attached to the VM instance - */dev/sdc*, */dev/sdd*, and */dev/sde*. Each of those disks has a single partition that uses all the available space:
 
 ```bash
 Disk /dev/sdc: 64 GiB, 68719476736 bytes, 134217728 sectors
@@ -155,9 +176,25 @@ Disk identifier: 0xd5c95ca0
 
 Device     Boot Start       End   Sectors  Size Id Type
 /dev/sdd1        2048 268435455 268433408  128G 83 Linux
+
+Disk /dev/sde: 128 GiB, 137438953472 bytes, 268435456 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x9312fdf5
+
+Device     Boot Start       End   Sectors  Size Id Type
+/dev/sde1        2048 268435455 268433408  128G 83 Linux
 ```
 
-From `sudo df -h` on a VM instance:
+Examine the filesystems and mount points on the VM instance as follows:
+
+```bash
+sudo df -h
+```
+
+The following example output shows that the three disks have their filesystems correctly mounted under */datadisks*:
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
@@ -165,16 +202,29 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdb1        50G   52M   47G   1% /mnt
 /dev/sdc1        63G   52M   60G   1% /datadisks/disk1
 /dev/sdd1       126G   60M  120G   1% /datadisks/disk2
+/dev/sde1       126G   60M  120G   1% /datadisks/disk3
+```
+
+The disks on each VM instance in your scale are automatically prepared in the same way. As your scale set would scale up, the required data disks are attached to the new VM instances. The Custom Script Extension also runs to automatically prepare the disks.
+
+Close the SSH connection to your VM instance:
+
+```bash
+exit
 ```
 
 
 ## List attached disks
+To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *virtualMachineProfile.storageProfile.dataDisks*:
+
 ```azurecli-interactive
 az vmss show \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --query virtualMachineProfile.storageProfile.dataDisks
 ```
+
+Information on the disk size, storage tier, and LUN (Logical Unit Number() is shown. The following example output details the three data disks attached to the scale set:
 
 ```json
 [
@@ -219,6 +269,8 @@ az vmss show \
 
 
 ## Detach a disk
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+
 ```azurecli-interactive
 az vmss disk detach \
   --resource-group myResourceGroup \
@@ -226,8 +278,9 @@ az vmss disk detach \
   --lun 2
 ```
 
+
 ## Delete resource group
-When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --no-wait --yes
