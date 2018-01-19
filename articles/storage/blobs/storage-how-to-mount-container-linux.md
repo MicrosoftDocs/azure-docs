@@ -19,9 +19,9 @@ ms.author: tamram
 # How to mount Blob storage as a filesystem with blobfuse (Preview)
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual filesystem driver for Blob storage, which allows you to access your existing block blobs in your Storage account through the Linux filesystem. Azure Blob storage is an object storage and therefore does not have a hierarchial namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual filesystem driver for Blob storage, which allows you to access your existing block blobs in your Storage account through the Linux filesystem. Azure Blob storage is an object storage and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
 
-This guide will show you how to use blobfuse, and mount a Blob storage container on Linux. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
+This guide shows you how to use blobfuse, and mount a Blob storage container on Linux. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
 > Blobfuse does not guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). As an example, unlike POSIX, a rename operation is not an atomic operation. 
@@ -59,10 +59,10 @@ sudo yum install blobfuse
 ```
 
 ## Prepare for mounting
-Blobfuse requires a temporary path in the filesystem to buffer and cache any open files which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. You should also ensure your user has write access to this temporary path.
+Blobfuse requires a temporary path in the filesystem to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
 
 ### (Optional) Use a ramdisk for the temporary path
-Following will create a ramdisk of 16GB as well as creating a directory for blobfuse. Choose the size based on your needs. This allows blobfuse to open files up to 16GB in size. 
+Following creates a ramdisk of 16 GB as well as creating a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
@@ -79,7 +79,7 @@ sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
 ### Configure your Storage account credentials
-Blobfuse will require your credentials to be stored in a text file in the following format. 
+Blobfuse requires your credentials to be stored in a text file in the following format: 
 
 ```
 accountName myaccount
@@ -98,13 +98,13 @@ mkdir /myblobs
 ```
 
 ## Mount
-In order to mount blobfuse, run the following with your user. This will mount the container 'mycontainer' onto the location '/myblobs'.
+In order to mount blobfuse, run the following command with your user. This command mounts the container 'mycontainer' onto the location '/myblobs'.
 
 ```bash
 blobfuse /myblobs --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-You should now have access to your block blobs through the regular filesystem APIs. Note that the mounted directory can only be accessed by the user mounting it which secures the access. If you want to allow access to all users, you can mount via the option ```-o allow_other```. 
+You should now have access to your block blobs through the regular filesystem APIs. Note that the mounted directory can only be accessed by the user mounting it, which secures the access. If you want to allow access to all users, you can mount via the option ```-o allow_other```. 
 
 ```bash
 cd /myblobs
