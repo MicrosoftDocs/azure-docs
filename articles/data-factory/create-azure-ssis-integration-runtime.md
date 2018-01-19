@@ -175,7 +175,8 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2" 
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For Standard_D1_v2 nodes, 1-4 parallel executions per node are supported.
+# For all other types of nodes, 1-8 parallel executions per node are supported.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -342,7 +343,8 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2" 
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For Standard_D1_v2 nodes, 1-4 parallel executions per node are supported.
+# For all other types of nodes, 1-8 parallel executions per node are supported.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
