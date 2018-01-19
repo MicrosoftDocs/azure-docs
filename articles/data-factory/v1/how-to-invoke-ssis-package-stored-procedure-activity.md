@@ -106,6 +106,7 @@ This output dataset is a dummy dataset that drives the schedule of the pipeline.
         }
     }
     ```
+3. Click **Deploy** on the toolbar. This action deploys the dataset to the Azure Data Factory service. 
 
 ### Create a pipeline with stored procedure activity 
 In this step, you create a pipeline with a stored procedure activity. The activity invokes the sp_executesql stored procedure to run your SSIS package. 
