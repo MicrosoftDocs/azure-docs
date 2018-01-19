@@ -139,7 +139,7 @@ To use Azure services from your Ruby application, see:
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+[vm-instructions]:createportal-classic.md
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/
