@@ -12,7 +12,7 @@ ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/19/2018
 ms.author: denlee
 
 ---
@@ -72,7 +72,7 @@ To run a quick prototype of the Azure Cosmos DB change feed as part of the **spe
 
 The following code snippet shows how to configure `spark-shell` to run a structured streaming job to connect to an Azure Cosmos DB change feed, which reviews the real-time Twitter data stream, to perform a running interval count.
 
-```scala
+```
 // Import Libraries
 import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.schema._
