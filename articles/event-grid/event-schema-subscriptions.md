@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
 ---
 
@@ -36,7 +36,7 @@ The following example shows the schema of a resource created event:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -54,7 +54,9 @@ The following example shows the schema of a resource created event:
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -78,7 +80,9 @@ The schema for a resource deleted event is similar:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -94,6 +98,8 @@ An event has the following top-level data:
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Subscription event data. |
+| dataVersion | string | The schema version of the data object. |
+| metadataVersion | string | The schema version of the event metadata. |
 
 The data object has the following properties:
 
