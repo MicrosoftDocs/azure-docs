@@ -51,7 +51,7 @@ In your Python development environment, install the required packages using `pip
 pip install -r requirements.txt
 ```
 
-Open the file `python_quickstart_client.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Open the file `python_quickstart_client.py`. Update the Batch and storage account credential strings with the values you obtained for your accounts. For example:
 
 
 ```Python
