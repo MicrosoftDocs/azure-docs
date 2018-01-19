@@ -120,17 +120,19 @@ puts blob.name
 
 ## List the blobs in a container
 To list the containers, use **list_containers()** method.
-To list the blobs within a container, use **list\_blobs()** method.
+To list the blobs within a container, use **list\_blobs()** method. In order to list all blobs in a container, you must follow a continuation token returned by service and continue running list_blobs with this token. See the [List Blobs REST API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) for details.
 
-This outputs the urls of all the blobs in all the containers for the account.
+The following code outputs the all the blobs in a container.
 
 ```ruby
-containers = azure_blob_service.list_containers()
-containers.each do |container|
-    blobs = azure_blob_service.list_blobs(container.name)
+nextMarker = nil
+loop do
+    blobs = azure_blob_service.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-    puts blob.name
+        puts "\tBlob name #{blob.name}"
     end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
 end
 ```
 

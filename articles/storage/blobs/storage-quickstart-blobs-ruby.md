@@ -140,11 +140,15 @@ You can get a list of files in the container using the **list\_blobs()** method.
 
 ```ruby
 # List the blobs in the container
-puts "\n List blobs in the container"
-blobs = blob_client.list_blobs(container_name)
-blobs.each do |blob|
-    puts "\t Blob name #{blob.name}"   
-end  
+nextMarker = nil
+loop do
+    blobs = blob_client.list_blobs(container_name, { marker: nextMarker })
+    blobs.each do |blob|
+        puts "\tBlob name #{blob.name}"
+    end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
+end
 ```
 
 ### Download the blobs
