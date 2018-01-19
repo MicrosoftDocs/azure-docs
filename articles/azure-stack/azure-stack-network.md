@@ -19,10 +19,10 @@ ms.reviewer: wamota
 ---
 
 ## Network connectivity
-This section provides Azure Stack network infrastructure information that will help you make important decisions about how to best integrate Azure Stack into your existing networking environment. 
+This article provides Azure Stack network infrastructure information to help you decide how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
-> To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
+> To resolve external DNS names from Azure Stack (for example, www.bing.com), you need to provide DNS servers to forward DNS requests. For more information about Azure Stack DNS requirements, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ## Physical network design
 The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. The following diagram represents our recommended design:
@@ -37,7 +37,7 @@ The following table shows the logical networks and associated IPv4 subnet ranges
 
 | Logical Network | Description | Size | 
 | -------- | ------------- | ------------ | 
-| Public VIP | Public IP addresses for a small set of Azure Stack services, with the rest used by tenant virtual machines. The Azure Stack infrastructure uses 32 addresses from this network. If you plan to use App Service and the SQL resource providers, this uses 7 more. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
+| Public VIP | Public IP addresses for a small set of Azure Stack services, with the rest used by tenant virtual machines. The Azure Stack infrastructure uses 32 addresses from this network. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
 | Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
 | Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
 | Private | Used for the storage network and private VIPs. | /24 | 
@@ -50,7 +50,7 @@ The network infrastructure for Azure Stack consists of several logical networks 
 ![Logical network diagram and switch connections](media/azure-stack-network/NetworkDiagram.png)
 
 ### BMC network
-This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host will be located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host is located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
 
 ### Private network
 This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
