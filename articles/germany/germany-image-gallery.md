@@ -241,7 +241,7 @@ For more information on deploying from the Marketplace or creating your own VHD,
 
 * [Deploying a Windows virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Windows virtual machines FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture a Linux VM as an image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Capture a Linux VM as an image](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 
 
