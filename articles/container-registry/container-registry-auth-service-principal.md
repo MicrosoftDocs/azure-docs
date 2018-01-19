@@ -23,7 +23,7 @@ In the context of Azure Container Registry, you can create an Azure AD service p
 
 ## Why use a service principal?
 
-By using an Azure AD service principal, you can provide scoped, auditable access to your private container registry. You can create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing access credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
+By using an Azure AD service principal, you can provide scoped, auditable access to your private container registry. You can create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
 
 For example, your web application can use a service principal that provides it with image `pull` access only, while your build system can use a service principal that provides it with both `push` and `pull` access. If development of your application changes hands, you can rotate its service principle credentials without affecting the build system.
 
