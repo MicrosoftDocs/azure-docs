@@ -37,7 +37,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Deprecated functionality
 -	Plans for changes
 
- This page is updated monthly, so revisit it regularly.
+This page is updated monthly, so revisit it regularly.
 
 
 ## December 2017
@@ -61,7 +61,7 @@ Follow these steps:
 
 4. Now you can review the terms of use you accepted. 
 
-For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -74,7 +74,7 @@ For more information, see the [Azure AD terms of use feature (preview)](https://
  
 The Azure AD and Microsoft account identity system UIs were redesigned so that they have a consistent look and feel. In addition, the Azure AD sign-in page collects the user name first, followed by the credential on a second screen.
 
-For more information, see [The new Azure AD sign-in experience is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+For more information, see [The new Azure AD sign-in experience is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/).
  
 ---
  
@@ -89,7 +89,7 @@ The **Keep me signed in** check box on the Azure AD sign-in page was replaced wi
 
 If you respond **Yes** to this prompt, the service gives you a persistent refresh token. This behavior is the same as when you selected the **Keep me signed in** check box in the old experience. For federated tenants, this prompt shows after you successfully authenticate with the federated service.
 
-For more information, see [Fewer sign-in prompts: The new "keep me signed in" experience for Azure AD is in preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+For more information, see [Fewer sign-in prompts: The new "keep me signed in" experience for Azure AD is in preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/). 
 
 ---
  
@@ -144,7 +144,7 @@ In December 2017, the following new apps with federation support were added in t
 |MOBI|SAML 2.0|Use [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) to centralize, comprehend, and control your entire device ecosystem.|
 |Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for performance management, real-time feedback, and goal setting. |
 |CybSafe|OpenID Connect & OAuth|This GCHQ-certified cyber-awareness platform uses advanced technology and data analytics to reduce the human aspect of cyber security and data protection risk.|
-|WebHR|OpenID Connect & OAuth|This social human resources software is trusted by over 20,000 companies in 197 countries.|
+|WebHR|OpenID Connect & OAuth|This social human resources software is trusted by more than 20,000 companies in 197 countries.|
  |Zenegy Azure AD Integration|OpenID Connect & OAuth|With this app, you can use your company's Azure AD credentials to sign in to Zenegy.|
 |Adobe Experience Manager|SAML 2.0|You can use this comprehensive content management platform solution to build websites, mobile apps, and forms to manage your marketing content and assets.|
 
@@ -192,7 +192,7 @@ With the public preview refresh of Azure AD Privileged Identity Management (PIM)
 * Schedule a future activation of a role that requires approval for both Azure AD and Azure RBAC roles.
 
  
-For more information, see [Privileged Identity Management for Azure resources (preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+For more information, see [Privileged Identity Management for Azure resources (preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
  
 ---
@@ -548,7 +548,7 @@ Multi-factor authentication (MFA) is an essential part of protecting your organi
 
 With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the MFA management portal functionality within the Azure AD experience.
 
-For more information, see [Reference for MFA reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md) 
+For more information, see [Reference for MFA reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md). 
 
 
 ---
