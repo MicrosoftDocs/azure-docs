@@ -25,7 +25,7 @@ Learn how to create an application that uses the Kafka Producer and Consumer API
 
 For documentation on the APIs, see [Producer API](https://kafka.apache.org/documentation/#producerapi) and [Consumer API](https://kafka.apache.org/documentation/#consumerapi).
 
-## Setup your development environment
+## Set up your development environment
 
 You must have the following components installed in your development environment:
 
@@ -35,7 +35,7 @@ You must have the following components installed in your development environment
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-## Setup your deployment environment
+## Set up your deployment environment
 
 This example requires Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
 
@@ -86,7 +86,7 @@ This example requires Kafka on HDInsight 3.6. To learn how to create a Kafka on 
     Replace __your cluster name__ with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight cluster login account.
 
     > [!NOTE]
-    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the above commands with your cluster login name.
+    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the previous commands with your cluster login name.
 
 3. To run the producer and write data to the topic, use the following command:
 
@@ -114,9 +114,9 @@ The consumer application accepts a parameter that is used as the group ID. For e
 java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
 ```
 
-To see this in action, use the following steps
+To see this process in action, use the following steps
 
-1. Repeat steps 1 and 2 in the [Run the example](#run) section to open a new SSH session and configure the environment variables.
+1. Repeat steps 1 and 2 in the [Run the example](#run) section to open a new SSH session.
 
 2. In both SSH sessions, enter the following command:
 

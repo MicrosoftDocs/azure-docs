@@ -25,7 +25,7 @@ Learn how to create an application that uses the Kafka Streams API and run it wi
 
 When working with Apache Kafka, stream processing is often done using Apache Spark or Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics, using an application that runs on Kafka. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
-## Setup your development environment
+## Set up your development environment
 
 You must have the following components installed in your development environment:
 
@@ -35,7 +35,7 @@ You must have the following components installed in your development environment
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-## Setup your deployment environment
+## Set up your deployment environment
 
 This example requires Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
 
@@ -90,15 +90,15 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     Replace __your cluster name__ with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight cluster login account.
 
     > [!NOTE]
-    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the above commands with your cluster login name.
+    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the previous commands with your cluster login name.
 
 5. To run this example, you must do three things:
 
     * Start the Streams solution contained in `kafka-streaming.jar`.
     * Start a producer that writes to the `test` topic.
-    * Start a consumer so that we can see the output written to the `wordcounts` topic
+    * Start a consumer so that you can see the output written to the `wordcounts` topic
 
-    You could accomplish this by opening three SSH sessions, but you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple section. To start the stream, producer, and consumer using `tmux`, use the following command:
+    You could accomplish these operations by opening three SSH sessions. But you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple sections. To start the stream, producer, and consumer using `tmux`, use the following command:
 
     ```bash
     tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
@@ -133,7 +133,7 @@ Use the following steps to build and deploy the project to your Kafka on HDInsig
     > [!NOTE]
     > The count increments each time a word is encountered.
 
-7. Use the __Ctrl + C__ to exit the producer. This removes the lower right section from the display. Continue using __Ctrl + C__ to exit the application and the consumer.
+7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
 ## Next steps
 
