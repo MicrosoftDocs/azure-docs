@@ -66,7 +66,7 @@ After the namespace and queue are created, and you have the necessary credential
 
 To execute the code, do the following steps:
 1.	Navigate to [this GitHub repository](https://github.com/Azure/azure-service-bus), and [clone](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?tabs=visual-studio) it.
-2.	Go to the repository on your computer and navigate to the following folder: \samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient. This is assuming you are in the root folder of the repository. Your full path could for example be:
+2.	Go to the repository on your computer and navigate to the following folder: \samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient. This is assuming you are in the root folder of the repository. Your full path could, for example be:
 C:\repos\azure-service-bus\samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient.
 3.	**BasicSendReceiveUsingQueueClient.csproj** file in Visual Studio.
 4.	Double-click **Program.cs** to open it in the Visual Studio editor.
