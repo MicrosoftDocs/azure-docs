@@ -25,7 +25,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **More services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**.
+2. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **All services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**.
  The Advisor dashboard is displayed.
 
    ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 

@@ -42,7 +42,7 @@ After you have a B2C tenant, you need to register your application via the [Azur
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.
-3. In the left-hand navigation pane, choose **More Services**, click **App Registrations**, and click **Add**.
+3. In the left-hand navigation pane, choose **All Services**, click **App Registrations**, and click **Add**.
 4. Follow the prompts and create a new application. 
     1. Select **Web App / API** as the Application Type.    
     2. Provide **any redirect URI** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
