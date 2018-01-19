@@ -290,7 +290,8 @@ You can get the video frames for a video review with **ContentModeratorClient.Re
 1. The zero-based index of the first video frame to get.
 1. The number of video frames to get.
 
-Note currently the last two parameters are not required by the signature of **GetVideoFrames**; however, if you do not specify values for them, **GetVideoFrames** raises a run-time exception.
+> [!NOTE] Currently the last two parameters are not required by the signature of **GetVideoFrames**; however, 
+> if you do not specify values for them, **GetVideoFrames** raises a run-time exception.
 
 Add the following method definition to namespace VideoReviews, class Program.
 
