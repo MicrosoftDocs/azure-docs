@@ -42,7 +42,7 @@ sections:
 - title: More Azure Machine Learning Technologies
   items:
   - type: paragraph
-    text: 'Other technologies available in Azure Machine Learning:
+    text: 'Other technologies available in Azure Machine Learning:'
   - type: list
     style: unordered
     items:
