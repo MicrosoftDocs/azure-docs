@@ -53,6 +53,8 @@
     href: luis-tutorial-node-import-utterances-csv.md
   - name: Learn synonyms with a phrase list
     href: luis-tutorial-interchangeable-phrase-list.md
+  - name: Gain Application Insights with a bot using Node.js
+    href: luis-tutorial-function-appinsights.md
 - name: Samples
   items:
   - name: Code samples
