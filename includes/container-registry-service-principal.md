@@ -1,6 +1,6 @@
 ## Create a service principal
 
-You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions. By default, the script configures the service principal for both *push* and *pull* permissions.
+You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions.
 
 ```bash
 #!/bin/bash
