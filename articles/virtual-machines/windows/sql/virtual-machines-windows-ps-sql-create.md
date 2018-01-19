@@ -304,7 +304,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 The virtual machine is created.
 
 > [!NOTE]
-> You can ignore the error about the bot diagnostics. A standard storage account is created for boot diagnostics, because the specified storage account for the virtual machine's disk is a premium storage account.
+> You can ignore the error about the boot diagnostics. A standard storage account is created for boot diagnostics, because the specified storage account for the virtual machine's disk is a premium storage account.
 
 ## Install the SQL Iaas Agent
 SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it is created.
