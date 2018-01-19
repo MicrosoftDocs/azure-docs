@@ -191,8 +191,6 @@
       href: storage-how-to-use-blobs-powershell.md 
     - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md      
-    - name: REST
-      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Storage

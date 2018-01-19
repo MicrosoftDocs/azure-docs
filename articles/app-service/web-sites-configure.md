@@ -59,7 +59,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 **Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your web app. Remote debugging will remain enabled for 48 hours. 
 
 ### App settings
-This section contains name/value pairs that you web app will load on start up. 
+This section contains name/value pairs that your web app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
