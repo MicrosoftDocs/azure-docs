@@ -61,7 +61,7 @@ Members can invite guests | Setting this to no prevents users from inviting gues
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
 Ability to read other users | For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 
-## Obeject ownership
+## Object ownership
 
 ### Application registration owner permissions
 When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own. To assign an application registration owner, see [Azure Active Directory app registration](active-directory-app-registration.md).
