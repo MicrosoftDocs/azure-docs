@@ -79,7 +79,7 @@ Thanks to this CORS-based approach, the end users have consistent experiences be
 
 ## Create a storage account
 
-As a prerequisite, you need to create a storage account. You need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/en-us/pricing/free-trial/).
+As a prerequisite, you need to create a storage account. You need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial at the [Azure website](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com).
 2. Sign in with your administrative credentials.
