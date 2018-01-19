@@ -43,6 +43,11 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Use the Phoenix Query Server REST SDK
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+  - name: Analyze big data
+    items:
+      - name: Use Spark to read and write HBase data
+        href: ../hdinsight-using-spark-query-hbase.md
+        maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
