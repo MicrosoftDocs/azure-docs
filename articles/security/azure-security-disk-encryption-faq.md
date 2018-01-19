@@ -3,9 +3,9 @@ title: Azure Disk Encryption FAQ| Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: deventiwari
+author: devtiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption FAQ
