@@ -8,29 +8,33 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/03/2018
+ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run your first Batch job using the .NET API
+# Quickstart: Run your first Azure Batch job with the .NET API
 
-This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
-
-Each sample task displays the contents of the file downloaded to the compute node. This example is basic but introduces key concepts of the Batch service. 
+This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
 ![Quickstart app workflow](./media/quick-run-dotnet/sampleapp.png)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Visual Studio 2015](https://www.visualstudio.com/) or a more recent version. 
+* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
 * A Batch account and a linked general-purpose storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+
+## Sign in to Azure
+
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## Download the sample
 
-[Download or clone the sample solution](https://github.com/Azure-Samples/batch-dotnet-quickstart) from GitHub.
+[Download or clone the sample solution](https://github.com/Azure-Samples/batch-dotnet-quickstart) from GitHub. 
 
 Change to the directory that contains the Visual Studio solution:
 
@@ -38,15 +42,13 @@ Change to the directory that contains the Visual Studio solution:
 cd BatchDotnetQuickstart
 ```
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
-
 Open the `BatchDotNetQuickstart.sln` solution file in Visual Studio, and update the credential strings in `program.cs` with the values unique to your accounts. For example:
 
 ```csharp
 // Batch account credentials
 private const string BatchAccountName = "mybatchaccount";
 private const string BatchAccountKey  = "xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ==";
-private const string BatchAccountUrl  = "https://mybatchaccount.westus2.batch.azure.com";
+private const string BatchAccountUrl  = "https://mybatchaccount.mybatchregion.batch.azure.com";
 
 // Storage account credentials
 private const string StorageAccountName = "mystorageaccount";
@@ -91,7 +93,6 @@ stderr:
 Typical execution time is approximately 5 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
 
-
 ## Walkthrough
 
 The .NET app in this quickstart does the following:
@@ -105,36 +106,38 @@ See the file `Program.cs` and the following sections for details.
 
 ### Preliminaries
 
-* To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
 
-  ```csharp
-  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-  ```
+```csharp
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```
 
-* The app uses the `blobClient` reference to create a container in the storage account and to upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes.
+The app uses the `blobClient` reference to create a container in the storage account and to upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes.
 
-  ```csharp
-  List<string> inputFilePaths = new List<string>
-  {
-      @"..\..\taskdata0.txt",
-      @"..\..\taskdata1.txt",
-      @"..\..\taskdata2.txt"
-  };
-  
-  List<ResourceFile> inputFiles = new List<ResourceFile>();
-    
-  foreach (string filePath in inputFilePaths)
-  {
-      inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
-  }
-  ```
-* The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. (Batch also supports Azure Active Directory authentication.)
+```csharp
+List<string> inputFilePaths = new List<string>
+{
+    @"..\..\taskdata0.txt",
+    @"..\..\taskdata1.txt",
+    @"..\..\taskdata2.txt"
+};
 
-  ```csharp
-  BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+List<ResourceFile> inputFiles = new List<ResourceFile>();
 
-  BatchClient batchClient = BatchClient.Open(cred);
-  ```
+foreach (string filePath in inputFilePaths)
+{
+    inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
+}
+```
+
+The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. (Batch also supports Azure Active Directory authentication.)
+
+```csharp
+BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+
+using (BatchClient batchClient = BatchClient.Open(cred))
+...    
+```
 
 ### Create a Batch pool
 
@@ -148,14 +151,13 @@ The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits 
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter",
+    sku: "2012-R2-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
 new VirtualMachineConfiguration(
    imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64"
-   );
+   nodeAgentSkuId: "batch.node.windows amd64");
 
 try
 {
@@ -163,8 +165,7 @@ try
     poolId: PoolId,
     targetDedicatedComputeNodes: PoolNodeCount,
     virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration
-    );
+    virtualMachineConfiguration: virtualMachineConfiguration);
 
     pool.Commit();
 }
@@ -173,7 +174,7 @@ try
 ```
 ### Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The app uses the [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) method to create a job on your pool. 
+A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. The app uses the [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) method to create a job on your pool. 
 
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) method submits the job to the Batch service. Initially the job has no tasks.
 
@@ -190,22 +191,23 @@ try
 ```
 
 ### Create tasks
-The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. In the sample, the command line runs a command to display the input file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. In the sample, the command line runs the Windows `type` command to display the input file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job with the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) method, which queues them to run on the compute nodes. 
+Then, the app adds tasks to the job with the [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues them to run on the compute nodes. 
 
 ```csharp
-foreach (ResourceFile inputFile in inputFiles)
-    {
-    string taskId = "Task" + inputFiles.IndexOf(inputFile);
-    string inputfilename = inputFile.FilePath
-    string taskCommandLine = String.Format("cmd /c type {0}", inputfilename);
-    
+for (int i = 0; i < inputFiles.Count; i++)
+{
+    string taskId = String.Format("Task{0}", i);
+    string inputFilename = inputFiles[i].FilePath;
+    string taskCommandLine = String.Format("cmd /c type {0}", inputFilename);
+
     CloudTask task = new CloudTask(taskId, taskCommandLine);
-    task.ResourceFiles = new List<ResourceFile> { inputFile };
-        tasks.Add(task);
-    }
-batchClient.JobOperations.AddTaskAsync(JobId, tasks).Wait();
+    task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
+    tasks.Add(task);
+}
+
+batchClient.JobOperations.AddTask(JobId, tasks);
 ```
  
 ### View task output
@@ -225,14 +227,14 @@ foreach (CloudTask task in completedtasks)
 
 ## Clean up resources
 
-The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted.
+The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. When you delete the pool, all task output on the nodes is deleted.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 
-In this quickstart, you ran a basic Azure Batch job to demonstrate key concepts of the Batch service. To learn more about Azure Batch, and walk through a parallel file processing example with ffmpeg, continue to the Batch .NET tutorial.
+In this quickstart, you ran a small app built using the Batch .NET API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch .NET tutorial.
 
 
 > [!div class="nextstepaction"]
-> [Process files in parallel with .NET](tutorial-parallel-dotnet.md)
+> [Process a parallel workload with .NET](tutorial-parallel-dotnet.md)

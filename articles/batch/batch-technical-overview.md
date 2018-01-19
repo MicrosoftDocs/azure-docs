@@ -12,24 +12,24 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.topic: overview
+ms.date: 01/16/2018
 ms.author: mscurrell
-ms.custom: 
+ms.custom: mvc
 
 ---
-# Overview of Azure Batch
+# What is Azure Batch?
 
-Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a collection of virtual machines, installs the applications you want to run, and schedules jobs to run on the virtual machines.
+Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a collection of virtual machines, installs the applications you want to run, and schedules jobs to run on the virtual machines. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. And there is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
 
-Azure Batch manages Azure compute resources and adds higher-level features tailored to batch processing jobs. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. There is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
+Batch is mainly used as a platform service by developers to build SaaS applications or client apps where large-scale execution is required. For example, build a service with Batch to run a Monte Carlo risk simulation for a financial services company, or a service to process many images.
 
 For a comparison between Batch and other HPC solution options in Azure, see [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md).
 
-## Supported Batch workloads
+## Run parallel workloads
 Batch works well with intrinsically parallel (also known as "embarrassingly parallel") workloads. Intrinsically parallel workloads are those where the applications can run independently, and each instance completes part of the work. When the applications are executing, they might access some common data, but they do not communicate with other instances of the application. Intrinsically parallel workloads can therefore run at a large scale, determined by the amount of compute resources available to run applications simultaneously.
 
-Some examples of intrinsically parallel workloads:
+Some examples of intrinsically parallel workloads you can bring to Batch:
 
 * Financial risk modeling using Monte Carlo simulations
 * VFX and 3D image rendering
@@ -40,26 +40,25 @@ Some examples of intrinsically parallel workloads:
 * Data ingestion, processing, and ETL operations
 * Software test execution
 
-You can also use Azure Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API and need the high-speed, low-latency Infiniband network that is available on Azure VMs such as the [HPC VM sizes](../virtual-machines/windows/sizes-hpc.md).
+You can also use Azure Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. Run your tightly coupled workloads with Batch and [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) (or Intel MPI) and take advantage of the high-speed, low-latency Infiniband network that is available on the [HPC VM sizes](../virtual-machines/windows/sizes-hpc.md).
 
 Some examples of tightly coupled workloads:
 * Finite element analysis
 * Fluid dynamics
 * Multi-node AI training
 
-Many tightly coupled jobs can be run in parallel using Batch. For example, perform many simulations of a liquid flowing though a pipe with varying pipe widths.
+Many tightly coupled jobs can be run in parallel using Batch. For example, perform many simulations of a liquid flowing through a pipe with varying pipe widths.
 
-## Azure Batch use scenarios
-Batch is mainly used as a platform service by developers building either cloud-native SaaS offerings or client applications where large-scale application execution is required. For example, build a service with Batch to run a Monte Carlo risk simulation for a financial services company, or a service to process many images. Developers can use the batch APIs to configure and control Batch, and monitor jobs and tasks using the Azure portal. The value is that robust, designed-for-the-cloud, cloud-scale batch processing capabilities are provided. The developer does not need to provide or manage this infrastructure.
-
-You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+## Additional Batch capabilities
 
 Higher-level, workload-specific capabilities are also available for Azure Batch:
 * Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
 * R users can leverage the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms.
 
+You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
 
-## Scenario: Scale out a parallel workload
+
+## How it works
 A common scenario for Batch involves scaling out intrinsically parallel work, such as the rendering of images for 3D scenes, on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job.
 
 The following diagram shows steps in a common Batch workflow, with a client application or hosted service using Batch to run a parallel workload.
