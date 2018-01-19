@@ -65,8 +65,7 @@ Application Insights collects any failures in your application and lets you view
 
 	![Exception details](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
-**Note:** Enable the "New details: End-to-End Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like  
-requests, dependencies, exceptions, traces, events etc. in a single full screen experience. You can see the time spent in dependency calls, along with any failures or exceptions in this unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-e2eTxn-diagnostics.md)  
+**Note:** Enable the "New details: End-to-End Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like requests, dependencies, exceptions, traces, events etc. in a single full screen experience. You can see the time spent in dependency calls, along with any failures or exceptions in this unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-e2eTxn-diagnostics.md)  
 	![E2E transaction diagnostics](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## Identify failing code
