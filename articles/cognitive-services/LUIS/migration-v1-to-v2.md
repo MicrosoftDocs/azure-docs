@@ -30,7 +30,7 @@ The authoring API route changed from using the **prog** route to using the **api
 |2|/luis/**api**/v2.0/apps|
 
 
-### Endpoint route changes
+## Endpoint route changes
 The endpoint API has new querystring parameters as well as a different response. If the verbose flag is true, all intents, regardless of score are returned in an array named intents, in addition to the topScoringIntent.
 
 | version | GET route |
