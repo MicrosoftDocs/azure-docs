@@ -151,7 +151,7 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 
 The following example walks you through the process of creating new PTR record. For other record types and to modify existing records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
 
-1. At the top of the **DNS zone** pane, select **+ Record set** to open the **Add record set** blade.
+1. At the top of the **DNS zone** pane, select **+ Record set** to open the **Add record set** pane.
 
    ![Button for creating a record set](./media/dns-reverse-dns-hosting/figure6.png)
 
