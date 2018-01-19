@@ -1,28 +1,28 @@
 ---
-title: Use tools provided in the SDKs to simplify development | Microsoft Docs
-description: How to use tools provided in the SDKs to simplify development for provisioning
+title: Use tools provided in the Azure IoT Hub Device Provisioning Service SDKs to simplify development
+description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service SDKs for development
 services: iot-dps
 keywords: 
 author: yzhong94
 ms.author: yizhon
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.service: iot-dps
 
 documentationcenter: ''
-manager: arjmands
+manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
 
 # How to use tools provided in the SDKs to simplify development for provisioning
-The IoT Hub Device Provisioning Service simplifies the provisioning process with zero-touch, just-in-time provisioning in a secure and scalable manner.  Security attestation in the form of X.509 certificate or Trusted Platform Module (TPM) is required.  Microsoft is also partnering with [other security hardware partners](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) to improve confidence in securing IoT deployment. Understanding the hardware security requirement can be quite challenging for developers.  A set of Azure IoT Provisioning Service SDKs are provided so that developers can use a convenience layer for writing clients that talk to the provisioning service, samples for common scenarios, as well as a set of tools to simplify security attestation in development.
+The IoT Hub Device Provisioning Service simplifies the provisioning process with zero-touch, just-in-time provisioning in a secure and scalable manner.  Security attestation in the form of X.509 certificate or Trusted Platform Module (TPM) is required.  Microsoft is also partnering with [other security hardware partners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) to improve confidence in securing IoT deployment. Understanding the hardware security requirement can be quite challenging for developers.  A set of Azure IoT Provisioning Service SDKs are provided so that developers can use a convenience layer for writing clients that talk to the provisioning service, samples for common scenarios, as well as a set of tools to simplify security attestation in development.
 
-## Trusted Platform Module (TPM) Simulator
-[TPM](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#trusted-platform-module-tpm) can refer to a standard for securely storing keys to used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based.  In production, the devices will have TPM on the device, either as discrete hardware, integrated hardware, or firmware-based. In the testing phase, a software-based TPM simulator is provided to developers.  This is only available for developing on Windows platform for now.
+## Trusted Platform Module (TPM) simulator
+[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) can refer to a standard for securely storing keys to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based.  In production, TPM is located on the device, either as discrete hardware, integrated hardware, or firmware-based. In the testing phase, a software-based TPM simulator is provided to developers.  This simulator is only available for developing on Windows platform for now.
 
-Steps for using the TPM Simulator are:
-1. [Prepare the development environment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) and clone the GitHub repository:
+Steps for using the TPM simulator are:
+1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) and clone the GitHub repository:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
@@ -30,20 +30,20 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 3. Run Simulator.exe prior to running any client application for provisioning device.
 4. Let the simulator run in the background throughout the provisioning process to obtain registration ID and Endorsement Key.  Both values are only valid for one instance of the run.
 
-## X.509 Certificate Generator
-[X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) to obtain a X.509 certificate:
+## X.509 certificate generator
+[X.509 certificates](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) to obtain an X.509 certificate:
 * For production environment, we recommend purchasing an X.509 CA certificate from a public root certificate authority.
-* For testing environment, you can generate a X.509 root certificate or X.509 certificate chain using:
-    * OpenSSL: this [how to guide](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) walks through sample PowerShell scripts that use [OpenSSL](https://www.openssl.org/) to create and sign X.509 certificates
-    * Device Identity Composition Engine (DICE) Emulator: DICE can be used for cryptographic device identity and attestation based on TLS protocol and X.509 client certificates.  [Learn](https://www.microsoft.com/en-us/research/publication/device-identity-dice-riot-keys-certificates/) more about device identity with DICE.
+* For testing environment, you can generate an X.509 root certificate or X.509 certificate chain using:
+    * OpenSSL: this [how to guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) walks through sample PowerShell scripts that use [OpenSSL](https://www.openssl.org/) to create and sign X.509 certificates
+    * Device Identity Composition Engine (DICE) Emulator: DICE can be used for cryptographic device identity and attestation based on TLS protocol and X.509 client certificates.  [Learn](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) more about device identity with DICE.
 
-### Using X.509 Certificate Generator with DICE Emulator
-The SDKs provide a X.509 Certificate Generator using DICE Emulator, located in the [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  This generator works on Windows only.  The generated certificate can be used for development in other languages.
+### Using X.509 certificate generator with DICE emulator
+The SDKs provide an X.509 certificate generator with DICE emulator, located in the [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  This generator works cross-platform.  The generated certificate can be used for development in other languages.
 
-Currently, while the DICE Emulator outputs a root certificate, an intermediate certificate, a leaf certificate and associated private key.  However, the root certificate or intermediate certificate cannot be used to sign a separate leaf certificate.  If you intend to test group enrollment scenario where one signing certificate is used to sign the leaf certificates of multiple devices, you can use OpenSSL to produce a chain of certificates.
+Currently, while the DICE Emulator outputs a root certificate, an intermediate certificate, a leaf certificate, and associated private key.  However, the root certificate or intermediate certificate cannot be used to sign a separate leaf certificate.  If you intend to test group enrollment scenario where one signing certificate is used to sign the leaf certificates of multiple devices, you can use OpenSSL to produce a chain of certificates.
 
 To generate X.509 certificate using this generator:
-1. [Prepare the development environment](https://docs.microsoft.com/en-us/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) and clone the GitHub repository:
+1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) and clone the GitHub repository:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
@@ -57,8 +57,11 @@ cd target
 java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
 ```
 7. When prompted, you may optionally enter a _Common Name_ for your certificates.
-8. The tool locally generates a **Client Cert**, the **Client Cert Private Key**, **Intermediate Cert** and the **Root Cert**.
+8. The tool locally generates a **Client Cert**, the **Client Cert Private Key**, **Intermediate Cert**, and the **Root Cert**.
 
-**Client Cert** is the leaf certificate on the device.  **Client Cert** and the associated **Client Cert Private Key** are needed in device client. Depending on what language you choose, the mechanism to put this in the client application may be different.  Refer to the [Quickstarts](https://docs.microsoft.com/en-us/azure/iot-dps/quick-create-simulated-device-x509) on create simulated device using X.509 for more information.
+**Client Cert** is the leaf certificate on the device.  **Client Cert** and the associated **Client Cert Private Key** are needed in device client. Depending on what language you choose, the mechanism to put this in the client application may be different.  For more information, see the [Quickstarts](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) on create simulated device using X.509 for more information.
 
-The root certificate or intermediate can be used to create an enrollment group or individual enrollment [programmatically](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments-sdks) or using the [portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+The root certificate or intermediate can be used to create an enrollment group or individual enrollment [programmatically](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) or using the [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
+
+# Related Content
+[Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
