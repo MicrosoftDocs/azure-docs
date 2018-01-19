@@ -22,9 +22,9 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
 
-This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walk-through to implement the solution by using Data Factory and Azure Batch.
+This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
-This article is longer than a typical article because it contains a walk-through of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the [architecture section](#architecture-of-sample-solution) of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the [walk-through](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
+This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the [architecture section](#architecture-of-sample-solution) of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
 
 First, let's look at how Data Factory and Batch services can help you process large datasets in the cloud.     
 
@@ -87,8 +87,8 @@ The sample solution is intentionally simple. It's designed to show you how to us
 #### Azure subscription
 If you don't have an Azure subscription, you can create a free trial account quickly. For more information, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-#### Azure Storage account
-You use a Storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
+#### Azure storage account
+You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
 #### Azure Batch account
 Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
@@ -179,7 +179,7 @@ The method has a few key components that you need to understand:
 
    b. Select **File** > **New** > **Project**.
 
-   c. Expand **Templates**, and select **Visual C\#**. In this walk-through, you use C\#, but you can use any .NET language to develop the custom activity.
+   c. Expand **Templates**, and select **Visual C\#**. In this walkthrough, you use C\#, but you can use any .NET language to develop the custom activity.
 
    d. Select **Class Library** from the list of project types on the right.
 
@@ -307,7 +307,7 @@ The method has a few key components that you need to understand:
 	   return new Dictionary<string, string>();
 	}
 	```
-9. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most importantly, the **Calculate** method isolates the code that iterates through each blob.
+9. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
 
 	```csharp
 	/// <summary>
@@ -518,7 +518,7 @@ The output file has three lines now, one for each input file (blob) in the folde
 
 A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Batch to process the slice. Because there are five slices (each slice can have multiple blobs or file), five tasks are created in Batch. When a task runs on Batch, it's the custom activity that is running.
 
-The following walk-through provides additional details.
+The following walkthrough provides additional details.
 
 #### Step 1: Create the data factory
 1. After you sign in to the [Azure portal](https://portal.azure.com/), take the following steps:
@@ -588,6 +588,7 @@ In this step, you create a linked service for your Batch account that is used to
       > The Data Factory service doesn't support an on-demand option for Batch as it does for HDInsight. You can use only your own Batch pool in a data factory.
       >
       >
+   
    e. Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
 
 3. Select **Deploy** on the command bar to deploy the linked service.
@@ -656,7 +657,7 @@ In this step, you create datasets to represent input and output data.
 	}
 	```
 
-	You create a pipeline later in this walk-through with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
+	You create a pipeline later in this walkthrough with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
 
 	The **frequency** and **interval** for the input dataset are set to **Hour** and **1**, which means that the input slice is available hourly.
 
