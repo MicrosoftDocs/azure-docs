@@ -44,7 +44,7 @@ Make sure that the VM complies with requirements summarized in the table.
 **VM requirement** | **Details**
 --- | ---
 **Guest operating system** | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Azure requirements** | On-premises Hyper-V VMs must meet Azure VM requirements(site-recovery-support-matrix-to-azure.md).
+**Azure requirements** | On-premises Hyper-V VMs must meet Azure VM [requirements](site-recovery-support-matrix-to-azure.md).
 
 ## Prepare VMM (optional)
 
