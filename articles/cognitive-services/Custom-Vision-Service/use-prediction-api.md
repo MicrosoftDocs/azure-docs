@@ -27,7 +27,7 @@ After you train your model, you can obtain a URL that you can use to test images
 
 ### Test an image in C#
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;

@@ -151,7 +151,7 @@ If you are thinking about contacting support, the first thing they might ask you
 ## Diagnostics data tables not found
 The tables in Azure storage that hold ETW events are named by using the following code:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);

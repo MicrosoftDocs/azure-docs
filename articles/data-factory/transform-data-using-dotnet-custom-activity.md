@@ -199,7 +199,7 @@ When the activity is executed, referenceObjects and extendedProperties are store
 
 Following sample code demonstrate how the SampleApp.exe can access the required information from JSON files: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

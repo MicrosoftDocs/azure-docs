@@ -99,7 +99,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Add model class][cache-model-add-class-dialog]
 3. Replace the `using` statements at the top of the `Team.cs` file with the following `using` statements.
 
-	```c#
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using System.Data.Entity;
@@ -109,7 +109,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
 
-	```c#
+	```csharp
 	public class Team
 	{
 	    public int ID { get; set; }
@@ -223,7 +223,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Global.asax.cs][cache-global-asax]
 6. Add the following two `using` statements at the top of the file under the other `using` statements.
 
-	```c#
+	```csharp
 	using System.Data.Entity;
 	using ContosoTeamStats.Models;
 	```
@@ -231,7 +231,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Add the following line of code at the end of the `Application_Start` method.
 
-	```c#
+	```csharp
 	Database.SetInitializer<TeamContext>(new TeamInitializer());
 	```
 
@@ -241,7 +241,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Replace `controller = "Home"` in the following code in the `RegisterRoutes` method with `controller = "Teams"` as shown in the following example.
 
-	```c#
+	```csharp
 	routes.MapRoute(
 	    name: "Default",
 	    url: "{controller}/{action}/{id}",
@@ -293,14 +293,14 @@ In this section of the tutorial, you'll configure the sample application to stor
     ![Teams controller][cache-teamscontroller]
 4. Add the following two `using` statements to **TeamsController.cs**.
 
-	```c#   
+	```csharp   
 	using System.Configuration;
 	using StackExchange.Redis;
 	```
 
 5. Add the following two properties to the `TeamsController` class.
 
-	```c#   
+	```csharp   
 	// Redis Connection string info
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -348,14 +348,14 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 1. Add the following `using` statements to the `TeamsController.cs` file at the top with the other `using` statements.
 
-	```c#   
+	```csharp   
 	using System.Diagnostics;
 	using Newtonsoft.Json;
 	```
 
 2. Replace the current `public ActionResult Index()` method implementation with the following implementation.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -414,7 +414,7 @@ In this sample, team statistics can be retrieved from the database or from the c
    
     The `PlayGames` method updates the team statistics by simulating a season of games, saves the results to the database, and clears the now outdated data from the cache.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -433,7 +433,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `RebuildDB` method reinitializes the database with the default set of teams, generates statistics for them, and clears the now outdated data from the cache.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -448,7 +448,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `ClearCachedTeams` method removes any cached team statistics from the cache.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -463,7 +463,7 @@ In this sample, team statistics can be retrieved from the database or from the c
    
     The `GetFromDB` method reads the team statistics from the database.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -477,7 +477,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -505,7 +505,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the team statistics are read from the database and stored in the cache as a sorted set.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -542,7 +542,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next, the cached sorted set is queried for the top 5 teams which are returned.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -575,7 +575,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -600,7 +600,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 1. Browse to the `Edit(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -624,7 +624,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 1. Browse to the `DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]

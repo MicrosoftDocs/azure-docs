@@ -88,7 +88,7 @@ Let's start by creating the interface to act as the contract between the statefu
 
 4. In the class library, create an interface with a single method, `GetCountAsync`, and extend the interface from `Microsoft.ServiceFabric.Services.Remoting.IService`. The remoting interface must derive from this interface to indicate that it is a Service Remoting interface.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -111,7 +111,7 @@ Now that we have defined the interface, we need to implement it in the stateful 
     ![Adding a reference to the class library project in the stateful service][vs-add-class-library-reference]
 2. Locate the class that inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -123,7 +123,7 @@ Now that we have defined the interface, we need to implement it in the stateful 
     ```
 3. Now implement the single method that is defined in the `ICounter` interface, `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -147,7 +147,7 @@ In this case, we replace the existing `CreateServiceReplicaListeners` method and
 
 The `CreateServiceRemotingListener` extension method on the `IService` interface allows you to easily create a `ServiceRemotingListener` with all default settings. To use this extension method, ensure you have the `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace imported. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -173,7 +173,7 @@ Our stateful service is now ready to receive traffic from other services over RP
 
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

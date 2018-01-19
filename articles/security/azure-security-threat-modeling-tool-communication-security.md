@@ -212,7 +212,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Steps** | <p>Certificate pinning defends against Man-In-The-Middle (MITM) attacks. Pinning is the process of associating a host with their expected X509 certificate or public key. Once a certificate or public key is known or seen for a host, the certificate or public key is associated or 'pinned' to the host. </p><p>Thus, when an adversary attempts to do SSL MITM attack, during SSL handshake the key from attacker's server will be different from the pinned certificate's key, and the request will be discarded, thus preventing MITM Certificate pinning can be achieved by implementing ServicePointManager's `ServerCertificateValidationCallback` delegate.</p>|
 
 ### Example
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -341,7 +341,7 @@ string GetData(int value);
 
 ### Example 
 The following code shows a Web API authentication filter that checks for SSL: 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -361,7 +361,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Add this filter to any Web API actions that require SSL: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]

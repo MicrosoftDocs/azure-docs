@@ -70,7 +70,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
 3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to `ConfgureAuth(…)` to set up authentication for your web app.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -82,7 +82,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
 4. Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(…)` method. The parameters that you provide in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -96,7 +96,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
 5. Now you can use `[Authorize]` attributes to help protect your controllers and actions with JSON Web Token (JWT) bearer authentication. Decorate the `Controllers\TodoListController.cs` class with an authorize tag. This will force the user to sign in before accessing that page.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -106,7 +106,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
 6. A common requirement for web APIs is to validate the "scopes" present in the token. This ensures that the user has consented to the permissions required to access the To Do List Service.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

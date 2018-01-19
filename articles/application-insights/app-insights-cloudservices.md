@@ -113,7 +113,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
     In a suitable startup function, set the instrumentation key from the configuration setting in the .cscfg file:
  
-    ```C#
+    ```csharp
    
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```

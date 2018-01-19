@@ -192,7 +192,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 The functionality in C# to generate a security token is:
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;

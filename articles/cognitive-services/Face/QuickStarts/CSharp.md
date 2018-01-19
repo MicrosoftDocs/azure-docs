@@ -40,7 +40,7 @@ The sample is written in C# using the Face API client library.
 1. Run the program.
 1. Enter the path to an image on your hard drive.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -315,7 +315,7 @@ create a person group with specified personGroupId, name, and user-provided user
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.Net.Http.Headers;
 using System.Net.Http;

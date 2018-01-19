@@ -65,7 +65,7 @@ Click **Delegated Permissions** beside the newly added **Windows** **Azure Servi
 
 Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
 
-```c#
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 
@@ -108,7 +108,7 @@ Once the values are specified, the code example should return a token similar to
 
 Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
 
-```c#
+```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 

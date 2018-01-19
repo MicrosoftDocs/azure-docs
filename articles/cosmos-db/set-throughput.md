@@ -57,7 +57,7 @@ The following table lists the throughput available for containers:
 
 ## To set the throughput by using the SQL API for .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
