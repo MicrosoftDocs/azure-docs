@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the ProjectOnline connector
 Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to ProjectOnline
 To create Logic apps with ProjectOnline, you must first create a **connection** then provide the details for the following properties: 

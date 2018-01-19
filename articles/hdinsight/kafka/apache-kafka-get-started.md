@@ -30,7 +30,7 @@ Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster 
 
 Use the following steps to create a Kafka on HDInsight cluster:
 
-1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+1. From the [Azure portal](https://portal.azure.com), select **+ Create a resource**, **Data + Analytics**, and then select **HDInsight**.
    
     ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -51,12 +51,9 @@ Use the following steps to create a Kafka on HDInsight cluster:
 3. Select **Cluster type**, and then set the following values from **Cluster configuration**:
    
     * **Cluster Type**: Kafka
-
     * **Version**: Kafka 0.10.0 (HDI 3.6)
 
-    * **Cluster Tier**: Standard
-     
- Finally, use the **Select** button to save settings.
+    Finally, use the **Select** button to save settings.
      
  ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
