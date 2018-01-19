@@ -22,14 +22,14 @@ ms.reviewer: vincesm
 # Default user permissions in Azure Active Directory
 
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
-memberships](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contians a comparison of the member and guest user defaults.
+memberships](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
 The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md) for more information about guest users). 
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
 * Azure AD B2B guest users have restricted directory permissions. For example, guest users cannot browse information from the tenant beyond their own profile information. However, a guest user can retrieve information about another user by providing the User Principal Name or objectId. A guest cannot view any information about other tenant objects such as groups and applications.
 
-Default permissions for guests are very restrictive by default. Guests can be added to administrator roles, which will grant them full read and write permissions contained in the role. There is one additional restriction available, the ability for guests to invite other guests. Setting **Guests can invite** to **No** prevents guests from inviting other guests. See [Delegate invitations for B2B collaboration](active-directory-b2b-delegate-invitations.md) to learn how to set this. To grant guest users the same permissions as member users by default, set **Guest users permissions are limited** to **No**. This will grant all member user permissions above to guest users by default, as well as allow guests to be added to administrative roles.
+Default permissions for guests are restrictive by default. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. There is one additional restriction available, the ability for guests to invite other guests. Setting **Guests can invite** to **No** prevents guests from inviting other guests. See [Delegate invitations for B2B collaboration](active-directory-b2b-delegate-invitations.md) to learn how. To grant guest users the same permissions as member users by default, set **Guest users permissions are limited** to **No**. This setting grants all member user permissions to guest users by default, as well as to allow guests to be added to administrative roles.
 
 ## Compare member and guest default permissions
 
@@ -51,14 +51,14 @@ Default permissions for member users can be restricted in the following ways:
 
 Permission | Setting explanation
 ---------- | ------------
-Ability to create security groups | Setting this to no prevents users from creating security groups. Global Administrators and User Account Administrators will still be able to create security groups. See Configuring Group Settings to learn how to set this.
-Ability to create Office 365 groups | Setting this to no will prevent users from creating Office 365 groups. Setting this to some will allow a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See Configuring Group Settings to learn how to set this.
-Ability to consent to applications | Setting this to no will prevent users from consenting to applications. Global Administrators will still be able to consent to applications. See Configuring Default Permissions for Member Users.
-Ability to add gallery apps to Access Panel | Setting this to no will prevent users from adding gallery apps to their Access Panel. See Configuring Default Permissions for Member Users.
-Ability to register (create) applications | Setting this to no will prevent non-admins from creating applications. Global Administrators will still be able to create applications. See Configuring Default Permissions for Member Users.
-Admins and users in the guest inviter role can invite guests | Setting this to no will prevent all users from inviting guests. See Configuring Default Permissions for Member Users.
-Members can invite guests | Setting this to no will prevent users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. See Configuring Default Permissions for Member Users.
-Restrict access to Azure AD administration portal | Setting this to no will prevent users from accessing the Azure Active Directory portal.
+Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See Configuring Group Settings to learn how.
+Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See Configuring Group Settings to learn how.
+Ability to consent to applications | Setting this option to No prevents users from consenting to applications. Global Administrators will still be able to consent to applications. See Configuring Default Permissions for Member Users.
+Ability to add gallery apps to Access Panel | Setting this option to No prevents users from adding gallery apps to their Access Panel. See Configuring Default Permissions for Member Users.
+Ability to register (create) applications | Setting this option to No prevents non-admins from creating applications. Global Administrators will still be able to create applications. See Configuring Default Permissions for Member Users.
+Admins and users in the guest inviter role can invite guests | Setting this option to No prevents all users from inviting guests. See Configuring Default Permissions for Member Users.
+Members can invite guests | Setting this to no prevents users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. See Configuring Default Permissions for Member Users.
+Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
 Ability to read other users | See Configuring Default Permissions for Member Users.
 
 ## Application owner permissions
