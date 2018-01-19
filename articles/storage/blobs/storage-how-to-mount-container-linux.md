@@ -1,5 +1,5 @@
 ---
-title: How to mount Blob storage as a filesystem on Linux | Microsoft Docs
+title: How to mount Blob storage as a file system on Linux | Microsoft Docs
 description: Mount a Blob storage container with FUSE on Linux
 services: storage
 documentationcenter: linux
@@ -16,16 +16,16 @@ ms.date: 01/19/2018
 ms.author: tamram
 
 ---
-# How to mount Blob storage as a filesystem with blobfuse (Preview)
+# How to mount Blob storage as a file system with blobfuse (Preview)
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual filesystem driver for Blob storage, which allows you to access your existing block blobs in your Storage account through the Linux filesystem. Azure Blob storage is an object storage and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter..  
 
-This guide shows you how to use blobfuse, and mount a Blob storage container on Linux. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
+This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
 > Blobfuse does not guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). As an example, unlike POSIX, a rename operation is not an atomic operation. 
-> For a full list of differences between a native filesystem and blobfuse, visit [the blobfuse source code repository](https://github.com/azure/azure-storage-fuse).
+> For a full list of differences between a native file system and blobfuse, visit [the blobfuse source code repository](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## Install blobfuse on Linux
@@ -39,12 +39,16 @@ As an example, on an Enterprise Linux 6 distribution:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
+Similarly, change the url to '.../rhel/7/...' to point to an Enterprise Linux 7 distribution.
+
 Another example on an Ubuntu 14.04:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
+
+Similarly, change the url to '.../ubuntu/16.04/...' to point to an Ubuntu 16.04 distribution.
 
 ### Install blobfuse
 
@@ -59,7 +63,11 @@ sudo yum install blobfuse
 ```
 
 ## Prepare for mounting
-Blobfuse requires a temporary path in the filesystem to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
+Blobfuse requires a temporary path in the file system to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
+
+> [!NOTE]
+> Blobfuse stores all open file contents in the temporary path. Make sure to have enough space in order to accommadate all open files. 
+> 
 
 ### (Optional) Use a ramdisk for the temporary path
 Following creates a ramdisk of 16 GB as well as creating a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
@@ -94,34 +102,30 @@ chmod 700 fuse_connection.cfg
 
 ### Create an empty directory for mounting
 ```bash
-mkdir /myblobs
+mkdir ~/mycontainer
 ```
 
 ## Mount
-In order to mount blobfuse, run the following command with your user. This command mounts the container 'mycontainer' onto the location '/myblobs'.
-
-```bash
-blobfuse /myblobs --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
-```
-
-You should now have access to your block blobs through the regular filesystem APIs. Note that the mounted directory can only be accessed by the user mounting it, which secures the access. If you want to allow access to all users, you can mount via the option ```-o allow_other```. 
-
-```bash
-cd /myblobs
-mkdir myfiles
-cp ~myfile .
-```
 
 > [!NOTE]
-> For a full list of mount options, check [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).  
+> For a full list of mount options, check [the blobfuse repository](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
+In order to mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg'  onto the location '/mycontainer'.
 
+```bash
+blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+```
 
+You should now have access to your block blobs through the regular file system APIs. Note that the mounted directory can only be accessed by the user mounting it, which secures the access. If you want to allow access to all users, you can mount via the option ```-o allow_other```. 
+
+```bash
+cd ~/mycontainer
+mkdir test
+echo "hello world" > test/blob.txt
+```
 
 ## Next steps
-To learn about more complex storage tasks, follow these links:
 
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
-* [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Blobfuse home page](https://github.com/Azure/azure-storage-fuse#blobfuse)
+* [Report blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues) 
 
