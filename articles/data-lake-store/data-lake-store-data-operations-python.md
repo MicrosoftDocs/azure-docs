@@ -17,7 +17,7 @@ ms.author: nitinme
 
 ---
 
-# Filesystem operations on Azure Data Lake Store using REST API
+# Filesystem operations on Azure Data Lake Store using Python
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)

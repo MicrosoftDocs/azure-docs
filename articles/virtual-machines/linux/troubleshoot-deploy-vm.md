@@ -89,7 +89,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](endorsed-distro
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability-classic.md#addmachine).
 
 
 ## Next steps

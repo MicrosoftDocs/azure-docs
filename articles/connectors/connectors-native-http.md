@@ -27,7 +27,7 @@ You can:
 * Create logic app workflows that activate (trigger) when a website that you manage goes down.
 * Communicate to any endpoint over HTTP to extend your workflows into other services.
 
-To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the HTTP trigger
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
@@ -220,5 +220,5 @@ For example:
 ```
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
 
