@@ -1,4 +1,5 @@
 - name: Team Data Science Process Documentation 
+  href: index.yml
 - name: Overview
   href: overview.md
 - name: Lifecycle

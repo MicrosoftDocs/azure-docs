@@ -31,9 +31,9 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                     </div>
                     <div class="cardText">
                         <a href="/azure/machine-learning/preview">
-                        <h3><strong>Learn about Azure Machine Learning services (preview)</strong></h3>
+                        <h3><strong>Azure Machine Learning services (preview)</strong></h3>
                         </a>
-                        Azure Machine Learning services (preview) enable building, deploying, and managing machine learning and AI models using any Python tools and libraries.
+                        <br>Build, deploy, and manage machine learning and AI models using any Python tools and libraries.
                     </div>
                 </div>
             </div>
@@ -52,9 +52,9 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                     </div>
                     <div class="cardText">
                         <a href="/azure/machine-learning/studio">
-                        <h3><strong>Learn about Azure Machine Learning Studio</strong></h3>
+                        <h3><strong>Azure Machine Learning Studio</strong></h3>
                         </a>
-                        <br>Azure Machine Learning Studio is a collaborative, drag-and-drop tool for developing predictive analytics solutions.
+                        <br>Use a collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions.
                     </div>
                 </div>
             </div>
@@ -73,9 +73,9 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                     </div>
                     <div class="cardText">
                         <a href="/azure/machine-learning/data-science-virtual-machine">
-                        <h3><strong>Learn about the Data Science Virtual Machine</strong></h3>
+                        <h3><strong>Data Science Virtual Machine</strong></h3>
                         </a>
-                        <p>The Data Science Virtual Machine (DSVM) is a customized VM image on Azure built specifically for doing data science. 
+                        <br>A customized VM image on Azure built specifically for doing data science. 
                     </div>
                 </div>
             </div>
@@ -94,10 +94,9 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                     </div>
                     <div class="cardText">
                         <a href="/azure/machine-learning/team-data-science-process">
-                        <h3><strong>Learn about the Team Data Science Process</strong></h3>
+                        <h3><strong>Team Data Science Process</strong></h3>
                         </a>
-                        <p>The Team Data Science Process is an agile, iterative, team-oriented data science methodology.
-                        </p>
+                        <br>A team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
                     </div>
                 </div>
             </div>
