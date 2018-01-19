@@ -264,7 +264,7 @@ Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 1. Switch to the **Monitor** tab. You see the pipeline that you manually trigger in the previous step. 
 
     ![Pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-2. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. You see only activity runs since there is only one activity in the pipeline. To switch back to the pipeline runs view, click **Pipelines** link at the top of the window. 
+2. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. You see only activity runs since there is only one activity in the pipeline. To see details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. You can switch back to pipeline runs view by clicking **Pipelines** at the top.
 
     ![Activity runs](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 

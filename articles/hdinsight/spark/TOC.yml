@@ -95,6 +95,9 @@
         - name: Structured streaming with Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: Structured streaming from Kafka to CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Spark streaming (DStream) with Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
@@ -112,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Analyze big data
       items:
+        - name: Use Spark to read and write HBase data
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analyze Application Insights telemetry logs
           href: apache-spark-analyze-application-insight-logs.md
     - name: Extend clusters
@@ -175,6 +181,8 @@
         maintainContext: true
     - name: Manage
       items:
+      - name: Optimize Spark jobs
+        href: apache-spark-perf.md
       - name: Cluster capacity planning
         href: ../hdinsight-capacity-planning.md
         maintainContext: true

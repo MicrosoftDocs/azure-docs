@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Understand and customize synchronization | Micros
 description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

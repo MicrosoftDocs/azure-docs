@@ -34,6 +34,9 @@
     - name: Kafka and Spark (Structured Streaming)
       href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Structured streaming from Kafka to CosmosDB
+      href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+      maintainContext: true
     - name: Kafka and Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
