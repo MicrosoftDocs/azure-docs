@@ -34,7 +34,7 @@ The following data sources are currently supported for lookup:
 - SQL Server (JSON data converted from query)
 - Azure Table storage (JSON data converted from query)
 
-The maximum number of rows returned by Lookup activity is 5000, and up to 10MB in size.
+The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
 
 ## Syntax
 
