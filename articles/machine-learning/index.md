@@ -75,7 +75,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                         <a href="/azure/machine-learning/data-science-virtual-machine">
                         <h3><strong>Data Science Virtual Machine</strong></h3>
                         </a>
-                        <br>A customized VM image on Azure built specifically for doing data science. 
+                        <br>The DSVM is a customized VM image on Azure built specifically for doing data science. 
                     </div>
                 </div>
             </div>
