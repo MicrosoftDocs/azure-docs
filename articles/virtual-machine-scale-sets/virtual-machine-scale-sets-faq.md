@@ -557,7 +557,7 @@ To create a virtual machine scale set with a custom DNS configuration, add a dns
 
 ### How can I configure a scale set to assign a public IP address to each VM?
 
-To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMAchineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
+To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
 
 ```json
     "publicipaddressconfiguration": {
