@@ -59,9 +59,9 @@ Azure AD supports SCIM provisioning. We’re still working on our ability to pub
 
 ## Process for submitting the request in the portal
 
-Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Sharepoint Portal](https://microsoft.sharepoint.com/teams/apponboarding/apps/SitePages/Default.aspx). If you have Office 365 account, you can use that to login to this portal otherwise use your Microsoft Id (Live, Outlook, Hotmail etc) to login. You'll see following page to request your access. Please provide a business justification in the textbox and click on **Request Access**. Our team will review all the details and give you the access accordingly. After that you can log on to the portal and submit your detailed request for the application.
+Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Sharepoint Portal](https://microsoft.sharepoint.com/teams/apponboarding/apps/SitePages/Default.aspx). If you have Office 365 account, you can use that to login to this portal otherwise use your Microsoft ID (Live, Outlook, Hotmail etc.) to login. You see following page to request your access. Provide a business justification in the textbox and click on **Request Access**. Our team will review all the details and give you the access accordingly. After that, you can log on to the portal and submit your detailed request for the application.
 
-If you face any issue regarding the access, please contact [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+If you face any issue regarding the access, contact [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ![Access Request on SharePoint portal](./media/active-directory-app-gallery-listing/accessrequest.png)
 
