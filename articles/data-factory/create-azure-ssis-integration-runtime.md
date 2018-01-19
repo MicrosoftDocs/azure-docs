@@ -20,20 +20,32 @@ ms.author: spelluru
 # Create an Azure-SSIS integration runtime in Azure Data Factory
 This article provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure.
 
+The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-deploy-ssis-packages-azure.md) showed you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database as the store for SSIS catalog. This article expands on the tutorial and shows you how to do the following: 
+
+- Use Azure SQL Managed Instance (private preview) for hosting an SSIS catalog (SSISDB database).
+- Join Azure-SSIS IR to an Azure virtual network (VNet). For conceptual information on joining an Azure-SSIS IR to a VNet and configuring a VNet in Azure portal, see [Join Azure-SSIS IR to VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
+
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-introduction.md).
 
-The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-deploy-ssis-packages-azure.md) shows you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database as the store for SSIS catalog. This article expands on the tutorial and shows you how to do the following: 
 
-- Use Azure SQL Managed Instance (private preview) for hosting an SSIS catalog (SSISDB database).
-- Join Azure-SSIS IR to an Azure virtual network (VNet). 
+## Overview
+This article shows different ways of provisioning an Azure-SSIS IR:
 
-For conceptual information on joining an Azure-SSIS IR to a VNet and configuring a VNet in Azure portal, see [Join Azure-SSIS IR to VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
+- [Azure portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure Resource Manager template](#azure-resource-manager-template)
+
+When you create an Azure-SSIS IR, Data Factory connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
+
+When you provision an instance of SQL Database to host SSISDB, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
 
 ## Prerequisites
 
 - **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 - **Azure SQL Database server** or **SQL Server Managed Instance (private preview) (Extended Private Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. Note down the pricing tier of your Azure SQL server. For a list of supported pricing tiers for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
+
+    Confirm that your Azure SQL Database server or SQL Server Managed Instance (extended private preview) does not have an SSIS Catalog (SSIDB database). The provisioning of Azure-SSIS IR does not support using an existing SSIS Catalog.
 - **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
     - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
     - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
@@ -42,8 +54,109 @@ For conceptual information on joining an Azure-SSIS IR to a VNet and configuring
 > [!NOTE]
 > For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
 
+## Azure portal
+In this section, you use the Azure portal, specifically the Data Factory UI, to create an Azure-SSIS IR. 
 
-## Create variables
+### Create a data factory
+
+1. Log in to the [Azure portal](https://portal.azure.com/).    
+2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+   
+   ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
+3. In the **New data factory** page, enter **MyAzureSsisDataFactory** for the **name**. 
+      
+     ![New data factory page](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+ 
+   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+  
+       `Data factory name “MyAzureSsisDataFactory” is not available`
+3. Select your Azure **subscription** in which you want to create the data factory. 
+4. For the **Resource Group**, do one of the following steps:
+     
+      - Select **Use existing**, and select an existing resource group from the drop-down list. 
+      - Select **Create new**, and enter the name of a resource group.   
+         
+      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+4. Select **V2 (Preview)** for the **version**.
+5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
+6. Select **Pin to dashboard**.     
+7. Click **Create**.
+8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
+
+	![deploying data factory tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+9. After the creation is complete, you see the **Data Factory** page as shown in the image.
+   
+   ![Data factory home page](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+10. Click **Author & Monitor** to launch the Data Factory User Interface (UI) in a separate tab. 
+
+### Provision an Azure SSIS integration runtime
+
+1. In the get started page, click **Configure SSIS Integration Runtime** tile. 
+
+   ![Configure SSIS Integration Runtime tile](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+2. In the **General Settings** page of **Integration Runtime Setup**, do the following steps: 
+
+   ![General settings](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+
+    1. Specify a **name** for the integration runtime.
+    2. Select the **location** for the integration runtime. Only supported locations are displayed.
+    3. Select the **size of the node** that is to be configured with the SSIS runtime.
+    4. Specify the **number of nodes** in the cluster.
+    5. Click **Next**. 
+1. In the **SQL Settings**, do the following steps: 
+
+    ![SQL settings](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
+
+    1. Specify the Azure **subscription** that has the Azure SQL server. 
+    2. Select your Azure SQL server for the **Catalog Database Server Endpoint**.
+    3. Enter the **administrator** user name.
+    4. Enter the **password** for the administrator.  
+    5. Select the **service tier** for the SSISDB database. The default value is Basic.
+    6. Click **Next**. 
+1.  In the **Advanced Settings** page, select a value for the **Maximum Parallel Executions Per Node**.   
+
+    ![Advanced settings](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
+5. This step is **optional**. If you have a classic virtual network (VNet) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** option, and do the following steps: 
+
+    ![Advanced settings with VNet](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
+
+    1. Specify the **subscription** that has the classic VNet. 
+    2. Select the **VNet**. <br/>
+    4. Select the **Subnet**.<br/> 
+1. Click **Finish** to start the creation of Azure-SSIS integration runtime. 
+
+    > [!IMPORTANT]
+    > - This process takes approximately 20 to minutes to complete
+    > - The Data Factory service connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
+7. In the **Connections** window, switch to **Integration Runtimes** if needed. Click **Refresh** to refresh the status. 
+
+    ![Creation status](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
+8. Use the links under **Actions** column to monitor, stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
+
+    ![Azure SSIS IR - actions](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
+9. Click **Monitor** link under **Actions**.  
+
+    ![Azure SSIS IR - details](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
+10. If there was an **error** associated with the Azure SSIS IR, you see the number of errors on this page and the link to view details about the error. For example, if the SSIS Catalog already exists on the database server, you see an error that indicates the existence of the SSISDB database.  
+11. Click **Integration Runtimes** at the top to navigate to back the previous page to see all integration runtimes associated with the data factory.  
+
+### Azure SSIS integration runtimes in the portal
+
+1. In the Azure Data Factory UI, switch to the **Edit** tab, click **Connections**, and then switch to **Integration Runtimes** tab to view existing integration runtimes in your data factory. 
+    ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+1. Click **New** to create a new Azure-SSIS IR. 
+
+    ![Integration runtime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+2. To create an Azure-SSIS integration runtime, click **New** as shown in the image. 
+3. In the Integration Runtime Setup window, select **Lift-and-shift existing SSIS packages to execute in Azure**, and then click **Next**.
+
+    ![Specify the type of integration runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+4. See the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section for the remaining steps to set up an Azure-SSIS IR.
+
+## Azure PowerShell
+In this section, you use the Azure PowerShell to create an Azure-SSIS IR.
+
+### Create variables
 Define variables for use in the script in this tutorial:
 
 ```powershell
@@ -84,7 +197,7 @@ $VnetId = "[your VNet resource ID or leave it empty]"
 $SubnetName = "[your subnet name or leave it empty]" 
 
 ```
-## Log in and select subscription
+### Log in and select subscription
 Add the following code the script to log in and select your Azure subscription: 
 
 ```powershell
@@ -92,7 +205,7 @@ Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
-## Validate the connection to database
+### Validate the connection to database
 Add the following script to validate your Azure SQL Database server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint. 
 
 ```powershell
@@ -114,7 +227,7 @@ Catch [System.Data.SqlClient.SqlException]
 }
 ```
 
-## Configure virtual network
+### Configure virtual network
 Add the following script to automatically configure virtual network permissions/settings for your Azure-SSIS integration runtime to join.
 
 ```powershell
@@ -132,14 +245,14 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 }
 ```
 
-## Create a resource group
+### Create a resource group
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## Create a data factory
+### Create a data factory
 Run the following command to create a data factory:
 
 ```powershell
@@ -148,10 +261,10 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Name $DataFactoryName
 ```
 
-## Create an integration runtime
+### Create an integration runtime
 Run the following command to create an Azure-SSIS integration runtime that runs SSIS packages in Azure: Use the script from the section based on the type of database (Azure SQL Database vs. Azure SQL Managed Instance (private preview)) you are using. 
 
-### Azure SQL Database to host the SSISDB database (SSIS catalog) 
+#### Azure SQL Database to host the SSISDB database (SSIS catalog) 
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -172,7 +285,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 You don't need to pass values for VNetId and Subnet, unless you need on-premises data access, that is, you have on-premises data sources/destinations in your SSIS packages. You must pass value for the CatalogPricingTier parameter. For a list of supported pricing tiers for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
-### Azure SQL Managed Instance (private preview) to host the SSISDB database
+#### Azure SQL Managed Instance (private preview) to host the SSISDB database
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -194,7 +307,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 You need to pass values for VnetId and Subnet parameters with Azure SQL Managed Instance (private preview) that joins a VNet. The CatalogPricingTier parameter does not apply for Azure SQL Managed Instance. 
 
-## Start integration runtime
+### Start integration runtime
 Run the following command to start the Azure-SSIS integration runtime: 
 
 ```powershell
@@ -210,7 +323,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 This command takes from **20 to 30 minutes** to complete. 
 
 
-## Full script
+### Full script
 Here is the full script that creates an Azure-SSIS IR and joins it to a VNet. This script assumes that you are using the Azure SQL Managed Instance (MI) to host the SSIS catalog. 
 
 ```powershell
@@ -309,6 +422,70 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
+
+## Azure Resource Manager template
+In this section, you use an Azure Resource Manager template to create an Azure-SSIS integration runtime. Here is a sample walkthrough: 
+
+1. Create a JSON file with the following Resource Manager template. Replace values in the angled brackets (place holders) with your own values. 
+
+    ```json
+    {
+    	"contentVersion": "1.0.0.0",
+    	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    	"parameters": {},
+    	"variables": {},
+    	"resources": [{
+    		"name": "<Specify a name for your data factory>",
+    		"apiVersion": "2017-09-01-preview",
+    		"type": "Microsoft.DataFactory/factories",
+    		"location": "East US",
+    		"properties": {},
+    		"resources": [{
+    			"type": "integrationruntimes",
+    			"name": "<Specify a name for the Azure SSIS IR>",
+    			"dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+    			"apiVersion": "2017-09-01-preview",
+    			"properties": {
+    				"type": "Managed",
+    				"typeProperties": {
+    					"computeProperties": {
+    						"location": "East US",
+    						"nodeSize": "Standard_D1_v2",
+    						"numberOfNodes": 1,
+    						"maxParallelExecutionsPerNode": 1
+    					},
+    					"ssisProperties": {
+    						"catalogInfo": {
+    							"catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+    							"catalogAdminUserName": "<Azure SQL user",
+    							"catalogAdminPassword": {
+    								"type": "SecureString",
+    								"value": "<Azure SQL Password>"
+    							},
+    							"catalogPricingTier": "Basic"
+    						}
+    					}
+    				}
+    			}
+    		}]
+    	}]
+    }
+    ```
+2. To deploy the Resource Manager template, run the New-AzureRmResourceGroupDeployment command as shown in the following exmaple. In this example, ADFTutorialResourceGroup is the name of the resource group. ADFTutorialARM.json is the file that contains JSON definition for the data factory and the Azure-SSIS IR. 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    This command creates the data factory and creates an Azure-SSIS IR in it, but it does not start the IR. 
+3. To start the Azure-SSIS IR, run the Start-AzureRmDataFactoryV2IntegrationRuntime command: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## Deploy SSIS packages
 Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: &lt;servername&gt;.database.windows.net (for Azure SQL Database). See [Deploy packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) article for instructions. 

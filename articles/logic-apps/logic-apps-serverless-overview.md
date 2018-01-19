@@ -37,7 +37,7 @@ If you want to jump right in and get started with Azure Functions, start with [C
 
 Azure Logic Apps provides a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps called a workflow.  There are [many connectors](../connectors/apis-list.md) across cloud and on-premises services to quickly connect a serverless app to other APIs.  A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.  Logic Apps is a great choice when orchestrating different Azure Functions in a process - especially when the process requires interacting with an external system or API.
 
-To get started with Logic Apps, start with [creating your first logic app](logic-apps-create-a-logic-app.md).  If you are looking for more technical information about Logic Apps, see the [developer reference](logic-apps-workflow-actions-triggers.md).
+To get started with Logic Apps, start with [creating your first logic app](quickstart-create-first-logic-app-workflow.md).  If you are looking for more technical information about Logic Apps, see the [developer reference](logic-apps-workflow-actions-triggers.md).
 
 ## How can I build and deploy Serverless applications in Azure?
 
