@@ -14,36 +14,29 @@ ms.author: v-geberr
 ---
 
 # API v2 Migration guide
-The v1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated on SOMEDATE. Use this guide to understand how to migrate to v2. 
-
-|  | | |
-|--|--|--|
-|v1 |[authoring](https://aka.ms/v1-authoring-api-docs)|[endpoint](https://aka.ms/v1-endpoint-api-docs) |
-|v2 |[authoring](https://aka.ms/luis-authoring-apis)|[endpoint](https://aka.ms/luis-endpoint-apis)|
+The v1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated on SOMEDATE. Use this guide to understand how to migrate to v2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 
-## Azure Regions
-There are more [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. Each region corresponds to a testing console for the API. Your LUIS app must be defined in the appropriate region and authored in the correct region-based LUIS website. 
+## New Azure regions
+LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authoring in the same region you expect to query. Applications do not automatically migrate regions. You need to export the app from one region then import into another for it to be available in a new region.
 
-![Testing console regions](./media/luis-migration-v2-guide/testing-console.png)
-
-## Route name changes
+## Authoring route changes
 The authoring API route changed from using the **prog** route to using the **api** route.
 
-### Authoring route
+
 | version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
 
 
-### Endpoint route
+### Endpoint route changes
 The endpoint API has new querystring parameters as well as a different response. If the verbose flag is true, all intents, regardless of score are returned in an array named intents, in addition to the topScoringIntent.
 
-| version | utterance querystring name| route |
-|--|--|--|
-|1|id|/luis/v1/application[?id][&q]|
-|2|q|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
+| version | GET route |
+|--|--|
+|1|/luis/v1/application?id={appId}&q={q}|
+|2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
 
 
 v1 endpoint success response
@@ -148,11 +141,11 @@ The ability to find [endpoint utterances]() that LUIS determined will enhance th
 
 
 ## Create app from prebuilt domains
-[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) provide a predefined domain model. This allows you to quickly develop your LUIS application for common domains. 
+[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) provide a predefined domain model. This allows you to quickly develop your LUIS application for common domains. This API allows you create a new app based on a prebuilt domain. The response is the new appID.
 
-```
-// v2 route
-/luis/api/v2.0/apps/customprebuiltdomains  [get,post]
-/luis/api/v2.0/apps/customprebuiltdomains/{culture}  [get]
-```
+|v2 route|verb|
+|--|--|
+|/luis/api/v2.0/apps/customprebuiltdomains  |get,post|
+|/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
+
 
