@@ -58,7 +58,7 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
     3. Upload **input.txt** file to the container.
 
 ## Create email workflow endpoints
-To trigger sending an email from the pipeline, you use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
+To trigger sending an email from the pipeline, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### Success email workflow 
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
@@ -322,7 +322,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 2. To **view activity runs** associated with this pipeline run, click the first link in the **Actions** column. Use the **Refresh** button to refresh the list. Notice that the Copy activity in the pipeline failed. The Web activity succeeded to send the failure email to the specified receiver. 
 
     ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-failure.png)
-4. Click link in the **Error** column to see details about the error. 
+4. Click **Error** link in the **Actions** column to see details about the error. 
 
     ![Activity run error](./media/tutorial-control-flow-portal/activity-run-error.png)
 
