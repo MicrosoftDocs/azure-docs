@@ -13,16 +13,16 @@ ms.author: marco-rossi29
 
 # Custom Decision Service Experimentation reference
 
-Following the theory of contextual bandits, Custom Decision Service repeatedly observes a context, takes an action, and observes a reward for the chosen action. An example is content personalization: the context describes a user, actions are candidate stories, and the reward measures how much the user liked the recommended story.
+Following the theory of contextual bandits (cb), Custom Decision Service repeatedly observes a context, takes an action, and observes a reward for the chosen action. An example is content personalization: the context describes a user, actions are candidate stories, and the reward measures how much the user liked the recommended story.
 
-Custom Decision Service produces a policy, meaning a mapping from contexts to actions. Given a target policy, one would like to know its expected reward. One way to estimate this reward is by deploying a policy online and letting it choose actions (e.g., recommend movies to users). Such online evaluation is typically costly, since it exposes users to an untested experimental policy, and does not scale to evaluating many target policies.
+Custom Decision Service produces a policy, meaning a mapping from contexts to actions. Given a target policy, one would like to know its expected reward. One way to estimate this reward is by deploying a policy online and letting it choose actions (e.g., recommend stories to users). Such online evaluation is typically costly, since it exposes users to an untested experimental policy, and does not scale to evaluating many target policies.
 
 Off-policy evaluation is an alternative paradigm for the same question. Given logs from an existing online system, which follow a given logging policy, off-policy evaluation estimates the expected reward of new target policies.
 
-Given the log file, Offline Experimentation seeks to find the policy with the highest estimated expected reward. Target policies are parameterized by [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) arguments. In the default mode, the script tests different Vowpal Wabbit arguments (appending to the `--base_command`) by serially performing the following steps:
-1. Extract features namespaces from the first `--auto_lines` lines of the input file
+Given the log file, Experimentation seeks to find the policy with the highest estimated expected reward. Target policies are parameterized by [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) arguments. In the default mode, the script tests different Vowpal Wabbit arguments (appending to the `--base_command`) by serially performing the following steps:
+1. Auto-detect features namespaces from the first `--auto_lines` lines of the input file
 2. First sweep over hyper-parameters (`learning rate`, `L1 regularization`, and `power_t`)
-3. Test cb types (`ips` vs `dr`)
+3. Test policy evaluation `--cb_type` (inverse propensity score (`ips`) or doubly robust (`dr`) - see [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example))
 4. Test marginals
 5. Test quadratic interaction features
    * brute-force phase: testing all combinations with `--q_bruteforce_terms` pairs or fewer
@@ -71,11 +71,11 @@ A log of the results is appended to the file `mwt-ds/DataScience/experiments.csv
 | `-h`, `--help` | show help message and exit | |
 | `-f FILE_PATH`, `--file_path FILE_PATH` | data file path (`.json` or `.json.gz` format - each line is a `dsjson`) | Required |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | base Vowpal Wabbit command  | `vw --cb_adf --dsjson -c` |  
-| `-p N_PROC`, `--n_proc N_PROC` | number of parallel processes to use | auto-detect |  
-| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | shared feature namespaces; e.g., `abc` means namespaces `a`, `b`, and `c`  | auto-detect |  
-| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | action feature namespaces | auto-detect |  
-| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | marginal feature namespaces | auto-detect |  
-| `--auto_lines AUTO_LINES` | number of lines to scan for auto detected parameters | `100` |  
+| `-p N_PROC`, `--n_proc N_PROC` | number of parallel processes to use | logical processors |  
+| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | shared feature namespaces; e.g., `abc` means namespaces `a`, `b`, and `c`  | auto-detect from data file |  
+| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | action feature namespaces | auto-detect from data file |  
+| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | marginal feature namespaces | auto-detect from data file |  
+| `--auto_lines AUTO_LINES` | number of data file lines to scan to auto-detect features namespaces | `100` |  
 | `--only_hp` | sweep only over hyper-parameters (`learning rate`, `L1 regularization`, and `power_t`) | `False` |  
 | `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | learning rate range as positive values `min,max,steps` | `1e-5,0.5,4` |  
 | `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 regularization range as positive values `min,max,steps` | `1e-9,0.1,5` |  
@@ -89,7 +89,7 @@ To use the preset default values:
 python Experimentation.py -f D:\multiworld\data.json
 ```
 
-Equivalently, Vowpal Wabbit can ingest also `.json.gz` files:
+Equivalently, Vowpal Wabbit can also ingest `.json.gz` files:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json.gz
 ```

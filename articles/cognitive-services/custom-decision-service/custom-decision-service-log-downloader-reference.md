@@ -1,6 +1,6 @@
 ---
-title: Azure Custom Decision Service Log Downloader reference | Microsoft Docs
-description: A guide for Azure Custom Decision Service log downloader.
+title: Azure Custom Decision Service LogDownloader reference | Microsoft Docs
+description: A guide for Azure Custom Decision Service LogDownloader.
 services: cognitive-services
 author: marco-rossi29
 manager: marco-rossi29
@@ -13,7 +13,7 @@ ms.author: marco-rossi29
 
 # Custom Decision Service LogDownloader reference
 
-LogDownloader is used to download log files produced by the Decision Service and to generate `.gz` files used by Offline Experimentation.
+LogDownloader is used to download log files produced by the Decision Service and to generate `.gz` files used by Experimentation.
 
 ### Prerequisites
 - Python 3 (installed and on your path - 64-bit version is recommended to handle large files)
