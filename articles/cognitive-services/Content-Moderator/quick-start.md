@@ -74,6 +74,6 @@ Start here by choosing from the Job, Review, and Workflow APIs.
 - The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
 - The [Workflow API](try-review-api-workflow.md) creates, updates, and get details about the custom workflows that your team creates.
 
-## Next Steps
+## Next steps
 
 Learn more about content moderation starting with the [image moderation API](image-moderation-api.md).
