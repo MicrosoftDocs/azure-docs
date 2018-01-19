@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
 
 ---
-# Create and install VPN client configuration files for P2S RADIUS authentication (Preview)
+# Create and install VPN client configuration files for P2S RADIUS authentication
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site. The RADIUS server provides multiple authentication options and as such, the VPN client configuration varies for each option.
 

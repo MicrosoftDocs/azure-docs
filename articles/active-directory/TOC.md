@@ -217,7 +217,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
@@ -283,10 +283,12 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Controls](active-directory-conditional-access-controls.md)
+#### [Location condition](active-directory-conditional-access-locations.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### [Migrate classic policies](active-directory-conditional-access-migration.md)
+#### [What if tool](active-directory-conditional-access-whatif.md)
 #### Tasks
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)

@@ -57,7 +57,7 @@ Once you have set your deployment credentials, you can find the *Git* deployment
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-and and *FTP* deployment username in your app's **Properties**.
+and *FTP* deployment username in your app's **Properties**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
