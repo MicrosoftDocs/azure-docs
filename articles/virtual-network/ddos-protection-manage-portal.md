@@ -70,7 +70,7 @@ You can select any of the available DDoS Protection metrics to alert when thereâ
 
     ![Attack alert](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) and [logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) for creating alerts.
+You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) and [logic apps](../logic-apps/logic-apps-overview.md) for creating alerts.
 
 ## Configure logging on DDoS Protection Standard metrics
 
