@@ -41,7 +41,7 @@ The video and sample video frames to review must be published online and you wil
 For the video, you need a streaming endpoint so that the review tool plays the video in the player view. 
 ![Video demo thumbnail](images/ams-video-demo-view.PNG)
 
-- Copy the **URl** on this [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) for the manifest URL.
+- Copy the **URL** on this [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) page for the manifest URL.
 
 For the video frames (images), use the following images:
 ![Video frame thumbnails for video reviews](images/ams-video-frame-thumbnails.PNG)
