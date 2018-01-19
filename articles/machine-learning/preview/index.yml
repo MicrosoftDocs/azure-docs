@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/06/2017
   ms.author: garye
 abstract:
-  description: Learn how to prepare data, and build and deploy models with our quickstarts and tutorials. The preview features of Azure Machine Learning enable building, deploying, and managing ML and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure in order to store and process your data.
+  description: Learn how to prepare data, and build and deploy models with our quickstarts and tutorials. The preview features of Azure Machine Learning enable building, deploying, and managing machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure in order to store and process your data.
 sections:
 - title: 5-Minute Quickstarts
   items:
