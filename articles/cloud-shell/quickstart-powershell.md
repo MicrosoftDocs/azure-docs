@@ -263,11 +263,14 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## SSH
 
-Win32-OpenSSH is available in PowerShell CloudShell.
-To authenticate to servers or VMs using SSH, generate the public-private key pair in CloudShell,
-publish the public key to `authorized_keys` on the remote machine (Example: /home/user/.ssh/authorized_keys)
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is available in PowerShell CloudShell.
+To authenticate to servers or VMs using SSH, generate the public-private key pair in CloudShell and
+publish the public key to `authorized_keys` on the remote machine, such as `/home/user/.ssh/authorized_keys`.
 
-You can create SSH private-public keys using `ssh-keygen` and publish them to `$env:USERPROFILE\.ssh` in CloudShell.
+> [!NOTE]
+> You can create SSH private-public keys using `ssh-keygen` and publish them to `$env:USERPROFILE\.ssh` in CloudShell.
+
+### Using a custom profile to persist GIT and SSH settings
 
 Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` folder to `CloudDrive` or create a symlink when CloudShell gets launched.
 Add following code snipped in your profile.ps1 to create a symlink to CloudDrive.
@@ -288,7 +291,7 @@ if(Test-Path $script:sshFolderPath){
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm) to create a new VM configuration using AzureRM Cmdlets.
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM Cmdlets.
 Before calling into `New-AzureRMVM` to kick-off the deployment, add SSH Public Key to the VM Configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free ssh session to the VM.
 
