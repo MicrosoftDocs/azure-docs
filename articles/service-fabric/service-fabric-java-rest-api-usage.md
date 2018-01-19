@@ -51,18 +51,24 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	```bash
 	cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
 	```
+
+> [!NOTE]
+> If your cluster version is not 6.0.* then go to the appropriate directory in the stable folder.
+>	
+
 5. Run the following autorest command to generate the java client code.
+	
 	```bash
 	autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
 	```
    Below is an example demonstrating the usage of autorest.
-   ```bash
+   
+	```bash
 	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
-   ```
+	```
+   
    The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implemenation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
-> [!NOTE]
-> If your cluster version is not 6.0.* then go to the appropriate directory in the stable folder.
->
+
 
 ## Include and use the generated client in your project
 
@@ -74,15 +80,15 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 		Artifactid: client-runtime
 		Version: 1.2.1
 	```
-For example, if you are using Maven build system include the following in your ``pom.xml`` file:
+	For example, if you are using Maven build system include the following in your ``pom.xml`` file:
 
-```xml
-	<dependency>
-	  <groupId>com.microsoft.rest</groupId>
-	  <artifactId>client-runtime</artifactId>
-	  <version>1.2.1</version>
-	</dependency>
-```
+	```xml
+		<dependency>
+		  <groupId>com.microsoft.rest</groupId>
+		  <artifactId>client-runtime</artifactId>
+		  <version>1.2.1</version>
+		</dependency>
+	```
 
 3. Create a RestClient using the following code:
 
