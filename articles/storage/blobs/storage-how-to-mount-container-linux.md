@@ -19,7 +19,7 @@ ms.author: tamram
 # How to mount Blob storage as a file system with blobfuse (Preview)
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter..  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
 
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
@@ -66,7 +66,7 @@ sudo yum install blobfuse
 Blobfuse requires a temporary path in the file system to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
 
 > [!NOTE]
-> Blobfuse stores all open file contents in the temporary path. Make sure to have enough space in order to accommadate all open files. 
+> Blobfuse stores all open file contents in the temporary path. Make sure to have enough space in order to accommodate all open files. 
 > 
 
 ### (Optional) Use a ramdisk for the temporary path
@@ -80,7 +80,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ### Use an SSD for temporary path
 In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt' whereas it is mounted on '/mnt/resource/' in RedHat and CentOS distributions.
 
-Ensure your user have access to the temporary path:
+Ensure your user has access to the temporary path:
 ```bash
 sudo mkdir /mnt/resource/blobfusetmp
 sudo chown <youruser> /mnt/resource/blobfusetmp
