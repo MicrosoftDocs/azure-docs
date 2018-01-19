@@ -4,7 +4,7 @@ description: How to find and delete unattached Azure managed and unmanaged (VHDs
 services: virtual-machines-linux
 documentationcenter: ''
 author: ramankum
-manager: kavithag
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -23,9 +23,9 @@ When you delete a virtual machine in Azure, the disks attached to it are not del
 
 ## Find and delete unattached managed disks 
 
-Preceding script shows you how to find unattached Managed Disks by using ManagedBy property.  It loops through all the Managed Disks in a subscription and checks if the ManagedBy property is null to find unattached Managed Disks. ManagedBy property stores the resource ID of the virtual machine to which a Managed Disk is attached. 
+The following script shows you how to find unattached Managed Disks by using ManagedBy property.  It loops through all the Managed Disks in a subscription and checks if the *ManagedBy* property is null to find unattached Managed Disks. *ManagedBy* property stores the resource ID of the virtual machine to which a Managed Disk is attached. 
 
-We highly recommend you to first run the script by setting the deleteUnattachedDisks variable to 0 to view all the unattached disks. After reviewing the unattached disks, run the script by setting deleteUnattachedDisks to 1 to delete all the unattached disks.
+We highly recommend you to first run the script by setting the *deleteUnattachedDisks* variable to 0 to view all the unattached disks. After reviewing the unattached disks, run the script by setting *deleteUnattachedDisks* to 1 to delete all the unattached disks.
 
  ```azurecli
 
@@ -51,9 +51,9 @@ done
 ```
 ## Find and delete unattached unmanaged disks 
 
-Unmanaged Disks are VHD files stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure Storage accounts](../../storage/common/storage-create-storage-account.md). The preceding script shows you how to find unattached unmanaged disks (page blobs) by using LeaseStatus property. It loops through all the unmanaged disks in all the storage accounts in a subscription and checks if the LeaseStatus property is unlocked to find unattached unmanaged Disks. LeaseStatus property is set to locked if an unmanaged disk is attached to a virtual machine. 
+Unmanaged Disks are VHD files stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure Storage accounts](../../storage/common/storage-create-storage-account.md). The following script shows you how to find unattached unmanaged disks (page blobs) by using LeaseStatus property. It loops through all the unmanaged disks in all the storage accounts in a subscription and checks if the *LeaseStatus* property is unlocked to find unattached unmanaged Disks. The *LeaseStatus* property is set to locked if an unmanaged disk is attached to a virtual machine. 
 
-We highly recommend you to first run the script by setting the deleteUnattachedVHDs variable to 0 to view all the unattached disks. After reviewing the unattached disks, run the script by setting deleteUnattachedVHDs to 1 to delete all the unattached disks.
+We highly recommend you to first run the script by setting the *deleteUnattachedVHDs* variable to 0 to view all the unattached disks. After reviewing the unattached disks, run the script by setting *deleteUnattachedVHDs* to 1 to delete all the unattached disks.
 
 
  ```azurecli
@@ -99,5 +99,10 @@ do
 done 
 
 ```
+
+## Next steps
+
+[Delete Storage account](../../storage/common/storage-create-storage-account)
+
 
 
