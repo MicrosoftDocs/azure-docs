@@ -6860,6 +6860,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-what-are-logic-apps.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
             "redirect_document_id": false
