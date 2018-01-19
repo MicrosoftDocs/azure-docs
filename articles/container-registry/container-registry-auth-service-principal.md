@@ -21,7 +21,7 @@ Azure AD *service principals* provide access to Azure resources within your subs
 
 In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
 
-## Why use a service principal
+## Why use a service principal?
 
 By using an Azure AD service principal, you can provide scoped, auditable access to your private container registry. You can create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing access credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
 
@@ -31,7 +31,7 @@ For example, your web application can use a service principal that provides it w
 
 ## Next steps
 
-You can find instructions on using service principals to authenticate from specific services and platforms here:
+Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction. While configuring external applications is outside the scope of this article, you can find instructions for some specific services and platforms here:
 
 * [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
 * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)
