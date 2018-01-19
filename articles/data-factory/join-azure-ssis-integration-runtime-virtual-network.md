@@ -77,7 +77,7 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 ### Find the resource ID for your Azure VNet.
  
 1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **More services**. Filter for and select **Virtual networks (classic)**.
+2. Click **All services**. Filter for and select **Virtual networks (classic)**.
 3. Filter for and select your **virtual network** in the list. 
 4. In the Virtual network (classic) page, select **Properties**. 
 
