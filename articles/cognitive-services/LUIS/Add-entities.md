@@ -1,5 +1,6 @@
 ﻿---
 title: Add entities in LUIS apps | Microsoft Docs
+titleSuffix: Azure
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: v-geberr
@@ -8,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/19/2018
 ms.author: v-geberr
 ---
 
@@ -97,7 +98,7 @@ A list entity is an entity that is defined by a list of all its values.
 
     ![List entity details page](./media/add-entities/menu-list-dialog-after.png)
 
-5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
+5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, "Hindu" can have synonyms of Hindi, Hindoo, Hindustani. After typing each matching text, press Enter.
 
     ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
  
@@ -152,11 +153,7 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed. [Fuzzy search](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#fuzzy-search) is on by default. 
-
-![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
-
-
+You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
 
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [add features](Add-Features.md) to improve the app.
