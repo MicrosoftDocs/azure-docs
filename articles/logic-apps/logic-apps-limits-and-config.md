@@ -244,7 +244,7 @@ make come from the IP addresses in this list.
 
 ## Next steps  
 
-* [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Video: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Video: Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
