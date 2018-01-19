@@ -676,7 +676,6 @@ The workaround is the following:
 
 a.	Go to [https://signup.live.com/signup](https://signup.live.com/signup) and select **Get a new email address**
 
-![Get Email](./media/marketplace-publishers-guide/createacount.png)
 
 b.	Create the new email address and enter a password. This will create both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
 
@@ -705,8 +704,6 @@ Step 4. In the "Registration-Account Info" section, select your **Account countr
 >"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved �sell-from� countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries soon, so stay tuned. For more information, see the [Marketplace participation policies](https://azure.microsoft.com/en-us/support/legal/marketplace/participation-policies/).
 
 Step 5. Select your "Account Type" as **Company** and then click the **Next** button.
-
-![Register Company](./media/marketplace-publishers-guide/devcetnerregistrationcompany.png)
 
 >[!IMPORTANT]
 >IMPORTANT: To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
