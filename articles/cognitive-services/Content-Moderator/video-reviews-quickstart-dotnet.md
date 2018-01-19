@@ -42,10 +42,9 @@ For the video, you need a streaming endpoint so that the review tool plays the v
 - Use this [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) for the manifest file.
 
 For the video frames (images), use the following images:
-- [Frame from the 17 seconds time stamp](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG)
-- [Frame from the 64 seconds time stamp](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG)
-- [Frame from the 144 seconds time stamp](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG)
+![Video frame thumbnails for video reviews](images/ams-video-frame-thumbnails.PNG)
 
+- [Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG)
 
 ## Create your Visual Studio project
 
