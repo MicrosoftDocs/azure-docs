@@ -36,7 +36,7 @@ and choose the case with the same value to execute the specified actions. Only o
 
 - An active Azure subscription. If you don't have an active Azure subscription, 
 [create a free account](https://azure.microsoft.com/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
-- [Basic knowledge about logic apps](logic-apps-what-are-logic-apps.md)
+- [Basic knowledge about logic apps](logic-apps-overview.md)
 
 ## Add a switch statement to your workflow
 
