@@ -21,7 +21,7 @@ ms.author: denlee
 Lambda architectures enable efficient data processing of massive data sets. Lambda architectures use batch-processing, stream-processing, and a serving layer to minimize the latency involved in querying big data. 
 
 To implement a lambda architecture on Azure, you can combine the following technologies to accelerate real-time big data analytics:
-* [Azure Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/), the industry's first globally distributed, multi-model database service. 
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), the industry's first globally distributed, multi-model database service. 
 * [Apache Spark for Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/), a processing framework that runs large-scale data analytics applications
 * Azure Cosmos DB [change feed](change-feed.md), which streams new data to the batch layer for HDInsight to process
 * The [Spark to Azure Cosmos DB Connector](spark-connector.md)
@@ -151,7 +151,7 @@ tweets = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**tweet
 tweets.createOrReplaceTempView("tweets")
 ```
 
-Next, let's run the following Spark SQL statement to determine the top 10 hashtags of the set of tweets.  Note, for this Spark SQL query, we're running this in a Jupyter notebook without the output bar chart directly following this code snippet.
+Next, let's run the following Spark SQL statement to determine the top 10 hashtags of the set of tweets. For this Spark SQL query, we're running this in a Jupyter notebook without the output bar chart directly following this code snippet.
 
 ```
 %%sql
