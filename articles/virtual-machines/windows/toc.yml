@@ -286,7 +286,7 @@
       href: convert-disk-storage.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Find Unattached Disks
+    - name: Find unattached disks
       href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage.md
