@@ -29,7 +29,7 @@ Here are the prerequisites to use the liquid action:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md).
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * A basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -80,7 +80,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
     
 ## Add the Liquid action to transform JSON in your logic app
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. Add the [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) to your logic app.
 
