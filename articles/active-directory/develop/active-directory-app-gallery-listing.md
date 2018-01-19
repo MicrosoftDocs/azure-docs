@@ -26,7 +26,7 @@ ms.custom: aaddev
 Azure AD is a cloud-based Identity service. [Azure AD app gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is a common store where all the application connectors are published for single sign-on and user provisioning. Our mutual customers who are using Azure AD as Identity provider look for different SaaS application connectors, which are published here. IT administrator adds connector from the app gallery and configures and use it for Single sign-on and provisioning. Azure AD supports all major federation protocols like SAML 2.0, OpenID Connect, OAuth and WS-Fed for single sign-on. 
 
 > [!NOTE]
-> For provisioning, Azure AD support [Graph APIs](active-directory-graph-api.md) and [SCIM 1.0, 1.1 and 2.0](active-directory-scim-provisioning.md) protocol. 
+> For provisioning, Azure AD support [Graph APIs](active-directory-graph-api.md) and [SCIM 1.0, 1.1 and 2.0](../active-directory-scim-provisioning.md) protocol. 
 
 ## What are the benefits of listing the application in the gallery?
 
@@ -51,28 +51,31 @@ To list an application in the Azure AD gallery, the application first needs to i
 
 *   **SAML 2.0 or WS-Fed** – Your application should have a capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](../active-directory-saas-custom-apps.md).
 
+*   **Password SSO** – Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
+
 ##	What about user-provisioning with SCIM?
 
 Azure AD supports SCIM provisioning. We’re still working on our ability to publish “pre-integrated” SCIM connectors to our gallery, and haven’t yet announced or documented any path for app developers to get apps listed as “SCIM-compliant”. Unlike publishing apps that support SAML to the gallery, which is entirely file driven, our engineering team has to spend a couple weeks building & testing the authentication and setup experiences in portal.azure.com for each app-specific provisioning connector. We’re in the process of making SCIM app onboarding file driven like SAML, and once this is done we have a public process for onboarding.
 
-## Submitting the request in the portal?
+## Process for submitting the request in the portal
 
-Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Sharepoint Portal](https://microsoft.sharepoint.com/teams/apponboarding/apps/SitePages/Default.aspx).
+Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Sharepoint Portal](https://microsoft.sharepoint.com/teams/apponboarding/apps/SitePages/Default.aspx). If you have Office 365 account, you can use that to login to this portal otherwise use your Microsoft Id (Live, Outlook, Hotmail etc) to login. You'll see following page to request your access. Please provide a business justification in the textbox and click on **Request Access**. Our team will review all the details and give you the access accordingly. After that you can log on to the portal and submit your detailed request for the application.
 
-Our team reviews all the details and will give you the access accordingly. After that you can log on to the portal and submit your detailed request for the application.
+If you face any issue regarding the access, please contact [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+![Access Request on SharePoint portal](./media/active-directory-app-gallery-listing/accessrequest.png)
 
 ## Timelines
     
-*   Process of listing SAML 2.0 or WS-Fed application into the gallery-
+*   Process of listing SAML 2.0 or WS-Fed application into the gallery - **12 Days**
 
    ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline.png)
 
-*   Process of listing OpenID Connect application into the gallery-
+*   Process of listing OpenID Connect application into the gallery - **7 Days**
 
    ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
 
 ## Escalations
 
-For any escalations drop a mail to [SaaSApplicationIntegrations@service.microsoft.com](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and we get back to you ASAP.
+For any escalations, drop an email to [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and we get back to you ASAP.
 
