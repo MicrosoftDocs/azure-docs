@@ -157,7 +157,7 @@
       href: ../hdinsight-machine-learning-overview.md
       maintainContext: true
     - name: Streaming at scale in HDInsight
-      href: ../hdinsight-streaming-at-scale.md
+      href: ../hdinsight-streaming-at-scale-overview.md
       maintainContext: true
   - name: Extend clusters
     items:
