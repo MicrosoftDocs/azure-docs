@@ -39,10 +39,10 @@ robots: noindex
 The Spark activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Data Factory. This activity runs the specified Spark program on your Spark cluster in Azure HDInsight. 
 
 > [!IMPORTANT]
-> - The Spark activity doesn't support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
+> - The Spark activity doesn't support HDInsight Spark clusters that use Azure Data Lake Store as primary storage.
 > - The Spark activity supports only existing (your own) HDInsight Spark clusters. It doesn't support an on-demand HDInsight linked service.
 
-## Walk-through: Create a pipeline with a Spark activity
+## Walkthrough: Create a pipeline with a Spark activity
 Here are the typical steps to create a data factory pipeline with a Spark activity: 
 
 * Create a data factory.
@@ -56,7 +56,7 @@ Here are the typical steps to create a data factory pipeline with a Spark activi
 
 2. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
 
-3. Download and review the python script file **test.py** located at [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Download and review the Python script file **test.py** located at [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your blob storage. Create the container and the folder if they don't exist.
 
@@ -142,7 +142,7 @@ In this step, you create an HDInsight linked service to link your HDInsight Spar
 	```
 
 	> [!IMPORTANT]
-	> - The Spark activity doesn't support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
+	> - The Spark activity doesn't support HDInsight Spark clusters that use Azure Data Lake Store as primary storage.
 	> - The Spark activity supports only existing (your own) HDInsight Spark clusters. It doesn't support an on-demand HDInsight linked service.
 
 	For more information about the HDInsight linked service, see [HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -219,7 +219,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 	b. The **rootPath** property is set to **adfspark\\pyFiles** where adfspark is the blob container and pyFiles is file folder in that container. In this example, the blob storage is the one that is associated with the Spark cluster. You can upload the file to a different storage account. If you do so, create a Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. For more information about this property and other properties supported by the Spark activity, see [Spark activity properties](#spark-activity-properties).
 
-	c. The **entryFilePath** property is set to **test.py**, which is the python file.
+	c. The **entryFilePath** property is set to **test.py**, which is the Python file.
 
 	d. The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
@@ -340,9 +340,9 @@ The following table describes the JSON properties used in the JSON definition.
 | sparkJobLinkedService | The Storage linked service that holds the Spark job file, dependencies, and logs. If you don't specify a value for this property, the storage associated with the HDInsight cluster is used. | No |
 
 ## Folder structure
-The Spark activity doesn't support an inline script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
+The Spark activity doesn't support an inline script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), Python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate subfolders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the Data Factory service expects the following folder structure in the blob storage: 
+Create the following folder structure in the blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate subfolders in the root folder represented by **entryFilePath**. For example, upload Python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the Data Factory service expects the following folder structure in the blob storage: 
 
 | Path | Description | Required | Type |
 | ---- | ----------- | -------- | ---- |
