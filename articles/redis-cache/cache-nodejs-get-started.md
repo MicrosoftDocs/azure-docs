@@ -3,8 +3,8 @@ title: How to use Azure Redis Cache with Node.js | Microsoft Docs
 description: Get started with Azure Redis Cache using Node.js and node_redis.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to use Azure Redis Cache with Node.js
