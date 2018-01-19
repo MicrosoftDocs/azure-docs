@@ -15,7 +15,7 @@ ms.author: marco-rossi29
 
 LogDownloader is used to download log files produced by the Decision Service and to generate `.gz` files used by Experimentation.
 
-### Prerequisites
+## Prerequisites
 - Python 3 (installed and on your path - 64-bit version is recommended to handle large files)
 - `Microsoft/mwt-ds` repository (clone from [here](https://github.com/Microsoft/mwt-ds))
 - Enter your Azure storage connection string in `mwt-ds/DataScience/ds.config` following the template `my_app_id: my_connectionString`. Multiple `app_id` can be specified. If the `app_id` is not found in the list, the `$Default` connection string is used.

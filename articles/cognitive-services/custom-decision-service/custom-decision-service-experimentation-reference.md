@@ -42,7 +42,7 @@ The parameters to control the preceding steps include the following Vowpal Wabbi
 
 An in-depth explanation of Vowpal Wabbit arguments can be found [here](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
-### Prerequisites
+## Prerequisites
 - Vowpal Wabbit (installed and on your path)
   - Windows: Use `.msi` installer [here](https://github.com/eisber/vowpal_wabbit/releases)
   - Other platforms: Source code [here](https://github.com/JohnLangford/vowpal_wabbit/releases)
