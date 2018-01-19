@@ -122,7 +122,11 @@ az vmss disk attach \
 
 
 ## Prepare the data disks
-The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. This step involves creating a partition, creating a filesystem, and mounting them. To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance. The following example executes a script from a GitHub samples repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
+The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. This step involves creating a partition, creating a filesystem, and mounting them.
+
+To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+
+The following example executes a script from a GitHub samples repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
 
 ```azurecli-interactive
 az vmss extension set \
