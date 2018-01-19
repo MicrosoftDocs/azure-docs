@@ -29,7 +29,7 @@ configure deployment and automation templates,
 and deploy to any environment. 
 
 To get started with Azure Logic Apps, learn 
-[how to create your first logic app in the Azure portal](logic-apps-create-a-logic-app.md).
+[how to create your first logic app in the Azure portal](quickstart-create-first-logic-app-workflow.md).
 
 ## Installation steps
 

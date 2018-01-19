@@ -107,10 +107,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Client communication to API Management|External |
 | * / 3443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Management endpoint for Azure portal and Powershell |Internal |
-| * / 80, 443 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure Storage, Azure Service Bus, and Azure Active Directory (where applicable).|External & Internal | 
+| * / 80, 443 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Dependency on Azure Storage**, Azure Service Bus, and Azure Active Directory (where applicable).|External & Internal | 
 | * / 1433 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL endpoints** |External & Internal |
-| * / 11000 - 11999 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL V12** |External & Internal |
-| * / 14000 - 14999 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL V12** |External & Internal |
 | * / 5671, 5672 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
 | * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
 | * / 25028 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Connect to SMTP Relay for sending Emails |External & Internal |
@@ -132,7 +130,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
  * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
  The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure API Management.
 
-**Routing through network virtual appliances**: Configurations that use a UDR with a default route (0.0.0.0/0) to route internet destined traffic from the API Management subnet through a network vitrual appliance running in Azure will prevent full communication between API Management and the required services. This configuration is not supported. 
+**Routing through network virtual appliances**: Configurations that use a UDR with a default route (0.0.0.0/0) to route internet destined traffic from the API Management subnet through a network virtual appliance running in Azure will prevent full communication between API Management and the required services. This configuration is not supported. 
 
 >[!WARNING]  
 >Azure API Management is not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the Azure API Management instance's subnet are incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow breaks Azure API Management. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.

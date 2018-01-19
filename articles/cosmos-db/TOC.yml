@@ -235,8 +235,6 @@
         items:
         - name: SQL grammar cheat sheet
           href: sql-api-sql-query-cheat-sheet.md
-        - name: Stack Overflow
-          href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
@@ -254,6 +252,8 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
+      - name: Using Mongoose
+        href: mongodb-mongoose.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
@@ -428,7 +428,5 @@
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

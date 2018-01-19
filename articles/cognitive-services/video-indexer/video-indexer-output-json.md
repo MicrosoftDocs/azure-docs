@@ -240,7 +240,7 @@ Attribute | Description
 id| The id of the line.
 timeRange|The time range in the original video.
 adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
-partcicipantID| The id of the speaker of this line.
+participantID| The id of the speaker of this line.
 text| The transcript.
 isIncluded| In base breakdowns always true. In derived playlists, the lines that were included in the source video, are set to isIncluded=true. All other lines are false.
 
@@ -252,7 +252,7 @@ Attribute | Description
 ---|---
 id|The OCR id.
 width|
-hight|
+height|
 language|The OCR language.
 textData|The OCR text.
 confidence|
@@ -283,18 +283,7 @@ ranges|May contain one or more [ranges](#ranges).
 
 ## ranges
 
-### audioEffectInstances
-
 **ranges** that appear under **audioEffectInstances**, describe audio effects in those ranges.
-
-Attribute | Description 
----|---
-type|
-ranges|May contain one or more [ranges](#ranges).
-
-### faces
-
-**ranges** that appear under **faces**, describe faces in those ranges.
 
 Attribute | Description 
 ---|---

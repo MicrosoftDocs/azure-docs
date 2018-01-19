@@ -39,12 +39,12 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
 
-If you do not include the AzureCLI command-line switch `--custom-data` at provisioning time, WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init `--custom-data` switch, whatever is contained in your custom data (individual settings or full script) overrides the WALA defined defaults. 
+If you do not include the Azure CLI `--custom-data` switch at provisioning time, WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init `--custom-data` switch, whatever is contained in your custom data (individual settings or full script) overrides the WALA defaults. 
 
-WALA configurations of VMs are time constrained to work within the maximum VM provisioning time.  Cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. 
+WALA configurations of VMs are time-constrained to work within the maximum VM provisioning time.  Cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. 
 
 ## Deploying a cloud-init enabled Virtual Machine
-Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the AzureCLI to deploy the image. 
+Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
 The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
@@ -79,7 +79,7 @@ az vm create \
 When the VM has been created, the Azure CLI shows information specific to your deployment. Take note of the `publicIpAddress`. This address is used to access the VM.  It takes some time for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. You can SSH into the VM and use the steps outlined in the Troubleshooting section to view the cloud-init logs. 
 
 ## Troubleshooting cloud-init
-Once the VM has been provisioned, Cloud-init will run through all the modules and script defined in `--custom-data` in order to configure the VM.  If you need to troubleshoot any errors or omissions from the configuration, you need to search for the module name (`disk_setup` or `runcmd` for example) in the cloud-init log - located in **/var/log/cloud-init.log**.
+Once the VM has been provisioned, cloud-init will run through all the modules and script defined in `--custom-data` in order to configure the VM.  If you need to troubleshoot any errors or omissions from the configuration, you need to search for the module name (`disk_setup` or `runcmd` for example) in the cloud-init log - located in **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the `runcmd` module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
