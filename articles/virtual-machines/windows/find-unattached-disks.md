@@ -120,7 +120,7 @@ foreach($storageAccount in $storageAccounts){
 
 ## Next steps
 
-[Delete Storage account](../../storage/common/storage-create-storage-account)
+[Delete Storage account](../../storage/common/storage-create-storage-account.md)
 
 
 
