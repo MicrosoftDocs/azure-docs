@@ -276,12 +276,16 @@ Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` f
 Add following code snipped in your profile.ps1 to create a symlink to CloudDrive.
 
 ``` Powershell
+# Check if the ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh){
+    mkdir $home\CloudDrive\.ssh
+}
+
 # .ssh path relative to this script
 $script:sshFolderPath = Join-Path $PSScriptRoot .ssh
 
 # Create a symlink to .ssh in user's $home
 if(Test-Path $script:sshFolderPath){
-
    if(-not (Test-Path (Join-Path $HOME .ssh ))){
         New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
    }
