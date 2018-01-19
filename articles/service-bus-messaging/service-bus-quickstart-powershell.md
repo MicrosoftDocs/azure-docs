@@ -20,11 +20,11 @@ ms.author: sethm
 
 # Send and receive messages to a Queue using PowerShell and the .NET Core client
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment.. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this, they would for example send and receive messages from a Service Bus Queue.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment.. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this, they would, for example, send and receive messages from a Service Bus Queue.
 
 <p align="center"><img src="./media/service-bus-quickstart-powershell/quick-start-queue.png"></p>
 
-## What will be accomplished
+## What is be accomplished
 This quickstart describes how to send and receive messages to a Service Bus Queue using PowerShell to create a messaging namespace and a queue within that namespace and obtain the authorization credentials on that namespace. Then the .Net Core client is used to send and receive messages from this Queue.
 
 ## Prerequisites
@@ -64,7 +64,7 @@ Copy and paste the **PrimaryConnectionString** value to a temporary location, su
 
 After the namespace and queue are created, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
 
-To execute the code do the following steps:
+To execute the code, do the following steps:
 1.	Navigate to [this GitHub repository](https://github.com/Azure/azure-service-bus), and [clone](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?tabs=visual-studio) it.
 2.	Go to the repository on your computer and navigate to the following folder: \samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient. This is assuming you are in the root folder of the repository. Your full path could for example be:
 C:\repos\azure-service-bus\samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient.
