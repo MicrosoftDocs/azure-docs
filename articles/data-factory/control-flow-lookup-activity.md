@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/19/2017
 ms.author: spelluru
 
 ---
@@ -33,6 +33,8 @@ The following data sources are currently supported for lookup:
 - Azure SQL Data Warehouse (JSON data converted from query)
 - SQL Server (JSON data converted from query)
 - Azure Table storage (JSON data converted from query)
+
+The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
 
 ## Syntax
 
