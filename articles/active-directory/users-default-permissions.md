@@ -61,27 +61,15 @@ Members can invite guests | Setting this to no prevents users from inviting gues
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
 Ability to read other users | For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 
-## Application owner permissions
+## Obeject ownership
 
-### Application Developer Owner
-When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own.
+### Application registration owner permissions
+When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own. To assign an application registration owner, see [Azure Active Directory app registration](active-directory-app-registration.md).
 
-### How to assign an application registration owner
+### Enterprise application owner permissions
 
-See [Azure Active Directory app registration](active-directory-app-registration.md).
+When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
 
-### Application Configuration Owner
+### Group owner permissions
 
-When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own.
-
-### How to assign an enterprise application owner
-
-See *Assigning Owners for an Application*.
-
-## Group owner permissions
-
-When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own.
-
-### How to assign a group owner
-
-See [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
+When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
