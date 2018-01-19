@@ -110,6 +110,7 @@ mkdir ~/mycontainer
 > [!NOTE]
 > For a full list of mount options, check [the blobfuse repository](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
+
 In order to mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg'  onto the location '/mycontainer'.
 
 ```bash
