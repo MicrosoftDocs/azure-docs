@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: vincesm
 
@@ -47,19 +47,19 @@ Policies | Read all properties of policies<br>Manage all properties of owned pol
 ## To restrict the default permissions for member users
 
 
-Default permissions for member users can be restricted in the following ways:
+Default permissions for member users can be restricted in the following ways. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md)
 
 Permission | Setting explanation
 ---------- | ------------
-Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See Configuring Group Settings to learn how.
-Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See Configuring Group Settings to learn how.
-Ability to consent to applications | Setting this option to No prevents users from consenting to applications. Global Administrators will still be able to consent to applications. See Configuring Default Permissions for Member Users.
-Ability to add gallery apps to Access Panel | Setting this option to No prevents users from adding gallery apps to their Access Panel. See Configuring Default Permissions for Member Users.
-Ability to register (create) applications | Setting this option to No prevents non-admins from creating applications. Global Administrators will still be able to create applications. See Configuring Default Permissions for Member Users.
-Admins and users in the guest inviter role can invite guests | Setting this option to No prevents all users from inviting guests. See Configuring Default Permissions for Member Users.
-Members can invite guests | Setting this to no prevents users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. See Configuring Default Permissions for Member Users.
+Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) to learn how.
+Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) to learn how.
+Ability to consent to applications | Setting this option to No prevents users from consenting to applications. Global Administrators will still be able to consent to applications. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Ability to add gallery apps to Access Panel | Setting this option to No prevents users from adding gallery apps to their Access Panel.
+Ability to register (create) applications | Setting this option to No prevents non-admins from creating applications. Global Administrators will still be able to create applications. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Admins and users in the guest inviter role can invite guests | Setting this option to No prevents all users from inviting guests. See Configuring Default Permissions for Member Users. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Members can invite guests | Setting this to no prevents users from inviting guests. Global Administrators, User Account Administrators, and Guest Inviters will still be able to invite guests. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
-Ability to read other users | See Configuring Default Permissions for Member Users.
+Ability to read other users | For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 
 ## Application owner permissions
 
@@ -68,7 +68,7 @@ When a user registers an application, they are automatically added as an owner f
 
 ### How to assign an application registration owner
 
-See *Assigning Owners for an Application Registration*.
+See [Azure Active Directory app registration](active-directory-app-registrations.md).
 
 ### Application Configuration Owner
 
