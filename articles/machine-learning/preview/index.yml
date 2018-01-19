@@ -43,11 +43,19 @@ sections:
   - type: paragraph
     text: 'Other technologies available in Azure Machine Learning:'
   - type: list
-    style: unordered
+    style: cards
+    className: cardsFTitle
     items:
-    - html: <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a>
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">Azure Data Science Virtual Machine</a>
-    - html: <a href="/azure/machine-learning/team-data-science-process/overview">The Team Data Science Process</a>
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image: 
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/
+    - title: Data Science Virtual Machine
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image: 
+        src: media/index/virtualmachine.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
 
 - title: Reference
   items:
