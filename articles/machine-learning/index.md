@@ -54,7 +54,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                         <a href="/azure/machine-learning/studio">
                         <h3>Learn about Azure Machine Learning Studio</h3>
                         </a>
-                        Azure Machine Learning Studio is a collaborative, drag-and-drop tool for developing predictive analytics solutions.
+                        <br>Azure Machine Learning Studio is a collaborative, drag-and-drop tool for developing predictive analytics solutions.
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                         <a href="/azure/machine-learning/data-science-virtual-machine">
                         <h3>Learn about the Data Science Virtual Machine</h3>
                         </a>
-                        The Data Science Virtual Machine (DSVM) is a customized VM image on Azure built specifically for doing data science. 
+                        <p>The Data Science Virtual Machine (DSVM) is a customized VM image on Azure built specifically for doing data science. 
                     </div>
                 </div>
             </div>
@@ -96,7 +96,8 @@ Azure Machine Learning provides fully managed services for building, deploying, 
                         <a href="/azure/machine-learning/team-data-science-process">
                         <h3>Learn about the Team Data Science Process</h3>
                         </a>
-                        The Team Data Science Process is an agile, iterative, team-oriented data science methodology.
+                        <p>The Team Data Science Process is an agile, iterative, team-oriented data science methodology.
+                        </p>
                     </div>
                 </div>
             </div>
