@@ -44,7 +44,7 @@ First step is to create a data factory by using the Azure portal.
       
      ![New data factory page](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](data-factory-naming-rules.md) article for naming rules for Data Factory artifacts.
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
@@ -53,7 +53,7 @@ First step is to create a data factory by using the Azure portal.
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/resource-group-overview.md).  
 4. Select **V1** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
 6. Select **Pin to dashboard**.     
