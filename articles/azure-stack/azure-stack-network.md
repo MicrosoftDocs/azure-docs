@@ -25,7 +25,7 @@ This section provides Azure Stack network infrastructure information that will h
 > To resolve external DNS names from Azure Stack (for example, www.bing.com), you’ll need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For more information about Azure Stack DNS requirements see, [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ## Physical network design
-The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Below is a diagram of our recommended design:
+The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. The following diagram represents our recommended design:
 
 ![Recommended Azure Stack network design](media/azure-stack-network/recommended-design.png)
 
@@ -73,7 +73,7 @@ This /26 network is the subnet that contains the routable point-to-point IP /30 
 ### Switch management network
 This /29 (6 host IPs) network is dedicated to connecting the management ports of the switches. It allows out-of-band access for deployment, management, and troubleshooting. It is calculated from the switch infrastructure network mentioned above.
 
-## TRANSPARENT PROXY
+## Transparent proxy
 The Azure Stack solution doesn’t support normal web proxies. If the datacenter requires all traffic to use a proxy, you must configure a transparent proxy to process all traffic from the rack to handle it according to policy, separating traffic between the zones on your network. A transparent proxy (also known as an intercepting, inline, or forced proxy) intercepts normal communication at the network layer without requiring any special client configuration. Clients need not to be aware of the existence of the proxy.
 
 ## Publish Azure Stack services
