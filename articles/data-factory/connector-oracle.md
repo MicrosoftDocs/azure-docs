@@ -115,7 +115,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Oracle as a source type
 
-To copy data from Oracle, set the source type in the Copy activity to **OracleSource**. The following properties are supported in the Copy activity source section.
+To copy data from Oracle, set the source type in the Copy activity to **OracleSource**. The following properties are supported in the Copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -158,7 +158,7 @@ If you don't specify "oracleReaderQuery", the columns defined in the "structure"
 
 ### Oracle as a sink type
 
-To copy data to Oracle, set the sink type in the Copy activity to **OracleSink**. The following properties are supported in the Copy activity sink section.
+To copy data to Oracle, set the sink type in the Copy activity to **OracleSink**. The following properties are supported in the Copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

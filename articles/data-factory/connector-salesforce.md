@@ -178,7 +178,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Salesforce as a source type
 
-To copy data from Salesforce, set the source type in the Copy activity to **SalesforceSource**. The following properties are supported in the Copy activity source section.
+To copy data from Salesforce, set the source type in the Copy activity to **SalesforceSource**. The following properties are supported in the Copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -227,7 +227,7 @@ To copy data from Salesforce, set the source type in the Copy activity to **Sale
 
 ### Salesforce as a sink type
 
-To copy data to Salesforce, set the sink type in the Copy activity to **SalesforceSink**. The following properties are supported in the Copy activity sink section.
+To copy data to Salesforce, set the sink type in the Copy activity to **SalesforceSink**. The following properties are supported in the Copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

@@ -50,11 +50,11 @@ The following properties are supported for Impala linked service.
 | authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous**, **SASLUsername**, and **UsernameAndPassword**. | Yes |
 | username | The user name used to access the Impala server. The default value is anonymous when you use SASLUsername.  | No |
 | password | The password that corresponds to the user name when you use UsernameAndPassword. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the Copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
-| enableSsl | Specifies whether the connections to the server are encrypted by using SSL. The default value is false.  | No |
+| enableSsl | Specifies whether the connections to the server are encrypted by using SSL. The default value is **false**.  | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
-| allowHostNameCNMismatch | Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when you connect over SSL. The default value is false.  | No |
-| allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is **false**.  | No |
+| allowHostNameCNMismatch | Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when you connect over SSL. The default value is **false**.  | No |
+| allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is **false**.  | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -109,7 +109,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Impala as a source type
 
-To copy data from Impala, set the source type in the Copy activity to **ImpalaSource**. The following properties are supported in the Copy activity source section.
+To copy data from Impala, set the source type in the Copy activity to **ImpalaSource**. The following properties are supported in the Copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -149,4 +149,4 @@ To copy data from Impala, set the source type in the Copy activity to **ImpalaSo
 ```
 
 ## Next steps
-For a list of data stores supported as data stores in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
