@@ -49,7 +49,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  
---server mypgserver-20170401 --name "Allow Azure connections" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+--server mypgserver-20170401 --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]

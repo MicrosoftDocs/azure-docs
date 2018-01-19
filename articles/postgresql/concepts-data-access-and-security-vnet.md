@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 01/18/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -80,8 +80,6 @@ Any virtual network rule is limited to the region that its underlying endpoint a
 #### Server-level, not database-level
 
 Each virtual network rule applies to your whole Azure Database for PostgreSQL server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
-
-- In contrast, IP rules can apply at either level.
 
 #### Security administration roles
 
