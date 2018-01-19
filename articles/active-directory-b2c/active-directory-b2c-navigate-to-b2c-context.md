@@ -34,7 +34,7 @@ The Azure Portal will refresh.  Now you are signed into the Azure Portal in the 
 ## Navigate to the B2C features blade
 
 1. Click **Browse** on the left hand navigation.
-1. Click **> More services** and then search for `Azure AD B2C` in the left navigation pane.  (To pin to your left-hand Startboard, click the star to the left of Azure AD B2C)
+1. Click **All services** and then search for `Azure AD B2C` in the left navigation pane.  (To pin to your left-hand Startboard, click the star to the left of Azure AD B2C)
 1. Click **Azure AD B2C** to access the B2C features blade.
    
     ![Screen shot of Browse to B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)

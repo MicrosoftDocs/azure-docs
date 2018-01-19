@@ -83,7 +83,7 @@ As a prerequisite, you need to create a storage account. You will need an Azure 
 
 1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com).
 2. Sign in with your administrative credentials.
-3. Click **New** > **Data + Storage** > **Storage account**.  A **Create storage account** blade opens up.
+3. Click **Create a resource** > **Storage** > **Storage account**.  A **Create storage account** blade opens up.
 4. In **Name**, provide a name for the storage account, for example, *contoso369b2c*. This value will be later referred as to *storageAccountName*.
 5. Pick the appropriate selections for the pricing tier, the resource group and the subscription. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
 6. Go back to the Startboard and click the storage account that you just created.
