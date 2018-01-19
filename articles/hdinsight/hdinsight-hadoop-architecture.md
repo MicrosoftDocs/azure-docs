@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/20/2017
+ms.date: 01/19/2018
 ms.author: ashishth
 
 ---
@@ -28,7 +28,7 @@ Hadoop includes two core components, the High Density File System (HDFS) that pr
 
 <!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
 
-This article introduces YARN and how it coordinates the execution of applications on HDInsight, and then shows how Spark utilizes YARN to run Spark jobs.
+This article introduces YARN and how it coordinates the execution of applications on HDInsight.
 
 ## YARN basics 
 
@@ -52,44 +52,6 @@ The NodeManagers run the tasks that make up the application, then report their p
 All HDInsight cluster types deploy YARN. The ResourceManager is deployed for high availability with a primary and secondary instance, which run on the first and second head nodes within the cluster respectively. Only the one instance of the ResourceManager is active at a time. The NodeManager instances run across the available worker nodes in the cluster.
 
 ![YARN on HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
-
-## Architecture of Spark on HDInsight
-
-Spark in HDInsight relies on YARN for resource management. The following sections explain how Spark jobs execute within HDInsight using YARN.
-
-![Spark Architecture](./media/hdinsight-hadoop-architecture/spark-unified.png)
-
-To  create an HDInsight cluster on Azure, you select a cluster of type `Spark`, specifying  the  Spark version and  the numbers and configuration of head and worker nodes.  
-
-![Spark on HDInsight](./media/hdinsight-hadoop-architecture/hdinsight-spark-cluster-type-setup.png)
-
-To understand the lifecycle of a Spark job, consider the Spark objects in your cluster.  As shown in the following diagram, Spark uses a driver process, which runs the SparkContext along with the YARN Resource Manager (cluster manager). The cluster manager schedules and runs the Spark jobs submitted to that cluster. When a Spark job is submitted, the YARN ResourceManager instantiates an ApplicationMaster to be the Spark master process. The Spark driver provides its resource requirements to the ApplicationMaster. The ApplicationMaster then requests YARN containers from the ResourceManager to host the Spark executors. The ApplicationMaster is then  responsible for the YARN containers running the Spark executors for duration of the application. Beyond that,  the Spark driver  is responsible for coordinating the actual Spark application processing.
-
-The cluster executes the Spark job steps on the worker nodes.  Each worker node has its own Executor, cache, and list of job tasks.  
-
-![Spark Objects](./media/hdinsight-hadoop-architecture/spark-arch.png)
-
-### Understanding Spark Job Steps
-
-Spark uses an abstraction called a  *resilient distributed dataset* (RDD) to hold the data for a Spark job.  Higher-level objects, such as DataFrames and DataSets,  operate on top of RDDs and provide more functionality for developers, such as strongly-typed objects.
-
-After data is loaded into RDDs on the worker nodes,  the *directed acyclic graph* (DAG) scheduler coordinates the set of tasks that the Spark job requires. The DAG scheduler sends that set to the Task Scheduler on the Cluster Manager.  Tasks are then distributed to Executors (on various nodes) and run on resources on those nodes.  
-
-![Spark Jobs](./media/hdinsight-hadoop-architecture/rdd-stages.png)
-
-You can monitor the progress of Spark Jobs using several monitoring UIs that are available for HDInsight.  For example, use the YARN UI to locate the job status and tracking URL for the Spark jobs of interest.  
-
-![YARN UI](./media/hdinsight-hadoop-architecture/tracking-url.png)
-
-Selecting a  `Tracking URL` opens the Spark UI.  There are a number of views here that allow you to track and monitor the status of your jobs at a granular level.  This UI opens to the `Jobs` tab.  As shown in the following diagram, here you can see a list of jobs run with Job Ids, Descriptions, Time Submitted, Job Duration, Job Steps, and Job Tasks.  You can also select a link in the Description column to open a new UI with detailed information about that job step execution overhead.
-
-![Spark Job UI](./media/hdinsight-hadoop-architecture/spark-job-ui.png)
-
-The Spark Job Stages UI provides detailed information about the process and overhead associated with each task in a Spark job.  The following diagram shows an expanded view of the Spark Stages UI, which includes the `DAG Visualization`, `Event Timeline`, `Summary Metrics`, and `Aggregated Metrics by Executor` for a single job stage of a Spark job.  These detailed views are  useful in determining whether and exactly where Spark job performance bottlenecks are occurring on your HDInsight Spark cluster.
-
-![Spark Job Details UI](./media/hdinsight-hadoop-architecture/job-details.png)
-
-After Spark jobs complete, then job execution information is available in the Spark History Server view.  This view is available from a link in the Azure portal for HDInsight.
 
 ## See also
 

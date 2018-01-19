@@ -4,6 +4,9 @@
   items:
   - name: Overview
     href: apache-hadoop-introduction.md
+  - name: Hadoop architecture in HDInsight
+    href: ../hdinsight-hadoop-architecture.md
+    maintainContext: true
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
