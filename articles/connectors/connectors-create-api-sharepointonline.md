@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the SharePoint Online connector
 Use the SharePoint Online connector to manage SharePoint lists.  
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to SharePoint Online
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
@@ -31,13 +31,13 @@ Before your logic app can access any service, you first need to create a *connec
 
 
 ## Use a SharePoint Online trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
 
 ## Use a SharePoint Online action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
@@ -47,5 +47,5 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sharepoint/).
 
 ## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

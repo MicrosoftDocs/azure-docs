@@ -128,6 +128,8 @@
       href: azure-stack-manage-storage-shares.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
+    - name: Start and stop Azure Stack
+      href: azure-stack-start-and-stop.md
     - name: Replace hardware
       items:
       - name: Node actions
@@ -229,13 +231,13 @@
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
-      - name: Supported guest operating systems for Azure Stack 
+      - name: Supported guest operating systems for Azure Stack
         href: azure-stack-supported-os.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
-      - name: Add virtual machine scale sets
+      - name: Offer a virtual machine scale set
         href: azure-stack-compute-add-scalesets.md
-      - name: Deploy Linux virtual machines
+      - name: Offer Linux virtual machines
         href: azure-stack-linux.md
     - name: Usage and billing
       items:
