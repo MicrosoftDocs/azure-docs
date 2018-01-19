@@ -48,7 +48,7 @@ After migration, you don't need to commit or delete a failover. Instead, select 
 2. The **Complete Migration** action completes the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
 ### Step 2: Install the Azure VM agent on the virtual machine
-The Azure [VM agent](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) must be installed on the virtual machine for the Site Recovery extension to work and to help protect the VM.
+The Azure [VM agent](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) must be installed on the virtual machine for the Site Recovery extension to work and to help protect the VM.
 
 >[!IMPORTANT]
 >Beginning with version 9.7.0.0, on Windows virtual machines, the Mobility service installer also installs the latest available Azure VM agent. On migration, the virtual machine meets the
