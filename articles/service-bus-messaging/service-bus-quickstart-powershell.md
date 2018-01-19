@@ -20,7 +20,7 @@ ms.author: sethm
 
 # Send and receive messages to a Queue using PowerShell and the .NET Core client
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment.. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this they would send messages into a Service Bus Queue.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment.. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this they would for example send and receive messages from a Service Bus Queue.
 
 <p align="center"><img src="./media/service-bus-quickstart-powershell/quick-start-queue.png"></p>
 
