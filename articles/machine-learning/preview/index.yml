@@ -37,6 +37,18 @@ sections:
     - html: <a href="tutorial-classifying-iris-part-2">Use the Machine Learning Workbench to build a model with the Iris flower dataset</a>
     - html: <a href="tutorial-classifying-iris-part-3">Learn how to deploy a Machine Learning model</a>
     - html: <a href="tutorial-bikeshare-dataprep">Use Azure Machine Learning Workbench for advanced data prep</a>
+
+- title: More Azure Machine Learning Technologies
+  items:
+  - type: paragraph
+    text: 'Other technologies available in Azure Machine Learning:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">Azure Data Science Virtual Machine</a>
+    - html: <a href="/azure/machine-learning/team-data-science-process/overview">The Team Data Science Process</a>
+
 - title: Reference
   items:
   - type: list

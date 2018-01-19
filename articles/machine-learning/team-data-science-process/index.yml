@@ -40,3 +40,14 @@ sections:
     - html: <a href="walkthroughs-azure-data-lake">U-SQL with Azure Data Lake</a>
     - html: <a href="walkthroughs-sql-server">R, Python and T-SQL with SQL Server</a>
     - html: <a href="walkthroughs-sql-data-warehouse">T-SQL and Python with SQL DW</a>
+
+- title: More Azure Machine Learning Technologies
+  items:
+  - type: paragraph
+    text: 'Other technologies available in Azure Machine Learning:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/machine-learning/preview/">Azure Machine Learning services (preview)</a>
+    - html: <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">Azure Data Science Virtual Machine</a>

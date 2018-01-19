@@ -106,6 +106,73 @@ Azure Machine Learning provides fully managed services for building, deploying, 
 
 ---
 
+<h2>More Machine Learning Technologies</h2>
+
+Microsoft has a wide array of technologies available to help you develop and operationalize machine learning models.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/logo_sql.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><strong>Machine Learning Services in SQL Server</strong></h3>
+                        Machine learning in-database, or in a standalone on-premises server
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/services/cognitive-services/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/cognitive-services.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><strong>Cognitive Services</strong></h3>
+                        Intelligent algorithms for your apps, websites, and bots
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/cntk.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><strong>Microsoft Cognitive Toolkit</strong></h3>
+                        Free, open-source toolkit to train deep learning algorithms
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
+
+---
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
