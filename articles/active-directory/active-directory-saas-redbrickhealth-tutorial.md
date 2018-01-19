@@ -106,15 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. In the **Identifier** textbox, type a URL:
+    a. In the **Identifier** textbox, type a URL: `http://www.redbrickhealth.com`
 	
-	For Testing Environment: `http://www-test.redbrickhealth.com`
-	
-	For Production Environment: `http://www.redbrickhealth.com`
-	
-	b. In the **Reply URL** textbox, type a URL:
-	
-	For Testing Environment: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+	b. In the **Reply URL** textbox, type a URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
 	
 	For Production Environment: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
@@ -122,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api.redbricklabs.com/identity/sso/inbound?target=https://<companyname>.redbrickhealth.com/portal&connection=example<companyname>`
+	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=toyotaconn1`
 	
 	> [!NOTE] 
 	> Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
@@ -135,15 +129,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Attribute Name | Attribute Value |
 	| ---------------| ----------------|
-	| first name |user.givenname |
-	| last name |user.surname |
-	| email address |user.userprincipalname |
 	| principal name | ********** |
 	| client id | ********** |
 	| participant id | ********** |
 	
 	> [!NOTE]
-	> For principal name, client id, and participant id update the Attribute Value as per your organization.
+	> These values are for reference purpose only. You need to define the attributes as per your organization's requirement. Please contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get more info about the required claims.
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 	
