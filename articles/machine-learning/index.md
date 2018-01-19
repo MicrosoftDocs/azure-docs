@@ -81,6 +81,15 @@ Azure Machine Learning provides fully managed services for building, deploying, 
             </div>
         </div>
     </li>
+</ul>
+
+---
+
+<h2>More Machine Learning Technologies</h2>
+
+Microsoft has a wide array of technologies available to help you develop and operationalize machine learning models.
+
+<ul class="panelContent cardsFTitle">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -102,15 +111,6 @@ Azure Machine Learning provides fully managed services for building, deploying, 
             </div>
         </div>
     </li>
-</ul>
-
----
-
-<h2>More Machine Learning Technologies</h2>
-
-Microsoft has a wide array of technologies available to help you develop and operationalize machine learning models.
-
-<ul class="panelContent cardsFTitle">
     <li>
         <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">
         <div class="cardSize">
