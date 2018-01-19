@@ -24,11 +24,11 @@ Most reboots are taking approximately **30 minutes**.
 
 ## Does the guest OS need to be updated? 
 
-This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available [here](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available [here](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## Will there be a performance impact as a result of resolving this update?
 
-The majority of Azure customers have not seen a noticeable performance impact with this update. We’ve worked to optimize the CPU and disk I/O path and are not seeing noticeable performance impact after the fix has been applied. A small set of customers may experience some networking performance impact. This can be addressed by using Azure Accelerated Networking, for [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli), which is a free capability available to all Azure customers.
+The majority of Azure customers have not seen a noticeable performance impact with this update. We’ve worked to optimize the CPU and disk I/O path and are not seeing noticeable performance impact after the fix has been applied. A small set of customers may experience some networking performance impact. This can be addressed by using Azure Accelerated Networking, for [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), which is a free capability available to all Azure customers.
 
 ## I follow your recommendations for High Availability, will my environment remain highly available during the reboot?
 

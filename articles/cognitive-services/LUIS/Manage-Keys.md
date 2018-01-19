@@ -2,14 +2,14 @@
 title: Manage your keys in LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: Kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/10/2018
+ms.author: v-geberr
 ---
 
 # Manage your LUIS keys
@@ -52,7 +52,7 @@ The region in which you publish your LUIS app corresponds to the region or locat
 
 ## Publishing regions
 
-LUIS apps created on https://www.luis.ai can be published to all endpoints except the European region. To publish to the European regions, you create LUIS apps at https://eu.luis.ai. 
+LUIS apps created on https://www.luis.ai can be published to all endpoints except the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions. 
 
  Global region | Azure region   |   LUIS website | Endpoint URL format   |
 |-----|------|------|------|

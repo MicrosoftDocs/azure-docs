@@ -3,7 +3,7 @@ title: Granting access to Azure SQL Database | Microsoft Docs
 description: Learn about granting access to Microsoft Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
 ms.date: 02/06/2017
-ms.author: rickbyh
+ms.author: carlrab
 ---
 # Azure SQL Database access control
 To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 

@@ -525,6 +525,10 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 - **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Trigger - limits
+
+The HTTP request length is limited to 100K (102,400) bytes, and the URL length is limited to 4k (4,096) bytes. These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
 ## Trigger - host.json properties
 
 The [host.json](functions-host-json.md) file contains settings that control HTTP trigger behavior.

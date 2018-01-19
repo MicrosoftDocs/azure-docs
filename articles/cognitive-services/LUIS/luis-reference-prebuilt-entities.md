@@ -19,22 +19,22 @@ Language Understanding (LUIS) includes a set of prebuilt entities. When a prebui
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
-Prebuilt entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
-------|:------:|------|------|------|------|------|------|------|------|
-DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   `*`   |   `*`   |   -   |   -   |
- Datetime   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |   -   |
-Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Geography   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Encyclopedia   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Prebuilt entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```   | ```fr-CA```   |   ```es-MX```   |   ```nl-NL```   |
+------|:------:|------|------|------|------|------|------|------|------|------|------|------|
+DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   `*`   |   ✔   |   -   |   -   |   -   |   -   |   -   |
+ Datetime   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |   -   |   -   |   -   |   -   |
+Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Geography   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Encyclopedia   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
 `*` = coming soon
 
@@ -270,8 +270,6 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, both past and future values are included in the resolution. 
 
-> [!NOTE]
-> **builtin.datetimeV2** is available only in the ```en-us``` and ```zh-cn``` locales.
 
 <table>
 <th> example </th><th>property descriptions</th>

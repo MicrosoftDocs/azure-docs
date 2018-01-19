@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service.
 
-In this quickstart, you create a Windows container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few moments, you can see the running application your browser:
+In this quickstart, you create a Windows container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few moments, you can see the running application in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
-## Create resource group
+## Create a resource group
 
 Create an Azure resource group with [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. A resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -36,7 +36,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a Windows Nano Server container running Internet Information Services (IIS).
+You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a Nano Server container running Internet Information Services (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

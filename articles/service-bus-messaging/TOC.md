@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # How To
 ## Plan and design
@@ -29,6 +28,7 @@
 ### [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
 ### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
@@ -64,6 +64,7 @@
 #### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 #### [Transaction processing](service-bus-transactions.md)
 #### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [End-to-end tracing and diagnostics](service-bus-end-to-end-tracing.md)
 ## Manage
 ### [Monitor Service Bus with Azure Monitoring](service-bus-metrics-azure-monitor.md)
 ### [Service Bus management libraries](service-bus-management-libraries.md)
