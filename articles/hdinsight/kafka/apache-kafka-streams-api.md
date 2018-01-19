@@ -4,18 +4,17 @@ description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsig
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/19/2018
 ms.author: larryfr
 
 ---
@@ -26,13 +25,27 @@ Learn how to create an application that uses the Kafka Streams API and run it wi
 
 When working with Apache Kafka, stream processing is often done using Apache Spark or Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics, using an application that runs on Kafka. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
-## Download and build the example
+## Setup your development environment
 
-1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) to your development environment. For the streaming example, use the project in the `streaming` directory.
-   
-    This project contains only one class, `Stream`, which reads records from the `test` topic created previously. It counts the words read, and emits each word and count to a topic named `wordcounts`. The `wordcounts` topic is created in a later step in this section.
+You must have the following components installed in your development environment:
 
-2. From the command line in your development environment, change directories to the location of the `Streaming` directory, and then use the following command to create a jar package:
+* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+
+* [Apache Maven](http://maven.apache.org/)
+
+* An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
+
+## Setup your deployment environment
+
+This example requires Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+
+## Build and deploy the example
+
+Use the following steps to build and deploy the project to your Kafka on HDInsight cluster.
+
+1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+
+2. Change directories to the `Streaming` directory, and then use the following command to create a jar package:
 
     ```bash
     mvn clean package
@@ -40,44 +53,69 @@ When working with Apache Kafka, stream processing is often done using Apache Spa
 
     This command creates a directory named `target`, which contains a file named `kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Use the following commands to copy the `kafka-streaming-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
+3. Use the following command to copy the `kafka-streaming-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
    
     ```bash
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
    
-    Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
+    Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-4. Once the `scp` command finishes copying the file, connect to the cluster using SSH, and then use the following command to create the `wordcounts` topic:
+## Run the example
+
+1. To open an SSH connection to the cluster, use the following command:
 
     ```bash
+    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+    Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+4. To create the Kafka topics that are used by this example, use the following commands:
+
+    ```bash
+    sudo apt -y install jq
+
+    CLUSTERNAME='your cluster name'
+
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
-5. Next, start the streaming process by using the following command:
-   
-    ```bash
-    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
-    ```
-   
-    This command starts the streaming process in the background.
+    Replace __your cluster name__ with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight cluster login account.
 
-6. Use the following command to send messages to the `test` topic. These messages are processed by the streaming example:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
-    ```
-
-7. Use the following command to view the output that is written to the `wordcounts` topic by the streaming process:
-   
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
-    ```
-   
     > [!NOTE]
-    > To view the data, you must tell the consumer to print the key and the deserializer to use for the key and value. The key name is the word, and the key value contains the count.
-   
-    The output is similar to the following text:
+    > If your cluster login is different than the default value of `admin`, replace the `admin` value in the above commands with your cluster login name.
+
+5. To run this example, you must do three things:
+
+    * Start the Streams solution contained in `kafka-streaming.jar`.
+    * Start a producer that writes to the `test` topic.
+    * Start a consumer so that we can see the output written to the `wordcounts` topic
+
+    You could accomplish this by opening three SSH sessions, but you then have to set `$KAFKABROKERS` and `$KAFKAZKHOSTS` for each by running step 4 from this section in each SSH session. An easier solution is to use the `tmux` utility, which can split the current SSH display into multiple section. To start the stream, producer, and consumer using `tmux`, use the following command:
+
+    ```bash
+    tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
+    ```
+
+    This command splits the SSH display into three sections:
+
+    * The left section runs a console consumer, which reads messages from the `wordcounts` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
+
+        > [!NOTE]
+        > The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
+
+    * The top right section runs the Streams API solution: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
+
+    * The lower right section runs the console producer, and waits on you to enter messages to send to the `test` topic: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
+ 
+6. After the `tmux` command splits the display, your cursor is in the lower right section. Start entering sentences. After each sentence, the left pane is updated to show a count of unique words. The output is similar to the following text:
    
         dwarfs  13635
         ago     13664
@@ -91,10 +129,21 @@ When working with Apache Kafka, stream processing is often done using Apache Spa
         ago     13668
         jumped  13640
         jumped  13641
-        a       13805
-        snow    13637
    
     > [!NOTE]
     > The count increments each time a word is encountered.
 
-7. Use the __Ctrl + C__ to exit the consumer, then use the `fg` command to bring the streaming background task back to the foreground. Use __Ctrl + C__ to exit it also.
+7. Use the __Ctrl + C__ to exit the producer. This removes the lower right section from the display. Continue using __Ctrl + C__ to exit the application and the consumer.
+
+## Next steps
+
+In this document, you learned how to use the Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+
+* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
+* [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md)
+* [Use Apache Spark streaming (DStream) with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

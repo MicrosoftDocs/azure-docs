@@ -118,17 +118,16 @@ Use the following steps to create environment variables that contain the host in
 
     ```bash
     CLUSTERNAME='your cluster name'
-    PASSWORD='your cluster password'
-    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
     > [!IMPORTANT]
-    > Set `CLUSTERNAME=` to the name of the Kafka cluster. Set `PASSWORD=` to the login (admin) password you used when creating the cluster.
+    > Set `CLUSTERNAME=` to the name of the Kafka cluster. When prompted, enter the password for the cluster login (admin) account.
 
     The following text is an example of the contents of `$KAFKAZKHOSTS`:
    
@@ -179,92 +178,17 @@ Use the following steps to store records into the test topic you created earlier
 2. Use a script provided with Kafka to read records from the topic:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
 
+    > [!NOTE]
+    > If you are using an older version of Kafka, you may need to replace `--bootstrap-server $KAFKABROKERS` with `--zookeeper $KAFKAZKHOSTS`.
+
 3. Use __Ctrl + C__ to stop the consumer.
 
-## Producer and consumer API
-
-You can also programmatically produce and consume records using the [Kafka APIs](http://kafka.apache.org/documentation#api). To build a Java producer and consumer, use the following steps from your development environment.
-
-> [!IMPORTANT]
-> You must have the following components installed in your development environment:
->
-> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
->
-> * [Apache Maven](http://maven.apache.org/)
->
-> * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
-
-1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). For the producer/consumer example, use the project in the `Producer-Consumer` directory. This example contains the following classes:
-   
-    * **Run** - starts either the consumer or producer.
-
-    * **Producer** - stores 1,000,000 records to the topic.
-
-    * **Consumer** - reads records from the topic.
-
-2. To create a jar package, change directories to the location of the `Producer-Consumer` directory and use the following command:
-
-    ```
-    mvn clean package
-    ```
-
-    This command creates a directory named `target`, that contains a file named `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
-
-3. Use the following commands to copy the `kafka-producer-consumer-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
-   
-    ```bash
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
-    ```
-   
-    Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
-
-4. Once the `scp` command finishes copying the file, connect to the cluster using SSH. Use the following command to write records to the test topic:
-
-    ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
-    ```
-
-    > [!IMPORTANT]
-    > If this is a new SSH session, use the commands in the [Get the Zookeeper and Broker host information](#getkafkainfo) section to set `$KAFKABROKERS` for this SSH session.
-
-5. Once the process has finished, use the following command to read from the topic:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
-    ```
-   
-    The records read, along with a count of records, is displayed. You may see a few more than 1,000,000 logged as you sent several records to the topic using a script in an earlier step.
-
-6. Use __Ctrl + C__ to exit the consumer.
-
-### Multiple consumers
-
-Kafka consumers use a consumer group when reading records. Using the same group with multiple consumers results in load balanced reads from a topic. Each consumer in the group receives a portion of the records. To see this process in action, use the following steps:
-
-1. Open a new SSH session to the cluster, so that you have two of them. In each session, use the following to start a consumer with the same consumer group ID:
-   
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
-    ```
-
-    This command starts a consumer using the group ID `mygroup`.
-
-    > [!IMPORTANT]
-    > Use the commands in the [Get the Zookeeper and Broker host information](#getkafkainfo) section to set `$KAFKABROKERS` for this SSH session.
-
-2. Watch as each session counts the records it receives from the topic. The total of both sessions should be the same as you received previously from one consumer.
-
-Consumption by clients within the same group is handled through the partitions for the topic. For the `test` topic created earlier, it has eight partitions. If you open eight SSH sessions and launch a consumer in all sessions, each consumer reads records from a single partition for the topic.
-
-> [!IMPORTANT]
-> There cannot be more consumer instances in a consumer group than partitions. In this example, one consumer group can contain up to eight consumers since that is the number of partitions in the topic. Or you can have multiple consumer groups, each with no more than eight consumers.
-
-Records stored in Kafka are stored in the order they are received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.
+You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
 
 ## Data high availability
 
@@ -301,6 +225,8 @@ In this document, you have learned the basics of working with Apache Kafka on HD
 
 * [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
+* [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md)
+* [Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
 * [Use Apache Spark streaming (DStream) with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Use Apache Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
