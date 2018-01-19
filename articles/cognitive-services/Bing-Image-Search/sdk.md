@@ -1,14 +1,14 @@
 ---
 title: Bing Search SDK | Microsoft Docs
-description: Preview of the Web Search SDK for applications that search the web.
+description: Preview of the Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-image-search
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 1/19/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
