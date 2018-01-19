@@ -1,8 +1,8 @@
-- name: Ansible on Azure
+- name: Ansible in Azure
   href: ./index.yml
 - name: Overview
   items:
-  - name: About Ansible on Azure
+  - name: About Ansible in Azure
     href: ./ansible-overview.md
 - name: Quickstarts
   expanded: true
@@ -15,7 +15,7 @@
       maintainContext: true
 - name: Tutorials 
   items:
-  - name: Create complete Linux VM
+  - name: Create a complete Linux VM
     href: /azure/virtual-machines/linux/ansible-create-complete-vm
     maintainContext: true
   - name: Run a playbook in Cloud Shell

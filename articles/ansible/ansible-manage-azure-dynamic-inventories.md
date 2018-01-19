@@ -33,7 +33,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Create two Linux virtual machines on Azure using one of the following techniques:
 
-    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-create-vm?branch=pr-en-us-30287) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
+    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
 
     - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
@@ -50,7 +50,7 @@ Ansible can be used to pull inventory information from various sources (includin
         ```
 
 ## Tag a virtual machine
-You can [use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
+You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
 
 Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
 
@@ -170,7 +170,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 ## Test Nginx installation
 This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
-1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+1. Use the [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) command to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \

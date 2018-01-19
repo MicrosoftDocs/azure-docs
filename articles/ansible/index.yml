@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Ansible on Azure Documentation
+title: Ansible in Azure Documentation
 metadata:
-  title: Ansible on Azure Documentation - Tutorials, samples, reference, and resources
+  title: Ansible in Azure Documentation - Tutorials, samples, reference, and resources
   meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   services: terraform
   author: tomarcher
@@ -40,14 +40,14 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Create a Linux virtual machine, including virtual network, public IP address, and virtual network interface card.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Connect to an Azure virtual machine and run an Ansible playbook in CloudShell.</a>
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Connect to an Azure virtual machine and run an Ansible playbook in Cloud Shell.</a>
     - html: <a href="./ansible-manage-azure-dynamic-inventories">Create and manage a dynamic inventory of your Azure resourcese.</a>
 - title: Samples
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">GitHub repository containing samples and best practices for building Ansible Playbooks for Azure.</a>
+    - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">GitHub repository with samples and best practices for building Ansible playbooks for Azure.</a>
     - html: <a href="https://galaxy.ansible.com">Ansible Galaxy for creating, managing, and installing roles published by the community.</a>
 - title: Resources
   items:
