@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -34,7 +34,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Google BigQuery connector.
 
@@ -45,8 +45,8 @@ The following properties are supported for Google BigQuery linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleBigQuery** | Yes |
-| project | The default BigQuery project to query against.  | Yes |
-| additionalProjects | A comma-separated list of public BigQuery projects to access.  | No |
+| project | The project ID of the default BigQuery project to query against.  | Yes |
+| additionalProjects | A comma-separated list of project IDs of public BigQuery projects to access.  | No |
 | requestGoogleDriveScope | Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.  | No |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
 | refreshToken | The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
@@ -63,13 +63,13 @@ The following properties are supported for Google BigQuery linked service:
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }

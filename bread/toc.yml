@@ -239,7 +239,9 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-      
+  - name: IoT Edge
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/iot-edge/      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
@@ -314,6 +316,31 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
+  - name: Policy documentation
+    tocHref: /azure/azure-policy/
+    topicHref: /azure/azure-policy/
+    items:
+      - name: Overview of Azure Policy
+        tocHref: /azure/azure-policy/azure-policy-introduction/
+        topicHref: /azureazure-policy/azure-policy-introduction/
+      - name: Assign a policy - Portal
+        tocHref: /azure/azure-policy/assign-policy-definition/
+        topicHref: /azureazure-policy/assign-policy-definition/
+      - name: Assign a policy - PowerShell
+        tocHref: /azure/azure-policy/assign-policy-definition-ps/
+        topicHref: /azureazure-policy/assign-policy-definition-ps/
+      - name: Assign a policy - Azure CLI
+        tocHref: /azure/azure-policy/assign-policy-definition-cli/
+        topicHref: /azureazure-policy/assign-policy-definition-cli/
+      - name: Create and manage Azure Policy
+        tocHref: /azure/azure-policy/create-manage-polic/
+        topicHref: /azureazure-policy/create-manage-polic/
+      - name: Policy templates
+        tocHref: /azure/azure-policy/json-samples/
+        topicHref: /azureazure-policy/json-samples/
+      - name: Azure Policy definition structure
+        tocHref: /azure/azure-policy/policy-definition/
+        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/

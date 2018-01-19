@@ -32,6 +32,17 @@ Assume, for instance, that your IoT hub device twins have the following structur
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -134,6 +145,12 @@ This grouping query would return a result similar to the following example. Here
         "status": "Error"
     }
 ]
+```
+
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### C# example

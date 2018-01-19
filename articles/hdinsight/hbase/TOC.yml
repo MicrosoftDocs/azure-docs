@@ -29,6 +29,8 @@
       maintainContext: true
   - name: Develop
     items:
+    - name: Use the HBase .NET SDK
+      href: apache-hbase-rest-sdk.md
     - name: Develop Java applications
       href: apache-hbase-build-java-maven-linux.md
     - name: Use empty edge nodes
@@ -39,6 +41,13 @@
       maintainContext: true
     - name: Use Phoenix and SQLLine
       href: apache-hbase-phoenix-squirrel-linux.md
+    - name: Use the Phoenix Query Server REST SDK
+      href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+  - name: Analyze big data
+    items:
+      - name: Use Spark to read and write HBase data
+        href: ../hdinsight-using-spark-query-hbase.md
+        maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -112,15 +121,23 @@
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
+      - name: Optimize clusters with the Ambari web UI
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Manage logs for an HDInsight cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
     - name: Upload data for Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
+    - name: Bulk load data into Phoenix using psql
+      href: apache-hbase-phoenix-psql.md
     - name: Multiple HDInsight clusters with Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
@@ -152,6 +169,9 @@
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Troubleshoot a slow or failing HDInsight cluster
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
     - name: HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
@@ -270,9 +290,6 @@
       maintainContext: true
     - name: Access YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Use Apache Phoenix and SQuirreL
-      href: ../hdinsight-hbase-phoenix-squirrel.md
       maintainContext: true
     - name: Generate movie recommendations using Mahout
       href: ../hdinsight-mahout.md

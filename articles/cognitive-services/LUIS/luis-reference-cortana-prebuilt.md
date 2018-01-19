@@ -1,6 +1,6 @@
 ---
-title: Cortana pre-built app reference | Microsoft Docs
-description: Reference for the Cortana personal assistant, a pre-built application from Language Understanding Intelligent Services (LUIS).
+title: Cortana prebuilt app reference | Microsoft Docs
+description: Reference for the Cortana personal assistant, a prebuilt application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -16,7 +16,7 @@ ms.author: v-demak
 This reference lists the intents and entities that the Cortana prebuilt app recognizes.
 
 ## Cortana prebuilt intents
-The pre-built personal assistant application can identify the following intents:
+The prebuilt personal assistant application can identify the following intents:
 
 | Intent | Example utterances |
 |--------| ------------------|

@@ -30,7 +30,7 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside is a directory named `azure-vote` and a file named `docker-compose.yml`.
+An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside is a directory named `azure-vote` and a file named `docker-compose.yaml`.
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app]. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Node.js Getting Started
+title: Azure AD Node.js web API getting started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
@@ -12,12 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
 ---
-
-# Secure Node.js Web API with Azure Active Directory
+# Azure AD Node.js web API getting started
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
@@ -126,13 +125,18 @@ As you secure an endpoint, you must provide a strategy responsible for determini
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 This implementation uses auto-registration by adding authentication tokens into the `authenticatedUserTokens` array if they do not already exist.

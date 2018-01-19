@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
 ---
 
 # Integrate Security Center security policies with Azure Policy
-This article helps you configure Azure Security Center security policies, which are powered by Azure Policy. 
+This article helps you configure Azure Security Center security policies, which are powered by Azure Policy.
 
 ## How security policies work
 Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to do the following:
@@ -36,41 +36,41 @@ You can edit the default security policy for each of your Azure subscriptions in
 
 2. On the **Security Center** dashboard, under **General**, select **Security policy**.
 
-	![The Policy Management pane](./media/security-center-policies/security-center-policies-fig10.png)
+	![The Policy Management pane](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Select the subscription that you want to enable a security policy for.  
 
 4. In the **Policy Components** section, select **Security policy**.  
     The **Basics** window opens.
 
-	![Policy components](./media/security-center-policies/security-center-policies-fig12.png)
+	![Policy components](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. To delete a policy definition, under **Policies and Parameters**, next to the definition you want to delete, select **Delete**.
 
 6. Click **Save**.  
-    The **Available Definitions** window opens, displaying the default policy that's assigned to Security Center via Azure Policy. 
+    The **Available Definitions** window opens, displaying the default policy that's assigned to Security Center via Azure Policy.
 
 7. (Optional) In the **Available Definitions** window, do either of the following:
 
     * To add a policy definition, select the plus sign (+) next to the definition.
 
-	![Available policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
+	![Available policy definitions](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * For a detailed explanation of a policy, select it.  
     A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](../azure-policy/policy-definition.md) structure.
 
-	![The definition Preview window](./media/security-center-policies/security-center-policies-fig14.png)
+	![The definition Preview window](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. When you finish editing, select **Save**.
 
 ## Available security policy definitions
 
-To understand the policy definitions that are available in the default security policy, refer to the following table: 
+To understand the policy definitions that are available in the default security policy, refer to the following table:
 
 | Policy | What the enabled policy does |
 | --- | --- |
 | System updates |Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for your virtual machines, and it recommends that missing updates be applied. For Linux systems, the policy uses the distro-provided package-management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) virtual machines. |
-| OS vulnerabilities |Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. For more information about the specific configurations that are being monitored, see the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (At this time, Windows Server 2016 is not fully supported.) |
+| Security configurations |Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. For more information about the specific configurations that are being monitored, see the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (At this time, Windows Server 2016 is not fully supported.) |
 | Endpoint protection |Recommends that endpoint protection be set up for all Windows virtual machines (VMs) to help identify and remove viruses, spyware, and other malicious software. |
 | Disk encryption |Recommends enabling disk encryption in all virtual machines to enhance data protection at rest. |
 | Network security groups |Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet are inherited by all virtual-machine network interfaces unless otherwise specified. In addition to checking to see whether a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |

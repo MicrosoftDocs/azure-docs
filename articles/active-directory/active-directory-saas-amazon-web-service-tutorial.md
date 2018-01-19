@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/16/2017
 ms.author: jeedes
 
 ---
@@ -108,14 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. The Amazon Web Services (AWS) Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On attributes](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)	
+	![Configure Single Sign-On attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)	
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
 	| Attribute Name  | Attribute Value | Namespace |
 	| --------------- | --------------- | --------------- |
-	| rolesessionname | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
 	
 	>[!TIP]
 	>You need to configure the user provisioning in Azure AD to fetch all the roles from AWS Console. Refer the provisioning steps below.
@@ -124,11 +124,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On add](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On attributes](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+	![Configure Single Sign-On addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. In the **Namespace** textbox, type the namespace value shown for that row.
 	
 	d. Click **Ok**.
 
@@ -228,19 +230,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Create your own policy to fetch all the roles from AWS accounts. In the **Create Your Own Policy** section, click on **Select** button.
-	
+25. Create your own policy to fetch all the roles from AWS accounts by performing the following steps:
+
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Define the new policy by performing the following steps:
+	a. In the **“Create policy”** section click on **“JSON”** tab.
 
-	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
-
-	a. Provide the **Policy Name** as **AzureAD_SSOUserRole_Policy**.
-
-	b. You can provide **Description** to the policy as **This policy will allow to fetch the roles from AWS accounts**.
-
-	c. In the policy document, add the below JSON.
+	b. In the policy document, add the below JSON.
 	
 	```
 	
@@ -270,15 +266,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	```
 
-	d. Make sure that you check on **Use autoformatting for policy editing**.
+	c. Click on **Review Policy button** to validate the policy.
 
-	e. Click on **Validate Policy** button at the bottom.
+	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-	f. Once the policy is been validated correctly then you can click on **Create Policy** button.
+26. Define the **new policy** by performing the following steps:
 
-	![Create new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+	a. Provide the **Policy Name** as **AzureAD_SSOUserRole_Policy**.
+
+	b. You can provide **Description** to the policy as **This policy will allow to fetch the roles from AWS accounts**.
 	
-27.	Create a new user account in the AWS IAM Service by performing following steps:
+	c. Click on **“Create Policy”** button.
+		
+27.	Create a new user account in the AWS IAM Service by performing the following steps:
 
 	a. Click on **Users** navigation in the AWS IAM console.
 
@@ -298,9 +300,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	* Click on the **Next Permissions** button in the bottom right corner.
 
-28. Now create a new policy for this user by performing following steps:
+28. Now create a new policy for this user by performing the following steps:
 
-	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
 	
 	a. Click on the **Attach existing policies directly** button.
 
@@ -330,7 +332,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** fields respectively.
+32. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** field respectively.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
 	

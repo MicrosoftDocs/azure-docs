@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm

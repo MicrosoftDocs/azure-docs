@@ -106,13 +106,13 @@ A new disk attached to the VM must be initialized.
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150039<br></br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | - A new data disk was attached to the VM but it wasn't initialized.</br></br>- The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks are initialized, and then retry the operation.</br></br>For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | - A new data disk was attached to the VM but it wasn't initialized.</br></br>- The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks are initialized, and then retry the operation.</br></br>For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### Fix the problem
 Ensure that the data disks have been initialized, and then retry the operation:
 
 - For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 If the problem persists, contact support.
 
@@ -128,6 +128,20 @@ If you don't see your Azure VM for selection when you enable replication, this m
 
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM when you enable replication, after removing the stale configuration.
 
+## VM's provisioning state is not valid (error code 150019)
+
+To enable replication on the VM, the provisioning state should be **Succeeded**. You can check the VM state by following the steps below.
+
+1.	Select the **Resource Explorer** from **All Services** in Azure portal.
+2.	Expand the **Subscriptions** list and select your subscription.
+3.	Expand the **ResourceGroups** list and select the resource group of the VM.
+4.	Expand the **Resources** list and select your virtual machine
+5.	Check the **provisioningState** field in Instance view on right hand side.
+
+### Fix the problem
+
+- If **provisioningState** is **Failed**, contact support with details to troubleshoot.
+- If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
 
 ## Next steps
 [Replicate Azure virtual machines](azure-to-azure-quickstart.md)

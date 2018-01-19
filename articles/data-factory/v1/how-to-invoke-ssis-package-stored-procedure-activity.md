@@ -62,7 +62,6 @@ The following procedure provides steps to create a data factory. You create a pi
     
     ```powershell       
     $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
-    $df 
     ```
 
 Note the following points:
@@ -73,15 +72,14 @@ Note the following points:
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ### Create an Azure SQL Database linked service
 Create a linked service to link your Azure SQL database that hosts the SSIS catalog to your data factory. Data Factory uses information in this linked service to connect to SSISDB database, and executes a stored procedure to run an SSIS package. 
 
-1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: (Create the folder ADFv2TutorialBulkCopy if it does not already exist.)
+1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
 	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+	> Replace &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -89,7 +87,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USERNAME>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
         }
@@ -132,7 +130,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 1. Create a JSON file named **MyPipeline.json** in the **C:\ADF\RunSSISPackage** folder with the following content:
 
     > [!IMPORTANT]
-	> Replace &lt;FOLDER NAME&gt;, &lt;PROJECT NAME&gt;, &lt;PACKAGE NAME&gt; with names of folder, project, and package in the SSIS catalog before saving the file. 
+	> Replace &lt;folder name&gt;, &lt;project name&gt;, &lt;package name&gt; with names of folder, project, and package in the SSIS catalog before saving the file.
 
     ```json
     {
@@ -144,7 +142,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
                 "typeProperties": {
                     "storedProcedureName": "sp_executesql",
                     "storedProcedureParameters": {
-                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'SsisAdfTest', @project_name=N'MyProject', @package_name=N'Package.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
+                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<folder name>', @project_name=N'<project name>', @package_name=N'<package name>', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
                     }
                 },
                 "outputs": [{
@@ -162,18 +160,11 @@ In this step, you create a pipeline with a stored procedure activity. The activi
     }    
     ```
 
-2. To create the pipeline: **RunSSISPackagePipeline**, Run the **Set-AzureRmDataFactoryPipeline** cmdlet.
+2. To create the pipeline: **RunSSISPackagePipeline**, run the **New-AzureRmDataFactoryPipeline** cmdlet.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
-
-## Create a pipeline run
-Use the **Invoke-AzureRmDataFactoryPipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
-
-```powershell
-$RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
-```
 
 ## Monitor the pipeline run
 
@@ -189,7 +180,7 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
 	Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
 	```
 
-    You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Creation of an on-demand HDInsight cluster usually takes some time.
+    You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. 
 
     You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
