@@ -8,7 +8,7 @@ manager: timlt
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -24,7 +24,9 @@ This quickstart runs an Azure Batch job from an application built on the Azure B
 ## Prerequisites
 
 * [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
+
 * An Azure Batch account and a linked general-purpose Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Sign in to Azure
@@ -35,21 +37,21 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/batch-python-quickstart) from GitHub. 
+[Download or clone the sample app](https://github.com/Azure-Samples/batch-python-quickstart) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
-Change to the directory that contains the sample code:
-
-```bash
-cd src
+```
+git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Install the required packages using `pip`.
+Navigate to the directory that contains the Python script `python_quickstart_client.py`.
+
+In your Python development environment, install the required packages using `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Open the file `python_quickstart_client.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Open the file `python_quickstart_client.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
@@ -62,8 +64,13 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 ## Run the app
 
-To see the Batch workflow in action, run the application. After running the application, go to the walkthrough to learn what each part of the application does. 
+To see the Batch workflow in action, run the script:
 
+```
+python python_quickstart_client.py
+```
+
+After running the script, review the code to learn what each part of the application does. 
 
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
@@ -93,7 +100,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 Typical execution time is approximately 3 minutes when you run the application in its default configuration. Initial pool setup takes the most time.
 
-## Walkthrough
+## Review the code
 
 The Python app in this quickstart does the following:
 

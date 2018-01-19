@@ -24,6 +24,7 @@ This quickstart runs an Azure Batch job from a C# application built on the Azure
 ## Prerequisites
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
+
 * A Batch account and a linked general-purpose storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Sign in to Azure
@@ -34,15 +35,15 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Download the sample
 
-[Download or clone the sample solution](https://github.com/Azure-Samples/batch-dotnet-quickstart) from GitHub. 
-
-Change to the directory that contains the Visual Studio solution:
+[Download or clone the sample app](https://github.com/Azure-Samples/batch-dotnet-quickstart) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
 ```
-cd BatchDotnetQuickstart
+git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 ```
 
-Open the `BatchDotNetQuickstart.sln` solution file in Visual Studio, and update the credential strings in `program.cs` with the values unique to your accounts. For example:
+Navigate to the directory that contains the Visual Studio solution file `BatchDotNetQuickstart.sln`.
+
+Open the solution file in Visual Studio, and update the credential strings in `program.cs` with the values you obtained for your accounts. For example:
 
 ```csharp
 // Batch account credentials
@@ -57,10 +58,10 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 ## Build and run the app
 
-To see the Batch workflow in action, build and run the application. After running the application, go to the walkthrough to learn what each part of the application does. 
-
+To see the Batch workflow in action, build and run the application. After running the application, review the code to learn what each part of the application does. 
 
 * Right-click the solution in Solution Explorer, and click **Build Solution**. 
+
 * Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks.
@@ -93,7 +94,7 @@ stderr:
 Typical execution time is approximately 5 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
 
-## Walkthrough
+## Review the code
 
 The .NET app in this quickstart does the following:
 

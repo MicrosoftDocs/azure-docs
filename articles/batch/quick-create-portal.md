@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -50,24 +50,24 @@ Now that you have a Batch account, create a sample pool of Windows compute nodes
 1. In the Batch account, click **Pools** > **Add**.
 
 2. Enter a **Pool ID** called *mypool*. 
+
 3. In **Operating System**, select the following settings (you can explore other options).
   
-|Setting  |Value  |
-|---------|---------|
-|**Image Type**|Marketplace (Linux/Windows)|
-|**Publisher**     |MicrosoftWindowsServer|
-|**Offer**     |WindowsServer|
-|**Sku**     |2012-R2-Datacenter-smalldisk|
+  |Setting  |Value  |
+  |---------|---------|
+  |**Image Type**|Marketplace (Linux/Windows)|
+  |**Publisher**     |MicrosoftWindowsServer|
+  |**Offer**     |WindowsServer|
+  |**Sku**     |2012-R2-Datacenter-smalldisk|
 
   ![Select a pool operating system][pool_os] 
 
 4. Scroll down to enter **Node Size** and **Scale** settings. The suggested node size offers a good balance of performance versus cost for this quick example.
-
   
-|Setting  |Value  |
-|---------|---------|
-|**Node pricing tier**     |Standard_A1|
-|**Target dedicated nodes**     |2|
+  |Setting  |Value  |
+  |---------|---------|
+  |**Node pricing tier**     |Standard_A1|
+  |**Target dedicated nodes**     |2|
 
   ![Select a pool size][pool_size] 
 
