@@ -1,5 +1,5 @@
 ---
-title: Deployment decisions for Azure Stack integrated systems | Microsoft Docs
+title: Azure Stack integrated systems connection models | Microsoft Docs
 description: Determine deployment planning decisions for multi-node Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
 ---
-# Deployment planning decisions for Azure Stack integrated systems
-If you’re interested in an Azure Stack integrated system, you’ll need to understand [several planning considerations](azure-stack-deployment-planning.md) for Azure Stack deployment and then determine how the system will fit into your datacenter. In addition, you'll need to decide exactly how you will integrate Azure Stack into your hybrid cloud environment. This article provides an overview of these major decisions including Azure connection, identity store, and billing model decisions.
+# Azure Stack integrated systems connection models
+If you’re interested in an Azure Stack integrated system, you’ll need to understand [several datacenter integration considerations](azure-stack-datacenter-integration.md) for Azure Stack deployment to determine how the system will fit into your datacenter. In addition, you'll need to decide exactly how you will integrate Azure Stack into your hybrid cloud environment. This article provides an overview of these major decisions including Azure connection, identity store, and billing model decisions.
 
 If you decide to purchase an integrated system, your original equipment manufacturer (OEM) hardware vendor helps guide you through much of the planning process in more detail. They will also perform the actual deployment.
 
