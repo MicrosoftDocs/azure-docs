@@ -40,12 +40,12 @@ Encryption extends throughout the entire indexing pipeline: from connections, th
 | Security layer | Description |
 |----------------|-------------|
 | Encryption in transit | Azure Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. |
-| Encryption at rest | Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. Internally, encryption is based on [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
+| Encryption at rest | Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).<br><br>Internally, encryption is based on [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
 | [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | All search services are fully SOC 2 compliant, in all data centers providing Azure Search. To review the full report, go to [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
 Encryption is internal to Azure Search, with certificates and encryption keys managed internally by Microsoft, and universally applied. You cannot turn encryption on or off, manage or substitute your own keys, or view encryption settings in the portal or programmatically. 
 
-Encryption at rest was announced in January 2018 and applies to all service tiers, including shared (free) services, in all regions. Indexes created prior to that date must be dropped and rebuilt in order for encryption to occur.
+Encryption at rest was announced in January 24, 2018 and applies to all service tiers, including shared (free) services, in all regions. For full encryption, indexes created prior to that date must be dropped and rebuilt in order for encryption to occur. Otherwise, only new data added after January 24 is encrypted.
 
 ## Azure-wide logical security
 
