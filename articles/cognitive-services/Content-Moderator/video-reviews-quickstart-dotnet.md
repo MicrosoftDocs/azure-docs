@@ -39,7 +39,7 @@ In the Content Moderator Dashboard, you can find your subscription key in **Sett
 The video and sample video frames to review must be published online and you will need their URLs.
 
 For the video, you need a streaming endpoint so that the review tool plays the video in the player view. 
-- Use the manifest URL for this [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest).
+- Use this [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) for the manifest file.
 
 For the video frames (images), use the following images:
 - [Frame from the 17 seconds time stamp](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG)
@@ -68,16 +68,15 @@ Install the following NuGet packages for the TermLists project.
 
 Modify the program's using statements as follows.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-```
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Threading;
+	using Microsoft.Azure.CognitiveServices.ContentModerator;
+	using Microsoft.CognitiveServices.ContentModerator;
+	using Microsoft.CognitiveServices.ContentModerator.Models;
+	using Newtonsoft.Json;
+
 
 ### Add private properties
 
