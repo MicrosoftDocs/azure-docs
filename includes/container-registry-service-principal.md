@@ -1,6 +1,6 @@
 ## Create a service principal
 
-You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions.
+To create a service principal with access to your container registry, you can use the following script. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions. You must have the [Azure CLI](/cli/azure/install-azure-cli) installed to use this script.
 
 ```bash
 #!/bin/bash
@@ -33,8 +33,6 @@ echo "Service principal password: $SP_PASSWD"
 After you run the script, take note of the service principal's **ID** and **password**. Now that you have its credentials, you can configure your applications and services to authenticate to your container registry as the service principal.
 
 ## Use an existing service principal
-
-In addition to creating a service principal with rights to your registry, you can grant access to an *existing* service principal.
 
 To grant registry access to an existing service principal, you must assign a new role to the service principal. As with creating a new service principal, you can grant pull, push and pull, and owner access.
 

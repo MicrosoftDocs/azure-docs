@@ -23,7 +23,7 @@ In this article, you learn to create and configure an Azure AD service principal
 
 To launch a container in Azure Container Instances using a service principal, specify its ID for `--registry-username`, and its password for `--registry-password`.
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
@@ -35,24 +35,13 @@ az container create \
 
 ## Next steps
 
-**Azure Container Registry Roadmap**
+The following articles contain additional details on working with service principals and ACR:
 
-Visit the [ACR Roadmap][acr-roadmap] on GitHub to find information about upcoming features in the service.
-
-**Azure Container Registry UserVoice**
-
-Submit and vote on new feature suggestions in [ACR UserVoice][container-registry-uservoice].
+* [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
+* [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
-[update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
 
 <!-- LINKS - External -->
-[acr-roadmap]: https://aka.ms/acr/roadmap
-[container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
-[container-registry-geo-replication]: container-registry-geo-replication.md
-[container-registry-upgrade]: container-registry-upgrade.md
-[container-registry-webhook]: container-registry-webhook.md

@@ -13,44 +13,29 @@ ms.author: marsma
 
 # Azure Container Registry authentication with service principals
 
-You can use an Azure Active Directory (Azure AD) service principal to provide container image `push` and `pull` access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
+You can use an Azure Active Directory (Azure AD) service principal to provide container image `docker push` and `pull` access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
 
 ## What is a service principal?
 
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources.
-
-You can configure a service principal with access rights scoped only to those resources you specify. Then, you can configure your application or service to use the service principal's credentials to access those resources.
+Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, you can configure your application or service to use the service principal's credentials to access those resources.
 
 In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
 
 ## Why use a service principal
 
-By using an Azure AD service principal, you can provide scoped, auditable access to your private container registry. You can create different service principals for each of your applications or services, each with tailored access rights to your registry.
+By using an Azure AD service principal, you can provide scoped, auditable access to your private container registry. You can create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing access credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
 
-For example, your web application can use a service principal that provides it with image `pull` access only, while your build system can use a service principal that provides it with both `push` and `pull` access.
+For example, your web application can use a service principal that provides it with image `pull` access only, while your build system can use a service principal that provides it with both `push` and `pull` access. If development of your application changes hands, you can rotate its service principle credentials without affecting the build system.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ## Next steps
 
-**Azure Container Registry Roadmap**
+You can find instructions on using service principals to authenticate from specific services and platforms here:
 
-Visit the [ACR Roadmap][acr-roadmap] on GitHub to find information about upcoming features in the service.
-
-**Azure Container Registry UserVoice**
-
-Submit and vote on new feature suggestions in [ACR UserVoice][container-registry-uservoice].
-
-<!-- IMAGES -->
-[update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
+* [Authenticate with Azure Container Registry from Azure Container Service (AKS)](container-registry-auth-aks.md)
+* [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
-[acr-roadmap]: https://aka.ms/acr/roadmap
-[container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
-[container-registry-geo-replication]: container-registry-geo-replication.md
-[container-registry-upgrade]: container-registry-upgrade.md
-[container-registry-webhook]: container-registry-webhook.md
