@@ -1586,7 +1586,12 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation/",
+            "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-azure-vm-alert-integration.md",
+            "redirect_url": "/azure/automation/automation-create-alert-triggered-runbook",
             "redirect_document_id": false
         },
         {
@@ -6852,6 +6857,16 @@
         {
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-what-are-logic-apps.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
             "redirect_document_id": false
         },
         {
@@ -16009,12 +16024,12 @@
         {
             "source_path": "articles/virtual-machines/windows/classic/tutorial.md",
             "redirect_url": "/azure/virtual-machines/windows/quick-create-portal",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/connect-logon.md",
             "redirect_url": "/azure/virtual-machines/windows/connect-logon",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/attach-disk.md",
@@ -16029,12 +16044,12 @@
         {
             "source_path": "articles/virtual-machines/windows/classic/connect-vms.md",
             "redirect_url": "/azure/virtual-machines/windows/connect-logon",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/createportal.md",
             "redirect_url": "/azure/virtual-machines/windows/quick-create-portal",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/create-powershell.md",
@@ -16084,12 +16099,12 @@
         {
             "source_path": "articles/virtual-machines/windows/classic/agents-and-extensions.md",
             "redirect_url": "/azure/virtual-machines/windows/extensions-features",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/manage-extensions.md",
             "redirect_url": "/azure/virtual-machines/windows/extensions-features",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/extensions-customscript.md",

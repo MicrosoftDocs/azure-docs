@@ -25,7 +25,7 @@ Connect to Yammer to access conversations in your enterprise network. With Yamme
 * Use triggers for when there is a new message in a group, or a feed your following.
 * Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-Get started by creating a logic app now; see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+Get started by creating a logic app now; see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Yammer
 To use the Yammer connector, you first create a **connection** then provide the details for these properties: 

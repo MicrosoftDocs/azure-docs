@@ -44,6 +44,8 @@
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
         maintainContext: true
+      - name: Submit jobs from R Tools for Visual Studio
+        href: r-server-submit-jobs-r-tools-vs.md
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
