@@ -27,7 +27,7 @@
     href: automation-tutorial-troubleshoot-changes.md
 - name: How to
   items:
-    - name: Update Management
+    - name: Update management
       items:
       - name: Overview
         href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
