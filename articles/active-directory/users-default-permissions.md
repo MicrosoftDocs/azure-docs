@@ -68,7 +68,7 @@ When a user registers an application, they are automatically added as an owner f
 
 ### How to assign an application registration owner
 
-See [Azure Active Directory app registration](active-directory-app-registrations.md).
+See [Azure Active Directory app registration](active-directory-app-registration.md).
 
 ### Application Configuration Owner
 
