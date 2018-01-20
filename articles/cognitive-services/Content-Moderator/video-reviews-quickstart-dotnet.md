@@ -50,6 +50,11 @@ For the video frames (images), use the following images:
 | :---: | :---: | :---: |
 [Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
+> [!NOTE]
+> The program uses manually saved screenshots from the video with random adult/racy scores to illustrate the 
+> use of the review API. In a real-world solution, you use a video processing library to create images and 
+> assign scores based on the [video moderation service output](video-moderation-api.md#run-the-program-and-review-the-output).
+
 ## Create your Visual Studio project
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
