@@ -52,9 +52,9 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
 	```
 
-> [!NOTE]
-> If your cluster version is not 6.0.* then go to the appropriate directory in the stable folder.
->	
+	> [!NOTE]
+	> If your cluster version is not 6.0.* then go to the appropriate directory in the stable folder.
+	>	
 
 5. Run the following autorest command to generate the java client code.
 	
