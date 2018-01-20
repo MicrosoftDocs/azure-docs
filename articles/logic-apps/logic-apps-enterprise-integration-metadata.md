@@ -43,7 +43,7 @@ or [schema](logic-apps-enterprise-integration-schemas.md).
 
 ## Retrieve metadata from artifacts for logic apps
 
-1. Create a [logic app](logic-apps-create-a-logic-app.md).
+1. Create a [logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
