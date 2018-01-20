@@ -353,7 +353,7 @@ When you run the application, you see an output on the following lines:
 
 ## Navigate to your video transcript review
 
-Finally, you see the video transcript review in your Content Moderator review tool account on the **Review**>**Video**>**Transcript** screen.
+Finally, navigate to the video transcript review in your Content Moderator review tool account on the **Review**>**Video**>**Transcript** screen.
 
 You see the following features:
 - The two lines of transcript you added
