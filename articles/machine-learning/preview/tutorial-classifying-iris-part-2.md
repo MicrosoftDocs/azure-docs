@@ -323,7 +323,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
 3. Issue the same command as you did before in the CLI window, except this time target _myvm_:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    The command executes as if you're in a `docker-python` environment, except that the execution happens on the remote Linux VM. The CLI window displays the same output information.
 
