@@ -307,7 +307,7 @@ Add the following method definition to namespace VideoReviews, class Program.
 Add the **Main** method definition to namespace VideoTranscriptReviews, class Program. Finally, close the Program class and the VideoTranscriptReviews namespace.
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real solution, you use 
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use 
 > the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video. 
 
 	static void Main(string[] args)
