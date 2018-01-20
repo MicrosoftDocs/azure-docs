@@ -22,7 +22,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-This article assumes that you have [moderated the video](video-moderation-api.md) and [created the video review](video-review-quickstart-dotnet.md) in the review tool for human decision making. You now want to  add moderated video transcripts in the review tool.
+This article assumes that you have [moderated the video](video-moderation-api.md) and [created the video review](video-reviews-quickstart-dotnet.md) in the review tool for human decision making. You now want to  add moderated video transcripts in the review tool.
 
 This article also assumes that you are already familiar with Visual Studio and C#.
 
