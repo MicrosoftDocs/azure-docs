@@ -7,13 +7,12 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
@@ -73,7 +72,7 @@ This color is used in place of the background image on low-bandwidth connections
 ### Square logo image
 Description | Constraints | Recommendations
 ------- | ------- | ----------
-This image appears during out of the box setup for new Enterprise Windows 10 PCs. This image is used to provide context to employees when they set up their new work PC. This image is displayed only for tenants that use [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) to deploy their work devices. | Transparent PNG (preferred) or JPG<br>Image dimensions: 240x240 px<br>File size: &lt; 10KB | Use your organization’s logo here.<br> Use a transparent image.<br>Don’t assume that the background will be white.<br>Don't add padding to your logo in the image or your logo will look disproportionately small.
+This image appears during out of the box setup for new Enterprise Windows 10 PCs. It provides context to employees when they set up their new work PC. The image is displayed for tenants that use [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) to deploy their work devices, and on password entry pages in other Windows 10 experiences. | Transparent PNG (preferred) or JPG<br>Image dimensions: 240x240 px<br>File size: &lt; 10KB | Use your organization’s logo here.<br> Use a transparent image.<br>Don’t assume that the background will be white.<br>Don't add padding to your logo in the image or your logo will look disproportionately small.
 
 ### Show option to remain signed in
 Description | Constraints | Recommendations
