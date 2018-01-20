@@ -74,7 +74,7 @@ A Windows cluster is deployed with the following characteristics:
 - OS: Windows Server 2016 Datacenter with Containers (configurable in the template parameters)
 - certificate secured (configurable in the template parameters)
 - [reverse proxy](service-fabric-reverseproxy.md) is enabled
-- [DNS service](service-fabric-dnsservice) is enabled
+- [DNS service](service-fabric-dnsservice.md) is enabled
 - [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
 - [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 - client connection endpoint: 19000 (configurable in the template parameters)
