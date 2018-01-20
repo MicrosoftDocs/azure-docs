@@ -21,7 +21,7 @@ ms.author: wesmc;ricksal
 
 ## Overview
 
-This document describes how to get a valid Azure AD Oauth token to authenticate with the Mobile Engagement REST APIs.
+This document describes how to get a valid Azure Active Directory (Azure AD) OAuth token to authenticate with the Mobile Engagement REST APIs.
 
 This procedure assumes that you have a valid Azure subscription and have created a Mobile Engagement app by using one of the [developer tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
@@ -40,13 +40,13 @@ To authenticate an API request, an authorization header must be added to every r
 
 There are several ways to get a token. Because the APIs are called from a cloud service, you want to use an API key. An API key in Azure terminology is called a Service Principal password. The following procedure describes one way to set it up manually.
 
-### One-time setup (using script)
+### One-time setup (using a script)
 
 To perform the setup by using a PowerShell script, take the steps in the following instructions. A PowerShell script requires the least amount of time for setup but uses the most permissible defaults. 
 
 Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. When you set up from the Azure portal, you can do a more detailed configuration.
 
-1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information about the download instructions, see  this [link](/powershell/azure/overview).
+1. Get the latest version of Azure PowerShell by [downloading it](http://aka.ms/webpi-azps). For more information about the download instructions, see [this overview](/powershell/azure/overview).
 
 2. After PowerShell is installed, use the following commands to ensure that you have the **Azure module** installed:
 
@@ -64,7 +64,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
         Login-AzureRmAccount
 4. If you have multiple subscriptions, take the following steps:
 
-    a. Get a list of all your subscriptions. Then copy the **SubscriptionId** of the subscription that you want to use. Make sure this subscription has the Mobile Engagement App. You are going to use this app to interact with the APIs. 
+    a. Get a list of all your subscriptions. Then copy the **SubscriptionId** of the subscription that you want to use. Make sure this subscription has the Mobile Engagement app. You are going to use this app to interact with the APIs. 
 
         Get-AzureRmSubscription
 
@@ -79,19 +79,19 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
 
 7. After the script finishes running, it displays the following four values. Be sure to copy them, because you need them to authenticate programmatically with Active Directory: 
 
-    - **TenantId**
-    - **SubscriptionId**
-    - **ApplicationId**
-    - **Secret**
+   - **TenantId**
+   - **SubscriptionId**
+   - **ApplicationId**
+   - **Secret**
 
-    You use TenantId as `{TENANT_ID}`, ApplicationId as `{CLIENT_ID}` and Secret as `{CLIENT_SECRET}`.
+   You use TenantId as `{TENANT_ID}`, ApplicationId as `{CLIENT_ID}` and Secret as `{CLIENT_SECRET}`.
 
    > [!NOTE]
    > Your default security policy might block you from running PowerShell scripts. If so, use the following command to temporarily configure your execution policy to allow script execution:
    > 
    > Set-ExecutionPolicy RemoteSigned
-8. Here is how the set of PS cmdlets looks.
-    ![][3]
+8. Here is how the set of PowerShell cmdlets looks.
+    ![PowerShell cmdlets][3]
 9. In the Azure portal, go to Active Directory, select **App registrations**, and then search for your app to make sure it exists.
     ![][4]
 
@@ -122,7 +122,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
     ```
-     This example includes the URL encoding of the POST parameters, in which `resource` value is actually `https://management.core.windows.net/`. Be careful to also URL-encode `{CLIENT_SECRET}`, since it might contain special characters.
+     This example includes the URL encoding of the POST parameters, in which `resource` value is actually `https://management.core.windows.net/`. Be careful to also URL-encode `{CLIENT_SECRET}`, because it might contain special characters.
 
      > [!NOTE]
      > For testing, you can use an HTTP client tool such as [Fiddler](http://www.telerik.com/fiddler) or [Chrome Postman extension](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop). 
@@ -152,8 +152,9 @@ Now that you have a valid token, you are ready to make the API calls.
    * **4** Your Resource Group name is going to be **MobileEngagement** unless you created a new one. 
 
 > [!NOTE]
-> 1. Ignore the API root address, since it was for the previous APIs.<br/>
-> 2. If you created the app by using the Azure portal, then you need to use the Application Resource name, which is different than the Application name itself. If you created the app in the Azure portal, then you should use the App Name itself. (There is no differentiation between the Application Resource Name and the App Name for apps that are created in the new portal.)
+> Ignore the API root address, because it was for the previous APIs.
+> 
+> If you created the app by using the Azure portal, then you need to use the Application Resource name, which is different from the App Name itself. If you created the app in the Azure portal, then you should use the App Name. (There is no differentiation between the Application Resource Name and the App Name for apps that are created in the new portal.)
 > 
 > 
 
