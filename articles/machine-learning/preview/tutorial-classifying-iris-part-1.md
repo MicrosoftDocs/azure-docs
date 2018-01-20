@@ -61,7 +61,7 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
    ![Data view](media/tutorial-classifying-iris/data_view.png)
 
 3. Select **Text Files(*.csv, .json, .txt.,... )** 
-   ![Data Source](media/tutorial-classifying-iris/data_source.png)
+   ![Data Source](media/tutorial-classifying-iris/data-source.png)
    
 
 4. Leave the default values, and then select the **Next** button.  
