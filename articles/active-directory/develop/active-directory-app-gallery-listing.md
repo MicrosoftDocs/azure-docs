@@ -52,7 +52,7 @@ To list an application in the Azure AD gallery, the application first needs to i
 
 ## Process for submitting the request in the portal
 
-Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/apps/SitePages/Default.aspx). If you have an Office 365 account, you can use that to login to this portal otherwise, use your Microsoft ID (Live ID, Outlook, Hotmail etc.) to login. You see following page to request your access. Provide a business justification in the textbox and click on **Request Access**. Our team will review all the details and give you the access accordingly. After that, you can log on to the portal and submit your detailed request for the application.
+Once you have tested that your application integration works with Azure AD, you need to submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, you can use that to login to this portal otherwise, use your Microsoft ID (Live ID, Outlook, Hotmail etc.) to login. You see following page to request your access. Provide a business justification in the textbox and click on **Request Access**. Our team will review all the details and give you the access accordingly. After that, you can log on to the portal and submit your detailed request for the application.
 
 If you face any issue regarding the access, contact [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
