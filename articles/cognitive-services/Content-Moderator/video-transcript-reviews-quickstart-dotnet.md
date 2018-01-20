@@ -17,9 +17,7 @@ ms.author: sajagtap
 This article provides information and code samples to help you quickly get started using the Content Moderator SDK with C# to:
 
 - Create a video review for human moderators
-- Add frames to a review
-- Get the frames for the review 
-- Get the status and details of the review
+- Add a moderated transcript to the review
 - Publish the review
 
 ## Prerequisites
