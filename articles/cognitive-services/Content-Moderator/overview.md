@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 Content moderation is the process of monitoring user-generated content on online and social media websites, chat and messaging platforms, enterprise environments, gaming platforms, and peer communication platforms. The goal is to track, flag, assess, and filter out offensive and unwanted content that creates risk for your organization. Moderated content might include text, images, and videos.
 
-## Why moderate content
+## Why moderate content?
 
 Moderating text, image, and video content has multiple benefits:
 - Text moderation benefits communities, family-based websites, in-game communities, chat and messaging platforms, and user-generated content marketing.
