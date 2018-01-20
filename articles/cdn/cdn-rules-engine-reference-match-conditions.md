@@ -181,7 +181,7 @@ Key information:
   - Cookie name comparisons are case-insensitive.
 - Cookie value: 
   - Specify multiple cookie values by delimiting each one with a single space.
-  - A cookie value can take advantage of [special characters](cdn-rules-engine-reference.md#syntax). 
+  - A cookie value can take advantage of [special characters](cdn-rules-engine-reference.md#wildcard-values). 
   - If a wildcard character has not been specified, only an exact match will satisfy this match condition. For example, specifying "Value" will match "Value," but not "Value1" or "Value2."
   - The **Ignore Case** option determines whether a case-sensitive comparison will be made against the request's cookie value.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
@@ -197,7 +197,7 @@ Key information:
 
 ---
 ### Cookie Parameter Regex
-The Cookie Parameter Regex match condition defines a cookie name and value. You can use regular expressions to define the desired cookie value. 
+The Cookie Parameter Regex match condition defines a cookie name and value. You can use [regular expressions](cdn-rules-engine-reference.md#regular-expressions) to define the desired cookie value. 
 
 The **Matches**/**Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches**: Requires a request to contain the specified cookie with a value that matches the specified regular expression.
@@ -226,7 +226,10 @@ Key information:
 
 --- 
 ### Country
-You can specify a country through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified values.
+You can specify a country through its country code. The **Matches**/**Does Not Match** option determines the conditions under which the Country match condition will be satisfied:
+
+- **Matches**: Requires the request to contain the specified country code values. 
+- **Does Not Match**: Requires that the request does not contain the specified country code values.
 
 Key information:
 - Specify multiple country codes by delimiting each one with a single space.
@@ -240,6 +243,19 @@ Key information:
   - Force Internal Max-Age
   - Ignore Origin No-Cache
   - Internal Max-Stale
+
+#### Implementing Country Filtering by using the rules engine
+This match condition allows you to perform a multitude of customizations based on the location from which a request originated. For example, the behavior of the Country Filtering feature can be replicated through the following configuration:
+
+- URL Path Wildcard match: Set the [URL Path Wildcard match condition](#url-path-wildcard) to the directory that will be secured. 
+    Append an asterisk to the end of the relative path to ensure that access to all of its children will be restricted by this rule.
+
+- Country match: Set the Country match condition to the desired set of countries.
+   - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries access to content stored in the location defined by the URL Path Wildcard match condition.
+   - Block: Set the Country match condition to **Matches** to block the specified countries from accessing content stored in the location defined by the URL Path Wildcard match condition.
+
+- Deny Access (403) Feature: Enable the [Deny Access (403) feature](cdn-rules-engine-reference.md#deny-access-403) to replicate the allow or block portion of the Country Filtering feature.
+
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -317,7 +333,7 @@ The host name associated with the referrer through which content was requested d
 
 Key information:
 - Specify multiple host names by delimiting each one with a single space.
-- This match condition supports [special characters](cdn-rules-engine-reference.md#syntax).
+- This match condition supports [special characters](cdn-rules-engine-reference.md#wildcard-values).
 - If the specified value does not contain an asterisk, it must be an exact match for the referrer's host name. For example, specifying "mydomain.com" would not match "www.mydomain.com."
 - The **Ignore Case** option determines whether a case-sensitive comparison will be performed.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
@@ -355,7 +371,7 @@ Key information:
 ---  
 ### Request Header Regex
 The **Matches**/**Does Not Match** option determines the conditions under which the Request Header Regex match condition will be satisfied.
-- **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified regular expression.
+- **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified [regular expression](cdn-rules-engine-reference.md#regular-expressions).
 - **Does Not Match**: Requires that the request satisfy either of the following criteria:
   - It does not contain the specified header.
   - It contains the specified header, but its value does not match the specified regular expression.
@@ -392,7 +408,7 @@ Key information:
   - Header name comparisons are case-insensitive.
   - Spaces in the header name should be replaced with "%20." You can also use this value to specify spaces in a header value.
 - Header value: 
-  - A header value can take advantage of [special characters](cdn-rules-engine-reference.md#syntax).
+  - A header value can take advantage of [special characters](cdn-rules-engine-reference.md#wildcard-values).
   - The **Ignore Case** option determines the case-sensitivity of header value comparisons.
   - Only exact header value matches to at least one of the specified patterns will satisfy this condition.
   - Specify multiple values by delimiting each one with a single space.
@@ -465,9 +481,10 @@ Key information:
      For example: 
 
      https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
+
      This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
 
-- An edge CNAME URL will be rewritten to a CDN URL prior to the URL comparison.
+- An edge CNAME URL is rewritten to a CDN URL prior to the URL comparison.
 
     For example, both of the following URLs point to the same asset and therefore have the same URL path.
 
@@ -475,15 +492,17 @@ Key information:
 
   - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
 
+    Additional information:
+
   - Custom domain: https:\//my.domain.com/path/asset.htm
 
   - URL path (relative to root): /800001/CustomerOrigin/path/
 
   - URL path (relative to origin): /path/
 
-- This match condition is satisfied when the relative URL path, excluding file name, either "Matches" or "Does Not Match" one of the specified URL patterns.
+- This match condition is satisfied when the relative URL path, excluding file name, either matches or does not match one of the specified URL patterns.
 
-   For example, this match condition is not satisfied because none of the following values are an exact match for the relative path of the URLs used in the previous example:
+   For example, the match condition is not satisfied because none of the following values are an exact match for the relative path of the URLs used in the previous example:
      - /pa
      - ath/
      - /path
@@ -496,11 +515,12 @@ Key information:
     
 - Specify multiple URL paths in the pattern by delimiting each one with a single space.
 
-     For example: */sales/ */marketing/
+    For example: */sales/ */marketing/
 
-- A URL path can take advantage of [special characters](cdn-rules-engine-reference.md#syntax).
-    
-- To control the case-sensitivity of URL comparisons, use the **Ignore Case** option.
+- A URL path can take advantage of [special characters](cdn-rules-engine-reference.md#wildcard-values).
+
+- **Ignore Case** option: This option determines whether a case-sensitive comparison will be performed.
+
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -513,13 +533,19 @@ Identifies requests by the file extension of the requested asset.
 Key information:
 - This match condition is satisfied when a URL that ends with a period (.) contains the specified file extension. 
 
-- **Value** option: Specifies the file extension to match. Verify that any file extensions that you specify with the **Value** option do not contain a leading period. For example, use htm instead of .htm.
+- **Value** option: Specifies the file extension to match. Verify that any file extensions that you specify with the **Value** option do not contain a leading period. 
 
-- **Ignore Case** option: Determines the case-sensitivity of file extension comparisons.
+    For example, use htm instead of .htm.
 
-- Specify multiple file extensions by delimiting each extension with a single space. For example: htm html.
+- **Ignore Case** option: This option determines whether a case-sensitive comparison will be performed.
 
-- This match condition is satisfied when the requested asset's file extension either matches or does not one of the specified file extensions. For example, specifying "htm" will match the "htm" assets, but not the "html" assets.
+- Specify multiple file extensions by delimiting each extension with a single space. 
+
+    For example: htm html
+
+- This match condition is satisfied when the requested asset's file extension either matches or does not one of the specified file extensions. 
+
+    For example, specifying "htm" will match "htm" assets, but not "html" assets.
 
 
 #### Sample Scenario
@@ -544,18 +570,17 @@ Identifies requests by the filename of the requested asset. For the purposes of 
 
 Key information:
 - This match condition is satisfied when the requested asset's filename is either matches or does not match one of the specified patterns.
-- **Ignore Case** option: Determines the case-sensitivity of filename comparisons.
-- Specify multiple file extensions by delimiting each one with a single space.
+- **Ignore Case** option: This option determines whether a case-sensitive comparison will be performed.
 
-Sample syntax:
+- To specify multiple file extensions, delimiting each extension with a single space.
 
-index.htm index.html
+    For example: index.htm index.html
 
 - Replace spaces in a filename value with "%20."
-- A filename value can take advantage of [special characters](cdn-rules-engine-reference.md#syntax). Each filename pattern can consist of one or more asterisks (*). Each asterisk matches a sequence of one or more characters.
+- A filename value can take advantage of [special characters](cdn-rules-engine-reference.md#wildcard-values). Each filename pattern can consist of one or more asterisks (*). Each asterisk matches a sequence of one or more characters.
 - If a wildcard character (for example, *) has not been specified, then only an exact match will satisfy this match condition.
 
-For example, specifying "presentation.ppt" will match an asset named "presentation.ppt," but not one named "presentation.pptx."
+    For example, specifying "presentation.ppt" will match an asset named "presentation.ppt," but not one named "presentation.pptx."
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -567,18 +592,15 @@ Compares a request's relative path, including filename, to the specified value.
 
 Key information:
 - **Relative to** option: This option specifies whether the URL comparison will start before or after the content access point. 
+
     The following values are available for the **Relative to** option:
      - **Root**: Indicates that the URL comparison starts directly after the CDN hostname.
 
-For example:
+       For example: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/myfolder/index.htm
 
-http://wpc.0001.<Domain>/800001/myorigin/myfolder/index.htm
+     - **Origin**: Indicates that the URL comparison will start after the content access point (for example, /000001 or /800001/myorigin).
 
-Origin: Indicates that the URL comparison will start after the content access point (e.g., /000001 or /800001/myorigin).
-
-Example:
-
-http://wpc.0001.<Domain>/800001/myorigin/myfolder/index.htm
+       For example: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/myfolder/index.htm
 
 - An edge CNAME URL will be rewritten to a CDN URL prior to URL comparison.
 
@@ -588,7 +610,7 @@ Both of the following URLs point to the same asset and therefore have the same U
 
 CDN URL:
 
-http://wpc.0001.<Domain>/800001/CustomerOrigin/path/asset.htm
+http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
 
 Edge CNAME URL:
 
@@ -614,21 +636,18 @@ To match all requests made to a particular directory, use the URL Path Directory
 
 ---
 ### URL Path Regex
-Compares a request's relative path to the specified regular expression.
+Compares a request's relative path to the specified [regular expression](cdn-rules-engine-reference.md#regular-expressions).
 
 Key information:
-- An edge CNAME URL will be rewritten to a CDN URL prior to URL comparison. In the following example, both URLs point to the same asset and therefore have the same URL path.
-   CDN URL:
+- An edge CNAME URL will be rewritten to a CDN URL prior to URL comparison. 
+ 
+   In the following example, both URLs point to the same asset and therefore have the same URL path.
 
-http://wpc.0001.<Domain>/800001/CustomerOrigin/path/asset.htm
+     CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
 
-Edge CNAME URL:
+     Edge CNAME URL: http:\//my.domain.com/path/asset.htm
 
-http://my.domain.com/path/asset.htm
-
-URL path:
-
-/800001/CustomerOrigin/path/asset.htm
+   URL path: /800001/CustomerOrigin/path/asset.htm
 
 - This match condition is satisfied when the relative URL path is either an exact match (i.e., "Matches) or "Does Not Match" one of the specified regular expressions.
 - For the purpose of satisfying this condition, query strings in the URL are ignored.
@@ -644,79 +663,52 @@ URL path:
 Compares a request's relative URL path to the specified pattern.
 
 Key information:
-- The Relative to option determines whether the URL comparison will start before or after the content access point.
+- **Relative to** option: This option determines whether the URL comparison will start before or after the content access point.
 
-The available values for this option are explained below.
+   This option can have the following values:
+     - Root: Indicates that the URL comparison will start directly after the CDN hostname.
 
-Root: Indicates that the URL comparison will start directly after the CDN hostname.
-Example:
+       For example: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/myfolder/index.htm
 
-http://wpc.0001.<Domain>/800001/myorigin/myfolder/index.htm
+     - Origin: Indicates that the URL comparison will start after the content access point (for example, /000001 or /800001/myorigin).
 
-Origin: Indicates that the URL comparison will start after the content access point (e.g., /000001 or /800001/myorigin).
-Example:
-
-http://wpc.0001.<Domain>/800001/myorigin/myfolder/index.htm
+       For example: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/myfolder/index.htm
 
 - An edge CNAME URL will be rewritten to a CDN URL prior to URL comparison.
 
-Example:
+   For example, both of the following URLs point to the same asset and therefore have the same URL path:
 
-Both of the following URLs point to the same asset and therefore have the same URL path.
+     CDN URL: http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
 
-CDN URL:
+     Edge CNAME URL: http://my.domain.com/path/asset.htm
 
-http://wpc.0001.<Domain>/800001/CustomerOrigin/path/asset.htm
+   Additional information:
 
-Edge CNAME URL:
+     URL path (Relative to Root): /800001/CustomerOrigin/path/	asset.htm
 
-http://my.domain.com/path/asset.htm
-
-URL path (Relative to Root):
-
-/800001/CustomerOrigin/path/	asset.htm
-
-URL path (Relative to Origin):
-
-/path/asset.htm
+     URL path (Relative to Origin): /path/asset.htm
 
 - Specify multiple URL paths by delimiting each one with a single space.
-Example: /marketing/asset.* /sales/*.htm
+
+   For example: /marketing/asset.* /sales/*.htm
 
 - This match condition is satisfied when the requested URL is either an exact match (i.e., "Matches") or "Does Not Match" one of the specified URL patterns.
 - For the purpose of satisfying this condition, query strings in the URL are ignored.
 - The case-sensitivity of URL comparisons is determined by the Ignore Case option.
 - Spaces in the URL path should be replaced with "%20."
-- The value specified for a URL path can take advantage of [special characters](cdn-rules-engine-reference.md#syntax). Each URL path pattern can contain one or more asterisks. Each asterisk will match a sequence of one or more characters.
+- The value specified for a URL path can take advantage of [special characters](cdn-rules-engine-reference.md#wildcard-values). Each URL path pattern can contain one or more asterisks. Each asterisk will match a sequence of one or more characters.
 
-Sample Scenarios
-The conditions under which several sample configurations will be satisfied are described below.
+#### Sample Scenarios
 
-The following sample configurations assume that this match condition is satisfied when a request "Matches" the specified URL pattern.
+The sample configurations in the following table assume that this match condition is satisfied when a request matches the specified URL pattern.
 
-Value                       Relative to        Result
-*/test.html */test.php      Root or Origin     This pattern will be satisfied by requests for assets named "test.html" or "test.php" in any folder.
-
-/80ABCD/origin/text/*       Root               This pattern will be satisfied when the requested asset meets the following criteria:
-
-It must reside on a customer origin called "origin."
-The relative path must start with a folder called "text." In other words, the requested asset may either reside in the "text" folder or one of its recursive subfolders.
-
-*/css/* */js/*              Root	or Origin    This pattern will be satisfied by all CDN or edge CNAME URLs containing a css or js folder.
-
-*.jpg *.gif *.png           Root or Origin     This pattern will be satisfied by all CDN or edge CNAME URLs ending with .jpg, .gif, or .png.
-
-An alternative way to specify this pattern is the URL Path Extension match condition.
-
-/images/* /media/*          Origin             This pattern will be satisfied by CDN or edge CNAME URLs whose relative path starts with an "images" or "media" folder.
-
-CDN URL:
-
-http://wpc.0001.<Domain>/800001/myorigin/images/sales/event1.png
-Sample Edge CNAME URL:
-
-http://cdn.mydomain.com/images/sales/event1.png
-
+Value                   | Relative to    | Result 
+------------------------|----------------|-------
+*/test.html */test.php  | Root or Origin | This pattern will be satisfied by requests for assets named "test.html" or "test.php" in any folder.
+/80ABCD/origin/text/*   | Root           | This pattern will be satisfied when the requested asset meets the following criteria: <br />- It must reside on a customer origin called "origin." <br />- The relative path must start with a folder called "text." That is, the requested asset can either reside in the "text" folder or one of its recursive subfolders.
+*/css/* */js/*          | Root or Origin | This pattern will be satisfied by all CDN or edge CNAME URLs containing a css or js folder.
+*.jpg *.gif *.png       | Root or Origin | This pattern will be satisfied by all CDN or edge CNAME URLs ending with .jpg, .gif, or .png. An alternative way to specify this pattern is with the [URL Path Extension match condition](#url-path-extension).
+/images/* /media/*      | Origin         | This pattern will be satisfied by CDN or edge CNAME URLs whose relative path starts with an "images" or "media" folder. <br />- CDN URL: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- Sample Edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -732,7 +724,7 @@ Key information:
 
 - Only exact query string matches will satisfy this condition.
 - Use the **Ignore Case** option to control the case-sensitivity of query string comparisons.
-- For the **Value** option, a query string begins with the first character after the question mark (?) delimiter for the query string. Therefore, do not include a leading question mark (?) in the **Value** option text specification.
+- When you specify a value, note that a query string begins with the first character after the question mark (?) delimiter for the query string. Therefore, do not include a leading question mark (?) in the value text.
 - Certain characters require URL encoding. Use the percentage symbol to URL encode the following characters:
 
    Character | URL Encoding
@@ -755,42 +747,45 @@ Key information:
 ### URL Query Parameter
 Identifies requests that contain the specified query string parameter set to a value that matches a specified pattern.
 
-Query string parameters (for example, Parameter=Value) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value. An option is provided to indicate whether this condition will be met when the specified query string parameter name/value combination "Matches" or "Does Not Match" the query string in the requested URL.
+Query string parameters (for example, Parameter=Value) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value. An option is provided to indicate whether this condition is met when the specified query string parameter name/value combination matches or does not match the query string in the requested URL.
 
 This match condition provides an easy way to specify parameter name/value combinations. Consider using the URL Query Wildcard match condition for more flexibility when matching a query string parameter.
 
 Key information:
-
 - Only a single URL query parameter name can be specified per instance of this match condition.
 - Special characters, including wildcards, are not supported when specifying a parameter name. This means that only exact parameter name matches are eligible for comparison.
-- Parameter value(s) can include [special characters](cdn-rules-engine-reference.md#syntax).
+- Parameter value(s) can include [special characters](cdn-rules-engine-reference.md#wildcard-values).
    - Each parameter value pattern can consist of one or more asterisks. Each asterisk will match a sequence of one or more characters.
-   - Certain characters require URL encoding. Use the percentage symbol to URL encode the following characters:
+   - Certain characters require URL encoding. Use the percentage symbol to URL encode the characters in the following table:
 
-Character	              URL Encoding
-Space                   %20
-&                       %25
+       Character | URL Encoding
+       ----------|---------
+       Space     | %20
+       &         | %25
 
 - Specify multiple query string parameter values by delimiting each one with a single space. This match condition is satisfied when a request contains one of the specified name/value combinations.
 
-Example 1:
+   Example 1:
 
-ValueA ValueB
-This configuration will match the following query string parameters:
+   ValueA ValueB
 
-Parameter1=ValueA
-Parameter1=ValueB
-Example 2:
+   This configuration matches the following query string parameters:
 
-Value%20A Value%20B
-This configuration will match the following query string parameters:
+   Parameter1=ValueA
+   Parameter1=ValueB
 
-Parameter1=Value%20A
-Parameter1=Value%20B
+   Example 2:
+
+   Value%20A Value%20B
+
+   This configuration will match the following query string parameters:
+
+   Parameter1=Value%20A
+   Parameter1=Value%20B
 
 - Only exact matches to at least one of the specified query string name/value combinations will satisfy this condition.
 
-Using the configuration in the above example, the parameter name/value combination "Parameter1=ValueAdd" would not be considered a match. However, setting the Value option to either of the following values would match that name/value combination:
+   If you use the configuration in the previous example, the parameter name/value combination "Parameter1=ValueAdd" would not be considered a match. However, if you set the Value option to either of the following values it will match that name/value combination:
 
    - ValueA ValueB ValueAdd
    - ValueA* ValueB
@@ -803,13 +798,14 @@ Using the configuration in the above example, the parameter name/value combinati
    - Ignore Origin No-Cache
    - Internal Max-Stale
 
-Sample Scenarios
+#### Sample scenarios
 The following example demonstrates how this option works in specific situations:
 
-Name	Value	Result
-User  Joe   This pattern will be satisfied when the query string for a requested URL is "?user=joe."
-User  *     This pattern will be satisfied when the query string for a requested URL contains a "user" parameter.
-Email Joe*  This pattern will be satisfied when the query string for a requested URL contains an Email parameter that starts with "Joe."
+Name      | Value |  Result
+----------|-------|--------
+User      | Joe   | This pattern is satisfied when the query string for a requested URL is "?user=joe."
+User      | *     | This pattern is satisfied when the query string for a requested URL contains a User parameter.
+Email Joe | *     | This pattern is satisfied when the query string for a requested URL contains an Email parameter that starts with "Joe."
 
 [Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -817,31 +813,31 @@ Email Joe*  This pattern will be satisfied when the query string for a requested
 
 ---
 ### URL Query Regex
-Identifies requests that contain the specified query string parameter set to a value that matches a specified regular expression.
+Identifies requests that contain the specified query string parameter set to a value that matches a specified [regular expressions](cdn-rules-engine-reference.md#regular-expressions).
 
-This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it.
-
-An option is provided to indicate whether this condition will be met when the specified regular expression "Matches" or "Does Not Match" the query string in the requested URL.
+An option is provided to indicate whether this condition will be met when the specified regular expression matches or does not match the query string in the requested URL.
 
 Key information:
 - Only exact matches to the specified regular expression will satisfy this condition.
 - The case-sensitivity of query string comparisons is determined by the Ignore Case option.
 - For the purposes of this option, a query string starts with the first character after the question mark (?) delimiter for the query string.
-- Certain characters require URL encoding. Use the percentage symbol to URL encode the following characters:
+- Certain characters require URL encoding. Use the percentage symbol to URL encode the characters in the following table.
 
-Character	URL Encoding	 Value
-Space     %20            \%20
-&         %25            \%25
+   Character | URL Encoding | Value
+   ----------|--------------|------
+   Space     | %20          | \%20
+   &         | %25          | \%25
 
-Note: Percentage symbols must be escaped.
+   Note that percentage symbols must be escaped.
 
-- Double-escape special regular expression characters (e.g., \^$.+) to include a backslash in the regular expression.
+- Double-escape special regular expression characters (for example, \^$.+) to include a backslash in the regular expression.
 
-Example:
+   For example:
 
-Value	Interpreted As
-\+    +
-\\+   \+
+   Value | Interpreted As 
+   ------|---------------
+   \+    | +
+   \\+   | \+
 
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
    - Complete Cache Fill
@@ -863,17 +859,18 @@ An option is provided to indicate whether this condition will be met when the sp
 
 Key information:
 - For the purposes of this option, a query string starts with the first character after the question mark (?) delimiter for the query string.
-- Parameter value(s) may include [special characters](cdn-rules-engine-reference.md#syntax).
+- Parameter value(s) may include [special characters](cdn-rules-engine-reference.md#wildcard-values).
    - Each parameter value pattern can consist of one or more asterisks. Each asterisk will match a sequence of one or more characters.
-   - Certain characters require URL encoding. Use the percentage symbol to URL encode the following characters:
+   - Certain characters require URL encoding. Use the percentage symbol to URL encode the characters in the following table
 
-Character	URL Encoding
-Space     %20         
-&         %25         
+     Character | URL Encoding
+     ----------|---------
+     Space     | %20
+     &         | %25
 
 - Specify multiple values by delimiting each one with a single space.
 
-Example: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   For Example: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Only exact matches to at least one of the specified query string patterns will satisfy this condition.
 - The case-sensitivity of query string comparisons is determined by the Ignore Case option.
@@ -884,12 +881,13 @@ Example: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
    - Ignore Origin No-Cache
    - Internal Max-Stale
 
-Sample Scenario
+#### Sample scenarios
 The following example demonstrates how this option works in specific situations:
 
-Name	             Description
-user=joe           This pattern will be satisfied when the query string for a requested URL is "?user=joe."
-*user=* *optout=*  This pattern will be satisfied when the CDN URL query contains either a "user" or "optout" parameter.
+ Name             | Description
+ -----------------|------------
+user=joe          | This pattern is satisfied when the query string for a requested URL is "?user=joe."
+*user=* *optout=* | This pattern is satisfied when the CDN URL query contains either a "user" or "optout" parameter.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
