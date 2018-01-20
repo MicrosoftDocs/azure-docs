@@ -269,7 +269,7 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Locate your storage accounts. To do so, select **More Services**.
+2. Locate your storage accounts. To do so, select **All Services**.
 
 3. In the search box, enter **Storage accounts**, and then select **Enter**.
 
