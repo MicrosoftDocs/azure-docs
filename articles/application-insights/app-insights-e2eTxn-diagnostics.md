@@ -27,8 +27,8 @@ Components are independently deployable units of your distributed/microservices 
 * Components run on any number of server/role/container instances.
 * Components can be separate Application Insights instrumentation keys (in different subscriptions for that matter) or different roles reporting to a single Application Insights instrumentation key. This experience will show the detail across all components regardless of how they have been set up, so long as you have the right permissions.
 
->[!Tip]
-For best results, ensure all components are instrumented with the latest Application Insights stable SDKs. Also, if they are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
+> [!Tip]
+> For best results, ensure all components are instrumented with the latest Application Insights stable SDKs. Also, if they are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
 
 ## Enable and Access
 Enable "Unified details: E2E Transaction Diagnostics" from the [preview experiences list](app-insights-previews.md)
@@ -72,7 +72,7 @@ This pane shows the detail of selected item from either of the 2 sections on the
 ## Profiler and Snapshot debugger
 [Application Insights profiler](app-insights-profiler.md) or [Snapshot debugger](app-insights-snapshot-debugger.md) help with code level diagnostics of performance and failure issues. If they are configured for any of the components in the transaction, you can open the respective traces by clicking on the icons on the left chart or the links at the top of the right pane.
 
-![Debugger Integration](media/app-insights-e2eTxn-diagnostics/debugsnapshot.png)
+![Debugger Integration](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 
 ## FAQ
 1. *I see a single component on the chart, the others are only showing as external dependencies without any detail of what happened within those components.*
