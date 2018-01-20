@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
 
 ---
@@ -34,11 +34,11 @@ This tutorial assumes that you already have a Log Analytics workspace with at le
 - Connect least one [Windows agent](log-analytics-windows-agent.md) or one [Linux agent](log-analytics-linux-agents.md) to the workspace.  
 
 ## Open the Log Search portal
-Start by opening the Log Search portal.  You can access it in either the Azure portal or the OMS portal.
+Start by opening the Log Search portal. 
 
 1. Open the Azure portal.
 2. Navigate to Log Analytics and select your workspace.
-3. Either select **Log Search** to stay in the Azure portal or launch the OMS portal by selecting **OMS Portal** and then clicking the Log Search button.
+3. Select **Log Search**.
 
 ![Log Search button](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
