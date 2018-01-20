@@ -304,7 +304,11 @@ Add the following method definition to namespace VideoReviews, class Program.
 
 ## Putting it all together
 
-Add the **Main** method definition to namespace VideoReviews, class Program. Finally, close the Program class and the VideoReviews namespace.
+Add the **Main** method definition to namespace VideoTranscriptReviews, class Program. Finally, close the Program class and the VideoTranscriptReviews namespace.
+
+> [!NOTE]
+> The program uses a sample transcript in the VTT format. In a real solution, you use 
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video. 
 
 	static void Main(string[] args)
     {
@@ -347,9 +351,14 @@ When you run the application, you see an output on the following lines:
 	Open your Content Moderator Dashboard and select Review > Video to see the review.
 	Press any key to close the application.
 
-## Check out your video transcript review
+## Navigate to your video transcript review
 
 Finally, you see the video transcript review in your Content Moderator review tool account on the **Review**>**Video**>**Transcript** screen.
+
+You see the following features:
+- The two lines of transcript you added
+- The profanity term found and highlighted by the text moderation service
+- Selecting a transcription text starts the video from that timestamp
 
 ![Video transcript review for human moderators](images/ams-video-transcript-review.PNG)
 
