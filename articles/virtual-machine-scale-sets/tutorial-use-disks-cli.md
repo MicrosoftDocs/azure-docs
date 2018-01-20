@@ -273,7 +273,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number() is sh
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
 
 ```azurecli-interactive
 az vmss disk detach \

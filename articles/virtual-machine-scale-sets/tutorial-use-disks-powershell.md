@@ -89,31 +89,127 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ## Attach disks at scale set creation
-First, create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
+First, create a resource group with the  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
 
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+```azurepowershell-interactive
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Create a virtual machine scale set with the [az vmss create](/cli/azure/vmss#az_vmss_create) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist. Two disks are created with the `--data-disk-sizes-gb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
+Create a virtual network, and a load balancer that has a public IP address and distributes web traffic on port 80. To create these resources, copy and paste the following PowerShell cmdlets:
 
-```azurecli-interactive
-az vmss create \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --image UbuntuLTS \
-  --upgrade-policy automatic \
-  --admin-username azureuser \
-  --generate-ssh-keys \
-  --data-disk-sizes-gb 64 128
+```azurepowershell-interactive
+# Create a virtual network subnet
+$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myVnet" `
+  -Location "EastUS" `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+
+# Create a public IP address
+$publicIP = New-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -AllocationMethod Static `
+  -Name "myPublicIP"
+
+# Create a frontend and backend IP pool
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+  -Name "myFrontEndPool" `
+  -PublicIpAddress $publicIP
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+
+# Create a Network Address Translation (NAT) pool
+$inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
+  -Name "myRDPRule" `
+  -FrontendIpConfigurationId $frontendIP.Id `
+  -Protocol TCP `
+  -FrontendPortRangeStart 50001 `
+  -FrontendPortRangeEnd 50010 `
+  -BackendPort 3389
+
+# Create the load balancer
+$lb = New-AzureRmLoadBalancer `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myLoadBalancer" `
+  -Location "EastUS" `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool `
+  -InboundNatPool $inboundNATPool
+
+# Create a load balancer health probe on port 80
+Add-AzureRmLoadBalancerProbeConfig -Name "myHealthProbe" `
+  -LoadBalancer $lb `
+  -Protocol TCP `
+  -Port 80 `
+  -IntervalInSeconds 15 `
+  -ProbeCount 2
+
+# Create a load balancer rule to distribute traffic on port 80
+Add-AzureRmLoadBalancerRuleConfig `
+  -Name "myLoadBalancerRule" `
+  -LoadBalancer $lb `
+  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
+  -BackendAddressPool $lb.BackendAddressPools[0] `
+  -Protocol TCP `
+  -FrontendPort 80 `
+  -BackendPort 80
+
+# Update the load balancer configuration
+Set-AzureRmLoadBalancer -LoadBalancer $lb
+
+# Create IP address configurations
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VM instances.
+Now create a virtual machine scale set configuration with [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/New-AzureRmVmssConfig). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
 
-### Attach a disk to existing scale set
-You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). The following example attaches two data disks - the first is *64* GB in size, the second is *128* GB:
+```azurepowershell-interactive
+# Provide your own secure password for use with the VM instances
+$securePassword = "P@ssword!"
+$adminUsername = "azureuser"
 
-```azurecli-interactive
+# Create a config object
+$vmssConfig = New-AzureRmVmssConfig `
+    -Location "EastUS" `
+    -SkuCapacity 2 `
+    -SkuName "Standard_DS2" `
+    -UpgradePolicyMode Automatic
+
+# Reference a virtual machine image from the gallery
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher "MicrosoftWindowsServer" `
+  -ImageReferenceOffer "WindowsServer" `
+  -ImageReferenceSku "2016-Datacenter" `
+  -ImageReferenceVersion "latest"
+
+# Set up information for authenticating with the virtual machine
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername $adminUsername `
+  -AdminPassword $securePassword `
+  -ComputerNamePrefix "myVM"
+
+# Attach the virtual network to the config object
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name "network-config" `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+```
+
+Add two disks with the [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk) cmdlet. The first disk is *64* GB in size, and the second disk is *128* GB. Finally, create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss).
+
+
+```azurepowershell-interactive
 Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmssConfig `
   -CreateOption Empty `
@@ -124,6 +220,29 @@ Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmssConfig `
   -CreateOption Empty `
   -Lun 2 `
+  -DiskSizeGB 128
+
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmssConfig
+```
+
+It takes a few minutes to create and configure all the scale set resources and VM instances.
+
+### Attach a disk to existing scale set
+You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). The following example attaches an additional *128* GB disk:
+
+```azurepowershell-interactive
+# Get scale set object
+$vmss = Get-AzureRmVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+
+Add-AzureRmVmssDataDisk `
+  -VirtualMachineScaleSet $vmss `
+  -CreateOption Empty `
+  -Lun 3 `
   -DiskSizeGB 128
 ```
 
@@ -138,28 +257,28 @@ The following example executes a script from a GitHub samples repo on each VM in
 ```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.ps1");
-    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+  "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.ps1");
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
 }
 
-# Get information about the scale set
+# Get scale set object
 $vmss = Get-AzureRmVmss `
-            -ResourceGroupName "myResourceGroup" `
-            -VMScaleSetName "myScaleSet"
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
 
 # Use Custom Script Extension to prepare the attached data disks
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $publicSettings
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 To confirm that the disks have been prepared correctly, RDP to one of the VM instances. 
@@ -179,7 +298,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP
 
 Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssword!*). The following example connects to VM instance *1*:
 
-```azurecli-interactive
+```powershell
 mstsc /v 52.168.121.216:50001
 ```
 
@@ -192,13 +311,12 @@ Get-Disk
 The following example output shows that two data disks are attached to the VM instance.
 
 ```powershell
-Number Friendly Name                 Serial Number                    HealthStatus         OperationalStatus      Total Size Partition
-                                                                                                                             Style
------- -------------                 -------------                    ------------         -----------------      ---------- ----------
-0      Virtual HD                                                     Healthy              Online                     127 GB MBR
-1      Virtual HD                                                     Healthy              Online                      14 GB MBR
-2      Msft Virtual Disk                                              Healthy              Online                      64 GB MBR
-3      Msft Virtual Disk                                              Healthy              Online                     128 GB MBR
+Number  Friendly Name      HealthStatus  OperationalStatus  Total Size  Partition Style
+------  -------------      ------------  -----------------  ----------  ---------------
+0       Virtual HD         Healthy       Online                 127 GB  MBR
+1       Virtual HD         Healthy       Online                  14 GB  MBR
+2       Msft Virtual Disk  Healthy       Online                  64 GB  MBR
+3       Msft Virtual Disk  Healthy       Online                 128 GB  MBR
 ```
 
 Examine the filesystems and mount points on the VM instance as follows:
@@ -209,19 +327,19 @@ Get-Partition
 
 The following example output shows that the two data disks are assigned drive letters.:
 
-```bash
+```powershell
    DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000001#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
 
-PartitionNumber  DriveLetter Offset                                                Size Type
----------------  ----------- ------                                                ---- ----
-1                F           1048576                                              64 GB IFS
+PartitionNumber  DriveLetter  Offset   Size  Type
+---------------  -----------  ------   ----  ----
+1                F            1048576  64 GB  IFS
 
 
    DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000002#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
 
-PartitionNumber  DriveLetter Offset                                                Size Type
----------------  ----------- ------                                                ---- ----
-1                G           1048576                                             128 GB IFS
+PartitionNumber  DriveLetter  Offset   Size   Type
+---------------  -----------  ------   ----   ----
+1                G            1048576  128 GB  IFS
 ```
 
 The disks on each VM instance in your scale are automatically prepared in the same way. As your scale set would scale up, the required data disks are attached to the new VM instances. The Custom Script Extension also runs to automatically prepare the disks.
@@ -284,21 +402,32 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number() is sh
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
 
-```azurecli-interactive
-az vmss disk detach \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --lun 2
+```azurepowershell-interactive
+# Get scale set object
+$vmss = Get-AzureRmVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+
+# Detach a disk from the scale set
+Remove-AzureRmVmssDataDisk `
+  -VirtualMachineScaleSet $vmss `
+  -Lun 2
+
+# Update the scale set and detach the disk from the VM instances
+Update-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
 
 ## Delete resource group
-To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
 
-```azurecli-interactive 
-az group delete --name myResourceGroup --no-wait --yes
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 
