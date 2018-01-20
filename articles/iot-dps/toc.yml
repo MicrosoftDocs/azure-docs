@@ -59,6 +59,8 @@
         href: tutorial-net-provision-device-to-hub.md
   - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
+  - name: 5 - Provision group enrollments
+    href: tutorial-group-enrollments.md
 - name: Concepts
   items:
   - name: Device concepts
@@ -77,6 +79,8 @@
       href: how-to-manage-enrollments-sdks.md
   - name: Revoke device access
     href: how-to-revoke-device-access-portal.md
+  - name: Unprovision devices
+    href: how-to-unprovision-devices.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
