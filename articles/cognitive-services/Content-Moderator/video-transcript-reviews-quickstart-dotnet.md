@@ -199,6 +199,10 @@ You add a transcript to a video review with **ContentModeratorClient.Reviews.Add
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
+> [!NOTE]
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use 
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video.
+
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
 	/// <summary>
