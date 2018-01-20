@@ -88,7 +88,6 @@ Remove-AzureRmResourceGroup -Name <resource_group_name>
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages and service bus, continue with the following articles:
 
 * Service Bus messaging overview
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * Learn how to use topics and subscriptions
 * Check out our How tos
 
