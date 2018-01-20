@@ -106,7 +106,7 @@ The following inbound traffic rules are enabled in the network security group. Y
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
 
 
-### Set template parameters
+## Set template parameters
 The [vnet-cluster.parameters.json][parameters] parameters file contains the names of the virtual network, subnet, and NSG that Service Fabric deploys to. Modify these parameters in the [vnet-cluster.parameters.json][parameters] file for your deployment:
 
 |Parameter|Value|
