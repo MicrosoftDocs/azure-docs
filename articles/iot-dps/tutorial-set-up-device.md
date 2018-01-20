@@ -1,11 +1,11 @@
 ---
-title: Set up device for the Azure IoT Hub Device Provisioning Service | Microsoft Docs
+title: Set up device for the Azure IoT Hub Device Provisioning Service
 description: Set up device to provision via the IoT Hub Device Provisioning Service during the device manufacturing process
 services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -27,10 +27,9 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 
 ## Prerequisites
 
-Before proceeding, create your Device Provisioning Service instance and an IoT hub using the instructions mentioned in the tutorial [Set up cloud for device provisioning](./tutorial-set-up-cloud.md).
+Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions mentioned in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
-
-## Select a Hardware Security Module
+### Decide on a Hardware Security Module
 
 The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for two types of Hardware Security Modules (or HSMs): 
 
@@ -42,14 +41,21 @@ The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-
 
 As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the preceding types. Other types of HSMs are not currently supported in the Device Provisioning Service client SDK.   
 
+>[!NOTE]
+> This tutorial assumes the use of a TPM Hardware Security Module, and the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c). See the IoT Hub Device Provision Service Quickstarts for details on using an X.509 HSM, SDK support for additional languages.
 
 ## Build Device Provisioning Client SDK for the selected HSM
 
 The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK for the selected HSM chip:
 
-1. If you followed the [Quickstart to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps clone the GitHub repo for the Device Provisioning Service Client SDK as well as install the `cmake` build tool. 
+1. If you followed the [Quickstart to create simulated TPM device](./quick-create-simulated-device.md), you are ready to build the SDK and can jumpt to step #2. 
 
-1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
+   If not, follow the **first four** steps from the section titled [Prepare the development environment for a simulated TPM device](./quick-create-simulated-device.md#setupdevbox). These steps clone the GitHub repo that contains the Device Provisioning Service Client SDK, and install the `cmake` build tool. Then open command prompt and change into the repo "cmake" subdirectory:
+        ```cmd/sh
+        cd azure-iot-sdk-c/cmake
+        ```
+
+2. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
@@ -65,18 +71,20 @@ The Device Provisioning Service Client SDK helps implement the selected security
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-1. The SDK provides default support for devices running Windows or Ubuntu implementations for TPM and X.509 HSMs. For these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity) below. 
+The SDK provides default support for devices running Windows or Ubuntu implementations for TPM and X.509 HSMs. For these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity) below. For all others, the next section provides guidance on porting the SDK for your specific platform needs.
  
 ## Support custom TPM and X.509 devices
 
-The Device Provisioning System Client SDK does not provide default support for any TPM and X.509 devices that do not run either Windows or Ubuntu. For such devices, you need to write the custom code for your particular HSM chip, as shown in the following steps:
+> [!IMPORTANT]
+> The Device Provisioning System Client SDK does not provide default support for any TPM and X.509 devices that do not run either Windows or Ubuntu. For such devices, you need to write the custom code for your particular HSM chip, provided in this optional section.
 
-### Develop your custom repository
+### Develop your custom HSM repository and library
 
 1. Develop a library to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
-1. Your library must implement the functions defined in the following header file:
-    a. For custom TPM, implement functions defined in [Custom HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. For custom X.509, implement functions defined in [Custom HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+
+2. Implement the functions defined in the following header file, in your library:  
+    a. For custom TPM, implement the Custom HSM functions defined under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. For custom X.509, implement the Custom HSM functions defined under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### Integrate with the Device Provisioning Service Client
 
@@ -87,12 +95,12 @@ Once your library successfully builds on its own, you can move to the IoThub C-S
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
    
-1. Open the SDK in visual studio and build it. 
+2. Open the SDK in Visual Studio and build it. 
 
     - The build process will compile the SDK library.
     - The SDK will attempt to link against the custom HSM defined in the cmake command.
 
-1. Run the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` sample to verify if your HSM is implemented correctly.
+3. Run the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` sample to verify if your HSM is implemented correctly.
 
 <a id="extractsecurity"></a>
 ## Extract the security artifacts
@@ -128,7 +136,7 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Remember to initialize the variables `uri` and `id_scope` as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. The Device Provisioning client registration API `Prov_Device_LL_Create` connects to the global Device Provisioning Service. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs. The `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
+Remember to initialize the `id_scope` constant and `hsm_type` variable as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. The Device Provisioning client registration API `Prov_Device_LL_Create` connects to the global Device Provisioning Service. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs. The `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
 
 
 These APIs help your device to connect and register with the Device Provisioning Service when it boots up, get the information about your IoT hub and then connect to it. The file `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` shows how to use these APIs. In general, you need to create the following framework for the client registration:
@@ -171,7 +179,7 @@ int main()
 }
 ```
 
-You may refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you need to [enroll the device with the Device Provisioning Service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the next steps below to learn this process. 
+You may refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you need to [enroll the device with the Device Provisioning Service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the Next Steps section to learn more about this process. 
 
 ## Clean up resources
 
