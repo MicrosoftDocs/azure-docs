@@ -142,16 +142,19 @@ The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
-Location="southcentralus"
+Location="southcentralus"  # must match the location parameter in the template
 Password="q6D7nN%6ck@6"
 Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
 
+# sign in to your Azure account and select your subscription
 az login
 az account set --subscription <guid>
 
+# Create a new resource group for your deployment and give it a name and a location.
 az group create --name $ResourceGroupName --location $Location
 
+# Create the Service Fabric cluster.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \

@@ -144,12 +144,12 @@ The following script uses the [New-AzureRmServiceFabricCluster](/powershell/modu
 ```powershell
 # Variables.
 $groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
+$clusterloc="southcentralus"  # must match the location parameter in the template
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 $certfolder="c:\mycertificates\"
-$clustername = "mysfcluster"
-$vaultname = "clusterkeyvault111"
-$vaultgroupname="clusterkeyvaultgroup111"
+$clustername = "mysfcluster123"  # must match the clusterName parameter in the template
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # sign in to your Azure account and select your subscription
@@ -181,7 +181,7 @@ You are now ready to connect to your secure cluster.
 The **Service Fabric** PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services.  Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate thumbprint and connection endpoint details are found in the output from the previous step.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
