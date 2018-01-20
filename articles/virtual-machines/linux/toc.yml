@@ -369,6 +369,8 @@
       href: copy-files-to-linux-vm-using-scp.md
     - name: Migrate to Premium storage with Azure Site Recovery
       href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Find unattached disks
+      href: find-unattached-disks.md
     - name: Use File storage
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
