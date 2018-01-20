@@ -54,7 +54,7 @@ sections:
     - title: Data Science Virtual Machine
       href: /azure/machine-learning/data-science-virtual-machine/
       image: 
-        src: media/index/virtualmachine.svg
+        src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
 
 - title: Reference

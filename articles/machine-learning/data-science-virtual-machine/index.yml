@@ -52,7 +52,7 @@ sections:
     - title: Azure Machine Learning services (preview)
       href: /azure/machine-learning/preview/
       image: 
-        src: media/index/machine-learning.svg
+        src: media/index/i_machine-learning.svg
         href: /azure/machine-learning/preview/
     - title: Azure Machine Learning Studio
       href: /azure/machine-learning/studio/
