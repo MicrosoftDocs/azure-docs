@@ -37,7 +37,7 @@ Here are some template categories:
 ||| 
 
 If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create logic apps from templates
 

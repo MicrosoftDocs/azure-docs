@@ -56,7 +56,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
 This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation:
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
