@@ -38,6 +38,11 @@ In the Content Moderator Dashboard, you can find your subscription key in **Sett
 
 The video and sample video frames to review must be published online and you will need their URLs.
 
+> [!NOTE]
+> The program uses manually saved screenshots from the video with random adult/racy scores to illustrate the 
+> use of the review API. In a real-world solution, you use a video processing library to create images and 
+> assign scores based on the [video moderation service output](video-moderation-api.md#run-the-program-and-review-the-output).
+
 For the video, you need a streaming endpoint so that the review tool plays the video in the player view.
 
 ![Video demo thumbnail](images/ams-video-demo-view.PNG)
@@ -49,11 +54,6 @@ For the video frames (images), use the following images:
 ![Video frame thumbnail 1](images/ams-video-frame-thumbnails-1.PNG) | ![Video frame thumbnail 2](images/ams-video-frame-thumbnails-2.PNG) | ![Video frame thumbnail 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
 [Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
-
-> [!NOTE]
-> The program uses manually saved screenshots from the video with random adult/racy scores to illustrate the 
-> use of the review API. In a real-world solution, you use a video processing library to create images and 
-> assign scores based on the [video moderation service output](video-moderation-api.md#run-the-program-and-review-the-output).
 
 ## Create your Visual Studio project
 
