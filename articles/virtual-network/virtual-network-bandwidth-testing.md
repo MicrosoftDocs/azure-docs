@@ -161,6 +161,13 @@ Sender <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
+## Testing Cloud Service Instances:
+You need to add following section into your ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
 
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
