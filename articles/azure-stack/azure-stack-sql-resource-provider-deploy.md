@@ -156,7 +156,7 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 
 
-## Verify the deployment by using the Azure Stack portal
+## Verify the deployment using the Azure Stack portal
 
 > [!NOTE]
 >  After the installation script finishes running, you need to refresh the portal to see the admin blade.
