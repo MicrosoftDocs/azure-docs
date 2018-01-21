@@ -275,34 +275,15 @@ As you are moving data from a data store in a private network (on-premises) to a
 5. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
 
    ![Self-hosted IR name](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-6. In the **Integration Runtime Settings** section, click **Download and install integration runtime** link. The **express setup** option is the easier option. To install the integration runtime on a different machine, you need to use the manual setup option to download and install the IR, and then register it with Azure Data Factory by using the key1 or key2. Therefore, it's good to learn about the manual setup option. 
+10. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
-   ![Select express setup](./media/tutorial-incremental-copy-multiple-tables-portal/download-integration-runtime.png)
-7. You see a [separate tab](https://www.microsoft.com/download/details.aspx?id=39717) with the download link. Click **Download**. Select the **MSI** file, and click **Next**. 
+   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+11. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
-   ![Download button](./media/tutorial-incremental-copy-multiple-tables-portal/download-button.png)
-8. Run the downloaded installation file. You see the following window. On the **Welcome** page, Click **Next**. 
+   ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+12. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
 
-   ![IR installation - Welcome page](./media/tutorial-incremental-copy-multiple-tables-portal/ir-setup-welcome.png)
-9. Accept the **terms and license agreement**, and click **Next**. 
-10. On the *Destination Folder** page, click **Next**. 
-11. On the **Ready to install Microsoft Integration Runtime**, click **Install**. Close the **Power Options** window. 
-12. On the **Completed the Microsoft Integration Runtime Setup Wizard** page, click **Finish**. 
-13. In your Web browser, switch to the tab with **Azure Data Factory UI** opened, and copy **Key1** to the clipboard by clicking the **Copy** button next to the text box. 
-
-       ![Download button](./media/tutorial-incremental-copy-multiple-tables-portal/copy-key1.png)
-14. In the **Microsoft INtegration Runtime Configuration Manager** window on your machine (launched after the setup finished), paste the **key**, and click **Register**. 
-
-       ![Register IR](./media/tutorial-incremental-copy-multiple-tables-portal/register-ir.png)
-15. On the **New Integration Runtime (Self-hosted) Node** page, click **Finish**. 
-
-    ![Registration finish page](./media/tutorial-incremental-copy-multiple-tables-portal/registration-finish.png)
-16. Click **Launch Configuration Manager**. Confirm that the integration runtime is connected to the Data Factory service.
-
-    ![Registration finish page](./media/tutorial-incremental-copy-multiple-tables-portal/ir-configuration-manager.png)
-1. In the Web browser with the Data Factory UI opened, you should see your machine in the **Existing Self-hosted Nodes** section, and click **Finish**. 
-
-    ![Existing self-hosted nodes](./media/tutorial-incremental-copy-multiple-tables-portal/existing-self-hosted-nodes.png)
+   ![Integration runtime setup - finish](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 17. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
        ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)

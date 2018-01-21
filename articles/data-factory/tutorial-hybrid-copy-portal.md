@@ -189,7 +189,7 @@ In this step, you create a data factory, and launch the Azure Data Factory UI to
 11. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
    ![Integration runtime setup - successful](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. You should be back in the **New Linked Service** window.
+12. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
 
    ![Integration runtime setup - finish](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. In the **New Linked Service** window, do the following steps:
