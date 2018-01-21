@@ -130,4 +130,4 @@ Example extract:
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET QuickStart](imaget-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET QuickStart](image-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
