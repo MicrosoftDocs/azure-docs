@@ -70,13 +70,13 @@ docker pull microsoft/aci-helloworld
 
 Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
