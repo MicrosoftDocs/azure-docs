@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2018
+ms.date: 01/20/2018
 ms.author: jingwang
 ---
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL database
@@ -435,7 +435,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
     1. Click **+ New**. 
     2. Enter **tableList** for the parameter **name**. 
-    3. Select **Object** for the parameter **type**. 
+    3. Select **Object** for the parameter **type**.
 
     ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 4. Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
@@ -532,7 +532,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
  
 ## Run the pipeline
 
-1. On the toolbar for the pipeline, click Trigger, and click Trigger Now.     
+1. On the toolbar for the pipeline, click **Trigger**, and click **Trigger Now**.     
 
     ![Trigger now](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
 2. In the **Pipeline Run** window, enter the following value for the **tableList** parameter, and click **Finish**. 
@@ -563,8 +563,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Pipeline runs](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
 2. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
 
-    
-1. 
+    ![Activity runs](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
 ## Review the results
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the data was copied from source tables to destination tables: 
@@ -636,7 +635,32 @@ VALUES
 ``` 
 
 ## Rerun the pipeline
+1. In the web browser window, switch to the **Edit** tab on the left. 
+2. On the toolbar for the pipeline, click **Trigger**, and click **Trigger Now**.   
 
+    ![Trigger now](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
+1. In the **Pipeline Run** window, enter the following value for the **tableList** parameter, and click **Finish**. 
+
+    ```
+    [
+        {
+            "TABLE_NAME": "customer_table",
+            "WaterMark_Column": "LastModifytime",
+            "TableType": "DataTypeforCustomerTable",
+            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+        },
+        {
+            "TABLE_NAME": "project_table",
+            "WaterMark_Column": "Creationtime",
+            "TableType": "DataTypeforProjectTable",
+            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+        }
+    ]
+    ```
+
+## Monitor the second pipeline run
+1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline.
+2. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
 
 ## Review the final results
 In SQL Server Management Studio, run the following queries against the target database to verify that the updated/new data was copied from source tables to destination tables. 
