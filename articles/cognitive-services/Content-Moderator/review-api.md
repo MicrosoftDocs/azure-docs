@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Moderation Jobs and Reviews
 
-Combine human oversight and reviews with automated moderation results with Content Moderators's review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
+Combine human oversight and reviews with automated moderation results with Content Moderators's Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
 
 The Review API offers the following ways to include human moderation in your content moderation process:
 
@@ -123,7 +123,7 @@ The response includes the following information:
 
 ### Create Reviews
 
-Use the Review operations to just create the human reviews either because you are moderating them elsewhere or because you have some custom business logic working to create the moderation tags.
+Use the **Review.Create** operation to just create the human reviews either because you are moderating them elsewhere or because you have some custom business logic working to create the moderation tags.
 
 Your inputs to this operation include:
 
