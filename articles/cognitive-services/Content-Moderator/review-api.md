@@ -1,6 +1,6 @@
 ---
 title: Azure Content Moderator - Moderation jobs and human-in-the-loop reviews | Microsoft Docs
-description: Use moderation jobs and reviews to apply human oversight to automated moderation.
+description: Apply human oversight to machine-assisted moderation for best results.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -14,12 +14,12 @@ ms.author: sajagtap
 
 # Moderation Jobs and Reviews
 
-Combine human oversight and reviews with automated moderation results with Content Moderators's Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
+Combine human oversight and reviews with machine-assisted content moderation results with Content Moderators's Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
 
 The Review API offers the following ways to include human moderation in your content moderation process:
 
-1. The **Job** operations for end-to-end automated moderation and human review creation.
-2. The **Review** operations for just creating reviews for your human moderators.
+1. The **Job** operations for machine-asssted moderation and human review creation.
+2. The **Review** operations for just human review creation.
 
 Both operations accept your callback endpoints for receiving detailed status and results after completion.
 
@@ -82,6 +82,8 @@ The response includes the following information:
     	}
 		]
 	}
+
+![Image review for human moderators](images/ocr-sample-image.PNG)
 
 #### After human review
 
