@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/18/2018
 ms.author: babanisa
 ---
 
@@ -31,7 +31,9 @@ The following example shows the properties that are used by all event publishers
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -59,7 +61,9 @@ For example, the schema published for an Azure Blob storage event is:
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -76,6 +80,8 @@ All events contain the same following top-level data:
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Event data specific to the resource provider. |
+| dataVersion | string | The schema version of the data object. |
+| metadataVersion | string | The schema version of the event metadata. |
 
 To learn about the properties in the data object, see the event source:
 

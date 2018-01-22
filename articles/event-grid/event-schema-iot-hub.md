@@ -89,6 +89,8 @@ All events contain the same top-level data:
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | data | object | IoT Hub event data.  |
+| dataVersion | string | The schema version of the data object. |
+| metadataVersion | string | The schema version of the event metadata. |
 
 The contents of the data object are different for each event publisher. For IoT Hub events, the data object contains the following properties:
 
