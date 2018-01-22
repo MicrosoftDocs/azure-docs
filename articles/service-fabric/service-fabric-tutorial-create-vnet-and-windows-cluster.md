@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2018
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -47,14 +47,24 @@ Before you begin this tutorial:
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Introduction
-This tutorial deploys a Service Fabric cluster of five nodes in a single node type into a [virtual network in Azure](../virtual-network/virtual-networks-overview.md).
+This tutorial deploys a Service Fabric Windows cluster of five nodes in a single node type into a [virtual network in Azure](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md).
 
+## Key concepts
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties.
 
 A node type defines the size, number, and properties for a set of virtual machines in the cluster. Every defined node type is set up as a [virtual machine scale set](/azure/virtual-machine-scale-sets/), an Azure compute resource you use to deploy and manage a collection of virtual machines as a set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Node types are used to define roles for a set of cluster nodes, such as "front end" or "back end".  Your cluster can have more than one node type, but the primary node type must have at least five VMs for production clusters (or at least three VMs for test clusters).  [Service Fabric system services](service-fabric-technical-overview.md#system-services) are placed on the nodes of the primary node type.
 
-## Cluster capacity planning
-For any production cluster deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+The cluster is secured with a cluster certificate. A cluster certificate is an X.509 certificate used to secure node-to-node communication and authenticate the cluster management endpoints to a management client.  The cluster certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS. Self signed certificates are useful for test clusters.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate.
+
+The cluster certificate must:
+
+- contain a private key.
+- be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
+- have a subject name that matches the domain that you use to access the Service Fabric cluster. This matching is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the .cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+
+Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
+
+This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)
@@ -88,6 +98,8 @@ A load balancer is deployed and probes and rules setup for the following ports:
 - application port: 443
 - Service Fabric reverse proxy: 19081
 
+If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
+
 ### Virtual network, subnet, and network security group
 You can changes the names or address space values in the template parameters.
 - virtual network address space: 172.16.0.0/20
@@ -105,48 +117,35 @@ The following inbound traffic rules are enabled in the network security group. Y
 
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
 
-
 ## Set template parameters
-The [vnet-cluster.parameters.json][parameters] parameters file contains the names of the virtual network, subnet, and NSG that Service Fabric deploys to. Modify these parameters in the [vnet-cluster.parameters.json][parameters] file for your deployment:
+The [vnet-cluster.parameters.json][parameters] parameters file contains the names of the virtual network, subnet, and NSG that Service Fabric deploys to. Some of the parameters that you might need to modify for your deployment:
 
-|Parameter|Value|
-|---|---|
-|adminPassword|Password#1234|
-|adminUserName|vmadmin|
-|clusterName|mysfcluster123|
-|location|southcentralus|
-
-The cluster is secured with a cluster certificate. A cluster certificate is an X.509 certificate used to secure node-to-node communication and authenticate the cluster management endpoints to a management client.  The cluster certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS. Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
-
-The cluster certificate must:
-
-- contain a private key.
-- be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
-- have a subject name that matches the domain that you use to access the Service Fabric cluster. This matching is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the .cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
-
-Leave the *certificateThumbprint*, *certificateUrlValue*, and *sourceVaultValue* parameters blank to create a self-signed certificate.  Self signed certificates are useful for test clusters.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. To use an existing certificate previously uploaded to a key vault, fill in those parameters with the values for your certificate in your keyvault.  For example:
-
-|Parameter|Value|
-|---|---|
-|certificateThumbprint|6190390162C988701DB5676EB81083EA608DCCF3|
-|certificateUrlValue|https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346|
-|sourceVaultValue|/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT|
-
+|Parameter|Example value|Notes|
+|---|---||
+|adminUserName|vmadmin| Admin username for the cluster VMs. |
+|adminPassword|Password#1234| Admin password for the cluster VMs.|
+|clusterName|mysfcluster123| Name of the cluster. |
+|location|southcentralus| Location of the cluster. |
+|certificateThumbprint|| Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, ""6190390162C988701DB5676EB81083EA608DCCF3. | 
+|certificateUrlValue|| Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".|
+|sourceVaultValue||Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".|
 
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## Deploy the virtual network and cluster
-Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-cluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  
+Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-cluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
-The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally. You can specify an existing certificate and/or key vault by using other parameters of the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
+### Create a cluster using an existing certificate
+The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure and uploads your certificate. 
 
 ```powershell
 # Variables.
 $groupname = "sfclustertutorialgroup"
 $clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
-$certfolder="c:\mycertificates\"
 $clustername = "mysfcluster123"  # must match the clusterName parameter in the template
 $vaultname = "clusterkeyvault123"
 $vaultgroupname="clusterkeyvaultgroup123"
@@ -161,9 +160,40 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\vnet-cluster.json' `
--ParameterFile 'C:\winclustertutorial\vnet-cluster.parameters.json' -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+-KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
+```
+
+### Create a cluster using a new, self-signed certificate
+The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally. 
+
+```powershell
+# Variables.
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
+$certfolder="c:\mycertificates\"
+$clustername = "mysfcluster123"
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+# sign in to your Azure account and select your subscription
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
+# Create the Service Fabric cluster.
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+
 ```
 
 ## Connect to the secure cluster
