@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Create a virtual machine running OpenSUSE Linux
 
-First, create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the **East US** region.
+First, create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the *East US* region.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
@@ -53,7 +53,7 @@ az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
 
 ## Connect to the VM
 
-You'll use SSH connect to the VM. In this example, the public IP address of the VM is *10.111.112.113*. You can see the IP address in the output of the previous command.
+You'll use SSH to connect to the VM. In this example, the public IP address of the VM is *10.111.112.113*. You can see the IP address in the output when you created the VM.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -130,9 +130,9 @@ CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
+Database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
 
-Enable log in from another computer. In this example, the IP address of the computer that we want to log in from is *10.112.113.114*
+Enable log in from another computer. In this example, the IP address of the computer that we want to log in from is *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
