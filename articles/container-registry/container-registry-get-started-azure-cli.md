@@ -6,7 +6,7 @@ author: neilpeterson
 manager: timlt
 
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017, mvc
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
-This quickstart requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli].
+This quickstart requires that you are running the Azure CLI version 2.0.25 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli].
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -38,7 +38,7 @@ In this quickstart, we create a *Basic* registry. Azure Container Registry is av
 
 Create an ACR instance using the [az acr create][az-acr-create] command.
 
-The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
