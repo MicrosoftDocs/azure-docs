@@ -104,11 +104,6 @@ The following guiding principles are provided for updating your statistics durin
 * Consider updating static distribution columns less frequently.
 * Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
-> [!NOTE]
-> For more details on ascending keys, refer to the SQL Server 2014 cardinality estimation model white paper.
-> 
-> 
-
 For further explanation, see  [Cardinality Estimation][Cardinality Estimation] on MSDN.
 
 ## Examples: Create statistics
