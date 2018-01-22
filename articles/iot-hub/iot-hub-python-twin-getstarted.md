@@ -32,12 +32,12 @@ At the end of this tutorial, you will have two Python console apps:
 
 To complete this tutorial you need the following:
 
-* [Python 2.x or 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
-* If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* [Python 2.x or 3.x](lnk-python-download). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](lnk-install-pip).
+* If you are using Windows OS, then [Visual C++ redistributable package](lnk-visual-c-redist) to allow the use of native DLLs from Python.
+* An active Azure account. (If you don't have an account, you can create a [free account](lnk-free-trial) in just a couple of minutes.)
 
 > [!NOTE]
-> The *pip* packages for `azure-iothub-service-client` and `azure-iothub-device-client` are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python][lnk-python-devbox] post.
+> The *pip* packages for `azure-iothub-service-client` and `azure-iothub-device-client` are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](lnk-python-devbox) post.
 > 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -131,10 +131,12 @@ In this section, you create a Python console app that adds location metadata to 
 
         iothub_service_sample_run()
     ```
+
+1. Run the application with:
    
- 1. Run the application with:
-   
-        python AddTagsAndQuery.py
+    ```cmd/sh
+    python AddTagsAndQuery.py
+    ```
    
     You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
    
@@ -259,9 +261,9 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-* configure devices using device twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
+* Configure devices using device twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
+* Control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png
