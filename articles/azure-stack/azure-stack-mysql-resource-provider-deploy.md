@@ -354,3 +354,7 @@ To remove the resource provider, it is essential to first remove any dependencie
 6. The administrator must delete any quotas that are associated with the MySQL Adapter.
 
 7. Rerun the deployment script with the following elements:
+    - The -Uninstall parameter
+    - The Azure Resource Manager endpoints
+    - The DirectoryTenantID
+    - The credentials for the service administrator account

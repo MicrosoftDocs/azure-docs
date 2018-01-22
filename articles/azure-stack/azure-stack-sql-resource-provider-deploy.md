@@ -48,20 +48,20 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
 - On multi-node systems, the host must be a system that can access the privileged endpoint. 
     
-    >[!NOTE]
-    > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack SDK host meets this criteria.
+        >[!NOTE]
+        > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack SDK host meets this criteria.
 
 
 3. Download the SQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
 
-    >[!NOTE] 
-    > The resource provider build corresponds to Azure Stack builds. Be sure to download the correct binary for the version of Azure Stack that is running.
+        >[!NOTE] 
+        > The resource provider build corresponds to Azure Stack builds. Be sure to download the correct binary for the version of Azure Stack that is running.
 
-    | Azure Stack build | SQL resource provider installer |
-    | --- | --- |
-    |1.0.180102.3 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
-    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
-    | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+        | Azure Stack build | SQL resource provider installer |
+        | --- | --- |
+        |1.0.180102.3 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+        | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
+        | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
 4. The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure Stack SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
