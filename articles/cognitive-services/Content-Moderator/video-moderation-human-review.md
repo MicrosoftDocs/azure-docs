@@ -97,4 +97,4 @@ Videos typically have voice over that needs moderation as well for offensive spe
 
 ## Next steps
 
-Get started with the [video moderation QuickStart](video-moderation-api.md), the [video review .NET QuickStart](video-review-quickstart-dotnet.md) and the [video transcript review .NET QuickStart](video-transcript-review-quickstart-dotnet.md).
+Get started with the [video moderation QuickStart](video-moderation-api.md), the [video review .NET QuickStart](video-reviews-quickstart-dotnet.md) and the [video transcript review .NET QuickStart](video-transcript-reviews-quickstart-dotnet.md).
