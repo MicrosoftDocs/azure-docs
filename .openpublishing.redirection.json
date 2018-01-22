@@ -4670,7 +4670,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer",
+            "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
             "redirect_document_id": false
         },
