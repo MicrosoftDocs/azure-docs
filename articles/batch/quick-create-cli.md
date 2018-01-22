@@ -8,16 +8,16 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2018
+ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run your first Batch job with the Azure CLI
+# Quickstart: Run your first Batch job with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. The pool in this example contains Linux VMs, but Batch also supports Windows pools to run Windows jobs. Each sample task displays environment variables set by Batch on a compute node. This example is basic but introduces you to key concepts of the Batch service.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. Each sample task runs a basic command on one of the pool nodes. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -27,12 +27,12 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus2* location.
 
 ```azurecli-interactive 
 az group create \
     --name myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
 ## Create a storage account
@@ -43,7 +43,7 @@ You can link an Azure general-purpose storage account with your Batch account. A
 az storage account create \
     --resource-group myResourceGroup \
     --name mystorageaccount \
-    --location eastus \
+    --location eastus2 \
     --sku Standard_LRS
 ```
 
@@ -58,10 +58,10 @@ az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
     --resource-group myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
-To create and manage compute pools and jobs, you need to authenticate with Batch. Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account name and key. After you log in, your `az batch` commands use this account context.
+To create and manage compute pools and jobs, you need to authenticate with Batch. Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. After you log in, your `az batch` commands use this account context.
 
 ```azurecli-interactive 
 az batch account login \
@@ -70,9 +70,9 @@ az batch account login \
     --shared-key-auth
 ```
 
-## Create a Batch pool 
+## Create a pool of compute nodes
 
-Create a sample pool of Linux VMs for Batch using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. The following example creates a pool named *mypool* of 2 size *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The size suggested offers a good balance of performance versus cost for this quick example.
+Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. The following example creates a pool named *mypool* of 2 size *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
  
 ```azurecli-interactive
 az batch pool create \
@@ -82,7 +82,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-The pool is created immediately, but it takes a few minutes to create the pool nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:
+Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -91,9 +91,9 @@ az batch pool show --pool-id mypool \
 
 Continue the following steps to create a job and tasks while the pool state is changing. The pool is ready to run tasks when the allocation state is `steady` and all the nodes are running. 
 
-## Create a Batch job
+## Create a job
 
-A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. The following example creates a job *myjob* on the pool *mypool*. Initially the job has no tasks.
+Now that you have a pool, create a job to run on it.  A Batch job is a logical group for one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. The following example creates a job *myjob* on the pool *mypool*. Initially the job has no tasks.
 
 ```azurecli-interactive 
 az batch job create \
@@ -131,9 +131,7 @@ az batch task show \
     --task-id mytask1
 ```
 
-The command output includes many details, but take note of the `exitCode` and the `nodeId`. An `exitCode` of 0 indicates that the task completed successfully. The `nodeId` indicates the ID of the pool node on which the task ran.
-
-
+The command output includes many details, but take note of the `exitCode` of the task command line and the `nodeId`. An `exitCode` of 0 indicates that the task command line completed successfully. The `nodeId` indicates the ID of the pool node on which the task ran.
 
 ## View task output
 
@@ -151,14 +149,14 @@ Output is similar to the following:
 ```
 Name        URL                                                                                         Is Directory      Content Length
 ----------  ------------------------------------------------------------------------------------------  --------------  ----------------
-stdout.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob/tasks/mytask1/files/stdout.txt  False                  695
-certs       https://mybatchaccount.eastus.batch.azure.com/jobs/myjob/tasks/mytask1/files/certs       True
-wd          https://mybatchaccount.eastus.batch.azure.com/jobs/myjob/tasks/mytask1/files/wd          True
-stderr.txt  https://mybatchaccount.eastus.batch.azure.com/jobs/myjob/tasks/mytask1/files/stderr.txt  False                     0
+stdout.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/stdout.txt  False                  695
+certs       https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/certs       True
+wd          https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/wd          True
+stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/stderr.txt  False                     0
 
 ```
 
-To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) command. The sample task command in this quickstart returns its output in `stdout.txt`. 
+To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download) command. In this example, task output is in `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \
@@ -174,7 +172,7 @@ You can view the contents of `stdout.txt` in a text editor. The contents show th
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
 AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
-AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus.batch.azure.com/
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
 AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
@@ -188,7 +186,7 @@ AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## Clean up resources
-If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
+If you want to continue with Batch tutorials and samples, use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
 
 You are charged for pools while the nodes are running, even if no jobs are scheduled. When you no longer need a pool, delete it with the [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) command:
 
@@ -204,7 +202,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials. 
 
 
 > [!div class="nextstepaction"]
