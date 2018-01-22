@@ -18,7 +18,7 @@ Use Content Moderator’s Image Moderation API [(see API reference)](api-referen
 
 ## Evaluating for adult and racy content
 
-The Image Moderation API’s **Evaluate** operation returns a confidence score (between 0 and 1) and Boolean data (true or false) to predict whether the image contains potential adult or racy content. When you call the API with your image (file or URL), the returned response includes the following information:
+The **Evaluate** operation returns a confidence score between 0 and 1. It also returns boolean data equal to true or false. These values predict whether the image contains potential adult or racy content. When you call the API with your image (file or URL), the returned response includes the following information:
 
 - The adult or racy confidence score (between 0 and 1).
 - A Boolean value (true or false) based on default thresholds.
@@ -60,7 +60,7 @@ Example extract:
 
 ## Detecting faces
 
-Detecting faces is important because you may not want your users to upload any personally identifiable information (PII) and risk their privacy and your brand. Using the Detect faces operation, you can detect potential faces and the number of potential faces in each image.
+Detecting faces helps to detect personally identifiable information (PII) such as faces in the images. You detect potential faces and the number of potential faces in each image.
 
 A response includes this information:
 
@@ -96,9 +96,9 @@ Example extract:
 
 In many online communities, after users upload images or other type of content, offensive items may get shared multiple times over the following days, weeks, and months. The costs of repeatedly scanning and filtering out the same image or even slightly modified versions of the image from multiple places can be expensive and error-prone.
 
-Instead of moderating the same image multiple times, you can add the offensive images to your custom list of blocked content. That way, your content moderation system can compare incoming images against your custom list of images and stop any further processing right away.
+Instead of moderating the same image multiple times, you add the offensive images to your custom list of blocked content. That way, your content moderation system compares incoming images against your custom lists and stops any further processing.
 
-The Content Moderator provides a complete [Image List Management API](try-image-list-api.md) with operations for creating and deleting lists, and for adding and removing images from those lists. Start with the [Image Lists API Console](try-image-list-api.md) and use the REST API code samples. Also check out the [Image List .NET QuickStart](image-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+The Content Moderator provides a complete [Image List Management API](try-image-list-api.md) with operations for managing lists of custom images. Start with the [Image Lists API Console](try-image-list-api.md) and use the REST API code samples. Also check out the [Image List .NET quickstart](image-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Matching against your custom lists
 
@@ -108,7 +108,7 @@ If a match is found, the operation returns the identifier and the moderation tag
 
 - Match score (between 0 and 1)
 - Matched image
-- Image tags (assigned during a previous moderation)
+- Image tags (assigned during previous moderation)
 - Image labels
 
 Example extract:
@@ -136,4 +136,4 @@ For more nuanced cases, use the Content Moderator [review tool](Review-Tool-User
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET QuickStart](image-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET quickstart](image-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
