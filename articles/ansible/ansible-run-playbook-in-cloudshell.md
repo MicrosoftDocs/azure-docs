@@ -47,7 +47,7 @@ If you have never used Cloud Shell, the following steps guide you through settin
 >
 >
 
-## Use Ansible to connect to an Azure virtual machine
+## Use Ansible to connect to a VM
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
 1. Open the Azure Cloud Shell.
@@ -99,7 +99,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   az group delete -n <resourceGroup>
   ```
 
-## Run an Ansible playbook in Cloud Shell
+## Run a playbook in Cloud Shell
 The [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) command executes Ansible playbooks, running the tasks on the targeted host(s). 
 This section walks you through using the Cloud Shell to create and execute two playbooks - one to create a resource group, and a second to delete the resource group. 
 

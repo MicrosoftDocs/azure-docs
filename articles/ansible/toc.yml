@@ -21,7 +21,7 @@
   - name: Run a playbook in Cloud Shell
     href: ./ansible-run-playbook-in-cloudshell.md
     maintainContext: true
-  - name: Manage your Azure dynamic inventories
+  - name: Manage dynamic inventories
     href: ./ansible-manage-azure-dynamic-inventories.md
     maintainContext: true
 - name: Reference

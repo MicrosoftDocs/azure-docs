@@ -58,7 +58,7 @@ Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.
 az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
-## Generate a dynamic inventory of your Azure resources
+## Generate a dynamic inventory
 Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machine:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
@@ -117,7 +117,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
 }
 ```
 
-## Set up Nginx on the tagged virtual machine
+## Set up Nginx on the tagged VM
 The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
 
 1. Create a file (to contain your playbook) named `nginx.yml` as follows:
