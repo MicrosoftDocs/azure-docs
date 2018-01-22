@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
 
 ---
@@ -51,7 +51,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up virtual machines with data disk sizes greater than 1,023 GB is not supported.
 
   > [!NOTE]
-  > We have a private preview to support backups for VMs with 1-TB (or greater) unmanaged disks. For details, refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > We have a private preview to support backups for VMs with > 1TB disks. For details, refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
@@ -216,7 +216,7 @@ You can allow connections to storage of the specific region by using [service ta
 ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Storage tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
+> Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ### Use an HTTP proxy for VM backups
 When you're backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage by using an HTTPS API. Route the backup extension traffic through the HTTP proxy, because it's the only component configured for access to the public internet.
