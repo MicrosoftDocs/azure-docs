@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/22/2018
 ms.author: jeedes
 
 ---
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![RedBrick Health Domain and URLs single sign-on information](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=toyotaconn1`
+	d. In the **Relay State** textbox, type a URL using the following pattern: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
 	
 	> [!NOTE] 
 	> Relay State value is not real. Update this value with the actual Relay State. Contact [RedBrick Health support team](https://home.redbrickhealth.com/contact/) to get this value.
