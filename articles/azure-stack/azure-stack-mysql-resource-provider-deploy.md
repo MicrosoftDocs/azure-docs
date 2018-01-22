@@ -61,8 +61,8 @@ The system account must have the following privileges:
 - On Azure SDK installations, sign in to the physical host. 
 - On multi-node systems, the host must be a system that can access the privileged endpoint.
     
-        >[!NOTE]
-        > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
+    >[!NOTE]
+    > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
     
 
 3. Download the MySQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
