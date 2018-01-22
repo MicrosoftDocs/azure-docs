@@ -3,7 +3,7 @@ title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs
 description:  Get started with the Service Fabric plug-in for Eclipse.  
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
-ms.author: saysa
+ms.author: rapatchi
 
 ---
 
