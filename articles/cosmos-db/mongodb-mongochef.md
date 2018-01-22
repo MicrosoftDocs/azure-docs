@@ -26,11 +26,11 @@ To connect to an Azure Cosmos DB MongoDB API account, you must:
 * Have your Azure Cosmos DB [connection string](connect-mongodb-account.md) information for your MongoDB account
 
 ## Create the connection in Studio 3T
-To add your Azure Cosmos DB account to the Studio 3T connection manager, perform the following steps.
+To add your Azure Cosmos DB account to the Studio 3T connection manager, perform the following steps:
 
 1. Retrieve the Azure Cosmos DB connection information for your MongoDB API account using the instructions in the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) article.
 
-    ![Screen shot of the connection string blade](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Screen shot of the connection string page](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
     ![Screen shot of the Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManager.png)
@@ -48,15 +48,15 @@ To add your Azure Cosmos DB account to the Studio 3T connection manager, perform
     ![Screen shot of the Studio 3T test connection window](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## Use Studio 3T to create a database, collection, and documents
-To create a database, collection, and documents using Studio 3T, perform the following steps.
+To create a database, collection, and documents using Studio 3T, perform the following steps:
 
 1. In **Connection Manager**, highlight the connection and click **Connect**.
 
     ![Screen shot of the Studio 3T connection manager](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Right click the host and choose **Add Database**.  Provide a database name and click **OK**.
+2. Right-click the host and choose **Add Database**.  Provide a database name and click **OK**.
 
     ![Screen shot of the Studio 3T Add Database option](./media/mongodb-mongochef/AddDatabase1.png)
-3. Right click the database and choose **Add Collection**.  Provide a collection name and click **Create**.
+3. Right-click the database and choose **Add Collection**.  Provide a collection name and click **Create**.
 
     ![Screen shot of the Studio 3T Add Collection option](./media/mongodb-mongochef/AddCollection.png)
 4. Click the **Collection** menu item, then click **Add Document**.
@@ -80,7 +80,7 @@ To create a database, collection, and documents using Studio 3T, perform the fol
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Add another document, this time with the following content.
+6. Add another document, this time with the following content:
 
         {
         "_id": "WakefieldFamily",
