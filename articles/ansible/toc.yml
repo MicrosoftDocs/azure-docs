@@ -24,12 +24,6 @@
   - name: Manage your Azure dynamic inventories
     href: ./ansible-manage-azure-dynamic-inventories.md
     maintainContext: true
-- name: Samples
-  items:
-  - name: Azure playbooks on GitHub
-    href: https://github.com/Azure-Samples/ansible-playbooks
-  - name: Ansible Galaxy
-    href: https://galaxy.ansible.com
 - name: Reference
   items:
   - name: Azure Container Instances
