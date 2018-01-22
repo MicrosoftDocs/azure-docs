@@ -98,7 +98,7 @@ In this section, you modify the device app you created in the [Get started with 
         print ( "IoTHubClient sample stopped" )
     ```
    
-    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
    
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
@@ -115,8 +115,6 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
 
-1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
-
 1. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
@@ -125,9 +123,13 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 
     ![Adding an endpoint][31]
 
-1. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+1. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. 
 
-    ![Adding a route][32]
+    ![Adding a route][34]
+
+    Enter a name and select **Device Messages** as the source of data. Choose **CriticalQueue** as a custom endpoint as the routing rule endpoint and enter `level="critical"` as the query string. Click **Save** at the bottom.
+
+    ![Route details][32]
 
     Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
 
@@ -227,7 +229,7 @@ Now you are ready to run the applications.
 In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the account based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
  > [!NOTE]
-   > If you are not limited to one **Endpoint**, you may setup the **StorageContainer** in addition to the **CriticalQueue** and run both simulatneously.
+   > IoT Hub accounts created under the _F1 Free_ tier are limited to one **Endpoint**. If you are not limited to one **Endpoint**, you may setup the **StorageContainer** in addition to the **CriticalQueue** and run both simulatneously.
 
 1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
@@ -236,7 +238,7 @@ In this section, you create a Storage account, connect it to your IoT hub, and c
 3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageContainer** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
 
  > [!NOTE]
-   > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
+   > IoT Hub accounts created under the _F1 Free_ tier are limited to one **Endpoint**. If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
 
 4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageContainer** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
@@ -264,6 +266,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [31]: ./media/iot-hub-python-python-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-python-python-process-d2c/route-creation.png
 [33]: ./media/iot-hub-python-python-process-d2c/fallback-route.png
+[34]: ./media/iot-hub-python-python-process-d2c/click-routes.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/
