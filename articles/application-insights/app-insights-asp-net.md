@@ -62,7 +62,7 @@ Run your app with F5. Open different pages to generate some telemetry.
 
 In Visual Studio, you will see a count of the events that have been logged.
 
-![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/app-insights-asp-net/006-Events.png)
+![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/app-insights-asp-net/0006-Events.png)
 
 ## Step 3: See your telemetry
 You can see your telemetry either in Visual Studio or in the Application Insights web portal. Search telemetry in Visual Studio to help you debug your app. Monitor performance and usage in the web portal when your system is live. 
