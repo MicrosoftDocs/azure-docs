@@ -15,7 +15,7 @@ Use device twins to:
 * Query your device metadata, configuration, or state.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
+> Device twins are designed for synchronization and for querying device configurations and conditions. More information on when to use device twins can be found in [Understand device twins][lnk-twins].
 
 Device twins are stored in an IoT hub and contain:
 
