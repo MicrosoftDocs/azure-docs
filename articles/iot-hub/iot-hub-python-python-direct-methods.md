@@ -13,7 +13,7 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: v-masebo
 
 ---
@@ -31,9 +31,9 @@ At the end of this tutorial, you have two Python console apps:
 
 To complete this tutorial, you need the following:
 
-* [Python 2.x or 3.x](lnk-python-download). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](lnk-install-pip).
-* If you are using Windows OS, then [Visual C++ redistributable package](lnk-visual-c-redist) to allow the use of native DLLs from Python.
-* An active Azure account. (If you don't have an account, you can create a [free account](lnk-free-trial) in just a couple of minutes.)
+* [Python 2.x or 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
+* If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -247,6 +247,9 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
+[lnk-python-download]: https://www.python.org/downloads/
+[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
+[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
