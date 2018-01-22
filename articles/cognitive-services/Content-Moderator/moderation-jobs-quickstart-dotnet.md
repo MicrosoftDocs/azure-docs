@@ -18,8 +18,8 @@ This article provides information and code samples to help you get started using
 the Content Moderator SDK for .NET to:
  
 - Start a moderation job to scan and create reviews for human moderators
-- Get the status of pending jobs
-- Track and get the final status and results from the job
+- Get the status of the pending review
+- Track and get the final review status
 - Submit the result to the callback Url
 
 This article assumes that you are already familiar with Visual Studio and C#.
