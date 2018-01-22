@@ -40,6 +40,8 @@
       href: try-review-api-review.md
     - name: Reviews - .NET
       href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews - .NET
+      href: video-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
 - name: Samples
