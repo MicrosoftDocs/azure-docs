@@ -16,7 +16,7 @@ ms.date: 01/19/2018
 ms.author: denlee
 
 ---
-# Implement a lambda architecture on the Azure platform 
+# Azure Cosmos DB: Implement a lambda architecture on the Azure platform 
 
 Lambda architectures enable efficient data processing of massive data sets. Lambda architectures use batch-processing, stream-processing, and a serving layer to minimize the latency involved in querying big data. 
 
