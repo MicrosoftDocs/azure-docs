@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2018
+ms.date: 01/22/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -85,10 +85,10 @@ Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 M
 While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](../virtual-machines/linux/sizes.md).
 
 
-## Create and attach disks to a scale set
+## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
-## Attach disks at scale set creation
+### Attach disks at scale set creation
 First, create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
 ```azurecli-interactive

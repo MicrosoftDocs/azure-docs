@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2018
+ms.date: 01/22/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -85,17 +85,17 @@ Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 M
 While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Windows VM sizes](../virtual-machines/windows/sizes.md).
 
 
-## Create and attach disks to a scale set
+## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
-## Attach disks at scale set creation
+### Attach disks at scale set creation
 First, create a resource group with the  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Create a virtual network, and a load balancer that has a public IP address and distributes web traffic on port 80. To create these resources, copy and paste the following PowerShell cmdlets:
+Create a virtual network and a load balancer that has a public IP address and distributes remote connection traffic on port 3389. To create these resources, copy and paste the following PowerShell cmdlets:
 
 ```azurepowershell-interactive
 # Create a virtual network subnet
@@ -141,27 +141,6 @@ $lb = New-AzureRmLoadBalancer `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool `
   -InboundNatPool $inboundNATPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name "myHealthProbe" `
-  -LoadBalancer $lb `
-  -Protocol TCP `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name "myLoadBalancerRule" `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol TCP `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
 
 # Create IP address configurations
 $ipConfig = New-AzureRmVmssIpConfig `
@@ -239,11 +218,18 @@ $vmss = Get-AzureRmVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
+# Attach a 128 GB data disk to LUN 3
 Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 3 `
   -DiskSizeGB 128
+
+# Update the scale set to apply the change
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
 
@@ -260,11 +246,6 @@ $publicSettings = @{
   "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/compute-automation-configurations/preparevmdisks/prepare_vm_disks.ps1");
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
 }
-
-# Get scale set object
-$vmss = Get-AzureRmVmss `
-          -ResourceGroupName "myResourceGroup" `
-          -VMScaleSetName "myScaleSet"
 
 # Use Custom Script Extension to prepare the attached data disks
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
@@ -296,7 +277,7 @@ Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Na
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
 ```
 
-Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssword!*). The following example connects to VM instance *1*:
+To connect to your VM, specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssword!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -308,7 +289,7 @@ Open a local PowerShell session on the VM instance and look at the connected dis
 Get-Disk
 ```
 
-The following example output shows that two data disks are attached to the VM instance.
+The following example output shows that the three data disks are attached to the VM instance.
 
 ```powershell
 Number  Friendly Name      HealthStatus  OperationalStatus  Total Size  Partition Style
@@ -317,6 +298,7 @@ Number  Friendly Name      HealthStatus  OperationalStatus  Total Size  Partitio
 1       Virtual HD         Healthy       Online                  14 GB  MBR
 2       Msft Virtual Disk  Healthy       Online                  64 GB  MBR
 3       Msft Virtual Disk  Healthy       Online                 128 GB  MBR
+4       Msft Virtual Disk  Healthy       Online                 128 GB  MBR
 ```
 
 Examine the filesystems and mount points on the VM instance as follows:
@@ -325,21 +307,26 @@ Examine the filesystems and mount points on the VM instance as follows:
 Get-Partition
 ```
 
-The following example output shows that the two data disks are assigned drive letters.:
+The following example output shows that the three data disks are assigned drive letters:
 
 ```powershell
-   DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000001#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+   DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000001
 
 PartitionNumber  DriveLetter  Offset   Size  Type
 ---------------  -----------  ------   ----  ----
 1                F            1048576  64 GB  IFS
 
-
-   DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000002#{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+   DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000002
 
 PartitionNumber  DriveLetter  Offset   Size   Type
 ---------------  -----------  ------   ----   ----
 1                G            1048576  128 GB  IFS
+
+   DiskPath: \\?\scsi#disk&ven_msft&prod_virtual_disk#000003
+
+PartitionNumber  DriveLetter  Offset   Size   Type
+---------------  -----------  ------   ----   ----
+1                H            1048576  128 GB  IFS
 ```
 
 The disks on each VM instance in your scale are automatically prepared in the same way. As your scale set would scale up, the required data disks are attached to the new VM instances. The Custom Script Extension also runs to automatically prepare the disks.
@@ -348,56 +335,36 @@ Log out of the VM instance remote desktop session.
 
 
 ## List attached disks
-To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *virtualMachineProfile.storageProfile.dataDisks*:
+To view information about disks attached to a scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) as follows:
 
-```azurecli-interactive
-az vmss show \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --query virtualMachineProfile.storageProfile.dataDisks
+```azurepowershell-interactive
+Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
-Information on the disk size, storage tier, and LUN (Logical Unit Number() is shown. The following example output details the three data disks attached to the scale set:
+Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisks* is shown. Information on the disk size, storage tier, and LUN (Logical Unit Number() is shown. The following example output details the three data disks attached to the scale set:
 
-```json
-[
-  {
-    "additionalProperties": {},
-    "caching": "None",
-    "createOption": "Empty",
-    "diskSizeGb": 64,
-    "lun": 0,
-    "managedDisk": {
-      "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
-    },
-    "name": null
-  },
-  {
-    "additionalProperties": {},
-    "caching": "None",
-    "createOption": "Empty",
-    "diskSizeGb": 128,
-    "lun": 1,
-    "managedDisk": {
-      "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
-    },
-    "name": null
-  },
-  {
-    "additionalProperties": {},
-    "caching": "None",
-    "createOption": "Empty",
-    "diskSizeGb": 128,
-    "lun": 2,
-    "managedDisk": {
-      "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
-    },
-    "name": null
-  }
-]
+```powershell
+DataDisks[0]                            :
+  Lun                                   : 1
+  Caching                               : None
+  CreateOption                          : Empty
+  DiskSizeGB                            : 64
+  ManagedDisk                           :
+    StorageAccountType                  : PremiumLRS
+DataDisks[1]                            :
+  Lun                                   : 2
+  Caching                               : None
+  CreateOption                          : Empty
+  DiskSizeGB                            : 128
+  ManagedDisk                           :
+    StorageAccountType                  : PremiumLRS
+DataDisks[2]                            :
+  Lun                                   : 3
+  Caching                               : None
+  CreateOption                          : Empty
+  DiskSizeGB                            : 128
+  ManagedDisk                           :
+    StorageAccountType                  : PremiumLRS
 ```
 
 
