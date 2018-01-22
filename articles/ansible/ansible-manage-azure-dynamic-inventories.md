@@ -178,10 +178,6 @@ This section illustrates one technique to test that Nginx is installed on your v
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-    Once connected to the virtual machine, the Cloud Shell prompt changes to include the virtual machine name:
-
-    ![The Cloud Shell prompt changes to include the virtual machine name upon connection](./media/ansible-manage-azure-dynamic-inventories/cloudshell-prompt-change-after-ssh-connect.png)
-    
 1. The [nginx -v](https://nginx.org/en/docs/switches.html) command is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
 
     ```azurecli-interactive
