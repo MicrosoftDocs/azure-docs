@@ -541,7 +541,7 @@ In Security Center only: Can view recommendations and alerts, view security poli
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Read roles and role assignments |
-| Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.Insights/alertRules/*/read | Create and manage alert rules |
 | Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
