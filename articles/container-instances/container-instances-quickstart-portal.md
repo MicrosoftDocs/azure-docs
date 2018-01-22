@@ -59,9 +59,13 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 ## Delete the container
-When you are done with the container, you can remove it by going to the **All resources** tab of the Azure portal, click the checkbox next to the resource and then click **Delete**.
+When you are done with the container, navigate to **All resources**. Filter down to the newly created resource group **myResourceGroup**. Click the checkbox next to the mycontainer-myc1(container group) object and then click **Delete**.
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
+
+This will launch a confirmation dialog box, enter yes in the confirmation box, and then click **Delete**.
+
+![Delete confirmation of a container instance in the Azure portal][aci-portal-10]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
