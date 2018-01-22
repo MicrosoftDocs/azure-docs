@@ -33,7 +33,7 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema and table names
-In SQL Data Warehouse, a data warehouse is a type of database. All of the tables in the data warehouse are contained within the same database.  You cannot join tables across multiple data warehouses. This behavior is different from SQL Server which supports cross-database joins. 
+In SQL Data Warehouse, a data warehouse is a type of database. All of the tables in the data warehouse are contained within the same database.  You cannot join tables across multiple data warehouses. This behavior is different from SQL Server, which supports cross-database joins. 
 
 In a SQL Server database, you might use fact, dim, or integrate for the schema names. If you are migrating a SQL Server database to SQL Data Warehouse, it works best to migrate all of the fact, dimension, and integration tables to one schema in SQL Data Warehouse. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
@@ -71,7 +71,7 @@ An external table points to data located in Azure Storage blob or Azure Data Lak
 SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. Minimizing the size of data types helps to improve query performance. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
 
 ## Distributed tables
-A fundamental feature of SQL Data Warehouse is the way it can stores and operates on tables across 60 [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  The tables are distributed using a round-robin, hash, or replication method.
+A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across 60 [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  The tables are distributed using a round-robin, hash, or replication method.
 
 ### Hash-distributed tables
 The hash distribution distributes rows based on the value in the distribution column. The hash-distributed table is designed to achieve high performance for query joins on large tables. There are several factors that affect the choice of the distribution column. 
@@ -84,13 +84,13 @@ A replicated table has a full copy of the table available on every Compute node.
 For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
 
 ### Round-robin tables
-A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is very fast.  However, queries can require more data movement than the other distribution methods. 
+A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is sfast.  However, queries can require more data movement than the other distribution methods. 
 
 For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
 
 
 ### Common distribution methods for tables
-The table category often determines which option to choose for distributing the table. Tables are usually distributed according to the type of table. 
+The table category often determines which option to choose for distributing the table. 
 
 | Table category | Recommended distribution option |
 |:---------------|:--------------------|
@@ -123,7 +123,7 @@ You can create a table as a new empty table. You can also create and populate a 
 
 Data warehouse tables are populated by loading data from another data source. To perform a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse. Getting the data to align might be the hardest part of designing your tables. 
 
-If data is coming from multiple data stores, you can bring the data into the data warehouse and store it in an integration table. Once data is in the integrtion table, you can use the power of SQL Data Warehouse to perform transformation operations. Once the data is prepared, you can insert it into production tables.
+If data is coming from multiple data stores, you can bring the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of SQL Data Warehouse to perform transformation operations. Once the data is prepared, you can insert it into production tables.
 
 ## Unsupported table features
 SQL Data Warehouse supports many, but not all, of the table features offered by other databases.  The following list shows some of the table features that are not supported in SQL Data Warehouse.
@@ -263,7 +263,7 @@ FROM size
 
 ### Table space summary
 
-This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they are round-robin, replicated, or hash -distributed.  For hash-distributed tables, the query shows the distribution column.  In most cases your largest tables should be hash-distributed with a clustered columnstore index.
+This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they are round-robin, replicated, or hash -distributed.  For hash-distributed tables, the query shows the distribution column.  
 
 ```sql
 SELECT 
