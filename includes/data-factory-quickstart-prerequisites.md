@@ -13,7 +13,7 @@ You use a general-purpose Azure Storage Account (specifically Blob Storage) as b
 You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account. 
 
 1. Launch a Web browser and navigate to [Azure portal](https://portal.azure.com). Log in using your Azure user name and password. 
-2. Click **More services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
+2. Click **All services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
 
     ![Search for storage account](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. In the list of storage accounts, filter for your storage account (if needed), and then select **your storage account**. 
