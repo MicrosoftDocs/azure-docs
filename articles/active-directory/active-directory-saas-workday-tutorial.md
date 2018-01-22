@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/22/2018
 ms.author: jeedes
 
 ---
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL**, and then paste it into the **Logout Redirect URL** textbox.
 
-    d. `In **Used for Environments** textbox, select the environment name.  
+    d. In **Used for Environments** textbox, select the environment name.  
 
     >[!NOTE]
     > The value of the Environment attribute is tied to the value of the tenant URL:  
@@ -186,7 +186,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     f. Click **Create x509 Public Key**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
-
 
 13. In the **View x509 Public Key** section, perform the following steps: 
    
