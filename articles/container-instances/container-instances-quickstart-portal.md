@@ -63,7 +63,7 @@ When you are done with the container, select the **mycontainer-myc1** container 
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
 
-This will launch a confirmation dialog box, select yes when prompted.
+This will launch a confirmation dialog box, select **Yes** when prompted.
 
 ![Delete confirmation of a container instance in the Azure portal][aci-portal-10]
 
