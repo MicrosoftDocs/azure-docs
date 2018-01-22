@@ -14,19 +14,19 @@ ms.author: sajagtap
 
 # Moderation Jobs and Reviews
 
-Combine human oversight and reviews with machine-assisted content moderation results with Content Moderators's Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
+Combine human reviews with machine-assisted moderation by using the Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
 
 The Review API offers the following ways to include human moderation in your content moderation process:
 
-1. The **Job** operations for machine-asssted moderation and human review creation.
-2. The **Review** operations for just human review creation.
+1. The **Job** operations for machine-assisted moderation and human review creation.
+2. The **Review** operations for human review creation.
 
 Both operations accept your callback endpoints for receiving detailed status and results after completion.
 
 ## Job operations
 
 ### Start a Job
-Use the **Job.Create** operation to start an end-to-end moderation job. The Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation tags and post-review decisions to your callback endpoint.
+Use the **Job.Create** operation to start a moderation job. The Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation tags and post-review decisions to your callback endpoint.
 
 The inputs include the following information:
 
@@ -52,7 +52,7 @@ Your inputs include the following information:
 
 The response includes the following information:
 
-- The identifier of the review created (use this to get the final review results)
+- The identifier of the review created (use this ID to get the final review results)
 - The status of the review (completed or in-progress)
 - The assigned moderation tags (key-value pairs)
 
@@ -125,7 +125,7 @@ The response includes the following information:
 
 ### Create Reviews
 
-Use the **Review.Create** operation to just create the human reviews either because you are moderating them elsewhere or because you have some custom business logic working to create the moderation tags.
+Use the **Review.Create** operation to create the human reviews. You either moderate them elsewhere or you use custom logic to assign the moderation tags.
 
 Your inputs to this operation include:
 
