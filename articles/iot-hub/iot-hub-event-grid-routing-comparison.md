@@ -17,7 +17,7 @@ ms.author: kgremban
 
 # Compare message routing and Event Grid for IoT Hub
 
-Azure IoT Hub provides the capability to stream data from your connected devices, and integrate that data into your business applications. IoT Hub supports this capability by offering two methods for integrating IoT events into other Azure services or business applications. This article discusses the two features that provide this capability, so that you can choose which option is best for your scenario.
+Azure IoT Hub provides the capability to stream data from your connected devices, and integrate that data into your business applications. IoT Hub offers two methods for integrating IoT events into other Azure services or business applications. This article discusses the two features that provide this capability, so that you can choose which option is best for your scenario.
 
 * **IoT Hub message routing**: This IoT Hub feature enables users to [route device-to-cloud messages](iot-hub-devguide-messages-read-custom.md) to service endpoints like Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics. Routing rules provide the flexibility to perform query-based routes. They also enable [critical alerts](iot-hub-devguide-messages-d2c.md) that trigger actions through queries, and can be based on the message headers and body. 
 * **IoT Hub integration with Event Grid**: Azure Event Grid is a fully managed event routing service that uses a publish-subscribe model. IoT Hub and Event Grid work together to [integrate IoT Hub events into Azure and non-Azure services](iot-hub-event-grid.md), in near-real time. 
@@ -31,9 +31,9 @@ While both message routing and Event Grid enable alert configuration, there are 
 | **Device messages** | Yes, message routing can be used for telemetry data. | No, Event Grid can only be used for non-telemetry IoT Hub events. |
 | **Event type** | Yes, message routing can report twin changes and device lifecycle events. | Yes, Event Grid can report when devices are registered to an IoT Hub, and when devices are deleted. |
 | **Ordering** | Yes, ordering of events is maintained.  | No, order of events is not guaranteed. | 
-| **Maximum message size** | 256KB, device-to-cloud | 64KB |
+| **Maximum message size** | 256 KB, device-to-cloud | 64 KB |
 | **Filtering** | Rich filtering through SQL-like language supports filtering on message headers and bodies. For examples, see [IoT Hub query language](iot-hub-devguide-query-language.md). | Filtering based on suffix/prefix of device IDs, which works well for hierarchical services like storage. |
-| **Endpoints** | <ul><li>Event Hub</li> <li>Storage blob</li> <li>Service Bus queue</li> <li>Service Bus topics</li></ul><br>Paid IoT Hub SKUs (S1, S2, and S3) are limited to 10 custom endpoints. 100 routes can be created per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>3rd party services through WebHooks</li></ul><br>For the most up-to-date list of endpoints, see [Event Grid event handlers](../event-grid/overview.md#event-handlers). |
+| **Endpoints** | <ul><li>Event Hub</li> <li>Storage blob</li> <li>Service Bus queue</li> <li>Service Bus topics</li></ul><br>Paid IoT Hub SKUs (S1, S2, and S3) are limited to 10 custom endpoints. 100 routes can be created per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>Third-party services through WebHooks</li></ul><br>For the most up-to-date list of endpoints, see [Event Grid event handlers](../event-grid/overview.md#event-handlers). |
 | **Cost** | There is no separate charge for message routing. Only ingress of telemetry into IoT Hub is charged. For example, if you have a message routed to three different endpoints, you are billed for only one message. | There is no charge from IoT Hub. Event Grid offers the first 100,000 operations per month for free, and then $0.60 per million operations after that. |
 
 IoT Hub message routing and Event Grid have similarities too, some of which are detailed in the following table:
@@ -50,7 +50,7 @@ IoT Hub message routing and Event Grid have similarities too, some of which are 
 
 IoT Hub message routing and the IoT Hub integration with Event Grid perform different actions to achieve similar results. They both take information from your IoT Hub solution and pass it on so that other services can react. So how do you decide which one to use? In addition to the data from the previous section, use the following questions to help guide your decision: 
 
-* **What kind of data will you send to the endpoints?**
+* **What kind of data are you sending to the endpoints?**
 
    Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message headers and message bodies. 
 
@@ -60,13 +60,13 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
    IoT Hub message routing supports limited endpoints, but you can build connectors to reroute the data and events to additional endpoints. For a complete list of supported endpoints, see the table in the previous section. 
 
-   The IoT Hub integration with Event Grid supports more endpoints. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third party business applications. 
+   The IoT Hub integration with Event Grid supports more endpoints. It also works with webhooks to extend routing outside of the Azure service ecosystem and into third-party business applications. 
 
-* **Does is matter if your data arrives in order?**
+* **Does it matter if your data arrives in order?**
 
    IoT Hub message routing maintains the order in which messages are sent, so that they arrive in the same way.
 
-   Event Grid does not guarantee that events will be received by endpoints in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
+   Event Grid does not guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
 
 ## Next steps
 
