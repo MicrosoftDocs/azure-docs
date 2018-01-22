@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
+
 ---
 
 To ensure the deployment and integration of the Azure Stack solution is a success, it’s recommended to follow these three checklists.
