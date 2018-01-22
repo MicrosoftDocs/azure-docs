@@ -253,10 +253,10 @@ To remove the resource provider, it is essential to first remove any dependencie
 5. The administrator must delete any SKUs and quotas that are associated with the SQL resource provider adapter.
 
 6. Rerun the deployment script with the following elements:
-    - -Uninstall parameter
-    - Azure Resource Manager endpoints
-    - DirectoryTenantID
-    - Credentials for the service administrator account
+    - The -Uninstall parameter
+    - The Azure Resource Manager endpoints
+    - The DirectoryTenantID
+    - The credentials for the service administrator account
 
 
 ## Next steps

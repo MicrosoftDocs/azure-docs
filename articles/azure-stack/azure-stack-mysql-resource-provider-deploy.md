@@ -53,7 +53,7 @@ The system account must have the following privileges:
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option.) The .NET 3.5 runtime is no longer required.
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option.) The .NET 3.5 runtime is no longer required.
 
 
 2. Sign in to a host that can access the privileged endpoint VM.
@@ -61,8 +61,8 @@ The system account must have the following privileges:
 - On Azure SDK installations, sign in to the physical host. 
 - On multi-node systems, the host must be a system that can access the privileged endpoint.
     
-    >[!NOTE]
-    > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
+        >[!NOTE]
+        > The system on which the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure SDK host meets this criteria.
     
 
 3. Download the MySQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
@@ -80,7 +80,7 @@ The system account must have the following privileges:
 
     If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** as follows:
 
-    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>
+    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>.
 
     - This certificate must be trusted. That is, the chain of trust must exist without requiring intermediate certificates.
 
@@ -165,7 +165,7 @@ You can specify these parameters in the command line. If you do not, or if any p
 | --- | --- | --- |
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
-| **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
+| **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
 | **DependencyFilesLocalPath** | Path to a local share that contains [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). If you provide one of these paths, the certificate file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
@@ -343,7 +343,7 @@ To remove the resource provider, it is essential to first remove any dependencie
 
 1. Ensure that you have the original deployment package that you downloaded for this version of the resource provider.
 
-2. All tenant databases must be deleted from the resource provider. (Deleting the tenant databases doesn't delete the data.)This task should be performed by the tenants themselves.
+2. All tenant databases must be deleted from the resource provider. (Deleting the tenant databases doesn't delete the data.) This task should be performed by the tenants themselves.
 
 3. Tenants must unregister from the namespace.
 
