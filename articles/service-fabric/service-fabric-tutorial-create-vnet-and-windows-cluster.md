@@ -77,7 +77,7 @@ Download the following Resource Manager template files:
 
 The [vnet-cluster.json][template] deploys a number resources, including the following. 
 
-### Cluster
+### Service Fabric cluster
 A Windows cluster is deployed with the following characteristics:
 - a single node type 
 - five nodes in the primary node type (configurable in the template parameters)
@@ -101,7 +101,7 @@ A load balancer is deployed and probes and rules setup for the following ports:
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
 
 ### Virtual network, subnet, and network security group
-You can changes the names or address space values in the template parameters.
+The names of the virtual network, subnet, and network security group are declared in the template parameters.  Address spaces of the virtual network and subnet are also declared in the template parameters:
 - virtual network address space: 172.16.0.0/20
 - Service Fabric subnet address space: 172.16.2.0/23
 
@@ -118,7 +118,7 @@ The following inbound traffic rules are enabled in the network security group. Y
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource and the Microsoft.Network/networkSecurityGroups resource to allow the traffic in.
 
 ## Set template parameters
-The [vnet-cluster.parameters.json][parameters] parameters file contains the names of the virtual network, subnet, and NSG that Service Fabric deploys to. Some of the parameters that you might need to modify for your deployment:
+The [vnet-cluster.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
@@ -126,9 +126,15 @@ The [vnet-cluster.parameters.json][parameters] parameters file contains the name
 |adminPassword|Password#1234| Admin password for the cluster VMs.|
 |clusterName|mysfcluster123| Name of the cluster. |
 |location|southcentralus| Location of the cluster. |
-|certificateThumbprint|| Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, ""6190390162C988701DB5676EB81083EA608DCCF3. | 
-|certificateUrlValue|| Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".|
-|sourceVaultValue||Value should be empty if creating a self-signed certificate or providing a certificate file. To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".|
+|certificateThumbprint|| Value should be empty if creating a self-signed certificate or providing a certificate file. 
+
+To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". | 
+|certificateUrlValue|| Value should be empty if creating a self-signed certificate or providing a certificate file. 
+
+To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".|
+|sourceVaultValue||Value should be empty if creating a self-signed certificate or providing a certificate file. 
+
+To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".|
 
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
