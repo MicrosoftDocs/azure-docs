@@ -3,7 +3,7 @@ title: Supported guest operating systems for Azure Stack | Microsoft Docs
 description: These Guest operating systems can be used on Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: Brenduns
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: brenduns
+ms.author: Brenduns
 ms.reviewer: JeffGoldner
 ---
 # Guest operating systems supported on Azure Stack
