@@ -222,6 +222,45 @@ Role-based access can also be configured to an Automation Account using the foll
 
 In the above examples, replace **sign in Id**, **subscription Id**, **resource group name** and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
 
+## Onboarding
+
+### Virtual machine
+
+|**Action**  |**Permission**  |**Minimum scope**  |
+|---------|---------|---------|
+|Write new deployment      | Write on deployments         |That subscription          |
+|Write new resource group      | Write on resource groups         | That subscription          |
+|Create new default Workspace      | Write on workspaces         | That resource group         |
+|Create new Account      |  Write on accounts        |That resource group         |
+|Link workspace and account      |Write on workspace</br>Read on account          | That workspace</br>That account         |
+|Create solution      | Write on solutions         |That resource group          |
+|Create MMA extension      | Write on the VM         | That VM         |
+|Create saved search      | Write on workspace         | That workspace         |
+|Create scope config      | Write on workspace         | That workspace         |
+|Link solution to scope config      | Write on solution         | That solution         |
+|Onboarding state check - Read workspace      | Read on workspace         | That workspace         |
+|Onboarding state check - Read linked workspace property of accoun     | Read linked workspace property         |  That account        |
+|Onboarding state check - Read solution      | Read on solution          | That solution         |
+|Onboarding state check - Read VM      | Read on VM         | That VM         |
+|Onboarding state check - Read account      | Read on account         | That account         |
+
+### Automation account
+
+|**Action**  |**Permission**  |**Minimum scope**  |
+|---------|---------|---------|
+|Create new deployment      | Write on deployments         | That subscription         |
+|Create new resource group      | Write on resource groups         | That subscription        |
+|AutomationOnboarding blade - Create new workspace      | Write on workspaces         | That resource group          |
+|AutomationOnboarding blade - read linked workspace      | Read on linked workspace property of automation account         | That account         |
+|AutomationOnboarding blade - read solution      | Read on solution         | That solution         |
+|AutomationOnboarding blade - read workspace      | Read on workspace          | That workspace         |
+|Create link for workspace and Account      | Write on linked service property of workspace          | That workspace         |
+|Write account for shoebox      | Write account         | That account         |
+|Create solution      | Write  on solutions         | That resource group         |
+|Create/edit saved search      | Write on workspace         | That workspace           |
+|Create/edit scope config      | Write on workspace           | That workspace       |
+|Link solution to scope config     | Write on solution         | That solution         |
+
 ## Next Steps
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 * For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
