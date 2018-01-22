@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
 
-    f. Click **Create x509 Public Key**. 
+    h. Click **Create x509 Public Key**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
 
