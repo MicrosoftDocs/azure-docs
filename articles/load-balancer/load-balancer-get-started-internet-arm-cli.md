@@ -1,6 +1,6 @@
 ---
 title: Create a public load balancer - Azure CLI | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
+description: Learn how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
