@@ -78,7 +78,7 @@ Add the following constants and static fields to the **Program** class in Progra
 > [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
-> Your team name is the value of the **Id** field in the **API** section.
+> Your team name is the value of the **ID** field in the **API** section.
 
 
 	/// <summary>
@@ -183,7 +183,7 @@ Start by adding the following code to the **Main** method.
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. 
+> rate limit. If you exceed the limit, the SDK throws an exception with a 429 error code. 
 >
 > A free tier key has a one RPS rate limit.
 
