@@ -29,6 +29,48 @@ When outputting the classification details, additional video intelligence helps 
 
 Instead of outputting frames at regular intervals, the video moderation service identifies and outputs only potential complete frames. This allows for efficient frame generation for frame-level adult and racy analysis.
 
+The following extract shows a partial response with potential shots, key frames and adult and racy content:
+
+	"fragments": [
+    {
+      "start": 0,
+      "duration": 18000
+    },
+    {
+      "start": 18000,
+      "duration": 3600,
+      "interval": 3600,
+      "events": [
+        [
+          {
+            "reviewRecommended": false,
+            "adultScore": 0.00001,
+            "racyScore": 0.03077,
+            "index": 5,
+            "timestamp": 18000,
+            "shotIndex": 0
+          }
+        ]
+      ]
+    },
+    {
+      "start": 18386372,
+      "duration": 119149,
+      "interval": 119149,
+      "events": [
+        [
+          {
+            "reviewRecommended": true,
+            "adultScore": 0.00000,
+            "racyScore": 0.91902,
+            "index": 5085,
+            "timestamp": 18386372,
+            "shotIndex": 62
+          }
+        ]
+      ]
+
+
 ## Visualization for human reviews
 
 While machine-assisted moderation technology helps save time and costs, for more nuanced cases, businesses need a human review solution for rendering the video, its frames and machine-assisted tags. The human moderators reviewing videos and frames should be able to get a complete view of the insights, change tags, and submit their decisions.
