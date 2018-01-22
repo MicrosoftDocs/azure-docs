@@ -38,7 +38,7 @@ The programmatic key has different limits for authoring and endpoint. The subscr
 |Subscription - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |Subscription - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
  
-## Key limits errors
+## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
 ## Create and use an endpoint key:
