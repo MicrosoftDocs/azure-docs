@@ -138,7 +138,7 @@ The sample output for the program, as written to the log file, is:
       		"SubType": "IPV4",
       		"Text": "255.255.255.255",
       		"Index": 72
-    	}],
+    		}],
     	"Phone": [{
       		"CountryCode": "US",
       		"Text": "6657789887",
