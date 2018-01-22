@@ -78,7 +78,7 @@ The system account must have the following privileges:
 
 4.  The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** as follows:
+    If you need to provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** that meets the following criteria:
 
     - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>.
 
