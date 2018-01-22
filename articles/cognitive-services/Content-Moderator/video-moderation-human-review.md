@@ -12,9 +12,9 @@ ms.date: 01/20/2018
 ms.author: sajagtap
 ---
 
-# Video moderation solution
+# Video moderation with human-in-the-loop
 
-Use Content Moderator’s machine-assisted [video moderation](video-moderation-api.md) and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content.
+Use Content Moderator’s machine-assisted [video moderation](video-moderation-api.md) and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
 ## Video-trained classifier
 
