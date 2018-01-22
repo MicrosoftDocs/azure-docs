@@ -1,3 +1,17 @@
+---
+title: Azure ML Workbench release notes for sprint 3 January 2018
+description: This document details the updates for the sprint 3 release of Azure ML 
+services: machine-learning
+author: raymondlaghaeian
+ms.author: raymondl
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.topic: article
+ms.date: 01/22/2018
+---
+
 # Sprint 3 - January 2018 
 
 #### Version number: 0.1.1712.18263
@@ -32,9 +46,6 @@ Following is a list of detailed updates in each component area of Azure Machine 
 - Spark Runtime Improvements
 - Fixed inability to close Data Not Applicable for the Time Series Inspector 
 - Fixed the hang time for Data Prep execution for HDI
-
-### Experimentation
-- Azure Machine Learning Workbench now supports running your scripts natively on your own python or PySpark environment. For this capability, user creates and manages their own environment on the remote VM. And uses Azure Machine Learning Workbench to execute their scripts on that target. [Configuring Azure Machine Learning Experimentation Service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)
 
 ### Model Management CLI updates 
   - Ownership of the subscription is no longer required for provisioning resources. Contributor access to the resource group will be sufficient to set up the deployment environment.
