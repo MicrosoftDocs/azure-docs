@@ -50,9 +50,9 @@ The Device Provisioning Service Client SDK helps implement the selected security
 
    If not, follow the **first four** steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps walk you through installation of required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK. When finished, open a command prompt and change into the repositories "cmake" subdirectory:
 
-        ```cmd/sh
-        cd azure-iot-sdk-c/cmake
-        ```
+   ```cmd/sh
+   cd azure-iot-sdk-c/cmake
+   ```
 
 2. Build the SDK components for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
