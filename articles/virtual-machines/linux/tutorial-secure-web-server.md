@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Secure a web server with SSL certificates on a Linux virtual machine in Azure
-To secure web servers, a Secure Sockets Later (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
+To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Key Vault
