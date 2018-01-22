@@ -101,17 +101,17 @@ sudo reboot
 
 ### CentOS or Red Hat Enterprise Linux
 
-1. Update the kernel
+1. Update the kernel.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
   
-  sudo reboot.
+  sudo reboot
 
 2. Install the latest Linux Integration Services for Hyper-V.
 
   > [!IMPORTANT]
-  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 4. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
+  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
   >
 
   ```bash
