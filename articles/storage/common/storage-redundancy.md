@@ -13,7 +13,7 @@ ms.author: tamram
 ---
 
 # Azure Storage replication
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Azure Storage replicates your data within the same data center or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data in a few patterns - multiple copies can be placed within a data center, across data centers within a region, or across regions, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated across multiple data centers or regions, it's protected from a catastrophic failure in a single location.
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
@@ -71,7 +71,7 @@ ZRS accounts support manually migrating a ZRS account in that region to or from 
 > [!NOTE]
 > ZRS Classic accounts are planned for deprecation and required migration on March 31, 2021. Microsoft will send more details to ZRS Classic customers prior to deprecation.
 
-Additional questions are addressed in the (Frequently asked questions)(#frequently-asked-questions) section. 
+Additional questions are addressed in the [Frequently asked questions](#frequently-asked-questions) section. 
 
 ## Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -144,7 +144,7 @@ Block blobs, page blobs (except for those backing VM disks), tables, files, and 
 Currently ZRS does not support geo-replication. If your scenario requires cross-region replication for the purposes of disaster recovery, use a GRS or RA-GRS storage account instead.   
 
 #### 10. What happens when one or more ZRS zones go down? 
-When the first zone goes down, ZRS continues to write three replicas of your data across the two remaining zones in the region. If a second zone goes down, read and write access is unavailable until at least two zones are available again. 
+When the first zone goes down, ZRS continues to write replicas of your data across the two remaining zones in the region. If a second zone goes down, read and write access is unavailable until at least two zones are available again. 
 
 ## Next steps
 * [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
