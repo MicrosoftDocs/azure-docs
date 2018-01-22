@@ -66,5 +66,5 @@ java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
 
 The root certificate or intermediate can be used to create an enrollment group or individual enrollment [programmatically](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) or using the [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-# Related Content
-[Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
+## Next steps
+* Develop using the [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
