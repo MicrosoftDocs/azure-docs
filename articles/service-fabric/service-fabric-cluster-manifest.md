@@ -13,36 +13,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
 
 ---
 # Configuration settings for a standalone Windows cluster
-This article describes how to configure a standalone Azure Service Fabric cluster by using the ClusterConfig.JSON file. You can use this file to specify information such as the Service Fabric nodes and their IP addresses and the different types of nodes on the cluster. You can also specify security configurations as well as the network topology in terms of fault/upgrade domains for your standalone cluster.
+This article describes how to configure a standalone Azure Service Fabric cluster by using the ClusterConfig.json file. You will use this file to specify information about the cluster's nodes, security configurations, as well as the network topology in terms of fault and upgrade domains.
 
-When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples that have DevCluster in their names help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these nodes, at least one must be marked as a primary node. This cluster is useful for a development or test environment. It is not supported as a production cluster. The samples that have MultiMachine in their names help you create a production-quality cluster, with each node on a separate machine. The number of primary nodes for these clusters is based on the [reliability level](#reliability). In release 5.7 API Version 05-2017, we removed the reliability-level property. Instead, our code calculates the most optimized reliability level for your cluster. Do not use this property in 5.7 and later code versions.
+When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json samples are also included. The samples that have "DevCluster" in their names create a cluster with all three nodes on the same machine, using logical nodes. Out of these nodes, at least one must be marked as a primary node. This type of cluster is useful for development or test environments. It is not supported as a production cluster. The samples that have "MultiMachine" in their names help create production grade clusters, with each node on a separate machine. The number of primary nodes for these clusters is based on the cluster's [reliability level](#reliability). In release 5.7, API Version 05-2017, we removed the reliability-level property. Instead, our code calculates the most optimized reliability level for your cluster. Do not try to set a value for this property in versions 5.7 onwards.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON and ClusterConfig.Unsecure.MultiMachine.JSON show how to create an unsecured test or production cluster, respectively.
+* ClusterConfig.Unsecure.DevCluster.json and ClusterConfig.Unsecure.MultiMachine.json show how to create an unsecured test or production cluster, respectively.
 
-* ClusterConfig.Windows.DevCluster.JSON and ClusterConfig.Windows.MultiMachine.JSON show how to create test or production clusters that are secured by using [Windows security](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json and ClusterConfig.Windows.MultiMachine.json show how to create test or production clusters that are secured by using [Windows security](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON and ClusterConfig.X509.MultiMachine.JSON show how to create test or production clusters that are secured by using [X509 certificate-based security](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json and ClusterConfig.X509.MultiMachine.json show how to create test or production clusters that are secured by using [X509 certificate-based security](service-fabric-windows-cluster-x509-security.md).
 
-Now let's examine the various sections of a ClusterConfig.JSON file.
+Now let's examine the various sections of a ClusterConfig.json file.
 
 ## General cluster configurations
 General cluster configurations cover the broad cluster-specific configurations, as shown in the following JSON snippet:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the name variable. The clusterConfigurationVersion is the version number of your cluster. Increase it every time you upgrade your Service Fabric cluster. Leave apiVersion set to the default value.
 
+## Nodes on the cluster
+
     <a id="clusternodes"></a>
 
-## Nodes on the cluster
 You can configure the nodes on your Service Fabric cluster by using the nodes section, as the following snippet shows:
 
     "nodes": [{
@@ -65,7 +68,7 @@ You can configure the nodes on your Service Fabric cluster by using the nodes se
         "upgradeDomain": "UD2"
     }],
 
-A Service Fabric cluster must contain at least three nodes. You can add more nodes to this section according to your setup. The following table explains the configuration settings for each node:
+A Service Fabric cluster must contain at least three nodes. You can add more nodes to this section according to your setup. The following table explains configuration settings for each node:
 
 | **Node configuration** | **Description** |
 | --- | --- |
@@ -76,12 +79,12 @@ A Service Fabric cluster must contain at least three nodes. You can add more nod
 | upgradeDomain |Upgrade domains describe sets of nodes that are shut down for Service Fabric upgrades at about the same time. You can choose which nodes to assign to which upgrade domains, because they aren't limited by any physical requirements. |
 
 ## Cluster properties
-The properties section in the ClusterConfig.JSON is used to configure the cluster as shown:
-
-    <a id="reliability"></a>
+The properties section in the ClusterConfig.json is used to configure the cluster as shown:
 
 ### Reliability
 The concept of reliabilityLevel defines the number of replicas or instances of the Service Fabric system services that can run on the primary nodes of the cluster. It determines the reliability of these services and hence the cluster. The value is calculated by the system at cluster creation and upgrade time.
+
+    <a id="reliability"></a>
 
 ### Diagnostics
 In the diagnosticsStore section, you can configure parameters to enable diagnostics and troubleshooting node or cluster failures, as shown in the following snippet: 
@@ -116,9 +119,10 @@ The security section is necessary for a secure standalone Service Fabric cluster
 
 The metadata is a description of your secure cluster and can be set according to your setup. The ClusterCredentialType and ServerCredentialType determine the type of security that the cluster and the nodes implement. They can be set to either *X509* for a certificate-based security or *Windows* for Azure Active Directory-based security. The rest of the security section is based on the type of security. For information on how to fill out the rest of the security section, see [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md).
 
+### Node types
+
     <a id="nodetypes"></a>
 
-### Node types
 The nodeTypes section describes the type of nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the following snippet: 
 
     "nodeTypes": [{
@@ -194,5 +198,5 @@ To enable container support for both Windows Server containers and Hyper-V conta
 
 
 ## Next steps
-After you have a complete ClusterConfig.JSON file configured according to your standalone cluster setup, you can deploy your cluster. Follow the steps in [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md). Then proceed to [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and follow the steps.
+After you have a complete ClusterConfig.json file configured according to your standalone cluster setup, you can deploy your cluster. Follow the steps in [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md). Then proceed to [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and follow the steps.
 

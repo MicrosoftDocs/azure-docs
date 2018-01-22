@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
 
 ---
@@ -338,8 +338,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: FaultAnalysisService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for FaultAnalysisService. |
+| TargetReplicaSetSize |Int, default is 0 |Static|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
+| MinReplicaSetSize |Int, default is 0 |Static|The MinReplicaSetSize for FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Time in seconds, default is 60 minutes|Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for FaultAnalysisService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static|Specify timespan in seconds. The QuorumLossWaitDuration for FaultAnalysisService. |
 | StandByReplicaKeepDuration| Time in seconds, default is (60*24*7) minutes |Static|Specify timespan in seconds. The StandByReplicaKeepDuration for FaultAnalysisService. |
@@ -388,8 +388,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Enabled |Bool, default is false |Static|The Enabled flag for ImageStoreService. Default: false |
-| TargetReplicaSetSize | Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ImageStoreService. |
-| MinReplicaSetSize | Int, default is 3 |Not Allowed|The MinReplicaSetSize for ImageStoreService. |
+| TargetReplicaSetSize | Int, default is 7 |Static|The TargetReplicaSetSize for ImageStoreService. |
+| MinReplicaSetSize | Int, default is 3 |Static|The MinReplicaSetSize for ImageStoreService. |
 | ReplicaRestartWaitDuration | Time in seconds, default is 60.0 * 30 |Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for ImageStoreService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for ImageStoreService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 3600.0 * 2 |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for ImageStoreService. |
@@ -412,8 +412,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|The TargetReplicaSetSize for UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, default is 0 |Static |The TargetReplicaSetSize for UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, default is 0 |Static |The MinReplicaSetSize for UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Time in seconds, default is 60 minutes|Static| Specify timespan in seconds. The ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 60*24*7 minutes |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for UpgradeOrchestrationService. |
@@ -684,6 +684,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |RunAsPolicyEnabled| bool, default is FALSE|Static| Enables running code packages as local user other than the user under which fabric process is running. In order to enable this policy Fabric must be running as SYSTEM or as user who has SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the sync Register(Stateless/Stateful)ServiceFactory call |
 |ServiceTypeDisableGraceInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. Time interval after which the service type can be disabled |
+|EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 
 ### Section Name: Federation
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |

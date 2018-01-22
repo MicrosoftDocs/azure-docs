@@ -3,7 +3,7 @@ title: Comparing custom images and formulas in DevTest Labs | Microsoft Docs
 description: Learn about the differences between custom images and formulas as VM bases so you can decide which one best suits your environment.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Comparing custom images and formulas in DevTest Labs
 Both [custom images](devtest-lab-create-template.md) and [formulas](devtest-lab-manage-formulas.md) 
-can be used as bases for [created new VMs](devtest-lab-add-vm-with-artifacts.md). 
+can be used as bases for [created new VMs](devtest-lab-add-vm.md). 
 However, the key distinction between custom images and formulas is that 
 a custom image is simply an image based on a VHD, while a formula is 
 an image based on a VHD *in addition to* preconfigured settings - such as 

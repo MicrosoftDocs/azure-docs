@@ -52,7 +52,7 @@ Requests for http://contoso.com/image* are routed to the image server pool (**po
 
 ## Create an application gateway
 
-The difference between using the Azure classic portal and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
+The difference between using the classic deployment model and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
 
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 

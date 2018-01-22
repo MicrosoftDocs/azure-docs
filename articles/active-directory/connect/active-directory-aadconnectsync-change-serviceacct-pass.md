@@ -4,8 +4,8 @@ description: This topic document describes the encryption key and how to abandon
 services: active-directory
 keywords: Azure AD sync service account, password
 documentationcenter: ''
-author: cychua
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory

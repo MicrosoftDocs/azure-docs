@@ -4,7 +4,7 @@ description: Token, session and single sign-on configuration in Azure Active Dir
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c

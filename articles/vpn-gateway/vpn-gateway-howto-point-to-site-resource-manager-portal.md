@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
 
 ---
 # Configure a Point-to-Site connection to a VNet using native Azure certificate authentication: Azure portal
 
-This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. This configuration uses certificates for authentication. In this configuration, the Azure VPN gateway performs validation of the certificate, rather than a RADIUS server. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using Azure portal. This configuration uses certificates for authentication. In this configuration, the Azure VPN gateway performs validation of the certificate, rather than a RADIUS server. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -33,7 +33,7 @@ A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your vi
 
 Connecting clients can use the following authentication methods:
 
-* RADIUS server - Currently in Preview
+* RADIUS server
 * VPN Gateway native Azure certificate authentication
 
 This article helps you configure a P2S configuration with authentication using the native Azure certificate authentication. If you want to use RADIUS to authenticate connecting users, see [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md).
@@ -44,7 +44,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 * SSTP is an SSL-based VPN tunnel that is supported only on Windows client platforms. It can penetrate firewalls, which makes it an ideal option to connect to Azure from anywhere. On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default.
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above). IKEv2 is currently in Preview.
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
 Point-to-Site native Azure certificate authentication connections require the following:
 
@@ -78,7 +78,6 @@ You can use the following values to create a test environment, or refer to these
 ## <a name="createvnet"></a>1. Create a virtual network
 
 Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2. Add a gateway subnet
@@ -122,7 +121,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="uploadfile"></a>7. Upload the root certificate public certificate data
 
-After the gateway has been created, you upload the public key information for the root certificate to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificates- up to a total of 20.
+After the gateway has been created, you upload the public key information for the root certificate to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificates up to a total of 20.
 
 1. Certificates are added on the **Point-to-site configuration** page in the **Root certificate** section.  
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.
@@ -137,7 +136,7 @@ After the gateway has been created, you upload the public key information for th
 
 If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
 
-Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly. 
+Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly.
 
 For install steps, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 

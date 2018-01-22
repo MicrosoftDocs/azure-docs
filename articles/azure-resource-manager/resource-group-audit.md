@@ -35,10 +35,10 @@ You can retrieve information from the activity logs through the portal, PowerShe
    
     ![select activity logs](./media/resource-group-audit/select-monitor.png)
 
-   Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
+   Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log**. Notice that the activity log is automatically filtered by the selected resource.
    
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In the **Activity Log** blade, you see a summary of recent operations.
+2. In the **Activity Log**, you see a summary of recent operations.
    
     ![show actions](./media/resource-group-audit/audit-summary.png)
 3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month. Select **Apply** to view the results of your query.
@@ -144,4 +144,5 @@ The REST operations for working with the activity log are part of the [Insights 
 * To learn about setting security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

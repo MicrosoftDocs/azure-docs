@@ -10,13 +10,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
 ---
 
 # Monitor virtual machine changes with Azure Event Grid and Logic Apps
 
-You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
+You can start an automated [logic app workflow](../logic-apps/logic-apps-overview.md) 
 when specific events happen in Azure resources or third-party resources. 
 These resources can publish those events to an [Azure event grid](../event-grid/overview.md). 
 In turn, the event grid pushes those events to subscribers that have queues, 
@@ -105,7 +105,7 @@ so you can build your logic app from scratch.
    ![Choose logic app template](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
    The Logic Apps Designer now shows you [*connectors*](../connectors/apis-list.md) 
-   and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+   and [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
    that you can use to start your logic app, and also actions that you can 
    add after a trigger to perform tasks. A trigger is an event that creates 
    a logic app instance and starts your logic app workflow. 
@@ -125,7 +125,7 @@ with your Azure credentials.
    > If you're signed in with a personal Microsoft account, 
    > such as @outlook.com or @hotmail.com, 
    > the Event Grid trigger might not appear correctly. 
-   > As a workaround, choose [Connect with Service Principal](/azure-resource-manager/resource-group-create-service-principal-portal.md), 
+   > As a workaround, choose [Connect with Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory 
    > that's associated with your Azure subscription, for example, 
    > *user-name*@emailoutlook.onmicrosoft.com.
@@ -213,7 +213,7 @@ automatically resolves as shown:
 
 ## Send email when your virtual machine changes
 
-Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 so that you get an email when the specified condition is true.
 
 1. In the condition's **If true** box, choose **Add an action**.

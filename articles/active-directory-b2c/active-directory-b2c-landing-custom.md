@@ -4,7 +4,7 @@ description: Developing consumer-facing applications with Azure Active Directory
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: f2079f53-a637-4f2d-b3a0-61a9647ad433

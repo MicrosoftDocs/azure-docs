@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 
 ---
@@ -59,9 +59,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 The [Azure Resource Manager resource provider operations](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
 
-## Watch a video overview
+## Video
 
-For more information, you can watch the [Role-Based Access Control in API Management](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player) video.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## Next steps
 

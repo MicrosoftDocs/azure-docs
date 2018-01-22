@@ -4,7 +4,7 @@ description: How to configure an application for secure password-based single si
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

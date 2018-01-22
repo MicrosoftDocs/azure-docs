@@ -19,12 +19,6 @@ ms.author: markgal;trinadhk;
 
 ---
 # Use the Azure portal to restore virtual machines
-> [!div class="op_single_selector"]
-> * [Restore VMs in the classic portal](backup-azure-restore-vms.md)
-> * [Restore VMs in the Azure portal](backup-azure-arm-restore-vms.md)
->
->
-
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
 
 * Create a new VM, which is a point-in-time representation of your backed-up VM.
@@ -199,7 +193,7 @@ To get the template that was generated as part of the restore disks option:
    ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## Post-restore steps
-* If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons, the password is blocked post restore. Use the VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting the password post restore.
+* If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons, the password is blocked post restore. Use the VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access-classic.md). We recommend using SSH keys on these distributions to avoid resetting the password post restore.
 * Extensions present during the backup configuration are installed, but they won't be enabled. If you see an issue, reinstall the extensions. 
 * If the backed-up VM has static IP post restore, the restored VM has a dynamic IP to avoid conflict when you create a restored VM. Learn more about how you can [add a static IP to a restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * A restored VM doesn't have an availability value set. We recommend using the restore disks option to [add an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from PowerShell or templates by using restored disks. 

@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -163,7 +163,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-In the Pig Latin example, we defined the `LINE` input as a chararray because there is no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
+In the Pig Latin example, the `LINE` input is defined as a chararray because there is no consistent schema for the input. The Python script transforms the data into a consistent schema for output.
 
 1. The `@outputSchema` statement defines the format of the data that is returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
 
@@ -175,7 +175,7 @@ In the Pig Latin example, we defined the `LINE` input as a chararray because the
 
 2. Next, the `def create_structure(input)` defines the function that Pig passes line items to.
 
-3. The example data, `sample.log`, mostly conforms to the date, time, classname, level, and detail schema we want to return. However, it contains a few lines that begin with `*java.lang.Exception*`. These lines must be modified to match the schema. The `if` statement checks for those, then massages the input data to move the `*java.lang.Exception*` string to the end, bringing the data in-line with our expected output schema.
+3. The example data, `sample.log`, mostly conforms to the date, time, classname, level, and detail schema. However, it contains a few lines that begin with `*java.lang.Exception*`. These lines must be modified to match the schema. The `if` statement checks for those, then massages the input data to move the `*java.lang.Exception*` string to the end, bringing the data in-line with the expected output schema.
 
 4. Next, the `split` command is used to split the data at the first four space characters. The output is assigned into `date`, `time`, `classname`, `level`, and `detail`.
 
@@ -288,7 +288,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
     #from pig_util import outputSchema
     ```
 
-    This modifies the Python script to work with C Python instead of Jython. Once the change has been made, use **Ctrl+X** to exit the editor. Select **Y**, and then **Enter** to save the changes.
+    This line modifies the Python script to work with C Python instead of Jython. Once the change has been made, use **Ctrl+X** to exit the editor. Select **Y**, and then **Enter** to save the changes.
 
 6. Use the `pig` command to start the shell again. Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.
 
