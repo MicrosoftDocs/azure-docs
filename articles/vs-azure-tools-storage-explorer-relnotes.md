@@ -92,7 +92,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
@@ -172,7 +172,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.4 (Previe
 10/20/2017
 ### New
 * Preview support for Azure Cosmos DB:
-	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+	* [Online Documentation](./cosmos-db/storage-explorer.md)
 	* Create databases and collections
 	* Manipulate data
 	* Query, create, or delete documents
