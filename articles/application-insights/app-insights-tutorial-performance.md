@@ -63,7 +63,7 @@ Application Insights collects performance details for the different operations i
 > [!NOTE]
 Enable the "Unified details: E2E Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like requests, dependencies, exceptions, traces, events etc. in a single full screen view. 
 
-With the preview enabled, you can see the time spent in dependency calls, along with any failures or exceptions in a unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-e2eTxn-diagnostics.md)  
+With the preview enabled, you can see the time spent in dependency calls, along with any failures or exceptions in a unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-transaction-diagnostics.md)  
 
 ![Transaction diagnostics](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
 
