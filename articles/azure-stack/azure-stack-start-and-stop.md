@@ -20,7 +20,7 @@ ms.author: mabrigg
 
 # Start and stop Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems (version 1712 and later)*
 
 ## Stop Azure Stack 
 

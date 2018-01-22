@@ -59,6 +59,8 @@
         href: tutorial-net-provision-device-to-hub.md
   - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
+  - name: 5 - Provision group enrollments
+    href: tutorial-group-enrollments.md
 - name: Concepts
   items:
   - name: Device concepts
