@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # Revoke device access to your provisioning service in the Azure portal
 
-Proper management of device credentials is crucial for high-profile systems like Internet of Things (IoT) solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices in cases where their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. This article describes how to revoke device access at the provisioning step.
+Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. This article describes how to revoke device access at the provisioning step.
 
 To learn about revoking device access to an IoT hub after the device has been provisioned, see [Disable devices](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
@@ -27,7 +27,7 @@ To learn about revoking device access to an IoT hub after the device has been pr
 
 ## Blacklist devices by using an individual enrollment entry
 
-Individual enrollments apply to a single device and can use either X.509 certificates or SAS tokens (in a real or virtual TPM) as the attestation mechanism. (Devices that use SAS tokens as their attestation mechanism can only be provisioned through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Individual enrollments apply to a single device and can use either X.509 certificates or SAS tokens (in a real or virtual TPM) as the attestation mechanism. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
 
 To temporarily blacklist the device by disabling its enrollment entry: 
 
@@ -49,7 +49,7 @@ To permanently blacklist the device by deleting its enrollment entry:
 
    ![Delete individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
     
-After you finish the procedure, you will see your entry removed from the list of individual enrollments.  
+After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
 
 ## Blacklist an X.509 intermediate or root CA certificate by using an enrollment group
 
@@ -79,7 +79,7 @@ To permanently blacklist the certificate by deleting its enrollment group:
 
    ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
-After you finish the procedure, you will see your entry removed from the list of enrollment groups.  
+After you finish the procedure, you should see your entry removed from the list of enrollment groups.  
 
 > [!NOTE]
 > If you delete an enrollment group for a certificate, devices that have the certificate in their certificate chain might still be able to enroll if an enabled enrollment group for the root certificate or another intermediate certificate higher up in their certificate chain exists.
@@ -94,7 +94,7 @@ To blacklist an individual device in an enrollment group, follow these steps:
 2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to blacklist.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
 4. Select the **Add** button at the top. 
-5. Select **X.509** as the security mechanism for the device, and upload the device certificate. This is the signed end-entity certificate installed on the device. The devices uses it to generate certificates for authentication.
+5. Select **X.509** as the security mechanism for the device, and upload the device certificate. This is the signed end-entity certificate installed on the device. The device uses it to generate certificates for authentication.
 6. For **IoT Hub device ID**, enter the ID for the device. 
 7. Select **Disable** on the **Enable entry** switch, and then select **Save**. 
 
