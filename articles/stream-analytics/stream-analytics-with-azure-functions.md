@@ -57,7 +57,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace “\<your redis cache connection string goes here\>” with the Azure Redis Cache primary connection string that you retrieved in the previous section.)  
 
-   ```csharp
+   ```c#
    using System;
    using System.Net;
    using System.Threading.Tasks;
