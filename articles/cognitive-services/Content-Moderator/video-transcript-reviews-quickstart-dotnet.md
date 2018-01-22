@@ -22,7 +22,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-This article assumes that you have [moderated the video](video-moderation-api.md) and [created the video review](video-reviews-quickstart-dotnet.md) in the review tool for human decision making. You now want to  add moderated video transcripts in the review tool.
+This article assumes that you have [moderated the video](video-moderation-api.md) and [created the video review](video-reviews-quickstart-dotnet.md) in the review tool for human decision making. You now want to add moderated video transcripts in the review tool.
 
 This article also assumes that you are already familiar with Visual Studio and C#.
 
@@ -30,11 +30,11 @@ This article also assumes that you are already familiar with Visual Studio and C
 
 Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
 
-In the Content Moderator Dashboard, you can find your subscription key in **Settings** > **Credentials** > **API** > **Trial Ocp-Apim-Subscription-Key**. For more information, see [Overview](overview.md).
+In the Content Moderator Dashboard, you find your subscription key in **Settings** > **Credentials** > **API** > **Trial Ocp-Apim-Subscription-Key**. For more information, see [Overview](overview.md).
 
 ### Prepare your video for review
 
-We add the transcript while creating a video review. The video to review must be published online and you will need its streaming endpoint. The streaming endpoint allows the review tool video player to play the video in the player view.
+Add the transcript to a video review. The video must be published online. You need its streaming endpoint. The streaming endpoint allows the review tool video player to play the video.
 
 ![Video demo thumbnail](images/ams-video-demo-view.PNG)
 
@@ -149,9 +149,13 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
 - **ContentId**. An ID to assign to the video review.
-- **Status**. Set the value to "Unpublished". If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
+- **Status**. Set the value to "Unpublished." If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
 
-Note that **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property. Add the following method definition to namespace VideoReviews, class Program.
+> [!NOTE]
+> **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. 
+> These IDs are GUIDs and are not the same as the value of the **ContentId** property. 
+
+Add the following method definition to namespace VideoReviews, class Program.
 
 	/// <summary>
     /// Create a video review. For more information, see the API reference:
@@ -186,7 +190,7 @@ Note that **CreateVideoReviews** returns an IList<string>. Each of these strings
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. 
+> rate limit. If you exceed the limit, the SDK throws an exception with a 429 error code. 
 >
 > A free tier key has a one RPS rate limit.
 
@@ -237,7 +241,7 @@ In addition to adding a transcript to a video review, you also add the result of
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
-Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method and translates the result into an IList<TranscriptModerationBodyItem>, which it then passes to **AddVideoTranscriptModerationResult**.
+Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
 
 	/// <summary>
     /// Add the results of moderating a video transcript to the indicated video review.
@@ -355,7 +359,7 @@ When you run the application, you see an output on the following lines:
 
 ## Navigate to your video transcript review
 
-Finally, navigate to the video transcript review in your Content Moderator review tool account on the **Review**>**Video**>**Transcript** screen.
+Go to the video transcript review in your Content Moderator review tool on the **Review**>**Video**>**Transcript** screen.
 
 You see the following features:
 - The two lines of transcript you added
