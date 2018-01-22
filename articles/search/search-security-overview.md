@@ -17,15 +17,11 @@ ms.date: 01/19/2018
 ms.author: heidist
 
 ---
-# Data security and controlled access to Azure Search operations
+# Security and controlled access in Azure Search
 
 Azure Search is [SOC 2 compliant](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), with a comprehensive security architecture spanning physical security, encrypted transmissions, encrypted storage, and platform-wide software safeguards. Operationally, Azure Search only accepts authenticated requests. Optionally, you can add per-user access controls on content. This article touches on security at each layer, but is primarily focused on how data and operations are secured in Azure Search.
 
 ![Block diagram of security layers](media/search-security-overview/azsearch-security-diagram.png)
-
-While Azure Search inherits the protections and safeguards of the Azure platform, the primary mechanism used by the service itself is key-based authentication, where the type of key determines the level of access. A key is either an admin key or a query key for read-only access.
-
-Access to your service is based on a cross-section of permissions conveyed by the key (full or read-only), plus a context that defines a scope of operations. Every request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels plus the context are sufficient for providing full-spectrum security on service operations. 
 
 ## Physical security
 
@@ -56,11 +52,11 @@ Several security mechanisms are available across the Azure Stack, and thus autom
 
 All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
 
-## Service authentication
+## Service access and authentication
 
-Azure Search supplies its own authentication methodology. Authentication occurs on each request and is based on an access key that determines the scope of operations. A valid access key is considered proof the request originates from a trusted entity. 
+While Azure Search inherits the security safeguards of the Azure platform, it also provides its own key-based authentication, where the type of key (admin or query) determines the level of access. A valid access key is considered proof the request originates from a trusted entity. 
 
-Per-service authentication exists at two levels: full rights, query-only. The type of key determines which level of access is in effect.
+Authentication occurs on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context are sufficient for providing full-spectrum security on service operations. 
 
 |Key|Description|Limits|  
 |---------|-----------------|------------|  
