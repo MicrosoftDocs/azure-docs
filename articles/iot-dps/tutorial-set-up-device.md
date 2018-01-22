@@ -31,15 +31,13 @@ Before proceeding, create your Device Provisioning Service instance and an IoT h
 
 ### Decide on a Hardware Security Module
 
-The [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for two types of Hardware Security Modules (or HSMs): 
+As a device manufacturer, you need to select Hardware Security Modules (or HSMs) that are based on one of the following types. Currently, the [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following HSMs: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
-    - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- [X.509](https://cryptography.io/en/latest/x509/) based hardware security modules. 
-    - X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
-As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the preceding types. Other types of HSMs are not currently supported in the Device Provisioning Service client SDK.   
+See [IoT Hub Device Provisioning Service security concepts](concepts-security.md) for more details on HSM types.  
 
 >[!NOTE]
 > This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c). See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional languages.
