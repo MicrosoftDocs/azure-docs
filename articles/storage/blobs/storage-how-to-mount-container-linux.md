@@ -6,14 +6,11 @@ documentationcenter: linux
 author: seguler
 manager: jahogg
 
-ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: tamram
+ms.author: seguler
 
 ---
 # How to mount Blob storage as a file system with blobfuse (Preview)
@@ -24,7 +21,7 @@ ms.author: tamram
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse does not guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). As an example, unlike POSIX, a rename operation is not an atomic operation. 
+> Blobfuse does not guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in blobfuse.
 > For a full list of differences between a native file system and blobfuse, visit [the blobfuse source code repository](https://github.com/azure/azure-storage-fuse).
 > 
 
@@ -32,14 +29,14 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). In order to install blobfuse, configure one of these repositories.
 
 ### Configure the Microsoft package repository
-In order to configure the package repository, follow the instructions [here](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Configure the [Linux Package Repository for Microsoft Products](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 As an example, on an Enterprise Linux 6 distribution:
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the url to '.../rhel/7/...' to point to an Enterprise Linux 7 distribution.
+Similarly, change the url to `.../rhel/7/...` to point to an Enterprise Linux 7 distribution.
 
 Another example on an Ubuntu 14.04:
 ```bash
@@ -48,7 +45,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Similarly, change the url to '.../ubuntu/16.04/...' to point to an Ubuntu 16.04 distribution.
+Similarly, change the url to `.../ubuntu/16.04/...` to point to an Ubuntu 16.04 distribution.
 
 ### Install blobfuse
 
@@ -70,7 +67,7 @@ Blobfuse requires a temporary path in the file system to buffer and cache any op
 > 
 
 ### (Optional) Use a ramdisk for the temporary path
-Following creates a ramdisk of 16 GB as well as creating a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
+The following example creates a ramdisk of 16 GB as well as creating a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
