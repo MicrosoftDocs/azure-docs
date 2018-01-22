@@ -544,10 +544,8 @@ In Security Center only: Can view recommendations and alerts, view security poli
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
-| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
-| Microsoft.Security/* |Create and manage security components and policies |
-| Microsoft.Support/* |Create and manage support tickets |
+
 
 ### Site Recovery Contributor
 Can manage all Site Recovery management actions, except creating Recovery Services vault and assigning access rights to other users
