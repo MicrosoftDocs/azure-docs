@@ -33,7 +33,7 @@ The DSVMs come with included fully worked-out samples in the form of Jupyter Not
 | **Python** Language  | Samples in **Python** explaining scenarios like connecting with Azure cloud data stores and working with **Azure Machine Learning**.  <br/> [Screenshot](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** Language  | Sample in **Julia** that detail Plotting in Julia, deep learning in Julia, calling C and Python from Julia etc. <br/> [Screenshot](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft Cognitive Toolkit)  | Deep learning samples published by the Cognitive Toolkit team at Microsoft.  <br/> [Screenshot](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** Notebooks  | Deep Learning samples utilizing **MXnet** based neural networks. There are a variety of notebooks ranging from beginner to advanced scenarios.  <br/> [Screenshot](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** Notebooks  | Deep Learning samples utilizing **MXNet** based neural networks. There are a variety of notebooks ranging from beginner to advanced scenarios.  <br/> [Screenshot](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interacting with **Azure Machine Learning** Studio and creating web-service endpoints from locally trained models, for cloud-based scoring workflows. <br/> [Screenshot](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Deep Learning samples utilizing **caffe2** based neural networks. There are several notebooks designed to familiarize users with caffe2 and how to use it effectively, including examples like image pre-processing, dataset creation, Regression, and using pre-trained models. <br/> [Screenshot](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Python-based samples utilizing **H2O** for numerous real-world scenario problems. <br/> [Screenshot](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -82,7 +82,7 @@ Sign in with the same password as your login for the DSVM.
 <br/>![CNTK Samples](./media/cntk-samples2.png)<br/>
 <br/>![CNTK Samples](./media/cntk-samples.png)<br/>
 
-## MXnet
+## MXNet
 <br/>![MXnet Samples](./media/mxnet-samples.png)<br/>
 
 ## AzureML 
