@@ -3,8 +3,8 @@ title: Troubleshoot autoscale with Virtual Machine Scale Sets | Microsoft Docs
 description: Troubleshoot autoscale with Virtual Machine Scale Sets. Understand typical problems encountered and how to resolve them.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Troubleshooting autoscale with Virtual Machine Scale Sets

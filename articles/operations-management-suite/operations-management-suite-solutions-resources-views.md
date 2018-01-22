@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
 
 ---
@@ -72,11 +72,10 @@ Add the following view resource to the **resources** element of your solution fi
 
 Add the following variables to the variables element of the solution file and replace the values to those for your solution.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Note that you could copy the entire view resource from your exported view file, but you would need to make the following changes for it to work in your solution.  
 
@@ -86,6 +85,18 @@ Note that you could copy the entire view resource from your exported view file, 
 * **DisplayName** property needs to be added to the view.  The **Id**, **Name**, and **DisplayName** must all match.
 * Parameter names must be changed to match the required set of parameters.
 * Variables should be defined in the solution and used in the appropriate properties.
+
+### Log Analytics API version
+All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for views with queries that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ The following table specifies the Log Analytics API versions for views in legacy and upgraded workspaces: 
+
+| Workspace version | API version | Query |
+|:---|:---|:---|
+| v1 (legacy)   | 2015-11-01-preview | Legacy format.<br> Example: Type=Event EventLevelName = Error  |
+| v2 (upgraded) | 2015-11-01-preview | Legacy format.  Converted to upgraded format on install.<br> Example: Type=Event EventLevelName = Error<br>Converted to: Event &#124; where EventLevelName == "Error"  |
+| v2 (upgraded) | 2017-03-03-preview | Upgrade format. <br>Example: Event &#124; where EventLevelName == "Error"  |
+
 
 ## Add the view details
 The view resource in the exported view file will contain two elements in the **properties** element named **Dashboard** and **OverviewTile** which contain the detailed configuration of the view.  Copy these two elements and their contents into the **properties** element of the view resource in your solution file.
