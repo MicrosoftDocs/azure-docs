@@ -18,7 +18,7 @@ Use Content Moderator’s machine-assisted [video moderation](video-moderation-a
 
 ## Video-trained classifier
 
-Machine-assisted Video classification is achieved with either image trained models, a more commonly prevalent method, or with true video trained models.Unlike image-trained video classifiers, Microsoft's explicit and suggestive video classifiers are trained on video clips resulting in better match quality.
+Machine-assisted video classification is either achieved with image trained models or video trained models. Unlike image-trained video classifiers, Microsoft's adult and racy video classifier is trained with videos. This method results in better match quality.
 
 ## Shot detection
 
@@ -72,7 +72,7 @@ The following extract shows a partial response with potential shots, key frames,
 
 ## Visualization for human reviews
 
-For more nuanced cases, businesses need a human review solution for rendering the video, its frames and machine-assisted tags. The human moderators reviewing videos and frames get a complete view of the insights, change tags, and submit their decisions.
+For more nuanced cases, businesses need a human review solution for rendering the video, its frames, and machine-assigned tags. The human moderators reviewing videos and frames get a complete view of the insights, change tags, and submit their decisions.
 
 ![video review tool default view](images/video-review-default-view.png)
 
