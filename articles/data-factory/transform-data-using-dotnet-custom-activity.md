@@ -328,7 +328,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
    - Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
    - Compile your code, upload executable and dependencies to Azure Storage and define the path in folderPath property. 
 
-For a complete sample of how the end to end DLL and pipeline sample described in Data Factory V1 document [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) can be rewrite into Data Factory V2 Custom Activity style. Refer to a [Data Factory V2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+For a complete sample of how the end to end DLL and pipeline sample described in Data Factory V1 document [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewrite into Data Factory V2 Custom Activity style. Refer to a [Data Factory V2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## Auto-scaling of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks. 

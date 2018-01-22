@@ -21,7 +21,7 @@ ms.author: mbullwin
 
 Application Insights automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.
 
-This feature requires no special setup, other than [configuring performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) for your app. It is active when your app generates enough memory performance counters telemetry (for example, Private Bytes).
+This feature requires no special setup, other than [configuring performance counters](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) for your app. It is active when your app generates enough memory performance counters telemetry (for example, Private Bytes).
 
 
 ## When would I get this type of smart detection notification?

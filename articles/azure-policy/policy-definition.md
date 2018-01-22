@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
@@ -196,7 +196,6 @@ Policy supports the following types of effect:
 * **Append**: adds the defined set of fields to the request
 * **AuditIfNotExists**: enables auditing if a resource does not exist
 * **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
-* **DenyIfNotExists**: denies the creation of an exist if it does not exist
 
 For **append**, you must provide the following details:
 
@@ -212,7 +211,7 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object.
 
-With **AuditIfNotExists**, **DeployIfNotExists**, and **DenyIfNotExists**, you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
+With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
 .
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 

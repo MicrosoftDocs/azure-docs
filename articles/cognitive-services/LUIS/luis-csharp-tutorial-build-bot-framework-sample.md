@@ -68,7 +68,7 @@ The bot responds by saying "You have reached Greeting. You said: hello".  This r
 
 ## Connect your LUIS app to the bot
 
-Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app.
+Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your programmatic key. You change this to your subscription key when your traffic exceeds the free tier quota. 
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -77,6 +77,9 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 > 1. Click on **My apps**. 
 > 2. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 > 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](Train-Test.md) and [published](PublishApp.md). 
+
+    > [!WARNING]
+    > If you delete your app ID or programmatic key, the bot will stop working.
 
 ## Modify the bot code
 
@@ -139,6 +142,9 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 
 > [!TIP]
 > You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test). 
+
+## Download the bot to debug
+If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
 
 ## Next steps
 

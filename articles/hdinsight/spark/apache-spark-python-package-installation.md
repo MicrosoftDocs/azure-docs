@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
 
 ---
@@ -33,7 +33,7 @@ Learn how to use Script Actions to configure an Apache Spark cluster on HDInsigh
 > 
 > 
 
-You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) or [conda-forge](https://conda-forge.github.io/feedstocks.html).
+You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) or [conda-forge](https://conda-forge.org/feedstocks/).
 
 In this article, you will learn how to install the [TensorFlow](https://www.tensorflow.org/) package using Script Action on your cluster and use it via the Jupyter notebook.
 
@@ -80,8 +80,6 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 	The result will look like this:
 	
 	![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
-
-
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

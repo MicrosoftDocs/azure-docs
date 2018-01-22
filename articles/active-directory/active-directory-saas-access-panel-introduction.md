@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -67,7 +67,33 @@ When you are authenticated, you can interact with the applications that your adm
 
 At a minimum, the access panel requires a browser that supports JavaScript and has CSS enabled. For the user to be signed in to applications through password-based single sign-on (SSO), the access panel extension must be installed in your browser. The extension is downloaded automatically when you select an application that is configured for password-based SSO.
 
-The access panel extension is currently available for Internet Explorer 8 and later, Edge, Chrome, and Firefox browsers.
+The access panel extension is currently available for:
+-   Edge on Windows 10 Anniversary Edition or later 
+
+-   Chrome -- on Windows 7 or later, and on MacOS X or later
+
+-   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+
+-   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (limited support)
+
+## My Apps Secure Sign-in Extension
+The extension is required for users to sign into password-based single sign-on. Once installed users can also enable additional features by signing into the extension by clicking **Sign in to get started**. 
+
+- Users can sign into apps directly by visiting the app's **Sign-on URL**. When the user navigates to the app's sign-on URL the extension will detect this and provide the option for the user to sign into it from the extension.
+- Users can also launch any of their apps from the access panel using the **quick search** feature of the extension. 
+- The extension will also show users the last three applications they launched under **Recently Used** section.
+
+> [!NOTE]
+> Additional features are available only for Edge, Chrome, and Firefox.
+>
+>
+
+If you are using a different My Apps URL than https://myapps.microsoft.com then you must configure your default URL though the following steps:
+1. While not signed into the extension, **right click** the extension icon.
+2. Click on **Select My Apps URL** from the menu.
+3. **Select** your default URL.
+4. Click on the extension icon.
+5. Sign-in to the extension by selecting **Sign in to get started**.
 
 ## Mobile app support
 

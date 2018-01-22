@@ -1,5 +1,5 @@
 ---
-title: Create a Linux virtual machine scale set in the Azure portal | Microsoft Docs
+title: Create a Virtual Machine Scale Set in the Azure portal | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale in the Azure portal
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets

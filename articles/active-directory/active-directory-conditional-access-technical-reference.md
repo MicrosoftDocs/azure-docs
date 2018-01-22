@@ -55,7 +55,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
 
 - Microsoft Power BI 
 
