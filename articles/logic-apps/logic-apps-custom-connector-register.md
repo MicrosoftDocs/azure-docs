@@ -44,7 +44,7 @@ and location that you want to use
 
 ## 1. Create your connector
 
-1. In the Azure portal, on the main Azure menu, choose **New**. 
+1. In the Azure portal, on the main Azure menu, choose **Create a resource**. 
 In the search box, enter "logic apps connector" as your filter, 
 and press Enter.
 
