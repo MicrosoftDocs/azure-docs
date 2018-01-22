@@ -95,8 +95,8 @@ Considerations:
 
    You can change the geo-replication type of your storage account by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), or one of the Azure Storage client libraries.
 
-    > [!NOTE]
-    > ZRS accounts cannot be converted LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
+   > [!NOTE]
+   > ZRS accounts cannot be converted LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
     
 <a id="changedowntime"></a>
 #### 2. Does changing the replication type of my storage account result in down time?
@@ -108,7 +108,7 @@ Considerations:
 
    Yes. If you change from LRS to GRS (or RA-GRS) for your storage account, you incur an additional charge for egress involved in copying existing data from primary location to the secondary location. After the initial data is copied, there are no further additional egress charges for geo-replication from the primary to secondary location. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-    If you change from GRS to LRS, there is no additional cost, but your data is deleted from the secondary location.
+   If you change from GRS to LRS, there is no additional cost, but your data is deleted from the secondary location.
 
 <a id="ragrsbenefits"></a>
 #### 4. How can RA-GRS help me?
@@ -132,8 +132,8 @@ Considerations:
 
    **Recovery Time Objective (RTO):** The RTO is a measure of how long it takes to perform the failover and get the storage account back online. The time to perform the failover includes the following actions:
 
-    * The time Microsoft requires to determine whether the data can be recovered at the primary location, or if a failover is necessary.
-    * The time to perform the failover of the storage account by changing the primary DNS entries to point to the secondary location.
+   * The time Microsoft requires to determine whether the data can be recovered at the primary location, or if a failover is necessary.
+   * The time to perform the failover of the storage account by changing the primary DNS entries to point to the secondary location.
 
    Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. A future version of the service will allow you to trigger a failover at an account level so that you can control the RTO yourself.
 
