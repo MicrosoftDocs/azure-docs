@@ -130,7 +130,7 @@ Example extract:
 
 ## Human review tool
 
-For more nuanced cases, use the Content Moderator review tool and its API to surface the moderation results and content in the review for your human moderators. They review the machine-assigned tags and confirm their final decisions.
+For more nuanced cases, use the Content Moderator [review tool](Review-Tool-User-Guide/human-in-the-loop.md) and its API to surface the moderation results and content in the review for your human moderators. They review the machine-assigned tags and confirm their final decisions.
 
 ![Image review for human moderators](images/moderation-reviews-quickstart-dotnet.PNG)
 
