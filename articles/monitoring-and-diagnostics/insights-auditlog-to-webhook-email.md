@@ -36,51 +36,66 @@ The webhook can authenticate using either of these methods:
 ## Payload schema
 The POST operation contains the following JSON payload and schema for all Activity Log-based alerts. This schema is similar to the one used by metric-based alerts.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
@@ -88,31 +103,30 @@ The POST operation contains the following JSON payload and schema for all Activi
 | --- | --- |
 | status |Used for metric alerts. Always set to "activated" for Activity Log alerts. |
 | context |Context of the event. |
-| resourceProviderName |The resource provider of the impacted resource. |
-| conditionType |Always "Event." |
-| name |Name of the alert rule. |
-| id |Resource ID of the alert. |
+| activityLog | The log properties of the event.|
+| authorization |The RBAC properties of the event. These usually include the "action", "role" and the "scope." |
+| action | Action captured by the alert. |
+| scope | Scope of the alert (i.e resource).|
+| channels | Operation |
+| claims | A collection of information is at relates to the claims. |
+| caller |GUID or username of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
+| correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
 | description |Alert description as set during creation of the alert. |
-| subscriptionId |Azure Subscription ID. |
-| timestamp |Time at which the event was generated by the Azure service that processed the request. |
+| eventSource |Name of the Azure service or infrastructure that generated the event. |
+| eventTimestamp |Time the event occured. |
+| eventDataId |Unique identifier for the event. |
+| level |One of the following values: "Critical", "Error", "Warning", "Informational" and "Verbose." |
+| operationName |Name of the operation. |
+| operationId |Usually a GUID shared among the events corresponding to single operation. |
 | resourceId |Resource ID of the impacted resource. |
 | resourceGroupName |Name of the resource group for the impacted resource |
-| properties |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. |
-| event |Element containing metadata about the event. |
-| authorization |The RBAC properties of the event. These usually include the “action”, “role” and the “scope.” |
-| category |Category of the event. Supported values include: Administrative, Alert, Security, ServiceHealth, Recommendation. |
-| caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
-| correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
-| eventDescription |Static text description of the event. |
-| eventDataId |Unique identifier for the event. |
-| eventSource |Name of the Azure service or infrastructure that generated the event. |
-| httpRequest |Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method e.g. PUT). |
-| level |One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose.” |
-| operationId |Usually a GUID shared among the events corresponding to single operation. |
-| operationName |Name of the operation. |
-| properties |Properties of the event. |
+| resourceProviderName |The resource provider of the impacted resource. |
 | status |String. Status of the operation. Common values include: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved". |
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings describing a substatus. Common substatus values include: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504) |
+| subscriptionId |Azure Subscription ID. |
+| submissionTimestamp |Time at which the event was generated by the Azure service that processed the request. |
+| resourceType | The type of resource that generated the event.|
+| properties |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. |
 
 ## Next steps
 * [Learn more about the Activity Log](monitoring-overview-activity-logs.md)

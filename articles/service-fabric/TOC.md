@@ -96,6 +96,7 @@
 ##### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
 ##### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 ##### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
+#### [Manage applications for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testing apps with fault analysis](service-fabric-testability-overview.md)
 #### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Work in a Windows/VS dev environment
 ### [Manage applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Manage application lifecycle
 ### [Package an application](service-fabric-package-apps.md)
+### [Use parameters with configuration files](service-fabric-how-to-parameterize-configuration-files.md)
+### [Specify port numbers using parameters](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Specify environment variables](service-fabric-how-to-specify-environment-variables.md)
 
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
@@ -330,6 +333,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Service model XML schema](service-fabric-service-model-schema.md)
+## [Environment variables](service-fabric-environment-variables-reference.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

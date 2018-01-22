@@ -6,13 +6,13 @@
     href: how-iot-edge-works.md
 - name: Quickstarts
   items:
-  - name: Deploy to the edge - Linux
+  - name: Deploy to the edge - Linux/Mac
     href: quickstart-linux.md
   - name: Deploy to the edge - Windows
     href: quickstart.md
 - name: Tutorials
   items:
-  - name: Simulate an Edge device - Linux
+  - name: Simulate an Edge device - Linux/Mac
     href: tutorial-simulate-device-linux.md
   - name: Simulate an Edge device - Windows
     href: tutorial-simulate-device-windows.md
@@ -24,10 +24,16 @@
     href: tutorial-deploy-machine-learning.md
   - name: Deploy Azure Functions
     href: tutorial-deploy-function.md
+  - name: Create an IoT Edge deployment using IoT extension for Azure CLI 2.0
+    href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: How-to guides
   items:
-  - name: Create a transparent gateway
-    href: how-to-create-transparent-gateway.md
+  - name: Create gateways
+    items:
+    - name: Create a transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Modbus gateway
+      href: deploy-modbus-gateway.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device

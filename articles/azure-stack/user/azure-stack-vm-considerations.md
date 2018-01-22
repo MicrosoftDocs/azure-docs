@@ -3,7 +3,7 @@ title: Differences and considerations for virtual machines in Azure Stack | Micr
 description: Learn about differences and considerations when working with virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
+ms.date: 11/17/2018
+ms.author: brenduns
 
 ---
 
@@ -38,9 +38,9 @@ Virtual machines are an on-demand, scalable computing resources offered by Azure
 |Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Single fault domain<br>Single update domain<br>No managed disk support|
 |Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
 
-## Virtual machine sizes 
+## Virtual machine sizes
 
-The Azure Stack Development Kit supports the following sizes: 
+Azure Stack supports the following sizes:
 
 | Type | Size | Range of supported sizes |
 | --- | --- | --- |
@@ -53,33 +53,33 @@ The Azure Stack Development Kit supports the following sizes:
 |Memory optimized|DS-series|DS11 - DS14|
 |Memory optimized |DSv2-series|DS11_v2 - DS14_v2|
 
-Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
+Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this consistency includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
 
-## Virtual machine extensions 
+## Virtual machine extensions
 
- The Azure Stack Development Kit supports the following virtual machine extension versions:
+ The Azure Stack supports the following virtual machine extension versions:
 
 ![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
 
 Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## API versions 
+## API versions
 
-Virtual machine features in Azure Stack Development Kit support the following API versions:
+Virtual machine features in Azure Stack support the following API versions:
 
 ![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 You can use the following PowerShell script to get the API versions for the virtual machine features that are available in your Azure Stack environment:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

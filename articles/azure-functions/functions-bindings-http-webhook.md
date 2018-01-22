@@ -38,14 +38,14 @@ By default, an HTTP trigger responds to the request with an HTTP 200 OK status c
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -232,14 +232,14 @@ module.exports = function(context, req) {
 
 See the language-specific example:
 
-* [Precompiled C#](#webhook---c-example)
-* [C# script](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# script (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### Webhook - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends an HTTP 200 in response to a generic JSON request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends an HTTP 200 in response to a generic JSON request.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -361,7 +361,7 @@ module.exports = function (context, data) {
 
 ## Trigger - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+In [C# class libraries](functions-dotnet-class-library.md), use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 You can set the authorization level and allowable HTTP methods in attribute constructor parameters, and there are properties for webhook type and route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration). Here's an `HttpTrigger` attribute in a method signature:
 
@@ -374,7 +374,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 ## Trigger - configuration
 
@@ -525,6 +525,10 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 - **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Trigger - limits
+
+The HTTP request length is limited to 100K (102,400) bytes, and the URL length is limited to 4k (4,096) bytes. These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
 ## Trigger - host.json properties
 
 The [host.json](functions-host-json.md) file contains settings that control HTTP trigger behavior.
@@ -537,7 +541,7 @@ Use the HTTP output binding to respond to the HTTP request sender. This binding 
 
 ## Output - configuration
 
-For precompiled C#, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
+For C# class libraries, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
 
 For other languages, an HTTP output binding is defined as a JSON object in the `bindings` array of function.json, as shown in the following example:
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -47,7 +47,7 @@ For Dynamics 365 specifically, the following application types are supported:
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.
 
@@ -65,10 +65,10 @@ The following properties are supported for Dynamics linked service:
 | authenticationType | The authentication type to connect to Dynamics server. Specify **"Office365"** for Dynamics Online. | Yes |
 | username | Specify user name to connect to the Dynamics. | Yes |
 | password | Specify password for the user account you specified for the username. You have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if source linked service doesn't have IR |
 
 >[!IMPORTANT]
->To copy data into Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the linked service as the following example.
+>When copying data **into** Dynamics, default Azure Integration Runtime cannot be used to execute copy. In other word, if your source linked service doesn't have a specified IR, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the Dynamics linked service as the following example.
 
 **Example: Dynamics online using Office365 authentication**
 

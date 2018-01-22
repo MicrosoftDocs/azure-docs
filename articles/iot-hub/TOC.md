@@ -35,6 +35,7 @@
 ### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Device management with IoT extension for Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # How-to guides
@@ -162,6 +163,7 @@
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
