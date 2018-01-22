@@ -36,7 +36,7 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a data factory
 
 1. Navigate to the [Azure portal](https://portal.azure.com). 
-2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+2. Click **Create a resource** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
