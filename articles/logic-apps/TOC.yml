@@ -91,12 +91,67 @@
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
-  - name: Manage
+  - name: Develop for B2B scenarios
     items: 
-    - name: Manage logic apps - Visual Studio
-      href: logic-apps-manage-from-vs.md
-    - name: Manage integration accounts
-      href: logic-apps-enterprise-integration-accounts.md
+      - name: Create an integration account
+        href: logic-apps-enterprise-integration-create-integration-account.md
+      - name: Trading partners
+        href: logic-apps-enterprise-integration-partners.md
+      - name: Agreements
+        href: logic-apps-enterprise-integration-agreements.md
+      - name: Artifact metadata
+        href: logic-apps-enterprise-integration-metadata.md
+      - name: Receive B2B messages
+        href: logic-apps-enterprise-integration-b2b.md
+      - name: Exchange AS2 messages
+        href: logic-apps-enterprise-integration-as2.md
+        items: 
+        - name: AS2 encoding
+          href: logic-apps-enterprise-integration-as2-encode.md
+        - name: AS2 decoding
+          href: logic-apps-enterprise-integration-as2-decode.md
+      - name: Exchange EDIFACT messages
+        href: logic-apps-enterprise-integration-edifact.md
+        items: 
+        - name: EDIFACT encoding
+          href: logic-apps-enterprise-integration-edifact-encode.md
+        - name: EDIFACT decoding
+          href: logic-apps-enterprise-integration-edifact-decode.md
+        - name: Handle EDIFACT files with UNH2.5 segment
+          href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+      - name: Exchange X12 messages
+        href: logic-apps-enterprise-integration-x12.md
+        items: 
+        - name: X12 encoding
+          href: logic-apps-enterprise-integration-x12-encode.md
+        - name: X12 decoding
+          href: logic-apps-enterprise-integration-x12-decode.md
+      - name: Batch and send EDI messages
+        href: logic-apps-scenario-edi-send-batch-messages.md
+      - name: Process flat files
+        href: logic-apps-enterprise-integration-flatfile.md
+      - name: Process XML
+        href: logic-apps-enterprise-integration-xml.md
+      - name: Validate XML
+        href: logic-apps-enterprise-integration-xml-validation.md
+      - name: Add schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
+      - name: Add maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Add security certificates
+        href: logic-apps-enterprise-integration-certificates.md
+      - name: Troubleshoot B2B errors
+        href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+      - name: Build a disaster recovery plan
+        href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: Access on-premises data
+    items: 
+      - name: Install data gateway
+        href: logic-apps-gateway-install.md
+      - name: Connect to on-premises data
+        href: logic-apps-gateway-connection.md
   - name: Connectors - In-depth topics
     items: 
       - name: AS2
@@ -165,67 +220,12 @@
         href: logic-apps-enterprise-integration-x12.md
       - name: XML Validation
         href: logic-apps-enterprise-integration-xml-validation.md
-  - name: Develop for B2B scenarios
+  - name: Manage
     items: 
-      - name: Create an integration account
-        href: logic-apps-enterprise-integration-create-integration-account.md
-      - name: Trading partners
-        href: logic-apps-enterprise-integration-partners.md
-      - name: Agreements
-        href: logic-apps-enterprise-integration-agreements.md
-      - name: Artifact metadata
-        href: logic-apps-enterprise-integration-metadata.md
-      - name: Receive B2B messages
-        href: logic-apps-enterprise-integration-b2b.md
-      - name: Exchange AS2 messages
-        href: logic-apps-enterprise-integration-as2.md
-        items: 
-        - name: AS2 encoding
-          href: logic-apps-enterprise-integration-as2-encode.md
-        - name: AS2 decoding
-          href: logic-apps-enterprise-integration-as2-decode.md
-      - name: Exchange EDIFACT messages
-        href: logic-apps-enterprise-integration-edifact.md
-        items: 
-        - name: EDIFACT encoding
-          href: logic-apps-enterprise-integration-edifact-encode.md
-        - name: EDIFACT decoding
-          href: logic-apps-enterprise-integration-edifact-decode.md
-        - name: Handle EDIFACT files with UNH2.5 segment
-          href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-      - name: Exchange X12 messages
-        href: logic-apps-enterprise-integration-x12.md
-        items: 
-        - name: X12 encoding
-          href: logic-apps-enterprise-integration-x12-encode.md
-        - name: X12 decoding
-          href: logic-apps-enterprise-integration-x12-decode.md
-      - name: Batch and send EDI messages
-        href: logic-apps-scenario-edi-send-batch-messages.md
-      - name: Process flat files
-        href: logic-apps-enterprise-integration-flatfile.md
-      - name: Process XML
-        href: logic-apps-enterprise-integration-xml.md
-      - name: Validate XML
-        href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Add schemas for XML validation
-        href: logic-apps-enterprise-integration-schemas.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
-      - name: Add maps for XML transform
-        href: logic-apps-enterprise-integration-maps.md
-      - name: Add security certificates
-        href: logic-apps-enterprise-integration-certificates.md
-      - name: Troubleshoot B2B errors
-        href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-      - name: Build a disaster recovery plan
-        href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Access on-premises data
-    items: 
-      - name: Install data gateway
-        href: logic-apps-gateway-install.md
-      - name: Connect to on-premises data
-        href: logic-apps-gateway-connection.md
+    - name: Manage logic apps - VS
+      href: logic-apps-manage-from-vs.md
+    - name: Manage integration accounts
+      href: logic-apps-enterprise-integration-accounts.md
   - name: Deploy
     items: 
       - name: Create automated deployment templates
