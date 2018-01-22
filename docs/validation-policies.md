@@ -137,10 +137,10 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.14|Your add-in name may not include "app" or "plug-in" or derivatives.|
 |7.15|All Office Add-ins must use the Microsoft-hosted Office.js file. For more information, see  *How do I reference the JavaScript APIs for Office in my add-ins?*  in [AppSource submission FAQ](office-store-submission-faq.md).|
 |7.16|You must specify a valid Support URL in the  **SupportURL** element of your Office Add-in manifest.|
-|7.16.1|Each app or add-in must have a unique name (for example, Test Add-in, Test Add-in: Premium).|
-|7.16.2|The binary may remain the same across the multiple app or add-in listings.|
-|7.16.3|We recommend, as best practice, that you notify users that multiple app or add-in listings exist in the description for each. This ensures that users are aware that different cost/functionality tiers are available. |
 |7.17|If you wish to submit multiple variations of an app or add-in (for example, where different functionalities are unlocked at different price points), you must submit these separately, with separate product IDs. |
+|7.17.1|Each app or add-in must have a unique name (for example, Test Add-in, Test Add-in: Premium).|
+|7.17.2|The binary may remain the same across the multiple app or add-in listings.|
+|7.17.3|We recommend, as best practice, that you notify users that multiple app or add-in listings exist in the description for each. This ensures that users are aware that different cost/functionality tiers are available. |
 |7.18<br/>**Education apps or add-ins**|An education app or add-in is used in a class or study context, by teachers and/or students.<br/><br/>An education app or add-in is submitted under the "Education" category.<br/><br/>An education app or add-in must provide in the testing notes at least one and up to three applicable subjects:<br/><br/>Math<br/>Literacy (English Language Arts)<br/>Science<br/>Social Studies<br/>Health and Fitness<br/>Engineering and Technology<br/>Business, Finance, and Economics<br/>Computer Science<br/>Languages<br/>Art and Music<br/>Teaching Tools and Resources<br/><br/>An education app or add-in must provide in the testing notes a minimum of one applicable age range:<br/><br/>Preschool and Kindergarten<br/>Elementary School (1st-5th Grade)<br/>Middle School (6-8th Grade)<br/>High School (9-12th Grade)<br/>Higher Education|
 |7.19| You may not use Microsoft product names in your app or add-in title.<br/><br/>**Note:** We may make some exceptions in cases where an add-in runs in multiple Microsoft products; for example, Contoso for SharePoint, Contoso for Outlook, Contoso for Office 365.
 
