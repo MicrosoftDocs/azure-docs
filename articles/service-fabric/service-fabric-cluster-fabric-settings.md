@@ -1,3 +1,4 @@
+
 ---
 title: Change Azure Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
@@ -13,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document describes how to customize various fabric settings and upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
@@ -675,7 +676,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |GetCodePackageActivationContextTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the CodePackageActivationContext calls. This is not applicable to ad-hoc services. |
 |IPProviderEnabled|bool, default is FALSE|Static|Enables management of IP addresses. |
 |NTLMAuthenticationEnabled|bool, default is FALSE|Static| Enables support for using NTLM by the code packages that are running as other users so that the processes across machines can communicate securely. |
-|NTLMAuthenticationPasswordSecret|SecureString, default is Common::SecureString(L"")|Static|Is an encrypted hash that is used to generate the password for NTLM users. Has to be set if NTLMAuthenticationEnabled is true. Validated by the deployer. |
+|NTLMAuthenticationPasswordSecret|SecureString, default is Common::SecureString(L"")|Static|Is an encrypted has that is used to generate the password for NTLM users. Has to be set if NTLMAuthenticationEnabled is true. Validated by the deployer. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(3)|Dynamic|Specify timespan in seconds. Environment-specific settings The periodic interval at which Hosting scans for new certificates to be used for FileStoreService NTLM configuration. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, default is Common::TimeSpan::FromMinutes(4)|Dynamic| Specify timespan in seconds. The timeout for configuring NTLM users using certificate common names. The NTLM users are needed for FileStoreService shares. |
 |RegisterCodePackageHostTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. The timeout value for the FabricRegisterCodePackageHost sync call. This is applicable for only multi code package application hosts like FWP |
@@ -683,6 +684,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |RunAsPolicyEnabled| bool, default is FALSE|Static| Enables running code packages as local user other than the user under which fabric process is running. In order to enable this policy Fabric must be running as SYSTEM or as user who has SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the sync Register(Stateless/Stateful)ServiceFactory call |
 |ServiceTypeDisableGraceInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. Time interval after which the service type can be disabled |
+|EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 
 ### Section Name: Federation
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -769,8 +771,8 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |MaxPrimaryReplicationQueueMemorySize|uint, default is 0|Static|This is the maximum value of the primary replication queue in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, default is 2048|Static|This is the maximum number of operations that could exist in the secondary replication queue. Note that it must be a power of 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, default is 0|Static|This is the maximum value of the secondary replication queue in bytes.|
-|QueueHealthMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Static|Specify timespan in seconds. This value determines the time period used by the Replicator to monitor any warning/error health events in the replication operation queues. A value of '0' disables health monitoring. |
-|QueueHealthWarningAtUsagePercent|uint, default is 80|Static|This value determines the replication queue usage(in percentage) after which we report warning about high queue usage. We do so after a grace interval of QueueHealthMonitoringInterval. If the queue usage falls below this percentage in the grace interval the warning is not reported.|
+|QueueHealthMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Static|Specify timespan in seconds. This value determines the time period used by the Replicator to monitor any warning/error health events in the replication operation queues. A value of '0' disables health monitoring |
+|QueueHealthWarningAtUsagePercent|uint, default is 80|Static|This value determines the replication queue usage(in percentage) after which we report warning about high queue usage. We do so after a grace interval of QueueHealthMonitoringInterval. If the queue usage falls below this percentage in the grace interval|
 |RetryInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|Specify timespan in seconds. When an operation is lost or rejected this timer determines how often the replicator will retry sending the operation.|
 
 ### Section Name: Transport

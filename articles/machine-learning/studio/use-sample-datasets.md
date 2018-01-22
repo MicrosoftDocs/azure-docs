@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
 
 ---
@@ -101,15 +101,6 @@ Donor data includes the months since last donation), and frequency, or the total
 <b>Related Research:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Book Reviews from Amazon</td>
-  <td>
-Reviews of books in Amazon, taken from the amazon.com website by University of Pennsylvania researchers (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). See the research paper, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.
-<p></p>
-The original dataset has 975K reviews with rankings 1, 2, 3, 4, or 5. The reviews were written in English and are from the time period 1997-2007. This dataset has been down-sampled to 10K reviews.
   </td>
 </tr>
 
