@@ -82,9 +82,10 @@ First you will need to develop your custom HSM repository and library:
 
 1. Develop a library to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
 
-2. Implement the functions defined in the following header file, in your library:  
-    a. For custom TPM, implement the Custom HSM functions defined under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. For custom X.509, implement the Custom HSM functions defined under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+2. Implement the functions defined in the following header file, in your library: 
+
+    a. For custom TPM: implement the Custom HSM functions defined under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).  
+    b. For custom X.509: implement the Custom HSM functions defined under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 Once your library successfully builds on its own, you'll need to integrate it with the Device Provisioning Service Client SDK, by linking against your library:
 
