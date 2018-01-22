@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In a different web browser window, log in to your Workday company site as an administrator.
 
-9. Go to **Edit Tenant Setup – Security** on the top left side of the home page.
+9. In the **Search box** search with the name **Edit Tenant Setup – Security** On the top left side of the home page.
    
     ![Edit Tenant Security](./media/active-directory-saas-workday-tutorial/IC782925.png "Edit Tenant Security")
 
