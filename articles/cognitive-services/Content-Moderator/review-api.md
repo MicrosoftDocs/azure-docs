@@ -189,6 +189,6 @@ You see both the reviewer assigned tags (**reviewResultTags**) and the initial t
 
 ## Next steps
 
-Test drive the [Job API console](try-review-api-job.md) and use the REST API code samples. Also check out the [Jobs .NET QuickStart](moderation-jobs-quickstart-dotnet.md) if you are familiar with Visual Studio and C#. 
+Test drive the [Job API console](try-review-api-job.md) and use the REST API code samples. Also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) if you are familiar with Visual Studio and C#. 
 
-For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET QuickStart](moderation-reviews-quickstart-dotnet.md).
+For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
