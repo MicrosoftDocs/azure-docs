@@ -189,18 +189,21 @@ Add two disks with the [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.comp
 
 
 ```azurepowershell-interactive
+# Add the first data disk to the scale set config
 Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmssConfig `
   -CreateOption Empty `
   -Lun 1 `
   -DiskSizeGB 64
 
+# Add the second data disk to the scale set config
 Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmssConfig `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
+# Create the scale set
 New-AzureRmVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
@@ -210,7 +213,7 @@ New-AzureRmVmss `
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
 ### Attach a disk to existing scale set
-You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). The following example attaches an additional *128* GB disk:
+You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). The following example attaches an additional *128* GB disk to an existing scale set:
 
 ```azurepowershell-interactive
 # Get scale set object
@@ -331,7 +334,7 @@ PartitionNumber  DriveLetter  Offset   Size   Type
 
 The disks on each VM instance in your scale are automatically prepared in the same way. As your scale set would scale up, the required data disks are attached to the new VM instances. The Custom Script Extension also runs to automatically prepare the disks.
 
-Log out of the VM instance remote desktop session.
+Close the remote desktop connection session with the VM instance.
 
 
 ## List attached disks
