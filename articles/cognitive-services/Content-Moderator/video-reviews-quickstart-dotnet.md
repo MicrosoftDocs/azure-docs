@@ -24,7 +24,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-This article assumes that you have [moderated the video (see QuickStart)](video-moderation-api.md) and obtained the detailed response for creating frame-based reviews for human oversight.
+This article assumes that you have [moderated the video (see quickstart)](video-moderation-api.md) and have the response data. You need it for creating frame-based reviews for human moderators.
 
 This article also assumes that you are already familiar with Visual Studio and C#.
 
@@ -36,7 +36,11 @@ In the Content Moderator Dashboard, you can find your subscription key in **Sett
 
 ### Prepare your video and the video frames for review
 
-The video and sample video frames to review must be published online and you will need their URLs.
+The video and sample video frames to review must be published online because you need their URLs.
+
+> [!NOTE]
+> The program uses manually saved screenshots from the video with random adult/racy scores to illustrate the 
+> use of the review API. In a real-world situation, you use the [video moderation output](video-moderation-api.md#run-the-program-and-review-the-output) to create images and assign scores. 
 
 For the video, you need a streaming endpoint so that the review tool plays the video in the player view.
 
@@ -159,11 +163,15 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
 - **ContentId**. An ID to assign to the video review.
-- **Status**. Set the value to "Unpublished". If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
+- **Status**. Set the value to "Unpublished." If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
 
-Note that **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property. Add the following method definition to namespace VideoReviews, class Program.
+> [!NOTE]
+> **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. 
+> These IDs are GUIDs and are not the same as the value of the **ContentId** property. 
 
-	/// <summary>
+Add the following method definition to namespace VideoReviews, class Program.
+
+    /// <summary>
     /// Create a video review. For more information, see the API reference:
     /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
     /// </summary>
@@ -222,7 +230,7 @@ You add video frames to a video review with **ContentModeratorClient.Reviews.Add
 - **ReviewerResultTags**. An IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is simply a key/value pair. An application can use these tags to organize video frames.
 
 > [!NOTE]
-> This QuickStart generates random values for the **adultScore** and **racyScore** properties. 
+> This quickstart generates random values for the **adultScore** and **racyScore** properties. 
 > In a production application, you would obtain these values from the [video moderation service]((video-moderation-api.md), deployed as an Azure Media Service.
 
 Add the following method definitions to namespace VideoReviews, class Program.
@@ -291,7 +299,7 @@ You can get the video frames for a video review with **ContentModeratorClient.Re
 1. The number of video frames to get.
 
 > [!NOTE] 
-> Currently the last two parameters are not required by the signature of **GetVideoFrames**; however, 
+> Currently the last two parameters are not required by **GetVideoFrames**. However, 
 > if you do not specify values for them, **GetVideoFrames** raises a run-time exception.
 
 Add the following method definition to namespace VideoReviews, class Program.
