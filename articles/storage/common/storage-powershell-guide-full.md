@@ -220,7 +220,7 @@ Azure Cosmos DB Table API provides premium features for table storage such as tu
 * For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
 * To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
-## Azure's independently-deployed clouds
+## Independent cloud deployments of Azure
 
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." These are the available environments:
 
