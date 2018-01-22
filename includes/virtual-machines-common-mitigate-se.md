@@ -8,7 +8,7 @@ The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msr
 The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure cannot attack your application using these vulnerabilities.
 
 > [!NOTE] 
-> Azure mitigations previously announced on Jan 3, 2018 are unaffected by a recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel on reboot issue. There will be no additional maintenance activity (reboots) on customer VMs as a result of this new information by Intel.
+> Azure mitigations previously announced on Jan 3, 2018 are unaffected by the recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel on the reboot issue. There will be no additional maintenance activity (reboots) on customer VMs as a result of this new information from Intel.
 
 ## Keeping your Operating Systems up-to-date
 
