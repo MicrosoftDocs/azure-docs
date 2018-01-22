@@ -118,7 +118,8 @@ The replication error symptoms for servers in a critical or warning replication 
 >
 > > [!TIP]
 > The count of impacted servers is a useful way to understand if a single underlying issue may be impacting multiple servers. For example, a network glitch may potentially impact all servers replicating from an on-premises site to Azure. This view quickly conveys that fixing that one underlying issue will fix replication for multiple servers.
-> >  
+>
+
 ### 6. Infrastructure view
 
 The infrastructure view provides a scenario wise visual representation of the infrastructural components involved in replication. It also visually depicts the health of the connectivity between the various servers and between the servers and the Azure services involved in replication. 
