@@ -16,7 +16,7 @@
     | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
     | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
 
-3. Select **Create** to provision and deploy the new function app. 
+3. Select **Create** to provision and deploy the function app. 
 
 4. Choose the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message. 
 
