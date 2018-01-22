@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Use with Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Create a Spark machine learning pipeline
+          href: apache-spark-creating-ml-pipelines.md
     - name: Analyze big data
       items:
         - name: Use Spark to read and write HBase data
