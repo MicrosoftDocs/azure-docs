@@ -16,13 +16,9 @@ ms.author: kgremban
 ---
 # React to IoT Hub events by using Event Grid to trigger actions - Preview
 
-Automate your Internet of Things (IoT) scenario by setting alerts based on Azure IoT Hub service events and triggering downstream processes. Azure IoT Hub works with [Azure Event Grid][lnk-eg-overview] for near-real time event routing.   
+Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for IoT Hub events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application to perform multiple actions like updating a database, creating a ticket, and delivering an email notification every time a new IoT device is registered to your IoT hub. 
 
-Azure Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services, including serverless applications like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), as well as non-Azure services using webhooks. 
-
-The integration of Iot Hub and Event Grid enables publishing IoT Hub device lifecycle events in a reliable and scalable way. For example, build an application to automatically perform multiple actions like updating a database, creating a ticket, and delivering an email notification every time a new IoT device is registered to your IoT hub. 
-
-For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid][lnk-eg-overview]. 
+[Azure Event Grid][lnk-eg-overview] is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid][lnk-eg-overview]. 
 
 ![Azure Event Grid architecture](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -120,7 +116,7 @@ devices/{deviceId}
 Applications that handle IoT Hub events should follow these suggested practices:
 
 * Multiple subscriptions can be configured to route events to the same event handler, so it's important not to assume that events are from a particular source. Always check the message topic to ensure that it comes from the IoT hub that you expect. 
-* Don't assume that all events your receive will be the types that you expect. Always check the eventType before processing the message.
+* Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
 * Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date.
 
 
