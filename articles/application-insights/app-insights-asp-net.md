@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 01/19/2018
 ms.author: mbullwin
 
 ---
@@ -35,23 +35,23 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Right-click your web app name in the Solution Explorer, and choose **Configure Application Insights**
 
-![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/app-insights-asp-net/001_Configure_Application_Insights.png)
+![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/app-insights-asp-net/001-Configure-Application-Insights.png)
 
 (Depending on your Application Insights SDK version you may be prompted to upgrade to the latest SDK release. If prompted, select **Update SDK**.)
 
-![Screenshot: A new version of the Microsoft Application Insights SDK is available. Update SDK highlighted](./media/app-insights-asp-net/002_Update_SDK.png)
+![Screenshot: A new version of the Microsoft Application Insights SDK is available. Update SDK highlighted](./media/app-insights-asp-net/002-Update-SDK.png)
 
 Application Insights Configuration screen:
 
 Select **Start Free**.
 
-![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/004_Start_Free.png)
+![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/004-Start-Free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
  Select **Register**. 
 
-![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/005_Register_ed.png)
+![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/005-Register-ed.png)
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
@@ -62,7 +62,7 @@ Run your app with F5. Open different pages to generate some telemetry.
 
 In Visual Studio, you will see a count of the events that have been logged.
 
-![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/app-insights-asp-net/006_Events.png)
+![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/app-insights-asp-net/006-Events.png)
 
 ## Step 3: See your telemetry
 You can see your telemetry either in Visual Studio or in the Application Insights web portal. Search telemetry in Visual Studio to help you debug your app. Monitor performance and usage in the web portal when your system is live. 
