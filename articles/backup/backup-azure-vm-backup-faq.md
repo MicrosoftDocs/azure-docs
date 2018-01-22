@@ -68,6 +68,23 @@ Use restore disks to:
 ### Can I use backups of unmanaged disk VM to restore after I upgrade my disks to managed disks?
 Yes, you can use the backups taken before migrating disks from unmanaged to managed. By default, restore VM job will create a VM with unmanaged disks. You can use restore disks functionality to restore disks and use them to create a VM on managed disks. 
 
+### What is the procedure to restore a VM to a restore point taken before the conversion from unmanaged to managed disks was done for a VM?
+In this scenario, by default, restore VM job will create a VM with unmanaged disks. To create a VM with managed disks:
+1. [Restore to unmanaged disks](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convert the restored disks to managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Create a VM with managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+For Powershell cmdlets, refer [here](backup-azure-vms-automation.md#restore-an-azure-vm).
+
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?
 When a new policy is applied on VM(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted. 
+
+### How can I move a VM enrolled in Azure backup between resource groups?
+Follow the below steps to successfully move the backed-up VM to the target resource group 
+1. Temporarily stop backup and retain backup data
+2. Move the VM to the target resource group
+3. Re-protect it with same/new vault
+
+Users can restore from the available restore points created before the move operation.
+
+

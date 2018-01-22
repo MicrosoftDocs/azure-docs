@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
 
 ---
@@ -55,7 +55,7 @@ During Docker for Windows setup, select a drive on your host machine to share wi
 ![Install Docker for Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**.
+> You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
 
 If you are using Linux, no additional configuration is required to enable access to the file system.
 
@@ -63,7 +63,7 @@ On Windows, create a folder on the drive you shared with Docker, on Linux create
 
 When you refer to the `<SharedFolder>` in a Docker command, be sure to use the correct syntax for your operating system. Here are two examples, one for Windows and one for Linux:
 
-- If your are using the folder `D:\shared` on Windows as your `<SharedFolder>`, the Docker command syntax is `//d/shared`.
+- If your are using the folder `D:\shared` on Windows as your `<SharedFolder>`, the Docker command syntax is `d:/shared`.
 
 - If your are using the folder `/shared` on Linux as your `<SharedFolder>`, the Docker command syntax is `/shared`.
 
@@ -106,30 +106,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - The `<IoTHubOwnerConnectionString>` is the **iothubowner** shared access policy connection string from the Azure portal. You copied this connection string in a previous step. You only need this connection string for the first run of OPC Publisher. On subsequent runs you should omit it because it poses a security risk.
 
-- The `<SharedFolder>` you use and its syntax is described in the section [Install and configure Docker](#install-and-configure-docker). OPC Publisher uses the `<SharedFolder>` to read the OPC Publisher configuration file, write the log file, and make both these files available outside of the container.
+- The `<SharedFolder>` you use and its syntax is described in the section [Install and configure Docker](#install-and-configure-docker). OPC Publisher uses the `<SharedFolder>` to read and write to the OPC Publisher configuration file, write to the log file, and make both these files available outside of the container.
 
-- OPC Publisher reads its configuration from the **publishednodes.json** file, which you should place in the `<SharedFolder>/docker` folder. This configuration file defines which OPC UA node data on a given OPC UA server the OPC Publisher should subscribe to.
-
-- Whenever the OPC UA server notifies OPC Publisher of a data change, the new value is sent to IoT Hub. Depending on the batching settings, the OPC Publisher may first accumulate the data before it sends the data to IoT Hub in a batch.
-
-- The full syntax of the **publishednodes.json** file is described on the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) page on GitHub.
-
-    The following snippet shows a simple example of a **publishednodes.json** file. This example shows how to publish the **CurrentTime** value from an OPC UA server with hostname **win10pc**:
+- OPC Publisher reads its configuration from the **publishednodes.json** file, which is read from and written to the `<SharedFolder>/docker` folder. This configuration file defines which OPC UA node data on a given OPC UA server the OPC Publisher should subscribe to. The full syntax of the **publishednodes.json** file is described on the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) page on GitHub. When you add a gateway, put an empty **publishednodes.json** into the folder:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    In the **publishednodes.json** file, the OPC UA server is specified by the endpoint URL. If you specify the hostname using a hostname label (such as **win10pc**) as in the previous example instead of an IP address, the network address resolution in the container must be able to resolve this hostname label to an IP address.
+- Whenever the OPC UA server notifies OPC Publisher of a data change, the new value is sent to IoT Hub. Depending on the batching settings, the OPC Publisher may first accumulate the data before it sends the data to IoT Hub in a batch.
 
 - Docker does not support NetBIOS name resolution, only DNS name resolution. If you don't have a DNS server on the network, you can use the workaround shown in the previous command line example. The previous command line example uses the `--add-host` parameter to add an entry into the containers hosts file. This entry enables hostname lookup for the given `<OpcServerHostname>`, resolving to the given IP address `<IpAddressOfOpcServerHostname>`.
 
@@ -167,16 +153,21 @@ You can now connect to the gateway from the cloud, and you are ready to add OPC 
 
 To add your own OPC UA servers to the Connected factory preconfigured solution:
 
-1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal. Follow the same steps as in the previous section to establish a trust relationship between the Connected factory portal and the OPC UA server.
+1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal.
 
-    ![Solution portal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Start the OPC UA server you want to connect to. Ensure that your OPC UA server can be reached from OPC Publisher and OPC Proxy running in the container (see the previous comments about name resolution).
+    1. Enter the endpoint URL of your OPC UA server (`opc.tcp://<host>:<port>`) and click **Connect**.
+    1. As part of the connection setup, a trust relationship between the Connected factory portal (OPC UA client) and the OPC UA server you are trying to connect is established. In the Connected factory dashboard you get a **Certificate of the server you want to connect cannot be verified** warning. When you see a certificate warning, click **Proceed**.
+    1. More difficult to setup is the certificate configuration of the OPC UA server you are trying to connect to. For PC based OPC UA servers, you may just get a warning dialog in the dashboard that you can acknowledge. For embedded OPC UA server systems, consult the documentation of your OPC UA server to look up how this task is done. To complete this task, you may need the certificate of the Connected factory portal's OPC UA client. An Administrator can download this certificate on the **Connect your own OPC UA server** page:
 
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send to Connected factory, and select **publish**.
+        ![Solution portal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send values to Connected factory, and select **publish**.
 
 1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the Connected factory portal under **New Factory**.
 
 ## Next steps
 
-To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).
+Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

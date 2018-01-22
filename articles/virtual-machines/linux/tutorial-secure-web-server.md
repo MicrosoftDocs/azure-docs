@@ -155,4 +155,4 @@ In this tutorial, you secured an NGINX web server with an SSL certificate stored
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./cli-samples.md)
+> [Linux virtual machine script samples](./cli-samples.md)

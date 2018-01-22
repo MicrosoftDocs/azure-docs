@@ -34,8 +34,7 @@ queues**.
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby Application
-Create a Ruby application. For instructions, 
-see [Ruby on Rails Web application on an Azure VM](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 ## Configure Your Application to Access Storage
 To use Azure storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.

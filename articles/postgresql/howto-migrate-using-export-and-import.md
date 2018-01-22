@@ -31,7 +31,7 @@ For example, if you have a local server and a database called **testdb** in it:
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
 
-## Import the data on target Azure Database for PostrgeSQL
+## Import the data on target Azure Database for PostgreSQL
 You can use the psql command line and the --dbname parameter (-d) to import the data into the Azure Database for PostgreSQL server and load data from the sql file.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
