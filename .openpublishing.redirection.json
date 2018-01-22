@@ -8222,6 +8222,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-monitoring-and-troubleshooting.md",
+            "redirect_url": "site-recovery-monitor-and-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-aadconnect-design-concepts.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-design-concepts",
             "redirect_document_id": false
