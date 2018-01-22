@@ -17,17 +17,31 @@ A key allows you to publish your LUIS app. LUIS has two different types of keys:
 
 ## Programmatic key
 
-A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. This key gives you one million (1,000,000) authoring hits and ten thousand (10,000) endpoint hits per month so you can start using your LUIS app now. You have one programmatic key across all your LUIS apps.
+A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one programmatic key across all your LUIS apps. Use the [key limits chart](#key-limits) to understand the purpose and limit of the key. 
 
-To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.ai) and click on the account name in the upper-right navigation bar to open **Account Settings**, which displays the Programmatic Key.
+To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.ai) and click on the account name in the upper-right navigation bar to open **Account Settings**.
+
+![Programmatic Key](./media/luis-manage-keys/programatic-key.png)
 
 ## Endpoint Key
 
- When you need more than ten thousand (10,000) endpoint hits per month, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+ When you need a larger limit than the programmatic key, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
 An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint key can be used for all your LUIS apps or for specific LUIS apps. When you publish each LUIS app, you set the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
+
+## Key limits
+The programmatic key has different limits for authoring and endpoint. The subscription key has a total limit regardless of authoring or endpoint.
+
+|Key|Authoring|Endpoint|Purpose|
+|--|--|--|--|
+|Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
+|Subscription - F0 - Free tier |10 thousand/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
+|Subscription - S0 - Basic tier|1 million/month, 50/second|1 million/month, 50/second|Querying your LUIS endpoint|
  
-### To create and use an endpoint key:
+## Key limits errors
+If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
+
+## Create and use an endpoint key:
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
@@ -48,7 +62,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 ## Regions and keys
 
-The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create a Azure LUIS endpoint key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
+The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
 ## Publishing regions
 
