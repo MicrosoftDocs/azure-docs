@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Deploy a Service Fabric Linux cluster into an Azure virtual network
-This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network (VNET) and sub-net using Azure CLI. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In this tutorial, you learn how to:
 
@@ -45,9 +45,6 @@ Before you begin this tutorial:
 - Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
-## Introduction
-This tutorial deploys a Service Fabric Windows cluster of five nodes in a single node type into a [virtual network in Azure](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md).
 
 ## Key concepts
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties.

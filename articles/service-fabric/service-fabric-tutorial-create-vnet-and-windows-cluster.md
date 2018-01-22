@@ -19,7 +19,9 @@ ms.custom: mvc
 ---
 
 # Deploy a Service Fabric Windows cluster into an Azure virtual network
-This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an Azure virtual network (VNET) and network security group using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+
+This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).
 
 In this tutorial, you learn how to:
 
@@ -45,9 +47,6 @@ Before you begin this tutorial:
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
-## Introduction
-This tutorial deploys a Service Fabric Windows cluster of five nodes in a single node type into a [virtual network in Azure](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md). This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).
 
 ## Key concepts
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties.
