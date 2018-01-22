@@ -214,7 +214,7 @@ When outbound connections are used with a zone-redundant front-end, the connecti
 
 The new algorithm in Load Balancer Standard preallocates SNAT ports to the NIC of each VM. When a NIC is added to the pool, the SNAT ports are preallocated based on the pool size. The following table shows the port preallocations for six tiers of back-end pool sizes:
 
-| Pool size (VM instances) | Preallocated SNAT port |
+| Pool size (VM instances) | Preallocated number of SNAT ports |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
