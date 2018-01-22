@@ -21,7 +21,7 @@ ms.author: acomet
 # Cheat sheet for Azure SQL Data Warehouse
 This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
 
-The following shows the process of designing a SQL Data Warehouse:
+The following graphic shows the process of designing a data warehouse:
 
 ![Sketch]
 
@@ -36,7 +36,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) or Azure Blob Storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
+First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -69,29 +69,29 @@ Learn more about [replicated tables] and [distributed tables].
 
 ## Index your table
 
-Indexing is helpful for reading tables quickly. There is a unique set of technologies you can use based on your needs:
+Indexing is helpful for reading tables quickly. There is a unique set of technologies that you can use based on your needs:
 
 | Type | Great fit for... | Watch out if...|
 |:--- |:--- |:--- |
 | Heap | • Staging/temporary table<br></br>• Small tables with small lookups |• Any lookup scans the full table |
-| Clustered Index | • Up to 100m rows table<br></br>• Large tables (more than 100m rows) with only 1-2 columns heavily used |•	Used on a replicated table<br></br>•	You have complex queries involving multiple join and Group By operations<br></br>•	You make updates on the indexed columns: it takes memory |
-| Clustered Columnstore Index (CCI) (default) | •	Large tables (more than 100m rows) | •	Used on a replicated table<br></br>•	You make massive update operations on your table<br></br>•	You overpartition your table: row groups do not span across different distribution nodes and partitions |
+| Clustered index | • Tables with up to 100 million rows<br></br>• Large tables (more than 100 million rows) with only 1-2 columns heavily used |•	Used on a replicated table<br></br>•	You have complex queries involving multiple join and Group By operations<br></br>•	You make updates on the indexed columns: it takes memory |
+| Clustered columnstore index (CCI) (default) | •	Large tables (more than 100 million rows) | •	Used on a replicated table<br></br>•	You make massive update operations on your table<br></br>•	You overpartition your table: row groups do not span across different distribution nodes and partitions |
 
 **Tips:**
-* On top of a Clustered Index, you might want to add a Nonclustered Index to a column heavily used for filtering. 
+* On top of a clustered index, you might want to add a nonclustered index to a column heavily used for filtering. 
 * Be careful how you manage the memory on a table with CCI. When you load data, you want the user (or the query) to benefit from a large resource class. Make sure to avoid trimming and creating many small compressed row groups.
 * Optimized for Compute Tier rocks with CCI.
-* For CCI, slow performance can happen due to poor compression of your row groups. If this occurs, rebuild or reorganize your CCI. You want at least 100k rows per compressed row groups. The ideal is 1m rows in a row group.
+* For CCI, slow performance can happen due to poor compression of your row groups. If this occurs, rebuild or reorganize your CCI. You want at least 100,000 rows per compressed row groups. The ideal is 1 million rows in a row group.
 * Based on the incremental load frequency and size, you want to automate when you reorganize or rebuild your indexes. Spring cleaning is always helpful.
 * Be strategic when you want to trim a row group. How large are the open row groups? How much data do you expect to load in the coming days?
 
 Learn more about [indexes].
 
 ## Partitioning
-You might partition your table when you have a large fact table (greater than 1B rows). In 99 percent of cases, the partition key should be based on date. Be careful to not overpartition, especially when you have a Clustered Columnstore Index.
+You might partition your table when you have a large fact table (greater than 1 billion rows). In 99 percent of cases, the partition key should be based on date. Be careful to not overpartition, especially when you have a clustered columnstore index.
 
 With staging tables that require ELT, you can benefit from partitioning. It facilitates data lifecycle management.
-Be careful not to overpartition your data, especially on a Clustered Columnstore Index.
+Be careful not to overpartition your data, especially on a clustered columnstore index.
 
 Learn more about [partitions].
 
@@ -128,9 +128,9 @@ Autoscale now at the time you want with Azure Functions:
 
 ## Optimize your architecture for performance
 
-We recommend considering SQL Database and Azure Analysis Services in a Hub and Spokes architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
+We recommend considering SQL Database and Azure Analysis Services in a hub-and-spoke architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
 
-Learn more about [typical architectures leveraging SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Learn more about [typical architectures that take advantage of SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 
@@ -154,11 +154,11 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 
 
 <!--Other Web references-->
-[typical architectures leveraging SQL DW]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 [replicated tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
 [distributed tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[into ADLS]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
+[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
 [sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
