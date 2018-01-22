@@ -169,8 +169,7 @@ The main changes made are the following:
         }
     }
     ```
-
-
+    
     > [!NOTE]
     > If you added the `applicationDiagnosticsStorageAccountName` as a variable, make sure to modify each reference to it to `variables('applicationDiagnosticsStorageAccountName')` instead of `parameters('applicationDiagnosticsStorageAccountName')`.
 
