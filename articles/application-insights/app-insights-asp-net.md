@@ -35,23 +35,23 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Right-click your web app name in the Solution Explorer, and choose **Configure Application Insights**
 
-![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/app-insights-asp-net/001-Configure-Application-Insights.png)
+![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/app-insights-asp-net/001-configure-application-insights.png)
 
 (Depending on your Application Insights SDK version you may be prompted to upgrade to the latest SDK release. If prompted, select **Update SDK**.)
 
-![Screenshot: A new version of the Microsoft Application Insights SDK is available. Update SDK highlighted](./media/app-insights-asp-net/002-Update-SDK.png)
+![Screenshot: A new version of the Microsoft Application Insights SDK is available. Update SDK highlighted](./media/app-insights-asp-net/002-update-sdk.png)
 
 Application Insights Configuration screen:
 
 Select **Start Free**.
 
-![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/004-Start-Free.png)
+![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/004-start-free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
  Select **Register**. 
 
-![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/005-Register-ed.png)
+![Screenshot of Register your app with Application Insights page](./media/app-insights-asp-net/005-register-ed.png)
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
