@@ -43,6 +43,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 
 ```c#
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -144,68 +145,80 @@ namespace CSHttpClientSample
 		/// </summary>
 		/// <param name="json">The raw JSON string to format.</param>
 		/// <returns>The formatted JSON string.</returns>
-		static string JsonPrettyPrint(string json)
-		{
-			if (string.IsNullOrEmpty(json))
-				return string.Empty;
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-			json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
-			StringBuilder sb = new StringBuilder();
-			bool quote = false;
-			bool ignore = false;
-			int offset = 0;
-			int indentLength = 3;
-
-			foreach(char ch in json)
-			{
-				switch (ch)
-				{
-					case '"':
-						if (!ignore) quote = !quote;
-						break;
-					case '\'':
-						if (quote) ignore = !ignore;
-						break;
-				}
-
-				if (quote)
-					sb.Append(ch);
-				else
-				{
-					switch (ch)
-					{
-						case '{':
-						case '[':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', ++offset * indentLength));
-							break;
-						case '}':
-						case ']':
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', --offset * indentLength));
-							sb.Append(ch);
-							break;
-						case ',':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', offset * indentLength));
-							break;
-						case ':':
-							sb.Append(ch);
-							sb.Append(' ');
-							break;
-						default:
-							if (ch != ' ') sb.Append(ch);
-							break;
-					}
-				}
-			}
-
-			return sb.ToString().Trim();
-		}
-	}
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
+        }
+    }
 }
 ```
 
@@ -292,6 +305,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 
 ```c#
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -396,68 +410,80 @@ namespace CSHttpClientSample
 		/// </summary>
 		/// <param name="json">The raw JSON string to format.</param>
 		/// <returns>The formatted JSON string.</returns>
-		static string JsonPrettyPrint(string json)
-		{
-			if (string.IsNullOrEmpty(json))
-				return string.Empty;
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-			json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
-			StringBuilder sb = new StringBuilder();
-			bool quote = false;
-			bool ignore = false;
-			int offset = 0;
-			int indentLength = 3;
-
-			foreach (char ch in json)
-			{
-				switch (ch)
-				{
-					case '"':
-						if (!ignore) quote = !quote;
-						break;
-					case '\'':
-						if (quote) ignore = !ignore;
-						break;
-				}
-
-				if (quote)
-					sb.Append(ch);
-				else
-				{
-					switch (ch)
-					{
-						case '{':
-						case '[':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', ++offset * indentLength));
-							break;
-						case '}':
-						case ']':
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', --offset * indentLength));
-							sb.Append(ch);
-							break;
-						case ',':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', offset * indentLength));
-							break;
-						case ':':
-							sb.Append(ch);
-							sb.Append(' ');
-							break;
-						default:
-							if (ch != ' ') sb.Append(ch);
-							break;
-					}
-				}
-			}
-
-			return sb.ToString().Trim();
-		}
-	}
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
+        }
+    }
 }
 ```
 
@@ -494,6 +520,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 
 ```c#
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -604,68 +631,80 @@ namespace CSHttpClientSample
 		/// </summary>
 		/// <param name="json">The raw JSON string to format.</param>
 		/// <returns>The formatted JSON string.</returns>
-		static string JsonPrettyPrint(string json)
-		{
-			if (string.IsNullOrEmpty(json))
-				return string.Empty;
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-			json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
-			StringBuilder sb = new StringBuilder();
-			bool quote = false;
-			bool ignore = false;
-			int offset = 0;
-			int indentLength = 3;
-
-			foreach (char ch in json)
-			{
-				switch (ch)
-				{
-					case '"':
-						if (!ignore) quote = !quote;
-						break;
-					case '\'':
-						if (quote) ignore = !ignore;
-						break;
-				}
-
-				if (quote)
-					sb.Append(ch);
-				else
-				{
-					switch (ch)
-					{
-						case '{':
-						case '[':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', ++offset * indentLength));
-							break;
-						case '}':
-						case ']':
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', --offset * indentLength));
-							sb.Append(ch);
-							break;
-						case ',':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', offset * indentLength));
-							break;
-						case ':':
-							sb.Append(ch);
-							sb.Append(' ');
-							break;
-						default:
-							if (ch != ' ') sb.Append(ch);
-							break;
-					}
-				}
-			}
-
-			return sb.ToString().Trim();
-		}
-	}
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
+        }
+    }
 }
 ```
 ### Get a Thumbnail response
@@ -701,6 +740,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 
 ```c#
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -802,68 +842,80 @@ namespace CSHttpClientSample
 		/// </summary>
 		/// <param name="json">The raw JSON string to format.</param>
 		/// <returns>The formatted JSON string.</returns>
-		static string JsonPrettyPrint(string json)
-		{
-			if (string.IsNullOrEmpty(json))
-				return string.Empty;
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-			json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
-			StringBuilder sb = new StringBuilder();
-			bool quote = false;
-			bool ignore = false;
-			int offset = 0;
-			int indentLength = 3;
-
-			foreach (char ch in json)
-			{
-				switch (ch)
-				{
-					case '"':
-						if (!ignore) quote = !quote;
-						break;
-					case '\'':
-						if (quote) ignore = !ignore;
-						break;
-				}
-
-				if (quote)
-					sb.Append(ch);
-				else
-				{
-					switch (ch)
-					{
-						case '{':
-						case '[':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', ++offset * indentLength));
-							break;
-						case '}':
-						case ']':
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', --offset * indentLength));
-							sb.Append(ch);
-							break;
-						case ',':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', offset * indentLength));
-							break;
-						case ':':
-							sb.Append(ch);
-							sb.Append(' ');
-							break;
-						default:
-							if (ch != ' ') sb.Append(ch);
-							break;
-					}
-				}
-			}
-
-			return sb.ToString().Trim();
-		}
-	}
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
+        }
+    }
 }
 ```
 
@@ -957,6 +1009,7 @@ Create a new Console solution in Visual Studio, then replace Program.cs with the
 
 ```c#
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -1094,68 +1147,80 @@ namespace CSHttpClientSample
 		/// </summary>
 		/// <param name="json">The raw JSON string to format.</param>
 		/// <returns>The formatted JSON string.</returns>
-		static string JsonPrettyPrint(string json)
-		{
-			if (string.IsNullOrEmpty(json))
-				return string.Empty;
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-			json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
-			StringBuilder sb = new StringBuilder();
-			bool quote = false;
-			bool ignore = false;
-			int offset = 0;
-			int indentLength = 3;
-
-			foreach (char ch in json)
-			{
-				switch (ch)
-				{
-					case '"':
-						if (!ignore) quote = !quote;
-						break;
-					case '\'':
-						if (quote) ignore = !ignore;
-						break;
-				}
-
-				if (quote)
-					sb.Append(ch);
-				else
-				{
-					switch (ch)
-					{
-						case '{':
-						case '[':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', ++offset * indentLength));
-							break;
-						case '}':
-						case ']':
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', --offset * indentLength));
-							sb.Append(ch);
-							break;
-						case ',':
-							sb.Append(ch);
-							sb.Append(Environment.NewLine);
-							sb.Append(new string(' ', offset * indentLength));
-							break;
-						case ':':
-							sb.Append(ch);
-							sb.Append(' ');
-							break;
-						default:
-							if (ch != ' ') sb.Append(ch);
-							break;
-					}
-				}
-			}
-
-			return sb.ToString().Trim();
-		}
-	}
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
+        }
+    }
 }
 ```
 
