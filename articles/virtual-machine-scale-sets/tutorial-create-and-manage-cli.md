@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 01/22/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -52,8 +52,6 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image UbuntuLTS \
-  --vm-sku Standard_DS1_v2 \
-  --instance-count 2 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -92,7 +90,7 @@ az vmss get-instance-view \
 
 
 ## List connection information
-A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you SSH or RDP to an assigned public IP address and port number.
+A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you create a remote connection to an assigned public IP address and port number.
 
 To list the address and ports to connect to VM instances in a scale set, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
@@ -223,7 +221,7 @@ The output is similar to the following condensed example, which shows the resour
 ```
 
 ### Create a scale set with a specific VM instance size
-When you created a scale set at the start of the tutorial, a `--vm-sku` of *Standard_D1_v2* was specified for the VM instances. You can specify a different VM instance size based on the output from [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
+When you created a scale set at the start of the tutorial, a default VM SKU of *Standard_D1_v2* was provided for the VM instances. You can specify a different VM instance size based on the output from [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). The following example would create a scale set with the `--vm-sku` parameter to specify a VM instance size of *Standard_F1*. As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurecli-interactive
 az vmss create \
@@ -237,7 +235,7 @@ az vmss create \
 
 
 ## Change the capacity of a scale set
-When you created a scale set, you requested two VM instances. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
+When you created a scale set at the start of the tutorial, two VM instances were deployed by default. You can specify the `--instance-count` parameter with [az vmss create](/cli/azure/vmss#az_vmss_create) to change the number of instances created with a scale set. To increase or decrease the number of VM instances in your existing scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
 
 To manually increase or decrease the number of VM instances in the scale set, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VM instances in your scale set to *3*:
 
