@@ -1,5 +1,6 @@
 ---
 title: Bing Search SDK | Microsoft Docs
+titleSuffix: Microsoft Cognitive Services
 description: Preview of the Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
@@ -12,7 +13,7 @@ ms.date: 1/19/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
-The Bing Search API samples include search scenarios that: 1. Use a single-word query to get results and print out name and url for each of the first web, image, news, and video results; 2. Query on a phrase, verify the number of results, and print out name and url of first result; 3. Query on search term with response filters set to `news` and print the details of news results; 4. Query on a search term with `answerCount` and `promote` parameters and then print details of results.
+The Bing Search API samples include search scenarios that: first, use a single-word query to get results and print out name and url for the first web, image, news, and video results; second Query on a phrase, verify the number of results, and print out name and url of first result; third Query on search term with response filters set to `news` and print the details of news results; and fourth, query on a search term with `answerCount` and `promote` parameters, then print details of results.
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started: with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
