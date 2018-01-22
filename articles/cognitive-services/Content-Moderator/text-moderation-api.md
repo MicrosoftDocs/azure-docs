@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Text moderation
 
-Use Content Moderator’s machine-assisted text moderation and and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate text content. The API scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and detects potential Personally Identifiable Information (PII), all while matching against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take other steps such as taking it down, sending it to your system, etc.
+Use Content Moderator’s machine-assisted text moderation and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate text content. The API scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
 
 The service response includes the following information:
 
@@ -26,7 +26,7 @@ The service response includes the following information:
 
 ## Profanity
 
-If any profane terms are detected, those are included in the response, along with their starting index (location) within the original text.
+If any profane terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
 
 	"Terms": [
 	{
@@ -120,8 +120,8 @@ The following example shows the matching List ID:
 		"Term": "crap"
 	}
 
-The Content Moderator provides a complete [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for creating and deleting lists of terms, and for adding and removing text terms from those lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET QuickStart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+The Content Moderator provides a [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for managing custom term lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET quickStart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET QuickStart](text-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickStart](text-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
