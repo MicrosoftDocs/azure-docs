@@ -4670,6 +4670,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
             "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
             "redirect_document_id": false

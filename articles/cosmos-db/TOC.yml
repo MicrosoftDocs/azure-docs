@@ -341,7 +341,7 @@
     - name: Manage keys and consistency
       href: manage-account.md
     - name: Azure Storage Explorer
-      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+      href: storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
