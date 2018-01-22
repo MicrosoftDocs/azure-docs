@@ -94,11 +94,14 @@ To function correctly, the backup extension requires connectivity to the Azure p
 
 ####  Solution
 To resolve the issue, try one of the methods listed here.
-##### Allow access to the Azure datacenter IP ranges
+##### Allow access to the Azure storage corresponding to the region
 
-1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to allow access to.
-2. Unblock the IPs by running the **New-NetRoute** cmdlet in the Azure VM in an elevated PowerShell window. Run the cmdlet as an administrator.
-3. To allow access to the IPs, add rules to the network security group, if you have one.
+You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
+
+![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ##### Create a path for HTTP traffic to flow
 
