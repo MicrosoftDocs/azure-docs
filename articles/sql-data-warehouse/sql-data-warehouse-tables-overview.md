@@ -84,7 +84,7 @@ A replicated table has a full copy of the table available on every Compute node.
 For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
 
 ### Round-robin tables
-A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is sfast.  However, queries can require more data movement than the other distribution methods. 
+A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  However, queries can require more data movement than the other distribution methods. 
 
 For more information, see [Design guidance for distributed tables](sql-data-warehouse-tables-distribute.md).
 
