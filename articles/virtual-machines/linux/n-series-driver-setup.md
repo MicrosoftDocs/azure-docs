@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 01/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -53,7 +53,7 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 Then run installation commands specific for your distribution.
 
-### Ubuntu 16.04 LTS
+### Ubuntu
 
 1. Download and install the CUDA drivers.
   ```bash
@@ -99,18 +99,25 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS-based or Red Hat Enterprise Linux
 
-1. Install the latest Linux Integration Services for Hyper-V.
+1. Update the kernel
+
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot.
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   > [!IMPORTANT]
-  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
+  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 4. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-4.tar.gz
  
   cd LISISO
  
@@ -122,8 +129,6 @@ sudo reboot
 3. Reconnect to the VM and continue installation with the following commands:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -235,7 +240,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 9. Reboot the VM and proceed to verify the installation.
 
 
-### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS-based or Red Hat Enterprise Linux 
 
 1. Update the kernel and DKMS.
  
@@ -260,9 +265,9 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-4.tar.gz
 
   cd LISISO
 
@@ -341,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
 
 ## Troubleshooting
-
-* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77.
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
 

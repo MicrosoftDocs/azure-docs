@@ -4,7 +4,11 @@
 ### NC, NCv2, and ND instances - NVIDIA CUDA drivers
 | Distribution | Driver |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-based 7.3 | NVIDIA CUDA 9.1, driver branch R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 or 7.4<br/><br/> CentOS-based 7.3 or 7.4 | NVIDIA CUDA 9.1, driver branch R390 |
+
+> [!IMPORTANT]
+> Ensure that you install or upgrade to the latest CUDA drivers for your distribution. Drivers older than version R390 might have problems with updated Linux kernels.
+>
 
 ### NV instances - NVIDIA GRID drivers
 
