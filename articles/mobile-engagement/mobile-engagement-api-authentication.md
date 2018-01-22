@@ -93,7 +93,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
 8. Here is how the set of PowerShell cmdlets looks.
     ![PowerShell cmdlets][3]
 9. In the Azure portal, go to Active Directory, select **App registrations**, and then search for your app to make sure it exists.
-    ![][4]
+    ![Search for your app][4]
 
 ### Steps to get a valid token
 
