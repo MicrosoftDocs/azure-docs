@@ -20,32 +20,7 @@ In this tutorial, you learn how to perform various Ansible tasks in the Azure Cl
 
 - **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-## Configure Cloud Shell
-
-If you have never used Cloud Shell, the following steps guide you through setting it up the first time you use it:
-
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Select the Cloud Shell icon from the top navigation of the Azure portal.
-
-  ![Select the Cloud Shell icon to run Bash commands against Azure from your favorite browser.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-icon.png)
-
-1. Select the **Bash** option.
-
-  ![Cloud Shell supports both Bash or PowerShell.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-select-env.png)
-
-1. Select a subscription to create a storage account and Microsoft Azure Files share, and select **Create Storage**.
-
-  ![Cloud Shell requires an Azure file share to persist files.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-create-storage.png)
-
-1. You should now see results similar to the following output:
-
-  ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-started.png)
-
-> [!NOTE]
-> By default, Ansible is installed in the Bash environment of Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates the active Azure subscription to deploy resources through the Ansible Azure modules.
->
->
+- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) illustrates how to start and configure Cloud Shell.
 
 ## Use Ansible to connect to a VM
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
