@@ -235,8 +235,6 @@
         items:
         - name: SQL grammar cheat sheet
           href: sql-api-sql-query-cheat-sheet.md
-        - name: Stack Overflow
-          href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
@@ -354,6 +352,8 @@
         href: secure-access-to-data.md
   - name: Integrate
     items:
+    - name: Implement a lambda architecture with HDInsight
+      href: lambda-architecture.md
     - name: Connect to Spark
       href: spark-connector.md
     - name: Connect to Spark GraphX
@@ -430,7 +430,5 @@
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

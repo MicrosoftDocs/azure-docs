@@ -26,6 +26,8 @@
       href: text-moderation-quickstart-dotnet.md
     - name: Custom terms - API console
       href: try-terms-list-api.md
+    - name: Custom terms - .NET
+      href: term-lists-quickstart-dotnet.md 
     - name: Videos - .NET
       href: video-moderation-api.md
   - name: Review APIs
@@ -38,8 +40,14 @@
       href: try-review-api-review.md
     - name: Reviews - .NET
       href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews - .NET
+      href: video-reviews-quickstart-dotnet.md
     - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: Concepts
   items: 
   - name: Image moderation
@@ -88,9 +96,7 @@
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/
-  - name: Samples
-    href: https://github.com/MicrosoftContentModerator
+  - name: SDK and samples
+    href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md

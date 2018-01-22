@@ -136,7 +136,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## Azure VM Extension
-You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
+You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
 
 To deploy the Azure VM Extension via PowerShell, you can use the following example:
 ```PowerShell
