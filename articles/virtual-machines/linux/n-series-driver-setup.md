@@ -99,7 +99,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS-based or Red Hat Enterprise Linux
+### CentOS or Red Hat Enterprise Linux
 
 1. Update the kernel
 
@@ -240,7 +240,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 9. Reboot the VM and proceed to verify the installation.
 
 
-### CentOS-based or Red Hat Enterprise Linux 
+### CentOS or Red Hat Enterprise Linux 
 
 1. Update the kernel and DKMS.
  
