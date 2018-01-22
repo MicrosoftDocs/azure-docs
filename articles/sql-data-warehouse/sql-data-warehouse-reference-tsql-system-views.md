@@ -3,7 +3,7 @@ title: SQL Data Warehouse system views | Microsoft Docs
 description: Links to system views content for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
+ms.date: 01/22/2018
+ms.author: barbkess
 
 ---
 # System views
@@ -56,7 +56,7 @@ ms.author: kevin;barbkess
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql.md)
 
 ## SQL Server DMVs applicable to SQL Data Warehouse
 The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
