@@ -638,10 +638,14 @@ VALUES
         }
     ]
     ```
+## Monitor the pipeline
 
-## Monitor the second pipeline run
-1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline.
+1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
+
+    ![Pipeline runs](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
 2. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
+
+    ![Activity runs](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 
 ## Review the final results
 In SQL Server Management Studio, run the following queries against the target database to verify that the updated/new data was copied from source tables to destination tables. 
