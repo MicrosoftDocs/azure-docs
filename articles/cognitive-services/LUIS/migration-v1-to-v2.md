@@ -14,11 +14,10 @@ ms.author: v-geberr
 ---
 
 # API v2 Migration guide
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated on SOMEDATE. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
-
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated soon. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 ## New Azure regions
-LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authoring in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
+LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
 
 ## Authoring route changes
 The authoring API route changed from using the **prog** route to using the **api** route.
@@ -130,7 +129,7 @@ Several APIs that return LUIS metadata have new names.
 
 
 ## Sample renamed to suggest
-LUIS suggests utterances from existing [endpoint utterances](label-suggested-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from **sample** to **suggest**. This is called "Review endpoint utterances" in the LUIS website.
+LUIS suggests utterances from existing [endpoint utterances](label-suggested-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** in the LUIS website.
 
 | version | route |
 |--|--|
