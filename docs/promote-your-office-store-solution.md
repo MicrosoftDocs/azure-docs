@@ -8,15 +8,15 @@ ms.date: 1/11/2018
 
 After you submit your solution to the Seller Dashboard and it is approved for addition to AppSource, you might want to brand it as an AppSource solution on your webpage. You can use the AppSource badges to promote your solution and drive traffic from your site to AppSource. To do so:
 
-1. Download the [AppSource Badge zip file](http://download.microsoft.com/download/2/4/D/24D59A35-F3C6-410D-AF29-43C9304631FE/OfficeDownload.zip).
+1. Download the [AppSource Badge zip file](http://download.microsoft.com/download/A/1/F/A1F9C6C4-3543-4E4A-A4D1-76ED58EBDF6C/Microsoft_App_Source_Badges_EN_US.zip).
 
 2. Select the badge size that best suits your needs. 
 
    |**Badge size**|**How it looks**|
    |:-----|:-----|
-   |Small|![Screenshot of the small-sized AppSource badge](images/download-from-office-store-logo-small.png)|
-   |Medium|![Screenshot of the medium-sized AppSource badge](images/download-from-office-store-logo-medium.png)|
-   |Large|![Screenshot of the large-sized AppSource badge](images/download-from-office-store-logo-large.png)|
+   |Small|![Screenshot of the small-sized AppSource badge](images/appsource-badge-small.png)|
+   |Medium|![Screenshot of the medium-sized AppSource badge](images/appsource-badge-medium.png)|
+   |Large|![Screenshot of the large-sized AppSource badge](images/appsource-badge-large.png)|
 
 3. Add the badge to your app or add-in webpage, directly following the link. This makes it clear to your users that they can download your app or add-in from AppSource. 
 
