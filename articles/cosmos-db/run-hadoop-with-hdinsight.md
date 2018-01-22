@@ -13,13 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
 
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Run an Apache Hive, Pig, or Hadoop job using Azure Cosmos DB and HDInsight
 This tutorial shows you how to run [Apache Hive][apache-hive], [Apache Pig][apache-pig], and [Apache Hadoop][apache-hadoop] MapReduce jobs on Azure HDInsight with Cosmos DB's Hadoop connector. Cosmos DB's Hadoop connector allows Cosmos DB to act as both a source and sink for Hive, Pig, and MapReduce jobs. This tutorial will use Cosmos DB as both the data source and destination for Hadoop jobs.
+
+> [!IMPORTANT] 
+> The Spark to Azure Cosmos DB connector is the recommended option for connecting Azure HDInsight to Azure Cosmos DB. For more information, see [Accelerate real-time big-data analytics with the Spark to Azure Cosmos DB connector](spark-connector.md).
 
 After completing this tutorial, you'll be able to answer the following questions:
 
