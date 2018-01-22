@@ -134,16 +134,14 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 ## SQL Server DMVs available in SQL Data Warehouse
 SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
-Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
-
-This is why each of these DMV's has a specific column called pdw_node_id. This is the the identifier for the Compute node. In PDW the Compute node is a stronger concept for the architecture. In SQL Data Warehouse, the architecture relies more heavily on the distributions.
+SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
-> To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table.
+> To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
 > 
 > 
 
-| DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
+| DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
