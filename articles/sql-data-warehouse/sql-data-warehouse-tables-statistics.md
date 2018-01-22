@@ -30,12 +30,12 @@ ms.author: barbkess
 > 
 > 
 
-The more SQL Data Warehouse knows about your data, the faster it can execute queries against it. Collecting statistics on your data and then loading it into SQL Data Warehouse is one of the most important things you can do to optimize your queries. This is because the SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost, which is in most cases the plan that executes the fastest. For example, if the optimizer estimates that the date you are filtering in your query will return one row, it can choose a different plan than if it estimates that the selected date will return one million rows.
+The more Azure SQL Data Warehouse knows about your data, the faster it can execute queries against it. Collecting statistics on your data and then loading it into SQL Data Warehouse is one of the most important things you can do to optimize your queries. This is because the SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost, which is in most cases the plan that executes the fastest. For example, if the optimizer estimates that the date you are filtering in your query will return one row, it can choose a different plan than if it estimates that the selected date will return 1 million rows.
 
 The process of creating and updating statistics is currently a manual process, but it is simple to do.  Soon you will be able to automatically create and update statistics on single columns and indexes.  By using the following information, you can greatly automate the management of the statistics on your data. 
 
 ## Getting started with statistics
-Creating sampled statistics on every column is an easy way to get started. Out-of-date statistics lead to sub-optimal query performance. However, updating statistics on all columns as your data grows can consume memory. 
+Creating sampled statistics on every column is an easy way to get started. Out-of-date statistics lead to suboptimal query performance. However, updating statistics on all columns as your data grows can consume memory. 
 
 The following are recommendations for different scenarios:
 | **Scenario** | Recommendation |
@@ -43,22 +43,22 @@ The following are recommendations for different scenarios:
 | **Get started** | Update all columns after migrating to SQL Data Warehouse |
 | **Most important column for stats** | Hash distribution key |
 | **Second most important column for stats** | Partition key |
-| **Other important columns for stats** | Date, Frequent JOINs, GROUP BY, HAVING and WHERE |
+| **Other important columns for stats** | Date, Frequent JOINs, GROUP BY, HAVING, and WHERE |
 | **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
-| **Sampling** |  Less than 1 B rows, use default sampling (20 percent) <br></br> With more than 1 B rows tables, statistics on a 2-percent range is good |
+| **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
 
 ## Updating statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you need to update statistics on the country column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you need to update statistics on the country column.
 
-One of the first questions to ask when troubleshooting a query is, **"Are the statistics up to date?"**
+One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
-This question is not one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a given column, *then* it's time to update statistics.
+This question is not one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics.
 
 Because there is no dynamic management view to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics were updated on each table.  
 
 > [!NOTE]
-> Remember that if there is a material change in the distribution of values for a given column, you should update statistics regardless of the last time they were updated.  
+> Remember that if there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.  
 > 
 > 
 
@@ -99,13 +99,13 @@ It is often a good idea to extend your data-loading process to ensure that stati
 The following guiding principles are provided for updating your statistics during the load process:
 
 * Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
-* Focus on columns participating in JOIN, GROUP BY, ORDER BY and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently as these values will not be included in the statistics histogram.
+* Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+* Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
 * Consider updating static distribution columns less frequently.
 * Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
 > [!NOTE]
-> For more details on [ascending key], refer to the SQL Server 2014 cardinality estimation model white paper.
+> For more details on ascending keys, refer to the SQL Server 2014 cardinality estimation model white paper.
 > 
 > 
 
@@ -114,7 +114,7 @@ For further explanation, see  [Cardinality Estimation][Cardinality Estimation] o
 ## Examples: Create statistics
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
-### A. Create single-column statistics with default options
+### Create single-column statistics with default options
 To create statistics on a column, simply provide a name for the statistics object and the name of the column.
 
 This syntax uses all of the default options. By default, SQL Data Warehouse samples **20 percent** of the table when it creates statistics.
@@ -129,7 +129,7 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### B. Create single-column statistics by examining every row
+### Create single-column statistics by examining every row
 The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate.
 
 To sample the full table, use this syntax:
@@ -144,14 +144,14 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### C. Create single-column statistics by specifying the sample size
+### Create single-column statistics by specifying the sample size
 Alternatively, you can specify the sample size as a percent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### D. Create single-column statistics on only some of the rows
+### Create single-column statistics on only some of the rows
 You can also create statistics on a portion of the rows in your table. This is called a filtered statistic.
 
 For example, you can use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve, and therefore improve query performance.
@@ -167,7 +167,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 > 
 > 
 
-### E. Create single-column statistics with all the options
+### Create single-column statistics with all the options
 You can also combine the options together. The following example creates a filtered statistics object with a custom sample size:
 
 ```sql
@@ -176,7 +176,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 For the full reference, see [CREATE STATISTICS][CREATE STATISTICS] on MSDN.
 
-### F. Create multi-column statistics
+### Create multi-column statistics
 To create a multi-column statistics object, simply use the previous examples, but specify more columns.
 
 > [!NOTE]
@@ -192,7 +192,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 Because there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
 
-### G. Create statistics on all columns in a table
+### Create statistics on all columns in a table
 One way to create statistics is to issue CREATE STATISTICS commands after creating the table:
 
 ```sql
@@ -213,10 +213,10 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### H. Use a stored procedure to create statistics on all columns in a database
-SQL Data Warehouse does not have a system stored procedure equivalent to [sp_create_stats][] in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+### Use a stored procedure to create statistics on all columns in a database
+SQL Data Warehouse does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
-The following will help you get started with your database design. Feel free to adapt it to your needs:
+The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -311,7 +311,7 @@ To update statistics, you can:
 - Update one statistics object. Specify the name of the statistics object you want to update.
 - Update all statistics objects on a table. Specify the name of the table instead of one specific statistics object.
 
-### A. Update one specific statistics object
+### Update one specific statistics object
 Use the following syntax to update a specific statistics object:
 
 ```sql
@@ -326,7 +326,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 
 By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This requires some thought to choose the best statistics objects to update.
 
-### B. Update all statistics on a table
+### Update all statistics on a table
 This shows a simple method for updating all the statistics objects on a table:
 
 ```sql
@@ -339,14 +339,14 @@ For example:
 UPDATE STATISTICS dbo.table1;
 ```
 
-This statement is easy to use. Just remember this updates *all* statistics on the table, and therefore might perform more work than is necessary. If the performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
+This statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If the performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
 > When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 > 
 > 
 
-For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables][Temporary]. The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the end result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables][Temporary]. The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
 For the full syntax, see [Update Statistics][Update Statistics] on MSDN.
 
@@ -372,10 +372,10 @@ These system functions are useful for working with statistics:
 | System function | Description |
 |:--- |:--- |
 | [STATS_DATE][STATS_DATE] |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Provides summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
 ### Combine statistics columns and functions into one view
-This view brings columns that relate to statistics and results from the [STATS_DATE()][] function together.
+This view brings columns that relate to statistics and results from the STATS_DATE() function together.
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -451,13 +451,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ## DBCC SHOW_STATISTICS() differences
 DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server:
 
-- Undocumented features are not supported
-- Cannot use Stats_stream
-- Cannot join results for specific subsets of statistics data. For example, (STAT_HEADER JOIN DENSITY_VECTOR)
-- NO_INFOMSGS cannot be set for message suppression
-- Square brackets around statistics names cannot be used
-- Cannot use column names to identify statistics objects
-- Custom error 2767 is not supported
+- Undocumented features are not supported.
+- Cannot use Stats_stream.
+- Cannot join results for specific subsets of statistics data. For example, (STAT_HEADER JOIN DENSITY_VECTOR).
+- NO_INFOMSGS cannot be set for message suppression.
+- Square brackets around statistics names cannot be used.
+- Cannot use column names to identify statistics objects.
+- Custom error 2767 is not supported.
 
 ## Next steps
 For more details, see [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] on MSDN.
