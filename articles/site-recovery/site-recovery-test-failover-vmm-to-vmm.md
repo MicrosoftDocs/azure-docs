@@ -3,8 +3,8 @@ title: Test failover (VMM to VMM) in Azure Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: ''
 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
-ms.author: pratshar
+ms.date: 11/22/2017
+ms.author: ponatara
 
 ---
 # Test failover (VMM to VMM) in Site Recovery

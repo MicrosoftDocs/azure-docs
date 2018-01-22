@@ -37,7 +37,7 @@ To complete this tutorial:
 
 - Review the [scenario architecture and components](concepts-hyper-v-to-secondary-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
-- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md#on-premises-servers).
+- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
 - Check that VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 - Prepare VMM servers for network mapping.
 

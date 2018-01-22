@@ -3,8 +3,8 @@ title: Network topology considerations when using Azure Active Directory Applica
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -99,7 +99,7 @@ Although the focus of this article is connector placement, you can also change t
 
 Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Additionally, consider organizing your connectors using [connector groups](active-directory-application-proxy-connectors.md) to target apps that are in different locations and networks. 
+Additionally, consider organizing your connectors using [connector groups](active-directory-application-proxy-connectors-azure-portal.md) to target apps that are in different locations and networks. 
 
 ## Common use cases
 
@@ -171,5 +171,5 @@ You can also consider using one other variant in this situation. If most users i
 
 - [Enable Application Proxy](active-directory-application-proxy-enable.md)
 - [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+- [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 - [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)

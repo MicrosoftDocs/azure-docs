@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: cherylmc
+ms.date: 12/04/2017
+ms.author: anzaman
 
 ---
-# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell (Preview)
+# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell
 
 This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
-
->[!NOTE]
->P2S RADIUS authentication is currently in Preview.
->
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
@@ -161,7 +157,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 1. Create a secure string for the RADIUS secret.
 
   ```powershell
-  $Secure_Secret=Read-Host -AsSecureStrinng -Prompt "RadiusSecret"
+  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
 2. You are prompted to enter the RADIUS secret. The characters that you enter will not be displayed and instead will be replaced by the "*" character.
@@ -174,26 +170,27 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
   For SSTP configurations:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "SSTP" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   For IKEv2 configurations:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "IKEv2" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   For SSTP + IKEv2
 
     ```powershell
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols @{ "SSTP", "IkeV2" } '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 

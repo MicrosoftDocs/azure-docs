@@ -5,7 +5,7 @@ description: Provides a general overview of Azure Active Directory reporting.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk  
 ---

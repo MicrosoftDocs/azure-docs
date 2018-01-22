@@ -1,13 +1,7 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-### [What is Azure?](azure-developer-guide.md#what-is-azure)
-### [Where do I start?](azure-developer-guide.md#where-do-i-start)
-### [Azure regions](azure-developer-guide.md#azure-regions)
-### [How do I manage my applications and projects?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Understanding accounts, subscriptions, and billing](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
-## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overview of Azure services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Portal overview](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -70,8 +64,8 @@
 ## Store data
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [File shares](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relational tables](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Message queues](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
@@ -113,6 +107,7 @@
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
+## [Azure limits and quotas](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

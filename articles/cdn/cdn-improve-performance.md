@@ -97,7 +97,7 @@ These tables describe Azure CDN compression behavior for every scenario.
 > * Be larger than 128 bytes.
 > * Be smaller than 1 MB.
 > 
-> These profiles support **gzip** (GNU zip), **deflate**, **bzip2**, or  **br** (Brotli) encoding. For Brotli encoding, the compression is done only at the edge. The client/browser must send the request for Brotli encoding and the compressed asset must have been compressed on the origin side first. 
+> These profiles support **gzip** (GNU zip), **deflate**, **bzip2**, or  **br** (Brotli) encoding. For Brotli encoding, the compression needs to be done at the origin. The client/browser must send the request for Brotli encoding and the compressed asset must have been compressed on the origin side first. 
 
 > [!IMPORTANT]
 > For **Azure CDN from Akamai** profiles, all files are eligible for compression. However, a file must be a MIME type that has been [configured for compression](#enabling-compression).

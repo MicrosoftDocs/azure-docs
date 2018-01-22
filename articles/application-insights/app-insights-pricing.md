@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage pricing and data volume for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -37,7 +37,7 @@ The Basic plan is the default when a new Application Insights resource is create
 
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
-For [tabular data imported into Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
+For [tabular data imported into Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
 * [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan.
@@ -88,7 +88,7 @@ As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azu
  
 ## Review pricing plans and estimate costs
 
-Applicaition Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
+Application Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 
@@ -108,7 +108,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 There are three ways in which the volume you send data is limited:
 
 * **Sampling:** This mechanism can be used reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics. This is the primary tool you have to tune the amount of data. Learn more about [sampling features](app-insights-sampling.md). 
-* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 500 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
+* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 100 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 1000 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
 * **Throttling:** This limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 
@@ -132,11 +132,11 @@ Here are some things you can do to reduce your data volume:
 
 ## Managing the maximum daily data volume
 
-You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetery sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
+You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetry sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
 
-Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
+Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetry unexpectedly. 
 
-To change the daily cap, in the Configure section of your Application Insihgts resource, click **Data volume management** then **Daily Cap**.
+To change the daily cap, in the Configure section of your Application Insights resource, click **Data volume management** then **Daily Cap**.
 
 ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 

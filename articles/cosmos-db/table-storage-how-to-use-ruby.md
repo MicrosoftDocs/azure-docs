@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table Storage from Ruby | Microsoft Docs
+title: How to use Azure Table Storage with Ruby | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: ruby
@@ -9,15 +9,15 @@ editor: ''
 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
 
 ---
-# How to use Azure Table Storage from Ruby
+# How to use Azure Table storage with Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -29,7 +29,7 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby application
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## Configure your application to access Storage
 To use Azure Storage, you need to download and use the Ruby azure package which includes a set of convenience libraries that communicate with the Storage REST services.

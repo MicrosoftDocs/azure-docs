@@ -4,7 +4,7 @@ description: Learn how to configure hybrid Azure Active Directory joined devices
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -29,15 +29,16 @@ If you have an on-premises Active Directory environment and you want to join you
 
 Before you start configuring hybrid Azure AD joined devices in your environment, you should familiarize yourself with the supported scenarios and the constraints.  
 
+If you are relying on the [System Preparation Tool (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), please make sure you create images from an installation of Windows that has not been yet registered with Azure AD.
+
 To improve the readability of the descriptions, this topic uses the following term: 
 
 - **Windows current devices** - This term refers to domain-joined devices running Windows 10 or Windows Server 2016.
 - **Windows down-level devices** - This term refers to all **supported** domain-joined Windows devices that are neither running Windows 10 nor Windows Server 2016.  
 
-
 ### Windows current devices
 
-- For devices running the Windows desktop operating system, we recommend using Windows 10 Anniversary Update (version 1607) or later. 
+- For devices running the Windows desktop operating system, the supported version is the Windows 10 Anniversary Update (version 1607) or later. 
 - The registration of Windows current devices **is** supported in non-federated environments such as password hash sync configurations.  
 
 
@@ -63,6 +64,15 @@ Azure AD Connect:
 - Keeps the association between the computer account in your on-premises Active Directory (AD) and the device object in Azure AD. 
 - Enables other device related features like Windows Hello for Business.
 
+Make sure that the following URLs are accessible from computers inside your organization network for registration of computers to Azure AD:
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+If your organizations requires access to the Internet via an outbound proxy, must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
 
 
 ## Configuration steps
@@ -129,8 +139,9 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+- Uses the Active Directory PowerShell module and AD DS Tools, which rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
 - Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- If the AD DS tools are not installed, the `Initialize-ADSyncDomainJoinedComputerSync` will fail.  The AD DS tools can be installed through Server Manager under Features - Remote Server Administration Tools - Role Administration Tools.
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
@@ -290,12 +301,11 @@ The definition helps you to verify whether the values are present or if you need
 
 In the claim above,
 
-- `$<domain>` is the AD FS service URL
-- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "http://contoso.com/adfs/services/trust/"
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

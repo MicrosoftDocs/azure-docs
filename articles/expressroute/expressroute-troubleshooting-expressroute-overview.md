@@ -192,7 +192,7 @@ In the preceding example, as noted Azure private peering routing context is enab
 To get the Azure private peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 A sample response, for a successfully configured private peering, is:
 
@@ -281,7 +281,7 @@ To get the Microsoft peering configuration details, use the following commands:
 >
 
 ## Validate ARP between Microsoft and the service provider
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
 
 >[!NOTE]
 >To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -314,7 +314,7 @@ The following example shows the response of the command for a peering does not e
 >
 
 ## Validate BGP and routes on the MSEE
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription.
 
 >[!NOTE]
 >To get BGP information, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -402,8 +402,7 @@ For more information or help, check out the following links:
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[OldPortal]: https://manage.windowsazure.com
-[ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
+[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
 
 
 

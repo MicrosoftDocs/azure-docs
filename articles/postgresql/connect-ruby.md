@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use Ruby to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [Ruby](https://www.ruby-lang.org) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Ruby, but that you are new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [Ruby](https://www.ruby-lang.org) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Ruby, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -49,7 +49,7 @@ Install Ruby on your own machine.
 - Build the Ruby pg module using Gem by running the command `sudo gem install pg`.
 
 ## Run Ruby code 
-- Save the code into a text file, and save the file into a project folder with file extension .rb, such as `C:\rubypostgres\read.rb` or `/home/username/rubypostgres/read.rb`
+- Save the code into a text file with file extension .rb, and save the file into a project folder, such as `C:\rubypostgres\read.rb` or `/home/username/rubypostgres/read.rb`
 - To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd rubypostgres`, then type the command `ruby read.rb` to run the application.
 
 ## Get connection information

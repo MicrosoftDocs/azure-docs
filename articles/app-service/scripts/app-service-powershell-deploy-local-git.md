@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create a web app and deploy code from a local Git repository
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a local Git repository.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, your application code needs to be committed into a local Git repository.
 

@@ -3,7 +3,7 @@ title: Monitor Azure web app performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Monitor Azure web app performance
@@ -46,7 +46,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
     
     Value: `true`
    * **Save** the settings and **Restart** your app.
-3. **Monitor your app**.  [Expore the data](#explore-the-data).
+3. **Monitor your app**.  [Explore the data](#explore-the-data).
 
 Later, you can build the app with Application Insights if you want.
 

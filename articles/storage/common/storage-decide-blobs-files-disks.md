@@ -65,7 +65,7 @@ The following table compares Azure Files with Azure Disks.
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|1 TB disk|5 TB File Share and 1 TB file within share|  
+|Max Size|4 TB disk|5 TB File Share and 1 TB file within share|  
 |Max 8KB IOps|500 IOps|1000 IOps|  
 |Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
 
@@ -75,4 +75,4 @@ When making decisions about how your data is stored and accessed, you should als
   
 Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/classic/attach-disk.md).
+For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/classic/attach-disk-classic.md).

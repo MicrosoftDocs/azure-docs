@@ -47,7 +47,7 @@ Service Map agents gather information about all TCP-connected processes on the s
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
+Machines can be expanded in the map to show the running process groups and processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
 
 By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
@@ -57,6 +57,9 @@ At the bottom of each server in the map can be a list of status badges conveying
 Depending on the severity of the status badges, machine node borders can be colored red (critical), yellow (warning), or blue (informational). The color represents the most severe status of any of the status badges. A gray border indicates a node that has no status indicators.
 
 ![Status badges](media/oms-service-map/status-badges.png)
+
+## Process Groups
+Process Groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded it will display standalone processes along with process groups.  If any inbound and outbound connections to a process within a process group has failed then the connection is shown as failed for the entire process group.
 
 ## Machine Groups
 Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
@@ -223,11 +226,26 @@ The following image is a detailed view of a ConfigurationChange event that you m
 
 
 ## Operations Management Suite performance integration
-The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received. To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
+The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received.
 
 ![Machine Performance pane](media/oms-service-map/machine-performance.png)
 
+To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
 
+Windows:
+- Processor(*)\\% Processor Time
+- Memory\\% Committed Bytes In Use
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
+
+Linux:
+- Processor(*)\\% Processor Time
+- Memory(*)\\% Used Memory
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
+
+To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
+ 
 ## Operations Management Suite Security integration
 Service Map integration with Security and Audit is automatic when both solutions are enabled and configured in your Operations Management Suite workspace.
 
@@ -314,34 +332,34 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ## Sample log searches
 
 ### List all known machines
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List the physical memory capacity of all managed computers.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### List computer name, DNS, IP, and OS.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### Find all processes with "sql" in the command line
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by resource name
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by IP address
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all known processes on a specified machine
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all computers running SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### List all unique product versions of curl in my datacenter
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### Create a computer group of all computers running CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## REST API

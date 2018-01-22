@@ -12,12 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 
 robots: noindex
 ---
 # Azure Data Factory - JSON Scripting Reference
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA).
+
+
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  
 
 ## Pipeline 
@@ -79,9 +83,9 @@ Following table describe the properties within the activity JSON definition:
 | Tag | Description | Required |
 | --- | --- | --- |
 | name |Name of the activity. Specify a name that represents the action that the activity is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
-| description |Text describing what the activity is used for. |Yes |
+| description |Text describing what the activity is used for. |No |
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) sections for different types of activities. |Yes |
-| inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
+| inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No for HDInsightStreaming and SqlServerStoredProcedure activities <br/> <br/> Yes for all others |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
 | linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |

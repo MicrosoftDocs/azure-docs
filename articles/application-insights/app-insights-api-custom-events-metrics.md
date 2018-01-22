@@ -3,7 +3,7 @@ title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Application Insights API for custom events and metrics
@@ -411,38 +411,40 @@ You can also call it yourself if you want to simulate requests in a context wher
 However, the recommended way to send request telemetry is where the request acts as an <a href="#operation-context">operation context</a>.
 
 ## Operation context
-You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can easily find any events associated with the request using its operation Id.
 
-The easiest way to set the ID is to set an operation context by using this pattern:
+See [Telemetry correlation in Application Insights](application-insights-correlation.md) for more details on correlation.
+
+When tracking telemetry manually, the easiest way to ensure telemetry correlation by using this pattern:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Along with setting an operation context, `StartOperation` creates a telemetry item of the type that you specify. It sends the telemetry item when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, its duration is set to the timed interval between start and stop.
 
-Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with `StartOperation`.
+Telemetry items reported within a scope of operation become 'children' of such operation. Operation contexts could be nested. 
 
 In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/app-insights-api-custom-events-metrics/21.png)
 
-See [application-insights-custom-operations-tracking.md] for more information on custom operations tracking.
+See [Track custom operations with Application Insights .NET SDK](application-insights-custom-operations-tracking.md) for more information on custom operations tracking.
 
 ### Requests in Analytics 
 
@@ -1029,8 +1031,8 @@ To determine how long data is kept, see [Data retention and privacy](app-insight
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## SDK code
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)

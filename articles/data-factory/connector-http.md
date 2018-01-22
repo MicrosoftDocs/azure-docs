@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HTTP connector in V1](v1/data-factory-http-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from HTTP source to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -39,7 +39,8 @@ Specifically, this HTTP connector supports:
 The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md)) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HTTP connector.
 
@@ -69,11 +70,9 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
-        "type": "Http",
-        "typeProperties":
-        {
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<HTTP endpoint>",
             "userName": "<username>",
@@ -112,11 +111,9 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "certThumbprint": "<thumbprint of certificate>"
@@ -134,11 +131,9 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 ```json
 {
     "name": "HttpLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "HttpServer",
-        "typeProperties":
-        {
+        "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
             "embeddedCertData": "<base64 encoded cert data>",
@@ -257,4 +252,4 @@ To copy data from HTTP, set the source type in the copy activity to **HttpSource
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

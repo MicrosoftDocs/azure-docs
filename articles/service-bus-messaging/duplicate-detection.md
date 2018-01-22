@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Duplicate Detection
+# Duplicate detection
 
 If an application encounters a fatal error immediately after it sends a message, and the restarted application instance therefore erroneously believes that the prior message delivery did not occur, a subsequent send causes the same message to appear in the system twice.
 
@@ -41,7 +41,7 @@ In the portal, the feature is turned on during entity creation with the **Enable
 
 Programmatically, you set the flag with the [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) property on the full framework .NET API. With the Azure Resource Manager API, the value is set with the [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property.
 
-The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of 40 minutes. You can change this setting in the queue and topic properties window in the Azure portal.
+The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of 7 days. You can change this setting in the queue and topic properties window in the Azure portal.
 
 ![][2]
 

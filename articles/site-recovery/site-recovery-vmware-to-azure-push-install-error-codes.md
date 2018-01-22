@@ -2,19 +2,13 @@
 title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
 description: Troubleshoot errors when replicating Azure virtual machines
 services: site-recovery
-documentationcenter: ''
-author: asgang
-manager: srinathv
-editor: ''
-
-ms.assetid:
+author: anoopkv
+manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
-ms.author: asgang
+ms.date: 01/11/2018
+ms.author: anoopkv
 
 ---
 # Troubleshoot Mobility Service push installation issues
@@ -71,13 +65,13 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95108 </br>**Message:** Push installation of the mobility service to the source machine failed with error code **EP0859**. <br>| Either that the credentials provided to install mobility service is incorrect or the user account has insufficient privileges <br>| Ensure that the credentials provided are the **root** account's credentials. To [add/edit user credentials](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), go to the Configuration server and click on "Cspsconfigtool" shortcut icon on desktop. Click on "Manage account" to add/edit credentials.|
+95108 </br>**Message:** Push installation of the mobility service to the source machine failed with error code **EP0859**. <br>| Either that the credentials provided to install mobility service is incorrect or the user account has insufficient privileges <br>| Ensure that the credentials provided are the **root** account's credentials. To add/edit user credentials, go to the Configuration server and click on "Cspsconfigtool" shortcut icon on desktop. Click on "Manage account" to add/edit credentials.|
 
 ## Error 95265 - Protection could not be enabled (EP0902)
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine continues seamlessly.M<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
+95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine continues seamlessly.<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
 
 
 ## Error 95224 - Protection could not be enabled (EP0883)
@@ -89,13 +83,14 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 ## Resource to troubleshoot push installation problems
 
 #### Troubleshoot File and Print Sharing issues
-*  [Enable or disable File sharing with Group Policy](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [How to enable File and Print sharing through Windows Firewall](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Enable or disable File sharing with Group Policy](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [How to enable File and Print sharing through Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### Troubleshoot WMI issues
 * [Basic WMI Testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [WMI Troubleshooting](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Troubleshooting problems with WMI scripts and WMI Services](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [WMI Troubleshooting](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Troubleshooting problems with WMI scripts and WMI Services](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## Next steps
-- [Enable replication for VMware virtual machines](vmware-walkthrough-enable-replication.md)
+
+[Learn how](tutorial-vmware-to-azure.md) to set up disaster recovery for VMware VMs.

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 
 robots: noindex
@@ -66,7 +66,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | type |The type property must be set to: **Hdfs** |Yes |
 | Url |URL to the HDFS |Yes |
 | authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
-| userName |Username for Windows authentication. |Yes (for Windows Authentication) |
+| userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
 | encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
@@ -101,7 +101,7 @@ A linked service links a data store to a data factory. You create a linked servi
         "typeProperties":
         {
             "authenticationType": "Windows",
-            "userName": "Administrator",
+            "userName": "<username>@<domain>.com (for Kerberos auth)",
             "password": "password",
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "gatewayName": "mygateway"

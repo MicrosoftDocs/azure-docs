@@ -1,5 +1,5 @@
 ---
-title: How to use Table storage (C++) | Microsoft Docs
+title: How to use Azure Table storage with C++ | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: .net
@@ -9,15 +9,15 @@ editor: tysonn
 
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 11/03/2017
 ms.author: mimig
 
 ---
-# How to use Table storage from C++
+# How to use Azure Table storage with C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 

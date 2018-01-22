@@ -3,18 +3,18 @@ title: Configure the Azure Stack operator's PowerShell environment | Microsoft D
 description: Learn how to Configure the Azure Stack operator's PowerShell environment.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: sngun
+ms.date: 10/23/2017
+ms.author: mabrigg
 
 ---
 
@@ -45,18 +45,18 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+
 
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
+    
   Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience
+    -GraphAudience $GraphAudience 
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -79,19 +79,15 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+
 
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
 
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack     
   $TenantID = Get-AzsDirectoryTenantId `

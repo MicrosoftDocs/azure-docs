@@ -21,6 +21,8 @@
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Manage
+### [Monitor Azure Relay with Azure Monitoring](relay-metrics-azure-monitor.md)
 
 # Reference
 ## .NET

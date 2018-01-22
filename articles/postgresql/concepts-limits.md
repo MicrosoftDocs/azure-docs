@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 12/04/2017
 ---
 # Limitations in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
@@ -19,15 +19,15 @@ Azure Database for PostgreSQL has multiple service tiers you can choose from whe
 
 There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
 
-|                            |                   |
+| | |
 | :------------------------- | :---------------- |
 | **Max connections**        |                   |
-| Basic 50 Compute Units     | 50 connections    |
-| Basic 100 Compute Units    | 100 connections   |
-| Standard 100 Compute Units | 200 connections   |
-| Standard 200 Compute Units | 300 connections   |
-| Standard 400 Compute Units | 400 connections   |
-| Standard 800 Compute Units | 500 connections   |
+| Basic 50 Compute Units     | 55 connections    |
+| Basic 100 Compute Units    | 105 connections   |
+| Standard 100 Compute Units | 150 connections   |
+| Standard 200 Compute Units | 250 connections   |
+| Standard 400 Compute Units | 480 connections   |
+| Standard 800 Compute Units | 950 connections   |
 | **Max Compute Units**      |                   |
 | Basic service tier         | 100 Compute Units |
 | Standard service tier      | 800 Compute Units |
@@ -35,8 +35,9 @@ There is a maximum number of connections, compute units, and storage in each ser
 | Basic service tier         | 1 TB              |
 | Standard service tier      | 1 TB              |
 
-When too many connections are reached, you may receive the following error:
+The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. When too many connections are reached, you may receive the following error:
 > FATAL:  sorry, too many clients already
+
 
 ## Preview functional limitations
 ### Scale operations

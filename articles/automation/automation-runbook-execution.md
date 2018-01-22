@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation | Microsoft Docs
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: georgewallace
 manager: jwhit
 editor: tysonn
 
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2017
-ms.author: bwren
+ms.date: 11/15/2017
+ms.author: magoedte;bwren
 
 ---
 # Runbook execution in Azure Automation
-When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker services the request for your job.  A single runbook can have multiple jobs running at one time. When you view the list of runbooks in the Azure portal, it lists the status of all jobs that were started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses, see [Job Statuses](#job-statuses).
+When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker services the request for your job. A single runbook can have multiple jobs running at one time.  The execution environment for jobs from the same Automation Account may be reused. When you view the list of runbooks in the Azure portal, it lists the status of all jobs that were started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses [Job Statuses](#job-statuses).
 
 The following diagram shows the lifecycle of a runbook job for [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -37,12 +37,12 @@ The following table describes the different statuses that are possible for a job
 |:--- |:--- |
 | Completed |The job completed successfully. |
 | Failed |For [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md), the runbook failed to compile.  For [PowerShell Script runbooks](automation-runbook-types.md), the runbook failed to start or the job encountered an exception. |
-| Failed, waiting for resources |The job failed because it reached the [fair share](#fairshare) limit three times and started from the same checkpoint or from the start of the runbook each time. |
+| Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
 | Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is in the process of starting it. |
 | Resuming |The system is in the process of resuming the job after it was suspended. |
 | Running |The job is running. |
-| Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fairshare) limit. It resumes shortly from its last checkpoint. |
+| Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fair-share) limit. It resumes shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is in the process of stopping the job. |
 | Suspended |The job was suspended by the user, by the system, or by a command in the runbook. A job that is suspended can be started again and resume from its last checkpoint or from the beginning of the runbook if it doesn't have checkpoints. The runbook will only be suspended by the system when an exception occurs. By default, ErrorActionPreference is set to **Continue**, meaning that the job keeps running on an error. If this preference variable is set to **Stop**, then the job suspends on an error.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |

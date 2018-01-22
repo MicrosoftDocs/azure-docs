@@ -80,7 +80,7 @@ The properties that can be defined on a packet capture are:
 - **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
-- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
+- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied. For a Linux virtual machine, the path must start with */var/captures*.
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
 - **Maximum bytes per session** - Total number of bytes that are captured, once the value is reached the packet capture stops.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 18000 seconds.

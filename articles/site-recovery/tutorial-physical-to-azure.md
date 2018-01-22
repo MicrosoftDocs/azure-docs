@@ -73,7 +73,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
+- The storage account can be standard or [premium](../virtual-machines/windows/premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
 
 

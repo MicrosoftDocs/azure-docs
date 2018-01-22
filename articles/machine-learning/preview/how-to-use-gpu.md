@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 # How to use GPU in Azure Machine Learning
-Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
+Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
 - To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
@@ -59,10 +59,10 @@ Azure ML Workbench also support execution in Docker in an Azure Linux VM. Here y
 4. Click **Create** to create an Ubuntu DSVM.
 
 5. Fill in the **Basics** form with the required information.
-When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
+When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/regions/services/).
 Click OK to save the **Basics** information.
 
-6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Finish the remaining settings and review the purchase information. Click Purchase to Create the VM. Take note of the IP address allocated to the virtual machine. 
 
@@ -73,7 +73,7 @@ You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifyin
 Launch the command line from Azure ML Workbench. Enter the following command. Replace the placeholder text from the example below with your own values for the name, IP address, username, and password. 
 
 ```batch
-C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" --type remotedocker
+C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" 
 ```
 
 ### Configure Azure ML Workbench to Access GPU
@@ -83,7 +83,7 @@ Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9
 nvidiaDocker: true
 ```
  
@@ -111,10 +111,10 @@ dependencies:
   - python=3.5.2
   - pip: 
     # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

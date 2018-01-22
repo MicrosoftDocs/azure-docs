@@ -73,7 +73,7 @@ If you're using VMM in your deployment:
 * Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
     * If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
       * Open the Registry Editor and navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can open the browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
+      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
       * Ensure that you test the script with a user account that has the same permissions as the VMM service account. This checks that standalone tested scripts run in the same way as they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
         * Open the **64-bit Windows PowerShell** console using elevated privileges.
         * Type: **Set-executionpolicy bypass**. [Learn more](https://technet.microsoft.com/library/ee176961.aspx).

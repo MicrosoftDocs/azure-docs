@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 11/02/2017
 ms.author: nitinme
 
 ---
@@ -37,6 +37,8 @@ For instructions on how to perform account management operations on Data Lake St
 * **Azure Data Lake Store account**. For instructions on how to create an account, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Create a .NET application
+The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) walks you through the process of creating files in the store, concatenating files, downloading a file, and deleting some files in the store. This section of the article walks you through the main parts of the code.
+
 1. Open Visual Studio and create a console application.
 2. From the **File** menu, click **New**, and then click **Project**.
 3. From **New Project**, type or select the following values:
@@ -46,29 +48,33 @@ For instructions on how to perform account management operations on Data Lake St
    | Category |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
+
 4. Click **OK** to create the project.
+
 5. Add the NuGet packages to your project.
 
    1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
    3. Search for and install the following NuGet packages:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - This tutorial uses v2.1.3-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.2.12.
+      * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
+    
+    Close the **NuGet Package Manager**.
 
-        ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
-   4. Close the **NuGet Package Manager**.
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
         using System;
-        using System.IO;
-		using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-        using System.Threading;
-
-        using Microsoft.Azure.Management.DataLake.Store;
-		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Rest.Azure.Authentication;
+        using System.IO;using System.Threading;
+        using System.Linq;
+        using System.Text;
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure.DataLake.Store;
+    	using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
@@ -76,23 +82,7 @@ For instructions on how to perform account management operations on Data Lake St
         {
             class Program
             {
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
-                private static string _adlsAccountName;
-                private static string _resourceGroupName;
-                private static string _location;
-
-                private static async void Main(string[] args)
-                {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
-                    _location = "East US 2";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
-                }
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
             }
         }
 
@@ -104,125 +94,83 @@ In the remaining sections of the article, you can see how to use the available .
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
-## Create client objects
-The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
+## Create client object
+The following snippet creates the Data Lake Store filesystem client object, which is used to issue requests to the service.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
 
-## Create a directory
-Add the following method to your class. The snippet shows a `CreateDirectory()` method that you can use to create a directory within a Data Lake Store account.
+## Create a file and directory
+Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.
 
-    // Create a directory
-    public static void CreateDirectory(string path)
-    {
-            _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
-    }
-
-Add the following snippet to your `Main()` method to invoke the `CreateDirectory()` method.
-
-    CreateDirectory(remoteFolderPath);
-    Console.WriteLine("Created a directory in the Data Lake Store account. Press any key to continue ...");
-    Console.ReadLine();
-
-## Upload a file
-Add the following method to your class. The snippet shows an `UploadFile()` method that you can use to upload files to a Data Lake Store account. The SDK supports recursive upload and download between a local file path and a Data Lake Store file path.
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-Add the following snippet to your `Main()` method to invoke the `UploadFile()` method.
-
-    UploadFile(localFilePath, remoteFilePath, true);
-    Console.WriteLine("Uploaded file in the directory. Press any key to continue...");
-    Console.ReadLine();
+    // Create a file - automatically creates any parent directories that don't exist
     
-
-## Get file or directory info
-The following snippet shows a `GetItemInfo()` method that you can use to retrieve information about a file or directory available in Data Lake Store.
-
-    public static FileStatusProperties GetItemInfo(string path)
+    string fileName = "/Test/testFilename1.txt";
+    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        streamWriter.WriteLine("This is test data to write");
+        streamWriter.WriteLine("This is line 2");
     }
-
-Add the following snippet to your `Main()` method to invoke the `GetItemInfo()` method.
-
-    
-    var fileProperties = GetItemInfo(remoteFilePath);
-    Console.WriteLine("The owner of the file at the path is:", fileProperties.Owner);
-    Console.WriteLine("Press any key to continue...");
-    Console.ReadLine();
-
-## List file or directories
-The following snippet shows a `ListItems()` method that can use to list the file and directories in a Data Lake Store account.
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-Add the following snippet to your `Main()` method to invoke the `ListItems()` method.
-
-    var itemList = ListItems(remoteFolderPath);
-    var fileMenuItems = itemList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix));
-    Console.WriteLine(String.Join("\r\n", fileMenuItems));
-    Console.WriteLine("Files and directories listed. Press any key to continue ...");
-    Console.ReadLine();
-
-## Concatenate files
-The following snippet shows a `ConcatenateFiles()` method that you use to concatenate files.
-
-    // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-Add the following snippet to your `Main()` method to invoke the `ConcatenateFiles()` method. This snippet assumes that you have uploaded another file to the Data Lake Store account, and that the path of the file is provided in the string *anotherRemoteFilePath*.
-
-    string[] stringOfFiles = new String[] {remoteFilePath, anotherRemoteFilePath};
-    string destFilePath = Path.Combine(remoteFolderPath, "Concatfile.txt");
-    ConcatenateFiles(stringOfFiles, destFilePath);
-    Console.WriteLine("Files concatinated. Press any key to continue ...");
-    Console.ReadLine();
 
 ## Append to a file
-The following snippet shows a `AppendToFile()` method that you use append data to a file already stored in a Data Lake Store account.
+The following snippet appends data to an existing file in Data Lake Store account.
 
-    // Append to file
-    public static void AppendToFile(string path, string content)
+    // Append to existing file
+    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
     {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        streamWriter.WriteLine("This is the added line");
+    }
+
+## Read a file
+The following snippet reads the contents of a file in Data Lake Store.
+
+    //Read file contents
+    using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+    {
+        string line;
+        while ((line = readStream.ReadLine()) != null)
         {
-            _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
+            Console.WriteLine(line);
         }
     }
 
-Add the following snippet to your `Main()` method to invoke the `AppendToFile()` method.
+## Get file properties
+The following snippet returns the properties associated with a file or a directory.
 
-    AppendToFile(remoteFilePath, "123");
-    Console.WriteLine("Content appended. Press any key to continue ...");
-    Console.ReadLine();
+    // Get file properties
+    var directoryEntry = client.GetDirectoryEntry(fileName);
+    PrintDirectoryEntry(directoryEntry);
 
-## Download a file
-The following snippet shows a `DownloadFile()` method that you use to download a file from a Data Lake Store account.
+The definition of the `PrintDirectoryEntry` method is available as part of the sample [on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
-    // Download file
-    public static void DownloadFile(string srcFilePath, string destFilePath)
+## Rename a file
+The following snippet renames an existing file in a Data Lake Store account.
+
+    // Rename a file
+    string destFilePath = "/Test/testRenameDest3.txt";
+    client.Rename(fileName, destFilePath, true);
+
+## Enumerate a directory
+The following snippet enumerates directories in a Data Lake Store account
+
+    // Enumerate directory
+    foreach (var entry in client.EnumerateDirectory("/Test"))
     {
-        _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:true);
+        PrintDirectoryEntry(entry);
     }
 
-Add the following snippet to your `Main()` method to invoke the `DownloadFile()` method.
+The definition of the `PrintDirectoryEntry` method is available as part of the sample [on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
-    DownloadFile(destFilePath, localFilePath);
-    Console.WriteLine("File downloaded. Press any key to continue ...");
-    Console.ReadLine();
+## Delete directories recursively
+The following snippet deletes a directory, and all its sub-directories, recursively.
+
+    // Delete a directory and all it's subdirectories and files
+    client.DeleteRecursive("/Test");
+
+## Samples
+Here are a couple of samples on how to use the Data Lake Store Filesystem SDK.
+* [Basic sample on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Advanced sample on Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## See also
 * [Account management operations on Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)

@@ -3,9 +3,9 @@ title: Add Push Notifications to Apache Cordova App with Azure Mobile Apps | Mic
 description: Learn how to use Azure Mobile Apps to send push notifications to your Apache Cordova app.
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: ''
-author: ggailey777
+author: conceptdev
 
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Add push notifications to your Apache Cordova app
@@ -86,6 +86,8 @@ Execute the following command:
 3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can
     add it here. Otherwise, enter a placeholder value, like 777777.  If you are targeting Android, you can update
     this value in config.xml later.
+     Note that as of version 2.0.0 the SENDER_ID has been removed from install time and google-services.json needs
+    to be installed in the root folder of your project.  See more detail [here.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Click **Add**.
 
 The push plugin is now installed.

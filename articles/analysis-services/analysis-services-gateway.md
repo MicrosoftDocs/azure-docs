@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,26 +14,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/30/2017
 ms.author: owend
 
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
 
- Azure Analysis Services requires a gateway resource in the same region. For example, if you have Azure Analysis Services servers in the East US 2 region, you need a gateway resource in the East US 2 region. Multiple servers in East US 2 can use the same gateway.
-
 Getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service.
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource **must be registered in the same region** as your Analysis Services servers. 
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it.
-
-Once you have a gateway resource configured for your subscription, you can connect multiple servers, and other services to it. You only need to install a different gateway and create additional gateway resources if you have servers or other services in a different region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources to it, provided they're in the region.
 
 To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
@@ -104,7 +100,7 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 <a name="why-azure-work-school-account"></a>
 
 **Q**: Why do I need to use a work or school account to sign in? <br/>
-**A**: You can only use an organizational work or school account when you install the on-premises data gateway. 
+**A**: You can only use an organizational work or school account when you install the on-premises data gateway. And, that account must be in the same tenant as the subscription you are configuring the gateway resource in. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
 
@@ -113,7 +109,7 @@ Usually, your Azure AD account's user principal name (UPN) matches the email add
 The credentials are decrypted at the on-premises data gateway.
 
 **Q**: Are there any requirements for network bandwidth? <br/>
-**A**: It's recommend your network connection has good throughput. 
+**A**: It's recommended your network connection has good throughput. 
 Every environment is different, and the amount of data being sent affects the results. 
 Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
 You can use the third-party tool Azure Speed Test app to help gauge your throughput.
@@ -141,6 +137,9 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
+**Q**: How do I takeover a gateway? <br/>
+**A**: In order to takeover a gateway (by running Setup/Change in Control Panel > Programs) you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
+
 ### <a name="high-availability"></a>High availability and disaster recovery
 
 **Q**: What options are available for disaster recovery? <br/>
@@ -152,6 +151,9 @@ When you install the gateway, specify the recovery key.
 
 ## <a name="troubleshooting"> </a>Troubleshooting
 
+**Q**: Why don't I see my gateway in the list of gateway instances when trying to create the gateway resource in Azure? <br/>
+**A**: There are two possible reasons. First is a resource is already created for the gateway in the current or some other subscription. To eliminate that possibility, enumerate resources of the type **On-premises Data Gateways** from the portal. Make sure to select all the subscriptions when enumerating all the resources. Note that once the resource is created, the gateway will not appear in the list of gateway instances in the Create Gateway Resource portal experience. The second possibility is that the Azure AD identity of the user who installed the gateway is different from the user signed in to Azure Portal. To resolve this, sign in to the portal using the same  account as the user who installed the gateway.
+
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
 Remember to change query tracing back to the original value when done troubleshooting. 
@@ -161,7 +163,7 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Logs later in this topic.
+**A**: See Logs later in this article.
 
 ### <a name="update"></a>Update to the latest version
 
@@ -216,5 +218,6 @@ Telemetry can be used for monitoring and troubleshooting. By default
 
 
 ## Next steps
+* [Install and configure on-premises data gateway](analysis-services-gateway-install.md).   
 * [Manage Analysis Services](analysis-services-manage.md)
 * [Get data from Azure Analysis Services](analysis-services-connect.md)

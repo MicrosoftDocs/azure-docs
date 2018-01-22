@@ -4,7 +4,7 @@ description: This FAQ answers questions about Azure AD Connect Health. This FAQ 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -40,6 +40,7 @@ Note that the features provided by the service may differ based on the role and 
 * The first Connect Health Agent requires at least one Azure AD Premium license.
 * Each additional registered agent requires 25 additional Azure AD Premium licenses.
 * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
+* AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
@@ -52,6 +53,10 @@ Example:
 | 3 | 51 | 1 Active Directory Federation Services (AD FS) server, 1 AD FS proxy, and 1 domain controller |
 | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
+
+**Q: Does Azure AD Connect Health support Azure Germany Cloud?**
+
+Azure AD Connect Health has an [installation](active-directory-aadconnect-health-agent-install.md) for Azure Germany. All the data for German Cloud customers is kept within Azure Germany Cloud.
 
 
 ## Installation questions
