@@ -93,6 +93,10 @@
             "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
             "redirect_document_id": true
+        },        {
+            "source_path": "articles/virtual-machines/linux/classic/mysql-on-opensuse.md",
+            "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
