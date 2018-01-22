@@ -30,13 +30,13 @@ To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.a
 An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint key can be used for all your LUIS apps or for specific LUIS apps. When you publish each LUIS app, you set the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
 
 ## Key limits
-The programmatic key has different limits for authoring and endpoint. The subscription key has a total limit regardless of authoring or endpoint.
+The programmatic key has different limits for authoring and endpoint. The subscription key is only valid for endpoint queries.
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
 |Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
-|Subscription - F0 - Free tier |10 thousand/month, 5/second|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|Subscription - S0 - Basic tier|1 million/month, 50/second|1 million/month, 50/second|Querying your LUIS endpoint|
+|Subscription - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
+|Subscription - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
  
 ## Key limits errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
