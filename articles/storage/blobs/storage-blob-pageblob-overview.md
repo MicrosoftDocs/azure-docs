@@ -85,7 +85,8 @@ As soon as a write request for a sequential set of pages succeeds in the blob se
 
 The below diagram shows 2 separate write operations:
 
-![](./storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+
 1.	A Write operation starting at offset 0 of length 1024 bytes 
 2.	A Write operation starting at offset 4096 of length 1024 
 
@@ -97,7 +98,7 @@ pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSiz
 ```
 The following figure shows a Read operation with BlobOffSet of 256 and rangeSize of 4352. Data returned is highlighted in Orange. Zeros are returned for NUL pages
 
-![](./storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 If you have a sparsely populated blob you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). You can then enumerate the returned ranges and download the data in each range. 
 ```csharp
