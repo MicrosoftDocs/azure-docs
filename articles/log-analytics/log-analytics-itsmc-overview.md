@@ -36,8 +36,6 @@ With ITSMC, you can
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
 
-## Getting Started
-
 You can start using the ITSM Connector using the following steps:
 
 1.	[Add the ITSM Connector Solution](#adding-the-it-service-management-connector-solution)
@@ -45,7 +43,7 @@ You can start using the ITSM Connector using the following steps:
 3.	[Use the connection](#using-the-solution)
 
 
-###  Adding the IT Service Management Connector Solution
+##  Adding the IT Service Management Connector Solution
 
 Before you can create a connection, you need to add the ITSM Connector Solution.
 
@@ -67,7 +65,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 When the solution resource is displayed, a notification appears at the top right of the window.
 
 
-### Creating an ITSM  connection
+## Creating an ITSM  connection
 
 Once you have installed the solution, you can create a connection.
 
@@ -104,7 +102,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
     ![Add ITSM connection](./media/log-analytics-itsmc/add-itsm-connection.png))
 
 
-### Using the solution
+## Using the solution
 
 Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
 
@@ -146,7 +144,7 @@ You can configure alert rules in Azure Log Analytics portal to create work items
 1. From **Log Search** window, run a log search query to view data. Query results are the source for work items.
 2. In **Log Search**, click **Alert** to open the **Add Alert Rule** page.
 
-    ![Log Analytics screen](./media/log-analytics-itsmc/itsmc-work-items-for-oms-alerts.png)
+    ![Log Analytics screen](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
 
 3. On the **Add Alert Rule** window, provide the required details for **Name**, **Severity**,  **Search query**, and **Alert criteria** (Time Window/Metric measurement).
 4. Select **Yes** for **ITSM Actions**.
@@ -172,7 +170,7 @@ You can also create work items in the connected ITSM sources directly from a log
 
     The **Create ITSM Work Item** window appears:
 
-    ![Log Analytics screen](media/log-analytics-itsmc/itsmc-work-items-from-oms-logs.png)
+    ![Log Analytics screen](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
 
 2.   Add the following details:
 
@@ -329,7 +327,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Computer  | Configuration Item |
 
 
-## Troubleshoot ITSM connections in OMS
+## Troubleshoot ITSM connections
 1.	If connection fails from connected source's UI with an **Error in saving connection** message, take the following steps:
 - For ServiceNow, Cherwell and Provance connections,  
        - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.  
