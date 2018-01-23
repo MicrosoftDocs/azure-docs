@@ -149,6 +149,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Run the following command to attach the route filter to the ExpressRoute circuit, assuming you have only Microsoft peering:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
