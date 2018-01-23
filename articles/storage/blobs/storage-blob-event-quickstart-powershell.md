@@ -37,6 +37,9 @@ Login-AzureRmAccount
 
 If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example uses **westus2**. Store this in a variable and use the variable so you can change it in one place.
 
+> [!NOTE]
+> Please refer to the [Event Grid overview](/articles/event-grid/overview.md) page to see a list of supported regions.
+
 ```powershell
 Get-AzureRmLocation | select Location 
 $location = "westus2"
@@ -48,20 +51,18 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command.
 
-The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
+The following example creates a resource group named **gridResourceGroup** in the **westus2** location.  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## Create a blob storage account
+## Create a Blob storage account
 
 To use Azure Storage, you need a storage account.  Blob storage events are currently available today only in Blob storage accounts.
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
-
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage(LRS) and blob encryption (enabled by default). 
+Create a Blob storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage(LRS) and blob encryption (enabled by default). 
 
 > [!NOTE]
 > Storage account names are in a global name space so you will need to append some random characters to the name provided in this script.
@@ -91,7 +92,7 @@ $binEndPoint = "<bin URL>"
 You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. 
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup).Id
+$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $binEndPoint `
@@ -100,12 +101,14 @@ New-AzureRmEventGridSubscription `
 
 ## Trigger an event from Blob storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. 
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's create a container, then we will create and upload a file. 
 
 ```powershell
 $containerName = "gridcontainer"
 New-AzureStorageContainer -Name $containerName -Context $ctx
+
 echo $null >> gridTestFile.txt
+
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
