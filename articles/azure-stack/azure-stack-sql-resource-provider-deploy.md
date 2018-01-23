@@ -83,9 +83,7 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
 6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
-7. Run the DeploySqlProvider.ps1 script with the following parameters.
-
-The script performs these steps:
+7. Run the DeploySqlProvider.ps1 script, which performs these steps:
 
 - Uploads the certificates and other artifacts to a storage account on Azure Stack.
 - Publishes gallery packages so that you can deploy SQL databases through the gallery.
