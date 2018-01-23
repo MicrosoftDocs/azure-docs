@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 23/01/2018
+ms.date: 01/23/2018
 ms.author: v-jysur
 ---
 # Connect Azure to ITSM tools using IT Service Management Connector
