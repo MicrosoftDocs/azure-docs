@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/22/2018
 ms.author: lbosq
 
 ---
@@ -25,7 +25,7 @@ This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](grap
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
 > [!NOTE]
-> This quickstart requires a graph database account created after November 27th, 2017. Existing accounts will support Python once they’re migrated to general availability.
+> This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 ## Prerequisites
 
