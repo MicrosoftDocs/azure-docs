@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
 
@@ -23,11 +23,11 @@ ms.author: ashishth
 
 HBase supports several approaches for guarding against data loss:
 
-* [Copy the `hbase` folder](#copy-the-`hbase`-folder)
-* [Export then Import](#export-then-import)
-* [Copy tables](#copy-tables)
-* [Snapshots](#snapshots)
-* [Replication](#replication)
+* Copy the `hbase` folder
+* Export then Import
+* Copy tables
+* Snapshots
+* Replication
 
 > [!NOTE]
 > Apache Phoenix stores its metadata in HBase tables, so that metadata is backed up when you back up the HBase system catalog tables.
