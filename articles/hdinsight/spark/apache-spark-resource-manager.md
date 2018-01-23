@@ -99,11 +99,11 @@ Following command is an example of how to change the configuration parameters fo
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
 ### Change the parameters for an application submitted using cURL
-Following command is an example of how to change the configuration parameters for a batch application that is submitted using cURL.
+The following command is an example of how to change the configuration parameters for a batch application that is submitted using cURL.
 
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-### Change these parameters on a Spark Thrift Server?
+### Change these parameters on a Spark Thrift Server
 Spark Thrift Server provides JDBC/ODBC access to a Spark cluster and is used to service Spark SQL queries. Tools like Power BI, Tableau etc. use ODBC protocol to communicate with Spark Thrift Server to execute Spark SQL queries as a Spark Application. When a Spark cluster is created, two instances of the Spark Thrift Server are started, one on each head node. Each Spark Thrift Server is visible as a Spark application in the YARN UI.
 
 Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown in the following steps:
@@ -115,7 +115,7 @@ Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.
 
     ![Configure Spark thrift server](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
 
-### Change the driver memory of the Spark Thrift Server?
+### Change the driver memory of the Spark Thrift Server
 Spark Thrift Server driver memory is configured to 25% of the head node RAM size, provided the total RAM size of the head node is greater than 14 GB. You can use the Ambari UI to change the driver memory configuration, as shown in the following screenshot:
 
 * From the Ambari UI click **Spark**, click **Configs**, expand **Advanced spark-env**, and then provide the value for **spark_thrift_cmd_opts**.

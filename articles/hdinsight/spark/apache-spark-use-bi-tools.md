@@ -26,7 +26,7 @@ Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau
 
 ## Prerequisites
 
-* **Complete [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Complete the article [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
 * **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
