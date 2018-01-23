@@ -20,7 +20,7 @@ ms.custom: mvc
 In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the Device Provisioning Service for your device based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), and the device can connect to your Device Provisioning service when it boots for the first time. This tutorial discusses the processes to:
 
 > [!div class="checklist"]
-> * Select a Hardware Security Module
+> * Choose a Hardware Security Module
 > * Build platform-specific Device Provisioning Client SDK components for the selected HSM
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
@@ -29,7 +29,7 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 
 Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions mentioned in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
-### Decide on a Hardware Security Module
+### Choose a Hardware Security Module
 
 As a device manufacturer, you need to select Hardware Security Modules (or HSMs) that are based on one of the following types. Currently, the [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following HSMs: 
 
@@ -40,7 +40,7 @@ As a device manufacturer, you need to select Hardware Security Modules (or HSMs)
 See [IoT Hub Device Provisioning Service security concepts](concepts-security.md) for more details on HSM types.  
 
 >[!NOTE]
-> This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c). See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional languages.
+> This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), used with a Windows client. See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional languages.
 
 ## Build platform-specific SDK components for the selected HSM
 
@@ -94,12 +94,12 @@ Once your library successfully builds on its own, you'll need to integrate it wi
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
    
-2. Open the SDK in Visual Studio and build it. 
+2. Open the Visual Studio solution file built by CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`), and build it. 
 
     - The build process will compile the SDK library.
     - The SDK will attempt to link against the custom HSM defined in the cmake command.
 
-3. Run the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` sample to verify if your HSM is implemented correctly.
+3. Run the sample app built for the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample` project, to verify if your HSM is implemented correctly.
 
 <a id="extractsecurity"></a>
 ## Extract the security artifacts
@@ -192,7 +192,7 @@ At this point, you might have set up the Device Provisioning and IoT Hub service
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Select a Hardware Security Module
+> * Choose a Hardware Security Module
 > * Build platform-specific Device Provisioning Client SDK components for the selected HSM
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
