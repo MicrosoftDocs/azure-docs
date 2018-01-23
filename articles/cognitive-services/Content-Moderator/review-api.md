@@ -175,3 +175,5 @@ You see both the reviewer assigned tags (**reviewResultTags**) and the initial t
 Test drive the [Job API console](try-review-api-job.md) and use the REST API code samples. Also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) if you are familiar with Visual Studio and C#. 
 
 For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
+
+FOr video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md) and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
