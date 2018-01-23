@@ -11,11 +11,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 23/01/2018
 ms.author: v-jysur
 ---
-# Connect ITSM products/services with IT Service Management Connector (Preview)
-This article provides information about how to connect your ITSM product/service to IT Service Management Connector (ITSMC) in OMS and centrally manage your work items. For more information about ITSMC, see [Overview](log-analytics-itsmc-overview.md).
+# Connect ITSM products/services with IT Service Management Connector
+This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about what ITSMC can do, see [Overview](log-analytics-itsmc-overview.md).
 
 The following ITSM products/services are supported. Select the product to view detailed information about how to connect the product to ITSMC.
 
@@ -24,15 +24,19 @@ The following ITSM products/services are supported. Select the product to view d
 - [Provance](#connect-provance-to-it-service-management-connector-in-oms)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-oms)
 
-## Connect System Center Service Manager to IT Service Management Connector in OMS
+> [!NOTE]
 
-The following sections provide details about how to connect your System Center Service Manager product to ITSMC in OMS.
+> ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+
+## Connect System Center Service Manager to IT Service Management Connector in Azure
+
+The following sections provide details about how to connect your System Center Service Manager product to ITSMC in Azure.
 
 ### Prerequisites
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management connector-solution).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
@@ -42,19 +46,24 @@ Ensure the following prerequisites are met:
 
 Use the following procedure to connect your System Center Service Manager instance to ITSMC:
 
-1. Go to **OMS** >**Settings** > **Connected Sources**.
-2. Select **ITSM Connector,** click **Add New Connection**.
+1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
+
+2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+	![New connection](./media/log-analytics-itsmc/add-new-connection.png)
+
+3. At the top of the right pane, click **Add New Connection**.
 
     ![Service manager ](./media/log-analytics-itsmc/itsmc-service-manager-connection.png)
-3. Provide the information as described in the following table, and click **Save** to create the connection:
+4. Provide the information as described in the following table, and click **OK** to create the connection:
 
 > [!NOTE]
+
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the System Center Service Manager instance that you want to connect with ITSMC.  You use this name later when you configure work items in this instance/ view detailed log analytics. |
-| **Select Connection type**   | Select **System Center Service Manager**. |
+| **Connection Name**   | Type a name for the System Center Service Manager instance that you want to connect with ITSMC.  You use this name later when you configure work items in this instance/ view detailed log analytics. |
+| **Partner type**   | Select **System Center Service Manager**. |
 | **Server URL**   | Type the URL of the Service Manager Web app. More information about Service Manager Web app is [here](#create-and-deploy-service-manager-web-app-service).
 | **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](log-analytics-itsmc-service-manager-script.md)|
 | **Client Secret**   | Type the client secret, generated for this ID.   |
@@ -62,11 +71,13 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
+![Service manager connection](./media/log-analytics-itsmc/service-manager-connection.png)
+
 **When successfully connected, and synced**:
 
-- Selected work items from Service Manager are imported into OMS **Log Analytics.** You can view the summary of these work items on the IT Service Management Connector tile.
+- Selected work items from Service Manager are imported into Azure **Log Analytics.** You can view the summary of these work items on the IT Service Management Connector tile.
 
-- From OMS, you can create incidents from OMS alerts or from log search, or from Azure alerts in this Service Manager instance.
+- You can create incidents from OMS alerts or from log search, or from Azure alerts in this Service Manager instance.
 
 More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) and [Create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
