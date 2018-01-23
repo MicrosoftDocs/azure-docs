@@ -1,6 +1,6 @@
----
+,---
 title: What is the access panel in Azure Active Directory? | Microsoft Docs
-description: Learn how to use variations of the access panel (web browser, Android app, iPhone and iPad app) to access SaaS apps.
+description: Learn how to use variations of the access panel (web browser, Android app, iPhone, and iPad app) to access SaaS apps.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -20,9 +20,9 @@ ms.custom: H1Hack27Feb2017
 ---
 # What is the access panel?
 
-The access panel is a web-based portal. It enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications an Azure AD administrator has granted them access to. You can also use self-service group and app management capabilities through the access panel.
+The access panel is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can view and start cloud-based applications that an Azure AD administrator has granted you access to. You can also use self-service group and app management capabilities through the access panel.
 
-The access panel is separate from the Azure portal, and it does not require you to have an Azure subscription.
+The access panel is separate from the Azure portal. It does not require you to have an Azure subscription.
 
 ![Access panel][1]
 By using the access panel, you can edit some of your profile settings and do the following:
@@ -31,13 +31,13 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - Edit password reset settings.
 
-- Edit contact and preference settings related to multi-factor authentication (for accounts that have been required to use it by an administrator)
+- Edit contact and preference settings related to multi-factor authentication (for accounts that have been required to use it by an administrator).
 
-- View account details, such as user ID, alternate email, and mobile and office phone numbers, and devices.
+- View account details, such as user ID, alternate email, mobile and office phone numbers, and devices.
 
-- View and start cloud-based applications that the Azure AD administrator has granted them access to. For more information about the access panel from the users’ perspective, see Using the access panel. 
+- View and start cloud-based applications that the Azure AD administrator has granted you access to. For more information about the access panel from a user's perspective, see Using the access panel. 
 
-- Self-manage groups. More specifically, administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
 
 
 
@@ -48,7 +48,7 @@ You can access the access panel by going to `http://myapps.microsoft.com`.
 
 If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `http://myapps.microsoft.com/<your domain>.com`).
 
-In this case, you can use any active or verified domain name that has been configured in your Azure portal, as shown here:
+You can use any active or verified domain name that has been configured in your Azure portal, as shown here:
 
 ![Wingtip Toys domain name][2]  
 
@@ -58,7 +58,7 @@ Distribute the URL to all users who sign in to applications that are integrated 
 
 To reach the access panel, you must be authenticated through a work or school account in Azure AD. You can be authenticated to Azure AD directly. Alternatively, if an organization has configured federation by using Active Directory Federation Services (AD FS) or other technologies, you can be authenticated by Windows Server Active Directory.
 
-If you have a subscription for Azure or Office 365 and you have been using the Azure portal or an Office 365 application, you can see the list of applications without signing in again. If you are not authenticated, you are prompted to sign in by using the username and password for your account in Azure AD. If your organization has configured federation, typing the username is sufficient.
+If you have a subscription for Azure or Office 365 and you have been using the Azure portal or an Office 365 application, you can view the list of applications without signing in again. If you are not authenticated, you are prompted to sign in by using the username and password for your account in Azure AD. If your organization has configured federation, typing the username is sufficient.
 
 When you are authenticated, you can interact with the applications that your administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -68,23 +68,19 @@ At a minimum, the access panel requires a browser that supports JavaScript and h
 
 The access panel extension is currently available for:
 - **Edge**: on Windows 10 Anniversary Edition or later. 
-
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
-
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
-
 - **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
 
 ## My Apps Secure Sign-in Extension
-The extension is required to sign in to password-based single sign-on. After the extension is installed, you can sign in to it to enable additional features by selecting **Sign in to get started**. 
+To sign in to password-based single sign-on, you must use the extension. After the extension is installed, you can sign in to it to enable additional features by selecting **Sign in to get started**. 
 
-- You can sign in to an app directly by using the app's **Sign-on URL**. When you use this URL, the extension detects the action and give you the option of signing in from the extension.
-- You can also launch any of your apps from the access panel by using the *quick search* feature of the extension. 
-- The extension also shows you the last three applications that you launched in **Recently Used** section.
+- You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
+- You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
+- The extension shows you the last three applications that you launched in **Recently Used** section.
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.
->
 >
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
@@ -99,7 +95,7 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 The Azure Active Directory team publishes the My Apps mobile app. When you install the app, you can sign in to password-based SSO applications on iOS and Android devices.
 
 > [!NOTE]
-> You can sign in to applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and more than 70 others) on virtually any web browser, on any device, without needing a plug-in or mobile app. All other [access panel experiences](https://myapps.microsoft.com/) also do not require the My Apps mobile app to be used on a mobile device.
+> You can sign in to applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and more than 70 others) on virtually any web browser, on any device, without needing a plug-in or mobile app. To be used on a mobile device, the other [access panel experiences](https://myapps.microsoft.com/) also do not require the My Apps mobile app.
 >
 >
 
@@ -120,11 +116,11 @@ It is available at the [Apple App Store](https://itunes.apple.com/us/app/my-apps
 ![My Apps for iOS][4]    
 
 
-
 ## Managed browser for My Apps
 
 My Apps is also integrated with the Intune Managed Browser. The Intune Managed Browser for iOS and Android devices plays a key role in helping ensure that data on mobile devices stays secure. The browser lets you safely view and navigate webpages that might contain company information, and it helps provide a secure web-browsing experience.  
-You get quick access to My Apps on your Managed Browser home page and in your bookmarks, so it takes fewer clicks to reach any application you want to access.
+
+You get quick access to My Apps on your Managed Browser home page and in your bookmarks, so fewer clicks are required to reach any application you want to access.
 
 Intune Managed Browser is available at the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
 
@@ -133,9 +129,9 @@ Intune Managed Browser is available at the [Apple App Store](https://itunes.appl
 
 ## Tips for testing the user experience
 
-If you are an Azure administrator and you are signed in to the Azure portal by using an account in the directory, you are automatically signed in to the access panel as your current account. This view displays all applications that have been assigned to you.
+If you are an Azure administrator and you are signed in to the Azure portal by using an account in the directory, you are automatically signed in to the access panel as your current account. This view displays all applications that are assigned to you.
 
-To test as a *different* user account, do the following:
+To test in a *different* user account, do the following:
 
 1. At the upper right of the Azure portal or the access panel, select **Sign Out**. 
 2. Go to the [access panel](http://myapps.microsoft.com).
@@ -154,9 +150,9 @@ When you select an application tile for an Office 365 application, you are redir
 
 ### Microsoft and third-party applications configured with federation-based SSO
 
-Your administrator can add applications in the Active Directory section of the Azure portal with the SSO mode set to **Azure AD Single Sign-On**. You can see these applications only if your administrator has explicitly granted you access to the applications.
+Your administrator can add applications in the Active Directory section of the Azure portal with the SSO mode set to **Azure AD Single Sign-On**. You can see these applications only if your administrator has explicitly granted you access to them.
 
-When you select a tile for one of these applications, you are redirected and automatically signed in to the application.
+When you select a tile for an application, you are redirected and automatically signed in to it.
 
 ### Password-based SSO without identity provisioning
 
@@ -203,7 +199,7 @@ For example, if an application is configured to authenticate users by using AD F
 
 - To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](active-directory-apps-index.md).
  
-- To learn how to integrate a SaaS app into Azure AD, see the [list of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
+- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](active-directory-appssoaccess-whatis.md).
  
