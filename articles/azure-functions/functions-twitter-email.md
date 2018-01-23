@@ -285,5 +285,5 @@ Advance to the next tutorial to learn how to create a serverless API for your fu
 > [!div class="nextstepaction"] 
 > [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
 
-To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
+To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
