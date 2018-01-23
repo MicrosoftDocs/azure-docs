@@ -73,6 +73,52 @@ You can create a near real-time metric alert using the steps described [here](mo
 ## Managing near real-time metric alerts
 Once you have created a **Near Real-Time Metric alert**, it can be managed using the steps described [here](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+## Payload schema
+
+The POST operation contains the following JSON payload and schema for all near real-time metric alerts.
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
+
 ## Next steps
 
 * [Learn more about the new Alerts (preview) experience](monitoring-overview-unified-alerts.md)

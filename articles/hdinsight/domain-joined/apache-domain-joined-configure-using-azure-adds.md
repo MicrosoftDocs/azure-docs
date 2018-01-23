@@ -35,7 +35,7 @@ In this article, you learn how to configure a Domain-joined HDInsight cluster us
 You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Only the tenant administrators have the privileges to create domain services. In case of Azure Data Lake Storage - AAD tenant where > > you enable AADDS must be the default tenant of the subscription where you create the Azure Data Lake storage account and cluster.
+> Only the tenant administrators have the privileges to create domain services. If you use Azure Data Lake Storage (ADLS) as the default storage for HDInsight, then make sure the default Azure AD tenant for ADLS is same as the domain for the HDInsight cluster. 
 
 After the domain service has been provisioned, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The service account must be a global administrator on the Azure AD.
 

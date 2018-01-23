@@ -19,7 +19,7 @@ ms.author: LADocs; stepsic
 ---
 # Use Logic Apps features
 
-In a [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), 
+In a [previous topic](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
 you created your first logic app. To control your logic app's workflow, 
 you can specify different paths for your logic app to run and how to 
 process data in arrays, collections, and batches. You can include these 
