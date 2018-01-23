@@ -12,9 +12,10 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
+ms.custom: mvc
 ---
 
 # Manage Windows updates with Azure Automation

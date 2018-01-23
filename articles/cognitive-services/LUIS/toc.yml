@@ -53,6 +53,8 @@
     href: luis-tutorial-node-import-utterances-csv.md
   - name: Learn synonyms with a phrase list
     href: luis-tutorial-interchangeable-phrase-list.md
+  - name: Gain Application Insights with a bot using Node.js
+    href: luis-tutorial-function-appinsights.md
 - name: Samples
   items:
   - name: Code samples
@@ -101,9 +103,9 @@
     items: 
     - name: Monitor your app using the dashboard
       href: App-Dashboard.md
-    - name: Manage keys
+    - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Create subscription keys
+    - name: Manage Azure keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
@@ -135,9 +137,13 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Glossary
+    href: luis-glossary.md
   - name: LUIS FAQ
     href: luis-resources-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS 
+  - name: Blog
+    href: https://blog.botframework.com/category/luis/

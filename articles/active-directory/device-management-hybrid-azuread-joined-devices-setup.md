@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -38,7 +38,7 @@ To improve the readability of the descriptions, this topic uses the following te
 
 ### Windows current devices
 
-- For devices running the Windows desktop operating system, we recommend using Windows 10 Anniversary Update (version 1607) or later. 
+- For devices running the Windows desktop operating system, the supported version is the Windows 10 Anniversary Update (version 1607) or later. 
 - The registration of Windows current devices **is** supported in non-federated environments such as password hash sync configurations.  
 
 

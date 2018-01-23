@@ -186,7 +186,7 @@ Data storage along with other limits are set at the account level and not per st
 
 ## Next steps
 
-### Evaluate hot, cool, and archvie in GPv2 Blob Storage accounts
+### Evaluate hot, cool, and archive in GPv2 Blob Storage accounts
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
 

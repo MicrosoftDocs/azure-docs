@@ -76,7 +76,7 @@ parameters:
 A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Files, an Azure file share is created in the storage account selected or specified in the storage class object.
 
 >  [!NOTE]
->	Make sure a suitable storage account has been pre-created in the same resource group as the AKS cluster. The persistent volume claim will fail to provision the Azure file share if a storage account is not available. 
+>	Make sure a suitable storage account has been pre-created in the same resource group as the AKS cluster resources. This resource group has a name like *MC_myAKSCluster_myAKSCluster_eastus*. The persistent volume claim will fail to provision the Azure file share if a storage account is not available. 
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 

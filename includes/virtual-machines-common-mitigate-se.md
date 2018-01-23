@@ -1,9 +1,14 @@
 
-**Last document update**: January 6, 6:30 PM PST.
+
+
+**Last document update**: January 22, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
 The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure cannot attack your application using these vulnerabilities.
+
+> [!NOTE] 
+> Azure mitigations previously announced on Jan 3, 2018 are unaffected by the recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information by Intel.
 
 ## Keeping your Operating Systems up-to-date
 
@@ -22,7 +27,7 @@ In the following offerings, here are our recommended actions to update your Oper
 <td>Azure Linux Virtual Machines</td> <td>Install updates from your operating system provider when available. </td>
 </tr>
 <tr>
-<td>Azure Windows Virtual Machines </td> <td><ul><li>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. </li> <li> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Azure Windows Virtual Machines </td> <td>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information.<p> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Other Azure PaaS Services</td> <td>There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. </td>
@@ -44,9 +49,7 @@ If you are using Linux and hosting untrusted code, you should also update Linux 
 
 
 
-
-
-
+We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
 
 
 ## Next steps
