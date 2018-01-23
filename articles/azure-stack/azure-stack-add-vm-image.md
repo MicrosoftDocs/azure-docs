@@ -40,7 +40,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
    Azure Stack supports the fixed disk VHD format. The fixed format structures the logical disk linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. To confirm if your disk is fixed, use the [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell command.  
 
    > [!IMPORTANT]
-   >  Azure Stack does not support dynamic disk VHDs. Resizing a dynamic disk that is attached to a VM will leave the VM in a failed state. To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. The, convert the VHD from a dynamic disk to a fixed disk and re-create the virtual machine.
+   >  Azure Stack does not support dynamic disk VHDs. Resizing a dynamic disk that is attached to a VM will leave the VM in a failed state. To mitigate this issue, delete the VM without deleting the VM’s disk, a VHD blob in a storage account. Then convert the VHD from a dynamic disk to a fixed disk and re-create the virtual machine.
 
 To add the image to the Azure Stack Marketplace, complete the following steps:
 
