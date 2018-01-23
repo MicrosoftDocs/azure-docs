@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
 
@@ -161,14 +161,14 @@ View the summarized compliance assessments for your infrastructure and then dril
 ### To view recommendations for a focus area and take corrective action
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Overview** tile.  
 4. On the **Overview** page, click the **SQL Health Check** tile. 
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
