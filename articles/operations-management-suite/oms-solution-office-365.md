@@ -277,11 +277,11 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Count of all the operations on your Office 365 subscription |`Type = OfficeActivity | measure count() by Operation` |
-|Usage of SharePoint sites|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
-|File access operations by user type|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
-|Search with a specific keyword|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
-|Monitor external actions on Exchange|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+|Count of all the operations on your Office 365 subscription |Type = OfficeActivity &#124; measure count() by Operation |
+|Usage of SharePoint sites|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
+|File access operations by user type|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|Monitor external actions on Exchange|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
 
 
 

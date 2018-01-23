@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 09/19/2017
 ms.author: dobett
 
 ---
@@ -34,9 +34,9 @@ Azure IoT Hub is a multi-tenant service that exposes its functionality to variou
 The following list describes the endpoints:
 
 * **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface. This interface enables Azure subscription owners to create and delete IoT hubs, and to update IoT hub properties. IoT Hub properties govern [hub-level security policies][lnk-accesscontrol], as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities][lnk-importexport].
-* **Device identity management**. Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
-* **Device twin management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
-* **Jobs management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and manage [jobs][lnk-jobs].
+* **Device identity management**. Each IoT hub exposes a set of HTTPS REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
+* **Device twin management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
+* **Jobs management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and manage [jobs][lnk-jobs].
 * **Device endpoints**. For each device in the identity registry, IoT Hub exposes a set of endpoints:
 
   * *Send device-to-cloud messages*. A device uses this endpoint to [send device-to-cloud messages][lnk-d2c].
@@ -45,11 +45,9 @@ The following list describes the endpoints:
   * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin][lnk-twins]'s properties.
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method][lnk-methods]'s requests.
 
-    These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. AMQP is also available over [WebSockets][lnk-websockets] on port 443.
+    These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1, and [AMQP 1.0][lnk-amqp] protocols. AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 
-    The device twins and methods endpoints are available only when you use the [MQTT v3.1.1][lnk-mqtt] protocol.
-
-* **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP][lnk-amqp] protocol. The method invocation endpoint is exposed over the HTTP protocol.
+* **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP][lnk-amqp] protocol. The method invocation endpoint is exposed over the HTTPS protocol.
   
   * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read the [device-to-cloud messages][lnk-d2c] sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
@@ -67,6 +65,7 @@ You can link existing Azure services in your subscription to your IoT hub to act
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 
+* Azure Storage containers
 * Event Hubs
 * Service Bus Queues
 * Service Bus Topics
@@ -75,10 +74,23 @@ IoT Hub needs write access to these service endpoints for message routing to wor
 
 If a message matches multiple routes that all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering.
 
-> [!NOTE]
-> Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
-
 For the limits on the number of endpoints you can add, see [Quotas and throttling][lnk-devguide-quotas].
+
+### When using Azure Storage containers
+
+IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
+
+IoT Hub defaults to the following file naming convention:
+
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+You may use whatever file naming convention you wish, however you must use all listed tokens.
+
+### When using Service Bus queues and topics
+
+Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 ## Field gateways
 

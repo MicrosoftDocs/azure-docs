@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory device-based conditio
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 12/04/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -53,7 +53,9 @@ In a device-based conditional access policy, you can require trusted devices to 
 Devices can be marked as compliant in the directory by:
 
 - Intune 
-- A third-party mobile device management system that integrates with Azure AD  
+- A third-party mobile device managed system that manages Windows 10 devices via Azure AD integration 
+ 
+  
 
 Only devices that are connected to Azure AD can be marked as compliant. To connect a device to Azure Active Directory, you have the following options: 
 

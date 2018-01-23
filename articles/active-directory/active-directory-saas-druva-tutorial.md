@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
 
 ---
@@ -102,21 +102,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. On the **Druva Domain and URLs** section, perform the following steps:
+3. On the **Druva Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    In the **Sign-on URL** textbox, type the URL: `https://cloud.druva.com/home`
+	In the **Identifier** textbox, type the string value: `druva-cloud`
+	
+4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+	
+	In the **Sign-on URL** textbox, type the URL: `https://cloud.druva.com/home`
+
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration. 
+6. Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+7. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
 
 	| Attribute Name      | Attribute Value      |
 	| ------------------- | -------------------- |
@@ -134,47 +140,47 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.	
 
-7. Click **Save** button.
+8. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. On the **Druva Configuration** section, click **Configure Druva** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. On the **Druva Configuration** section, click **Configure Druva** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. In a different web browser window, log in to your Druva company site as an administrator.
+10. In a different web browser window, log in to your Druva company site as an administrator.
 
-10. Go to **Manage \> Settings**.
+11. Go to **Manage \> Settings**.
 
 	![Settings](./media/active-directory-saas-druva-tutorial/ic795091.png "Settings")
 
-11. On the Single Sign-On Settings dialog, perform the following steps:
+12. On the Single Sign-On Settings dialog, perform the following steps:
 
 	![Single Sign-On Settings](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On Settings")
 	
-	a. Paste **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **ID Provider Login URL** textbox.
-	
-	b. Paste **Sign-Out URL** value, which you have copied from the Azure portal into the **ID Provider Logout URL** textbox.
-	
-	 c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
+	a. In **ID Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+		
+	b. In **ID Provider Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal
+		
+	c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 	 
-	 d. To open the **Settings** page, click **Save**.
+	d. To open the **Settings** page, click **Save**.
 
-12. On the **Settings** page, click **Generate SSO Token**.
+13. On the **Settings** page, click **Generate SSO Token**.
 
 	![Settings](./media/active-directory-saas-druva-tutorial/ic795093.png "Settings")
 
-13. On the **Single Sign-on Authentication Token** dialog, perform the following steps:
+14. On the **Single Sign-on Authentication Token** dialog, perform the following steps:
 
 	![SSO Token](./media/active-directory-saas-druva-tutorial/ic795094.png "SSO Token")
 	
-	a. Click **Copy**, Paste copied value in the **Value** textbox in the **Add Attribute** section.
+	a. Click **Copy**, Paste copied value in the **Value** textbox in the **Add Attribute** section in the Azure portal.
 	
 	b. Click **Close**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### Create an Azure AD test user
 
@@ -278,8 +284,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

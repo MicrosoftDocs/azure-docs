@@ -180,7 +180,7 @@ By default HPC Pack grows 1% extra nodes for MPI jobs (**ExtraNodesGrowRatio** i
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### SOA example
-By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** is set to 200000. If you submit one SOA job with 70000 requests, there is one queued task and incoming requests are 70000. In this case HPC Pack grows 1 core for the queued task, and for incoming requests, grows (70000 - 50000)/20000 = 1 core, so in total grows 2 cores for this SOA job.
+By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** is set to 20000. If you submit one SOA job with 70000 requests, there is one queued task and incoming requests are 70000. In this case HPC Pack grows 1 core for the queued task, and for incoming requests, grows (70000 - 50000)/20000 = 1 core, so in total grows 2 cores for this SOA job.
 
 ## Run the AzureAutoGrowShrink.ps1 script
 ### Prerequisites

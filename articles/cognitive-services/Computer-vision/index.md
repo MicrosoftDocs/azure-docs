@@ -2,7 +2,7 @@
 title: Azure Cognitive Services, Computer Vision Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create visual features for your apps
 services: cognitive-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.service: cognitive-services

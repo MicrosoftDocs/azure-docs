@@ -1,6 +1,6 @@
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/virtual-machines/windows/premium-storage.md) or [Standard](../articles/virtual-machines/windows/standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
@@ -45,7 +45,7 @@ When using Managed Disks, the following billing considerations apply:
 Let's take a closer look at these.
 
 **Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+[Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-based) and [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
@@ -53,9 +53,9 @@ create a standard managed disk and specify a provisioned size of 200 GB, you are
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Here are the disk sizes available for a standard managed disk:
@@ -81,7 +81,7 @@ A Managed Snapshot is a read-only full copy of a managed disk which is stored as
 To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## Images
@@ -133,9 +133,9 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Compare Managed Disks storage options
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+* [Premium storage and disks](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+* [Standard storage and disks](../articles/virtual-machines/windows/standard-storage.md)
 
 ### Operational guidance
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
+ms.date: 10/05/2017
 ms.author: sethm
 
 ---
 # Azure Relay authentication and authorization
-Applications can authenticate to Azure Relay using Shared Access Signature (SAS) authentication. Similar to [Service Bus messaging](../service-bus-messaging/service-bus-authentication-and-authorization.md), SAS authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.
+
+Applications can authenticate to Azure Relay using Shared Access Signature (SAS) authentication. SAS authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.
 
 ## Shared Access Signature authentication
 [SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Azure Relay resources with specific rights. SAS authentication involves the configuration of a cryptographic key with associated rights on a resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.

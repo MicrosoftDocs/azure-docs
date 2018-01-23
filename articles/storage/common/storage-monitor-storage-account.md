@@ -3,7 +3,7 @@ title: How to monitor an Azure Storage account | Microsoft Docs
 description: Learn how to monitor a storage account in Azure by using the Azure portal.
 services: storage
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Monitor a storage account in the Azure portal
@@ -24,7 +24,7 @@ ms.author: marsma
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
-> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+> Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
 >
 > Storage accounts with a replication type of Zone-Redundant Storage (ZRS) currently do not have the metrics or logging capability enabled.
 > 
@@ -134,7 +134,7 @@ Once you've added charts to your dashboard, you can further customize them as de
 You can instruct Azure Storage to save diagnostics logs for read, write, and delete requests for the blob, table, and queue services. The data retention policy you set also applies to these logs.
 
 > [!NOTE]
-> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+> Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
 >
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.

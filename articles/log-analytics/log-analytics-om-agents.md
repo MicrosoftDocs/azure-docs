@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
 ---
 
@@ -205,7 +205,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

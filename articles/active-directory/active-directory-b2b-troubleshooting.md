@@ -4,7 +4,7 @@ description: Remedies for common problems with Azure Active Directory B2B collab
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

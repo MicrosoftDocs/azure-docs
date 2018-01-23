@@ -3,8 +3,8 @@ title: How to provide secure remote access to on-premises apps
 description: Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -76,7 +76,7 @@ Azure AD Application Proxy provides single sign-on (SSO) to applications that us
 For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### Managing apps
-One your app is published with Application Proxy, you can manage it like any other enterprise app in the Azure portal. You can use Azure Active Directory security features like conditional access and two-step verification, control user permissions, and customize the branding for your app. 
+Once your app is published with Application Proxy, you can manage it like any other enterprise app in the Azure portal. You can use Azure Active Directory security features like conditional access and two-step verification, control user permissions, and customize the branding for your app. 
 
 ## Get started
 

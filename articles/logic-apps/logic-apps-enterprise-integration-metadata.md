@@ -25,7 +25,7 @@ that metadata during runtime for your logic app. For example, you can specify me
 for artifacts like partners, agreements, schemas, and maps - all store metadata using key-value pairs. 
 Currently, artifacts can't create metadata through UI, but you can use REST APIs to create metadata. 
 To add metadata when you create or select a partner, 
-agreement, or schema in the Azure portal, choose **Edit as JSON**. To retrieve artifact 
+agreement, or schema in the Azure portal, choose **Edit**. To retrieve artifact 
 metadata in logic apps, you can use the Integration Account Artifact Lookup feature.
 
 ## Add metadata to artifacts in integration accounts
@@ -37,13 +37,13 @@ a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partne
 [agreement](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), 
 or [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.	Select the artifact, choose **Edit as JSON**, and enter metadata details.
+3.	Select the artifact, choose **Edit**, and enter metadata details.
 
 	![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
 
 ## Retrieve metadata from artifacts for logic apps
 
-1. Create a [logic app](logic-apps-create-a-logic-app.md).
+1. Create a [logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 

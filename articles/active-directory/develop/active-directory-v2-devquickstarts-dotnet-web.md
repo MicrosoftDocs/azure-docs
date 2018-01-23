@@ -4,7 +4,7 @@ description: How to build a .NET MVC Web App that signs users in with both perso
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14

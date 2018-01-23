@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 
 ---
@@ -36,7 +36,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 * Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
-## Create and provision an ExpressRoute circuit
+## <a name="create"></a>Create and provision an ExpressRoute circuit
 
 ### 1. Sign in to your Azure account and select your subscription
 
@@ -348,7 +348,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).
 
-## Deprovisioning and deleting an ExpressRoute circuit
+## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 
 To deprovision and delete an ExpressRoute circuit, make sure you understand the following criteria:
 

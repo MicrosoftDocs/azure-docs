@@ -5,7 +5,7 @@ description: How to add or remove users and devices from a group in Azure Active
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b
@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 
 ---
 # Manage group membership for users in your Azure Active Directory tenant

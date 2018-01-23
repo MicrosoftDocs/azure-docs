@@ -1,6 +1,6 @@
 ---
-title: Use Connectors in Azure Content Moderator | Microsoft Docs
-description: Content Moderator workflows can use content from other APIs by using Connectors.
+title: Use connectors in Azure Content Moderator to access other APIs | Microsoft Docs
+description: Learn how to access other APIs for your Content Moderator workflows by using connectors.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,40 +12,44 @@ ms.date: 06/22/2017
 ms.author: sajagtap
 ---
 
-# About Connectors #
+# Connectors
 
-Workflows can use other APIs, not just the Content Manager API. However, other APIs first need to be connected to Content Manager using a Connector: the Connector provides a link to the other API.
+Azure Content Moderator workflows can use other APIs, in addition to Content Moderator APIs. You access other APIs by using a connector in Content Moderator. The connector provides a link to the other APIs.
 
-Content Moderator includes Connectors by default, including these Connectors.
+Content Moderator includes these default connectors:
 
-![Content Moderation Connectors](images/connectors-1.png)
+* Emotion API
+* Face API
+* PhotoDNA Cloud Service
 
-## Verifying your credentials ## 
+![Content Moderator available connectors](images/connectors-1.png)
 
-Before you start defining a workflow, make sure you have valid credentials for the API you intend to use.
+## Verify your credentials 
 
-1.	Select Connectors from the Settings tab in the Review Tool Dashboard.
+Before you define a workflow, ensure that you have valid credentials for the connector API that you want to use:
 
-  ![Content Moderation Connectors](images/connectors-2.png)
+1.	On the Review tool Dashboard, select **Settings** > **Connectors**.
 
-2.	Click the Edit symbol next to the connector for which you want credentials.
+  ![Content Moderator select Connectors](images/connectors-2.png)
 
-  ![Content Moderation Connectors](images/connectors-3.png)
+2.	Select the **Edit** symbol next to the connector that you want to verify credentials for.
 
-3.	The subscription key displays. If you make any edits, click Save when you are done.
+  ![Content Moderator select the Edit symbol](images/connectors-3.png)
 
-  ![Content Moderation Connectors](images/connectors-4.png)
+3.	The subscription key appears. If you make any edits, select **Save** when you are finished.
+
+  ![Content Moderator Edit Connectors page](images/connectors-4-1.png)
  
-## Adding a Connector ##
+## Add a connector
 
-1.	Before you add a connector, you will need a subscription key. From the Settings > Credentials window, copy the Ocp-Admin-Subscription-Key.
+1.	Before you add a connector, you need a subscription key. On the Review tool Dashboard, select **Settings** > **Credentials**. Select and copy the value that's in the **Ocp-Admin-Subscription-Key** box.
 
-2.	Click Connectors. From the available connectors displayed in the Review Tool Dashboard, click Connect. A window opens, asking for your subscription key.
+2.	Select **Connectors**. Select one of the available connectors that are displayed on the Review tool Dashboard. Then, select **Connect**. 
 
-  ![Content Moderation Connectors](images/connectors-5.png)
+  ![Content Moderator Add Connector page](images/connectors-5.png)
 
-3.	Paste the key you just copied into the Ocp-Admin-Subscription-Key field, then click Save.
+3.	In the **Ocp-Admin-Subscription-Key** box, paste the key that you copied. Then, select **Save**.
 
-## Next steps ##
+## Next steps
 
-To learn how to use connectors to define custom workflows, see the [workflows](workflows.md) article.
+* Learn how to use connectors to [define custom workflows](workflows.md).

@@ -3,8 +3,8 @@ title: Upgrade an Azure virtual machine scale set| Microsoft Docs
 description: Upgrade an Azure virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
+ms.author: gunegatybo
 
 ---
 # Upgrade a virtual machine scale set
@@ -28,7 +28,7 @@ To avoid ambiguity, let’s distinguish four types of OS update you might want t
 * Changing the image reference of a scale set that was created using Azure Managed Disks.
 * Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
 
-Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here. See [Patch Windows OS in your Service Fabric cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) for more information about patching Service Fabric.
+Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here. For more information about patching Service Fabric, see [Patch Windows OS in your Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
@@ -61,14 +61,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-If you are updating the URI for a custom image instead of changing a platform image version, replace the “set the new version” line with a command that will update the source image URI. For example, if the scale set was created without using Azure Managed Disks, the update would look like this:
+If you are updating the URI for a custom image instead of changing a platform image version, replace the “set the new version” line with a command that updates the source image URI. For example, if the scale set was created without using Azure Managed Disks, the update would look like this:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-If a custom image based scale set was created using Azure Managed Disks, then the image reference would be updated. For example:
+If a custom image-based scale set was created using Azure Managed Disks, then the image reference would be updated. For example:
 
 ```powershell
 # set the new version in the model data

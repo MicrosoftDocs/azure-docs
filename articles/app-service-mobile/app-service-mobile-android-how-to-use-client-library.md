@@ -3,8 +3,8 @@ title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
 description: How to use the Azure Mobile Apps SDK for Android
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: glenga
+ms.date: 11/16/2017
+ms.author: crdun
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -61,10 +61,10 @@ Change both **build.gradle** files:
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    Currently the latest version is 3.3.0. The supported versions are listed [on bintray][14].
+    Currently the latest version is 3.4.0. The supported versions are listed [on bintray][14].
 
 ### <a name="enable-internet"></a>Enable internet permission
 
@@ -103,7 +103,7 @@ package com.example.appname.services;
 import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
-public AzureServiceAdapter {
+public class AzureServiceAdapter {
     private String mMobileBackendUrl = "https://myappname.azurewebsites.net";
     private Context mContext;
     private MobileServiceClient mClient;
@@ -230,8 +230,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -817,7 +817,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 For an online table, you use `.getTable()`.  For an offline table, use `.getSyncTable()`:
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 All the methods that are available for online tables (including filtering, sorting, paging, inserting data, updating data, and deleting data) work equally well on online and offline tables.
@@ -978,7 +978,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```
@@ -1307,6 +1307,6 @@ This code must be executed before creating a mobile client reference using the *
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html

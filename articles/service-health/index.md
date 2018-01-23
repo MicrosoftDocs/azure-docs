@@ -1,9 +1,9 @@
 ---
 title: Azure Resource health - Tutorials | Microsoft Docs
-description:	
+description: Azure Service Health provides personalized guidance and support when issues in Azure services affect you, and helps you prepare for upcoming planned maintenance. Azure Service Health alerts you and your teams via targeted and flexible notifications.	
 services: Resource health
-author: bernardm
-manager: bernardm
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: service-health
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
-ms.author: bernardm
+ms.author: carolz
 ---
 # Azure Service Health Documentation
 

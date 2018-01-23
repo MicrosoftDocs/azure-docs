@@ -1,6 +1,6 @@
 ---
-title: "  Publish content with the Azure portal | Microsoft Docs"
-description: This tutorial walks you through the steps of publishing your content with the Azure portal.
+title: Publish content in the Azure portal | Microsoft Docs
+description: This tutorial walks you through the steps of publishing your content in the Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +17,7 @@ ms.date: 08/07/2017
 ms.author: juliako
 
 ---
-# Publish content with the Azure portal
+# Publish content in the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -27,72 +27,70 @@ ms.author: juliako
 
 ## Overview
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> To complete this tutorial, you need an Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: 
+To provide your user with a URL that they can use to stream or download your content, first you must publish your asset by creating a locator. Locators provide access to asset files. Azure Media Services supports two types of locators: 
 
-* Streaming (OnDemandOrigin) locators, used for adaptive streaming (for example, to stream MPEG DASH, HLS, or Smooth Streaming). To create a streaming locator your asset must contain an .ism file. 
-* Progressive (SAS) locators, used for delivery of video via progressive download.
+* **Streaming (OnDemandOrigin) locators**. Streaming locators are used for adaptive streaming. Examples of adaptive streaming include Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming, and Dynamic Adaptive Streaming over HTTP (DASH, also called MPEG-DASH). To create a streaming locator, your asset must include an .ism file. 
+* **Progressive (shared access signature) locators**. Progressive locators are used to deliver video via progressive download.
 
-A streaming URL has the following format and you can use it to play Smooth Streaming assets.
+To build an HLS streaming URL, append *(format=m3u8-aapl)* to the URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
+To build a streaming URL to play Smooth Streaming assets, use the following URL format:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
+To build an MPEG-DASH streaming URL, append *(format=mpd-time-csf)* to the URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
-A SAS URL has the following format.
+A shared access signature URL has the following format:
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{shared access signature}
 
-For more information, see [Delivering content overview](media-services-deliver-content-overview.md).
+For more information, see the [delivering content overview](media-services-deliver-content-overview.md).
 
 > [!NOTE]
-> If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
+> Locators that were created in the Azure portal before March 2015 have a two-year expiration date.  
 > 
 > 
 
-To update an expiration date on a locator, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use can use a [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or a [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+
+> [!NOTE]
+> When you update the expiration date of a shared access signature locator, the URL changes.
 
 ### To use the portal to publish an asset
-To use the portal to publish an asset, do the following:
-
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
-2. Select **Settings** > **Assets**.
-3. Select the asset that you want to publish.
-4. Click the **Publish** button.
-5. Select the locator type.
-6. Press **Add**.
+2. Select **Settings** > **Assets**. Select the asset that you want to publish.
+3. Select the **Publish** button.
+4. Select the locator type.
+5. Select **Add**.
    
-    ![Publish](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![Publish the video](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-The URL will be added to the list of **Published URLs**.
+The URL is added to the list of **Published URLs**.
 
-## Play content from the portal
-The Azure portal provides a content player that you can use to test your video.
+## Play content in the portal
+You can test your video on a content player in the Azure portal.
 
-Click the desired video and then click the **Play** button.
+Select the video, and then select the **Play** button.
 
-![Publish](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Play the video in the Azure portal](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Some considerations apply:
 
-* Make sure the video has been published.
-* This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Make sure that the video has been published.
+* The Azure portal media player plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, select and copy the URL, and then paste it into another player. For example, you can test your video on the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * The streaming endpoint from which you are streaming must be running.  
-
-## Next steps
-Review Media Services learning paths.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## Next steps
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
