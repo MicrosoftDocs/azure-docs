@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
 
 ---
@@ -44,7 +44,7 @@ You need SSH client on your desktop machine to enable you to remotely access the
 
 ### Required Raspberry Pi software
 
-If you haven't done so already, install Node.js version 4.0.0 or later on your Raspberry Pi. The following steps show you how to install Node.js v6.11.4 on your Raspberry Pi:
+If you haven't done so already, install Node.js version 4.0.0 or later on your Raspberry Pi. The following steps show you how to install Node.js v6 on your Raspberry Pi:
 
 1. Connect to your Raspberry Pi using `ssh`. For more information, see [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) on the [Raspberry Pi website](https://www.raspberrypi.org/).
 
@@ -54,16 +54,19 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
     sudo apt-get update
     ```
 
-1. Use the following command to download the Node.js binaries to your Raspberry Pi:
+1. Use the following commands to remove any existing installation of Node.js from your Raspberry Pi:
 
     ```sh
-    wget https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-armv7l.tar.gz
+    sudo apt-get remove nodered -y
+    sudo apt-get remove nodejs nodejs-legacy -y
+    sudo apt-get remove npm  -y
     ```
 
-1. Use the following command to install the binaries:
+1. Use the following command to download and install Node.js v6 on your Raspberry Pi:
 
     ```sh
-    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.11.4-linux-armv7l.tar.gz
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+    sudo apt-get install nodejs -y
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
@@ -76,12 +79,12 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 
 Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
-1. Create a folder called `RemoteMonitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your command line:
+1. Create a folder called `remotemonitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your command line:
 
     ```sh
     cd ~
-    mkdir RemoteMonitoring
-    cd RemoteMonitoring
+    mkdir remotemonitoring
+    cd remotemonitoring
     ```
 
 1. To download and install the packages you need to complete the sample app, run the following commands:
@@ -91,7 +94,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In the `RemoteMonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
+1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
