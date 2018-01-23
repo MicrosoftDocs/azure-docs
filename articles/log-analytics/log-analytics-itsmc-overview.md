@@ -91,7 +91,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
     This page displays the list of connections.
 3.  Click **Add Connection**.
 
-    ![Add ITSM connection](./media/log-analytics-itsmc/add-itsm-connection.png)
+    ![Add ITSM connection](./media/log-analytics-itsmc/add-itsm-new-connection.png)
 
 4.	Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](log-analytics-itsmc-connections.md).
 
