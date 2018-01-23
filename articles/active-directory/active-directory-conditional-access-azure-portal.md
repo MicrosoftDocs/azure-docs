@@ -210,6 +210,9 @@ If you are using Intune in your environment, you can immediately start using the
 
 Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with Conditional Access.
 
+### Switching a device from corporate-owned to Bring Your Own Device (BYOD)
+If you want to block enrolled devices by changing the device ownership from corporate to personal, you can accomplish this using Azure Active Directory (AAD) conditional access. You must first create a conditional access policy where **Block access** is selected from the access controls **Grant** blade. Next, create a **Dynamic Device** group by setting the **deviceOwnership** property to **Personal**. Then, target the above policy to the new group.
+
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).

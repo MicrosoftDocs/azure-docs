@@ -102,7 +102,8 @@ Add-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2  -Protoc
 # Get the new listener
 $listener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2 -ApplicationGateway $gw
 
-# Add a redirection configuration using a permanent redirect and targeting the existing listener
+# Add a redirection configuration using a permanent redirect targeting the existing listener and get the redirect configuration
+Add-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -RedirectType Permanent -TargetListener $httpslistener -IncludePath $true -IncludeQueryString $true -ApplicationGateway $gw
 $redirectconfig = Get-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -ApplicationGateway $gw
 
 # Retrieve the existing backend http settings to be used

@@ -24,7 +24,7 @@ ms.author: heidist
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 > * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 > * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
@@ -54,7 +54,7 @@ Indexers can offer features that are unique to the data source. In this respect,
 An indexer pulls data from a *data source* which holds information such as a connection string and possibly credentials. Currently the following data sources are supported:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) for selected content types
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -73,7 +73,7 @@ The indexer definition is a construct specifying the index, data source, and a s
 Now that you have the basic idea, the next step is to review requirements and tasks specific to each data source type.
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
 
 ---
@@ -162,7 +162,7 @@ Configure and create the virtual network gateway for your VNet.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
 * The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The two tunnel options are **SSTP** and **IKEv2**. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The Strongswan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP.
-* A VPN gateway can take up to 45 minutes to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. This example uses IKEv2, which is currently available in Preview.
+* A VPN gateway can take up to 45 minutes to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. This example uses IKEv2.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

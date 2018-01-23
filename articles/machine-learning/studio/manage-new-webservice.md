@@ -107,7 +107,7 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure classic portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
 > 
 > 
 

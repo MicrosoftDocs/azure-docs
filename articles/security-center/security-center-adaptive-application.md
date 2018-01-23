@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
 
 ---
@@ -33,12 +33,11 @@ Adaptive application controls help control which applications can run on your VM
 ## How to enable adaptive application controls?
 Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
 
-1.	Open **Security Center** dashboard, and click **Overview**.
-2.	Under **Advanced cloud defense**, the **Adaptive application controls** tile shows how many VMs currently have the control in place compared to all the VMs. It also shows the number of issues that were found in last week: 
+1.	Open **Security Center** dashboard, and click **Adaptive application controls** located under **Advanced cloud defense** section in the left navigation pane.
 
-	![Adaptive application controls](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+	![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Click on the **Adaptive application controls** tile for more options.
+2. The **Adaptive application controls** page appears.
 
 	![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

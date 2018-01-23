@@ -37,7 +37,7 @@ The tutorial application includes three parts:
 > * Parsing the JSON results that are the details returned from the `POST` request
 
 ## Scenario overview
-There are [three Image Search endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-endpoint). The `/details` endpoint can use a `POST` request with image data in the body of the request.
+There are [three Image Search endpoints](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). The `/details` endpoint can use a `POST` request with image data in the body of the request.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -171,10 +171,10 @@ To use the `ImageInsightsToken` returned with results of a `POST`, create a `GET
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
 ```
 If there are identifiable people or places in the image, this request will return information about them.
-The [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search) contain numerous code examples.
+The [Quickstarts](https://docs.microsoft.com/azure/cognitive-services/bing-image-search) contain numerous code examples.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
 

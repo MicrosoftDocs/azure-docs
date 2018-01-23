@@ -71,5 +71,5 @@ Once logging begins, you can view a list of available logs and download individu
 ## Next steps
 - See [Access Server Logs in CLI](howto-configure-server-logs-using-cli.md) to learn how to download logs programmatically.
 - Learn more about [Server Logs](concepts-server-logs.md) in Azure DB for PostgreSQL. 
-- For more information about the parameter definitions and PostgreSQL logging, see the PosgreSQL documentation on [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- For more information about the parameter definitions and PostgreSQL logging, see the PostgreSQL documentation on [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

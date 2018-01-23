@@ -1,5 +1,5 @@
 ---
-title: Sending push notifications to iOS with Azure Notification Hubs | Microsoft Docs
+title: Get started with Azure Notification Hubs for iOS apps | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to an iOS application.
 services: notification-hubs
 documentationcenter: ios
@@ -14,11 +14,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 12/18/2017
+ms.date: 12/22/2017
 ms.author: jawh
 
 ---
-# Sending push notifications to iOS with Azure Notification Hubs
+# Get started with Azure Notification Hubs for iOS apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
@@ -62,7 +62,7 @@ This section walks you through the steps to create a new notification hub and co
 
 <li>
 
-<p>Click the <b>Notification Services</b> button, then select <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
+<p>Under <b>Notification Services</b> select <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
 
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>

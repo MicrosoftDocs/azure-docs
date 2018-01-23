@@ -6,7 +6,6 @@
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
-### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -22,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # How To
 ## Plan and design
@@ -36,7 +34,9 @@
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Message handling
+#### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 #### [Message sequencing and timestamps](message-sequencing.md)
@@ -64,6 +64,7 @@
 #### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 #### [Transaction processing](service-bus-transactions.md)
 #### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [End-to-end tracing and diagnostics](service-bus-end-to-end-tracing.md)
 ## Manage
 ### [Monitor Service Bus with Azure Monitoring](service-bus-metrics-azure-monitor.md)
 ### [Service Bus management libraries](service-bus-management-libraries.md)

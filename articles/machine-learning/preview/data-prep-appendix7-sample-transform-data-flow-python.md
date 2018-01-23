@@ -78,3 +78,8 @@ The data now looks like the following:
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### Min Max Normalization
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

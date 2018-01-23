@@ -312,6 +312,13 @@ Move is not enabled for Storage, Network, or Compute resources used to set up di
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
 
+To move a VM enrolled in **Azure backup** between resource groups:
+ 1. Temporarily stop backup and retain backup data
+ 2. Move the VM to the target resource group
+ 3. Re-protect it under the same/new vault
+Users can restore from the available restore points created before the move operation.
+If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription.Recovery Services vault doesnot support cross subscription backups.
+
 ## HDInsight limitations
 
 You can move HDInsight clusters to a new subscription or resource group. However, you cannot move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you cannot move to a new resource group a NIC that is attached to a virtual machine for the cluster.
