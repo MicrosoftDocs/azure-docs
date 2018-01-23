@@ -3,7 +3,7 @@ title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: devtiw
+author: DevTiw
 manager: avibm
 editor: barclayn
 
