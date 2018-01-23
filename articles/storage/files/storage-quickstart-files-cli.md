@@ -78,23 +78,48 @@ az storage account keys list --resource-group myResourceGroup \
 
 ## Create a file share.
 
-The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
+An Azure File share is an SMB file share in Azure. All directories and files must be created in a file share. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. 
 
-```azurecli
+Create the file share using [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. This example Creates a share named *myshare* with a 10-GB quota. Be sure to enter your own account key in the last line.
+
+```azurecli-interactive
 az storage share create --name mystorageshare \
     --quota 10 \
     --account-name mystorageaccount \
-    --account-key nPOgPR<--snip-->4Q==
+    --account-key <snip - put account key here >
 ```
 
 ## Create directory
 
+Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path dir1/dir2, you must first create directory dir1, then create directory dir2.
 
+This example creates a directory named *myDirectory* in the file share called *myshare*.
+
+```azurecli-interactive
+az storage directory create --name myDirectory --share-name myshare
+```
 ## Upload a file
+
+You can upload a file from your local machine to your Azure file share. Because we are working with local files, you cannot use Cloud Shell for this example.
 
 To upload a file,  use [az storage file upload](/cli/azure/storage/file#az_storage_file_upload).
 
 To upload a batch of files, use [az storage file upload-batch](/cli/azure/storage/file#az_storage_file_upload-batch)
+
+
+This example uploads a file from ~/temp/myfile.txt to root of the *myshare* file share. The **--source** argument specifies the existing local file to upload.
+
+```azurecli
+az storage file upload --share-name myshare --source ~/temp/samplefile.txt
+```
+
+You can also upload a file to a specific directory path within the share. This example uploads the  file *myfile.txt*  from *~/temp/* to the *myshare* file share, in the *mydirectory* directory.
+
+```azurecli
+az storage file upload --share-name myshare/mydirectory --source ~/temp/myfile.txt
+```
+
+
 
 ## List files
 
@@ -103,7 +128,11 @@ To list all files, use [az storage file list](/cli/azure/storage/file#az_storage
 
 ## Copy files
 
-To copy files, use [az storage file copy](/cli/azure/storage/file/copy).
+You can copy a file to another file, a file to a blob, or a blob to a file. To copy files, use [az storage file copy](/cli/azure/storage/file/copy). This example copies a file from share1 to the directory *dir2* in a share named *share2*. 
+
+az storage file copy start \
+--source-share share1 --source-path dir1/file.txt \
+--destination-share share2 --destination-path dir2/file.txt
 
 ## Clean up resourcesT
 
