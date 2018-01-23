@@ -123,7 +123,6 @@ The following response shows the review identifier:
 
 
 ### Get Review status
-
 Use the **Review.Get** operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. The operation returns two sets of tags, the tags assigned by the moderation service, and the tags after the human review was completed.
 
 Your inputs include at a minimum:
@@ -176,4 +175,4 @@ Test drive the [Job API console](try-review-api-job.md) and use the REST API cod
 
 For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
 
-FOr video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md) and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
+For video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md) and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
