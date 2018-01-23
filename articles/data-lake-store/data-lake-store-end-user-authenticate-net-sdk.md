@@ -59,27 +59,32 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
         ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
    4. Close the **NuGet Package Manager**.
 
-6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
+6. Open **Program.cs**
+7. Replease the using statements with the following lines:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-		using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```		
 
 ## End-user authentication
 Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Store, which means you are prompted to enter your Azure credentials.
 
 For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Replace the Main() function with the following code:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -93,6 +98,7 @@ For ease of use, the following snippet uses default values for client ID and red
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 A couple of things to know about the preceding snippet:
 

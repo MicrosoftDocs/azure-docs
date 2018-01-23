@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 Log in to Azure at https://portal.azure.com
 
 ## Onboard a virtual machine
-There are many different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) article.
+There are many different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) article.
 
 1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search for it in the resulting view.
 1. In the list, select an Automation account.
@@ -36,7 +36,7 @@ There are many different methods to onboard a machine and enable Desired State C
 1. Click the menu option to **Add Azure VM**
 1. Find the virtual machine you would like to enable DSC for. You can use the search field and filter options to find a specific virtual machine.
 1. Click on the virtual machine, and then select **Connect**
-1. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as *Node Configuration Name*. You can set the [configuration mode](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig) to control the configuration behavior for the machine.
+1. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as *Node Configuration Name*. You can set the [configuration mode](https://docs.microsoft.com/powershell/dsc/metaconfig) to control the configuration behavior for the machine.
 1. Click **OK**
 
 ![Onboarding an Azure VM to DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -102,7 +102,7 @@ To import the configuration:
 
 ## Compile a configuration
 
-DSC Configurations must be compiled to a Node Configuration (MOF document) before being assigned to a node. Compilation validates the configuration and allows for the input of parameter values. To learn more about compiling a configuration, see: [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)
+DSC Configurations must be compiled to a Node Configuration (MOF document) before being assigned to a node. Compilation validates the configuration and allows for the input of parameter values. To learn more about compiling a configuration, see: [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 To compile the configuration:
 
@@ -139,6 +139,6 @@ In this quickstart, you onboarded a Linux VM to DSC, created a configuration for
 > [!div class="nextstepaction"]
 > [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* To learn more about PowerShell Desired State Configuration, see [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/en-us/powershell/dsc/overview).
-* To learn more about managing Automation DSC from PowerShell, see [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* To learn how to forward DSC reports to Log Analytics for reporting and alerting, see [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics) 
+* To learn more about PowerShell Desired State Configuration, see [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview).
+* To learn more about managing Automation DSC from PowerShell, see [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
+* To learn how to forward DSC reports to Log Analytics for reporting and alerting, see [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 

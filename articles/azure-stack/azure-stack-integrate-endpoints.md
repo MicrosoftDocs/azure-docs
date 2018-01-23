@@ -5,7 +5,7 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords:
 ---
@@ -33,19 +33,19 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
 |---------|---------|---------|---------|
-|AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portal (administrator)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Azure Resource Manager (administrator)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portal (user)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Certificate revocation list|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP & UDP|53|
-|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Storage Queue|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Storage Table|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (administrator)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Azure Resource Manager (administrator)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Portal (user)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Certificate revocation list|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
+|Key Vault (user)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Storage Queue|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## Ports and URLs (outbound)
 
@@ -54,11 +54,11 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 
 |Purpose|URL|Protocol|Ports|
 |---------|---------|---------|---------|
-|Identity|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Marketplace syndication|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Patch & Update|`https://*.azureedge.net`|HTTPS|443|
-|Registration|`https://management.azure.com`|HTTPS|443|
-|Usage|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Marketplace syndication|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Patch & Update|https://&#42;.azureedge.net|HTTPS|443|
+|Registration|https://management.azure.com|HTTPS|443|
+|Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## Firewall publishing
 

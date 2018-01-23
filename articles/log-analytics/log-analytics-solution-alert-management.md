@@ -1,6 +1,6 @@
 ---
-title: Alert Management solution in Operations Management Suite (OMS) | Microsoft Docs
-description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager management groups into Log Analytics.
+title: Alert Management solution in Azure Log Analytics | Microsoft Docs
+description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within Log Analytics, it imports alerts from connected System Center Operations Manager management groups into Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
 
 ---
-# Alert Management solution in Operations Management Suite (OMS)
+# Alert Management solution in Azure Log Analytics
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
@@ -31,10 +31,10 @@ The solution works with any records in the Log Analytics repository with a type 
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
-Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
+Add the Alert Management solution to your Log ANalytics workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.  
+If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.  
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -56,7 +56,7 @@ The following table describes the connected sources that are supported by this s
 - Alert data is sent from the Operations Manager management group to Log Analytics every three minutes.  
 
 ## Using the solution
-When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile is added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
+When you add the Alert Management solution to your Log Analytics workspace, the **Alert Management** tile is added to your dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
 
 ![Alert Management tile](media/log-analytics-solution-alert-management/tile.png)
 

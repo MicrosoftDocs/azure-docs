@@ -111,7 +111,7 @@ Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), sess
 | **Pooled Virtual Desktop (managed and without UPD)** |No|Yes |No |Yes |No |Yes |No |
 | **Remote applications and Desktop sessions (without UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
-[Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Learn more](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) about protecting RDS.
 

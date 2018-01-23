@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -46,21 +46,37 @@ There are two ways to list your IoT hub devices in your VS Code. You can choose 
 1. In Command Palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then click **Copy* & Open** in the pop-up. Paste (Ctrl + V) the code in your browser and click Continue button. Then log in with your Azure account. You can see your account info in VS Code status bar.
 2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub that contains the IoT Edge device.
 
+    ![Device list](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### Set IoT hub connection string
-1. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (You can find it in Shared access policies of your IoT hub in Azure portal).
+In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (You can find it in Shared access policies of your IoT hub in Azure portal).
  
-
 You can see the device list in IoT Hub Devices Explorer in left Side Bar.
 
 ### Start your IoT Edge runtime and deploy a module
 Install and start the Azure IoT Edge runtime on your device. And deploy a simulated sensor module that will send telemetry data to IoT Hub.
 1. In Command Palette, select **Edge: Setup Edge** and choose your IoT Edge device ID. Or right-click the Edge device ID in Device List and select **Setup Edge**.
+
+    ![Setup Edge runtime](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. In Command Palette, select **Edge: Start Edge** to start your Edge runtime. You can see corresponding outputs in integrated terminal.
+
+    ![Start Edge runtime](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Check the Edge runtime status in the Docker explorer. Green means it's running. Your IoT Edge runtime is started successfully.
-4. Now your Edge runtime is running, which means your PC now simulates an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file, replace the line "<registry>/<image>:<tag>" with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Edge runtime is running](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Now your Edge runtime is running, which means your PC now simulates an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file, replace the content `<registry>/<image>:<tag>` with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` and save the file.
+
+    ![Sensor module](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Select **Edge: Create deployment for Edge device** and choose the Edge device ID to create a new deployment. Or you can right-click the Edge device ID in the device list and select **Create deployment for Edge device**. 
-6. You should see your IoT Edge start running in the Docker explorer with the simulated sensor. Right-click the container in Docker explorer. You can watch docker logs for each module.
+
+6. You should see your IoT Edge start running in the Docker explorer with the simulated sensor. Right-click the container in Docker explorer. You can watch docker logs for each module. Also, you can view the module list in the device list.
+
+    ![Module list](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
 8. To stop your IoT Edge runtime and the sensor module, you can type and select **Edge: Stop Edge** in Command Palette.
 
@@ -95,12 +111,18 @@ The following steps show you how to create an IoT Edge module based on .NET core
  
 3. Select  **File** > **Open Folder**.
 4. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
-5. In VS Code explorer, click **Program.cs** to open it.
+5. In VS Code explorer, click **Program.cs** to open it. At the top of **program.cs**, include below namespaces.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
@@ -223,16 +245,23 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image.
+11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image. 
 
+    ![Build module](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### Create a Docker image and publish it to your registry
 
 1. In VS Code explorer, expand the **Docker** folder. Then expand the folder for your container platform, either **linux-x64** or **windows-nano**.
 2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
+
+    ![Build docker image](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. If you are deploying to local registry, it should be `localhost:5000/filtermodule:latest`.
-5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in above step.
+5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in above step. Check the console log and make sure the image has been successfully pushed.
+
+    ![Push docker image](./media/how-to-vscode-develop-csharp-module/push-image.png)
+    ![Pushed docker image](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### Deploy your IoT Edge modules
 
@@ -262,21 +291,26 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
 2. Replace the **routes** section with below content:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter module to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
 
 3. Save this file.
 4. In Command Palette, select **Edge: Create deployment for Edge device**. Then select your IoT Edge device ID to create a deployment. Or right-click the device ID in the device list and select **Create deployment for Edge device**.
+
+    ![Create deployment](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Select the `deployment.json` you updated. In the output window, you can see corresponding outputs for your deployment.
+
+    ![Deployment succeeded](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Start your Edge runtime in Command Palette. **Edge: Start Edge**
 7. You can see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter module.
+
+    ![IoT Edge solution is running](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
 
 
