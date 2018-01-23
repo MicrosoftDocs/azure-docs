@@ -92,6 +92,8 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move data to and from Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Page blobs
+      href: storage-blob-pageblob-overview.md
     - name: Premium Storage
       items:
         - name: High-performance Premium Storage for VM Disks
