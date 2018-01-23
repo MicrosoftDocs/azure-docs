@@ -163,7 +163,13 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 1. In the Azure portal, navigate to your IoT hub. 
 2. Select **Event Grid**.
+
+   ![Open the Event Grid details](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
+
 3. Select **Event subscription**. 
+
+   ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
+
 4. Uncheck **Subscribe to all event types**
 4. Create the event subscription with the following values: 
    * **Name**: Provide a descriptive name.
@@ -175,7 +181,11 @@ In this section, you configure your IoT Hub to publish events as they occur.
    * **Prefix filter**: Enter `/devices/Building1_` to filter for device events in building 1.
    * **Suffix filter**: Enter `/_Temperature /` to filter for device events related to temperature.
 
-5. Save the event subscription.
+   When you're done, the form should look like the following example: 
+
+   ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+
+5. Select **Create** to save the event subscription.
 
 ## Create a new device
 
