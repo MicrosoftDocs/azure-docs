@@ -29,6 +29,10 @@ Integrating Confluence SAML SSO by Microsoft with Azure AD provides you with the
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
+## Description:
+
+Use your Microsoft Azure Active Directory account with Atlassian Confluence server to enable single sign-on. This way all your organization users can use the Azure AD credentials to login into the Confluence application. This plugin uses SAML 2.0 for federation.
+
 ## Prerequisites
 
 To configure Azure AD integration with Confluence SAML SSO by Microsoft, you need the following items:
@@ -161,7 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Download the plugin from [Microsoft Download Center](). Manually upload the plugin provided by Microsoft using **Upload add-on** menu
+8. Download the plugin from [Microsoft Download Center](http://download.microsoft.com/download/6/9/6/6969AEED-7760-4F39-BA22-8F14AE30A592/MSSsoConfluencePlugin-1.0.obr). Manually upload the plugin provided by Microsoft using **Upload add-on** menu
 	
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 
