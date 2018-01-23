@@ -701,7 +701,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **More services**, search with the keyword *Data factories*, and select **Data factories**. 
+2. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
 
     ![Data factories menu](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 
