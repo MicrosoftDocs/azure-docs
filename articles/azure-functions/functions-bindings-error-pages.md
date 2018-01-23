@@ -19,7 +19,7 @@ ms.author: cfowler
 
 # Azure Functions Binding Error Codes
 
-Azure Function provides a wrapper to common services within Azure. When developing your functions, you may have errors bubble up from the underlying Azure Services SDKs. The following table is a reference off to the error code documentation for the services that we expose.
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
 ## Azure Cosmos DB
 
@@ -40,3 +40,4 @@ Azure Function provides a wrapper to common services within Azure. When developi
 ## Service Bus
 
 [!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
+
