@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/15/2017
 ms.author: cynthn
 
 ---
@@ -24,8 +24,7 @@ ms.author: cynthn
 
 ## Next steps
 
-The [Azure Metadata Service](instance-metadata-service.md) enables you to discover information about your Virtual Machine hosted in Azure. 
-
+For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
 
 
 

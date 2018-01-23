@@ -2,7 +2,7 @@
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
-## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
+## [Deploy a scale set in Azure portal](virtual-machine-scale-sets-portal-create.md)
 ## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Use guest-based autoscaling with a Linux scale set template](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Deploy
-### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
+### [Create with Azure portal](virtual-machine-scale-sets-portal-create.md)
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Create with PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
+### [Create with Azure PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Manage
-### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Windows scale set using Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

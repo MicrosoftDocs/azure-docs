@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
 
 ---
@@ -130,7 +130,7 @@ Example foo_IDList.txt
 
 ## Blur types
 
-In the **Combined** or **Redact** mode, there are 5 different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Debug**, and **Black**. By default **Med** is used.
+In the **Combined** or **Redact** mode, there are 5 different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Box**, and **Black**. By default **Med** is used.
 
 You can find samples of the blur types below.
 
@@ -150,9 +150,9 @@ You can find samples of the blur types below.
 
 ![High](./media/media-services-face-redaction/blur3.png)
 
-#### Debug
+#### Box
 
-![Debug](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### Black
 

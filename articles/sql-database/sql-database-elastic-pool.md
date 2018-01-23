@@ -369,7 +369,7 @@ To create and manage SQL Database elastic pools use these REST API requests.
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Set up Azure Active Directory-joined devices | Microsoft Docs
-description: Learn how to set up Azure Active Directory-joined devices.
+title: Set up Azure Active Directory joined devices | Microsoft Docs
+description: Learn how to set up Azure Active Directory joined devices.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,44 +18,31 @@ ms.author: markvi
 ms.reviewer: jairoc
 
 ---
-# Set up Azure Active Directory-joined devices
+# Set up Azure Active Directory joined devices
 
-Device management in Azure Active Directory (Azure AD) can help you ensure that users access your resources from devices that meet your security and compliance standards. For more information, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
 
-With [Azure AD-joined devices](device-management-introduction.md#azure-ad-joined-devices), you can bring Windows 10 
-devices that are owned by your organization under the control of Azure AD. These devices should not be already [joined to an on-premises AD](device-management-introduction.md#hybrid-azure-ad-joined-devices).
+If you want to bring work-owned Windows 10 devices under the control of Azure AD, you can accomplish this by configuring Azure AD joined devices. This topic provides you with the related steps. 
 
-This topic provides you with instructions on how to register Windows 10 devices with Azure AD. 
 
 ## Prerequisites
 
-Before you begin, you should verify that:
-
-- You have permissions to join devices to Azure AD.
-
-    ![Connected](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- You have not yet exceeded yet the maximum number of devices per user 
-
-    ![Connected](./media/device-management-azuread-joined-devices-setup/22.png)
-
-
-For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 
 
 ## What you should know
 
 
-- Windows registers the device in the organization’s directory in Azure AD.
+- Windows joins the device in the organization’s directory in Azure AD.
 
-- You might be required to pass a multi-factor authentication challenge. Your IT admin can set up this challenge.
+- You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
 
-- Azure AD checks whether a device requires mobile device management enrollment. It enrolls the device, if applicable.
+- Azure AD checks whether the device requires mobile device management enrollment and enrolls it if applicable.
 
-- Windows redirects managed users to the desktop through the automatic sign-in.
+- If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
 
-- Federated users are redirected to a Windows sign-in page to enter credentials.
+- If you are a federated user, you have to sign-in using your credentials.
 
 
 ## Joining a device
@@ -132,9 +119,8 @@ For more information, see [locate devices](device-management-azure-portal.md#loc
 For more information, see: 
 
 - The [introduction to device management in Azure Active Directory](device-management-introduction.md)
-
 - [Managing devices using the Azure portal](device-management-azure-portal.md)
-
+- 
 
 
 

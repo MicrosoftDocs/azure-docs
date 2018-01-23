@@ -1,6 +1,6 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure Web Apps for Containers | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure Web Apps for Containers, with connection to a Cosmos DB database with a MongoDB connection string.
+title: Build a Node.js and MongoDB web app in Azure Web App for Containers | Microsoft Docs 
+description: Learn how to get a Node.js app working in Azure Web App for Containers, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,9 +17,9 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a Node.js and MongoDB web app in Azure Web Apps for Containers
+# Build a Node.js and MongoDB web app in Azure Web App for Containers
 
-[Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in Web Apps for Containers. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
+[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in Web App for Containers. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -98,7 +98,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Navigate to http://localhost:3000 in a browser. Click **Sign Up** in the top menu and create a test user. 
+Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and create a test user. 
 
 The MEAN.js sample application stores user data in the database. If you are successful at creating a user and signing in, then your app is writing data to the local MongoDB database.
 
@@ -223,7 +223,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navigate to http://localhost:8443 in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
+Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
 
 In the terminal, stop Node.js by typing `Ctrl+C`. 
 
@@ -474,4 +474,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

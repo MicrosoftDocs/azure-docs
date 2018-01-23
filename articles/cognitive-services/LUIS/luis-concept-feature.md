@@ -24,7 +24,7 @@ LUIS offers the following types of features:
 
 | Type          | Description           |
 | ------------- |-----------------------|
-| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well.<ul><li> The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app. </li></ul>|
+| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well.|
 | Pattern      | A pattern specifies a regular expression to help LUIS recognize regular patterns that are frequently used in your application's domain. Some examples are the pattern of flight numbers in a travel app or product codes in a shopping app. | 
 
 ## How to use phrase lists

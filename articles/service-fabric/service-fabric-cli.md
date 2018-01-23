@@ -15,6 +15,8 @@ ms.author: edwardsa
 
 The Azure Service Fabric command-line interface (CLI) is a command-line utility for interacting with and managing Service Fabric entities. The Service Fabric CLI can be used with either Windows or Linux clusters. The Service Fabric CLI runs on any platform where Python is supported.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 ## Prerequisites
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
@@ -51,6 +53,13 @@ pip install sfctl
 sfctl -h
 ```
 
+If you run into an error stating that `sfctl` is not found, run the following commands:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### Ubuntu
 
 For Ubuntu 16.04 Desktop, you can install Python 3.6 by using a third-party personal package archive (PPA).
@@ -71,6 +80,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+If you run into an error stating that `sfctl` is not found, run the following commands:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 These steps do not affect the system installation of Python 3.5 and 2.7. Don't attempt to modify these installations, unless you're familiar with Ubuntu.
 
 ### MacOS
@@ -88,6 +104,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+If you run into an error stating that `sfctl` is not found, run the following commands:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 These steps do not modify the system installation of Python 2.7.
 
@@ -116,10 +141,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and address are the same as the Service Fabric Explorer URL.
 
-For clusters that are secured with a certificate, you can specify a PEM-encoded certificate. The certificate can be specified as a single file or as a cert and a key pair.
+For clusters that are secured with a certificate, you can specify a PEM-encoded certificate. The certificate can be specified as a single file or as a cert and a key pair. If it is a self-signed certificate that is not CA signed, you can pass the `--no-verify` option to bypass CA verification.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 For more information, see
@@ -172,6 +197,12 @@ The Service Fabric CLI supports client-side certificates as PEM (.pem extension)
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Similarly, to convert from a PEM file to a PFX file, you can use the following command (no password is being provided here):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 For more information, see the [OpenSSL documentation](https://www.openssl.org/docs/).
 
 ### Connection problems
@@ -199,6 +230,16 @@ Here is another example:
 ```azurecli
 sfctl application create -h
 ```
+
+## Updating the Service Fabric CLI 
+
+To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## Next steps
 

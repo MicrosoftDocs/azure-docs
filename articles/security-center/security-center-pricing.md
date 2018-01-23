@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center pricing | Microsoft Docs
+title: Upgrade to Security Center's Standard tier for enhanced security | Microsoft Docs
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/15/2017
 ms.author: terrylan
 
 ---
-# Azure Security Center pricing
+# Upgrade to Security Center's Standard tier for enhanced security
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
 
 ## Pricing tiers
 Security Center is offered in two tiers:
 
-- The **Free** tier is automatically enabled on all Azure subscriptions, and provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources
+- The **Free** tier is automatically enabled on all Azure subscriptions, and provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 - The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. The Standard tier is free for the first 60 days.
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).

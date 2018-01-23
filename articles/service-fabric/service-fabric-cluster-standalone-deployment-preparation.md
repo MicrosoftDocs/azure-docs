@@ -91,7 +91,7 @@ After the cluster configuration has had all settings configured to the environme
 
 ## Environment setup
 
-When a cluster administrator configures a Service Fabric standalone cluster, the environment is needs to be set up with the following criteria: <br>
+When a cluster administrator configures a Service Fabric standalone cluster, the environment needs to be set up with the following criteria: <br>
 1. The user creating the cluster should have administrator-level security privileges to all machines that are listed as nodes in the cluster configuration file.
 2. Machine from which the cluster is created, as well as each cluster node machine must:
 * Have Service Fabric SDK uninstalled
@@ -111,7 +111,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
     Under *properties* set
     *"fabricClusterAutoupgradeEnabled": false*
-* Alternatively if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+* Alternatively, if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
     go.microsoft.com
     download.microsoft.com
 

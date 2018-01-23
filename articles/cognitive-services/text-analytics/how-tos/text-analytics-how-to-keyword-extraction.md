@@ -18,7 +18,7 @@ The [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
-Currently, Key Phrase Extraction supports English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](../overview.md#supported-languages).
+Currently, Key Phrase Extraction supports English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
 
 ## Preparation
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ---
 
@@ -21,9 +21,6 @@ ms.author: billmath
 ## How to deploy Seamless SSO
 
 Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops connected to your corporate network. It provides your users easy access to your cloud-based applications without needing any additional on-premises components.
-
->[!IMPORTANT]
->The Seamless SSO feature is currently in preview.
 
 To deploy Seamless SSO, you need to follow these steps:
 
@@ -67,7 +64,10 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ## Step 3: Roll out the feature
 
-To roll out the feature to your users, you need to add two Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) to users' Intranet zone settings via Group Policy in Active Directory.
+To roll out the feature to your users, you need to add the following Azure AD URLs to users' Intranet zone settings using Group Policy in Active Directory:
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > The following instructions only work for Internet Explorer and Google Chrome on Windows  (if it shares set of trusted site URLs with Internet Explorer). Read the next section for instructions to set up Mozilla Firefox and Google Chrome on Mac.
@@ -116,7 +116,7 @@ For Google Chrome on Mac OS and other non-Windows platforms, refer to [this arti
 
 Using third-party Active Directory Group Policy extensions to roll out the Azure AD URLs to Firefox and Google Chrome on Mac users is outside of this article's scope.
 
-#### Known limitations
+#### Known browser limitations
 
 Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protection mode.
 
@@ -140,7 +140,7 @@ To test the scenario where the user doesn't have to enter the username or the pa
 
 ## Step 5: Roll over keys
 
-In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that  you frequently roll over the Kerberos decryption keys of these computer accounts.
+In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that you periodically roll over the Kerberos decryption keys of these computer accounts. The instructions on how to roll over are [here](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least every 30 days.

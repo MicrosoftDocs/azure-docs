@@ -42,6 +42,10 @@ If you already have the Service Fabric plug-in installed, make sure that you hav
 > [!NOTE]
 > If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
+> [!NOTE]
+>If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.
+
+
 ## Create a Service Fabric application in Eclipse
 
 1.  In Eclipse Neon, go to **File** > **New** > **Other**. Select  **Service Fabric Project**, and then click **Next**.

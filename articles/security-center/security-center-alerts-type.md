@@ -13,19 +13,20 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
 
 ---
 # Understanding security alerts in Azure Security Center
 This article helps you to understand the different types of security alerts and related insights that are available in Azure Security Center. For more information on how to manage alerts and incidents, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+To set up advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select **Pricing Tier** in the [security policy](security-center-policies.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> To set up advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select **Pricing Tier** in the [security policy](security-center-policies.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
 
 ## What type of alerts are available?
-Azure Security Center uses a variety of [detection capabilities](security-center-detection-capabilities.md) to alert customers to potential attacks targeting their environments. These alerts contain valuable information about the what triggered the alert, the resources targeted, and the source of the attack. The information included in an alert varies based on the type of analytics used to detect the threat. Incidents may also contain additional contextual information that can be useful when investigating a threat.  This article provides information about the following alert types:
+Azure Security Center uses a variety of [detection capabilities](security-center-detection-capabilities.md) to alert customers to potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. The information included in an alert varies based on the type of analytics used to detect the threat. Incidents may also contain additional contextual information that can be useful when investigating a threat.  This article provides information about the following alert types:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
@@ -40,9 +41,9 @@ Azure Security Center can use behavioral analytics to identify compromised resou
 >
 
 ### Crash analysis
-Crash dump memory analysis is a method used to detect sophisticated malware that is able to evade traditional security solutions. Various forms of malware try to reduce the chance of being detected by antivirus products by never writing to disk, or by encrypting software components written to disk. This makes the malware difficult to detect by using traditional antimalware approaches. However, this kind of malware can be detected by using memory analysis, because malware must leave traces in memory in order to function.
+Crash dump memory analysis is a method used to detect sophisticated malware that is able to evade traditional security solutions. Various forms of malware try to reduce the chance of being detected by antivirus products by never writing to disk, or by encrypting software components written to disk. This technique makes the malware difficult to detect by using traditional antimalware approaches. However, this kind of malware can be detected by using memory analysis, because malware must leave traces in memory in order to function.
 
-When software crashes, a crash dump captures a portion of memory at the time of the crash. The crash may be caused by malware, general application or system issues. By analyzing the memory in the crash dump, Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine. This is accomplished with minimum performance impact to hosts as the analysis is performed by the Security Center back end.
+When software crashes, a crash dump captures a portion of memory at the time of the crash. The crash may be caused by malware, general application, or system issues. By analyzing the memory in the crash dump, Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist within a compromised machine. This is accomplished with minimum performance impact to hosts as the analysis is performed by the Security Center back end.
 
 The following fields are common to the crash dump alert examples that appear later in this article:
 
@@ -57,7 +58,7 @@ The Shellcode alert example provides the following additional field:
 
 * ADDRESS: The location in memory of the shellcode.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Shellcode alert](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -73,7 +74,7 @@ In addition to the common fields described in the earlier “Shellcode discovere
 * HIJACKEDMODULEPATH: The path of the hijacked Windows system module.
 * HIJACKINGMODULEPATH: The path of the hijacking module.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Module hijacking alert](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -92,7 +93,7 @@ In addition to the common fields described earlier in the “Shellcode discovere
 
 This alert also extracts and displays certain fields from the module’s PE header, such as “CHECKSUM” and “TIMESTAMP.” These fields are only displayed if the fields are present in the module. See the [Microsoft PE and COFF Specification](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) for details on these fields.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Masquerading Windows alert](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -106,21 +107,21 @@ In addition to the common fields described earlier in the “Shellcode discovere
 * MODULENAME: Name of the modified system binary.
 * MODULEVERSION: Version of the modified system binary.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![System binary alert](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### Suspicious process executed
 Security Center identifies a suspicious process that runs on the target virtual machine, and then triggers an alert. The detection doesn’t look for the specific name, but does look for the executable file's parameter. Therefore, even if the attacker renames the executable, Security Center can still detect the suspicious process.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### Multiple domain accounts queried
-Security Center can detect multiple attempts to query Active Directory domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
+### Multiple domains accounts queried
+Security Center can detect multiple attempts to query Active Directory domain accounts, which are something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -128,15 +129,15 @@ This is an example of this type of alert:
 
 Security Center is going to trigger an alert when the security event 4798, in Windows Server 2016 and Windows 10, is trigged. This happens when local administrator groups are enumerated, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the identity of users with administrative privileges.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Local admin](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
 ### Anomalous mix of upper and lower case characters
 
-Security Center will trigger an alert when it detects the use of a mix of upper and lower case characters at the command line. Some attackers may use this technique to hide from case-sensitive or hash based machine rule.
+Security Center will trigger an alert when it detects the use of a mix of upper and lower case characters at the command line. Some attackers may use this technique to hide from case-sensitive or hash-based machine rule.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Anomalous mix](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -147,7 +148,7 @@ A compromised [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) key 
 > [!NOTE] 
 > For more information about Kerberos Golden Ticket, read [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -155,7 +156,7 @@ This is an example of this type of alert:
 
 Security Center will trigger an alert when an account is created with close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account to avoid being noticed by human verification.
  
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Suspicious account](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -163,7 +164,7 @@ This is an example of this type of alert:
 
 Attackers might try to circumvent host security by creating custom firewall rules to allow malicious applications to communicate with command and control, or to launch attacks through the network via the compromised host. Security Center will trigger an alert when it detects that a new firewall rule was created from an executable file in a suspicious location.
  
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Firewall rule](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -171,7 +172,7 @@ This is an example of this type of alert:
 
 Security Center will trigger an alert when it detects that a Microsoft HTML Application Host (HTA) is launching PowerShell commands. This is a technique used by attackers to launch malicious PowerShell scripts.
  
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![HTA and PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -184,7 +185,7 @@ Network devices can be discovered and profiled in much the same way as other typ
 
 ![Suspicious outgoing traffic alert](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-This alert gives information that you can use to identify the resource that was used to initiate this attack. This alert also provides information to identify the compromised machine, the detection time, plus the protocol and port that was used. This blade also gives you a list of remediation steps that can be used to mitigate this issue.
+This alert gives information that you can use to identify the resource that was used to initiate this attack. This alert also provides information to identify the compromised machine, the detection time, plus the protocol and port that was used. This page also gives you a list of remediation steps that can be used to mitigate this issue.
 
 ### Network communication with a malicious machine
 By leveraging Microsoft threat intelligence feeds, Azure Security Center can detect compromised machines that communicate with malicious IP addresses. In many cases, the malicious address is a command and control center. In this case, Security Center detected that the communication was done by using Pony Loader malware (also known as [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -201,7 +202,7 @@ This alert gives information that enables you to identify the resource that was 
 ### Possible outgoing denial-of-service attack detected
 Abnormal network traffic that originates from one virtual machine can cause Security Center to trigger a potential denial-of-service type of attack.
 
-This is an example of this type of alert:
+Here an example of this type of alert:
 
 ![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 

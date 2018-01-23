@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: maheshu
 
 ---
@@ -78,3 +78,9 @@ Consider the following important points for this deployment scenario:
 You can use Azure AD Domain Services to provide managed AD domain services to your remote desktop servers deployed in Azure.
 
 For more information about this deployment scenario, see how to [integrate Azure AD Domain Services with your RDS deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
+
+
+## Domain-joined HDInsight clusters (Preview)
+You can set up an Azure HDInsight cluster that is joined to an Azure AD Domain Services managed domain with Apache Ranger enabled. Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase, Spark, and Storm, to Domain-joined HDInsight soon.
+
+For more information about this deployment scenario, see how to [configure domain-joined HDInsight clusters](../hdinsight/hdinsight-domain-joined-configure.md)

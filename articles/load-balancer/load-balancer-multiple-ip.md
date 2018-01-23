@@ -3,7 +3,7 @@ title: Load balancing on multiple IP configurations in Azure| Microsoft Docs
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
@@ -23,7 +23,9 @@ ms.author: kumud
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC).For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs have two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC).For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
 
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -35,7 +37,7 @@ For more information about creating VMs with multiple NICs, see [Create a VM wit
 
 ## Steps to load balance on multiple IP configurations
 
-Follow these steps below to achieve the scenario outlined in this article:
+Complete the following steps to achieve the scenario outlined in this article:
 
 ### STEP 1: Configure the secondary NICs for each VM
 
@@ -60,7 +62,7 @@ Create a load balancer as follows:
 2. On the top left-hand side of the screen, click **New** > **Networking** > **Load Balancer**. Next, click **Create**.
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *mylb*.
 4. Under Public IP address, create a new public IP called **PublicIP1**.
-5. Under Resource Group, select the existing Resource group of your VMs (for example, *contosofabrikam*). Then, select an appropriate location, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
+5. Under Resource Group, select the existing Resource group of your VMs (for example, *contosofabrikam*). Then, select an appropriate location, and then click **OK**. The load balancer then starts to deploy and can take a few minutes to successfully complete deployment.
 6. Once deployed, the load balancer is displayed as a resource in your Resource Group.
 
 ### STEP 3: Configure the frontend IP pool
@@ -77,9 +79,9 @@ Configure your frontend IP pool for each website (Contoso and Fabrikam) as follo
 3. In the portal, click **More services** > type **load balancer** in the filter box, and then click **Load Balancer**.  
 4. Select the load balancer (*mylb*) that you want to add the frontend IP pool to.
 5. Under **Settings**, select **Frontend Pools**. Then click **Add** towards the top of the blade that shows up.
-6. Type a name for your frontend IP address (*farbikamfe* or **contosofe*).
+6. Type a name for your frontend IP address (*farbikamfe* or *contosofe*).
 7. Click **IP address** and on the **Choose Public IP address** blade, select the IP addresses for your frontend (*PublicIP1* or *PublicIP2*).
-8. Repeat steps 3 to 7 within this section to create the second frontend IP address.
+8. To create the second frontend IP address, repeat steps 3 to 7 within this section.
 9. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Frontend IP Pool** blade of your load balancer. 
     
 ### STEP 4: Configure the backend pool   
@@ -115,7 +117,7 @@ Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows
 4. For **Port** and **Backend port**, keep the default value **80**.
 5. For **Floating IP (direct server return)**, click **Enabled**.
 6. Click **OK**.
-7. Repeat steps 1 to 6 within this section to create the second Load Balancer rule.
+7. To create the second Load Balancer rule, repeat steps 1 to 6 within this section.
 8. When the load balancing rules configuration is complete, both rules ((*HTTPc* and *HTTPf*) are displayed in the **Load balancing rules** blade of your load balancer.
 
 ### STEP 7: Configure DNS records
@@ -123,4 +125,4 @@ Finally, you must configure DNS resource records to point to the respective fron
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ---
 # Start with Apache Kafka (preview) on HDInsight
@@ -42,6 +42,9 @@ Use the following steps to create a Kafka on HDInsight cluster:
     * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
     * **Resource Group**: The resource group to create the cluster in.
     * **Location**: The Azure region to create the cluster in.
+
+        > [!IMPORTANT]
+        > For high availability of data, we recommend selecting a location (region) that contains __three fault domains__. For more information, see the [Data high availability](#data-high-availability) section.
    
  ![Select subscription](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -68,12 +71,12 @@ Use the following steps to create a Kafka on HDInsight cluster:
 7. From __Cluster size__, select __Next__ to continue.
 
     > [!WARNING]
-    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes.
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. For more information, see the [Data high availability](#data-high-availability) section.
 
     ![Set the Kafka cluster size](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > The **disks per worker node** entry controls the scalability of Kafka on HDInsight. For more information, see [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > The **disks per worker node** entry controls the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster. Kafka is I/O heavy, so [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and provide more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
 8. From __Advanced settings__, select __Next__ to continue.
 
@@ -335,6 +338,27 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 7. Use the __Ctrl + C__ to exit the consumer, then use the `fg` command to bring the streaming background task back to the foreground. Use __Ctrl + C__ to exit it also.
 
+## Data high availability
+
+Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
+
+For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+
+> [!IMPORTANT]
+> We recommend using an Azure region that contains three fault domains, and using a replication factor of 3.
+
+If you must use a region that contains only two fault domains, use a replication factor of 4 to spread the replicas evenly across the two fault domains.
+
+### Kafka and fault domains
+
+Kafka is not aware of fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability. To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH session to the head node of your Kafka cluster.
+
+To ensure the highest availability of your Kafka data, you should rebalance the partition replicas for your topic at the following times:
+
+* When a new topic or partition is created
+
+* When you scale up a cluster
+
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -347,10 +371,9 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Ensure high availability of your data with Kafka on HDInsight](hdinsight-apache-kafka-high-availability.md)
-* [Increase scalability by configuring managed disks with Kafka on HDInsight](hdinsight-apache-kafka-scalability.md)
-* [Apache Kafka documentation](http://kafka.apache.org/documentation.html) at kafka.apache.org.
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Kafka clusters](hdinsight-apache-kafka-mirroring.md)
+* [Use Apache Spark streaming (DStream) with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark Structured Streaming with Kafka on HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

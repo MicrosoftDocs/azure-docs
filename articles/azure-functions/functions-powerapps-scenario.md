@@ -26,6 +26,8 @@ You build an app in this topic based on a maintenance scenario for wind turbines
 
 ![Finished app in PowerApps](media/functions-powerapps-scenario/finished-app.png)
 
+For information on calling the same function from Microsoft Flow, see [Call a function from Microsoft Flow](functions-flow-scenario.md).
+
 In this topic, you learn how to:
 
 > [!div class="checklist"]
@@ -246,4 +248,4 @@ In this topic, you learned how to:
 
 To learn more about PowerApps, see [Introduction to PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-To learn about another interesting scenario that uses Azure Functions, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
+To learn about other interesting scenarios that use Azure Functions, see [Call a function from Microsoft Flow](functions-flow-scenario.md) and [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).

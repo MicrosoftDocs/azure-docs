@@ -64,7 +64,7 @@ In addition, you can work with storage accounts in global and national Azure:
 
 ## Connect to an Azure Stack subscription
 
-For information about connecting to an Azure Stack subscription, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/azure-stack-storage-connect-se.md).
+For information about connecting to an Azure Stack subscription, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## Work with local development storage
 With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you write code against and test storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.

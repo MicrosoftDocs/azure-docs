@@ -22,7 +22,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure Windows VM, using an Azure Resource Manager deployment template.
+In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure Resource Manager deployment template.
 
 ## Prerequisites
 
@@ -39,15 +39,17 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 
 Regardless of the path you take, template syntax is the same during initial deployment and redeployment, so enabling MSI on a new or existing VM is done in the same manner. Also, by default Azure Resource Manager does an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
 
-1. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. You'll also need to make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
+
+2. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
 
    >[!NOTE] 
-   > Step 2 also assumes the variables `vmName`, `storageAccountName`, and `nicName` are defined in your template.
+   > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
    >
 
    ![Template before screen shot - locate VM](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-2. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property using the following syntax:
+3. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property using the following syntax:
 
    ```JSON
    "identity": { 
@@ -55,10 +57,10 @@ Regardless of the path you take, template syntax is the same during initial depl
    },
    ```
 
-3. Then add the VM MSI extension as a `resources` element using the following syntax:
+4. Then add the VM MSI extension as a `resources` element using the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
+   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You may also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
    >
 
    ```JSON
@@ -83,13 +85,17 @@ Regardless of the path you take, template syntax is the same during initial depl
    }
    ```
 
-4. When you're done, your template should look similar to the following example:
+5. When you're done, your template should look similar to the following example:
 
    ![Template after shot](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## Remove MSI from an Azure VM
 
-If you have a Virtual Machine that no longer needs an MSI, just remove the two elements added in the previous example: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
+If you have a Virtual Machine that no longer needs an MSI:
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
+
+2. Remove the two elements that were added in the previous section: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
 
 ## Related content
 

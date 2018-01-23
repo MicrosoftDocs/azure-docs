@@ -3,7 +3,7 @@ title: Customize web application firewall rules in Azure Application Gateway - P
 description: This article provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
-author: georgewallace 
+author: davidmu1 
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 

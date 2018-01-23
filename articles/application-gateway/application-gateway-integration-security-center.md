@@ -3,7 +3,7 @@ title: Application Gateway integration with Azure Security Center | Microsoft Do
 description: This page provides information on how Application Gateway is integrated into Azure Security Center.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 

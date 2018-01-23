@@ -64,7 +64,7 @@ The following platform features are useful for mobile production sites:
 
 * **Continuous deployment**: App Service can integrate with common supply chain management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
 
-  Discover more about [deployment options].
+  Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
 
 * **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 
@@ -84,7 +84,6 @@ For more information about the Azure App Service platform, see [Azure App Servic
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [getting started]: app-service-mobile-ios-get-started.md
 [Azure Table storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -97,11 +96,10 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Xamarin.iOS and Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[autoscaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
-[deployment options]: ../app-service-web/web-sites-deploy.md
+[autoscaling]: ../app-service/web-sites-scale.md
+[staging environments]: ../app-service/web-sites-staged-publishing.md
 [hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
-[virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service environments]: ../app-service-web/app-service-app-service-environment-intro.md
+[virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[App Service environments]: ../app-service/environment/intro.md
 [learning map]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/

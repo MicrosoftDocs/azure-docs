@@ -53,7 +53,7 @@ The rest of this topic focuses on the following App Service features in the Azur
 + [Authentication](#auth)
 + [API definition](#swagger)
 
-For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/web-sites-configure.md).
 
 ### <a name="editor"></a>App Service Editor
 
@@ -116,7 +116,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps, ASP.NET, and Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
+| ![Function app API swagger definition in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions supports Swagger to allow clients to more easily consume your HTTP-triggered functions. For more information on creating API definitions with Swagger, visit [Get Started with API Apps and Swagger in Azure](../app-service/app-service-web-tutorial-rest-api.md). You can also use Functions Proxies to define a single API surface for multiple functions. For more information, see [Working with Azure Functions Proxies](functions-proxies.md). |
 
 ![Configure Function App's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
@@ -124,7 +124,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ## Next steps
 
-+ [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md)
++ [Configure Azure App Service Settings](../app-service/web-sites-configure.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 

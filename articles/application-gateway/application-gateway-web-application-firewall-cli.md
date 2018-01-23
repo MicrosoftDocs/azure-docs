@@ -3,7 +3,7 @@ title: 'Configure a web application firewall: Azure Application Gateway | Micros
 description: This article provides guidance on how to start using a web application firewall on an existing or new application gateway.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Configure a web application firewall on a new or existing application gateway with Azure CLI

@@ -13,13 +13,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 # Create a Ruby App with Web Apps on Linux
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[Azure Web Apps](../app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -165,4 +166,4 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service Web App on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Azure App Service Web App on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)

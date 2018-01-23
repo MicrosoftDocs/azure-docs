@@ -100,9 +100,12 @@ The following steps describe the way to import data from a Hive table into an Ex
 ## Next steps
 In this article, you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 
-* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]
-* [Upload Data to HDInsight][hdinsight-upload-data]
-* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
+* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
+* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+* [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md).
+* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md).
+* [Upload data to HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

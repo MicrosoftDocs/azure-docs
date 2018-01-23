@@ -3,7 +3,7 @@ title: High availability and disaster recovery of SAP HANA on Azure (Large Insta
 description: Establish high availability and plan for disaster recovery of SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor:
 
@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -37,9 +37,9 @@ The following table shows the currently supported high-availability and disaster
 | Host auto-failover: N+m<br /> including 1+1 | Possible with the standby taking the active role.<br /> HANA controls the role switch. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication. | HANA volume sets are attached to all the nodes (n+m).<br /> DR site must have the same number of nodes. |
 | HANA system replication | Possible with primary or secondary setup.<br /> Secondary moves to primary role in a failover case.<br /> HANA system replication and OS control failover. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication.<br /> DR by using HANA system replication is not yet possible without third-party components. | Separate set of disk volumes are attached to each node.<br /> Only disk volumes of secondary replica in the production site get replicated to the DR location.<br /> One set of volumes is required at the DR site. | 
 
-A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. So far, we don't have a single customer with this configuration.
+A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. Though, this is not a preferred choice for many customers.
 
-A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, you shut down the non-production system, you mount the storage-replicated (additional) volume sets, and then you start the production HANA instance. So far, all customers that use the HANA Large Instance disaster-recovery functionality use this configuration alternative. 
+A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, you shut down the non-production system, you mount the storage-replicated (additional) volume sets, and then you start the production HANA instance. Most customers who use the HANA Large Instance disaster-recovery functionality, use this configuration. 
 
 
 You can find more information on SAP HANA high availability in the following SAP articles: 
@@ -217,7 +217,15 @@ In this step, you authorize the SAP HANA user account that you created, so that 
 
 Enter the `hdbuserstore` command as follows:
 
-![Enter the hdbuserstore command](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**For non MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**For MDC HANA setup**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 In the following example, the user is **SCADMIN01**, the hostname is **lhanad01**, and the instance number is **01**:
 ```
@@ -227,8 +235,8 @@ If you have an SAP HANA scale-out configuration, you should manage all scripting
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
@@ -282,7 +290,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -373,28 +381,28 @@ If the test snapshot has been executed successfully with the script, you can pro
 As all the preparation steps are finished, you can start to configure the actual storage snapshot configuration. The script to be scheduled works with SAP HANA scale-up and scale-out configurations. You should schedule the execution of the scripts via cron. 
 
 Three types of snapshot backups can be created:
-- **HANA**: Combined snapshot backup in which the volumes that contain /hana/data, /hana/log, and /hana/shared (which contains /usr/sap as well) are covered by the coordinated snapshot. A single file restore is possible from this snapshot.
+- **HANA**: Combined snapshot backup in which the volumes that contain /hana/data and /hana/shared (which contains /usr/sap as well) are covered by the coordinated snapshot. A single file restore is possible from this snapshot.
 - **Logs**: Snapshot backup of the /hana/logbackups volume. No HANA snapshot is triggered to execute this storage snapshot. This storage volume is the volume meant to contain the SAP HANA transaction-log backups. SAP HANA transaction-log backups are performed more frequently to restrict log growth and prevent potential data loss. A single file restore is possible from this snapshot. You should not lower the frequency to under five minutes.
 - **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN.  
 
 
 The call syntax for these three different types of snapshots looks like this:
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 The following parameters need to be specified:
 
 - The first parameter characterizes the type of the snapshot backup. The values allowed are **hana**, **logs**, and **boot**. 
-- The second value is the HANA SID (like HM3). This parameter is not needed to perform a backup of the boot volume.
+- The second parameter is **HANA SID** (like HM3) or **none**. If the first parameters value provided is **hana** or **logs**, then the value of this parameter is **HANA SID** (like HM3), else for boot volume backup, the value is **none**. 
 - The third parameter is a snapshot or backup label for the type of snapshot. It has two purposes. The one purpose for you is to give it a name, so that you know what these snapshots are about. The second purpose is for the script azure\_hana\_backup.pl to determine the number of storage snapshots that are retained under that specific label. If you schedule two storage snapshot backups of the same type (like **hana**), with two different labels, and define that 30 snapshots should be kept for each, you are going to end up with 60 storage snapshots of the volumes affected. 
 - The fourth parameter defines the retention of the snapshots indirectly, by defining the number of snapshots of with the same snapshot prefix (label) to be kept. This parameter is important for a scheduled execution through cron. 
 
@@ -425,7 +433,7 @@ In the considerations and recommendations that follow, we assume that you do *no
 - The number of snapshots per volume is limited to 255.
 
 
-For customers who don't use the disaster-recovery functionality of HANA Large Instances, the snapshot period is less frequent. In such cases, we see customers performing the combined snapshots on /hana/data, /hana/log, and /hana/shared (includes /usr/sap) in 12-hour or 24-hour periods, and they keep the snapshots to cover a whole month. The same is true with the snapshots of the log backup volume. However, the execution of SAP HANA transaction-log backups against the log backup volume occurs in 5-minute to 15-minute periods.
+For customers who don't use the disaster-recovery functionality of HANA Large Instances, the snapshot period is less frequent. In such cases, we see customers performing the combined snapshots on /hana/data and /hana/shared (includes /usr/sap) in 12-hour or 24-hour periods, and they keep the snapshots to cover a whole month. The same is true with the snapshots of the log backup volume. However, the execution of SAP HANA transaction-log backups against the log backup volume occurs in 5-minute to 15-minute periods.
 
 We encourage you to perform scheduled storage snapshots by using cron. We also recommend that you use the same script for all backups and disaster-recovery needs. You need to modify the script inputs to match the various requested backup times. These snapshots are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly. 
 
@@ -437,9 +445,9 @@ An example of a cron schedule in /etc/crontab might look like this:
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-In the previous example, there is an hourly combined snapshot that covers the volumes that contain the /hana/data, /hana/log, and /hana/shared (includes /usr/sap) locations. This type of snapshot would be used for a faster point-in-time recovery within the past two days. Additionally, there is a daily snapshot on those volumes. So, you have two days of coverage by hourly snapshots, plus four weeks of coverage by daily snapshots. Additionally, the transaction-log backup volume is backed up once every day. These backups are kept for four weeks as well. As you see in the third line of crontab, the backup of the HANA transaction log is scheduled to execute every five minutes. The start minutes of the different cron jobs that execute storage snapshots are staggered, so that those snapshots are not executed all at once at a certain point in time. 
+In the previous example, there is an hourly combined snapshot that covers the volumes that contain the /hana/data and /hana/shared (includes /usr/sap) locations. This type of snapshot would be used for a faster point-in-time recovery within the past two days. Additionally, there is a daily snapshot on those volumes. So, you have two days of coverage by hourly snapshots, plus four weeks of coverage by daily snapshots. Additionally, the transaction-log backup volume is backed up once every day. These backups are kept for four weeks as well. As you see in the third line of crontab, the backup of the HANA transaction log is scheduled to execute every five minutes. The start minutes of the different cron jobs that execute storage snapshots are staggered, so that those snapshots are not executed all at once at a certain point in time. 
 
-In the following example, you perform a combined snapshot that covers the volumes that contain the /hana/data, /hana/log, and /hana/shared (including /usr/sap) locations on an hourly basis. You keep these snapshots for two days. The snapshots of the transaction-log backup volumes are executed on a five-minute basis and are kept for four hours. As before, the backup of the HANA transaction log file is scheduled to execute every five minutes. The snapshot of the transaction-log backup volume is performed with a two-minute delay after the transaction-log backup has started. Within those two minutes, the SAP HANA transaction-log backup should finish under normal circumstances. As before, the volume that contains the boot LUN is backed up once per day by a storage snapshot and is kept for four weeks.
+In the following example, you perform a combined snapshot that covers the volumes that contain the /hana/data and /hana/shared (including /usr/sap) locations on an hourly basis. You keep these snapshots for two days. The snapshots of the transaction-log backup volumes are executed on a five-minute basis and are kept for four hours. As before, the backup of the HANA transaction log file is scheduled to execute every five minutes. The snapshot of the transaction-log backup volume is performed with a two-minute delay after the transaction-log backup has started. Within those two minutes, the SAP HANA transaction-log backup should finish under normal circumstances. As before, the volume that contains the boot LUN is backed up once per day by a storage snapshot and is kept for four weeks.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -450,9 +458,9 @@ In the following example, you perform a combined snapshot that covers the volume
 
 The following graphic illustrates the sequences of the previous example, excluding the boot LUN:
 
-![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA performs regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction-log backup is executed every five minutes. You also see that an SAP HANA snapshot is executed every hour as a result of triggering a combined storage snapshot over the /hana/data, /hana/log, and /hana/shared volumes. After the HANA snapshot succeeds, the combined storage snapshot is executed. As instructed in crontab, the storage snapshot on the /hana/logbackup volume is executed every five minutes, around two minutes after the HANA transaction-log backup.
+SAP HANA performs regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction-log backup is executed every five minutes. You also see that an SAP HANA snapshot is executed every hour as a result of triggering a combined storage snapshot over the /hana/data and /hana/shared volumes. After the HANA snapshot succeeds, the combined storage snapshot is executed. As instructed in crontab, the storage snapshot on the /hana/logbackup volume is executed every five minutes, around two minutes after the HANA transaction-log backup.
 
 
 >[!IMPORTANT]
@@ -460,7 +468,7 @@ SAP HANA performs regular writes against the /hana/log volume to document the co
 
 If you've set a commitment to users of a point-in-time recovery of 30 days, do the following:
 
-- In extreme cases, you need the ability to access a combined storage snapshot over/hana/data, /hana/log, and /hana/shared that is 30 days old.
+- In extreme cases, you need the ability to access a combined storage snapshot over/hana/data and /hana/shared that is 30 days old.
 - Have contiguous transaction-log backups that cover the time between any of the combined storage snapshots. So, the oldest snapshot of the transaction-log backup volume needs to be 30 days old. This is not the case if you copy the transaction-log backups to another NFS share that is located on Azure storage. In that case, you might pull old transaction-log backups from that NFS share.
 
 To benefit from storage snapshots and the eventual storage replication of transaction-log backups, you need to change the location that the SAP HANA writes the transaction-log backups to. You can make this change in HANA Studio. Though SAP HANA backs up full log segments automatically, you should specify a log backup interval to be deterministic. This is especially true when you use the disaster-recovery option, because you usually want to execute log backups with a deterministic period. In the following case, we took 15 minutes as the log backup interval.

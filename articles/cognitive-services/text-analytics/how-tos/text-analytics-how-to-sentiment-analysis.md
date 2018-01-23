@@ -18,7 +18,7 @@ The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
-Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../overview.md#supported-languages).
+Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
 
 ## Concepts
 

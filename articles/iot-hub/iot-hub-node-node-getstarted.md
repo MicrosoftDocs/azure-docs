@@ -33,7 +33,7 @@ At the end of this tutorial, you have three Node.js console apps:
 
 To complete this tutorial, you need the following:
 
-* Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

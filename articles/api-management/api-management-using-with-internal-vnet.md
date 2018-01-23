@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use Azure API Management with Internal virtual network | Microsoft Docs
 description: Learn how to setup and configure Azure API Management in Internal virtual network.
 services: api-management
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 09/19/2017
 ms.author: apimpm
 
 ---
@@ -22,7 +22,6 @@ With Azure Virtual Networks (VNETs), API Management can manage APIs not accessib
 * External
 * Internal
 
-## <a name="overview"> </a>Overview
 When API Management is deployed in an Internal Virtual network mode, all the service endpoints (gateway, developer portal, publisher portal, direct management and Git) are only visible inside a Virtual network that you control access to. None of the service endpoints are registered on the Public DNS Server.
 
 Using API Management in Internal mode, you can achieve the following scenarios
@@ -30,13 +29,27 @@ Using API Management in Internal mode, you can achieve the following scenarios
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-prem APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations using a single Gateway endpoint. 
 
+## Prerequisites
+
+To perform the steps described in this article, you must have:
+
++ An active Azure subscription.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
 ## <a name="enable-vpn"> </a>Creating an API Management in Internal Virtual network
 The API Management service in Internal Virtual network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) range.  
 
-### Enable VNET connection using Azure portal
-First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then set-up API Management to be deployed inside a Virtual network.
+### Enable VNET connection using the Azure portal
 
-![Menu for Setting up APIM in Internal Virtual Network][api-management-using-internal-vnet-menu]
+1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
+2. Select **Custom domains and SSL**.
+3. Configure the API Management instance to be deployed inside a Virtual network.
+
+    ![Menu for Setting up APIM in Internal Virtual Network][api-management-using-internal-vnet-menu]
+4. Press Save.
 
 After the deployment succeeds, you should see the Internal Virtual IP Address of your service on the dashboard.
 

@@ -32,7 +32,7 @@ After setting up a [Recovery Services vault](azure-to-azure-walkthrough-vault.md
 > Azure VM replication is currently in preview.
 
 
-## Select the source 
+## Select the source
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
 2. In **Source**, select **Azure - PREVIEW**.
@@ -58,18 +58,18 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 Site Recovery provisions default settings for the target region (based on the source region settings), and the replication policy:
 
    - **Target location**: The target region you want to use for disaster recovery. We recommend that the target location matches the location of the Site Recovery vault.
-   - **Target resource group**: Resource group to which Azure VMs in the target region will belong after failover. By default, Site Recovery creates a new resource group in the target region with an "asr" suffix. 
-   - **Target virtual network**: The network in which Azure VMs in the target region will be located after failover. By default, Site Recovery creates a new virtual network (and subnets) in the target region with an "asr" suffix. This network is mapped to your source network. Note that you can assign a specific IP address after failover of a VM, if you need to retain the same IP address in the source and target locations. 
-   - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes on source VMs are sent to this account, before replication to the target location. 
+   - **Target resource group**: Resource group to which Azure VMs in the target region will belong after failover. By default, Site Recovery creates a new resource group in the target region with an "asr" suffix.
+   - **Target virtual network**: The network in which Azure VMs in the target region will be located after failover. By default, Site Recovery creates a new virtual network (and subnets) in the target region with an "asr" suffix. This network is mapped to your source network. Note that you can assign a specific IP address after failover of a VM, if you need to retain the same IP address in the source and target locations.
+   - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes on source VMs are sent to this account, before replication to the target location.
    - **Target storage accounts**: By default, Site Recovery creates a new storage account in the target region, to mirror the source VM storage account.
-   -  **Target availability sets**: By default, Site Recovery creates a new availability set in the target region, with the "asr" suffix. 
+   -  **Target availability sets**: By default, Site Recovery creates a new availability set in the target region, with the "asr" suffix.
    - **Replication policy name**: Policy name.
    - **Recovery point retention**: By default Site Recovery keeps recovery points for 24 hours. You can configure a value between 1 and 72 hours.
    - **App-consistent snapshot frequency**: By default Site Recovery takes an app-consistent snapshot every 4 hours. You can configure any value between 1 and 12 hours. Data is replicated continuously:
     - Crash-consistent recovery points maintain consistent data write-order when created. This type of recovery point is usually sufficient if your app is designed to recover from a crash without data inconsistencies
     - Crash-consistent recovery points are generated every few minutes. Using these recovery points to fail over and recover your VMs provides a Recovery Point Objective (RPO) in the order of minutes.
     - App-consistent recovery points (in addition to write-order consistency) ensure that running apps complete all operations and flush buffers to disk (application quiescing). We recommend you use these recovery points for database apps such as SQL Server, Oracle, and Exchange.
-        
+
     ![Configure settings](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
 
@@ -83,7 +83,7 @@ If you want to modify target and replication policy settings, do the following:
     ![Configure settings](./media/azure-to-azure-walkthrough-enable-replication/customize-target.png)
 
 3. To override replication settings for recovery points and app-consistent snapshots, click **Customize** next to **Replication Policy**.
- 
+
     ![Configure settings](./media/azure-to-azure-walkthrough-enable-replication/customize-policy.png)
 
 4. To start provisioning the target resources, click **Create target resources**. Provisioning takes a minute or so. Don't close the blade during provisioning, or you'll have to start over.

@@ -126,3 +126,4 @@ Handling the exceptions that come from use of the `ReliableCollections` in conju
 - [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 - [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+- [Replicas and Instances](service-fabric-concepts-replica-lifecycle.md)

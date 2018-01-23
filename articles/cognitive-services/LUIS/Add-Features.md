@@ -30,7 +30,7 @@ For example, in a travel agent app, you can create a phrase list named "Cities" 
 > [!NOTE]
 > Phrase list features show LUIS some examples of an entity's potential values. The phrase list does not have to include all members of a category, although it may. 
 
-The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app.
+
 <!--
 
 > [!NOTE] 

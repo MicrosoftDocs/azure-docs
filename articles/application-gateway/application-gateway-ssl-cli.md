@@ -3,7 +3,7 @@ title: Configure SSL offload - Azure Application Gateway - Azure CLI 2.0 | Micro
 description: This article provides instructions to create an application gateway with SSL offload by using Azure CLI 2.0
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Configure an application gateway for SSL offload by using Azure CLI 2.0

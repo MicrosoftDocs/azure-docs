@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 
 ---
@@ -53,11 +53,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 
    ![Install location and license terms](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Select **On-premises data gateway (recommended)**. Azure Analysis Services does not support personal mode.
-
-   ![Choose type of gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. 
+3. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. 
 
    ![Enter an account to sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

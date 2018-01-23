@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
 
 ---
@@ -38,7 +38,7 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies). To learn more, see [Security Center pricing](security-center-pricing.md).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy.
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -110,8 +110,8 @@ Azure Security Center monitors the following Azure resources:
 * Azure Virtual Networks
 * Azure SQL service
 * Azure Storage account
-* Azure Web Apps (in [App Service Environment](../app-service/app-service-app-service-environments-readme.md))
-* Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
+* Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
+* Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
 
 ## Virtual Machines
 ### What types of virtual machines are supported?

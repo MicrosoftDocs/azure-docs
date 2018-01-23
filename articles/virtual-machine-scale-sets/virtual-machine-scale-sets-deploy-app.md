@@ -44,7 +44,7 @@ Do the following steps:
 
 For more information about disks, see [Managed Disks Overview](../virtual-machines/windows/managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
 
-## Install when the scale set is provisioned
+## <a name="already-provisioned"></a>Install when the scale set is provisioned
 
 Virtual machine extensions can be applied to a virtual machine scale set. With a virtual machine extension, you can customize the virtual machines in a scale set as a whole group. For more information about extensions, see [Virtual Machine Extensions](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

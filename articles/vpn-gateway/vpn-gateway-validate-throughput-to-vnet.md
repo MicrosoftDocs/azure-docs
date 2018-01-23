@@ -11,7 +11,7 @@ tags: azure-resource-manager,azure-service-management
 ms.assetid:
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017

@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/10/2017
+ms.date: 09/20/2017
 ms.author: carlrab
 
 ---
 # Monitoring database performance in Azure SQL Database
 Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Monitoring helps you  determine whether your database has excess capacity or is having trouble because resources are maxed out, and then decide whether it's time to adjust the performance level and [service tier](sql-database-service-tiers.md) of your database. You can monitor your database using graphical tools in the [Azure portal](https://portal.azure.com) or using SQL [dynamic management views](https://msdn.microsoft.com/library/ms188754.aspx).
+
+> [!TIP]
+> Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
+>
 
 ## Monitor databases using the Azure portal
 In the [Azure portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
@@ -204,3 +208,8 @@ If you're analyzing an on-premises SQL Server workload, modify the query to focu
 Again, these queries return a point-in-time count. If you collect multiple samples over time, you’ll have the best understanding of your session use.
 
 For SQL Database analysis, you can get historical statistics on sessions by querying the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view and reviewing the **active_session_count** column. 
+
+## Next steps
+
+- Automatically tune database indexes and query execution plans using [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
+- Monitor database performance automatically using [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md). This feature provides diagnostics information and root cause analysis of performance issues.

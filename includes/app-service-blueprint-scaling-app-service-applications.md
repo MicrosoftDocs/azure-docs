@@ -1,4 +1,4 @@
-* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
+* [Scale Azure App Service](../articles/app-service/web-sites-scale.md)
   
   * Understanding Redundancy and Reliability
   * StateFULL vs StateLESS applications

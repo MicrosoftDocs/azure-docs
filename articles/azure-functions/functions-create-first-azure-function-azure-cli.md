@@ -119,7 +119,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-After the deployment source been set, the Azure CLI shows information similar to the following example (null values removed for readability):
+After the deployment source has been set, the Azure CLI shows information similar to the following example (null values removed for readability):
 
 ```json
 {

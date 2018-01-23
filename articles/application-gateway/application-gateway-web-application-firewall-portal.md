@@ -3,7 +3,7 @@ title: Create or update an application gateway with a web application firewall |
 description: Learn how to create an application gateway with a web application firewall by using the portal
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 

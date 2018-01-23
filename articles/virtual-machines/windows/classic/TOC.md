@@ -3,11 +3,11 @@
 ## [Disks and VHDs](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
-## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Compare VMs, websites, and cloud services](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Containers](../../virtual-machines-windows-containers.md)
 
 # Get started
-## [Create a VM using the portal](tutorial.md)
+## [Create a VM using Azure portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
 ## [Install Azure PowerShell](/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

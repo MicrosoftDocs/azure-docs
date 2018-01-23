@@ -45,13 +45,14 @@ You get the Azure AD service free when you sign up for any of these Microsoft cl
 ## To add an existing subscription to your Azure AD directory
 You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. 
 
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Home/Index) with an account that is the Account Administrator of the subscription whose ownership you want to transfer.
+1. Sign in to the [Azure Account Center](https://account.azure.com/Subscriptions) with an account that is the Account Administrator of the subscription whose ownership you want to transfer.
 2. Ensure that the user who you want to be the subscription owner is in the targeted directory.
 3. Click **Transfer subscription**.
 4. Specify the recipient. The recipient automatically gets an email with an acceptance link.
 5. The recipient clicks the link and follows the instructions, including entering their payment information. When the recipient succeeds, the subscription is transferred. 
 6. The default directory of the subscription is changed to the directory that the user is in.
 
+To learn more, see [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md)
 
 ## Suggestions to manage both a subscription and a directory
 The administrative roles for an Azure subscription manage resources tied to the Azure subscription. This section explains the differences between Azure subscription admins and Azure AD directory admins. Administrative roles and other suggestions for using them to manage your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).

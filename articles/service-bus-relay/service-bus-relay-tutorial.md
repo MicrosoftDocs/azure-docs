@@ -721,8 +721,6 @@ To learn more about Azure Relay, see the following topics.
 * [Azure Relay overview](relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
 
-[Azure classic portal]: http://manage.windowsazure.com
-
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png

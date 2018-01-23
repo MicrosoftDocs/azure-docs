@@ -310,7 +310,7 @@ to learn about more complex storage tasks.
 * View the Queue service reference documentation for complete details about available APIs:
   * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
-* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../../app-service-web/websites-dotnet-webjobs-sdk.md).
+* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * View more feature guides to learn about additional options for storing data in Azure.
   * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
   * [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.

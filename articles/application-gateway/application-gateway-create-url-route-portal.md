@@ -3,7 +3,7 @@ title: Create a path-based rule for an application gateway - Azure portal | Micr
 description: Learn how to create a path-based rule for an application gateway by using the Azure portal.
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create a path-based rule for an application gateway by using the Azure portal
