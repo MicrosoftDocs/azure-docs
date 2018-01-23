@@ -29,6 +29,8 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
@@ -389,7 +391,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 ```
 
 
-## Delete resource group
+## Clean up resources
 When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurepowershell-interactive

@@ -29,6 +29,8 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Manually scale a scale set
 > * Perform common scale set management tasks
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -288,7 +290,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 ```
 
 
-## Delete resource group
+## Clean up resources
 When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive 
