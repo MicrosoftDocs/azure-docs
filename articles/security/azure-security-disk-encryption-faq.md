@@ -3,9 +3,9 @@ title: Azure Disk Encryption FAQ| Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption FAQ
@@ -116,7 +116,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 * Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
 * Customize, and add software to the image as needed.
 
-If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
 
 **Q:** What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
 

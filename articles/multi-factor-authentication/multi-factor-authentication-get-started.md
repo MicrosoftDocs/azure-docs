@@ -4,7 +4,7 @@ description: Choose the multi-factor authentication security solution that is ri
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Choose the Azure Multi-Factor Authentication solution for you
@@ -57,7 +57,7 @@ The following table compares the features that are available with Multi-Factor A
 | Mobile app verification code as a second factor | ● | ● |
 | Phone call as second factor | ● | ● |
 | One-way SMS as second factor | ● | ● |
-| Two-way SMS as second factor | | ● |
+| Two-way SMS as second factor | | ●  (Deprecated)| 
 | Hardware Tokens as second factor | | ● |
 | App passwords for Office 365 clients that don’t support MFA | ● | |
 | Admin control over authentication methods | ● | ● |

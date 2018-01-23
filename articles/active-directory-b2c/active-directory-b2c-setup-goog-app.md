@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Google+ accounts in y
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7

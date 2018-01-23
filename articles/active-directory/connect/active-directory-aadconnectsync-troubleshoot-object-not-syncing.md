@@ -3,8 +3,8 @@ title: Troubleshoot an object that is not synchronizing to Azure AD | Microsoft 
 description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid:

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/31/2017
+ms.date: 11/15/2017
 ms.author: rajani-janaki-ram
 
 ---

@@ -4,7 +4,7 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
 
 ---
@@ -88,6 +88,10 @@ This section guides you through the process of connecting your Azure AD to the u
      ![Domain](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
+
+	> [!NOTE]
+	For user provisioning, the Google Apps custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
+
 
 5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google Apps, take the following steps:
    

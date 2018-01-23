@@ -4,7 +4,7 @@ description: The types of tokens issued in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e

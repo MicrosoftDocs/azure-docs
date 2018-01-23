@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Metadta XML** and then save the metadata file on your computer.
+6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Benefitsolver** side, you need to send the downloaded **Metadta XML** to [Benefitsolver support team](https://www.businessolver.com/contact).
+8. To configure single sign-on on **Benefitsolver** side, you need to send the downloaded **Metadata XML** to [Benefitsolver support team](https://www.businessolver.com/contact).
 
 	> [!NOTE]
 	> Your Benefitsolver support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.

@@ -33,7 +33,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Importing multiple blobs from Azure storage into Azure Data Lake Store.      |
 |  How to use / run it?    |   Open a command prompt, then type `adlcopy` to get help.    |
-| Links to Samples      | [Using AdlCopy]https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links to Samples      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Related Tools on the DSVM      | AzCopy, Azure Command Line     |
 
 ## Azure Command Line
@@ -56,19 +56,19 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Copying files to blob storage, copying blobs between accounts.      |
 |  How to use / run it?    |   Open a command prompt, then type `azcopy` to get help.    |
-| Links to Samples      | [AzCopy on Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Links to Samples      | [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Related Tools on the DSVM      | AdlCopy     |
 
 
-## Azure Cosmos DB: DocumentDB API Data Migration tool
+## Azure Cosmos DB Data Migration tool
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Tool to import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB DocumentDB API collections into Azure Cosmos DB or Azure DocumentDB.      |
+| What is it?   | Tool to import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections into Azure Cosmos DB.      |
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Importing files from a VM to CosmosDB, importing data from Azure table storage to CosmosDB, or importing data from a SQL Server database to CosmosDB.     |
 |  How to use / run it?    |   To use the command line version, Open a command prompt, then type `dt`. To use the GUI tool, open a command prompt, then type `dtui`.    |
-| Links to Samples      | [CosmosDB Import Data](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Links to Samples      | [CosmosDB Import Data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Related Tools on the DSVM      | AzCopy, AdlCopy      |
 
 
@@ -80,7 +80,7 @@ Here are some data movement tools we have provided on the DSVM.
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Importing a CSV file into a SQL Server table, exporting a SQL Server table to a file.      |
 |  How to use / run it?    |   Open a command prompt, then type `bcp` to get help.    |
-| Links to Samples      | [Bulk Copy Utility](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Links to Samples      | [Bulk Copy Utility](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Related Tools on the DSVM      | SQL Server, sqlcmd      |
 
 

@@ -16,6 +16,8 @@
 ## [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
 
 # How to
+## [Use Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md)
+## [Enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Join a managed domain
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)
@@ -42,7 +44,12 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+### [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md)
+#### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)
+#### [Restore missing service principals](active-directory-ds-troubleshoot-service-principals.md)
+#### [Secure LDAP errors](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

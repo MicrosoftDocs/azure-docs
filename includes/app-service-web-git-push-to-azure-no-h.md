@@ -1,7 +1,7 @@
 In the local terminal window, add an Azure remote to your local Git repository. This Azure remote was created for you in [Create a web app](#create-a-web-app).
 
 ```bash
-git remote add azure <URI from previous step>
+git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
 Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
@@ -10,4 +10,4 @@ Push to the Azure remote to deploy your app with the following command. When pro
 git push azure master
 ```
 
-The preceding command displays information similar to the following example:
+This command may take a few minutes to run. While running, it displays information similar to the following example:

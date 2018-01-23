@@ -99,7 +99,7 @@ If you use the Azure Content Delivery Network from Akamai, you must use large fi
 
 If you use the Azure Content Delivery Network from Akamai, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, you might want to use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files.
 
-The Azure Content Delivery Network from Verizon uses the general web delivery optimization type to deliver streaming media content.
+The Azure Content Delivery Network from Verizon uses the general web delivery optimization type to deliver large file download content.
 
 To learn more about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Specifically, this Azure File Storage connector supports copying files as-is or 
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure File Storage.
 
@@ -45,11 +45,11 @@ The following properties are supported for Azure File Storage linked service:
 | host | Specifies the Azure File Storage endpoint as `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
 | userid | Specify the user to access the Azure File Storage as `"userid": "AZURE\\<storage name>"`. | Yes |
 | password | Specify the storage access key. Mark this field as SecureString.<br/> | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No for source, Yes for sink |
 
->[!TIP]
-> - To copy to Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
-> - To copy from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
+>[!IMPORTANT]
+> - To copy data into Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
+> - To copy data from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
 
 **Example:**
 
@@ -128,7 +128,7 @@ To copy data from Azure File Storage, set the source type in the copy activity t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

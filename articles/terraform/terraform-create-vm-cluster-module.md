@@ -87,14 +87,14 @@ Run `terraform init` in your configuration directory. Using a Terraform version 
 
 Run `terraform plan` to preview the virtual machine infrastructure created by the template.
 
-![Terraform Plan](media/terraformPlanVmsWithModules.png)
+![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## Create the virtual machines with apply
 
 Run `terraform apply` to provision the VMs on Azure.
 
-![Terraform Apply](media/terraformApplyVmsWithModules.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## Next steps
 

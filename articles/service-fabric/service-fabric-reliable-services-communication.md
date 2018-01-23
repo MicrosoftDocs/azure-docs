@@ -118,7 +118,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Finally, describe the endpoints that are required for the service in the [service manifest](service-fabric-application-model.md) under the section on endpoints.
+Finally, describe the endpoints that are required for the service in the [service manifest](service-fabric-application-and-service-manifests.md) under the section on endpoints.
 
 ```xml
 <Resources>

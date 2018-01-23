@@ -119,4 +119,4 @@ The complete workflow describing these concepts is captured in the following fig
    Absolutely. You can run 100x of services/endpoints on the same cluster. 
 
 ## Next steps
-For getting started with Model Management, see [Configuring Model Management](model-management-configuration.md).
+For getting started with Model Management, see [Configuring Model Management](deployment-setup-configuration.md).

@@ -3,8 +3,8 @@ title: Azure Redis Cache FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # Azure Redis Cache FAQ

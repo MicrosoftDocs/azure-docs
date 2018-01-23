@@ -6,7 +6,7 @@
   keywords: Azure Active Directory licensing service plans
   documentationcenter: ''
   author: piotrci
-  manager: femila
+  manager: mtillman
   editor: ''
 
   ms.assetid:

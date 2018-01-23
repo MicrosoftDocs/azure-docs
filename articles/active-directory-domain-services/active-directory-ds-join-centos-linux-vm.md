@@ -4,7 +4,7 @@ description: Join a CentOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6

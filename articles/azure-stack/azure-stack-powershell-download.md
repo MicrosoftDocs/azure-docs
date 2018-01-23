@@ -3,18 +3,18 @@ title: Download Azure Stack tools from GitHub | Microsoft Docs
 description: Learn how to download tools that are required for working with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 
@@ -22,22 +22,7 @@ ms.author: sngun
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-**AzureStack-Tools** is a GitHub repository that hosts PowerShell modules for managing and deploying resources to Azure Stack. If you are planning to establish VPN connectivity, you can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder. 
-
-To clone the repository, download [Git for Windows](https://git-scm.com/download/win), open a command prompt, and run the following script:
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-To download the tools folder, run the following script:
+**AzureStack-Tools** is a GitHub repository that hosts PowerShell modules for managing and deploying resources to Azure Stack. If you are planning to establish VPN connectivity, you can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder by running the following script:
 
 ```PowerShell
 # Change directory to the root directory. 

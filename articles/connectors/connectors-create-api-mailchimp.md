@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the MailChimp connector
 MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to MailChimp
 To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties:

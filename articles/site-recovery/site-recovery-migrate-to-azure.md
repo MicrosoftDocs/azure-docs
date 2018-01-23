@@ -1,77 +1,43 @@
 ---
-title: Migrate on-premises VMs and physical servers to Azure with Site Recovery | Microsoft Docs
-description: This article describes how to migrate on-premises VMs and physical servers to Azure with Azure Site Recovery
+title: About migration in Azure Site Recovery | Microsoft Docs
+description: This article describes how to migrate on-premises and Azure VMs using the Azure Site Recovery service.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/30/2017
+ms.topic: article
+ms.date: 01/07/2018
 ms.author: raynew
 
 ---
-# Migrate to Azure with Site Recovery
+# About migration
 
-Read this article to learn about using the [Azure Site Recovery](site-recovery-overview.md) service to migrate on-premises virtual machines (VMs) and physical servers, to Azure VMs.
+Read this article for a quick overview of how the [Azure Site Recovery](site-recovery-overview.md) service helps you to migrate machines. 
 
-## Before you start
+Here's what you can migrate using Site Recovery:
 
-Watch this video for a quick overview of the steps required to migrate to Azure.
->[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
+- **Migrate from on-premises to Azure**: Migrate on-premises Hyper-V VMs, VMware VMs, and physical servers to Azure. After the migration, workloads running on the on-premises machines will be running on Azure VMs. 
+- **Migrate within Azure**: Migrate Azure VMs between Azure regions. 
+- **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
 
 
 ## What do we mean by migration?
 
-You can deploy Site Recovery to replication on-premises VMs and physical servers, and to migrate them.
+In addition to using Site Recovery for disaster recovery of on-premises and Azure VMs, you can use the Site Recovery service to migrate them. What's the difference?
 
-- When you replicate, you configure on-premises machines to replicate on a regular basis to Azure. Then when an outage occurs, you fail the machines over from the on-premises site to Azure, and access them from there. When the on-premises site is available again, you fail back from Azure.
-- When you use Site Recovery for migration, you replicate on-premises machines to Azure. Then you fail them over from your on-premises site to Azure, and finish up the migration process. There's no failback involved.  
-
-## What can Site Recovery migrate?
-
-You can:
-
-- **Migrate from on-premises**: Migrate on-premises Hyper-V VMs, VMware VMs, and physical servers to Azure. After the migration, workloads running on the on-premises machines will be running on Azure VMs. 
-- **Migrate within Azure**: Migrate Azure VMs between Azure regions. 
-- **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
-
-## Migrate from on-premises to Azure
-
-To migrate on-premises VMware VMs, Hyper-V VMs, and physical servers, you follow almost the same steps as you would for full replication. 
+- For disaster recovery, you replicate machines on a regular basis to Azure. When an outage occurs, you fail the machines over from the primary site to the secondary Azure site, and access them from there. When the primary site is available again, you fail back from Azure.
+- For migration, you replicate on-premises machines to Azure, or Azure VMs to a secondary region. Then you fail the VM over from the primary site to the secondary, and complete the migration process. There's no failback involved.  
 
 
-## Migrate between Azure regions
+## Migration scenarios
 
-To migrate Azure VMs between regions, you follow almost the same steps as you would for full migration.
-
-1. You [enable replication](azure-to-azure-tutorial-enable-replication.md)) for the machines you want to migrate.
-2. You [run a quick test failover](azure-to-azure-tutorial-dr-drill.md) to make sure everything's working.
-3. Then, you [run an unplanned failover](azure-to-azure-tutorial-failover-failback.md) with the **Complete Migration** option.
-4. After you've completed the migration, you can [set up replication for disaster recovery](site-recovery-azure-to-azure-after-migration.md), from the Azure region to which you migrated, to a secondary region.
-
-
-
-## Migrate AWS to Azure
-
-You can migrate AWS instances to Azure VMs.
-- In this scenario only migration is supported. In other words, you can replicate the AWS instances and fail them over to Azure, but you can't fail back.
-- AWS instances are handled in the same way as physical servers for migration purposes. You set up a Recovery Services vault, deploy an on-premises configuration server to manage replication, add it to the vault, and specify replication settings.
-- You enable replication for the machines you want to migrate, and run a quick test failover. Then you run an unplanned failover with the **Complete Migration** option.
-
-
-
-
-
+**Scenario** | **Details**
+--- | ---
+**Migrate from on-premises to Azure** | You can migrate on-premises VMware VMs, Hyper-V VMs, and physical servers to Azure. To do this, you complete almost the same steps as you would for full disaster recovery. You simply don't fail machines back from Azure to the on-premises site.
+**Migrate between Azure regions** | You can migrate Azure VMs from one Azure region to another. After the migration is complete, you can configure disaster recovery for the Azure VMs now in the secondary region to which you migrated.
+**Migrate AWS to Azure** | You can migrate AWS instances to Azure VMs. Site Recovery treats AWS instances as physical servers for  for migration purposes. 
 
 ## Next steps
 
 - [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
-- [Migrate VMs from one Azure region to another](site-recovery-migrate-azure-to-azure.md)
+- [Migrate VMs from one Azure region to another](tutorial-migrate-azure-to-azure.md)
 - [Migrate AWS to Azure](tutorial-migrate-aws-to-azure.md)

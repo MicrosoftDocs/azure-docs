@@ -212,7 +212,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
                   Iterable<EventData> receivedEvents = receiver.receive(100).get();
                   int batchSize = 0;
                   if (receivedEvents != null) {
-                    System.out.println("Got some evenst");
+                    System.out.println("Got some events");
                     for (EventData receivedEvent : receivedEvents) {
                       System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s",
                         receivedEvent.getSystemProperties().getOffset(),
@@ -490,7 +490,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

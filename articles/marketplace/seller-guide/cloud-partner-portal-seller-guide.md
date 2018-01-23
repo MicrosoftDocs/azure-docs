@@ -21,7 +21,7 @@ ms.author: divacc@microsoft.com
 Welcome to the Azure Marketplace seller guide. This guide is designed for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images and managed applications to IT professionals and developers. With Azure customers located around the world, [Azure Marketplace](https://azuremarketplace.microsoft.com/) can provide great reach and exposure for your products.
 
 > [!NOTE]
-> If you're interested in selling your [managed application](https://docs.microsoft.com/en-us/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> If you're interested in selling your [managed application](https://docs.microsoft.com/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > If you're interested in selling your finished software as a service (SaaS) products to _IT Pros and developers_, you can reach out to saas-on-amp@microsoft.com to learn more about your options.
@@ -99,7 +99,7 @@ Figure 1: Process for selling on the Azure Marketplace
 Depending on the workload (virtual machine or managed application) you plan to publish, you will follow a different process to publish your offer. The following content is focused on publishing _virtual machine offers_.
 
 > [!NOTE]
-> If you're interested in selling your [managed application](https://docs.microsoft.com/en-us/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> If you're interested in selling your [managed application](https://docs.microsoft.com/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > If you're interested in selling your finished software as a service (SaaS) products to _IT Pros and developers_, you can reach out to saas-on-amp@microsoft.com to learn more about your options.

@@ -4,7 +4,7 @@ description: A helper tool used to demonstrate the page UI customization feature
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514

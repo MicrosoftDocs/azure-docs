@@ -1,6 +1,6 @@
 ---
 title: Pipeline execution and triggers in Azure Data Factory | Microsoft Docs
-description: This article provides information about how to execute a pipeline in Azure Data Factory either on-demand or by creating a trigger. 
+description: This article provides information about how to execute a pipeline in Azure Data Factory either on-demand or by creating a trigger.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
 
 ---
 
-# Pipeline execution and triggers in Azure Data Factory 
+# Pipeline execution and triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-scheduling-and-execution.md)
 > * [Version 2 - Preview](concepts-pipeline-execution-triggers.md)
 
-A **pipeline run** is a term in Azure Data Factory Version 2 that defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8am, 9am, and 10am. There would be three separate runs of pipeline (pipeline runs) in this case. Each pipeline run has a unique pipeline run ID, which is a GUID that uniquely defines that particular pipeline run. Pipeline runs are typically instantiated by passing arguments to parameters defined in the pipelines. There are two ways to execute a pipeline: **manually** or via a **trigger**. This article provides details about both the ways of executing a pipeline. 
+A **pipeline run** is a term in Azure Data Factory Version 2 that defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8am, 9am, and 10am. There would be three separate runs of pipeline (pipeline runs) in this case. Each pipeline run has a unique pipeline run ID, which is a GUID that uniquely defines that particular pipeline run. Pipeline runs are typically instantiated by passing arguments to parameters defined in the pipelines. There are two ways to execute a pipeline: **manually** or via a **trigger**. This article provides details about both the ways of executing a pipeline.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [scheduling and execution in Data Factory V1](v1/data-factory-scheduling-and-execution.md).
 
 ## Run pipeline on-demand
-In this method, you manually run your pipeline. It's also considered as an on-demand execution of a pipeline. 
+In this method, you manually run your pipeline. It's also considered as an on-demand execution of a pipeline.
 
-For example, say you have a pipeline named **copyPipeline** that you want to execute. The pipeline is a simple pipeline with a single activity that copies from a source folder in Azure Blob Storage to a destination folder in the same storage. Here is the sample pipeline definition: 
+For example, say you have a pipeline named **copyPipeline** that you want to execute. The pipeline is a simple pipeline with a single activity that copies from a source folder in Azure Blob Storage to a destination folder in the same storage. Here is the sample pipeline definition:
 
 ```json
 {
@@ -74,9 +74,9 @@ For example, say you have a pipeline named **copyPipeline** that you want to exe
 }
 
 ```
-The pipeline takes two parameters:  sourceBlobContainer and sinkBlobContainer as shown in the JSON definition. You pass values to these parameters at runtime. 
+The pipeline takes two parameters:  sourceBlobContainer and sinkBlobContainer as shown in the JSON definition. You pass values to these parameters at runtime.
 
-To run the pipeline manually, you can use one of the following ways: .NET, PowerShell, REST, and Python. 
+To run the pipeline manually, you can use one of the following ways: .NET, PowerShell, REST, and Python.
 
 ### REST API
 Here is a sample REST command:  
@@ -88,7 +88,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 See [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) for a complete sample.
 
 ### PowerShell
-Here is a sample PowerShell command: 
+Here is a sample PowerShell command:
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -114,8 +114,8 @@ The response payload is a unique ID of the pipeline run:
 
 See [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) for a complete sample.
 
-### .NET 
-Here is a sample .NET call: 
+### .NET
+Here is a sample .NET call:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -127,11 +127,11 @@ See [Quickstart: create a data factory using .NET](quickstart-create-data-factor
 > You can use the .NET API to invoke Data Factory pipelines from Azure Functions, your own web services, etc.
 
 ## Triggers
-Triggers provide the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports a trigger that invokes a pipeline on a wall-clock schedule. It's called **Scheduler Trigger**. Currently, Data Factory does not support event-based triggers such as a trigger of a pipeline run on the event of a file-arrival.
+Triggers provide the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports two types of triggers: 1)**Scheduler Trigger**, a trigger that invokes a pipeline on a wall-clock schedule 2)**Tumbling Window Trigger**: for triggers that operate on a periodic interval while retaining state. Currently, Data Factory does not support event-based triggers such as a trigger of a pipeline run on the event of a file-arrival.
 
-Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick off a single pipeline and the same trigger can kick off multiple pipelines. In the following JSON definition of a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger, and values for pipeline parameters.
+Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline or a single trigger can kick off multiple pipelines. In the following JSON definition of a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger, and values for pipeline parameters.
 
-### Basic trigger definition: 
+### Basic trigger definition:
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -157,13 +157,19 @@ Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick of
     }
 ```
 
-## Scheduler trigger
-Scheduler trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options (weekly, Monday at 5PM, and Thursday at 9PM). It is flexible by being dataset-pattern agnostic with no discern between time-series and non time-series data.
+## Schedule trigger
+Schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options (weekly, Monday at 5PM, and Thursday at 9PM). It is flexible by being dataset-pattern agnostic with no discern between time-series and non time-series data.
+
+For more specific information about Schedule Triggers and an examples, see [How to: Create a Schedule Trigger](how-to-create-schedule-trigger.md)
+
+## Tumbling Window trigger
+Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping and contiguous time intervals.
+For more specific information about Tumbling Window triggers and examples, see [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md)
 
 ### Scheduler trigger JSON definition
 When you create a scheduler trigger, you can specify scheduling and recurrence using JSON as shown in the example in this section. 
 
-To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick off a single pipeline. The same trigger can kick off multiple pipelines.
+To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
 
 ```json
 {
@@ -172,7 +178,7 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -227,6 +233,16 @@ interval | The interval is a positive integer. It denotes the interval for the f
 schedule | A trigger with a specified frequency alters its recurrence based on a recurrence schedule. A schedule contains modifications based on minutes, hours, weekdays, month days, and week number.
 
 
+## Tumbling Window Trigger vs. Schedule Trigger
+Given the tumbling window trigger and the schedule trigger both operate on time heartbeats, what makes them different?
+For the tumbling window trigger:
+* **Backfill scenarios**: Tumbling window triggers support backfill scenarios, being able to schedule runs for windows in the past. Schedule Trigger can only run on time periods from the present forward.
+* **Reliability:** Tumbling window triggers will schedule pipeline runs for all windows from a start date without gaps with 100% reliability.
+* **Retry**: Tumbling window triggers have retry capability. Failed pipeline runs have a default retry policy of 0 or one specified by user as part of the trigger definition. It will also retry automatically on instances when runs fail because of concurrency/server/throttling limits i.e. this includes status code 400 (User Error), 429 (Too many requests), 500 (Internal Server error).
+* **Concurrency**: Tumbling window triggers allow users to explicitly set concurrency limits for the trigger (1-50 max concurrent triggered pipeline runs)
+* **Window Start & Window End Variables**: For tumbling window triggers, users can access triggerOutputs().windowStartTime and triggerOutputs().windowEndTime as trigger system variables in the trigger definition, that will be the window start and window end times, respectively. For example, if you have a tumbling window trigger running every hour, for the window 1am-2am, the triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z and triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
+* **Pipeline to Trigger Relationship**: Schedule triggers have a n:m relationship with pipelines. A schedule trigger can trigger multiple pipelines. Tumbling Window triggers have a 1:1 relationship with pipelines. A tumbling window trigger can only trigger one pipeline.
+
 ### Schedule trigger example
 
 ```json
@@ -267,7 +283,7 @@ JSON name | Value type | Required? | Default value | Valid values | Example
 --------- | ---------- | --------- | ------------- | ------------ | -------
 startTime | String | Yes | None | ISO-8601 Date-Times | ```"startTime" : "2013-01-09T09:30:00-08:00"```
 recurrence | Object | Yes | None | Recurrence object | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | Number | No | 1 | 1 to 1000. | ```"interval":10```
+interval | Number | Yes | None | 1 to 1000. | ```"interval":10```
 endTime | String | Yes | None | Date-Time value representing a time in the future | `"endTime" : "2013-02-09T09:30:00-08:00"`
 schedule | Object | No | None | Schedule object | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
@@ -299,11 +315,11 @@ The following table describes schedule elements in detail:
 
 JSON name | Description | Valid Values
 --------- | ----------- | ------------
-minutes | Minutes of the hour at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
-hours | Hours of the day at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
-weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</li><li>Array of any of the values (max array size 7)</li></p>Not case-sensitive</p>
+minutes | Minutes of the hour at which the trigger runs. | <ul><li>Array of integers</li></ul>
+hours | Hours of the day at which the trigger runs. | <ul><li>Array of integers</li></ul>
+weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Array of any of below values (max array size 7)<ul><li>Monday</li><li>Tuesday</li><li>Wednesday</li><li>Thursday</li><li>Friday</li><li>Saturday</li><li>Sunday</li></ul></li></p>Not case-sensitive</p>
 monthlyOccurrences | Determines which days of the month the trigger runs. Can only be specified with a monthly frequency. | Array of monthlyOccurence objects: `{ "day": day,  "occurrence": occurence }`. <p> The day is the day of the week the trigger runs, for example, `{Sunday}` is every Sunday of the month. Required.<p>Occurrence is occurrence of the day during the month, for example, `{Sunday, -1}` is the last Sunday of the month. Optional.
-monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>An array of values</li>
+monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>An array of below values</li><ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li></ul></ul> |
 
 
 ## Examples: recurrence schedules
@@ -344,6 +360,8 @@ Example | Description
 
 
 ## Next steps
-See the following tutorials: 
+See the following tutorials:
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [How to: Create a Schedule Trigger](how-to-create-schedule-trigger.md)
+- [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md)
