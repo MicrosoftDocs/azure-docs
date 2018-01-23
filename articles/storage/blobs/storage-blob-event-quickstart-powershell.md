@@ -55,7 +55,7 @@ $resourceGroup = "gridResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## Create a Blob storage account
+## Create a blob storage account
 
 To use Azure Storage, you need a storage account.  Blob storage events are currently available today only in Blob storage accounts.
 
