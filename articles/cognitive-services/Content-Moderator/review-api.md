@@ -53,39 +53,9 @@ Your inputs include the following information:
 The response includes the following information:
 
 - The identifier of the review created (use this ID to get the final review results)
-- The status of the review (completed or in-progress)
+- The status of the job (completed or in-progress)
 - The assigned moderation tags (key-value pairs)
-
-#### Before human review
-
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "InProgress",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "",
-		"ResultMetaData": [],
-		"JobExecutionReport": [
-    	{
-      		"Ts": "2018-01-07T00:38:26.7714671",
-      		"Msg": "Successfully got hasText response from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:26.4181346",
-      		"Msg": "Getting hasText from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:25.5122828",
-      		"Msg": "Starting Execution - Try 1"
-    	}
-		]
-	}
-
-![Image review for human moderators](images/ocr-sample-image.PNG)
-
-#### After human review
+- Job execution report
 
 	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
@@ -95,8 +65,9 @@ The response includes the following information:
 		"Type": "Image",
 		"CallBackEndpoint": "",
 		"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-		"ResultMetaData": [
-    	{
+		"ResultMetaData": 
+		[
+		{
 			"Key": "hasText",
 			"Value": "True"
     	},
@@ -109,17 +80,32 @@ The response includes the following information:
 		{
       		"Ts": "2018-01-07T00:38:29.3238715",
       		"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-    	},
-    	{
+    		},
+    		{
       		"Ts": "2018-01-07T00:38:29.2928416",
       		"Msg": "Job marked completed and job content has been removed"
-    	},
-    	{
+    		},
+    		{
       		"Ts": "2018-01-07T00:38:29.0856472",
       		"Msg": "Execution Complete"
-    	},
-		.......
+    		},
+			{
+      		"Ts": "2018-01-07T00:38:26.7714671",
+      		"Msg": "Successfully got hasText response from Moderator"
+    		},
+    		{
+      		"Ts": "2018-01-07T00:38:26.4181346",
+      		"Msg": "Getting hasText from Moderator"
+    		},
+    		{
+      		"Ts": "2018-01-07T00:38:25.5122828",
+      		"Msg": "Starting Execution - Try 1"
+    		}
+		]
 	}
+
+![Image review for human moderators](images/ocr-sample-image.PNG)
+
 
 ## Review operations
 
