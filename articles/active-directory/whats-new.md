@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -38,6 +38,117 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Plans for changes
 
 This page is updated monthly, so revisit it regularly.
+
+
+## January 2018
+ 
+
+[345461](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=345461&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Plan for change  
+**Service category:** Azure AD  
+**Product capability:** Directory
+ 
+
+As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. Going forward, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
+ 
+
+---
+ 
+
+[346035](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=346035&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Plan for change  
+**Service category:** Azure AD  
+**Product capability:** Directory
+ 
+
+As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com. 
+
+The MFA configuration is located at: **Azure Active Directory \> MFA Server**.
+ 
+
+---
+ 
+
+[349651](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=349651&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD App gallery 
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+In January 2018, the following new apps with federation support were added in the App gallery :
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy Management Software](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk Federated Directory](https://go.microsoft.com/fwlink/?linkid=864699) and [Fidelity NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+You can also find the documentation of all the applications in [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+[284786](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=284786&triage=true&fullScreen=false&_a=edit)
+
+### Sign-in with additional risk detected
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+ 
+
+The insight you get for a detected risk event is tied to your Azure AD subscription. With the Azure AD Premium P2 edition, you get the most detailed information about all underlying detections.
+
+With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event Sign-in with additional risk detected.
+
+For more information, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+ 
+
+---
+ 
+
+[345042](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=345042&triage=true&fullScreen=false&_a=edit)
+
+### Hide Office 365 applications from end user's access panels
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+ 
+
+You can now better manage how Office 365 applications show up on your user's access panels through a new user setting. This option is helpful for reducing the amount of apps in a user's access panels if you prefer to only show Office apps in the Office portal. The setting is located in the **User Settings** and is labeled **Users can only see Office 365 apps in the Office 365 portal**.
+ 
+
+---
+ 
+
+[9109](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=9109&triage=true&fullScreen=false&_a=edit)
+
+### Seamless sign into apps enabled for Password SSO directly from app's URL 
+
+**Type:** feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+ 
+
+We’ve updated the My Apps browser extension into a convenient tool that gives users the My Apps single-sign on capability as a shortcut on their browser. After installing user's will see a waffle icon in their browser that provides them quick access to apps. Users can now take advantage of:
+
+Ability to directly sign in to password-SSO based apps from the app’s login page
+Launch any app from the quick search feature
+Find shortcuts to Recently Used apps from the extension
+The extension is available for Edge, Chrome and Firefox.
+ 
+
+---
+ 
+
+
 
 
 ## December 2017
