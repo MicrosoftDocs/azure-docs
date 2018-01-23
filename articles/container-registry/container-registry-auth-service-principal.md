@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/28/2018
 ms.author: marsma
 ---
 
@@ -27,6 +27,12 @@ By using an Azure AD service principal, you can provide scoped access to your pr
 
 For example, your web application can use a service principal that provides it with image `pull` access only, while your build system can use a service principal that provides it with both `push` and `pull` access. If development of your application changes hands, you can rotate its service principle credentials without affecting the build system.
 
+## When to use a service principal
+
+You should use a service principal to provide registry access in **headless scenarios**. That is, any application, service, or script that must push or pull container images in an automated or otherwise unattended manner.
+
+For individual access to a registry, such when you manually pull a container image to your development workstation, prefer using your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) for registry access (for example, with [az acr login][az-acr-login]).
+
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ## Next steps
@@ -41,3 +47,4 @@ While configuring individual applications to use service principal credentials i
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
+[az-acr-login]: /cli/azure/acr#az_acr_login
