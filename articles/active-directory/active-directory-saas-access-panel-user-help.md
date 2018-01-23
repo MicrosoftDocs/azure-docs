@@ -27,21 +27,17 @@ If you're experiencing issues with signing in to or using the My Apps portal, tr
 Try these general tips:
 
 - First, check to see whether you are using the correct URL, [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
 - Try adding the URL to your browser’s trusted sites.
-
 - Make sure that your password is correct and has not expired. For more information, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
-
 - Check to ensure that your authentication contact information is up to date and not blocking your access. For more information, see [What does Azure Multi-Factor Authentication mean for me?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
-
 - Try clearing your browser’s cookies, and then try to sign in again.
 
-If you are still encountering issues while trying to sign in, contact your administrator for further help.
+If you are still encountering issues while trying to sign in, contact your administrator.
 
 
 ## I seem to be having password issues
 
-If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change your password, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
+If you forgot your password, never received one from your IT staff, are locked out of your account, or want to change your password, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
 
 ## I need to register for password reset
 
@@ -61,7 +57,6 @@ Check to ensure that you are meeting the following browser requirements:
 You can also download the extension for Chrome and Edge directly from following sites:
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 If you have installed the extension and are still experiencing issues, try the following:
@@ -72,41 +67,39 @@ If you have installed the extension and are still experiencing issues, try the f
 - For access to a diagnostics tool and step-by-step instructions on configuring the extension for Internet Explorer, see [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## How do I use the My Apps Secure Sign-in Extension?
-Change the My Apps default URL for the extension by doing the following:
+* If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
+   1. While you are *not* signed in to the extension, right-click the extension icon.
+   2. On the menu, select **My Apps URL**.
+   3. Select your default URL.
+   4. Select the extension icon.
+   5. To sign in to the extension, select **Sign in to get started**.
 
-If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
-1. While you are *not* signed in to the extension, right-click the extension icon.
-2. On the menu, select **My Apps URL**.
-3. Select your default URL.
-4. Select the extension icon.
-5. To sign in to the extension, select **Sign in to get started**.
+* To sign in directly to an app from the browser, do the following:
+   1. After you install the extension, sign in to it by selecting **Sign in to get started**.
+   2. Sign in to the app with the sign-on URL.  
+       The sign-on URL is usually the URL of the app that displays the sign-in form.
+       The extension should change state and let you know that a password is available.
+   3. To sign in, select the extension icon.
 
-To sign in directly to an app from the browser, do the following:
-1. After you install the extension, sign in to it by selecting **Sign in to get started**.
-2. Sign in to the app with the sign-on URL.  
-    The sign-on URL is usually the URL of the app that displays the sign-in form.
-    The extension should change state and let you know that a password is available.
-3. To sign in, select the extension icon.
-
-To start an app from the extension, do the following:
-1. After you install the extension, sign in to it by selecting **Sign in to get started**.
-2. Select the extension icon to open its menu.
-3. Search for an app that's available in the My Apps portal.
-4. In the search results list, select the app.  
-    The last three apps you've used are displayed in the **Recently Used** shortcut list.
+* To start an app from the extension, do the following:
+   1. After you install the extension, sign in to it by selecting **Sign in to get started**.
+   2. Select the extension icon to open its menu.
+   3. Search for an app that's available in the My Apps portal.
+   4. In the search results list, select the app.  
+       The last three apps you've used are displayed in the **Recently Used** shortcut list.
 
 > [!NOTE]
-> These options are available only for Edge, Chrome, Firefox.
+> These options are available only for Edge, Chrome, and Firefox.
 
 ## How do I add a new app?
 
 1.	On the **Apps** page, select **Add App**.
-2.	Search for the app you want to add, and then select **Add**.
+2.	Search for the app that you want to add, and then select **Add**.
 
-    > [!NOTE]
-    > * You can access this option only if your administrator has enabled it for your account.
-    > * If the app requires permission, you might need to wait for administrator approval.
-    > 
+   > [!NOTE]
+   > * You can access this option only if your administrator has enabled it for your account.
+   > * If the app requires permission, you might need to wait for administrator approval.
+   > 
 
 ## How do I manage my group memberships?
 
@@ -114,11 +107,11 @@ Select the **Groups** tile, and then do either of the following:
 * To create a group, under **Groups I own**, select **Create group**, and then follow the instructions.
 * To join a group, under **Groups I'm in**, select **Join group**, and then follow the instructions.
 
-    > [!NOTE]
-    > * You can access this option only if your administrator has enabled it for your account.
-    > * If you are a member of a group, you can view details and leave the group.
-    > * If you are an owner of a group, you can view details, add or remove members, and leave the group.
-    >
+   > [!NOTE]
+   > * You can access this option only if your administrator has enabled it for your account.
+   > * If you are a member of a group, you can view details and leave the group.
+   > * If you are an owner of a group, you can view details, add or remove members, and leave the group.
+   >
 
 
 ## Next steps
