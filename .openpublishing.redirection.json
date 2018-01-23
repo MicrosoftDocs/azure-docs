@@ -93,6 +93,10 @@
             "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
             "redirect_document_id": true
+        },        {
+            "source_path": "articles/virtual-machines/linux/classic/mysql-on-opensuse.md",
+            "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
@@ -4670,6 +4674,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
             "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
             "redirect_document_id": false
@@ -8219,6 +8228,11 @@
         {
             "source_path": "articles/site-recovery/site-recovery-vmm-to-azure.md",
             "redirect_url": "tutorial-hyper-v-to-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-monitoring-and-troubleshooting.md",
+            "redirect_url": "site-recovery-monitor-and-troubleshoot",
             "redirect_document_id": false
         },
         {
