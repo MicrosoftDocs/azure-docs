@@ -48,7 +48,7 @@ If using StorSimple 8000 series, ensure that the following URL is included in th
 
 For a complete list of URL patterns for StorSimple 8000 series devices, go to [URL patterns for firewall rules](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
 
-If the authentication URL is not included in the firewall rules beyond the deprecation date, and the device is running Update 5, the users see a URL alert. If the device is running a version prior to Update 5, the users will see a heartbeat alert. In each case, the StorSimple device cannot authenticate with the service and the service is not able to communicate with the device. If the users see this alert, they need to include the new authentication URL.
+If the authentication URL is not included in the firewall rules beyond the deprecation date, and the device is running Update 5, the users see a URL alert. THe users need to include the new authentication URL. If the device is running a version prior to Update 5, the users see a heartbeat alert. In each case, the StorSimple device cannot authenticate with the service and the service is not able to communicate with the device.
 
 ## Device version and authentication changes
 
