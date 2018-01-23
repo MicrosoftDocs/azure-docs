@@ -12,7 +12,7 @@ ms.service: storage
 
 # Route Blob storage events to a custom web endpoint 
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to subscribe to Blob storage events, and trigger the event to view the result. 
+Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, and trigger the event to view the result. 
 
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, we send the events to a URL that merely collects the messages. You create this URL by using an open-source, third-party tool called [RequestBin](https://requestb.in/).
 
@@ -61,34 +61,42 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called *gridStorage* with locally redundant storage(LRS) and blob encryption (enabled by default).
+Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage(LRS) and blob encryption (enabled by default). 
+
+> [!NOTE]
+> Storage account names are in a global name space so you will need to append some random characters to the name provided in this script.
 
 ```powershell
+$storageName = "gridStorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
-  -Name "gridStorage" `
+  -Name $storageName `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind BlobStorage `
-  -Kind BlobStorage `
+  -AccessTier Hot
 
 $ctx = $storageAccount.Context
 ```
 
 ## Create a message endpoint
 
-Before subscribing to events from the Blob storage account, let's create the endpoint for the event message. Rather than write code to respond to the event, we will create an endpoint that collects the messages so you can view them. RequestBin is an open-source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to events from the Blob storage account, let's create the endpoint for the event message. Rather than write code to respond to the event, we will create an endpoint that collects the messages so you can view them. RequestBin is an open-source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL and replace `<bin URL>` in the below script.
+
+```powershell
+$binEndPoint = "<bin URL>"
+```
 
 ## Subscribe to your Blob storage account
 
 You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your event subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<resource_group_name>` and `<storage_account_name>`, use the values you created earlier. 
 
-```azurecli-interactive
-storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+```powershell
+$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup).Id
 
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin>
+New-AzureRmEventGridSubscription `
+  -EventSubscriptionName gridBlobEvent `
+  -Endpoint $binEndPoint `
+  -ResourceId $storageId
 ```
 
 ## Trigger an event from Blob storage
