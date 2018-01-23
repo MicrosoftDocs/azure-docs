@@ -141,7 +141,7 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 > 
 > 
 
-| DMV name in SQL Data Warehouse | SQL Server Transact-SQL topic|
+| DMV name in SQL Data Warehouse | SQL Server Transact-SQL article|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
