@@ -3,7 +3,7 @@ title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
+ms.author: mabrigg
 
 ---
 
@@ -93,7 +93,7 @@ The system account must have the following privileges:
 
 6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
-7. Run the DeploySqlProvider.ps1 script.
+7. Run the `DeployMySqlProvider.ps1` script.
 
 The script performs these steps:
 
@@ -159,10 +159,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 ### DeploySqlProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
+You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters
+
 
 | Parameter name | Description | Comment or default value |
 | --- | --- | --- |
+
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
@@ -174,6 +176,7 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 | **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
+
 
 
 Depending on the system performance and download speeds, installation might take as little as 20 minutes or as long as several hours. If the **MySQLAdapter** blade is not available, refresh the admin portal.
@@ -325,14 +328,15 @@ You can specify these parameters in the command line. If you don't, or if any pa
 
 | Parameter Name | Description | Comment or default value |
 | --- | --- | --- |
+
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
-| **AzCredential** | Provide the credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ |
-| **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
-| **PrivilegedEndpoint** | Provide the IP address or DNS name of the privileged endpoint. |  _Required_ |
+| **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ |
+| **VMLocalCredential** |The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
+| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
 | **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _Required_ |
-| **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
-| **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
+| **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
+| **RetryDuration** | The timeout interval between retries, in seconds. | 120 |
 | **Uninstall** | Remove the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 | **AcceptLicense** | Skips the prompt to accept the GPL license.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
