@@ -1,26 +1,23 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Intent and product brand in a unique string of 43-59 chars including spaces - do not include site identifier (it is auto-generated.)
-description: 115-145 characters including spaces. Edit the intro para describing article intent to fit here. This abstract displays in the search result.
-services: service-name-with-dashes-AZURE-ONLY
-keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: github-alias
-ms.author: MSFT-alias-person-or-DL
-ms.date: 12/22/2017
-ms.topic: quickstart
-ms.service: service-name-from-white-list
+title: Quickstart with Files using CLI in Azure | Microsoft Docs
+description: Use the Azure CLI to work with files in Azure.
+services: storage
+documentationcenter: na
+author: cynthn
+manager: jeconnoc
+editor: tysonn
 
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: mvc
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-# manager: MSFT-alias-manager-or-PM-counterpart
+ms.assetid: 
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/23/2018
+ms.author: cynthn
 ---
 
-# H1 article title
+# Quickstart with files using CLI for Azure Storage Services
 Introductory paragraph
 
 Install CLI
@@ -44,49 +41,51 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
+
 az group create --name myResourceGroup --location eastus
+
 ```
 
 ## Create a storage account
 
 Create an Azure storage account with [az storage account create](/cli/azure/storage/account#create) to store the actual files.
 
-    To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
+To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
-    ```azurecli
-    az storage account create --resource-group myResourceGroup \
-        --name mystorageaccount \
-        --location westus \
-        --sku Standard_LRS
-    ```
+```azurecli-interactive 
+az storage account create --resource-group myResourceGroup \
+    --name mystorageaccount \
+    --location westus \
+    --sku Standard_LRS
+```
 
 ## Get the storage account keys.
 
-    View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
+View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount
-    ```
+```azurecli-interactive 
+az storage account keys list --resource-group myResourceGroup \
+    --account-name mystorageaccount
+```
 
-    To extract a single key, use the `--query` flag. The following example extracts the first key (`[0]`):
+To extract a single key, use the `--query` flag. The following example extracts the first key (`[0]`):
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount \
-        --query '[0].{Key:value}' --output tsv
-    ```
+```azurecli
+az storage account keys list --resource-group myResourceGroup \
+    --account-name mystorageaccount \
+    --query '[0].{Key:value}' --output tsv
+```
 
 ## Create a file share.
 
-    The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
+The File storage share contains the SMB share with [az storage share create](/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
 
-    ```azurecli
-    az storage share create --name mystorageshare \
-        --quota 10 \
-        --account-name mystorageaccount \
-        --account-key nPOgPR<--snip-->4Q==
-    ```
+```azurecli
+az storage share create --name mystorageshare \
+    --quota 10 \
+    --account-name mystorageaccount \
+    --account-key nPOgPR<--snip-->4Q==
+```
 
 ## Create directory
 
@@ -99,18 +98,24 @@ To upload a batch of files, use [az storage file upload-batch](/cli/azure/storag
 
 ## List files
 
-[az storage file list](/cli/azure/storage/file#az_storage_file_list).
+To list all files, use [az storage file list](/cli/azure/storage/file#az_storage_file_list).
 
 
 ## Copy files
 
-{az storage file copy}(/cli/azure/storage/file/copy)
+To copy files, use [az storage file copy](/cli/azure/storage/file/copy).
 
-## Clean up resources
-Add the steps to avoid additional costs
+## Clean up resourcesT
+
+When no longer needed, you can use [az group delete](/cli/azure/group#delete) to remove the resource group and all related resources. 
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
 
 ## Next steps
-A brief sentence with a link surrounded by the blue box
+In this quickstart, you've learned to create a storage account, create a share, create a directory, upload, and copy files.
 
 Advance to the next article to learn more
 > [!div class="nextstepaction"]
