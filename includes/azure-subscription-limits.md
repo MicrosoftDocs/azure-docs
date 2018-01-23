@@ -10,6 +10,7 @@
 | Reserved IPs per subscription |20 |100 |
 | Hosted service certificates per subscription |400 |400 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
+| [Role assignments](../articles/active-directory/role-based-access-control-configure.md) per subscription |2000 |2000 |
 
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
