@@ -268,7 +268,7 @@ You performed the following steps in this tutorial:
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]
->[Branching and chaining Data Factory control flow](tutorial-control-flow.md)
+>[Branching and chaining Data Factory control flow](tutorial-control-flow-portal.md)
 
 
 
