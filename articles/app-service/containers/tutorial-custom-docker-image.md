@@ -120,7 +120,7 @@ A registry is an application that hosts images and provides services image and c
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
 > [!NOTE]
-> Pushing to a Private Docker Registry? See the optional instructions to [Push a Docker image to Private Registry](#push-a-docker-image-to-private-registry-optional).
+> Pushing to a Private Docker Registry? See the optional instructions to [Push a Docker image to Private Registry](#use-a-private-image-from-docker-hub-optional).
 
 <!--## [Docker Hub](#tab/docker-hub)-->
 
