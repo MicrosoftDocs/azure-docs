@@ -14,7 +14,7 @@ ms.author: v-geberr
 ---
 
 # API v2 Migration guide
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated soon. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 ## New Azure regions
 LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
