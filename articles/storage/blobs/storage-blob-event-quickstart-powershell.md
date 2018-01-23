@@ -23,24 +23,38 @@ When you complete the steps described in this article, you see that the event da
 
 ![Event data](./media/storage-blob-event-quickstart/request-result.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
+## Setup
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-If you are not using Cloud Shell, you must first sign in using `az login`.
+## Log in to Azure
+
+Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
+
+```powershell
+Login-AzureRmAccount
+```
+
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example uses **westus2**. Store this in a variable and use the variable so you can change it in one place.
+
+```powershell
+Get-AzureRmLocation | select Location 
+$location = "westus2"
+```
 
 ## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. 
+Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command.
 
-The following example creates a resource group named `<resource_group_name>` in the *westcentralus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
+The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
 
-```azurecli-interactive
-az group create --name <resource_group_name> --location westcentralus
+```powershell
+$resourceGroup = "gridResourceGroup"
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## Create a Blob storage account
@@ -49,16 +63,17 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
+Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called *gridStorage* with locally redundant storage(LRS) and blob encryption (enabled by default).
 
-```azurecli-interactive
-az storage account create \
-  --name <storage_account_name> \
-  --location westcentralus \
-  --resource-group <resource_group_name> \
-  --sku Standard_LRS \
-  --kind BlobStorage \
-  --access-tier Hot
+```powershell
+$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name "gridStorage" `
+  -Location $location `
+  -SkuName Standard_LRS `
+  -Kind BlobStorage `
+  -Kind BlobStorage `
+
+$ctx = $storageAccount.Context
 ```
 
 ## Create a message endpoint
@@ -124,10 +139,8 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 ## Clean up resources
 If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
-Replace `<resource_group_name>` with the resource group you created above.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps
