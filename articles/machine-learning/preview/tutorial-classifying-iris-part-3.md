@@ -154,7 +154,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
 5. Set the environment.
 
-   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>

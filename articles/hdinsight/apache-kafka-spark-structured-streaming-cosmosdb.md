@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
 ---
 # Use Spark Structured Streaming with Kafka and Azure Cosmos DB
@@ -143,11 +143,11 @@ Use the following steps to upload the notebooks from the project to your Spark o
 
 4. Repeat steps 1-3 to load the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ notebook.
 
-## Load tweets into Kafka
+## Load taxi data into Kafka
 
 Once the files have been uploaded, select the __Stream-taxi-data-to-kafka.ipynb__ entry to open the notebook. Follow the steps in the notebook to load data into Kafka.
 
-## Process tweets using Spark Structured Streaming
+## Process taxi data using Spark Structured Streaming
 
 From the Jupyter Notebook home page, select the __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entry. Follow the steps in the notebook to stream data from Kafka and into Azure Cosmos DB using Spark Structured Streaming.
 
