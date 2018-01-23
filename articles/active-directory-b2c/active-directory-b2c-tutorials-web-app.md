@@ -54,7 +54,7 @@ To register the sample web app in your tenant, use the following settings.
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | `My Sample Web App` | Enter a **Name** for the app that describes your app to consumers. | 
 | **Include web app / web API** | Yes | Select **Yes** for a web app. |
-| **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
+| **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
 | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
 
 Click **Create** to register your app.
