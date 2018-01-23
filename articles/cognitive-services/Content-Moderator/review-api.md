@@ -47,14 +47,12 @@ Use the **Job.Get** operation and job identifier to get the details of a running
 
 Your inputs include the following information:
 
-- The review team ID
-- The job identifier returned by the previous operation
+- The review team ID - The job identifier returned by the previous operation
 
 The response includes the following information:
 
 - The identifier of the review created (use this ID to get the final review results)
-- The status of the job (completed or in-progress)
-- The assigned moderation tags (key-value pairs)
+- The status of the job (completed or in-progress)- The assigned moderation tags (key-value pairs)
 - Job execution report
  
  
@@ -70,7 +68,7 @@ The response includes the following information:
 			{
 			"Key": "hasText",
 			"Value": "True"
-    			},
+			},
 			{
 			"Key": "ocrText",
 			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
