@@ -6,6 +6,7 @@
 # Quickstarts
 
 ## [Create and connect - portal](create-data-warehouse-portal.md)
+## [Pause and resume compute - portal](pause-and-resume-compute-portal.md)
 
 # Tutorials
 ## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
