@@ -99,12 +99,13 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the "Refresh" button displayed next to your connection.
 
-    ![Add ITSM connection](./media/log-analytics-itsmc/itsmc-connection-refresh.png))
+    ![Connection refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png))
 
 
 ## Using the solution
+   By suing the ITSM solution, you can create work items from Azure alerts, Log Analytics Azure alerts  and  Log Analytics log records.
 
-**Create ITSM work items from Azure alerts**.
+## Create ITSM work items from Azure alerts
 
 Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
 
@@ -137,7 +138,7 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 > For information on pricing of ITSM Action, see the pricing page for Action Groups.
 
 
-**Create ITSM work items from Log Analytics alerts**
+## Create ITSM work items from Log Analytics alerts
 
 You can configure alert rules in Azure Log Analytics portal to create work items in ITSM tool, using the following procedure.
 
@@ -161,7 +162,7 @@ You can configure alert rules in Azure Log Analytics portal to create work items
 You can view the  Log Analytics alert that you created under **Settings>Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
 
 
-**Create ITSM work items from Log Analytics log records**
+## Create ITSM work items from Log Analytics log records
 
 You can also create work items in the connected ITSM sources directly from a log record. This can be used to test if the connection is working properly.
 
@@ -189,7 +190,7 @@ You can also create work items in the connected ITSM sources directly from a log
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
 
-**Visualize and analyze the incident and change request data**
+##Visualize and analyze the incident and change request data
 
 Based on your configuration when setting up a connection, ITSM connector can sync up to 120 days of Incident and Change request data. The log record schema for this data is provided in the [next section](#additional-information).
 
