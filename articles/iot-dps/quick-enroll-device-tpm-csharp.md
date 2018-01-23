@@ -21,13 +21,14 @@ ms.custom: mvc
 > * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.js](quick-enroll-device-tpm-node.md)
 
-These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
+These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
 
 ## Prepare the development environment
 
 1. Make sure you have [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
-2. Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-3. (Optional) If you want to enroll a simulated device at the end of this Quickstart, follow the steps in [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) up to the step where you get an endorsement key for the device. Note down the endorsement key, registration ID, and, optionally, the device ID, you need to use them later in this Quickstart. **Do not follow the steps to create an individual enrollment using the Azure portal.**
+2. Make sure you have the [.Net Core SDK](https://www.microsoft.com/net/download/windows) installed on your machine. 
+3. Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+4. (Optional) If you want to enroll a simulated device at the end of this Quickstart, follow the steps in [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) up to the step where you get an endorsement key for the device. Note down the endorsement key, registration ID, and, optionally, the device ID, you need to use them later in this Quickstart. **Do not follow the steps to create an individual enrollment using the Azure portal.**
 
 ## Get the connection string for your provisioning service
 
@@ -39,7 +40,7 @@ For the sample in this Quickstart, you need the connection string for your provi
 
 ## Create the individual enrollment sample 
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateTpmEnrollment**.
+1. In Visual Studio, add a Visual C# .NET Core Console App project to a new solution by using the **Console App (.NET Core)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateTpmEnrollment**.
 
     ![New Visual C# Windows Classic Desktop project](media//quick-enroll-device-tpm-csharp/create-app.png)
 
@@ -48,11 +49,12 @@ For the sample in this Quickstart, you need the connection string for your provi
 
     ![NuGet Package Manager window](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
-4. Add the following `using` statement after the other `using` statements at the top of the **Program.cs** file:
+4. Add the following `using` statements after the other `using` statements at the top of the **Program.cs** file:
    
-    ```csharp
-    using Microsoft.Azure.Devices.Provisioning.Service;
-    ```
+   ```csharp
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Devices.Provisioning.Service;
+   ```
     
 5. Add the following fields to the **Program** class.  
    - Replace the **ProvisioningConnectionString** placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
@@ -76,54 +78,54 @@ For the sample in this Quickstart, you need the connection string for your provi
     
 6. Add the following method to the **Program** class.  This code creates individual enrollment entry and then calls the **CreateOrUpdateIndividualEnrollmentAsync** method on the **ProvisioningServiceClient** to add the individual enrollment to the provisioning service.
    
-    ```csharp
-    public static async Task RunSample()
-    {
-        Console.WriteLine("Starting sample...");
+   ```csharp
+   public static async Task RunSample()
+   {
+       Console.WriteLine("Starting sample...");
 
-        using (ProvisioningServiceClient provisioningServiceClient =
-                ProvisioningServiceClient.CreateFromConnectionString(ProvisioningConnectionString))
-        {
-            #region Create a new individualEnrollment config
-            Console.WriteLine("\nCreating a new individualEnrollment...");
-            Attestation attestation = new TpmAttestation(TpmEndorsementKey);
-            IndividualEnrollment individualEnrollment =
-                    new IndividualEnrollment(
-                            RegistrationId,
-                            attestation);
+       using (ProvisioningServiceClient provisioningServiceClient =
+               ProvisioningServiceClient.CreateFromConnectionString(ProvisioningConnectionString))
+       {
+           #region Create a new individualEnrollment config
+           Console.WriteLine("\nCreating a new individualEnrollment...");
+           Attestation attestation = new TpmAttestation(TpmEndorsementKey);
+           IndividualEnrollment individualEnrollment =
+                   new IndividualEnrollment(
+                           RegistrationId,
+                           attestation);
 
-            // The following parameters are optional. Remove them if you don't need them.
-            individualEnrollment.DeviceId = OptionalDeviceId;
-            individualEnrollment.ProvisioningStatus = OptionalProvisioningStatus;
-            #endregion
+           // The following parameters are optional. Remove them if you don't need them.
+           individualEnrollment.DeviceId = OptionalDeviceId;
+           individualEnrollment.ProvisioningStatus = OptionalProvisioningStatus;
+           #endregion
 
-            #region Create the individualEnrollment
-            Console.WriteLine("\nAdding new individualEnrollment...");
-            IndividualEnrollment individualEnrollmentResult =
-                await provisioningServiceClient.CreateOrUpdateIndividualEnrollmentAsync(individualEnrollment).ConfigureAwait(false);
-            Console.WriteLine("\nIndividualEnrollment created with success.");
-            Console.WriteLine(individualEnrollmentResult);
-            #endregion
+           #region Create the individualEnrollment
+           Console.WriteLine("\nAdding new individualEnrollment...");
+           IndividualEnrollment individualEnrollmentResult =
+               await provisioningServiceClient.CreateOrUpdateIndividualEnrollmentAsync(individualEnrollment).ConfigureAwait(false);
+           Console.WriteLine("\nIndividualEnrollment created with success.");
+           Console.WriteLine(individualEnrollmentResult);
+           #endregion
         
-        }
-    }
-    ````
+       }
+   }
+   ```
        
-7. Finally, add the following lines to the **Main** method:
+7. Finally, replace the body of the **Main** method with the following lines:
    
-    ```csharp
-    try
-    {
-        RunSample().GetAwaiter().GetResult();
-    }
-    catch (Exception ex)
-    {
-        //Console.WriteLine("\nException thrown:\n");
-        Console.WriteLine("\nThe following exception was thrown:\n" + ex.ToString());
-    }
-    Console.WriteLine("\nHit <Enter> to exit ...");
-    Console.ReadLine();
-    ```
+   ```csharp
+   try
+   {
+       RunSample().GetAwaiter().GetResult();
+   }
+   catch (Exception ex)
+   {
+       //Console.WriteLine("\nException thrown:\n");
+       Console.WriteLine("\nThe following exception was thrown:\n" + ex.ToString());
+   }
+   Console.WriteLine("\nHit <Enter> to exit ...");
+   Console.ReadLine();
+   ```
         
 8. Build the solution.
 
