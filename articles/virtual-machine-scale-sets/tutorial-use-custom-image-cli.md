@@ -28,13 +28,15 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a custom VM image
 > * Deploy a scale set that uses the custom VM image
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## Create source VM
-First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). We use this VM as the source for our custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -50,10 +52,10 @@ az vm create \
 The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm#az_vm_create) command. SSH to the public IP address of your VM as follows:
 
 ```azurecli-interactive
-ssh azureuser@publicIpAddress
+ssh azureuser@<publicIpAddress>
 ```
 
-To customize your VM, lets install a basic web server. Use `apt-get` to install *Nginx* as follows:
+To customize your VM, lets install a basic web server. When a VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *Nginx* as follows:
 
 ```bash
 sudo apt-get install -y nginx
@@ -61,7 +63,7 @@ sudo apt-get install -y nginx
 
 The final step to prepare your VM for use as a custom image is to deprovision your VM. Deprovisioning removes machine-specific information from the VM. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
-To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../virtual-machines/linux/agent-user-guide.md).
+To deprovision the VM, use the Azure VM agent (*waagent*). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../virtual-machines/linux/agent-user-guide.md).
 
 ```bash
 sudo waagent -deprovision+user -force
@@ -75,6 +77,8 @@ exit
 
 
 # Create source image from VM
+With the source VM now customized with the Nginx web server installed, let's create the custom VM image for use with a scale set.
+
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#az_vm_generalize) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
 
 ```azurecli-interactive
@@ -82,7 +86,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from your VM:
+Now, create an image of the VM by using [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from your VM:
 
 ```azurecli-interactive
 az image create \
@@ -93,7 +97,7 @@ az image create \
 
 
 ## Create scale set from custom image
-Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). This time, instead of a platform image, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
+Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
 
 ```azurecli-interactive
 az vmss create \
@@ -103,6 +107,8 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
+
+It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
 ## Allow web traffic
@@ -137,7 +143,7 @@ Enter the public IP address into your web browser. The default Nginx web page is
 ![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/nginx.png)
 
 
-## Delete resource group
+## Clean up resources
 To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive 
