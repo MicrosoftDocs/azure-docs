@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 01/23/2018
 ms.author: iainfou
 ms.custom: mvc
 
 ---
 # Create and use a custom image for virtual machine scale sets using the Azure CLI 2.0
-When you create a scale set, you specify an image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can then be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
+When you create a scale set, you specify an image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create and customize a VM
@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Create source VM
-First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). We use this VM as the source for our custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -77,7 +77,7 @@ exit
 
 
 # Create source image from VM
-With the source VM now customized with the Nginx web server installed, let's create the custom VM image for use with a scale set.
+The source VM is now customized with the Nginx web server installed. Let's create the custom VM image for use with a scale set.
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#az_vm_generalize) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
 
@@ -140,7 +140,7 @@ az network public-ip show \
 
 Enter the public IP address into your web browser. The default Nginx web page is displayed, as shown in the following example:
 
-![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/nginx.png)
+![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/default-nginx-website.png)
 
 
 ## Clean up resources
