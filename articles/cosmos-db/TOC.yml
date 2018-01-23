@@ -358,7 +358,7 @@
       href: spark-connector.md
     - name: Connect to Spark GraphX
       href: spark-connector-graph.md
-    - name: Real-time analytics with Kafka and Spark Streaming on HDInsight
+    - name: Streaming with Kafka and Spark on HDInsight
       href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
     - name: Deploy a website with Azure App Service
       href: create-website.md
