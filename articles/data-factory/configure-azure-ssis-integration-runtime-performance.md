@@ -2,7 +2,7 @@
 title: Configure the Azure-SSIS Integration Runtime for high performance | Microsoft Docs
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
@@ -34,7 +34,7 @@ $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
 # In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_A4_v2"
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.

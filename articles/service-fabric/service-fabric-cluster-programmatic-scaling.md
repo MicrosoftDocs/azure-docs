@@ -55,7 +55,7 @@ A service principal can be created with the following steps:
 
 The fluent compute library can log in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -77,7 +77,7 @@ Once logged in, scale set instance count can be queried via `AzureClient.Virtual
 ## Scaling out
 Using the fluent Azure compute SDK, instances can be added to the virtual machine scale set with just a few calls -
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -93,7 +93,7 @@ Scaling in is similar to scaling out. The actual virtual machine scale set chang
 
 Preparing the node for shutdown involves finding the node to be removed (the most recently added node) and deactivating it. For non-seed nodes, newer nodes can be found by comparing `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
 	var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -107,7 +107,7 @@ Seed nodes are different and don't necessarily follow the convention that greate
 
 Once the node to be removed is found, it can be deactivated and removed using the same `FabricClient` instance and the `IAzure` instance from earlier.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -132,7 +132,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 As with scaling out, PowerShell cmdlets for modifying virtual machine scale set capacity can also be used here if a scripting approach is preferable. Once the virtual machine instance is removed, Service Fabric node state can be removed.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
