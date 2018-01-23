@@ -3,8 +3,8 @@ title: Azure Quickstart - use PowerShell to create Service Bus entities and the 
 description: Quickly learn to send and receive Service Bus messages using PowerShell and the .NET client
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
-manager: timlt
+author: ChristianWolf42
+manager: darosa
 editor: 'ChristianWolf42'
 
 ms.assetid: ''
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/19/2018
-ms.author: sethm
+ms.author: chwolf
 
 ---
 # Send and receive messages to a Queue using PowerShell and the .NET Standard client
