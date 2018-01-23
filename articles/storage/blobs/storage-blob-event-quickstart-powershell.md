@@ -25,8 +25,6 @@ When you complete the steps described in this article, you see that the event da
 
 ## Setup
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
-
 This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## Log in to Azure
