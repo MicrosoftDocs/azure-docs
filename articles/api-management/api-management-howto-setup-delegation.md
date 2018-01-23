@@ -128,7 +128,7 @@ These code samples show how to take the *delegation validation key*, which is se
 
 **C# code to generate hash of returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";
