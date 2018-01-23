@@ -37,7 +37,7 @@ To complete this quickstart, you need:
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-2. Select **+ (New)** > **Data + analytics**.
+2. Select **Create a resource** > **Data + analytics**.
 
 3. In the search box, search for *Power BI Embedded*.
 
@@ -58,7 +58,7 @@ To complete this quickstart, you need:
 
 6. Select **Create**.
 
-Creation usually takes under a minute; often just a few seconds. If you selected **Pin to dashboard**, navigate to your dashboard to see your new capacity. Or, navigate to **More services** > **Power BI Embedded** to see if your capacity is ready.
+Creation usually takes under a minute; often just a few seconds. If you selected **Pin to dashboard**, navigate to your dashboard to see your new capacity. Or, navigate to **All services** > **Power BI Embedded** to see if your capacity is ready.
 
 ![Azure portal dashboard with Power BI Embedded capacity](media/create-capacity/azure-portal-dashboard.png)
 
