@@ -1,5 +1,5 @@
 ---
-title: API Migration guide from v1 to v2 | Microsoft Docs 
+title: API Migrate guide from v1 to v2 | Microsoft Docs 
 titleSuffix: Azure
 description: Learn how to migration to the latest API set.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/23/2018
 ms.author: v-geberr
 ---
 
@@ -30,7 +30,7 @@ The authoring API route changed from using the **prog** route to using the **api
 
 
 ## Endpoint route changes
-The endpoint API has new querystring parameters as well as a different response. If the verbose flag is true, all intents, regardless of score are returned in an array named intents, in addition to the topScoringIntent.
+The endpoint API has new querystring parameters as well as a different response. If the verbose flag is true, all intents, regardless of score, are returned in an array named intents, in addition to the topScoringIntent.
 
 | version | GET route |
 |--|--|
@@ -38,7 +38,7 @@ The endpoint API has new querystring parameters as well as a different response.
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
 
 
-v1 endpoint success response
+v1 endpoint success response:
 ```JSON
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
@@ -49,7 +49,7 @@ v1 endpoint success response
 }
 ```
 
-v2 endpoint success response
+v2 endpoint success response:
 ```JSON
 {
   "query": "forward to frank 30 dollars through HSBC",
@@ -128,7 +128,7 @@ Several APIs that return LUIS metadata have new names.
 |applicationusagescenarios|usagescenarios|
 
 
-## Sample renamed to suggest
+## "Sample" renamed to "suggest"
 LUIS suggests utterances from existing [endpoint utterances](label-suggested-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** in the LUIS website.
 
 | version | route |
@@ -147,4 +147,6 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 |/luis/api/v2.0/apps/customprebuiltdomains  |get, post|
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
+## Next steps
 
+Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
