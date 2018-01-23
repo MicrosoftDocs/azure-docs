@@ -2,7 +2,7 @@
 title: Configure the Azure-SSIS Integration Runtime for high performance | Microsoft Docs
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 services: data-factory
-ms.date: 11/29/2017
+ms.date: 01/10/2018
 ms.topic: article
 ms.service: data-factory
 ms.workload: data-services
