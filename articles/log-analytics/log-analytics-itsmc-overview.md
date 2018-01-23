@@ -55,14 +55,14 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
     ![Add ITSMC solution](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
-3.	In the OMS Workspace, select the Azure Log Analytics workspace where you want to install the solution.
-4.	In the OMS Workspace settings section, select the ResourceGroup where you want to create the solution resource.
+3.	In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
+4.	In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
     ![ITSMC workspace](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
 
 5.	Click **Create**.
 
-When the solution resource is displayed, a notification appears at the top right of the window.
+When the solution resource is deployed, a notification appears at the top right of the window.
 
 
 ## Creating an ITSM  connection
@@ -99,16 +99,16 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the "Refresh" button displayed next to your connection.
 
-    ![Add ITSM connection](./media/log-analytics-itsmc/add-itsm-connection.png))
+    ![Add ITSM connection](./media/log-analytics-itsmc/itsmc-connection-refresh.png))
 
 
 ## Using the solution
 
+**Create ITSM work items from Azure alerts**.
+
 Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
 
- Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
-
-**Create ITSM work items from Azure alerts**.
+Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
 
 Use the following procedure:
 
@@ -137,7 +137,7 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 > For information on pricing of ITSM Action, see the pricing page for Action Groups.
 
 
-**Configure alert rules in Azure Log Analytics**
+**Create ITSM work items from Log Analytics alerts**
 
 You can configure alert rules in Azure Log Analytics portal to create work items in ITSM tool, using the following procedure.
 
@@ -203,7 +203,9 @@ You can also visualize the incidents synced against the impacted computers, with
 
 Service Map automatically discovers the application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent. [Learn more](../operations-management-suite/operations-management-suite-service-map.md).
 
-If you are using the the Service Map solution, you can view the service desk items created in the ITSM solutions as shown in the following example:
+If you are using the Service Map solution, you can view the service desk items created in the ITSM solutions as shown in the following example:
+
+![Log Analytics screen](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 
 More information: [Service Map](../operations-management-suite/operations-management-suite-service-map.md)
 
