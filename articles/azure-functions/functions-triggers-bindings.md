@@ -481,6 +481,10 @@ In C# and other .NET languages, you can use an imperative binding pattern, as op
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
+## Handling binding errors
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
 ## Next steps
 
 For more information on a specific binding, see the following articles:
