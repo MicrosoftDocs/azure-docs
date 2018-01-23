@@ -166,10 +166,11 @@ This sample creates a public IP resource **publicIP01** in resource group **appg
 
    This sample configures the front-end IP port named **frontendport01** for the public IP endpoint.
 
-   5. Enter the following command:
+   5. Enter the following commands:
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password "<password>"
+   $password = ConvertTo-SecureString -String "password" -AsPlainText -Force
+   $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password $password
    ```
 
    This sample configures the certificate used for SSL connection. The certificate needs to be in PFX format, and the password must be between 4 to 12 characters.
