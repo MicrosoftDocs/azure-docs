@@ -44,7 +44,7 @@ The patch orchestration app is composed of the following subcomponents:
 - **Node Agent Service**: This stateless service runs on all Service Fabric cluster nodes. The service is responsible for:
     - Bootstrapping the Node Agent daemon on Linux.
     - Monitoring the daemon service.
-- **Node Agent daemon**: This Linux daemon service runs at a higher-level privilege (root). In contrast, the Node Agent Service and the Coordinator Service run at a lower-level privilege. The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
+- **Node Agent daemon**: This Linux daemon service runs at a higher-level privilege (root). In contrast, the Node Agent Service and the Coordinator Service run at a lower-level privilege. The service is responsible for performing the following Update jobs on all the cluster nodes:
     - Disabling automatic OS Update on the node.
     - Downloading and installing OS Update according to the policy the user has provided.
     - Restarting the machine post OS Update installation if needed.
@@ -52,13 +52,16 @@ The patch orchestration app is composed of the following subcomponents:
     - Reporting health reports in case an operation has failed after exhausting all retries.
 
 > [!NOTE]
-> The patch orchestration app uses the Service Fabric repair manager system service to disable or enable the node and perform health checks. The repair task created by the patch orchestration app tracks the Windows Update progress for each node.
+> The patch orchestration app uses the Service Fabric repair manager system service to disable or enable the node and perform health checks. The repair task created by the patch orchestration app tracks the Update progress for each node.
 
 ## Prerequisites
 
+### Ensure that your Azure VM's are running Ubuntu 16.04
+At the time of writing this article, Ubuntu 16.04 (`Xenial Xerus`) is the only supported version.
+
 ### Ensure that the service fabric linux cluster is version 6.1.x and above
 
-Patch orchestration app linux uses certain features of runtime which are only available in service fabric runtime version 6.1.x and above.
+Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.1.x and above.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -108,8 +111,8 @@ Standalone Service Fabric Linux clusters aren't supported at the time of writing
 
 ### Disable automatic OS Update on all nodes
 
-Automatic OS updates might lead to availability loss and or change in behaviour of the running applications. The patch orchestration app, by default, tries to disable the automatic OS Update on each cluster node to prevent such scenarios.
-For Ubuntu this is done by disabling the [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates)
+Automatic OS updates might lead to availability loss and or change in behavior of the running applications. The patch orchestration app, by default, tries to disable the automatic OS Update on each cluster node to prevent such scenarios.
+For Ubuntu, this is done by disabling the [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates)
 
 ## Download the app package
 
@@ -121,19 +124,19 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
-|MaxResultsToCache    |Long                              | Maximum number of Windows Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)
+|MaxResultsToCache    |Long                              | Maximum number of Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Updates are installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Updates are installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for update.)
 | UpdateOperationTimeOutInMinutes | Int <br>(Default: 180)                   | Specifies the timeout for any Update operation (download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | RescheduleCount      | Int <br> (Default: 5)                  | The maximum number of times the service reschedules the OS update in case an operation fails persistently.          |
 | RescheduleTimeInMinutes  | Int <br>(Default: 30) | The interval at which the service reschedules the OS update in case failure persists. |
-| UpdateFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing OS updates on the cluster. The format and possible values are: <br>-   Monthly, DD,HH:MM:SS, for example, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that Windows Update shouldn't be done.  <br><br> Note that all the times are in UTC.|
-| UpdateClassification | Comma-separated string (Default: “securityupdates”) | Type of updates which should be installed on the cluster nodes. Acceptable values are securityupdates, all. <br> -  securityupdates - will install only security updates <br> -  all - will install all available updates from apt.|
-| ApprovedPatches | Comma separated string (Default: "") | This is the list of approved updates which should be installed on cluster nodes. The comma separated list contains approved packages and optionally desired target version.<br> eg: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.19, libsystemd0 >= 229-4ubuntu16" <br> The above would install <br> - apt-utils with version 1.2.10ubuntu1 if its available in apt-cache. If that particular version isn't available it'll not be upgraded. <br> - python3-jwt will be upgraded to latest available version. If the package is not present, then it'll be a no-op. <br> - apt-transport-https will be upgraded to highest version which is less than 1.2.19, if such a version does not exist it'll not be upgraded. <br> - libsystemd0 would be upgraded to highest version which is greater than equal to 229-4ubuntu16, if such a version does not exist then it'll not be upgraded.|
-| RejectedPatches | Comma separated string (Default: "") | This is the list of updates which shouldn't be installed on the cluster nodes <br> eg: "bash, sudo" <br> The above would exclude bash, sudo from recieving any updates. |
+| UpdateFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing OS updates on the cluster. The format and possible values are: <br>-   Monthly, DD, HH:MM:SS, for example, Monthly, 5, 12:22:32. <br> -   Weekly, DAY, HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that update shouldn't be done.  <br><br> All the times are in UTC.|
+| UpdateClassification | Comma-separated string (Default: “securityupdates”) | Type of updates that should be installed on the cluster nodes. Acceptable values are securityupdates, all. <br> -  securityupdates - would install only security updates <br> -  all - would install all available updates from apt.|
+| ApprovedPatches | Comma-separated string (Default: "") | This is the list of approved updates that should be installed on cluster nodes. The comma-separated list contains approved packages and optionally desired target version.<br> for example: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.19, libsystemd0 >= 229-4ubuntu16" <br> The above will install <br> - apt-utils with version 1.2.10ubuntu1 if it is available in apt-cache. If that particular version isn't available, it will not be upgraded. <br> - python3-jwt will upgrade to latest available version. If the package is not present, then it is a no-op. <br> - apt-transport-https will upgrade to highest version that is less than 1.2.19. If this version is not present, then it is a no-op. <br> - libsystemd0 will upgrade to highest version that is greater than equal to 229-4ubuntu16, if such a version does not exist, then it is a no-op.|
+| RejectedPatches | Comma-separated string (Default: "") | This is the list of updates that should not be installed on the cluster nodes <br> for example: "bash, sudo" <br> The preceding will exclude bash, sudo from receiving any updates. |
 
 
 > [!TIP]
-> If you want OS Update to happen immediately, set `WUFrequency` relative to the application deployment time. For example, suppose that you have a five-node test cluster and plan to deploy the app at around 5:00 PM UTC. If you assume that the application upgrade or deployment takes 30 minutes at the maximum, set the UpdateFrequency as "Daily, 17:30:00."
+> If you want OS Update to happen immediately, set `UpdateFrequency` relative to the application deployment time. For example, suppose that you have a five-node test cluster and plan to deploy the app at around 5:00 PM UTC. If you assume that the application upgrade or deployment takes 30 minutes at the maximum, set the UpdateFrequency as "Daily, 17:30:00."
 
 ## Deploy the app
 
@@ -142,7 +145,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
 
     - Connect to a Service Fabric cluster.
-    - Execute the Deploy script. Optionally pass the application parameter to the script. Eg: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR bash Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
+    - Execute the Deploy script. Optionally pass the application parameter to the script. for example: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR bash Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
 
 > [!NOTE]
 > Keep the script and the application folder PatchOrchestrationApplication in the same directory.
@@ -153,7 +156,7 @@ To upgrade an existing patch orchestration app, follow the steps in [Service Fab
 
 ## Remove the app
 
-To remove the application, follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) or [Remove an application using Sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-delete)
+To remove the application, follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) or [Remove an application using sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-delete)
 
 For your convenience, we've provided the scripts based on powershell (Undeploy.ps1) and sfctl (Undeploy.sh) along with the application. To use the script:
 
@@ -165,7 +168,7 @@ For your convenience, we've provided the scripts based on powershell (Undeploy.p
 
 ## View the Update results
 
-The patch orchestration app exposes REST APIs to display the historical results to the user. Sample result would look like this. 
+The patch orchestration app exposes REST APIs to display the historical results to the user. Sample result would look like following: 
 ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
@@ -210,22 +213,22 @@ The patch orchestration app exposes REST APIs to display the historical results 
 ] 
 ```
 
-Fields of the JSON are described below.
+Fields of the JSON are described following:
 
 Field | Values | Details
 -- | -- | --
 OperationResult | 0 - Succeeded<br> 1 - Succeeded With Errors<br> 2 - Failed<br> 3 - Aborted<br> 4 - Aborted With Timeout | Indicates the result of overall operation (typically involving installation of one or more updates).
 ResultCode | Same as OperationResult | This field indicates result of installation operation for an individual update.
-OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType which would be shown in the results by default.
-UpdateClassification | Default is "securityupdates" | Type of updates which were installed during the update operation
+OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType that would be shown in the results by default.
+UpdateClassification | Default is "securityupdates" | Type of updates that were installed during the update operation
 UpdateFrequency | Default is "Weekly, Wednesday, 7:00:00" | Update frequency configured for this update.
 RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates if reboot was required to complete installation of updates.
-ApprovedList | Default is "" | List of approved patches for this update, refer to (Configure the app)[Configure the app] for more details.
-RejectedList | Default is "" | List of rejected patches for this update, refer to (Configure the app)[Configure the app] for more details.
+ApprovedList | Default is "" | List of approved patches for this update
+RejectedList | Default is "" | List of rejected patches for this update
 
 If no update is scheduled yet, the result JSON is empty.
 
-Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
+Log in to the cluster to query Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults.
 
 The REST endpoint for the Coordinator Service has a dynamic port. To check the exact URL, refer to the Service Fabric Explorer. For example, the results are available at
@@ -300,25 +303,22 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 
 Q. **How does patch orchestration app decides which updates are security updates.**
 
-A. Patch orchestration app uses distro specific logic for determining which updates among the available updates are security updates. For example : In ubuntu the app searches for updates from archives $RELEASE-security, $RELEASE-updates ($RELEASE = xenial or the lsb release version). 
+A. Patch orchestration app uses distro-specific logic for determining which updates among the available updates are security updates. For example: In ubuntu the app searches for updates from archives $RELEASE-security, $RELEASE-updates ($RELEASE = xenial or the lsb release version). 
 
  
-Q. **I want to lock on to a specific version of package, how do i do that ?**
+Q. **How can i lock on to a specific version of package ?**
 
 A. Use the ApprovedPatches settings to lock your packages to a particular version. 
 
 
-Q. **I’ve automatic updates enabled via Ubuntu’s unattended-upgrades, what happens to those ?**
+Q. **What will happen to automatic updates enabled in Ubuntu ?**
 
 A. As soon as you install patch orchestration app on your cluster, unattended-upgrades on your cluster node would be disabled. All the periodic update workflow would be driven by patch orchestration app.
-To have consistency of environment across cluster we recommend installing the updates via patch orchestration app only. 
+To have consistency of environment across cluster, we recommend installing the updates via patch orchestration app only. 
  
 Q. **Post upgrade does patch orchestration app do the cleanup of unused packages?**
+
 A. Yes, cleanup happens as part of post-installation steps. 
-
-## Disclaimers
-
-- The patch orchestration app collects telemetry to track usage and performance. The application’s telemetry follows the setting of the Service Fabric runtime’s telemetry setting (which is on by default).
 
 ## Troubleshooting
 
@@ -344,13 +344,17 @@ A safety check is pending. To remedy this situation, ensure that enough nodes ar
 
 The patch orchestration app tries to install an update according to the rescheduling policy. The service tries to recover the node and skip the update according to the application policy.
 
-In such a case, a warning-level health report is generated against the Node Agent Service. The result for Windows Update also contains the possible reason for the failure.
+In such a case, a warning-level health report is generated against the Node Agent Service. The result for update also contains the possible reason for the failure.
 
 ### The health of the cluster goes to error while the update installs
 
 A faulty update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent update operations until the cluster is healthy again.
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to a previously installed update.
+
+## Disclaimer
+
+The patch orchestration app collects telemetry to track usage and performance. The application’s telemetry follows the setting of the Service Fabric runtime’s telemetry setting (which is on by default).
 
 ## Release Notes
 
