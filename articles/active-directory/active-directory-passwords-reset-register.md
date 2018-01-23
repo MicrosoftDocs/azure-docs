@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
-ms.custom: end-user
+ms.custom: end-user;seohack1
 
 ---
 # Register for self-service password reset

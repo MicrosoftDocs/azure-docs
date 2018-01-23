@@ -211,7 +211,7 @@ In this section, you create a blob container named **adftutorial** in your Azure
 18. In the **Monitor** tab, you can view the status of the pipeline you created. The links in the **Action** column allow you to view activity runs associated with the pipeline run and to rerun the pipeline. 
 
     ![Pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
-19. Click the **View Activity Runs** link in the **Actions** column to see activity runs associated with the pipeline run. You can switch back to pipeline runs view by clicking **Pipelines** at the top.
+19. Click the **View Activity Runs** link in the **Actions** column to see activity runs associated with the pipeline run. To see details about the copy operation, click **Details** link (eye glasses icon) in the **Actions** column. You can switch back to pipeline runs view by clicking **Pipelines** at the top.
 
     ![Activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 20. Confirm that you see the output file in the **fromonprem** folder of the **adftutorial** container.   

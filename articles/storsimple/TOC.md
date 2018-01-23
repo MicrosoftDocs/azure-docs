@@ -202,7 +202,7 @@
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager (Private preview)
+# StorSimple Data Manager
 
 ## Overview
 ### [What is the solution?](storsimple-data-manager-overview.md)

@@ -3,7 +3,7 @@ title: Generic LDAP Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic LDAP Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 

@@ -22,6 +22,7 @@ A *device enrollment* creates a record of a single device or a group of devices 
 This article reviews the high level concepts for managing device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  Exact API calls may be different due to language differences.  Please review the samples we provide on GitHub for details:
 * [Java Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Node.js Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [.NET Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## Prerequisites
 * Connection string from a Device Provisioning Service instance

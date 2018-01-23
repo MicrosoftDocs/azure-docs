@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 06/14/2016
 ms.author: dariagrigoriu
 
 ---
@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 Perform the following tasks to create a new Git repository.
 
-1. Start a command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
+1. Start a command-line tool, such as **Git Bash** (Windows) or **Bash** (Unix Shell). On OS X systems, you can access the commandline through the **Terminal** application.
 1. Navigate to the directory where the content to deploy would be located.
 1. Use the following command to initialize a new Git repository:
 
@@ -51,7 +51,7 @@ Perform the following tasks to create a new Git repository.
 
 App Service supports applications created in a variety of programming languages.
 
-1. If your repository does not already include content simply populate with a static .html file as follows; or skip this step:
+1. If your repository does not already include content, add a static .html file as follows; or skip this step:
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 1. From the command line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
@@ -75,7 +75,7 @@ Perform the following steps to enable a Git repository for your App Service app.
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
 
-1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+1. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You use them to log into the Azure repository and push changes from your local Git repository. From your Web App's view, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
 
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -87,11 +87,13 @@ Use the following steps to publish your app to App Service using Local Git.
 
     ![](./media/app-service-deploy-local-git/git_url.png)
 
-    **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
+    **Git URL** is the remote reference to deploy to from your local repository. You use this URL in the next steps.
 1. Using the command line, verify that you are in the root of your local Git repository.
 1. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command looks similar to the following:
 
-        git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
+    ```
+    git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
+    ```
 
    > [!NOTE]
    > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
@@ -99,39 +101,39 @@ Use the following steps to publish your app to App Service using Local Git.
 
 1. Push your content to App Service using the new **azure** remote you created.
 
-  ```bash
-  git push azure master
-  ```
+    ```bash
+    git push azure master
+    ```
 
-    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
+    You are prompted for the password you created earlier when you reset your deployment credentials in the Azure portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 1. Go back to your app in the Azure portal. A log entry of your most recent push should be displayed in the **Deployments** view.
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 
-1. Click the **Browse** button at the top of the app's blade to verify the content has been deployed.
+1. Click the **Browse** button at the top of the web app page to verify the content has been deployed.
 
 ## <a name="Step5"></a>Troubleshooting
 
 The following are errors or problems commonly encountered when using Git to publish to an App Service app in Azure:
 
 ---
-**Symptom**: Unable to access '[siteURL]': Failed to connect to [scmAddress]
+**Symptom**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
 **Cause**: This error can occur if the app is not up and running.
 
 **Resolution**: Start the app in the Azure portal. Git deployment is unavailable when the Web App is stopped.
 
 ---
-**Symptom**: Couldn't resolve host 'hostname'
+**Symptom**: `Couldn't resolve host 'hostname'`
 
 **Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.
 
 **Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
 
 ---
-**Symptom**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
+**Symptom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Cause**: This error can occur if you do not specify a branch when performing a git push operation, or have not set the push.default value in `.gitconfig`.
+**Cause**: This error can occur if you do not specify a branch during `git push`, or if you have not set the `push.default` value in `.gitconfig`.
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
@@ -140,7 +142,7 @@ git push azure master
 ```
 
 ---
-**Symptom**: src refspec [branchname] does not match any.
+**Symptom**: `src refspec [branchname] does not match any.`
 
 **Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
 
@@ -151,7 +153,7 @@ git push azure master
 ```
 
 ---
-**Symptom**: RPC failed; result=22, HTTP code = 5xx.
+**Symptom**: `RPC failed; result=22, HTTP code = 5xx.`
 
 **Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
 
@@ -162,7 +164,7 @@ git config --global http.postBuffer 524288000
 ```
 
 ---
-**Symptom**: Error - Changes committed to remote repository but your web app not updated.
+**Symptom**: `Error - Changes committed to remote repository but your web app not updated.`
 
 **Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
 
@@ -171,10 +173,10 @@ git config --global http.postBuffer 524288000
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
 * **Native module that does not have a binary distribution for Windows**:
 
-  * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+  * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
       OR
-  * npm ERR! [modulename@version] preinstall: \`make || gmake\`
+  * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## Additional Resources
 

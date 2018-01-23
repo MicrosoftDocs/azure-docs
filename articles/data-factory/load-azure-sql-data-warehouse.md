@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
 
 ---
@@ -125,6 +125,10 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 15. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. There are 10 copy activities in the pipeline, each copies one table of data. To switch back to the pipeline runs view, click **Pipelines** link at the top. Click **Refresh** to refresh the list. 
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. You can further monitor each copy activity's execution details, by clicking the **Details** link under **Actions** in activity monitoring view. It shows you information including volume of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations.
+
+    ![Monitor activity run details](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## Next steps
 

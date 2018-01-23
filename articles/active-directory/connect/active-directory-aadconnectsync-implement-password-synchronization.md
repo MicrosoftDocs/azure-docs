@@ -3,7 +3,7 @@ title: Implement password synchronization with Azure AD Connect sync | Microsoft
 description: Provides information about how password synchronization works and how to set up.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: ''
 
