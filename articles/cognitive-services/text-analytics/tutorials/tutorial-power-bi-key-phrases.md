@@ -15,7 +15,7 @@ ms.author: luisca
 
 Microsoft Power BI distills organizational data into beautiful reports, which you can distribute across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it. 
 
-In this tutorial, you'll see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We'll also create a Word Cloud from these phrases.
+In this tutorial, you see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also create a Word Cloud from these phrases.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ A new query, initially named Query1, appears in the Queries list. Double-click t
 Now open the Advanced Editor window by clicking **Advanced Editor** in the Query group of the Home ribbon. Delete the code that's already in that window and paste in the following code. 
 
 > [!NOTE]
-> In the examples below we assume the endpoint is at https://westus.api.cognitive.microsoft.com.  Text Analytics supports creation of a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. It should be shown in the Overview blade in the Azure Portal whe you select your Text Analytics subscription.
+> In the examples below we assume the endpoint is at https://westus.api.cognitive.microsoft.com.  Text Analytics supports creation of a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. It should be shown in the Overview page in the Azure portal when you select your Text Analytics subscription.
 
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
