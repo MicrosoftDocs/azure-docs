@@ -60,20 +60,20 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
 
    ![Data view](media/tutorial-classifying-iris/data_view.png)
 
-3. Select **Text Files(*.csv, .json, .txt.,... )** 
+3. Select **Text Files(*.csv, .json, .txt.,... )** and click **Next**.
    ![Data Source](media/tutorial-classifying-iris/data-source.png)
    
 
-4. Leave the default values, and then select the **Next** button.  
+4. Browse to the file **iris.csv**, and click **Next**.  
  
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail.
    
-5. After selecting the file, select the **Finish** button.
+5. Leave the default values and click **Finish**.
 
-6. A new file named **iris-1.dsource** is created. The file is named uniquely with a dash-1, because the sample project already comes with an unnumbered **iris.dsource** file.  
+6. A new file named **iris-1.dsource** is created. The file is named uniquely with  "-1" because the sample project already comes with an unnumbered **iris.dsource** file.  
 
    The file opens, and the data is shown. A series of column headers, from **Column1** to **Column5**, is automatically added to this data set. Scroll to the bottom and notice that the last row of the data set is empty. The row is empty because there is an extra line break in the CSV file.
 
