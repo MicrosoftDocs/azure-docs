@@ -411,4 +411,4 @@ The pipeline in this sample copies data from one location to another location in
 Advance to the following tutorial to learn about copying data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
->[Copy data from on-premises to cloud](tutorial-hybrid-copy-data-tool.md)
+>[Copy data from on-premises to cloud](tutorial-hybrid-copy-portal.md)
