@@ -125,16 +125,30 @@ az storage file upload --share-name myshare/mydirectory --source ~/temp/myfile.t
 
 To list all files, use [az storage file list](/cli/azure/storage/file#az_storage_file_list).
 
+You can list files and directories in a share by using the az storage file list command:
+
+```azurecli
+# List the files in the root of a share
+az storage file list --share-name myshare --output table
+
+# List the files in a directory within a share
+az storage file list --share-name myshare/myDir --output table
+
+# List the files in a path within a share
+az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
+```
 
 ## Copy files
 
 You can copy a file to another file, a file to a blob, or a blob to a file. To copy files, use [az storage file copy](/cli/azure/storage/file/copy). This example copies a file from share1 to the directory *dir2* in a share named *share2*. 
 
+```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
 --destination-share share2 --destination-path dir2/file.txt
+```
 
-## Clean up resourcesT
+## Clean up resources
 
 When no longer needed, you can use [az group delete](/cli/azure/group#delete) to remove the resource group and all related resources. 
 
@@ -148,5 +162,5 @@ In this quickstart, you've learned to create a storage account, create a share, 
 
 Advance to the next article to learn more
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> [Next steps button](storage-sync-files-server-endpoint.md)
 
