@@ -93,7 +93,7 @@ When you edit the customization file, you can modify one rule or all of them. Ea
 
 ![Three ruleset categories](media/security-center-customize-os-security-config/rules-section.png)
 
-Each category has its own set of attributes. You can change the following existing rules:
+Each category has its own set of attributes. You can change the following attributes:
 
 - **expectedValue**: This attribute’s field data type must match the supported values per *rule type*, for example:
 
