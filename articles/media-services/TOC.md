@@ -35,7 +35,9 @@
 #### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
-
+## [Configure Postman](media-rest-apis-with-postman.md)
+### [Environment](postman-environment.md)
+### [Collection](postman-collection.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -133,8 +135,9 @@
 ### [AES-128 encryption](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine for Streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay for Streaming](media-services-protect-hls-with-fairplay.md)
-### [Offline PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [Offline FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [Offline PlayReady for Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Offline Fairplay for iOS](media-services-protect-hls-with-offline-fairplay.md)
+### [Offline Widevine for Android](offline-widevine-for-android.md)
 ### [Configure in Azure portal](media-services-portal-protect-content.md)
 ### [Deliver DRM licenses](media-services-deliver-keys-and-licenses.md)
 ### Create ContentKeys

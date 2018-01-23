@@ -59,7 +59,7 @@ If failure is experienced and the sample must be rerun from a particular contain
 ```Powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
 # Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy
+# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
 # Do not modify the Source or Destination accounts while the script is running
 
  param (

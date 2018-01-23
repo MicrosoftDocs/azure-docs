@@ -145,4 +145,4 @@ You have created a function that runs when a document is added or modified in yo
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-documentdb.md).
+For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).

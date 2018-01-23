@@ -4,10 +4,8 @@ description: Threat Detection detects anomalous database activities indicating p
 services: sql-database
 documentationcenter: ''
 author: rmatchoro
-manager: jhubbard
+manager: shaik
 editor: v-romcal
-
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security
 ms.devlang: NA
@@ -15,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "On Demand"
 ms.date: 06/19/2017
-ms.author: ronmat; ronitr
+ms.author: ronmat
 
 ---
 # SQL Database Threat Detection

@@ -28,8 +28,7 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements. 
 
 ## Nonconfigurable server parameters
-
-The following parameters are not configurable and tied to your [pricing tier](concepts-service-tiers.md). 
+InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md). 
 
 | **Pricing tier** | **InnoDB Buffer Pool (MB)** | **Max Connections** |
 | :------------------------ | :-------- | :----------- |
@@ -40,9 +39,13 @@ The following parameters are not configurable and tied to your [pricing tier](co
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
- Innodb_file_per_table in Basic tier: OFF
+These additional server parameters are nonconfigurable in the system <br>
+ innodb_file_per_table in Basic tier: OFF<br>
+ innodb_flush_log_at_trx_commit=1<br>
+ sync_binlog=1<br>
+ innodb_log_file_size=512MB<br>
  
-All other server parameters that are not listed in the previous table are set to their default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## Next steps
 - [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).

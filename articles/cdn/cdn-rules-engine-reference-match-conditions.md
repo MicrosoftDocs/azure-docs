@@ -1,6 +1,6 @@
 ---
-title: Match conditions for the Content Delivery Network rules engine | Microsoft Docs
-description: Reference documentation for Azure Content Delivery Network rules engine match conditions and features.
+title: Match conditions for the Azure CDN rules engine | Microsoft Docs
+description: Reference documentation for Azure Content Delivery Network rules engine match conditions.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -18,8 +18,8 @@ ms.author: rli
 
 ---
 
-# Match conditions for the Content Delivery Network rules engine
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network [rules engine](cdn-rules-engine.md).
+# Match conditions for the Azure CDN rules engine
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
@@ -104,7 +104,7 @@ URL Query Wildcard | Compares the specified value against the request's query st
 
 The Always match condition applies a default set of features to all requests.
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -123,7 +123,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -139,7 +139,7 @@ Key information:
  - The content access point identifies the service that should serve the requested content.
  - Don't use an AND IF statement to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -162,7 +162,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -191,7 +191,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -220,7 +220,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -241,7 +241,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -255,7 +255,7 @@ Key information:
   - An edge CNAME configuration
 - Don't use an AND IF statement to combine certain match conditions. For example, combining a Customer Origin match condition with a CDN Origin match condition would create a match pattern that could never be matched. For this reason, two Customer Origin match conditions cannot be combined through an AND IF statement.
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -290,7 +290,7 @@ Release Date | %{wurfl_cap_release_date} | A string that indicates the year and 
 Resolution Height | %{wurfl_cap_resolution_height} | An integer that indicates the device's height in pixels. | 768
 Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the device's width in pixels. | 1024
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -307,7 +307,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -327,7 +327,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -348,7 +348,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -375,7 +375,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale 
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -403,7 +403,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -428,7 +428,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -444,7 +444,7 @@ Key information:
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-[Back to top](#azure-cdn-rules-engine-match-conditions)
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

@@ -35,8 +35,9 @@ There is a maximum number of connections, compute units, and storage in each ser
 | Basic service tier         | 1 TB              |
 | Standard service tier      | 1 TB              |
 
-When too many connections are reached, you may receive the following error:
+The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. When too many connections are reached, you may receive the following error:
 > FATAL:  sorry, too many clients already
+
 
 ## Preview functional limitations
 ### Scale operations
