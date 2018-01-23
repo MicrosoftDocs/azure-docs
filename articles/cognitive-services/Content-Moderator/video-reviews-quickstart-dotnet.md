@@ -231,7 +231,7 @@ You add video frames to a video review with **ContentModeratorClient.Reviews.Add
 
 > [!NOTE]
 > This quickstart generates random values for the **adultScore** and **racyScore** properties. 
-> In a production application, you would obtain these values from the [video moderation service]((video-moderation-api.md), deployed as an Azure Media Service.
+> In a production application, you would obtain these values from the [video moderation service](video-moderation-api.md), deployed as an Azure Media Service.
 
 Add the following method definitions to namespace VideoReviews, class Program.
 
@@ -288,7 +288,7 @@ Add the following method definitions to namespace VideoReviews, class Program.
         client.Reviews.AddVideoFrameUrl("application/json", TeamName, review_id, frames);
 
         Thread.Sleep(throttleRate);
-    }
+    
 
 ## Get video frames for video review
 
@@ -297,10 +297,6 @@ You can get the video frames for a video review with **ContentModeratorClient.Re
 1. The video review ID returned by **CreateVideoReviews**.
 1. The zero-based index of the first video frame to get.
 1. The number of video frames to get.
-
-> [!NOTE] 
-> Currently the last two parameters are not required by **GetVideoFrames**. However, 
-> if you do not specify values for them, **GetVideoFrames** raises a run-time exception.
 
 Add the following method definition to namespace VideoReviews, class Program.
 
