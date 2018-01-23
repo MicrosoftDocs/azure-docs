@@ -40,7 +40,7 @@ The following data shows the target temperature and the actual temperature of so
 The data file, **HVAC.csv**, is located at **\HdiSamples\HdiSamples\SensorSampleData\hvac** on all HDInsight clusters.
 
 ## <a name="app"></a>Write a Spark machine learning application using Spark MLlib
-In this application, you use a Spark ML pipeline to perform a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames that help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
+In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to perform a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames that help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
 
 1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 2. Import the types required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
@@ -62,22 +62,10 @@ In this application, you use a Spark ML pipeline to perform a document classific
 3. Load the data (hvac.csv), parse it, and use it to train the model. 
 
     ```PySpark
-    # List the structure of data for better understanding. Because the data will be
-    # loaded as an array, this structure makes it easy to understand what each element
-    # in the array corresponds to
-
-    # 0 Date
-    # 1 Time
-    # 2 TargetTemp
-    # 3 ActualTemp
-    # 4 System
-    # 5 SystemAge
-    # 6 BuildingID
-
+    # Define a type called LabelDocument
     LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
     # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
-
     def parseDocument(line):
         values = [str(x) for x in line.split(',')]
         if (values[3] > values[2]):
@@ -96,7 +84,7 @@ In this application, you use a Spark ML pipeline to perform a document classific
     training = documents.toDF()
     ```
 
-    In the code snippet, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**. 
+    In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**. 
 
 4. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr. 
 
@@ -115,7 +103,7 @@ In this application, you use a Spark ML pipeline to perform a document classific
     model = pipeline.fit(training)
     ```
 
-6. Verify the training document to checkpoint your progress with the application. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+6. Verify the training document to checkpoint your progress with the application.
    
     ```PySpark
     training.show()
@@ -150,13 +138,13 @@ In this application, you use a Spark ML pipeline to perform a document classific
     +----------+----------+-----+
     ```
 
-    Go back and verify the output against the raw CSV file. For example, the first row the CSV file has this data:
+    Comparing the output against the raw CSV file. For example, the first row the CSV file has this data:
 
     ![Output data snapshot for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Output data snapshot for Spark machine learning example")
 
     Notice how the actual temperature is less than the target temperature suggesting the building is cold. Hence in the training output, the value for **label** in the first row is **0.0**, which means the building is not hot.
 
-7. Prepare a data set to run the trained model against. To do so, you pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).
+7. Prepare a data set to run the trained model against. To do so, you pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model predicts whether the building with that system ID and system age will be hotter (denoted by 1.0) or cooler (denoted by 0.0).
    
     ```PySpark   
     # SystemInfo here is a combination of system ID followed by system age
@@ -169,7 +157,7 @@ In this application, you use a Spark ML pipeline to perform a document classific
                     (6L, "7 22")]) \
         .map(lambda x: Document(*x)).toDF() 
     ```
-8. Finally, make predictions on the test data. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+8. Finally, make predictions on the test data. 
    
     ```PySpark
     # Make predictions on test documents and print columns of interest
