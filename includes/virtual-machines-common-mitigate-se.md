@@ -9,7 +9,9 @@ The infrastructure that runs Azure and isolates customer workloads from each oth
 
 > [!NOTE] 
 > Azure mitigations previously announced on Jan 3, 2018 are unaffected by the recent [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
+>
 > We will continue to update these best practices as we receive microcode updates from hardware vendors. Please check back for updated guidance.
+>
 
 ## Keeping your Operating Systems up-to-date
 
