@@ -13531,11 +13531,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-saas-confluencemicrosoft-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
@@ -16208,7 +16203,13 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
             "redirect_document_id": false
+	},
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-bcp.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp",
+            "redirect_document_id": false
 	}     
+	
 
    ]
 }
