@@ -12,7 +12,7 @@ ms.service: storage
 
 # Route Blob storage events to a custom web endpoint 
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event and view the result. 
+Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, events are sent to a URL that merely collects the messages. You create this URL by using an open-source, third-party tool called [RequestBin](https://requestb.in/).
 
@@ -97,7 +97,7 @@ New-AzureRmEventGridSubscription `
 
 ## Trigger an event from Blob storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's create a container and an object. Then, let's upload the object into our container.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's create a container and an object. Then, let's upload the object into the container.
 
 ```powershell
 $containerName = "gridcontainer"
