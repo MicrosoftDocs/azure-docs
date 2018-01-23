@@ -109,11 +109,11 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 
 For more detailed instructions, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
 
-### Issue: Azure Databricks need permissions to access resources in your organization that only an admin can grant.
+### Issue: Azure Databricks needs permissions to access resources in your organization that only an admin can grant.
 
 #### Background
 
-Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This reqThis requires a consent. If the consent is not already available, you see the error.
+Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
 
 #### Solution
 
