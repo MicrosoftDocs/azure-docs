@@ -78,9 +78,9 @@ To open Resource health for one resource
 
 ![Open Resource health from Resource blade](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access resource health by clicking **More services**, and typing **resource health** in filter text box to open the **Help + Support** blade. Finally click [**Resource health**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+You can also access resource health by clicking **All services**, and typing **resource health** in filter text box to open the **Help + Support** blade. Finally click [**Resource health**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
-![Open Resource health from More service](./media/resource-health-overview/FromOtherServices.png)
+![Open Resource health from All service](./media/resource-health-overview/FromOtherServices.png)
 
 ## Next steps
 
