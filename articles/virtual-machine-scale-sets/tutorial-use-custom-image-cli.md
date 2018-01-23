@@ -19,8 +19,8 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale set using the Azure CLI 2.0
-When you create a scale set, you specify a VM image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can then be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
+# Create and use a custom image for virtual machine scale sets using the Azure CLI 2.0
+When you create a scale set, you specify an image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can then be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create and customize a VM
@@ -59,7 +59,7 @@ To customize your VM, lets install a basic web server. Use `apt-get` to install 
 sudo apt-get install -y nginx
 ```
 
-The final step to prepare your VM for use as a custom image is to deprovision your VM. Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
+The final step to prepare your VM for use as a custom image is to deprovision your VM. Deprovisioning removes machine-specific information from the VM. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../virtual-machines/linux/agent-user-guide.md).
 
@@ -82,7 +82,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from a VM named *myVM*:
+Now you can create an image of the VM by using [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from your VM:
 
 ```azurecli-interactive
 az image create \
@@ -93,7 +93,7 @@ az image create \
 
 
 ## Create scale set from custom image
-Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). This time, instead of a platform image, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* created in the previous step:
+Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). This time, instead of a platform image, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
 
 ```azurecli-interactive
 az vmss create \
@@ -106,7 +106,7 @@ az vmss create \
 
 
 ## Allow web traffic
-To allow traffic to reach your scale set, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
+To allow traffic to reach your scale set and that verify the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -122,7 +122,7 @@ az network lb rule create \
 
 
 ## Test your scale set
-To see your scale sect in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your scale sec in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -133,6 +133,8 @@ az network public-ip show \
 ```
 
 Enter the public IP address into your web browser. The default Nginx web page is displayed, as shown in the following example:
+
+![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/nginx.png)
 
 
 ## Delete resource group
