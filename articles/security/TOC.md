@@ -54,6 +54,8 @@
 #### [Compliance - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overview](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Compliance - Financial Services
+##### [Financial Services for Regulated Workloads](./blueprints/financial-services-regulated-workloads.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)

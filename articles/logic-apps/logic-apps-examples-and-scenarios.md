@@ -19,7 +19,7 @@ ms.author: LADocs; jehollan
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 helps you orchestrate and integrate different services 
 by providing [100+ ready-to-use connectors](../connectors/apis-list.md), 
 ranging from on-premises SQL Server or SAP to Microsoft Cognitive Services. 
@@ -30,12 +30,12 @@ Logic Apps is especially useful for use cases and scenarios where you
 need to coordinate multiple actions across multiple systems.
 
 To help you learn more about the many patterns and capabilities that 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) supports, 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) supports, 
 here are common examples and scenarios.
 
 ## Popular starting points for logic app workflows
 
-Every logic app starts with a [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), 
+Every logic app starts with a [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
 and only one trigger, which starts your logic app workflow 
 and passes in any data as part of that trigger. 
 Some connectors provide triggers, which come in these types:

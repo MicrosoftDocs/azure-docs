@@ -3,7 +3,7 @@ title: Single sign-on with Application Proxy | Microsoft Docs
 description: Covers how to provide single sign-on using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: daveba
 manager: mtillman
 
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ---

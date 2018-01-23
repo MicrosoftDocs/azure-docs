@@ -11,7 +11,7 @@ keywords: azure active directory user, azure service management, azure ad user a
 ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017

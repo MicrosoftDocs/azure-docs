@@ -166,17 +166,21 @@ The following sample image shows the details of a successful connection:
 The following sections provide details about how to connect your ServiceNow product to ITSMC in OMS.
 
 ### Prerequisites
-
 Ensure the following prerequisites are met:
-
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow supported versions – Fuji, Geneva, Helsinki.
+- ServiceNow supported versions: Jakarta, Istanbul, Helsinki, Geneva
 
-ServiceNow Admins must do the following in their ServiceNow instance:
-- Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**ServiceNow Admins must do the following in their ServiceNow instance**:
+- Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
+
+    - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
-
 
 ### **Connection procedure**
 Use the following procedure to create a ServiceNow connection:

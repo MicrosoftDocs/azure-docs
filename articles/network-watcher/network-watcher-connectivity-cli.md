@@ -33,39 +33,8 @@ This article assumes you have the following resources:
 
 * Virtual machines to check connectivity with.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## Register the preview capability 
-
-Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-To verify the registration was successful, run the following CLI command:
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-If the feature was properly registered, the output should match the following: 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
 
 ## Check connectivity to a virtual machine
 

@@ -12,6 +12,8 @@
   items:
   - name: Create managed application files
     href: publish-service-catalog-app.md
+  - name: Create marketplace application 
+    href: publish-marketplace-app.md 
 - name: Samples
   items:
   - name: Azure CLI

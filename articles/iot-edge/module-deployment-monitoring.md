@@ -64,7 +64,7 @@ The configuration metadata for each module includes: 
 
 The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do through the life time of the deployment. The deployment will be reactivated if the service detects any target condition change. For instance, you have a deployment A which has a target condition tags.environment = 'prod'. When you kick off the deployment, there are 10 prod devices. The modules are successfully installed in these 10 devices. The IoT Edge Agent Status is shown as 10 total devices, 10 successfuly responses, 0 failure responses, and 0 pending responses. Now you add 5 more devices with tags.environment = 'prod'. The service detects the change and the IoT Edge Agent Status becomes 15 total devices, 10 successfuly responses, 0 failure responses, and 5 pending responses when it tries to deploy to the five new devices.
 
-Use any Boolean condition on device twins tags or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+Use any Boolean condition on device twins tags or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Target condition examples:
 * deviceId ='linuxprod1'
