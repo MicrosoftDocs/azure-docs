@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 01/23/2018
 ms.author: jeedes
 
 ---
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Workday Domain and URLs single sign-on information](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
 
-    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml.htmld`
+    In the **Reply URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml.htmld`
 	 
 	> [!NOTE] 
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
@@ -170,6 +170,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
    
     b. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Entity ID** value, and then paste it into the **Issuer** textbox.
+
+    ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML Identity Providers")
    
     c. Select **Enable Workday Initiated Logout**.
    
