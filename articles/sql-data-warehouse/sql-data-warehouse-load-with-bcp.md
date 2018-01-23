@@ -14,19 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
 
 
 ---
 # Load data with bcp
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
 
 **[bcp][bcp]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
 
@@ -40,7 +33,7 @@ With bcp you can:
 This tutorial will show you how to:
 
 * Import data into a table using the bcp in command
-* Export data from a table uisng the bcp out command
+* Export data from a table using the bcp out command
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
@@ -57,6 +50,11 @@ To step through this tutorial, you need:
 > You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][Microsoft Download Center].
 > 
 > 
+
+### Data in ASCII or UTF-16 format
+If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
+
+PolyBase supports UTF-8 but doesn't yet support UTF-16. Note that if you want to combine bcp with PolyBase you will need to transform the data to UTF-8 after it is exported from SQL Server. 
 
 ## Import data into SQL Data Warehouse
 In this tutorial, you will create a table in Azure SQL Data Warehouse and import data into the table.
