@@ -19,7 +19,7 @@ Combine human reviews with machine-assisted moderation by using the Review API [
 The Review API offers the following ways to include human moderation in your content moderation process:
 
 1. The **Job** operations for machine-assisted moderation and human review creation.
-2. The **Review** operations for human review creation.
+1. The **Review** operations for human review creation.
 
 Both operations accept your callback endpoints for receiving detailed status and results after completion.
 
@@ -34,7 +34,7 @@ The inputs include the following information:
 - The content to be moderated
 - The workflow name (The default is the “default” workflow)
 - Your API callback point for notifications
-
+ 
 The following response shows the identifier of the job that was started. You use the job identifier to get the job status and receive detailed information.
 
 	{
@@ -56,56 +56,55 @@ The response includes the following information:
 - The status of the job (completed or in-progress)
 - The assigned moderation tags (key-value pairs)
 - Job execution report
-
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "Complete",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-		"ResultMetaData": 
-		[
+ 
+ 
 		{
+			"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+			"TeamName": "some team name",
+			"Status": "Complete",
+			"WorkflowId": "OCR",
+			"Type": "Image",
+			"CallBackEndpoint": "",
+			"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+			"ResultMetaData":[
+			{
 			"Key": "hasText",
 			"Value": "True"
-    	},
-		{
+    			},
+			{
 			"Key": "ocrText",
 			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-		}
-		],
-		"JobExecutionReport": [
-		{
-      		"Ts": "2018-01-07T00:38:29.3238715",
-      		"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-    		},
-    		{
-      		"Ts": "2018-01-07T00:38:29.2928416",
-      		"Msg": "Job marked completed and job content has been removed"
-    		},
-    		{
-      		"Ts": "2018-01-07T00:38:29.0856472",
-      		"Msg": "Execution Complete"
-    		},
+			}
+			],
+			"JobExecutionReport": [
 			{
-      		"Ts": "2018-01-07T00:38:26.7714671",
-      		"Msg": "Successfully got hasText response from Moderator"
-    		},
-    		{
-      		"Ts": "2018-01-07T00:38:26.4181346",
-      		"Msg": "Getting hasText from Moderator"
-    		},
-    		{
-      		"Ts": "2018-01-07T00:38:25.5122828",
-      		"Msg": "Starting Execution - Try 1"
-    		}
-		]
-	}
-
+      			"Ts": "2018-01-07T00:38:29.3238715",
+      			"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.2928416",
+      			"Msg": "Job marked completed and job content has been removed"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.0856472",
+      			"Msg": "Execution Complete"
+    			},
+			{
+      			"Ts": "2018-01-07T00:38:26.7714671",
+      			"Msg": "Successfully got hasText response from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:26.4181346",
+      			"Msg": "Getting hasText from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:25.5122828",
+      			"Msg": "Starting Execution - Try 1"
+    			}
+			]
+		}
+ 
 ![Image review for human moderators](images/ocr-sample-image.PNG)
-
 
 ## Review operations
 
