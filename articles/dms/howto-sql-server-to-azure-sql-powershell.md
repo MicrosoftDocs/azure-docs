@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/24/2018
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
@@ -74,15 +74,11 @@ $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -VirtualSubnetId $vSubNet.Id`
 ```
 
-
-
-
-
 ## Create a migration project
 After creating an Azure Database Migration Service instance, create a migration project. An Azure Database Migration Service project requires connection information for both the source and target instances, as well as a list of databases that you want to migrate as part of the project.
 
 ### Create a Database Connection Info object for the source and target connections
-You can create a Database Connection Info object by using the `New-AzureRmDmsConnInfo` cmdlet.  This cmdlet expects the following parameters:
+You can create a Database Connection Info object by using the `New-AzureRmDmsConnInfo` cmdlet. This cmdlet expects the following parameters:
 - *ServerType*. The type of database connection requested, for example, SQL, Oracle, or MySQL. Use SQL for SQL Server and SQL Azure.
 - *DataSource*. The name or IP of a SQL instance or SQL Azure server.
 - *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
@@ -171,9 +167,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### Create and start a migration task
 
 Use the `New-AzureRmDataMigrationTask` cmdlet to create and start a migration task. This cmdlet expects the following parameters:
-- *TaskType*.  Type of migration task to create for SQL Server to SQL Azure migration type *MigrateSqlServerSqlDb* is expected. 
+- *TaskType*. Type of migration task to create for SQL Server to SQL Azure migration type *MigrateSqlServerSqlDb* is expected. 
 - *Resource Group Name*. Name of Azure resource group in which to create the task.
-- *ServiceName*.  Azure Database Migration Service instance in which to create the task.
+- *ServiceName*. Azure Database Migration Service instance in which to create the task.
 - *ProjectName*. Name of Azure Database Migration project in which to create the task. 
 - *TaskName*. Name of task to be created. 
 - *Source Connection*. AzureRmDmsConnInfo object representing source connection.
