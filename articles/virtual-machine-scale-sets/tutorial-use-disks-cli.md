@@ -29,6 +29,8 @@ Virtual machine scale sets use disks to store the VM instance's operating system
 > * Disk performance
 > * Attaching and preparing data disks
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -283,7 +285,7 @@ az vmss disk detach \
 ```
 
 
-## Delete resource group
+## Clean up resources
 To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive 
