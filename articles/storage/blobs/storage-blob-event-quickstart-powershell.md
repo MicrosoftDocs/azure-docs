@@ -35,10 +35,7 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example uses **westus2**. Store this in a variable and use the variable so you can change it in one place.
-
-> [!NOTE]
-> Please refer to the [Event Grid overview](/articles/event-grid/overview.md) page to see a list of supported regions.
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example uses **westus2**. Store this in a variable and use the variable so you can change it in one place. When selecting your location please refer to the [Event Grid overview](/articles/event-grid/overview.md) page to see the current supported list.
 
 ```powershell
 Get-AzureRmLocation | select Location 
