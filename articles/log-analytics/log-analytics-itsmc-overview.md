@@ -51,7 +51,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
     ![Azure new resource](./media/log-analytics-itsmc/azure-add-new-resource.png)
 
-2.	Search for **IT Service Management Connector** in the Marketplace and Click **Create**.
+2.	Search for **IT Service Management Connector** in the Marketplace and click **Create**.
 
     ![Add ITSMC solution](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
@@ -74,24 +74,20 @@ For creating a connection, you will need to prep your ITSM tool to allow the con
 Depending on the ITSM product you are connecting to, use the following steps :
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-
 - [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-
 - [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-
 - [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 Once you have prepped your ITSM tools, follow the steps below to create a connection:
 
-1.	Go to **All Resources**> look for **ServiceDesk(YourWorkspaceName)**.
+1.	Go to **All Resources**, look for **ServiceDesk(YourWorkspaceName)**.
 2.	Under **WORKSPACE DATA SOURCES** in the left pane, click **ITSM Connections**.
-
     ![ITSM connections](./media/log-analytics-itsmc/itsm-connections.png)
 
     This page displays the list of connections.
 3.  Click **Add Connection**.
 
-    ![Add ITSM connection](./media/log-analytics-itsmc/add-itsm-new-connection.png)
+    ![Add ITSM connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 4.	Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](log-analytics-itsmc-connections.md).
 
