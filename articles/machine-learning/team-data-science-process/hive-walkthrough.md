@@ -230,7 +230,7 @@ To show the databases created in HDInsight Hadoop cluster inside the Hadoop comm
     hive -e "show databases;"
 
 ### <a name="#show-tables"></a>Show the Hive tables in the **nyctaxidb** database
-To show the tables in the **nyctaxidb** database, run the following command in Hadoop command line:
+To show the tables in the **nyctaxidb** database, run the following command in the Hadoop command line:
 
     hive -e "show tables in nyctaxidb;"
 
@@ -294,7 +294,7 @@ You  can use Hive queries to accomplish data exploration and feature engineering
 > 
 > 
 
-To see what the data looks like, examine 10 records from each table. To inspect the records, run the following two queries separately from the Hive directory prompt in the Hadoop command line console.
+To see what the data looks like, examine 10 records from each table. To inspect the records, run the following two queries separately from the Hive directory prompt in the Hadoop command-line console.
 
 To get the top 10 records in the trip table from the first month:
 
@@ -469,8 +469,8 @@ The *-S* argument included in this command suppresses the status screen printout
 
 For the binary classification problem outlined in the [Examples of prediction tasks](hive-walkthrough.md#mltasks) section, it is useful to know whether a tip was given or not. This distribution of tips is binary:
 
-* tip given(Class 1, tip\_amount > $0)  
-* no tip (Class 0, tip\_amount = $0).
+* tip given (Class 1, tip\_amount > $0)  
+* no tip (Class 0, tip\_amount = $0)
 
 The following **sample\_hive\_tipped\_frequencies.hql** file does this:
 
@@ -506,7 +506,7 @@ For the multiclass classification problem outlined in the [Examples of predictio
     )tc
     GROUP BY tip_class;
 
-Run the following command from Hadoop command line console:
+Run the following command from the Hadoop command-line console:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
