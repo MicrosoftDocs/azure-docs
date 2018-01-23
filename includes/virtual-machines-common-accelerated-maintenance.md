@@ -45,7 +45,7 @@ The Azure platform services including web & mobile, data services, IoT, serverle
 
 ## Intel released additional guidance on January 22, 2018 related to the security vulnerabilities.  Will this guidance cause any additional maintenance activities by Azure?  
 
-Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information by Intel.
+Azure mitigations previously announced on Jan 3, 2018 are unaffected by the [updated guidance](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) from Intel. There will be no additional maintenance activity on customer VMs as a result of this new information.
  
 
 ## Next steps
