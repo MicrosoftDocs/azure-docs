@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale sets using the Azure CLI 2.0
+# Create and use a custom image for virtual machine scale sets with the Azure CLI 2.0
 When you create a scale set, you specify an image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
-## Create source VM
+## Create a source VM
 First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
@@ -76,7 +76,7 @@ exit
 ```
 
 
-# Create source image from VM
+## Create a source image from VM
 The source VM is now customized with the Nginx web server installed. Let's create the custom VM image for use with a scale set.
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#az_vm_generalize) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
@@ -144,7 +144,7 @@ Enter the public IP address into your web browser. The default Nginx web page is
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --no-wait --yes

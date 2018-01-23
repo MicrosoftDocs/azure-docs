@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use a custom image for virtual machine scale sets using Azure PowerShell
+# Create and use a custom image for virtual machine scale sets with Azure PowerShell
 When you create a scale set, you specify an image to be used when the VM instances are deployed. You can create and customize a VM that includes any required application installs or configurations, then create a custom VM image. This custom VM image can be used to reduce the post-deployment configuration tasks that are required when your scale set is created or is scaled up and new VM instances are added. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -35,12 +35,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 
-## Create source VM
+## Create a source VM
 First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), then create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myCustomVM* in the resource group named *myResourceGroup*. When prompted, enter a username and password to be used as logon credentials for the VM:
 
 ```azurepowershell-interactive
+# Create a resource a group
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
+# Create a Windows Server 2016 Datacenter VM
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -Name "myCustomVM" `
@@ -78,7 +80,7 @@ C:\Windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown
 The remote connection to the VM is automatically closed when Sysprep completes the process and the VM is shut down.
 
 
-# Create source image from VM
+## Create a source image from VM
 The source VM now customized with the IIS web server installed. Let's create the custom VM image for use with a scale set.
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [Stop-AzureRmVm](/powershell/module/azurerm.compute/stop-azurermvm). Then, set the state of the VM as generalized with [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
@@ -225,7 +227,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Test your scale set
-To see your scale sec in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) as follows:
+To see your scale set in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) as follows:
 
 ```azurepowershell-interactive 
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
@@ -237,7 +239,7 @@ Enter the public IP address into your web browser. The default IIS web page is d
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
+To remove your scale set and additional resources, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup"
