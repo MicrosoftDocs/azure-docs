@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
@@ -40,9 +40,10 @@ To ensure that the service uses AAD-based authentication, all the users must inc
 
 If using StorSimple Virtual Array, ensure that the following URL is included in the firewall rules:
 
- URL pattern                         | Component/Functionality         |
-|------------------------------------|---------------------------------|
-| `https://login.windows.net`        | AAD authentication service      |
+| URL pattern                         | Cloud | Component/Functionality         |
+|------------------------------------|-------|---------------------------------|
+| `https://login.windows.net`        | Azure Public |AAD authentication service      |
+| `https://login.microsoftonline.us` | US Government |AAD authentication service      |
 
 For a complete list of URL patterns for StorSimple Virtual Arrays, go to [URL patterns for firewall rules](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 

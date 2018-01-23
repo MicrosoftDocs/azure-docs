@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
@@ -41,14 +41,26 @@ To ensure that the service uses AAD-based authentication, all the users must inc
 
 If using StorSimple 8000 series, ensure that the following URL is included in the firewall rules:
 
- URL pattern                         | Cloud | Component/Functionality         |
-|------------------------------------|-------|---------------------------------|
+| URL pattern                         | Cloud | Component/Functionality         |
+|------------------------------------|-------|----------------------------------|
 | `https://login.windows.net`        | Azure Public |AAD authentication service      |
 | `https://login.microsoftonline.us` | US Government |AAD authentication service      |
 
 For a complete list of URL patterns for StorSimple 8000 series devices, go to [URL patterns for firewall rules](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
 
-If the authentication URL is not included in the firewall rules beyond the deprecation date, the users see a critical alert that their StorSimple device could not authenticate with the service. The service will not be able to communicate with the device. If the users see this alert, they need to include the new authentication URL.
+If the authentication URL is not included in the firewall rules beyond the deprecation date, and the device is running Update 5, the users see a URL alert. If the device is running a version prior to Update 5, the users will see a heartbeat alert. In each case, the StorSimple device cannot authenticate with the service and the service is not able to communicate with the device. If the users see this alert, they need to include the new authentication URL.
+
+## Device version and authentication changes
+
+If using a StorSimple 8000 series device, use the following table to determine what action you need to take based on the device software version you are running.
+
+| If your device is running| Take the following action                                    |
+|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+| Update 5 or later and the device is offline. <br> You see an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL.<br> See [authentication URLs](#url-changes-for-aad-authentication). |
+| Update 5 or later and the device online.| No action is required.                                       |
+| Update 4 or earlier and the device is offline. | Modify the firewall rules to include the authentication URL.<br>[Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 4 or earlier and the device is online. |Modify the firewall rules to include the authentication URL.<br> Install Update 5 through the Azure portal.              |
+| Factory reset to a version before Update 5.      |The portal shows an AAD based registration key while the device is running older software. Follow the steps in the preceding scenario for when the device is running Update 4 or earlier.              |
 
 ## AAD-based registration keys
 
@@ -77,19 +89,6 @@ Perform the following steps to generate an AAD service registration key.
 
     > [NOTE!] 
     > If you are creating a StorSimple Cloud Appliance on the service registered to your StorSimple 8000 series device, do not generate a registration key while the creation is in progress. Wait for the creation to complete and then generate the registration key.
-
-## Device version and authentication changes
-
-If using a StorSimple 8000 series device, use the following table to determine what action you need to take based on the device software version you are running.
-
-| If your device is running| Take the following action                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Update 5 or later and the device is offline. <br> You see an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL.<br> See [authentication URLs](#url-changes-for-aad-authentication). |
-| Update 5 or later and the device online.| No action is required.                                       |
-| Update 4 or earlier and the device is offline. | Modify the firewall rules to include the authentication URL.<br>[Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
-| Update 4 or earlier and the device is online. |Modify the firewall rules to include the authentication URL.<br> Install Update 5 through the Azure portal.              |
-| Update 5 or later and was factory reset to a version before Update 5.      |The portal shows an AAD based registration key while the device is running older software. Follow the steps in the preceding scenario for when the device is running Update 4 or earlier.              |
-
 ## Next steps
 
 * Learn more about how to deploy [StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md).
