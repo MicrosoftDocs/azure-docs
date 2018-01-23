@@ -1,6 +1,6 @@
 ---
 title: Run a parallel workload - Azure Batch Python 
-description: Tutorial - Walkthrough of running a parallel workload in Azure Batch using the Batch Python client SDK
+description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,27 +8,33 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 01/23/2018
 ms.author: dlepow
 ms.custom: mvc
 ---
 
-# Process media files in parallel with Azure Batch using the Python API
+# Tutorial: Run a parallel workload with Azure Batch using the Python API
 
-Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a Python sample application that runs a parallel workload using Batch. In this tutorial, you convert media files in parallel using the [ffmpeg](http://ffmpeg.org/) open-source tool. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
+Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a Python example of running a parallel workload using Batch. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts
-> * Upload input data files to Storage
-> * Create a Batch pool to run ffmpeg
+> * Upload input files to Storage
+> * Create a pool of compute nodes to run an application
 > * Create a job and tasks to process input files
 > * Monitor task execution
 > * Retrieve output files
 
+In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](http://ffmpeg.org/) open-source tool. 
+
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 * [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
+
 * An Azure Batch account and a linked general-purpose Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 ## Sign in to Azure
@@ -37,16 +43,19 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
-## Download the sample
+## Download and run the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. 
+### Download the sample
 
-Change to the directory that contains the sample code:
+[Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
-```bash
-cd src
 ```
-Install the required packages using `pip`.
+git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
+```
+
+Navigate to the directory that contains the file `batch_python_tututorial_ffmpeg.py`.
+
+In your Python environment, install the required packages using `pip`.
 
 ```bash
 pip install -r requirements.txt
@@ -54,7 +63,7 @@ pip install -r requirements.txt
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-Open the file `batch_python_tututorial_ffmpeg.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Open the file `batch_python_tututorial_ffmpeg.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
@@ -65,9 +74,53 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the Python code while you work your way through the rest of this article, since not every line of code in the sample is discussed.
+### Run the app
 
-## Blob and Batch clients
+To run the script:
+
+```
+python batch_python_tututorial_ffmpeg.py
+```
+
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. 
+   
+```
+Sample start: 12/12/2017 3:20:21 PM
+
+Container [input] created.
+Container [output] created.
+Uploading file LowPriVMs-1.mp4 to container [input]...
+Uploading file LowPriVMs-2.mp4 to container [input]...
+Uploading file LowPriVMs-3.mp4 to container [input]...
+Uploading file LowPriVMs-4.mp4 to container [input]...
+Uploading file LowPriVMs-5.mp4 to container [input]...
+Creating pool [LinuxFFmpegPool]...
+Creating job [LinuxFFmpegJob]...
+Adding 5 tasks to job [LinuxFFmpegJob]...
+Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
+Success! All tasks completed successfully within the specified timeout period.
+Deleting container [input]....
+
+Sample end: 12/12/2017 3:29:36 PM
+Elapsed time: 00:09:14.3418742
+```
+
+Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks. For example, to see a heat map of the compute nodes in your pool, click **Pools** > *LinuxFFmpegPool*.
+
+When tasks are running, the heat map is similar to the following:
+
+![Pool heat map](./media/tutorial-parallel-python/pool.png)
+
+Typical execution time is approximately **5 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
+
+[!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
+
+
+## Review the code
+
+The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the Python code while you read the rest of this article, since not every line of code in the sample is discussed.
+
+### Blob and Batch clients
 
 To interact with a storage account, the app uses the [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) package to create a [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) object.
 
@@ -88,10 +141,10 @@ batch_client = batch.BatchServiceClient(
     base_url=_BATCH_ACCOUNT_URL)
 ```
 
-## Upload input files
+### Upload input files
 
 
-The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload input MP4 files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local `InputFiles` directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
 
@@ -111,11 +164,11 @@ input_files = [
 ```
 
 
-## Create a Batch pool
+### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure.batch.models.imagereference) to an Ubuntu Server 16.04 LTS image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure.batch.models.imagereference) to an Ubuntu Server 16.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool of 5 low-priority nodes in size *Standard_A1_v2*. 
+The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 low-priority nodes in size *Standard_A1_v2*. 
 
 In addition to physical node properties, this pool configuration includes a [StartTask](/python/api/azure.batch.models.starttask) object. The StartTask executes on each node as that node joins the pool, and each time a node is restarted. In this example, the StartTask runs Bash shell commands to install the ffmpeg package and dependencies on the nodes.
 
@@ -147,7 +200,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-## Create a Batch job
+### Create a job
 
 A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The sample creates a job with a call to `create_job`. This defined function uses the [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) class to create a job on your pool. The [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) method submits the pool to the Batch service. Initially the job has no tasks.
 
@@ -188,48 +241,27 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```    
 
-## Monitor tasks
+### Monitor tasks
 
 When tasks are added to a job, Batch automatically queues and schedules them for execution on compute nodes in the associated pool. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties. 
 
-There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in this example uses the [TaskState](/python/api/azure.batch.models.taskstate) object to monitor tasks for a certain state, in this case the completed state.
+There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in this example uses the [TaskState](/python/api/azure.batch.models.taskstate) object to monitor tasks for a certain state, in this case the completed state, within a time limit.
 
-## Run the app
+```python
+while datetime.datetime.now() < timeout_expiration:
+    print('.', end='')
+    sys.stdout.flush()
+    tasks = batch_service_client.task.list(job_id)
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. 
-   
+     incomplete_tasks = [task for task in tasks if
+                         task.state != batchmodels.TaskState.completed]
+    if not incomplete_tasks:
+        print()
+        return True
+    else:
+        time.sleep(1)
+...
 ```
-Sample start: 12/12/2017 3:20:21 PM
-
-Container [input] created.
-Container [output] created.
-Uploading file LowPriVMs-1.mp4 to container [input]...
-Uploading file LowPriVMs-2.mp4 to container [input]...
-Uploading file LowPriVMs-3.mp4 to container [input]...
-Uploading file LowPriVMs-4.mp4 to container [input]...
-Uploading file LowPriVMs-5.mp4 to container [input]...
-Creating pool [LinuxFFmpegPool]...
-Creating job [LinuxFFmpegJob]...
-Adding 5 tasks to job [LinuxFFmpegJob]...
-Awaiting task completion, timeout in 00:30:00...
-Success! All tasks completed successfully within the specified timeout period.
-Deleting container [input]....
-
-Sample end: 12/12/2017 3:29:36 PM
-Elapsed time: 00:09:14.3418742
-```
-
-Typical execution time is approximately **5 minutes** when you run the application in its default configuration. Pool creation takes the most time. Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks. For example, to see a heat map of the compute nodes in your pool:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **All services** > **Batch accounts** and then click the name of your Batch account.
-3. Click **Pools** > *LinuxFFmpegPool*.
-
-When tasks are running, the heat map is similar to the following:
-
-![Pool heat map](./media/tutorial-parallel-python/pool.png)
-
-[!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
 ## Clean up resources
 
@@ -243,11 +275,14 @@ In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts
-> * Upload input data files to Storage
-> * Create a Batch pool to run ffmpeg
+> * Upload input files to Storage
+> * Create a pool of compute nodes to run an application
 > * Create a job and tasks to process input files
 > * Monitor task execution
 > * Retrieve output files
 
-For more examples of using the Python API to schedule and process Batch workloads, see the [Python samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) on GitHub.
+For more examples of using the Python API to schedule and process Batch workloads, see the samples on GitHub.
+
+> [!div class="nextstepaction"]
+> [Batch Python samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 

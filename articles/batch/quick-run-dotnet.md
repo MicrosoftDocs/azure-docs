@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Quickstart: Run your first Azure Batch job with the .NET API
 
-This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
 ![Quickstart app workflow](./media/quick-run-dotnet/sampleapp.png)
 
@@ -140,7 +140,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 ...    
 ```
 
-### Create a Batch pool
+### Create a pool of compute nodes
 
 To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
