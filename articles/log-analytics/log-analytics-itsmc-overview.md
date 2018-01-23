@@ -95,11 +95,11 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the "Refresh" button displayed next to your connection.
 
-    ![Connection refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
+    ![Connection refresh](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
 
 ## Using the solution
-   By suing the ITSM solution, you can create work items from Azure alerts, Log Analytics alerts  and  Log Analytics log records.
+   By using the ITSM Connector solution, you can create work items from Azure alerts, Log Analytics alerts  and  Log Analytics log records.
 
 ## Create ITSM work items from Azure alerts
 
@@ -131,7 +131,7 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 
 >[!NOTE]
 
-> For information on pricing of ITSM Action, see the pricing page for Action Groups.
+> For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) for Action Groups.
 
 
 ## Create ITSM work items from Log Analytics alerts
