@@ -12,7 +12,7 @@
     href: text-moderation-api.md
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
-  - name: Review APIs
+  - name: Jobs and reviews
     href: review-api.md
 - name: Quickstarts
   items: 
