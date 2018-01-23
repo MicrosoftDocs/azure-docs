@@ -15,7 +15,7 @@ ms.date: 23/01/2018
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management Connector
-This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about what ITSMC can do, see [Overview](log-analytics-itsmc-overview.md).
+This article provides information about how to configure the connection between your ITSM product/service and the IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your work items. For more information about ITSMC,  see [Overview](log-analytics-itsmc-overview.md).
 
 The following ITSM products/services are supported. Select the product to view detailed information about how to connect the product to ITSMC.
 
@@ -49,9 +49,10 @@ Use the following procedure to connect your System Center Service Manager instan
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-connection.png)
 
-3. At the top of the right pane, click **Add New Connection** .
+![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+
+3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
@@ -200,9 +201,9 @@ Use the following procedure to create a ServiceNow connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-connection.png)
+	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. At the top of the right pane, click **Add New Connection**.
+3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
@@ -295,9 +296,9 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-connection.png)
+	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. At the top of the right pane, click **Add New Connection**.
+3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
@@ -346,9 +347,9 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-connection.png)
+	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. At the top of the right pane, click **Add New Connection**.
+3. At the top of the right pane, click **Add**.
 
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
@@ -392,5 +393,5 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 ## Next steps
  - [Create ITSM work items for Log Analytics alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Create ITSM work items from Log Analytics log records logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-logs)
+ - [Create ITSM work items from Log Analytics log records logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
