@@ -66,12 +66,14 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to develop applications using the LUIS API:'
+    text: 'Learn how to develop applications using LUIS:'
   - type: list
     style: ordered
     items:
     - html: Integrate LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
     - html: Build a LUIS app programmatically&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
+    - html: Learn synonyms with a phrase list&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list">Luis.ai</a>
+    - html: Gain insights into your application&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-function-appinsights">Node.js</a>
 - title: Reference
   items:
   - type: list

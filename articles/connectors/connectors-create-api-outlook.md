@@ -21,7 +21,7 @@ ms.author: mandia; ladocs
 # Get started with the Outlook.com connector
 Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Outlook.com
 To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties:

@@ -20,6 +20,10 @@
   items:
   - name: API reference
     href: custom-decision-service-api-reference.md
+  - name: Experimentation reference
+    href: custom-decision-service-experimentation-reference.md
+  - name: LogDownloader reference
+    href: custom-decision-service-log-downloader-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -4,7 +4,7 @@ description: Learn how to set up and configure Domain-joined HDInsight clusters
 services: hdinsight
 documentationcenter: ''
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: ''
 

@@ -130,7 +130,7 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Next step 
+## Next steps 
 
 In this article, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
