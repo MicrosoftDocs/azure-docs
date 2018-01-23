@@ -67,7 +67,7 @@ Create a standard general-purpose storage account with LRS replication using [Ne
 > Storage account names are in a global name space so you will need to append some random characters to the name provided in this script.
 
 ```powershell
-$storageName = "gridStorage"
+$storageName = "gridstorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageName `
   -Location $location `
@@ -88,29 +88,25 @@ $binEndPoint = "<bin URL>"
 
 ## Subscribe to your Blob storage account
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your event subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<resource_group_name>` and `<storage_account_name>`, use the values you created earlier. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup).Id
-
 New-AzureRmEventGridSubscription `
-  -EventSubscriptionName gridBlobEvent `
+  -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $binEndPoint `
   -ResourceId $storageId
 ```
 
 ## Trigger an event from Blob storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>` and `<resource_group_name>`  you created earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. 
 
-```azurecli-interactive
-export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name <storage_account_name> --resource-group <resource_group_name> --query "[0].value" --output tsv)"
-
-az storage container create --name testcontainer
-
-touch testfile.txt
-az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
+```powershell
+$containerName = "gridcontainer"
+New-AzureStorageContainer -Name $containerName -Context $ctx
+echo $null >> gridTestFile.txt
+Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
 You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the RequestBin URL that you created earlier. Or, click refresh in your open RequestBin browser. You see the event you just sent. 
@@ -118,19 +114,19 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 ```json
 [{
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/myblobstorageaccount",
-  "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
+  "subject": "/blobServices/default/containers/gridcontainer/blobs/gridTestFile.txt",
   "eventType": "Microsoft.Storage.BlobCreated",
   "eventTime": "2017-08-16T20:33:51.0595757Z",
   "id": "4d96b1d4-0001-00b3-58ce-16568c064fab",
   "data": {
     "api": "PutBlockList",
-    "clientRequestId": "d65ca2e2-a168-4155-b7a4-2c925c18902f",
+    "clientRequestId": "Azure-Storage-PowerShell-d65ca2e2-a168-4155-b7a4-2c925c18902f",
     "requestId": "4d96b1d4-0001-00b3-58ce-16568c000000",
     "eTag": "0x8D4E4E61AE038AD",
-    "contentType": "text/plain",
+    "contentType": "application/octet-stream",
     "contentLength": 0,
     "blobType": "BlockBlob",
-    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testblob1.txt",
+    "url": "https://myblobstorageaccount.blob.core.windows.net/gridcontainer/gridTestFile.txt",
     "sequencer": "00000000000000EB0000000000046199",
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
