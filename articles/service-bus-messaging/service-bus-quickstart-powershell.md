@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - use PowerShell to create Service Bus entities and the .NET client to send and receive messages from Azure Service Bus | Microsoft Docs
+title: Azure Quickstart - use PowerShell to create Service Bus entities and the .NET Standard client to send and receive messages from Azure Service Bus | Microsoft Docs
 description: Quickly learn to send and receive Service Bus messages using PowerShell and the .NET client
 services: service-bus-messaging
 documentationcenter: ''
@@ -17,15 +17,14 @@ ms.date: 01/19/2018
 ms.author: sethm
 
 ---
-
-# Send and receive messages to a Queue using PowerShell and the .NET Core client
+# Send and receive messages to a Queue using PowerShell and the .NET Standard client
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this, they would, for example, send and receive messages from a Service Bus Queue.
 
 <p align="center"><img src="./media/service-bus-quickstart-powershell/quick-start-queue.png"></p>
 
-## What is be accomplished
-This quickstart describes how to send and receive messages to a Service Bus Queue using PowerShell to create a messaging namespace and a queue within that namespace and obtain the authorization credentials on that namespace. Then the .Net Core client is used to send and receive messages from this Queue.
+## What is being accomplished
+This QuickStart describes how to send and receive messages to a Service Bus Queue using PowerShell to create a messaging namespace and a queue within that namespace and obtain the authorization credentials on that namespace. Then the .Net Standard client is used to send and receive messages from this Queue.
 
 ## Prerequisites
 1. If you do not have an Azure subscription, create a [free account][] before you begin.
@@ -58,7 +57,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName <resource_group_name> -NamespaceNa
 Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
 ```
 
-Copy and paste the **PrimaryConnectionString** value to a temporary location, such as Notepad, to use later. Also take note of the **Queue name** you select as you need it later.
+Copy and paste the **PrimaryConnectionString** and the **Queue name** you select to a temporary location, such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
