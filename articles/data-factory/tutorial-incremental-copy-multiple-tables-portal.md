@@ -727,6 +727,6 @@ You performed the following steps in this tutorial:
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]
->[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 
