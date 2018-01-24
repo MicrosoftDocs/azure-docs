@@ -23,7 +23,7 @@ ms.author: mabrigg
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates. You can also provide MySQL databases as a service. 
 
-MySQL databases, which are common on web sites, support many website platforms. For example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
+MySQL databases, which are common on web sites, support many website platforms. For example, after you deploy the resource provider, you can create WordPress websites from the Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
 To deploy the MySQL provider on a system that does not have Internet access, copy the file [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) to a local share. Then provide that share name when you are prompted for it. You must install the Azure and Azure Stack PowerShell modules.
 
@@ -40,7 +40,7 @@ The resource provider is made up of three components:
 
 This release no longer creates MySQL instances. This means that you need to create them yourself and/or provide access to external SQL instances. Visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can:
 - Create a MySQL server for you.
-- Download and deploy a MySQL Server from the Marketplace.
+- Download and deploy a MySQL Server from Azure Marketplace.
 
 > [!NOTE]
 > Hosting servers that are installed on a multi-node Azure Stack implementation must be created from a tenant subscription. They can't be created from the default provider subscription. They must be created from the tenant portal or from a PowerShell session with an appropriate sign-in. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of the tenant subscription.
@@ -159,9 +159,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 
 ### DeploySqlProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters
-
-
+You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
 | Parameter name | Description | Comment or default value |
 | --- | --- | --- |
 
@@ -202,9 +200,9 @@ Depending on the system performance and download speeds, installation might take
 
 1. Sign in to the Azure Stack portal as a service admin.
 
-2. Select **ADMINISTRATIVE RESOURCES** >**MySQL Hosting Servers** > **+Add**.
+2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**.
 
-	On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s backend.
+	On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end.
 
 	![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -232,7 +230,7 @@ The SKU name should reflect the properties so that tenants can place their datab
 ## Test your deployment by creating your first MySQL database
 
 
-1. Sign in to the Azure Stack portal as service admin.
+1. Sign in to the Azure Stack portal as a service admin.
 
 2. Select **+ New** > **Data + Storage** > **MySQL Database**.
 
@@ -267,7 +265,7 @@ Create plans and offers to make MySQL databases available for tenants. For examp
 ![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
 ## Update the administrative password
-You can modify the password by first changing it on the MySQL server instance. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers**. Then select the hosting server. In the **Settings** panel, select **Password.**
+You can modify the password by first changing it on the MySQL server instance. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers**. Then select the hosting server. In the **Settings** panel, select **Password**.
 
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
@@ -325,10 +323,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ### UpdateMySQLProvider.ps1 parameters
 You can specify these parameters in the command line. If you don't, or if any parameter validation fails, you are prompted to provide the required parameters.
-
 | Parameter Name | Description | Comment or default value |
 | --- | --- | --- |
-
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** |The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
