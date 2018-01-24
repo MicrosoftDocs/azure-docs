@@ -13,7 +13,7 @@
 ### Deploy
 #### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
-##### [New authentication] (storsimple-virtual-array-aad-registration-key.md)
+##### [New authentication](storsimple-virtual-array-aad-registration-key.md)
 #### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
