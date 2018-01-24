@@ -3,9 +3,9 @@ title: Azure Disk Encryption FAQ| Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption FAQ
@@ -126,7 +126,7 @@ If this workflow is not possible, relying on [Storage Service Encryption](https:
 
 **Q:** Where can I go to ask questions or provide feedback?
 
-**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service and its capabilities, see the following articles:
