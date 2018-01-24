@@ -25,9 +25,9 @@ This article explains the compute environments that you can use to process or tr
 
 The following table provides a list of compute environments that are supported by Data Factory, and the activities that can run on them. 
 
-| Compute environment                      | activities                               |
+| Compute environment                      | Activities                               |
 | ---------------------------------------- | ---------------------------------------- |
-| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [On-demand Azure HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
@@ -58,7 +58,7 @@ After July 31, 2018:
 
 - To ensure that you can use the latest Hadoop ecosystem components and fixes, update the [**osType** and **Version** properties](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) of affected Data Factory version 1 on-demand HDInsight linked service definitions to newer Linux-based HDInsight versions (HDInsight 3.6). 
 - Before December 15, 2017, test Data Factory version 1 Hive, Pig, MapReduce, and Hadoop streaming activities that reference the affected linked service. Ensure that they are compatible with the new **osType** and **Version** default values (**Version=3.6**, **osType=Linux**) or the explicit HDInsight version and OS type that you are upgrading to. 
-  To learn more about compatibility, see [Migrate from a Windows-based HDInsight cluster to a Linux-based cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) and [What are the Hadoop components and versions available with HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
+  To learn more about compatibility, see [Migrate from a Windows-based HDInsight cluster to a Linux-based cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) and [What are the Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
 - To continue using a Data Factory version 1 on-demand HDInsight linked service to create Windows-based HDInsight clusters, explicitly set **osType** to **Windows** before December 15, 2017. We recommend that you migrate to Linux-based HDInsight clusters before July 31, 2018. 
 - If you are using an on-demand HDInsight linked service to execute Data Factory version 1 DotNet Custom Activity, update the DotNet Custom Activity JSON definition to instead use an Azure Batch linked service. For more information, see [Use custom activities in a Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
@@ -217,7 +217,7 @@ If you set an incorrect value for these properties, you might see the following 
 If you see this message, ensure that you are using the cmdlet and API names from the table in [Virtual machine sizes](../../virtual-machines/linux/sizes.md).  
 
 > [!NOTE]
-> Currently, Data Factory doesn't support HDInsight clusters that use Data Lake Store as the primary store. Use Azure storage as the primary store for HDInsight clusters. 
+> Currently, Data Factory doesn't support HDInsight clusters that use Data Lake Store as the primary store. Use Azure Storage as the primary store for HDInsight clusters. 
 >
 > 
 
