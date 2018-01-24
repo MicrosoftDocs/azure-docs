@@ -157,7 +157,7 @@ If you want to set up a separate child zone, you can delegate a subdomain in Azu
 
 ### Create a DNS zone
 
-1. Sign in to the Azure portal
+1. Sign in to the Azure portal.
 1. On the **Hub** menu, select **New** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
 
    ![DNS zone](./media/dns-domain-delegation/dns.png)
