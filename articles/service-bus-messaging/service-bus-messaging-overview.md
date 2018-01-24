@@ -37,7 +37,7 @@ Queues have two delivery modes: Pull and Forward
 * [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
 * [Forward](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) – delivers message to single forwarding destination.
 
-Azure Service Bus has many advanced features, which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features is following below.
+Azure Service Bus has many advanced features, which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features is following.
 
 Another object, within Azure Service Bus, which can be utilized to send and receive messages and decouple applications or services is the topic. Whereas the Queue is often used for point-to-point communication, topics are used for publisher / subscriber scenarios.
 
@@ -66,4 +66,4 @@ To learn more about Service Bus messaging, see the following articles:
 
 * Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/service-bus/) tiers and about their pricing.
 * [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
-* Try the following quick starts in [.Net](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md) or [JMS](service-bus-quickstart-powershell.md) or try these short tutorials about topics in .Net, Java, and JMS.
+* Try the following quick starts in [.Net](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md) or try these short tutorials about topics in .Net, Java, and JMS.
