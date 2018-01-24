@@ -62,7 +62,7 @@ If you maintain container images in the Azure Container Registry, you can easily
 
 ## Service principal authentication
 
-If the admin user for the Azure container registry is disabled, you can use an Azure Active Directory [service principal](../container-registry/container-registry-auth-service-principal.md) to authenticate to an Azure container registry when creating a container instance.
+If the admin user for the Azure container registry is disabled, you can use an Azure Active Directory [service principal](../container-registry/container-registry-auth-service-principal.md) to authenticate to the registry when creating a container instance. Using a service principal for authentication is also recommended in headless scenarios, such as a script or application that creates container instances in an unattended manner.
 
 For more information, see [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md).
 

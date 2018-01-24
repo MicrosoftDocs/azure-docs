@@ -19,9 +19,11 @@ In this article, you learn to create and configure an Azure AD service principal
 
 ## When to use a service principal
 
-You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an unattended manner. For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md), it can use a service principal with pull-only (Reader) permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-Service principals should also be used when the container registry and container instance reside in different subscriptions, or when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only (Reader) permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+
+Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
