@@ -54,7 +54,9 @@ Caching is integral to the way a CDN operates to speed up delivery and reduce or
 
 - By offloading work to a CDN, caching can reduce network traffic and the load on the origin server. Doing so reduces cost and resource requirements for the application, even when there are large numbers of users.
 
-Similar to a web browser, you can control how CDN caching is performed by sending cache-directive headers. Cache-directive headers are HTTP headers, which are typically added by the origin server. Although most of these headers were originally designed to address caching in client browsers, they are now also used by all intermediate caches, such as CDNs. Two headers can be used to define cache freshness: `Cache-Control` and `Expires`. `Cache-Control` is more current and takes precedence over `Expires`, if both exist. There are also two types of headers used for validation (called validators): `ETag` and `Last-Modified`. `ETag` is more current and takes precedence over `Last-Modified`, if both are defined.  
+Similar to how caching is implemented in a web browser, you can control how caching is performed in a CDN by sending cache-directive headers. Cache-directive headers are HTTP headers, which are typically added by the origin server. Although most of these headers were originally designed to address caching in client browsers, they are now also used by all intermediate caches, such as CDNs. 
+
+Two headers can be used to define cache freshness: `Cache-Control` and `Expires`. `Cache-Control` is more current and takes precedence over `Expires`, if both exist. There are also two types of headers used for validation (called validators): `ETag` and `Last-Modified`. `ETag` is more current and takes precedence over `Last-Modified`, if both are defined.  
 
 ## Cache-directive headers
 
@@ -62,13 +64,14 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 
 `Cache-Control`  
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
-- Overrides the `Expires` header if both it and `Cache-Control` are defined.
-- When used in a request header: Ignored by Azure CDN, by default.
-- When used in a response header: Azure CDN honors the following `Cache-Control` directives when it is using general web delivery, large file download, and general/video-on-demand media streaming optimizations:  
-   - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
-   - `private`: The content is for a single user only; don’t store content that the shared caches, such as CDN.
-   - `no-cache`: Cache the content, but must validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
-   - `no-store`: Never cache the content. Remove content if it has been previously stored.
+- Overrides the `Expires` header, if both it and `Cache-Control` are defined.
+- When used in a request header, `Cache-Control` is ignored by Azure CDN, by default.
+- When used in a response header for general web delivery, large file download, and general/video-on-demand (VOD) media streaming optimizations, Azure CDN supports the following directives, according to product: 
+   - **Azure CDN from Verizon**: Supports all `Cache-Control` directives. 
+   - **Azure CDN from Akamai**: Supports only the following `Cache-Control` directives; all others are ignored: 
+      - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
+      - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
+      - `no-store`: Never cache the content. Remove content if it has been previously stored.
 
 `Expires` 
 - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
@@ -114,7 +117,7 @@ Not all resources can be cached. The following table shows what resources can be
 
 The following table describes the default caching behavior for the Azure CDN products and their optimizations.
 
-|                    | Verizon - general web delivery | Verizon – dynamic site acceleration | Akamai - general web delivery | Akamai - dynamic site acceleration | Akamai - large file download | Akamai - general or video-on-demand media streaming |
+|                    | Verizon - general web delivery | Verizon – DSA | Akamai - general web delivery | Akamai - DSA | Akamai - large file download | Akamai - general or VOD media streaming |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Honor origin**   | Yes    | No   | Yes | No | Yes | Yes |
 | **CDN cache duration** | 7 days | None | 7 days | None | 1 day | 1 year |
