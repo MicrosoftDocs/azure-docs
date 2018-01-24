@@ -132,7 +132,6 @@ Typical execution time is approximately **10 minutes** when you run the applicat
 
 The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the open solution in Visual Studio while you read the rest of this article, since not every line of code in the sample is discussed.
 
-
 ### Blob and Batch clients
 
 To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).

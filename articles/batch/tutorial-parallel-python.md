@@ -53,7 +53,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 ```
 
-Navigate to the directory that contains the file `batch_python_tututorial_ffmpeg.py`.
+Navigate to the directory that contains the file `batch_python_tutorial_ffmpeg.py`.
 
 In your Python environment, install the required packages using `pip`.
 
@@ -61,9 +61,7 @@ In your Python environment, install the required packages using `pip`.
 pip install -r requirements.txt
 ```
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
-
-Open the file `batch_python_tututorial_ffmpeg.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Open the file `batch_python_tutorial_ffmpeg.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
@@ -114,7 +112,6 @@ When tasks are running, the heat map is similar to the following:
 Typical execution time is approximately **5 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
-
 
 ## Review the code
 

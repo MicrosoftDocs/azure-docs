@@ -1,6 +1,6 @@
 ---
 title: Parallel R simulation with Azure Batch
-description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package and RStudio
+description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package
 services: batch
 author: jiata
 manager: jkabat
@@ -9,16 +9,16 @@ ms.assetid:
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 01/23/2018
 ms.author: jiata
-ms.custom: 
+ms.custom: mvc
 ---
 
-# Run a parallel R simulation with Azure Batch 
+# Tutorial: Run a parallel R simulation with Azure Batch 
 
 Run your parallel R workloads at scale using [doAzureParallel](http://www.github.com/Azure/doAzureParallel), a lightweight R package that allows you to use Azure Batch directly from your R session. The doAzureParallel package is built on top of the popular [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R package. doAzureParallel takes each iteration of the foreach loop and submits it as an Azure Batch task.
 
-This tutorial details how you can deploy a Batch pool and run a parallel R job in Azure Batch directly within RStudio. You learn how to:
+This tutorial shows you how to deploy a Batch pool and run a parallel R job in Azure Batch directly within RStudio. You learn how to:
  
 
 > [!div class="checklist"]
@@ -31,13 +31,19 @@ This tutorial details how you can deploy a Batch pool and run a parallel R job i
 
 * An installed [R](https://www.r-project.org/) distribution, such as [Microsoft R Open](https://mran.microsoft.com/open). Use R version 3.3.1 or later.
 
-* [RStudio](https://www.rstudio.com/). For this tutorial, you can use the open-source [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop). 
+* [RStudio](https://www.rstudio.com/), either the commercial edition or the open-source [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop). 
 
 * An Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
+## Sign in to Azure
+
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
+
 ## Install doAzureParallel
 
-Install the [doAzureParallel Github package](http://www.github.com/Azure/doAzureParallel) directly from the RStudio console. The following commands download and install the package and its dependencies in your current R session: 
+In the RStudio console, install the [doAzureParallel Github package](http://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
 
 ```R
 # Install the devtools package  
@@ -51,9 +57,7 @@ library(doAzureParallel)
 ```
 Installation can take several minutes.
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
-
-To configure doAzureParallel with the credentials, generate a configuration file called *credentials.json* in your working directory: 
+To configure doAzureParallel with the account credentials you obtained previously, generate a configuration file called *credentials.json* in your working directory: 
 
 ```R
 generateCredentialsConfig("credentials.json") 
@@ -68,7 +72,7 @@ When complete, the credentials file looks similar to the following:
   "batchAccount": {
     "name": "mybatchaccount",
     "key": "xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ==",
-    "url": "https://mybatchaccount.westeurope.batch.azure.com"
+    "url": "https://mybatchaccount.mybatchregion.batch.azure.com"
   },
   "storageAccount": {
     "name": "mystorageaccount",
@@ -86,7 +90,9 @@ setCredentials("credentials.json")
 
 ## Create a Batch pool 
 
-doAzureParallel includes a function to generate an Azure Batch pool (cluster) to run parallel R jobs. The nodes run an Ubuntu-based [Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md), which has Microsoft R Open and popular R packages pre-installed. You can view or customize certain cluster settings, such as the number and size of the nodes. To generate a cluster configuration JSON file in your working directory: 
+doAzureParallel includes a function to generate an Azure Batch pool (cluster) to run parallel R jobs. The nodes run an Ubuntu-based [Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md). Microsoft R Open and popular R packages are pre-installed on this image. You can view or customize certain cluster settings, such as the number and size of the nodes. 
+
+To generate a cluster configuration JSON file in your working directory: 
  
 ```R
 generateClusterConfig("cluster.json")
@@ -127,7 +133,7 @@ Leave defaults for the remaining settings, and save the file. It should look sim
 ```
 
 
-Now create the cluster and register it as the parallel backend for your R session. 
+Now create the cluster. Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. After the cluster is available, register it as the parallel backend for your R session. 
 
 ```R
 # Create your cluster if it does not exist; this takes a few minutes
@@ -142,11 +148,9 @@ getDoParWorkers()
 
 Output shows the number of "execution workers" for doAzureParallel. This number is the number of nodes multiplied by the value of `maxTasksPerNode`. If you modified the cluster configuration as described previously, the number is *10*. 
  
+## Run a parallel simulation
 
-
-## Example: Monte Carlo simulation
-
-Now that your cluster is created, you are ready to run your foreach loop with your registered parallel backend (Azure Batch pool). As an example, run a Monte Carlo financial simulation, first locally using a standard foreach loop, and then with foreach and Batch. This example is a simplified version of predicting a stock price by simulating a large number of different outcomes after 5 years.
+Now that your cluster is created, you are ready to run your foreach loop with your registered parallel backend (Azure Batch pool). As an example, run a Monte Carlo financial simulation, first locally using a standard foreach loop, and then running foreach with Batch. This example is a simplified version of predicting a stock price by simulating a large number of different outcomes after 5 years.
 
 Suppose that the stock of Contoso Corporation gains on average 1.001 times its opening price each day, but has a volatility (standard deviation) of 0.01. Given a starting price of $100, use a Monte Carlo pricing simulation to figure out Contoso's stock price after 5 years.
 
@@ -217,7 +221,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the [Azure portal](https://portal.azure.com). Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > *myPoolName*. 
+The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the Azure portal](https://portal.azure.com. Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > *myPoolName*. 
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 
@@ -250,7 +254,7 @@ The job is deleted automatically after it completes. When the cluster is longer 
 stopCluster(cluster)
 ```
 
-
+## Next steps
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
@@ -259,10 +263,11 @@ Install doAzureParallel and configure it to access your Batch and storage accoun
 > * Run a sample parallel simulation on the pool
 
 
-## Next steps
+For more information about doAzureParallel, see the documentation and samples on GitHub.
 
-* For more information about doAzureParallel, see the [documentation](https://github.com/Azure/doAzureParallel/tree/master/docs) and [samples](https://github.com/Azure/doAzureParallel/tree/master/samples) on GitHub.
-* Learn about [Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/index) for deploying and developing R and Python-based solutions on a range of platforms.
+> [!div class="nextstepaction"]
+> [doAzureParallel package](https://github.com/Azure/doAzureParallel/)
+
 
 
 
