@@ -21,14 +21,16 @@ ms.author: mbullwin
 
 Find out how much time is spent in each method in your live web application when using [Application Insights](app-insights-overview.md). The Application Insights profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. Requests with different response times are profiled on a sampling basis. Overhead to the application is minimized using various techniques.
 
-The profiler currently works for ASP.NET and ASP.NET core web apps running on Azure App Service, in at least the Basic service tier.
+The profiler currently works for ASP.NET and ASP.NET core web apps running on Azure App Service, in at least the **Basic** service tier.
 
 ## <a id="installation"></a> Enable the profiler for App Services Web App
-Navigate to App Services pane on Azure portal, go to *Monitoring | Application Insights*, follow instructions on the pane to create new or select existing Application Insights resource to monitor your Web App.
+If you already have the application published to an App Services, but have not done anything in the source code to use Application Insights, navigate to App Services pane on Azure portal, go to **Monitoring | Application Insights**, follow instructions on the pane to create new or select existing Application Insights resource to monitor your Web App. Note that Profiler only works with **Basic** App Services plan or above.
 
-If you have access to your project source code, [install Application Insights](app-insights-asp-net.md). If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, redeploy your app.
+![Enable App Insights on App Services portal][appinsights-in-appservices]
 
-*Using ASP.NET Core? Get [more information](#aspnetcore).*
+If you have access to your project source code, [install Application Insights](app-insights-asp-net.md). If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, deploy your app.
+
+An ASP.NET Core application needs to install the Microsoft.ApplicationInsights.AspNetCore NuGet package 2.1.0-beta6 or later to work with the profiler. As of June 27, 2017, we don't support earlier versions.
 
 In [the Azure portal](https://portal.azure.com), open the Application Insights resource for your web app. Select **Performance** > **Enable Application Insights Profiler**.
 
@@ -38,9 +40,9 @@ Alternatively, you can select **Profiler** configuration to view status and enab
 
 ![Under Performance, select Profiler configuration][performance-blade]
 
-Web apps that are configured with Application Insights are listed in the **Profiler** configuration pane. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
+Web apps that are configured with Application Insights are listed in the **Profiler** configuration pane. If you followed steps above, profiler agent should be installed already. Select **Enable Profiler** in the **Profiler** configuration pane.
 
-To control the profiler on all your linked web apps, in the **Profiler** configuration pane, select **Enable Profiler** or **Disable Profiler**.
+Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
 
 ![Configure pane options][linked app services]
 
@@ -52,7 +54,7 @@ Get information about a [preview version of the profiler for Azure compute resou
 
 ## View profiler data
 
-Make sure your application is receiving traffics. If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and two minutes each time it runs.
+**Make sure your application is receiving traffics.** If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and two minutes each time it runs. Suggest to run load test for one hour to make sure you get sample profiler traces.
 
 Once your application received some traffic, go to the **Performance** blade,  go to the **Take Actions** section of the page to view profiler traces. Select the **Profiler Traces** button.
 
@@ -229,7 +231,7 @@ First let's get familiar with the web job's dashboard. Under settings click on t
 
 As you can see this dashboard shows you all of the web jobs that are currently installed on your site. You can see the ApplicationInsightsProfiler2 web job which, has the profiler job running. This is where we end up creating our new web jobs for manual and scheduled profiling.
 
-First let's get the binaries we will need.
+First let's get the binaries we need.
 
 1.	First go to the kudu site. Under the development tools tab click on the "Advanced Tools" tab with the Kudu logo. Click on "Go". This will take you to a new site and log you in automatically.
 2.	Next we need to download the profiler binaries. Navigate to the File Explorer via Debug Console -> CMD located at the top of the page.
@@ -286,17 +288,11 @@ Though this method is relatively straightforward there are some things to consid
 3.	The Web Jobs feature for App Services is unique in that when it runs the web job it ensures that your process has the same environment variables and app settings that your web site will end up having. This means that you do not need to pass the instrumentation key through the command line to the profiler, it should just pick up the instrumentation key from the environment. However if you want to run the profiler on your dev box or on a machine outside of App Services you need to supply an instrumentation key. You can do this by passing in an argument `--ikey <instrumentation-key>`. Note that this value must match the instrumentation key your application is using. In the log output from the profiler it will tell you which ikey the profiler started with and if we detected activity from that instrumentation key while we are profiling.
 4.	The manually triggered web jobs can actually be triggered via Web Hook. You can get this url from right-clicking on the web job from the dashboard and viewing the properties, Or choosing properties in the toolbar after selecting the web job from the table. There are a lot of articles that you can find online about this so I will not go into much detail about it, but this opens up the possibility of triggering the profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Depending on how fancy you want to make your run.cmd, which by the way can be a run.ps1, the possibilities are extensive.  
 
-
-
-
-## <a id="aspnetcore"></a>ASP.NET Core support
-
-An ASP.NET Core application needs to install the Microsoft.ApplicationInsights.AspNetCore NuGet package 2.1.0-beta6 or later to work with the profiler. As of June 27, 2017, we don't support earlier versions.
-
 ## Next steps
 
 * [Working with Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
