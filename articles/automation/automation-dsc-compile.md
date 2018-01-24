@@ -297,7 +297,7 @@ You can learn how to sign node configurations at https://msdn.microsoft.com/en-u
 
 ### Importing a node configuration in the Azure portal
 
-1. From your Automation account, click **DSC node configurations**.
+1. From your Automation account, click **DSC node configurations** under **Configuration Management**.
 
     ![DSC node configurations](./media/automation-dsc-compile/node-config.png)
 2. In the **DSC node configurations** blade, click **Add a NodeConfiguration**.
