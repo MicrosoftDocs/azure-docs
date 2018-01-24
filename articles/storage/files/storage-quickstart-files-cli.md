@@ -135,6 +135,17 @@ az storage file copy start \
 	--destination-path samplefile.txt
 ```
 
+Now, if you list the files in the new share, you should see your file.
+
+```azurecli-interactive
+az storage file list \
+    --account-name mystorageaccount \
+	--account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
+	--share-name myshare2 \
+	--output table
+```
+
+
 ## Clean up resources
 
 When you are done, you can use [az group delete](/cli/azure/group#delete) to remove the resource group and all related resources. 
