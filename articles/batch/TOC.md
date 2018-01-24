@@ -1,3 +1,6 @@
+
+# [Batch Documentation](index.yml)
+
 # Overview
 ## [What is Azure Batch?](batch-technical-overview.md)
 
