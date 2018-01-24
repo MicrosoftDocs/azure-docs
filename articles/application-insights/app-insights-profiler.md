@@ -19,13 +19,14 @@ ms.author: mbullwin
 
 *This feature of Application Insights is generally available for Azure App Service and is in preview for Azure compute resources.*
 
-Find out how much time is spent in each method in your live web application by using [Application Insights Profiler](app-insights-overview.md). The Application Insights profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. The profiler automatically selects examples that have different response times, and then uses various techniques to minimize overhead.
+Find out how much time is spent in each method in your live web application when using [Application Insights](app-insights-overview.md). The Application Insights profiling tool shows detailed profiles of live requests that were served by your app, and highlights the *hot path* that uses the most time. Requests with different response times are profiled on a sampling basis. Overhead to the application is minimized using various techniques.
 
-The profiler currently works for ASP.NET web apps running on Azure App Service, in at least the Basic service tier.
+The profiler currently works for ASP.NET and ASP.NET core web apps running on Azure App Service, in at least the Basic service tier.
 
-## <a id="installation"></a> Enable the profiler
+## <a id="installation"></a> Enable the profiler for App Services Web App
+Navigate to App Services blade on Azure portal, go to *Monitoring | Application Insights*, follow instructions on the blade to create new or select existing Application Insights resource to monitor your Web App.
 
-[Install Application Insights](app-insights-asp-net.md) in your code. If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, redeploy your app.
+If you have access to your project source code, [install Application Insights](app-insights-asp-net.md). If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, redeploy your app.
 
 *Using ASP.NET Core? Get [more information](#aspnetcore).*
 
@@ -37,7 +38,7 @@ Alternatively, you can select **Configure** to view status and enable or disable
 
 ![Under Performance, select Configure][performance-blade]
 
-Web apps that are configured with Application Insights are listed under **Configure**. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
+Web apps that are configured with Application Insights are listed in the Profiler **Configure** blade. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
 
 To control the profiler on all your linked web apps, in the **Configure** pane, select **Enable Profiler** or **Disable Profiler**.
 
@@ -55,8 +56,6 @@ We recommend that you have the profiler enabled on all your web apps to discover
 If you use WebDeploy to deploy changes to your web application, ensure that you exclude the App_Data folder from being deleted during deployment. Otherwise, the profiler extension's files are deleted the next time you deploy the web application to Azure.
 
 ### Using profiler with Azure VMs and Azure compute resources (preview)
-
-When you [enable Application Insights for Azure App Service at runtime](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatically available. If you have already enabled Application Insights for the resource, you might need to update to the latest version by using the Configure wizard.
 
 Get information about a [preview version of the profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
