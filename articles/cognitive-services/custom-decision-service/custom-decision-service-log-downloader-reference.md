@@ -8,7 +8,7 @@ manager: marco-rossi29
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: marco-rossi29
+ms.author: marossi
 ---
 
 # Custom Decision Service LogDownloader reference
