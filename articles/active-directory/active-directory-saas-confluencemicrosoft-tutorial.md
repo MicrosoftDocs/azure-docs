@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
 
 ---
@@ -97,8 +97,6 @@ In this section, you configure and test Azure AD single sign-on with Confluence 
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Confluence SAML SSO by Microsoft is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Confluence SAML SSO by Microsoft needs to be established.
 
-In Confluence SAML SSO by Microsoft, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Confluence SAML SSO by Microsoft, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -165,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Download the plugin from [Microsoft Download Center](http://download.microsoft.com/download/6/9/6/6969AEED-7760-4F39-BA22-8F14AE30A592/MSSsoConfluencePlugin-1.0.obr). Manually upload the plugin provided by Microsoft using **Upload add-on** menu
+8. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu
 	
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 
