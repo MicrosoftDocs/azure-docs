@@ -15,7 +15,7 @@ ms.author: jingwang
 
 ---
 # Create a data factory by using the Azure Data Factory UI
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory service that you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](quickstart-create-data-factory-portal.md)
 
@@ -43,7 +43,7 @@ Watching this video helps you understand the Data Factory UI:
       
    !["New data factory" page](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **yournameADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
+   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    ![Error when a name is not available](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
@@ -213,7 +213,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
    ![Selections for adding a new trigger](./media/quickstart-create-data-factory-portal/add-trigger-new-button.png)
 3. On the **New Trigger** page, under **End**, select **On Date**, specify an end time a few minutes after the current time, and then select **Apply**. 
 
-   There is a cost associated with each pipeline run, so specify the end time only minutes apart from the start time. Ensure that it's the same day. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
+   A cost is associated with each pipeline run, so specify the end time only minutes apart from the start time. Ensure that it's the same day. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
 
    ![Trigger settings](./media/quickstart-create-data-factory-portal/trigger-settings.png)
 4. On the **New Trigger** page, select the **Activated** check box, and then select **Next**. 

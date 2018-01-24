@@ -4,10 +4,10 @@
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ### Azure roles
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the **contributor** or **owner** role, or an **administrator** of the Azure subscription. In the Azure portal, select your username in the upper-right corner, and select **Permissions** to view the permissions that you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
+To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. In the Azure portal, select your username in the upper-right corner, and select **Permissions** to view the permissions that you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
 
 ### Azure storage account
-You use a general-purpose Azure storage account (specifically Blob storage) as both **source** and **destination** data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) to create one. 
+You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) to create one. 
 
 #### Get the storage account name and account key
 You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account: 
@@ -20,7 +20,7 @@ You use the name and key of your Azure storage account in this quickstart. The f
 4. On the **Storage account** page, select **Access keys** on the menu.
 
    ![Get storage account name and key](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. Copy the values for **Storage account name** and **key1** boxes to the clipboard. Paste them into Notepad or any other editor and save it. You use them later in this quickstart.   
+5. Copy the values for the **Storage account name** and **key1** boxes to the clipboard. Paste them into Notepad or any other editor and save it. You use them later in this quickstart.   
 
 #### Create the input folder and files
 In this section, you create a blob container named **adftutorial** in Azure Blob storage. You create a folder named **input** in the container, and then upload a sample file to the input folder. 
@@ -31,7 +31,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
 2. On the **Blob service** page, select **+ Container** on the toolbar. 
 
    ![Add container button](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. In the **New container** dialog box, enter **adftutorial** for the name, and select **OK**. 
+3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. 
 
    ![Enter container name](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Select **adftutorial** in the list of containers. 
@@ -43,7 +43,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
 6. On the **Upload blob** page, select **Advanced**.
 
    ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-7. Start **Notepad** and create a file named **emp.txt** with the following content. Save it in the **c:\ADFv2QuickStartPSH** folder. Create the folder **ADFv2QuickStartPSH** if it does not already exist.
+7. Start **Notepad** and create a file named **emp.txt** with the following content. Save it in the **c:\ADFv2QuickStartPSH** folder. Create the **ADFv2QuickStartPSH** folder if it does not already exist.
     
    ```
    John, Doe

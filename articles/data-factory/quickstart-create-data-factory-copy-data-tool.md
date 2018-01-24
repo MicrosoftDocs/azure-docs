@@ -15,7 +15,7 @@ ms.author: jingwang
 
 ---
 # Use the Copy Data tool to copy data 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory service that you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](quickstart-create-data-factory-copy-data-tool.md)
 
@@ -38,7 +38,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
       
    !["New data factory" page](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **yournameADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
+   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    ![Error when a name is not available](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
