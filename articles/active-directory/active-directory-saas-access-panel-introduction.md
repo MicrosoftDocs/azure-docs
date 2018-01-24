@@ -1,4 +1,4 @@
-,---
+---
 title: What is the access panel in Azure Active Directory? | Microsoft Docs
 description: Learn how to use variations of the access panel (web browser, Android app, iPhone, and iPad app) to access SaaS apps.
 services: active-directory
@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # What is the access panel?
 
-The access panel is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can view and start cloud-based applications that an Azure AD administrator has granted you access to. You can also use self-service group and app management capabilities through the access panel.
+The access panel is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can use the access panel to view and start cloud-based applications that an Azure AD administrator has granted you access to. You can also use self-service group and app management capabilities through the access panel.
 
 The access panel is separate from the Azure portal. It does not require you to have an Azure subscription.
 
