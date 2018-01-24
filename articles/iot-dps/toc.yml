@@ -87,6 +87,8 @@
     href: how-to-control-access.md
   - name: Use Azure CLI to manage device provisioning service
     href: how-to-manage-dps-with-cli.md
+  - name: Use SDK tools to develop
+    href: how-to-use-sdk-tools.md
 - name: Reference
   items:
   - name: REST
