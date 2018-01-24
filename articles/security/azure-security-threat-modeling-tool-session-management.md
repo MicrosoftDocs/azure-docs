@@ -41,13 +41,13 @@ ms.author: rodsan
 | **Steps** | If the application relies on access token issued by Azure AD, the logout event handler should call |
 
 ### Example
-```C#
+```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
 
 ### Example
 It should also destroy user's session by calling Session.Abandon() method. Following method shows secure implementation of user logout:
-```C#
+```csharp
     [HttpPost]
         [ValidateAntiForgeryToken]
         public void LogOff()
@@ -98,7 +98,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 | **Steps** | If the application relies on STS token issued by ADFS, the logout event handler should call WSFederationAuthenticationModule.FederatedSignOut() method to log out the user. Also the current session should be destroyed, and the session token value should be reset and nullified.|
 
 ### Example
-```C#
+```csharp
         [HttpPost, ValidateAntiForgeryToken]
         [Authorization]
         public ActionResult SignOut(string redirectUrl)
@@ -158,7 +158,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 | **Steps** | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. The requirement can be enforced in the web.config file by setting the requireSSL attribute to true. It is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
 
 ### Example
-```C#
+```csharp
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -177,7 +177,7 @@ The setting is enforced even if HTTP is used to access the application. If HTTP 
 | **Steps** | When the web application is the Relying Party, and the IdP is ADFS server, the FedAuth token's secure attribute can be configured by setting requireSSL to True in `system.identityModel.services` section of web.config:|
 
 ### Example
-```C#
+```csharp
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -271,7 +271,7 @@ Following configuration shows the correct configuration:
 | **Steps** | Anti-CSRF and ASP.NET MVC forms - Use the `AntiForgeryToken` helper method on Views; put an `Html.AntiForgeryToken()` into the form, for example,|
 
 ### Example
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -279,7 +279,7 @@ Following configuration shows the correct configuration:
 ```
 
 ### Example
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -303,7 +303,7 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 
 ### Example
 Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because an AJAX request might send JSON data, not HTML form data. One solution is to send the tokens in a custom HTTP header. The following code uses Razor syntax to generate the tokens, and then adds the tokens to an AJAX request. 
-```C#
+```csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -328,7 +328,7 @@ Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because a
 
 ### Example
 When you process the request, extract the tokens from the request header. Then call the AntiForgery.Validate method to validate the tokens. The Validate method throws an exception if the tokens are not valid.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -359,7 +359,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### Example
 Here's the code you need to have in all of your pages:
-```C#
+```csharp
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
    :
@@ -433,7 +433,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ### Example
 Also the ADFS issued SAML claim token's lifetime should be set to 15 minutes, by executing the following powershell command on the ADFS server:
-```C#
+```csharp
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
@@ -493,7 +493,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ### Example
 When you process the request, extract the tokens from the request header. Then call the AntiForgery.Validate method to validate the tokens. The Validate method throws an exception if the tokens are not valid.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -515,7 +515,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### Example
 Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on Views; put an Html.AntiForgeryToken() into the form, for example,
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -525,7 +525,7 @@ Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on View
 
 ### Example
 The example above will output something like the following:
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
