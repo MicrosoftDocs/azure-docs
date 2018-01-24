@@ -66,7 +66,7 @@ If you have installed the extension and are still experiencing issues, try the f
 - Clear your browser’s cookies, and sign in to the My Apps portal.
 - For access to a diagnostics tool and step-by-step instructions on configuring the extension for Internet Explorer, see [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## How do I use the My Apps Secure Sign-in Extension?
+## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
    1. While you are *not* signed in to the extension, right-click the extension icon.
    2. On the menu, select **My Apps URL**.
