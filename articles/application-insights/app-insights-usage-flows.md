@@ -42,7 +42,7 @@ To begin answering questions with the User Flows tool, choose an initial page vi
 2. Select a page view, custom event, or exception from the **Initial event** dropdown.
 3. Click **Create graph**.
 
-The "Step 1" column of the visualization shows what users did most frequently just after the initial event, ordered top-to-bottom from most- to least-frequent. The "Step 2" and subsequent columns show what users did thereafter, creating a picture of all the ways users have navigated through your site.
+The "Step 1" column of the visualization shows what users did most frequently just after the initial event, ordered top to bottom from most to least frequent. The "Step 2" and subsequent columns show what users did thereafter, creating a picture of all the ways users have navigated through your site.
 
 By default, the User Flows tool randomly samples only the last 24 hours of page views and custom event from your site. You can increase the time range and change the balance of performance and accuracy for random sampling in the Edit menu.
 
@@ -53,7 +53,7 @@ If page views or custom events are missing that you expect to see on the visuali
 * Check the **Excluded events** section in the **Edit** menu.
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
 * If the page view or custom event you expect is sent infrequently by users, try increasing the time range of the visualization in the **Edit** menu.
-*Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](app-insights-api-custom-events-metrics.md)
+* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](app-insights-api-custom-events-metrics.md)
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdowns above the visualization.
 
@@ -63,13 +63,13 @@ If you want to see more steps in the visualization, use the **Previous steps** a
 
 If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the User Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 
-If your initial event is a custom event, the first column shows what users did just after performing that action. As with page views, consider if the observed behavior of your users matches your team's goals and expectations. If your selected initial event is "Added Item to Shopping Cart", for example, look to see if "Go to Checkout" and "Completed Purchase" appear in the visualization shortly thereafter. If user behavior is much different from your expectations, use the visualization to understand how users are getting "trapped" by your site's current design.
+If your initial event is a custom event, the first column shows what users did just after performing that action. As with page views, consider if the observed behavior of your users matches your team's goals and expectations. If your selected initial event is "Added Item to Shopping Cart", for example, look to see if "Go to Checkout" and "Completed Purchase" appear in the visualization shortly thereafter. If user behavior is different from your expectations, use the visualization to understand how users are getting "trapped" by your site's current design.
 
 ## Where are the places that users churn most from your site?
 
 Watch for **Session Ended** nodes that appear high-up in a column in the visualization, especially early in a flow. This means many users probably churned from your site after following the preceding path of pages and UI interactions. Sometimes churn is expected - after completing a purchase on an eCommerce site, for example - but usually churn is a sign of design problems, poor performance, or other issues with your site that can be improved.
 
-Keep in mind that **Session Ended** nodes are based only on telemetry collected by this Application Insights resource. If Application Insights doesn't receive telemetry for certain user interactions, users could still have interacted with your site in those ways after the User Flows tool says the session ended.
+Keep in mind, that **Session Ended** nodes are based only on telemetry collected by this Application Insights resource. If Application Insights doesn't receive telemetry for certain user interactions, users could still have interacted with your site in those ways after the User Flows tool says the session ended.
 
 ## Are there places where users repeat the same action over and over?
 
