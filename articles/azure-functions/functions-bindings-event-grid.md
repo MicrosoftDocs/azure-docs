@@ -36,7 +36,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that logs some of the fields common to all events and all of the `data` fields that are specific to an event type.
+The following example shows a [C# function](functions-dotnet-class-library.md) that logs some of the fields common to all events and all of the event-specific data.
 
 ```cs
 [FunctionName("EventGridTest")]
@@ -51,7 +51,7 @@ public static void Run([EventGridTrigger] EventGridEvent myEvent, TraceWriter lo
 
 ### Trigger - C# script example
 
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields common to all events and all of the `data` fields that are specific to an event type.
+The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
 
 Here's the binding data in the *function.json* file:
 
@@ -67,8 +67,6 @@ Here's the binding data in the *function.json* file:
   "disabled": false
 }
 ```
-
-The [Configuration](#configuration) section explains these properties.
 
 Here's the C# script code:
 
@@ -88,7 +86,7 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 
 ### Trigger - JavaScript example
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields common to all events and all of the `data` fields that are specific to an event type.
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
 
 Here's the binding data in the *function.json* file:
 
@@ -104,8 +102,6 @@ Here's the binding data in the *function.json* file:
   "disabled": false
 }
 ```
-
-The [Configuration](#configuration) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -197,9 +193,9 @@ The Event Grid trigger is basically an HTTP trigger that does some additional pr
 You can work around these limitations by making an HTTP trigger do the work of an Event Grid trigger:
 
 * [Create an HTTP trigger function](#create-an-http-trigger-function) that simulates an Event Grid trigger. Include in it your code that handles an Event Grid event. 
-* [Create a Requestbin endpoint](#create-a-requestbin-endpoint).
-* [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the Requestbin endpoint.
-* [Generate a request](#generate-a-request) and copy the request body from the Requestbin site.
+* [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
+* [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
+* [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
 * [Manually post the request](#manually-post-the-request) to the URL of your HTTP trigger function after running the function locally.
 * [Deploy to Azure](#deploy-to-azure) when local testing is done.
 
@@ -270,29 +266,29 @@ module.exports = function (context, req) {
 
 Inside the loop through the `messages` array is where you can put the event-handling code that you want to test. Or, if the function that you want to test has no input or output bindings in addition to the Event Grid trigger, you can call its `Run` method.
 
-### Create a Requestbin endpoint
+### Create a RequestBin endpoint
 
-Requestbin is a site that accepts HTTP requests and shows you the request body. The http://requestb.in URL is whitelisted by Azure Event Grid. That means that Event Grid sends events to that URL without requiring a correct response to subscription validation requests. 
+RequestBin is a site that accepts HTTP requests and shows you the request body. The http://requestb.in URL is whitelisted by Azure Event Grid. That means that Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. 
 
 Create an endpoint.
 
-![Create Requestbin endpoint](media/functions-bindings-event-grid/create-requestbin.png)
+![Create RequestBin endpoint](media/functions-bindings-event-grid/create-RequestBin.png)
 
 Copy the endpoint URL.
 
-![Copy Requestbin endpoint](media/functions-bindings-event-grid/save-requestbin-url.png)
+![Copy RequestBin endpoint](media/functions-bindings-event-grid/save-RequestBin-url.png)
 
 ### Create an Event Grid subscription
 
-Create an Event Grid subscription of the type you want to test, and give it your Requestbin endpoint. For information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-blob-storage-account) or one of the other Event Grid quickstarts.
+Create an Event Grid subscription of the type you want to test, and give it your RequestBin endpoint. For information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-blob-storage-account) or one of the other Event Grid quickstarts.
 
 ### Generate request
 
-Trigger an event that will generate HTTP traffic to your Requestbin endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your Requestbin page, copy the request body.
+Trigger an event that will generate HTTP traffic to your RequestBin endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your RequestBin page, copy the request body.
 
 The subscription validation request will be received first; ignore any validation requests, and copy the event request.
 
-![Copy request body from Requestbin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copy request body from RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
 
 ### Manually post the requests
 
@@ -301,18 +297,18 @@ Run your HTTP function locally, and the runtime gives you the URL to use for inv
 Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
 
 * Set a `Content-Type: application/json` header.
-* Paste into the request body the data from Requestbin. 
+* Paste into the request body the data from RequestBin. 
 * Post to the URL of your HTTP function. 
 
 The following screenshot shows the localhost URL and request body in Postman:
 
 ![Endpoint and request body in Postman](media/functions-bindings-event-grid/postman.png)
 
-This request triggers your HTTP function, which then runs your event processing code with the same kind of data it will get when it runs in Azure.
+Now the event handling code in the HTTP function processes the same data that it gets when it runs in Azure.
 
 ### Deploy to Azure
 
-When local testing is complete, delete your subscription to Requestbin.
+When local testing is complete, delete your subscription to RequestBin.
   
 To test in Azure or process production data, deploy your Event Grid trigger function to Azure and create a subscription for it.
 
