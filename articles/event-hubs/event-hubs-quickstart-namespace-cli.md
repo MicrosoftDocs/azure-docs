@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/24/2018
 ms.author: sethm
 
 ---
@@ -120,8 +120,8 @@ az group delete --name eventhubsResourceGroup
 
 In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following articles.
 
-* [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
-* [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* [Send events to your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+* [Receive events from your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 
 [1]: ./media/event-hubs-quickstart-namespace-cli/cli1.png
 [2]: ./media/event-hubs-quickstart-namespace-cli/cli2.png
