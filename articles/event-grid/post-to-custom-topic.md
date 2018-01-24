@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: tomfitz
 ---
 
@@ -53,7 +53,7 @@ To get the key for a custom topic with PowerShell, use:
 
 ## Event data
 
-For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a data property that contains properties unique to the custom topic. The event publisher determines the properties for that data object. You post event data with the following schema:
+For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a data property that contains properties unique to the custom topic. As event publisher, you determine the properties for that data object. Use the following schema:
 
 ```json
 [
