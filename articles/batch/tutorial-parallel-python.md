@@ -117,7 +117,7 @@ Typical execution time is approximately **5 minutes** when you run the applicati
 
 The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the Python code while you read the rest of this article, since not every line of code in the sample is discussed.
 
-### Blob and Batch clients
+### Authenticate Blob and Batch clients
 
 To interact with a storage account, the app uses the [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) package to create a [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) object.
 
@@ -140,7 +140,6 @@ batch_client = batch.BatchServiceClient(
 
 ### Upload input files
 
-
 The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local `InputFiles` directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
@@ -159,7 +158,6 @@ input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
 ```
-
 
 ### Create a pool of compute nodes
 

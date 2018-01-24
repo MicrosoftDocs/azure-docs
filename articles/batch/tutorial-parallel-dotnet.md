@@ -52,7 +52,7 @@ Use the Azure portal to add ffmpeg to your Batch account as an [application pack
 3. Click **Applications** > **Add**.
 4. For **Application id** enter *ffmpeg*, and a package version of *3.4*. Select the ffmpeg zip file you downloaded previously, and then click **OK**. The ffmpeg application package is added to your Batch account.
 
-  ![Add application package](./media/tutorial-parallel-dotnet/add-application.png)
+![Add application package](./media/tutorial-parallel-dotnet/add-application.png)
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -132,7 +132,7 @@ Typical execution time is approximately **10 minutes** when you run the applicat
 
 The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the open solution in Visual Studio while you read the rest of this article, since not every line of code in the sample is discussed.
 
-### Blob and Batch clients
+### Authenticate Blob and Batch clients
 
 To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
 

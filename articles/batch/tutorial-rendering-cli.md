@@ -29,14 +29,12 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 ## Prerequisites
 
-A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene provided is from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
+The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
-
-
 
 
 ## Create a Batch account
@@ -112,7 +110,7 @@ az storage blob upload-batch \
 
 ## Create a rendering pool
 
-Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file. Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
+Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file. Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
 
 
 ```json
@@ -184,12 +182,11 @@ Take note of the token returned by the command, which looks similar to the follo
 se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-
 ## Render a single-frame scene
 
 ### Create a job
 
-Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. Initally the job has no tasks.
+Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. Initially the job has no tasks.
 
 ```azurecli-interactive
 az batch job create \
@@ -199,7 +196,7 @@ az batch job create \
 
 ### Create a task
 
-Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file. Within your current shell, create a file named *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
+Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file. Within your current shell, create a file named *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
 The task specifies a 3ds Max command to render a single frame of the scene *MotionBlur-DragonFlying.max*.
 
