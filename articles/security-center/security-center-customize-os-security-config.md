@@ -29,7 +29,7 @@ Azure Security Center monitors security configurations by applying a set of over
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
 > [!NOTE]
-> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008R2, 2012, and 2012R2 operating systems only.
+> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, and 2012 R2 operating systems only.
 > - The configuration applies to all VMs and computers that are connected to all workspaces under the selected subscription.
 > - OS security configuration customization is available only on the Security Center standard tier.
 >
