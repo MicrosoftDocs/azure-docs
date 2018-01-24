@@ -160,6 +160,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ### DeploySqlProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
+
 | Parameter name | Description | Comment or default value |
 | --- | --- | --- |
 
@@ -323,6 +324,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ### UpdateMySQLProvider.ps1 parameters
 You can specify these parameters in the command line. If you don't, or if any parameter validation fails, you are prompted to provide the required parameters.
+
 | Parameter Name | Description | Comment or default value |
 | --- | --- | --- |
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
