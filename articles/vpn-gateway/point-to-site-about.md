@@ -67,6 +67,8 @@ Users use the native VPN clients on Windows and Mac devices for P2S. Azure provi
 
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
+For Windows clients, you must have administrator priveliges on the client device in order to initiate the VPN connection from the client device to Azure.
+
 ### <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
