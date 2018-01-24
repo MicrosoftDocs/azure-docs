@@ -153,11 +153,11 @@ Enterprise cost views are currently in Public Preview. Items to note:
 - Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
 - Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal.  
 - If you are not seeing costs, it might be due to one of the following reasons:
+    - You don't have enough RBAC permission at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
     - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-    - You don't have enough RBAC permission at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
 - Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
 
 ### Check your subscription and access
