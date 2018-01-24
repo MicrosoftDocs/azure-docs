@@ -1,7 +1,4 @@
-# [Azure Marketplace publisher guide](marketplace-seller-guide.md)
-    ---
-    redirect_url: marketplace-publishers-guide
-    ---
+# [Azure Marketplace publisher guide](marketplace-publishers-guide.md)
 # [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
