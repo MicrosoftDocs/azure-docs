@@ -1,5 +1,5 @@
 ---
-title: How caching works in the Azure Content Delivery Network | Microsoft Docs
+title: How caching works | Microsoft Docs
 description: 'Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.'
 services: cdn
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: v-deasim
 ---
 # How caching works
 
-This article provides an overview of general caching concepts and how the [Azure Content Delivery Network (CDN)](cdn-overview.md) uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
+This article provides an overview of general caching concepts and how [Azure Content Delivery Network (CDN)](cdn-overview.md) uses caching to improve performance. If you’d like to learn about how to customize caching behavior on your CDN endpoint, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
 
 ## Introduction to caching
 
@@ -60,11 +60,12 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 
 ## Cache-directive headers
 
-> [!IMPORTANT] By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. You can adjust how an Azure CDN endpoint treats these headers by using CDN caching rules to enable caching. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
+> [!IMPORTANT]
+> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. You can adjust how an Azure CDN endpoint treats these headers by using CDN caching rules to enable caching. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing: 
 
-`Cache-Control`:
+`Cache-Control`
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
 - When used in a request header, `Cache-Control` is ignored by Azure CDN, by default.
@@ -75,13 +76,13 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
       - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
       - `no-store`: Never cache the content. Remove content if it has been previously stored.
 
-`Expires`:
+`Expires`
 - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
 - Uses a date-based expiration time with second precision. 
 - Similar to `Cache-Control: max-age`.
 - Used when `Cache-Control` doesn't exist.
 
-`Pragma`:
+`Pragma`
    - Not honored by Azure CDN, by default.
    - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
    - Used as a client request header with the following directive: `no-cache`. This directive instructs the server to deliver a fresh version of the resource.
