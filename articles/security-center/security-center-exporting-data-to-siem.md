@@ -44,7 +44,7 @@ Before you begin, you need to [create an Event Hubs namespace and event hub](htt
 
 ### Stream the Azure Activity Log to Event Hubs
 
-Please refer to the following article [stream activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md#stream-azure-activity-log-data-into-an-event-hub)
+Please refer to the following article [stream activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
 ### Install a partner SIEM connector 
 
