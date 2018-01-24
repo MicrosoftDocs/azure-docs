@@ -19,7 +19,7 @@ Managed Disks will allow you to create up to 10,000 VM **disks** in a subscripti
 Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
 
 ### Highly durable and available
-
+i
 Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
 
 ### Granular access control
@@ -55,14 +55,14 @@ Here are the disk sizes available for a premium managed disk:
 
 | **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GB (1 TiB) | 2048 GB (2 TiB) | 4095 GB (4 TiB) | 
 
 
 Here are the disk sizes available for a standard managed disk:
 
 | **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Size        | 32 GiB   | 64 GiB   | 128 GiB | 512 GB | 1024 GiB (1 TB) | 2048 GiB (2 TB) | 4095 GB (4 TiB) | 
 
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
