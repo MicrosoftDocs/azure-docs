@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - use PowerShell to create Service Bus entities and the .NET Standard client to send and receive messages from Azure Service Bus | Microsoft Docs
-description: Quickly learn to send and receive Service Bus messages using PowerShell and the .NET client
+title: Send and receive messages to and from Azure Service Bus | Microsoft Docs
+description: Learn to send and receive Service Bus messages using PowerShell and the .NET client
 services: service-bus-messaging
 documentationcenter: ''
 author: ChristianWolf42
@@ -17,11 +17,11 @@ ms.date: 01/23/2018
 ms.author: chwolf
 
 ---
-# Send and receive messages to a Queue using PowerShell and the .NET Standard client
+# Send and receive messages to a queue using PowerShell and the .NET Standard client
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. A basic example could be scheduling multiple batch jobs in another application or services or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. For this, they would, for example, send and receive messages from a Service Bus Queue.
 
-<p align="center"><img src="./media/service-bus-quickstart-powershell/quick-start-queue.png"></p>
+![Queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
 ## What is being accomplished
 This QuickStart describes how to send and receive messages to a Service Bus Queue using PowerShell to create a messaging namespace and a queue within that namespace and obtain the authorization credentials on that namespace. Then the .Net Standard client is used to send and receive messages from this Queue.
@@ -67,7 +67,7 @@ To execute the code, do the following steps:
 1.	Navigate to [this GitHub repository](https://github.com/Azure/azure-service-bus), and [clone](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?tabs=visual-studio) it.
 2.	Go to the repository on your computer and navigate to the following folder: \samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient. This is assuming you are in the root folder of the repository. Your full path could, for example be:
 C:\repos\azure-service-bus\samples\DotNet\GettingStarted\Microsoft.Azure.ServiceBus\BasicSendReceiveUsingQueueClient.
-3.	**BasicSendReceiveUsingQueueClient.csproj** file in Visual Studio.
+3.	Open the **BasicSendReceiveUsingQueueClient.csproj** file in Visual Studio.
 4.	Double-click **Program.cs** to open it in the Visual Studio editor.
 5.	Replace the value of the ServiceBusConnectionString constant with the full connection string you obtained in the previous section.
 6.	Replace the value of QueueName with the name of the queue you created previously.

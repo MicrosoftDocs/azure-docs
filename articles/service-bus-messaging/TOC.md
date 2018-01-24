@@ -7,7 +7,6 @@
 ## [Use Azure CLI](service-bus-quickstart-cli.md)
 
 # Tutorials
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Samples
 ## [Service Bus samples](service-bus-samples.md)
@@ -72,6 +71,7 @@
 #### [Transaction processing](service-bus-transactions.md)
 #### [Paired namespace implementation](service-bus-paired-namespaces.md)
 ### [End-to-end tracing and diagnostics](service-bus-end-to-end-tracing.md)
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## Manage
 ### [Use Azure PowerShell to provision entities](service-bus-manage-with-ps.md)
 ### [Monitor Service Bus with Azure Monitoring](service-bus-metrics-azure-monitor.md)
