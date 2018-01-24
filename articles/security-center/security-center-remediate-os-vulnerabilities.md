@@ -48,7 +48,7 @@ This example covers the "Remediate security configurations" recommendation under
   - **CCEID**: The CCE unique identifier for the rule. Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers to configuration rules.
   - **Name**: The name of the failed rule.
   - **Rule type**: The *Registry key*, *Security policy*, or *Audit policy* rule type.
-  - **No. of VMs & computers**: The total number of VMs and computers that the fail ruled applies to.
+  - **No. of VMs & computers**: The total number of VMs and computers that the failed rule applies to.
   - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
   - **State**: The current state of the recommendation:
 
@@ -65,7 +65,7 @@ This example covers the "Remediate security configurations" recommendation under
    - **Name**: The name of the rule.
    - **CCIED**: The CCE unique identifier for the rule.
    - **OS version**: The OS version of the VM or computer.
-   - **Rule severity**: The CCE value *Critical, *Important*, or *Warning*.
+   - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
    - **Full description**: The description of the rule.
    - **Vulnerability**: The explanation of vulnerability or risk if the rule is not applied.
    - **Potential impact**: The business impact when the rule is applied.
