@@ -196,8 +196,9 @@ You can work around these limitations by making an HTTP trigger do the work of a
 * [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
 * [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
 * [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
-* [Manually post the request](#manually-post-the-request) to the URL of your HTTP trigger function after running the function locally.
-* [Deploy to Azure](#deploy-to-azure) when local testing is done.
+* [Manually post the request](#manually-post-the-request) to the localhost URL of your HTTP trigger function.
+
+When local testing is complete, delete the subscription you created for it.
 
 ### Create an HTTP trigger function
 
@@ -305,12 +306,6 @@ The following screenshot shows the localhost URL and request body in Postman:
 ![Endpoint and request body in Postman](media/functions-bindings-event-grid/postman.png)
 
 Now the event handling code in the HTTP function processes the same data that it gets when it runs in Azure.
-
-### Deploy to Azure
-
-When local testing is complete, delete your subscription to RequestBin.
-  
-To test in Azure or process production data, deploy your Event Grid trigger function to Azure and create a subscription for it.
 
 ## Next steps
 
