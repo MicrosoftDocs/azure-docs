@@ -369,17 +369,20 @@ To add another container service to an application already created using yeoman,
 
 You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
 
-```xml
+
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
 	      ...
-          }
         ]
 }
 ```
+
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
 ## Configure the runtime to remove unused container images
@@ -387,14 +390,19 @@ The default time interval is set to 10 seconds. Since this configuration is dyna
 You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-	        "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
-	      ...
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
+          ...
           }
         ]
 } 

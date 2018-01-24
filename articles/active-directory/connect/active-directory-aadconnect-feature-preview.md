@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Features in preview | Microsoft Docs'
 description: This topic describes in more detail features which are in preview in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

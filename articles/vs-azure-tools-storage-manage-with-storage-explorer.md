@@ -240,7 +240,7 @@ As you type in the search box, the left pane displays the storage accounts that 
 
 ## Next steps
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
-* [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

@@ -39,10 +39,18 @@
     - name: Create non-interactive authentication .NET HDInsight applications
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
+    - name: Apache Phoenix in HDInsight
+      href: ../hdinsight-phoenix-in-hdinsight.md
+      maintainContext: true
     - name: Use Phoenix and SQLLine
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Use the Phoenix Query Server REST SDK
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+  - name: Analyze big data
+    items:
+      - name: Use Spark to read and write HBase data
+        href: ../hdinsight-using-spark-query-hbase.md
+        maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
