@@ -135,6 +135,29 @@ The MFA configuration is located at: **Azure Active Directory \> MFA Server**
  
 ---
  
+### Deprecate Azure AD reports
+
+
+**Type:** Plan for change  
+**Service category:** Reporting  
+**Product capability:** Identity Lifecycle Management  
+
+
+With the general availability of the new Azure Active Directory Administration console and new APIs now available for both activity and security reports, the report APIs under "/reports" endpoint have been retired as of end of December 31, 2017.
+
+
+**What's available?**
+
+As part of the transition to the new admin console, we have made 2 new APIs available for retrieving Azure AD Activity Logs. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
+
+For more information, see:
+
+- [Get started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## December 2017
