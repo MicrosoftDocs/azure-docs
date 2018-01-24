@@ -22,21 +22,21 @@ ms.author: barclayn
 
 This document details the procedure to export Azure Security Center security data to a SIEM.
 
-The data pipe described below takes security-reported information from Azure Monitoring [activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) and streams it via an EventHub where it can be pulled into a partner tool.
+The data pipe described below takes security-reported information from Azure Monitoring [activity log](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) and streams it via an EventHub. From the EventHub it can then be pulled into a partner tool.
 
-This pipe uses the [Azure Monitoring single pipeline](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs) for getting access to all of the monitoring data from your Azure environment, enabling you to easily set up partner SIEM and monitoring tools to consume that data.
+This pipe uses the [Azure Monitoring single pipeline](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs) for getting access to the monitoring data from your Azure environment. This enables you to easily set up SIEMs and monitoring tools to consume the data.
 
 The next sections describe how you can configure data to be streamed to an event hub. The steps assume that you already have assets at that tier to be monitored.
 
-High level overview
+High-level overview
 
-![High Level overview](media/security-center-exporting-data-to-siem/overview.png)
+![High-Level overview](media/security-center-exporting-data-to-siem/overview.png)
 
 ## What is the Azure security data exposed to SIEM?
 
-In this preview version we expose the [security alerts.](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts) In upcoming releases, we will enrich the data set with security recommendations.
+In this preview version we expose the [security alerts.](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts) In upcoming releases, we enrich the data set with security recommendations.
 
-## How to setup the pipeline? 
+## How to set up the pipeline? 
 
 ### Create an event hub 
 
@@ -50,11 +50,11 @@ Please refer to the following article [stream activity log to Event Hubs](../mon
 
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-Please refer to the following link to see the list of [supported SIEMs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs)
+Refer to the following link to see the list of [supported SIEMs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs)
 
 ## Example for Querying data 
 
-Here are a couple of Splunk queries that you can use to pull alert data:
+Here is a couple of Splunk queries that you can use to pull alert data:
 
 | **Description of Query**                                | **Query**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
