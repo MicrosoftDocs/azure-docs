@@ -25,6 +25,8 @@ Import and export operations take place in the context of *Jobs* that enable you
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
+This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub’s identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation][lnk-dps].
+
 ## What are jobs?
 
 Identity registry operations use the **Job** system when the operation:
@@ -404,8 +406,14 @@ To further explore the capabilities of IoT Hub, see:
 * [IoT Hub developer guide][lnk-devguide]
 * [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
+To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
+
+* [Azure IoT Hub Device Provisioning Service][lnk-dps]
+
+
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

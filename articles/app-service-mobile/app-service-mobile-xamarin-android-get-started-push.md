@@ -3,8 +3,8 @@ title: Add push notifications to your Xamarin.Android app | Microsoft Docs
 description: Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app
 services: app-service\mobile
 documentationcenter: xamarin
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
+ms.author: crdun
 
 ---
 # Add push notifications to your Xamarin.Android app

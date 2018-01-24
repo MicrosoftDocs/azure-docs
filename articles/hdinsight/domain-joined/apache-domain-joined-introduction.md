@@ -29,6 +29,8 @@ Azure HDInsight until today supported only a single user local admin. This worke
 > [!IMPORTANT]
 > Oozie is not enabled on domain-joined HDInsight.
 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+
 ## Benefits
 Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.
 

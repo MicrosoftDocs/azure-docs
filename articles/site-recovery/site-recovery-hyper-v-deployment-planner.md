@@ -25,7 +25,7 @@ Before you begin protecting any Hyper-V virtual machines (VMs) using Site Recove
 
 You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Azure Site Recovery limits. 
 
-The Azure Site Recovery deployment planner (version 2) is a command-line tool available for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Azure Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
+The Azure Site Recovery deployment planner is a command-line tool for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Azure Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
 
 The tool provides the following details:
 
@@ -37,6 +37,9 @@ The tool provides the following details:
 
 * The estimated network bandwidth that's required for delta replication
 * The throughput that Azure Site Recovery can get from on-premises to Azure
+* RPO that can be achieved for a given bandwidth
+* Impact on the desired RPO if lower bandwidth is provisioned.
+
     
 **Azure infrastructure requirements**
 
@@ -49,6 +52,7 @@ The tool provides the following details:
 
 **On-premises infrastructure requirements**
 * The required free storage space on each volume of Hyper-V storage for successful initial replication and delta replication to ensure that VM replication will not cause any undesirable downtime for your production applications
+* Maximum copy frequency to be set for Hyper-V replication
 
 **Initial replication batching guidance** 
 * Number of VM batches to be used for protection
@@ -114,9 +118,9 @@ The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 3.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.0.zip
+Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
@@ -129,6 +133,11 @@ If you have previous version of the deployment planner, do either of the followi
   >When you start profiling with the new version, pass the same output directory path so that the tool appends profile data on the existing files. A complete set of profiled data will be used to generate the report. If you pass a different output directory, new files are created, and old profiled data is not used to generate the report.
   >
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
+
+## Version history
+The latest ASR Deployment Planner tool version is 2.1.
+Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+
 
 ## Next steps
 * [Run the deployment planner](site-recovery-hyper-v-deployment-planner-run.md).

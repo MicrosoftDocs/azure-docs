@@ -33,5 +33,5 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 ## Next steps after buying a reservation
 The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
-To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861613).
+To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 

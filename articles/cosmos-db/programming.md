@@ -53,7 +53,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
   * It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
   * This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of database triggers, stored procedure and custom query operators is supported through the [Azure portal](https://portal.azure.com), the [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [Azure portal](https://portal.azure.com), the [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](sql-api-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
 
 This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
@@ -651,7 +651,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
 ## Client SDK support
-In addition to the Azure Cosmos DB [Node.js](documentdb-sdk-node.md) API, Azure Cosmos DB has [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](documentdb-sdk-python.md) for the SQL API as well. Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB has [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/), and [Python SDKs](sql-api-sdk-python.md) for the SQL API as well. Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -705,7 +705,7 @@ This sample shows how to use the [SQL .NET API](/dotnet/api/overview/azure/cosmo
         });
 
 
-And the following example shows how to create a user defined function (UDF) and use it in a [SQL query](documentdb-sql-query.md).
+And the following example shows how to create a user defined function (UDF) and use it in a [SQL query](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -802,7 +802,7 @@ Once you have one or more stored procedures, triggers, and user-defined function
 
 You may also find the following references and resources useful in your path to learn more about Azure Cosmos dB server-side programming:
 
-* [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

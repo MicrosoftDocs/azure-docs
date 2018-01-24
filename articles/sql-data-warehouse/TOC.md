@@ -1,6 +1,7 @@
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Cheat sheet](cheat-sheet.md)
 
 # Quickstarts
 
@@ -26,14 +27,13 @@
 
 ## Migrate to SQL Data Warehouse
 ### [Overview](sql-data-warehouse-overview-migrate.md)
-### [Migration Utility](sql-data-warehouse-migrate-migration-utility.md)
 ### [Migrate schema](sql-data-warehouse-migrate-schema.md)
 ### [Migrate code](sql-data-warehouse-migrate-code.md)
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 
 ## Load & move data
-### [Overview](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Overview](design-elt-data-loading.md)
+### [Best practices](guidance-for-loading-data.md)
 
 
 ## Integrate
@@ -90,12 +90,11 @@
 
 
 ## Load & move data
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

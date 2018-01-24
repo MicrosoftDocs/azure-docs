@@ -6,7 +6,7 @@ author: rgardler
 manager: timlt
 
 ms.service: container-service
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc

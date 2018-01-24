@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 ---
 
 # Create your first C# Service Fabric stateful reliable services application
 
-Learn how to deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you'll have a local cluster running with a reliable service application.
+Learn how to deploy your first Service Fabric application for .NET on Windows in just a few minutes. When you're finished, you have a local cluster running with a reliable service application.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ Once the application starts, Visual Studio automatically brings up the **Diagnos
    
 ![Diagnostic events viewer][5]
 
-The stateful service template we used simply shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
+The stateful service template used shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
 
 Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_0, though it may differ on your machine.
    

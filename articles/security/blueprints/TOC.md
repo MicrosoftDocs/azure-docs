@@ -18,7 +18,8 @@
 ### [Governance in Azure](../governance-in-azure.md)
 ### [Data encryption at rest](../azure-security-encryption-atrest.md)
 ### Architecture Blueprints
-#### [Compliance - PCI DSS](payment-processing-blueprint.md)
+#### Compliance - PCI DSS
+##### [Payment Processing for PCI DSS-compliant environments](payment-processing-blueprint.md)
 ##### [Requirements overview](pci-dss-requirements-overview.md)
 ##### [Requirement 1 - firewalls](pci-dss-requirement-1-firewall.md)
 ##### [Requirement 2 - passwords](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requirement 10 - monitoring](pci-dss-requirement-10-monitoring.md)
 ##### [Requirement 11 - testing](pci-dss-requirement-11-testing.md)
 ##### [Requirement 12 - policy](pci-dss-requirement-12-policy.md)
-#### [Compliance - FedRAMP ](fedramp.md)
+#### Compliance - FedRAMP
+##### [Web Applications for FedRAMP](fedramp.md)
 ##### [Security controls overview](fedramp-controls-overview.md)
 ##### [Access control](fedramp-access-controls.md)
 ##### [Audit and accountability](fedramp-audit-accountability-controls.md)
@@ -51,9 +53,12 @@
 ##### [System and communications protection](fedramp-system-communications-protection-controls.md)
 ##### [System and information integrity](fedramp-system-information-integrity-controls.md)
 ##### [System and services acquisition](fedramp-system-services-acquisition-controls.md)
-#### [Compliance - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Compliance - UK-OFFICIAL
+##### [Three-Tier Web Applications for UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Overview](uk-official-three-tier-applications-overview.md)
 ##### [Principles overview](uk-official-three-tier-applications-principles-overview.md)
+#### Compliance - Financial Services
+##### [Financial Services for Regulated Workloads](financial-services-regulated-workloads.md)
 
 # Get Started
 ## [Getting started with Azure security](../azure-security-getting-started.md)

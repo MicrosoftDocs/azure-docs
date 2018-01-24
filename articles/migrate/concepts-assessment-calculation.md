@@ -44,10 +44,10 @@ Machines that you want to migrate to Azure must meet Azure requirements and limi
 After a machine is marked as suitable for Azure, Azure Migrate maps it to a VM size in Azure, using the following criteria:
 
 - **Storage check**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure:
-       - Azure Migrate multiplies the I/O per second (IOPS) by the comfort factor. It also multiples the throughput ( in MBps) of each disk by the comfort factor. This provides the effective disk IOPS and throughput. Based on this, Azure Migrate maps the disk to a standard or premium disk in Azure.
-    - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
-    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
-    - If there are multiple eligible disks, it selects the one with the lowest cost.
+    - Azure Migrate multiplies the I/O per second (IOPS) by the comfort factor. It also multiples the throughput ( in MBps) of each disk by the comfort factor. This provides the effective disk IOPS and throughput. Based on this, Azure Migrate maps the disk to a standard or premium disk in Azure.
+      - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
+      - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
+      - If there are multiple eligible disks, it selects the one with the lowest cost.
 - **Storage disk throughput**: [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
 - **Disk type**: Azure Migrate supports managed disks only.
 - **Network check**: Azure Migrate tries to find an Azure VM that can support the number of NICs on the on-premises machine.

@@ -4,8 +4,10 @@ description: This scenario shows how to do distributed tuning of hyperparameters
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ---
@@ -22,7 +24,7 @@ Following is the link to the public GitHub repository:
 ## Use case overview
 
 Many machine learning algorithms have one or more knobs, called hyperparameters. These knobs allow tuning of algorithms to optimize their performance over future data, measured according to user-specified metrics (for example, accuracy, AUC, RMSE). Data scientist needs to provide values of hyperparameters when building a model over training data and before seeing the future test data. How based on the known training data can we set up the values of hyperparameters so that the model has a good performance over the unknown test data? 
-
+    
 A popular technique for tuning hyperparameters is a *grid search* combined with *cross-validation*. Cross-validation is a technique that assesses how well a model, trained on a training set, predicts over the test set. Using this technique, we first divide the dataset into K folds and then train the algorithm K times in a round-robin fashion. We do this on all but one of the folds called the "held-out fold". We compute the average value of the metrics of K models over K held-out folds. This average value, called *cross-validated performance estimate*, depends on the values of hyperparameters used when creating K models. When tuning hyperparameters, we search through the space of candidate hyperparameter values to find the ones that optimize cross-validation performance estimate. Grid search is a common search technique. In grid search, the space of candidate values of multiple hyperparameters is a cross-product of sets of candidate values of individual hyperparameters. 
 
 Grid search using cross-validation can be time-consuming. If an algorithm has five hyperparameters each with five candidate values, we use K=5 folds. We then complete a grid search by training 5<sup>6</sup>=15625 models. Fortunately, grid-search using cross-validation is an embarrassingly parallel procedure and all these models can be trained in parallel.
@@ -33,14 +35,15 @@ Grid search using cross-validation can be time-consuming. If an algorithm has fi
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [Install and create Quickstart](./quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
 * To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
-* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least 
-- six worker nodes
-- eight cores
-- 28 Gb of memory 
-in both header and worker nodes. D4 instances of virtual machines have such capacity. We recommend changing the following parameters to maximize performance of the cluster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+We recommend having a cluster with at least:
+    - six worker nodes
+    - eight cores
+    - 28 Gb of memory in both header and worker nodes. D4 instances of virtual machines have such capacity.       
+    - We recommend changing the following parameters to maximize performance of the cluster:
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
 You can follow these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) and edit the definitions in "custom spark defaults" section.
 

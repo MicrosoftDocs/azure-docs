@@ -3,7 +3,7 @@ title: Onboarding machines for management by Azure Automation DSC | Microsoft Do
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 
 ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
-ms.author: eslesar
+ms.author: gwallace
 
 ---
 # Onboarding machines for management by Azure Automation DSC
@@ -33,7 +33,7 @@ Azure Automation DSC can be used to manage a variety of machines:
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
 > [!NOTE]
-> Managing Azure VMs with DSC is included at no extra charge if the virtual machine DSC extension installed is greater than 2.7.  Please refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
+> Managing Azure VMs with DSC is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. Please refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
 
 
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.

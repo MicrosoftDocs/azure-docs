@@ -92,6 +92,8 @@
       href: deployment-setup-configuration.md
     - name: Scale clusters and services
       href: how-to-scale-clusters.md
+    - name: Set up SSL on an MLC cluster
+      href: how-to-setup-ssl-on-mlc.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Deploy to an IoT Edge device 
@@ -180,6 +182,10 @@
       href: release-notes-sprint-1.md
     - name: Sprint 2 - December 2017
       href: release-notes-sprint-2.md
+    - name: Sprint 2 QFE - December 2017
+      href: release-notes-sprint-2.1.md
+    - name: Sprint 3 - January 2018
+      href: release-notes-sprint-3.md
 - name: Resources
   items:  
   - name: Frequently asked questions

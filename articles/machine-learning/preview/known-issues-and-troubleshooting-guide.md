@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017 
+ms.date: 01/12/2018 
 ---
 
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
@@ -25,7 +25,7 @@ The forum URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum).
 ## Gather diagnostics information
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:
 
-### Installer
+### Installer log
 If you run into issue during installation, the installer log files are here:
 
 ```
@@ -37,18 +37,7 @@ If you run into issue during installation, the installer log files are here:
 ```
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### App Update 
-#### No update notification on Windows desktop 
-This issue will be addressed in an upcoming update. In the meantime, the workaround is to avoid launching the app from the shortcut pinned to the Taskbar. Instead to launch the app by using the Start menu or Start search-bar, or the shortcut on your desktop (if you have one). 
-
-#### No update notification on an Ubuntu Data Sciece Virtual Machine (DSVM)
-Perform the following steps to download the latest application :   
-   - remove the folder \Users\AppData\Local\amlworkbench
-   - remove script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - remove desktop shortcut that launches the above script
-   - install cleanly using [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### Workbench desktop app
+### Workbench desktop app log
 If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
 ```
 # Windows
@@ -59,7 +48,7 @@ If you have trouble logging in, or if the Workbench desktop crashes, you can fin
 ``` 
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### Experiment execution
+### Experiment execution log
 If a particular script fails during submission from the desktop app, try to resubmit it through CLI using `az ml experiment submit` command. This should give you full error message in JSON format, and most importantly it contains an **operation ID** value. Send us the JSON file including the **operation ID** and we can help diagnose. 
 
 If a particular script succeeds in submission but fails in execution, it should print out the **Run ID** to identify that particular run. You can package up the relevant log files using the following command:
@@ -93,6 +82,8 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
+- Jupyter Notebooks have a max size limit of 5 MB when opening them from the Workbench app. You can open large notebooks from CLI using 'az ml notebook start' command, and clean cell outputs to reduce the file size.
+
 ## Can't update Workbench
 When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
 
@@ -110,7 +101,7 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
    - remove desktop shortcut that launches the above script
    - download the installer https://aka.ms/azureml-wb-msi and reinstall.
 
-## Get stuck at "Checking experimentation account" screen after logging in
+## Stuck at "Checking experimentation account" screen after logging in
 After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
 1. Shutdown the app
 2. Delete the following file:
@@ -124,7 +115,7 @@ After logging in, the Workbench app might get stuck on a blank screen with a mes
 3. Restart the app.
 
 ## Can't delete Experimentation Account
-You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see the error "Can not delete resource before nested resources are deleted."
 
 ```azure-cli
 # delete a project
@@ -144,6 +135,15 @@ If you have Windows 10 Fall Creators Update, and your project is created in a lo
 
 ## File name too long on Windows
 If you use Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
+
+## Interrupt CLI execution output
+If you kick off an experimentation run using `az ml experiment submit` or `az ml notebook start` and you'd like to interrupt the output: 
+- On Windows use Ctrl-Break key combination from the keyboard
+- On macOS, use Ctrl-C.
+
+Please note that this only interrupts the output stream in the CLI window. It does not actually stop a job that's being executed. If you want to cancel an ongoing job, use `az ml experiment cancel -r <run_id> -t <target name>` command.
+
+On Windows computers with keyboards that do not have Break key, possible alternatives include Fn-B, Ctrl-Fn-B or Fn+Esc. Consult your hardware vendor's documentation for a specific key combination.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
@@ -197,7 +197,18 @@ $ docker system prune -a
 
 You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## Sharing C drive on Windows
 If you are executing in a local Docker container on Windows, setting `sharedVolumes` to `true` in the `docker.compute` file under `aml_config` can improve execution performance. However, this requires you share C drive in the _Docker for Windows Tool_. If you are not able to share C drive, try the following tips:
@@ -210,6 +221,18 @@ If you are executing in a local Docker container on Windows, setting `sharedVolu
 * When sharing C drive using domain credentials, the sharing might stop working on networks where the domain controller is not reachable (for example, home network, public wifi etc.). For more information, see [this post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 You can also avoid the sharing problem, at a small performance cost, by setting `sharedVolumne` to `false` in the `docker.compute` file.
+
+## Wipe clean Workbench installation
+You generally don't need to do this. But in case you must wipe clean an installation, here are the steps:
+
+- On Windows:
+  - First make sure you use _Add or Remove Programs_ applet in the _Control Panel_ to remove the _Azure Machine Learning Workbench_ application entry.  
+  - Then you can download and run either one of the following scripts:
+    - [Windows command line script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (You may need to run `Set-ExecutionPolicy Unrestricted` in a privilege-elevated PowerShell window before you can run the script.)
+- On macOS:
+  - Just download and run the [macOS bash shell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## Some useful Docker commands
 

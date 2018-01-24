@@ -39,9 +39,6 @@ When accessing entities in Media Services, you must set specific header fields a
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-
 ## Adding entities
 Every entity in Media Services is added to an entity set, such as Assets, through a POST HTTP request.
 

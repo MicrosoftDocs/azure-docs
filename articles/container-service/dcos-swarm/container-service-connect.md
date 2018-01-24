@@ -6,7 +6,7 @@ author: dlepow
 manager: timlt
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017

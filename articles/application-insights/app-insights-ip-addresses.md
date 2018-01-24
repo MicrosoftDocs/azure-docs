@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/13/2017
 ms.author: mbullwin
 
 ---
@@ -73,6 +73,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -80,6 +84,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153
@@ -124,6 +132,7 @@ SE : Stockholm
 94.245.78.41
 94.245.78.42
 94.245.78.45
+GB : United Kingdom
 51.141.25.219
 51.141.32.101
 51.141.35.167
@@ -251,7 +260,7 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dynamic | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443
 
@@ -259,6 +268,6 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dynamic | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
 | Storage | *.core.windows.net | dynamic | 443

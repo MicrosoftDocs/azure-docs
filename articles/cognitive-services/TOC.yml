@@ -52,7 +52,7 @@
     href: KES/Overview.md
   - name: Linguistic Analysis
     href: LinguisticAnalysisAPI/Home.md
-  - name: Language Understanding Intelligent Services
+  - name: Language Understanding (LUIS)
     href: LUIS/index.yml
   - name: QnAMaker
     href: QnAMaker/Home.md

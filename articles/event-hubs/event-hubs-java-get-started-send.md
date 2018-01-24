@@ -84,6 +84,9 @@ Then, create a singular event by transforming a string into its UTF-8 byte encod
 
     EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
     ehClient.sendSync(sendEvent);
+    
+    // close the client at the end of your program
+    ehClient.closeSync();
     }
 }
 
