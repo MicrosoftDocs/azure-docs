@@ -1,3 +1,5 @@
+- name: Azure Search Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Search
