@@ -131,7 +131,7 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 
 >[!NOTE]
 
-> For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) for Action Groups.
+> For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
 
 
 ## Create ITSM work items from Log Analytics alerts
