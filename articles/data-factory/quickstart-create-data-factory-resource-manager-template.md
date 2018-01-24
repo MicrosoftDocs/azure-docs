@@ -57,7 +57,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 			"allowedValues": [
 				"East US",
 				"East US 2",
-                "West Europe"
+				"West Europe"
 			],
 			"defaultValue": "East US",
 			"metadata": {
