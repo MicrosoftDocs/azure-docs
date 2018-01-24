@@ -16,7 +16,7 @@ ms.author: mbullwin; daviste
 
 # Analyze user navigation patterns with User Flows in Application Insights
 
-![Application Insights User Flows tool](./media/app-insights-usage-flows/001-flows.png)
+![Application Insights User Flows tool](./media/app-insights-usage-flows/0001-flows.png)
 
 The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
 
@@ -34,7 +34,7 @@ The User Flows tool starts from an initial page view, custom event, or exception
 
 ## Start by choosing an initial event
 
-![Choose an initial event for User Flows](./media/app-insights-usage-flows/002-flows-initial-event.png)
+![Choose an initial event for User Flows](./media/app-insights-usage-flows/0002-flows-initial-event.png)
 
 To begin answering questions with the User Flows tool, choose an initial page view, custom event, or exception to serve as the starting point for the visualization:
 
@@ -59,7 +59,7 @@ If you want to see more steps in the visualization, use the **Previous steps** a
 
 ## After visiting a page or feature, where do users go and what do they click?
 
-![Use User Flows to understand where users click](./media/app-insights-usage-flows/003-flows-one-step.png)
+![Use User Flows to understand where users click](./media/app-insights-usage-flows/0003-flows-one-step.png)
 
 If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the User Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 
@@ -75,7 +75,7 @@ Keep in mind that **Session Ended** nodes are based only on telemetry collected 
 
 Look for a page view or custom event that is repeated by many users across subsequent steps in the visualization. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
-## Common Questions
+## Common questions
 
 ### Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 
