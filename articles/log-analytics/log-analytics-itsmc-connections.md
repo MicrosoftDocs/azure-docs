@@ -50,7 +50,7 @@ Use the following procedure to connect your System Center Service Manager instan
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
 
-![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
