@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
 
 ---
@@ -21,7 +21,9 @@ ms.author: xujing
 For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> This article shows you to implement the licensing benefit for Windows 10 Desktop images. You can refer to the following for [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
+> This article shows you to implement the licensing benefit for Windows 10 Pro Desktop images on Azure Marketplace.
+> - For Windows 7, 8.1, 10 Enterprise (x64) images on Azure Marketplace for MSDN Subscriptions, please refer to [Windows client in Azure for dev/test scenarios](client-images.md)
+> - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
 >
 
 ## Deploying Windows 10 Image from Azure Marketplace 
