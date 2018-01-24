@@ -16,7 +16,9 @@
 ## [Parallel R simulation](tutorial-r-doazureparallel.md)
 
 # Samples
-## [Code samples](https://azure.microsoft.com/resources/samples/?service=batch)
+## Code samples
+### [Azure code samples](https://azure.microsoft.com/resources/samples/?service=batch)
+### [Batch samples repo](https://github.com/Azure/azure-batch-samples)
 ## [Azure CLI](cli-samples.md)
 
 # Concepts
@@ -99,7 +101,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Batch forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Batch and HPC code samples](https://github.com/Azure/azure-batch-samples)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [HPC solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
