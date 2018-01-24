@@ -20,7 +20,7 @@ ms.custom: it-pro
 This article tells you how to enable LinkedIn integration for your users in Azure Active Directory (Azure AD). When LinkedIn integration is enabled, users can access public LinkedIn data within some of their Microsoft apps. Each user can independently choose to connect their work or school account to their LinkedIn account.
 
 > [!IMPORTANT]
-> LinkedIn integration is not deployed to all Azure AD tenants at the same time. After it is rolled out to your Azure tenant, LinkedIn integration is enabled by default. LinkedIn integration is not available for go-local, sovereign, and government tenants. 
+> LinkedIn integration is not being deployed to all Azure AD tenants at the same time. After it is rolled out to your Azure tenant, LinkedIn integration is enabled by default. LinkedIn integration is not available for go-local, sovereign, and government tenants. 
 
 ## LinkedIn integration from the user perspective
 When users in your organization connect their LinkedIn account to their work or school account, [they allow LinkedIn to provide data](https://www.linkedin.com/help/linkedin/answer/84077) to be used in Microsoft apps and services that your organization provides. [Users can disconnect accounts](https://www.linkedin.com/help/linkedin/answer/85097), which removes permission for LinkedIn to share data with Microsoft. LinkedIn integration uses publicly available LinkedIn profile information. [Users can control how their own LinkedIn profile is viewed](https://www.linkedin.com/help/linkedin/answer/83) using LinkedIn privacy settings, including whether their profile can be viewed in Microsoft apps.
