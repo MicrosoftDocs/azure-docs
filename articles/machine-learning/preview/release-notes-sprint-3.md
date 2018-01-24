@@ -21,9 +21,7 @@ ms.date: 01/22/2018
 Welcome to the fourth update of Azure Machine Learning Workbench. The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
 ## Notable New Features and Changes
-- Support for running scripts on remote Ubuntu VMs natively on your own environment in addition to remote-docker based execution
 - Updates to the authentication stack forces login and account selection at startup
-- [Support for Azrue SQL Data warehouse as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ## Detailed Updates
 Following is a list of detailed updates in each component area of Azure Machine Learning in this sprint.
@@ -31,6 +29,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 ### Workbench
 - Ability to install/uninstall the app from Add/Remove Programs
 - Updates to the authentication stack forces login and account selection at start-up
+- Improved Single Sign On (SSO) experience on Windows
 
 #### UI
 - General improvements and bug fixes

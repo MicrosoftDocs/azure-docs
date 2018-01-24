@@ -136,11 +136,11 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in an web app with built-in image.
+The .NET Core sample code is running in an web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service on Linux.
+**Congratulations!** You've deployed your first .NET Core app to App Service on Linux.
 
 ## Update and redeploy the code
 
