@@ -38,7 +38,7 @@ az container create \
     --image mycontainerregistry.azurecr.io/myimage:v1 \
     --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
-    --registry-password  <service-principal-password>
+    --registry-password <service-principal-password>
 ```
 
 ## Next steps
