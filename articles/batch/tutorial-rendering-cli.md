@@ -31,22 +31,20 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
-
 
 ## Create a Batch account
 
 If you haven't already, create a resource group, a Batch account, and a linked storage account in your subscription. 
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *eastus2* location.
 
 ```azurecli-interactive 
 az group create \
     --name myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
 Create a general-purpose storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
@@ -55,7 +53,7 @@ Create a general-purpose storage account in your resource group with the [az sto
 az storage account create \
     --resource-group myResourceGroup \
     --name mystorageaccount \
-    --location eastus \
+    --location eastus2 \
     --sku Standard_LRS
 ```
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. The following example creates a Batch account named *mybatchaccount* in *myResourceGroup*, and links the storage account you created.  
@@ -65,7 +63,7 @@ az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
     --resource-group myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
 To create and manage compute pools and jobs, you need to authenticate with Batch. Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. After you log in, your `az batch` commands use this account context. The following example uses shared key authentication, based on the Batch account name and key. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users or an unattended application.

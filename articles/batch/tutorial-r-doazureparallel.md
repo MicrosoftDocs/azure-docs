@@ -26,7 +26,6 @@ This tutorial shows you how to deploy a Batch pool and run a parallel R job in A
 > * Create a Batch pool as a parallel backend for your R session
 > * Run a sample parallel simulation on the pool
 
-
 ## Prerequisites
 
 * An installed [R](https://www.r-project.org/) distribution, such as [Microsoft R Open](https://mran.microsoft.com/open). Use R version 3.3.1 or later.
@@ -40,7 +39,6 @@ This tutorial shows you how to deploy a Batch pool and run a parallel R job in A
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
-
 ## Install doAzureParallel
 
 In the RStudio console, install the [doAzureParallel Github package](http://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
@@ -130,8 +128,8 @@ Leave defaults for the remaining settings, and save the file. It should look sim
     "bioconductor": []
   },
   "commandLine": []
+}
 ```
-
 
 Now create the cluster. Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. After the cluster is available, register it as the parallel backend for your R session. 
 
@@ -227,8 +225,6 @@ The simulation distributes tasks to the nodes in the Batch pool. You can see the
 
 After a few minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
 
-
-
 ```R
 hist(closingPrices_p) 
 ```
@@ -237,7 +233,6 @@ Output is similar to the following:
 
 ![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices.png)
 
- 
 How long did the parallel simulation take? 
 
 ```R
