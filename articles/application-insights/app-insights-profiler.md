@@ -46,48 +46,15 @@ To control the profiler on all your linked web apps, in the **Configure** pane, 
 
 Unlike web apps that are hosted through App Service plans, applications that are hosted in Azure compute resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
 
-## Disable the profiler
-To stop or restart the profiler for an individual App Service instance, under **Web Jobs**, go to the App Service resource. To delete the profiler, go to **Extensions**.
-
-![Disable profiler for a web jobs][disable-profiler-webjob]
-
-We recommend that you have the profiler enabled on all your web apps to discover any performance issues as early as possible.
-
-If you use WebDeploy to deploy changes to your web application, ensure that you exclude the App_Data folder from being deleted during deployment. Otherwise, the profiler extension's files are deleted the next time you deploy the web application to Azure.
-
-### Using profiler with Azure VMs and Azure compute resources (preview)
+### Enable the profiler for Azure compute resources (preview)
 
 Get information about a [preview version of the profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## Limitations
-
-The default data retention is five days. The maximum data ingested per day is 10 GB.
-
-There are no charges for using the profiler service. To use the profiler service, your web app must be hosted in at least the Basic tier of App Service.
-
-## Overhead and sampling algorithm
-
-The profiler randomly runs two minutes every hour on each virtual machine that hosts the application that has profiler enabled for capturing traces. When the profiler is running, it adds between 5% and 15% CPU overhead to the server.
-The more servers that are available for hosting the application, the less impact the profiler has on the overall application performance. This is because the sampling algorithm results in the profiler running on only 5% of servers at any time. More servers are available to serve web requests to offset the server overhead caused by running the profiler.
-
-
 ## View profiler data
 
-Go to the **Performance** pane, and then scroll down to the list of operations.
+Make sure your application is receiving traffics. If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and 2 minutes each time it runs.
 
-![Application Insights Performance pane examples column][performance-blade-examples]
-
-The operations table has these columns:
-
-* **COUNT**: The number of these requests in the time range of the **COUNT** pane.
-* **MEDIAN**: The typical time your app takes to respond to a request. Half of all responses were faster than this value.
-* **95TH PERCENTILE**:  95% of responses were faster than this value. If this value is substantially different from the median, there might be an intermittent problem with your app. (Or, it might be explained by a design feature, like caching.)
-* **PROFILER TRACES**: An icon indicates that the profiler has captured stack traces for this operation.
-
-Select **View** to open the trace explorer. The explorer shows several samples that the profiler has captured, classified by response time.
-
-If you are using the **Preview Performance** pane, go to the **Take Actions** section of the page to view profiler traces. Select the **Profiler Traces** button.
+Once your application received some traffic, go to the **Performance** blade,  go to the **Take Actions** section of the page to view profiler traces. Select the **Profiler Traces** button.
 
 ![Application Insights Performance pane preview profiler traces][performance-blade-v2-examples]
 
@@ -148,6 +115,26 @@ The application is performing network operations.
 
 ### <a id="when"></a>When column
 The **When** column is a visualization of how the INCLUSIVE samples collected for a node vary over time. The total range of the request is divided into 32 time buckets. The inclusive samples for that node are accumulated in those 32 buckets. Each bucket is represented as a bar. The height of the bar represents a scaled value. For nodes marked **CPU_TIME** or **BLOCKED_TIME**, or where there is an obvious relationship of consuming a resource (CPU, disk, thread), the bar represents consuming one of those resources for the period of time of that bucket. For these metrics, it's possible to get a value of greater than 100% by consuming multiple resources. For example, if on average you use two CPUs during an interval, you get 200%.
+
+## Limitations
+
+The default data retention is five days. The maximum data ingested per day is 10 GB.
+
+There are no charges for using the profiler service. To use the profiler service, your web app must be hosted in at least the Basic tier of App Service.
+
+## Overhead and sampling algorithm
+
+The profiler randomly runs two minutes every hour on each virtual machine that hosts the application that has profiler enabled for capturing traces. When the profiler is running, it adds between 5% and 15% CPU overhead to the server.
+The more servers that are available for hosting the application, the less impact the profiler has on the overall application performance. This is because the sampling algorithm results in the profiler running on only 5% of servers at any time. More servers are available to serve web requests to offset the server overhead caused by running the profiler.
+
+## Disable the profiler
+To stop or restart the profiler for an individual App Service instance, under **Web Jobs**, go to the App Service resource. To delete the profiler, go to **Extensions**.
+
+![Disable profiler for a web jobs][disable-profiler-webjob]
+
+We recommend that you have the profiler enabled on all your web apps to discover any performance issues as early as possible.
+
+If you use WebDeploy to deploy changes to your web application, ensure that you exclude the App_Data folder from being deleted during deployment. Otherwise, the profiler extension's files are deleted the next time you deploy the web application to Azure.
 
 
 ## <a id="troubleshooting"></a>Troubleshooting
