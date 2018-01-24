@@ -54,7 +54,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | Supported DSVM Editions      | Windows, Linux     |
 | How is it configured / installed on the DSVM?  | Keras is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
-| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorLlow, Theano      |
+| Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | How to use / run it?    | Download the samples from the Github location, copy it to a directory under ~/notebooks and open it in Jupyter   |
 
 
@@ -115,7 +115,7 @@ At a terminal, activate the Python version you want (_root_ or _py35_), run _pyt
 | Supported DSVM Editions      | Linux     |
 | How is it configured / installed on the DSVM?  | Deep Water is installed in `/dsvm/tools/deep_water`.   |
 | Links to Samples      | Samples are available through the Deep Water server.      |
-| Related Tools on the DSVM      | H2o, Sparkling Water      |
+| Related Tools on the DSVM      | H2O, Sparkling Water      |
 
 ### How to use / run it?  
 
