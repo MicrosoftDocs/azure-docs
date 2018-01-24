@@ -183,7 +183,7 @@ In this procedure, you deploy entities (linked services, datasets, pipelines) to
    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. To trigger the pipeline manually, select **Trigger** on the toolbar, and then select **Trigger Now**. 
     
-   !["Trigger Now" comand](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
+   !["Trigger Now" command](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
 
 ## Monitor the pipeline
 
