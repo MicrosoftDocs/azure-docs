@@ -183,16 +183,18 @@ The top-level properties in the event JSON data are the same among all event typ
 
 The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`. 
 
-## How to test locally
+## Use an HTTP trigger as an Event Grid trigger
 
-The Event Grid trigger is basically an HTTP trigger that does some additional processing before invoking a function. But unlike an HTTP trigger, you can't test an Event Grid trigger locally:
+The Event Grid trigger is basically an HTTP trigger that does some additional processing before invoking a function. The advantage of an HTTP trigger is you can test locally, so you could choose to use an HTTP trigger instead of an Event Grid trigger. Or you could use an HTTP trigger just for local testing and move your code to an Event Grid trigger when testing is done.
+
+You can't test an Event Grid trigger locally for these reasons:
 
 * The runtime doesn't provide you with the function invocation URL.
 * Event Grid topics in Azure can't send HTTP requests to localhost on your development machine.
 
 You can work around these limitations by making an HTTP trigger do the work of an Event Grid trigger:
 
-* [Create an HTTP trigger function](#create-an-http-trigger-function) that simulates an Event Grid trigger. Include in it your code that handles an Event Grid event. 
+* [Create an HTTP trigger function](#create-an-http-trigger-function) that simulates an Event Grid trigger. 
 * [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
 * [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
 * [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
@@ -239,7 +241,6 @@ public static async Task<HttpResponseMessage> Run(
 
     return req.CreateResponse(HttpStatusCode.OK);
 }
-
 ```
 
 The following JavaScript code for an HTTP trigger simulates Event Grid trigger behavior:
@@ -265,7 +266,7 @@ module.exports = function (context, req) {
 };
 ```
 
-Inside the loop through the `messages` array is where you can put the event-handling code that you want to test. Or, if the function that you want to test has no input or output bindings in addition to the Event Grid trigger, you can call its `Run` method.
+Inside the loop through the `messages` array is where your event-handling code goes. The following sections explain how you can test your event-handling code locally.
 
 ### Create a RequestBin endpoint
 
