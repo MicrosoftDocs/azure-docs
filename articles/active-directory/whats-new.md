@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -38,6 +38,126 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Plans for changes
 
 This page is updated monthly, so revisit it regularly.
+
+
+## January 2018
+ 
+
+### New Federated Apps available in Azure AD App gallery 
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+In January 2018, the following new apps with federation support were added in the App gallery :
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy Management Software](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk Federated Directory](https://go.microsoft.com/fwlink/?linkid=864699) and [Fidelity NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+For a complete overview of all available tutorials, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### Sign-in with additional risk detected
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+ 
+
+The insight you get for a detected risk event is tied to your Azure AD subscription. With the Azure AD Premium P2 edition, you get the most detailed information about all underlying detections.
+
+With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event Sign-in with additional risk detected.
+
+For more information, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+ 
+
+---
+
+### Hide Office 365 applications from end user's access panels
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+ 
+
+You can now better manage how Office 365 applications show up on your user's access panels through a new user setting. This option is helpful for reducing the amount of apps in a user's access panels if you prefer to only show Office apps in the Office portal. The setting is located in the **User Settings** and is labeled **Users can only see Office 365 apps in the Office 365 portal**.
+ 
+
+For more information, see [Hide an application from user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### Seamless sign into apps enabled for Password SSO directly from app's URL 
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+ 
+
+The My Apps browser extension is now available via a convenient tool that gives you the My Apps single-sign on capability as a shortcut in your browser. After installing user's will see a waffle icon in their browser that provides them quick access to apps. Users can now take advantage of:
+
+- The ability to directly sign in to password-SSO based apps from the app’s login page
+- Launch any app using the quick search feature
+- Shortcuts to recently used apps from the extension
+- The extension is available for Edge, Chrome and Firefox.
+ 
+For more information, see [My Apps Secure Sign-in Extension](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Deprecated   
+**Service category:** Azure AD  
+**Product capability:** Directory
+ 
+
+As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. Going forward, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
+ 
+---
+
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Deprecated  
+**Service category:** Azure AD  
+**Product capability:** Directory
+ 
+
+As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com. 
+
+The MFA configuration is located at: **Azure Active Directory \> MFA Server**
+ 
+---
+ 
+### Deprecate Azure AD reports
+
+
+**Type:** Deprecated  
+**Service category:** Reporting  
+**Product capability:** Identity Lifecycle Management  
+
+
+With the general availability of the new Azure Active Directory Administration console and new APIs now available for both activity and security reports, the report APIs under "/reports" endpoint have been retired as of end of December 31, 2017.
+
+
+**What's available?**
+
+As part of the transition to the new admin console, we have made 2 new APIs available for retrieving Azure AD Activity Logs. The new set of APIs provide richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports can now be accessed through the Identity Protection risk events API in Microsoft Graph.
+
+For more information, see:
+
+- [Get started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## December 2017
@@ -128,25 +248,12 @@ For more information, see [What is Azure AD Privileged Identity Management?](act
 **Service category:** Enterprise apps  
 **Product capability:** Third-party integration
  
-In December 2017, the following new apps with federation support were added in the app gallery.
+In December 2017, the following new apps with federation support were added in the app gallery:
 
-|Name|Integration type|Description|
-|:-- |----------------|:----------|
-|EFI Digital StoreFront|SAML 2.0|[Web 2 Print](https://go.microsoft.com/fwlink/?linkid=861685) application.|
-|Vodeclic|SAML 2.0|Use Azure AD to manage user access and enable single sign-on with [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Requires an existing Vodeclic account.|
-|Accredible|SAML 2.0|Use [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) to create, manage, and deliver certificates, badges, and blockchain credentials.|
-|FactSet|SAML 2.0|Single sign-on to the [FactSet FDSWeb application](https://go.microsoft.com/fwlink/?linkid=863525).|
-|MobileIron Azure AD integration|SAML 2.0|Modern enterprises can use [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) to secure and manage information as it moves to mobile and the cloud while they preserve privacy and trust.|
-|IMAGE WORKS|SAML 2.0|Use Azure AD to manage user access, provision user accounts, and enable single sign-on with [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Requires an existing IMAGE WORKS subscription.|
-|SAML SSO for Bitbucket by resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegates authentication to Azure AD. Users already signed in to Azure AD can access Bitbucket directly. Users can be created and updated on the fly with data from SAML attributes.|
-|SAML SSO for Bamboo by resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) delegates authentication to Azure AD. Users already signed in to Azure AD can access Bamboo directly.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is a modern, fully featured social intranet software that supports employees and business.|
-|MOBI|SAML 2.0|Use [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) to centralize, comprehend, and control your entire device ecosystem.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for performance management, real-time feedback, and goal setting. |
-|CybSafe|OpenID Connect & OAuth|This GCHQ-certified cyber-awareness platform uses advanced technology and data analytics to reduce the human aspect of cyber security and data protection risk.|
-|WebHR|OpenID Connect & OAuth|This social human resources software is trusted by more than 20,000 companies in 197 countries.|
- |Zenegy Azure AD Integration|OpenID Connect & OAuth|With this app, you can use your company's Azure AD credentials to sign in to Zenegy.|
-|Adobe Experience Manager|SAML 2.0|You can use this comprehensive content management platform solution to build websites, mobile apps, and forms to manage your marketing content and assets.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe Experience Manager, [EFI Digital StoreFront](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676)
+CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD integration](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO for Bamboo by resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO for Bitbucket by resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD Integration.
+
+For a complete overview of all available tutorials, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial).
 
  
 ---
