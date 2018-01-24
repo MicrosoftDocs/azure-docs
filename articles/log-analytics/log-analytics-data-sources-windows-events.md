@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze Windows Event logs in OMS Log Analytics | Microsoft Docs
-description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository.
+title: Collect and analyze Windows Event logs in Azure Log Analytics | Microsoft Docs
+description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the Log Analytics workspace.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 12/11/2017
 ms.author: bwren
 
 ---
@@ -62,17 +62,6 @@ Windows event records have a type of **Event** and have the properties in the fo
 The following table provides different examples of log searches that retrieve Windows Event records.
 
 | Query | Description |
-|:--- |:--- |
-| Type=Event |All Windows events. |
-| Type=Event EventLevelName=error |All Windows events with severity of error. |
-| Type=Event &#124; Measure count() by Source |Count of Windows events by source. |
-| Type=Event EventLevelName=error &#124; Measure count() by Source |Count of Windows error events by source. |
-
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
->
->| Query | Description |
 |:---|:---|
 | Event |All Windows events. |
 | Event &#124; where EventLevelName == "error" |All Windows events with severity of error. |

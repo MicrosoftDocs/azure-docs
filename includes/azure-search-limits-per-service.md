@@ -11,7 +11,6 @@ Storage is constrained by disk space or by a hard limit on the *maximum number* 
 | Maximum indexers |3 |5 |50 |200 |200 |No indexer support |
 | Maximum datasources |3 |5 |50 |200 |200 |No indexer support |
 | Maximum documents |10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
-| Estimated queries per second (QPS) |N/A |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
 
 <sup>1</sup> Free tier and preview features do not come with service level agreements (SLAs). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
 

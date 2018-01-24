@@ -21,7 +21,7 @@
       > 
    7. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
       
-       When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](../articles/storsimple/storsimple-security.md).
    8. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
       
       ![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

@@ -4,16 +4,16 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
 
 ---
@@ -106,12 +106,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![FileCloud Domain and URLs single sign-on information](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.filecloudhosted.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	`https://<subdomain>.filecloudonline.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FileCloud Client support team](mailto:support@codelathe.com) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FileCloud Client support team](mailto:support@codelathe.com) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -129,23 +130,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. On the left navigation pane, click **Settings**. 
    
-    ![Settings section On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Click **SSO** tab on Settings section. 
    
-    ![Single Sign-On Tab On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
    
-    ![Single Sign-On Settings Panel On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Paste **SAML Entity ID**, which you have copied from Azure portal into the **IdP End Point URL** textbox.
+11. In the **IdP End Point URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
-    ![IDP End Point URL Textbox](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
 
-	![IDP Meta Data Section on App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+	![Configure Single Sign-On On App side](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Click **Save** button.
 
@@ -190,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in FileCloud. FileCloud supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access FileCloud if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create a user manually, you need to contact the [FileCloud Client support team](mailto:support@codelathe.com). 
+>If you need to create a user manually, you need to contact the [FileCloud Client support team](mailto:support@codelathe.com).
 
 ### Assign the Azure AD test user
 
@@ -224,9 +225,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Test single sign-on
 
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the FileCloud tile in the Access Panel, you should get automatically signed-on to your FileCloud application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -18,7 +18,12 @@ ms.author: cephalin
 ms.custom: mvc
 ---
 # Web Apps overview
-*App Service Web Apps* is a fully managed compute platform that is optimized for hosting websites and web applications. This [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.
+
+*Azure App Service Web Apps* (or just Web Apps) is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. You can run and scale apps with ease on Windows or Linux VMs (see [App Service on Linux](containers/app-service-linux-intro.md)). 
+
+Web Apps not only adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such as continuous deployment from VSTS, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and SSL certificates. 
+
+With App Service, you pay for the Azure compute resources you use. The compute resources you use is determined by the _App Service plan_ that you run your Web Apps on. For more information, see [App Service plans in Azure Web Apps](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 The following 5-minute video introduces Azure App Service Web Apps.
 
@@ -26,49 +31,40 @@ The following 5-minute video introduces Azure App Service Web Apps.
 >
 >
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
-
-## What is a web app in App Service?
-In App Service, a *web app* is the compute resources that Azure provides for hosting a website or web application.  
-
-The compute resources may be on shared or dedicated virtual machines (VMs), depending on the pricing tier that you choose. Your application code runs in a managed VM that is isolated from other customers.
-
-Your code can be in any language or framework that is supported by [Azure App Service](../app-service/app-service-web-overview.md), such as ASP.NET, Node.js, Java, PHP, or Python. You can also run scripts that use [PowerShell and other scripting languages](web-sites-create-web-jobs.md#acceptablefiles) in a web app.
-
-For examples of typical application scenarios that you can use Web Apps for, see [Web app scenarios](https://azure.microsoft.com/documentation/scenarios/web-app/) and the **Scenarios and recommendations** section of [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md#scenarios).
-
 ## Why use Web Apps?
-Here are some key features of App Service that apply to Web Apps:
+Here are some key features of App Service Web Apps:
 
-* **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [PowerShell and other scripts or executables](web-sites-create-web-jobs.md) on App Service VMs.
-* **DevOps optimization** - Set up [continuous integration and deployment](app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](web-sites-staged-publishing.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](../cli-install-nodejs.md).
+* **Multiple languages and frameworks** - Web Apps has first-class support for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can also run [PowerShell and other scripts or executables](web-sites-create-web-jobs.md) as background services.
+* **DevOps optimization** - Set up [continuous integration and deployment](app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, BitBucket, Docker Hub, or Azure Container Service. Promote updates through [test and staging environments](web-sites-staged-publishing.md). Manage your apps in Web Apps by using [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
 * **Global scale with high availability** - Scale [up](web-sites-scale.md) or [out](../monitoring-and-diagnostics/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
-* **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
-* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
-* **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
+* **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
+* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/). Authenticate users with [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) or with social login ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md), and [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Create [IP address restrictions](app-service-ip-restrictions.md) and [manage service identities](app-service-managed-service-identity.md).
+* **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
 * **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
+* **API and mobile features** - Web Apps provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
+* **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](/azure/azure-functions/)).
 
-In addition, a web app can take advantage of features offered by [API Apps](app-service-web-tutorial-rest-api.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). 
+Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
 
-Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), and if you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
+## Next steps
 
-## Getting started
-To get started by deploying sample code to a new web app in App Service, follow one of the tutorials in the following dropdown box. You'll need a free Azure account.
+Create your first web app.
 
-> [!div class="op_single_selector"]
-> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet.md)
-> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php.md)
-> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs.md)
-> * [Deploy your first Java web app to Azure in 5 minutes](app-service-web-get-started-java.md)
-> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python.md)
-> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html.md)
-> 
-> 
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet.md)
 
-> [!NOTE]
-> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
-> it for up to an hour--no credit card required, no commitments.
-> 
-> 
+> [!div class="nextstepaction"]
+> [PHP](app-service-web-get-started-php.md)
+
+> [!div class="nextstepaction"]
+> [Node.js](app-service-web-get-started-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Java](app-service-web-get-started-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](app-service-web-get-started-python.md)
+
+> [!div class="nextstepaction"]
+> [HTML](app-service-web-get-started-html.md)
+

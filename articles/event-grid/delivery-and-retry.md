@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/10/2018
 ms.author: darosa
 ---
 
@@ -59,9 +59,10 @@ Event Grid adds a small randomization to all retry intervals.
 
 ## Retry duration
 
-During the preview, Azure Event Grid expires all events that are not delivered within two hours. Before General Availability, this time will be increased to 24 hours. 
+During the preview, Azure Event Grid expires all events that are not delivered within two hours.
 
 ## Next steps
 
+* To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

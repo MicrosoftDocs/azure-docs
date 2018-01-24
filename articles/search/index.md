@@ -154,6 +154,7 @@ Learn how to add search capabilities to your custom web or mobile apps using Azu
                         <h3>REST</h3>
                         <p><a href="/rest/api/searchservice">REST API Reference</a></p>
                         <p><a href="/rest/api/searchmanagement">REST (Management) API Reference</a></p>
+                        <p><a href="search-api-2016-09-01-preview.md">Service REST (Preview)</a></p>
                     </div>
                 </div>
             </div>

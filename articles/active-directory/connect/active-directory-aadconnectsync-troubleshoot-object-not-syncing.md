@@ -4,7 +4,7 @@ description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid:

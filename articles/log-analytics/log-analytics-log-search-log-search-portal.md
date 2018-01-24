@@ -31,7 +31,7 @@ To create searches in the Advanced Analytics portal instead of the Log Search po
 This tutorial assumes that you already have a Log Analytics workspace with at least one connected source that generates data for the queries to analyze.  
 
 - If you don't have a workspace, you can create a free one using the procedure at [Get started with a Log Analytics workspace](log-analytics-get-started.md).
-- Connect least one [Windows agent](log-analytics-windows-agents.md) or one [Linux agent](log-analytics-linux-agents.md) to the workspace.  
+- Connect least one [Windows agent](log-analytics-windows-agent.md) or one [Linux agent](log-analytics-linux-agents.md) to the workspace.  
 
 ## Open the Log Search portal
 Start by opening the Log Search portal.  You can access it in either the Azure portal or the OMS portal.

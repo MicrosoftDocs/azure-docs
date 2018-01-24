@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-geo-replication failover group-single Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
+description: Azure PowerShell example script to set up active geo-replication failover group for a single Azure SQL database and fail it over.
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: business continuity
+ms.custom: business continuity, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database

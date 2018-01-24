@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
 
 ---
@@ -195,16 +195,6 @@ Syslog records have a type of **Syslog** and have the properties in the followin
 The following table provides different examples of log queries that retrieve Syslog records.
 
 | Query | Description |
-|:--- |:--- |
-| Type=Syslog |All Syslogs. |
-| Type=Syslog SeverityLevel=error |All Syslog records with severity of error. |
-| Type=Syslog &#124; measure count() by Computer |Count of Syslog records by computer. |
-| Type=Syslog &#124; measure count() by Facility |Count of Syslog records by facility. |
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
 |:--- |:--- |
 | Syslog |All Syslogs. |
 | Syslog &#124; where SeverityLevel == "error" |All Syslog records with severity of error. |

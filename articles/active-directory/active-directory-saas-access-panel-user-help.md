@@ -4,7 +4,7 @@ description: Get instructions to perform common tasks when working with the acce
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
 
@@ -32,7 +32,7 @@ General issues to check:
 
 - Make sure your password is not expired or forgotten. Check [here](active-directory-passwords-update-your-own-password.md) for more details on how to update your password.
 
-- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
+- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
 
 - Try clearing your browser’s cookies, and then try to sign in again.
 
@@ -48,17 +48,17 @@ If you forgot your password, never received one from your IT staff, been locked 
 As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated. For more details, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
 
-## I am having trouble installing the My Apps portal browser extension
+## I am having trouble installing the My Apps Secure Sign-in Extension
 
 Check to see if you are meeting browser requirements:
 
 - The portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you launch an application that is configured for password-based single sign-on apps.
 
 - The browser requirements for the extension are:
-    - Internet Explorer 8, 9, 10, 11 on Windows 7 or later
     - Edge on Windows 10 Anniversary Edition or later
     - Chrome on Windows 7 or later, and on MacOS X or later
     - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+    - Internet Explorer 8, 9, 10, 11 on Windows 7 or later (limited support)
 
 You can also download the extension for Chrome and Edge from the direct links below:
 
@@ -73,6 +73,32 @@ After installation try the following steps if you are encountering issues:
 - Restart your browser and sign in to the My Apps portal.
 
 - Clear your browser’s cookies and sign in to the My Apps portal.
+- Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) guide for access to a diagnostics tool and step by step instructions on configuring the extension for IE.
+
+## How do I use the My Apps Secure Sign-in Extension?
+Changing the My Apps default URL for the extension
+
+If you are using a different My Apps URL than https://myapps.microsoft.com then you must configure your default URL though the following steps:
+1. While not signed into the extension, **right click** the extension icon.
+2. Click on **Select My Apps URL** from the menu.
+3. **Select** your default URL.
+4. Click on the extension icon.
+5. Sign-in to the extension by selecting **Sign in to get started**.
+
+Sign in directly into an app from the browser
+1. After installing the extension, sign-in to the extension by selecting **Sign in to get started**.
+2. Navigate to the **sign-on URL** of the app you would like to sign in to, this is typically the URL of the app that displays the login form.
+3. The extension should change state and let you know a password is available, click on the **extension icon** to sign in
+
+Launch an app from the extension
+1. After installing the extension, sign-in to the extension by selecting **Sign in to get started**.
+2. Click on the extension icon to open its menu.
+3. **Search** for an app available in the My Apps portal.
+4. Click on the app from the **search results** to launch it.
+5. The last three apps launched will also show up in the **Recently Used** shortcut list
+
+> [!NOTE]
+> These options are only available for Edge, Chrome, Firefox.
 
 ## How do I add a new app?
 
@@ -89,9 +115,9 @@ After installation try the following steps if you are encountering issues:
 
 ## How do I manage my group memberships?
 
-1. Click the Groups app tile. 
-2. To create a group, under Groups I own, click Create group, and then follow the instructions.
-3. To join a group, under Groups I'm in, click Join group, and then follow the instructions.
+1. Click the **Groups** tile. 
+2. To create a group, under Groups I own, click **Create group**, and then follow the instructions.
+3. To join a group, under Groups I'm in, click **Join group**, and then follow the instructions.
 
 **Remarks:**
 

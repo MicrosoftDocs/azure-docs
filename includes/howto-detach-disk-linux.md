@@ -6,7 +6,7 @@ When you no longer need a data disk that's attached to a virtual machine (VM), y
 ## Find the disk
 Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
 
-1. Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+1. Open Azure CLI and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 2. Find out which disks are attached to your VM. The following example lists disks for the VM named `myVM`:
 
     ```azurecli

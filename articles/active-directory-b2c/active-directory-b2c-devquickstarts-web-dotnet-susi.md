@@ -4,7 +4,7 @@ description: How to build a web application that has sign-up/sign-in, profile ed
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: barbaraselden
 
 ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
@@ -46,8 +46,6 @@ Before you can use Azure AD B2C, you must create a directory, or tenant. A direc
 Next, you need to create and register the app in your B2C directory. This provides information that Azure AD B2C needs to securely communicate with your app. 
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 When you are done, you will have both an API and a native application in your application settings.
 

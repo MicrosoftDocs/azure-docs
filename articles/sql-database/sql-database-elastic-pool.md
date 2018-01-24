@@ -11,9 +11,9 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
-ms.workload: data-management
+ms.workload: "Active"
 ms.topic: article
 ms.tgt_pltfrm: NA
 ---
@@ -323,12 +323,12 @@ To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#create)|Creates an elastic pool.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#list)|Returns a list of elastic pools in a server.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#list-dbs)|Returns a list of databases in an elastic pool.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#list-editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Updates an elastic pool.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Deletes the elastic pool.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Creates an elastic pool.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Returns a list of elastic pools in a server.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Returns a list of databases in an elastic pool.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Updates an elastic pool.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Deletes the elastic pool.|
 
 ## Manage databases within elastic pools using Transact-SQL
 
@@ -369,7 +369,7 @@ To create and manage SQL Database elastic pools use these REST API requests.
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
 
 ## Next steps
 

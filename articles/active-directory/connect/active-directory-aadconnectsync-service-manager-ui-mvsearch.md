@@ -4,7 +4,7 @@ description: Understand the Metaverse Search tab in the Synchronization Service 
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 20234dd4-3328-4817-b7ff-268f953d376d
 ms.service: active-directory

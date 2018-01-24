@@ -1,27 +1,21 @@
 ---
-title: Jenkins CI/CD with Kubernetes in Azure Container Service | Microsoft Docs
+title: Jenkins CI/CD with Kubernetes in Azure Container Service
 description: How to automate a CI/CD process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: chzbrgr71
-manager: johny
-editor: ''
-tags: acs, azure-container-service, jenkins
-keywords: Docker, Containers, Kubernetes, Azure, Jenkins
+manager: timlt
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
-
 ---
 
 # Jenkins integration with Azure Container Service and Kubernetes 
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 In this tutorial, we walk through the process to set up continuous integration of a multi-container application into Azure Container Service Kubernetes using the Jenkins platform. The workflow updates the container image in Docker Hub and upgrades the Kubernetes pods using a deployment rollout. 
 
 ## High level process

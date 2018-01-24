@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
 ---
 
@@ -81,7 +81,7 @@ Once the application starts, Visual Studio automatically brings up the **Diagnos
 
 The stateful service template we used simply shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
 
-Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_2, though it may differ on your machine.
+Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_0, though it may differ on your machine.
    
 ![Diagnostic events viewer detail][6]
 

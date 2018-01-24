@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
+ROBOTS: NOINDEX
 
 ---
 # Create a VM from a specialized VHD in a storage account
@@ -23,8 +24,8 @@ ms.author: cynthn
 Create a new VM by attaching a specialized unmanaged disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
 You have two options:
-* [Upload a VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.

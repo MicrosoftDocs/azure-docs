@@ -5,7 +5,7 @@ description: B2B collaboration allows information workers to add users from thei
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 'curtand'
 tags: ''
 

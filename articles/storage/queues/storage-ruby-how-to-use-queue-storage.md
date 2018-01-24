@@ -3,7 +3,7 @@ title: How to use Queue storage from Ruby | Microsoft Docs
 description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
 services: storage
 documentationcenter: ruby
-author: robinsh
+author: tamram
 manager: timlt
 editor: 'tysonn'
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # How to use Queue storage from Ruby

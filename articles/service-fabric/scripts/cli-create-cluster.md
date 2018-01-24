@@ -33,7 +33,7 @@ If needed, install the [Azure CLI 2.0](/en-us/cli/azure/install-azure-cli?view=a
 After the script sample has been run, the following command can be used to remove the resource group, cluster, and all related resources.
 
 ```azurecli
-ResourceGroupName = "sfclustertutorialgroup"
+ResourceGroupName = "aztestclustergroup"
 az group delete --name $ResourceGroupName
 ```
 
@@ -43,7 +43,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/en-us/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Creates a new Service Fabric cluster.  |
+| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Creates a new Service Fabric cluster.  |
 
 ## Next steps
 

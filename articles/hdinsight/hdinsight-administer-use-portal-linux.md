@@ -15,11 +15,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Using the [Azure portal][azure-portal], you can manage Hadoop clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
@@ -32,14 +33,17 @@ To follow the steps in this article, you will need an **Azure subscription**. Se
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
 2. After you open the portal, you can:
 
-   * Click **New** from the left menu to create a new cluster:
+   * Click **Create a resource** from the left menu to create a new cluster:
 
        ![new HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       Enter **HDInsight** in **Search the Marketplace**, click **HDInsight**, and then click **Create**.
+
    * Click **HDInsight Clusters** from the left menu to list the existing clusters:
 
        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       If you don't see the **HDInsight clusters** button, click **More services** on the bottom of the list, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
+       If you don't see the **HDInsight clusters** button, and then click **HDInsight clusters** under the **Intelligence + Analytics** section.
 
 
 ## Create clusters
@@ -70,7 +74,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 
 ## List and show clusters
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
-2. Click **HDInsight Clusters** from the left menu to list the existing clusters. If you don't see **HDInsight Clusters**, click **More services** first.
+2. Click **HDInsight Clusters** from the left menu to list the existing clusters. If you don't see **HDInsight Clusters**, click **All services** first.
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
 4. Click a cluster from the list to see the overview page:
 
@@ -79,6 +83,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
     * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
+    * **Move**: Move the cluster to antoher resource group or subscription.
     * **Delete**: Deletes the cluster.
 
     **Left menu:**
@@ -90,17 +95,18 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Automation script**: Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Quick Start**:  Displays information that helps you get started using HDInsight.
     * **Tools for HDInsight**: Help information for HDInsight related tools.
-    * **Cluster Login**: Display the cluster login information.
     * **Subscription Core Usage**: Display the used and available cores for your subscription.
     * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md), and reset cluster login credential.
     * **HDInsight Partner**: Add/remove the current HDInsight Partner.
     * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+    * **Monitoring**: Monitor the cluster in Azure Operations Management Suite and Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-    * **Cluster AAD Identity**:
+    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
     
 6. Click **Properties**:
@@ -126,7 +132,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.
 
 1. Sign in to the [Portal][azure-portal].
-2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More services** first.
+2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **All services** first.
 3. Click the cluster that you want to delete.
 4. Click **Delete** from the top menu, and then follow the instructions.
 
@@ -161,7 +167,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
     >balancer
     ```
 
-    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -207,7 +213,7 @@ There are many ways you can program the process:
 * User Azure Data Factory. See [Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 * Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
-* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
@@ -339,7 +345,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 
 ## Connect to a cluster
 
-* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use Hive with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
@@ -351,10 +357,10 @@ In this article, you have learned some basic administrative functions. To learn 
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Use Hive in HDInsight](hdinsight-use-hive.md)
-* [Use Pig in HDInsight](hdinsight-use-pig.md)
-* [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Use Hive in HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Sqoop in HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

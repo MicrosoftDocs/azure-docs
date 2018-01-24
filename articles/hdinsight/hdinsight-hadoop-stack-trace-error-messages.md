@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: jgao
 
 ---

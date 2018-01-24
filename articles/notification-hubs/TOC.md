@@ -27,7 +27,7 @@
 #### [Register the current user using ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Send cross-platform notifications](notification-hubs-aspnet-cross-platform-notification.md)
 ### Work with server SDKs
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automate
-### [Deploy and Manage Notification Hubs using PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Deploy and Manage Notification Hubs using Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Send scheduled notifications](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Troubleshoot
@@ -61,7 +61,7 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

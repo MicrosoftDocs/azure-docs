@@ -4,7 +4,7 @@ description: This article will show you how to setup a client application and ac
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66

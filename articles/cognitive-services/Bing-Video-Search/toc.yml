@@ -1,20 +1,32 @@
 - name: Bing Video Search Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview        
   items:
     - name: Search the web for videos
       href: search-the-web.md
-    - name: Upgrade from v5 to v7 Preview
-      href: bing-video-upgrade-guide-v5-to-v7.md
-    - name: Use and display requirements
-      href: UseAndDisplayRequirements.md
+    - name: Video Search endpoints
+      href: video-search-endpoints.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started
     href: quick-start.md
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java.md
+  - name: NodeJs
+    href: nodejs.md
+  - name: PHP
+    href: php.md
+  - name: Python
+    href: python.md
+  - name: Ruby
+    href: ruby.md
 - name: How to
   items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos
@@ -23,12 +35,20 @@
     href: paging-videos.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Tutorials
+  items:
+  - name: Single-page Video Search app
+    href: tutorial-bing-video-search-single-page-app.md
+  - name: Single-page Video Search app (source code)
+    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
-  - name: REST v7 Preview
+  - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
+  - name: REST v5 
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference  
 - name: Resources
   items:
   - name: Azure Roadmap

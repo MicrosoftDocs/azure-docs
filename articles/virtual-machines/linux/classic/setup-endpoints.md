@@ -1,6 +1,6 @@
 ---
 title: Set up endpoints on a classic Linux VM | Microsoft Docs
-description: Learn to set up endpoints for a Linux VM in the Azure classic portal to allow communication with a Linux virtual machine in Azure
+description: Learn to set up endpoints for a Linux VM in the Azure portal to allow communication with a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -23,6 +23,7 @@ All Linux virtual machines that you create in Azure using the classic deployment
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Opening ports and endpoints](../nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

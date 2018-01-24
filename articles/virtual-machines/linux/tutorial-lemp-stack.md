@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
 
 ---
@@ -28,6 +28,8 @@ This article walks you through how to deploy an NGINX web server, MySQL, and PHP
 > * Verify installation and configuration
 > * Install WordPress on the LEMP server
 
+
+This setup is for quick tests or proof of concept.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -67,18 +69,19 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 Check the version of MySQL with the following command (note the capital `V` parameter):
 
 ```bash
-msql -V
+mysql -V
 ```
 
-We recommend running the following script to help secure the installation of MySQL:
+To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Enter your MySQL root password, and configure the security settings for your environment.
+Enter a root password for MySQL, and configure the security settings for your environment.
 
-If you want to create a MySQL database, add users, or change configuration settings, login to MySQL:
+If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial. 
+
 
 ```bash
 mysql -u root -p
