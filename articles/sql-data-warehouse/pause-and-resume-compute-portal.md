@@ -3,19 +3,18 @@ title: Pause and resume compute in Azure SQL Data Warehouse - Azure portal | Mic
 description: Azure portal tasks that pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
+author: barbkess
 manager: jhubbard
 editor: ''
 
-ms.assetid: 233b0da5-4abd-4d1d-9586-4ccc5f50b071
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: elbutter;barbkess
+ms.date: 01/23/2018
+ms.author: barbkess
 
 ---
 # Pause and resume compute for an Azure SQL Data Warehouse in the Azure portal
