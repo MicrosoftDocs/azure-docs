@@ -210,7 +210,7 @@
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch
     - name: Stack Overflow
       href: http://stackoverflow.com/questions/tagged/azure-search
-    - name: blog: Model relational data
+    - name: 'blog: Model relational data'
       href: http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx
-    - name: blog: Multilevel faceting
+    - name: 'blog: Multilevel faceting'
       href: http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx
