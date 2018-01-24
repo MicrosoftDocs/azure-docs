@@ -631,8 +631,7 @@ Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Busin
 |---------|---------|
 |Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support Partners with technical issues. There 350+ Partners currently working on this environment.        |
 |MSDN Forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
-|StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow website has multiple sections that provide an environment to get solutions and ask questions about everything related to Azure and AMP: 
-<ul><li>StackOverflow: [Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>StackOverflow: [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow website has multiple sections that provide an environment to get solutions and ask questions about everything related to Azure and AMP:<ul><li>StackOverflow: [Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>StackOverflow: [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
 
 **Marketing Resources**
