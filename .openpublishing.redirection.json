@@ -7739,6 +7739,11 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/upgrade-site-recovery-vaults.md",
+            "redirect_url": "site-recovery-overview",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "tutorial-migrate-azure-to-azure",
