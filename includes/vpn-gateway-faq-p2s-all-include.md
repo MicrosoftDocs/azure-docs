@@ -51,18 +51,19 @@ No. You can only use the native VPN client on Windows for SSTP, and the native V
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016, but requires users to install updates and set a registry key value. Versions prior to Windows 10 are NOT supported and can only use SSTP. 
+IKEv2 is supported on Windows 10 and Server 2016, but requires users to install updates and set a registry key value. Versions prior to Windows 10 are NOT supported and can only use SSTP.
 
-#### 1. Install updates
+To prepare Windows 10 or Server 2016:
 
-| **OS version** | **Date** | **Number/Link** |
-|---|---|---|---|
-| Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142]() |
-| Windows 10 Version 1703 | January 17, 2018 | [KB4057144]() |
+1. Install updates
 
-#### 2. Set the registry key value
+  | **OS version** | **Date** | **Number/Link** |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+2. Set the registry key value
 
-Regkey: Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
+  Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
 ### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 
