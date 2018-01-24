@@ -75,7 +75,7 @@ Follow these steps to resume a SQL data warehouse.
 
 ## Clean up resources
 
-You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
+You are being charged for data warehouse units and the data stored in your data warehouse. These compute and storage resources are billed separately. 
 
 - If you want to keep the data in storage, pause compute.
 - If you want to remove future charges, you can delete the data warehouse. 
