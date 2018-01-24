@@ -8,7 +8,7 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 01/17/2018
 ms.author: jirwin
 
 ---
@@ -136,11 +136,11 @@ You cannot set the access tier to archive in the following examples because this
 
     When you select GPv2, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
+6. Select the replication option for the storage account: **LRS**, **ZRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
+    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    For more details on Azure Storage replication options, see [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 
