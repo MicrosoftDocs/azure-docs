@@ -167,6 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ## Next steps
 In this tutorial, you learned how to automatically install and update applications on your scale set with the Azure CLI 2.0:
 
+> [!div class="checklist"]
 > * Automatically install applications to your scale set
 > * Use the Azure Custom Script Extension
 > * Update a running application on a scale set

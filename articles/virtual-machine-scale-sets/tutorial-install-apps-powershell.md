@@ -163,7 +163,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Create Custom Script Extension definition
-Azure PowerShell uses a hashtable to store the file to download and the command to execute. First, create this configuration object as follows:
+Azure PowerShell uses a hashtable to store the file to download and the command to execute. In the following example, a sample script from GitHub is used. First, create this configuration object as follows:
 
 ```azurepowershell-interactive
 $customConfig = @{
@@ -174,7 +174,7 @@ $customConfig = @{
 
 Now, apply the Custom Script Extension with [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension). The configuration object previously defined is passed to the extension. Update and run the extension on the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss).
 
-```
+```azurepowershell-interactive
 # Get information about the scale set
 $vmss = Get-AzureRmVmss `
           -ResourceGroupName "myResourceGroup" `
@@ -265,6 +265,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ## Next steps
 In this tutorial, you learned how to automatically install and update applications on your scale set with Azure PowerShell:
 
+> [!div class="checklist"]
 > * Automatically install applications to your scale set
 > * Use the Azure Custom Script Extension
 > * Update a running application on a scale set
