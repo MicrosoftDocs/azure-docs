@@ -14,23 +14,23 @@ ms.author: v-demak
 
 # Train and test your app
 
-Training is the process of teaching your LUIS app by example to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and learns to recognize the relevant intents and entities. This learning allows LUIS to improve classification accuracy in the future. 
+Training is the process of teaching your LUIS app by example to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This learning allows LUIS to improve classification accuracy in the future. 
 
 Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If not, make updates to the LUIS app, train, and test again. 
 
 Typically, before retraining, you should [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel using the following procedures:
  
-  * **Interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
-  * **Review endpoint utterances in LUIS.ai**: Relabeling [utterances](./Label-Suggested-Utterances.md) that LUIS identifies for you.
+  * **Use interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
+  * **Review endpoint utterances in LUIS.ai**: LUIS identifies the [utterances](./Label-Suggested-Utterances.md) to relabel for you.
   * **Review endpoint utterances from log**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
   
 
-In addition to relabeling utterances, you may also add new utterances, edit the intent or entity types, and [add features](./Add-Features.md) to your LUIS app to improve performance. 
+In addition to relabeling utterances, you can also add new utterances, edit the intent or entity types, and [add features](./Add-Features.md) to your LUIS app to improve performance. 
 
 ## Train your app
 To start the iterative process of training, you first need to train your LUIS app at least once. 
 
-1. Access your app by clicking its name on **My Apps** page. 
+1. Access your app by selecting its name on the **My Apps** page. 
 
 2. In your app, click **Train** in the top panel. 
 
@@ -50,24 +50,24 @@ To start the iterative process of training, you first need to train your LUIS ap
 
 ## Access the Test page
 
-1. Access your app  by clicking its name on **My Apps** page, 
+1. Access your app  by selecting its name on the **My Apps** page. 
 2. Click **Test** in your application's top panel to access the **Test** slide-out page.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 
-## Interactive Testing
+## Interactive testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
  
 The **Test** slide-out page displays a single test section by default. The second panel is the inspection panel.
 
 ![Train & Test App page](./media/luis-how-to-train-test/test-3-panel.png)
 
-* The **test panel** allows you to type the test utterance in the text box and press Enter to submit it to your LUIS app and view LUIS model results. 
+* In the **test panel**, you type the test utterance in the text box and press Enter to submit it to your LUIS app, and then view the LUIS model results. 
 
-* The **inspection panel** allows you to inspect LUIS results, change the top scoring intent, and compare to the published model. The top identified entity is also shown.
+* In the **inspection panel**, you  inspect the LUIS results, change the top scoring intent, and compare to the published model. The top identified entity is also shown.
 
 >[!NOTE]
->You can compare the trained but not yet published model against the published model. Be aware any testing against the published model will be deducted from your Azure subscription quota balance. 
+>You can compare the trained but not yet published model against the published model. Be aware that any testing against the published model is deducted from your Azure subscription quota balance. 
 
 In an interactive test, you submit individual test utterances and view the LUIS score for each utterance separately. 
 
@@ -75,13 +75,13 @@ In an interactive test, you submit individual test utterances and view the LUIS 
 >To close the **Test** panel, click the **Test** button again.
 
 ## Relabel utterances and retrain
-When you perform interactive testing, you may find that LUIS doesn't detect the intent or entities the way you expect for some utterances. The following steps walk you through relabeling an utterance and retraining.
+When you perform interactive testing, you might find that LUIS doesn't detect the intent or entities the way you expect for some utterances. The following steps walk you through relabeling an utterance and retraining.
 
 ### Relabel an utterance to retrain intents and entities
 1. Import the sample LUIS app <a href="https://aka.ms/luis-travel-agent-01" target="_blank">Travel Agent - Sample 1</a>. This LUIS app has only a few sample utterances and provides a starting point for training. It has the following intents:
- * BookFlight
- * Weather.GetForecast
- * None 
+     * BookFlight
+    * Weather.GetForecast
+    * None 
 
 2. Click on the **Train** button in the top bar to train the new app.
 
@@ -93,38 +93,38 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 5. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
 
-6. Go back to the **Test** panel and type `book a flight to bangor` in the text box and click enter. 
+6. Go back to the **Test** panel, type `book a flight to bangor` in the text box, and click Enter. 
 
     ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
 
    > [!NOTE]
-   > In this step you choose an utterance that's similar to the one you labeled, but **not** exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+   > In this step, you choose an utterance that's similar to the one you labeled, but **not** exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
 7. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
 
-8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select **Location::ToLocation** hierarchical entity from the drop-down list.
+8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select the **Location::ToLocation** hierarchical entity from the drop-down list.
  
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
 
 9. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
 
-10. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
+10. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box, and click Enter. Now the location entity is correctly detected.
 
     ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
 
 > [!NOTE]
-> In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+> In this step, you choose an utterance that's similar to the one you labeled, but not exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
 ### Perform interactive testing on current and published models
-In this section, you publish the existing model, change the model, then test an utterance to compare the published versus non-published model results.
+In this section, you publish the existing model, change the model, and then test an utterance to compare the published versus non-published model results.
 
-1. Close the **Test** panel by clicking on the **Test** button in the top bar. 
+1. Close the **Test** panel by clicking the **Test** button in the top bar. 
 
 2. On the **Publish** page, publish your model. 
 
-3. Click on the **Test** button to reopen the test panel.
+3. Click the **Test** button to reopen the test panel.
 
 4. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The LUIS results of the test utterance in both the current and published models are shown in the following image: 
 
@@ -134,14 +134,14 @@ If you are interactive testing on both trained and published models together, an
 
 >[!NOTE]
 >About the interactive testing console:
- >- You can type as many test utterances as you want in the test panel; only one utterance at a time.
+ >- You can type as many test utterances as you want in the test panel, but only one utterance at a time.
  >- The inspection panel shows the result of the latest utterance. 
- >- To review the result of a previous utterance, just click it in the test panel and its result displayed on the right. 
+ >- To review the result of a previous utterance, just click it in the test panel and its result displays on the right. 
  >- To clear all the entered test utterances and their results from the test console, click **Start over** on the top left corner of the test panel. 
 
 
-## Batch Testing
-Batch testing enables you to run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contains a maximum of 1000 utterances. All you need to do is to import this file to your app and run it to perform the test. Your LUIS app will return the result, enabling you to access detailed analysis of all utterances included in the batch.
+## Batch testing
+Batch testing enables you to run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contains a maximum of 1,000 utterances. All you need to do is to import this file to your app and run it to perform the test. Your LUIS app will return the result, enabling you to access detailed analysis of all utterances included in the batch.
 
 You can import up to 10 dataset files to a single LUIS app. It is recommended that the utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
