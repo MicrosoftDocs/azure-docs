@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/28/2018
+ms.date: 01/24/2018
 ms.author: marsma
 ---
 
@@ -15,7 +15,13 @@ ms.author: marsma
 
 You can use an Azure Active Directory (Azure AD) service principal to provide access to your private container registries in Azure Container Registry.
 
-In this article, you learn to create and configure an Azure AD service principal with *pull* permissions to your registry. Then, you start a container in Azure Container Instances that pulls its image from your private registry, using the service principal for authentication.
+In this article, you learn to create and configure an Azure AD service principal with *pull* permissions to your registry. Then, you start a container in Azure Container Instances (ACI) that pulls its image from your private registry, using the service principal for authentication.
+
+## When to use a service principal
+
+You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an unattended manner. For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md), it can use a service principal with pull-only (Reader) permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+
+Service principals should also be used when the container registry and container instance reside in different subscriptions, or when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 

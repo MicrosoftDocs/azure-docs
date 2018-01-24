@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/28/2018
+ms.date: 01/24/2018
 ms.author: marsma
 ---
 
@@ -31,7 +31,7 @@ For example, your web application can use a service principal that provides it w
 
 You should use a service principal to provide registry access in **headless scenarios**. That is, any application, service, or script that must push or pull container images in an automated or otherwise unattended manner.
 
-For individual access to a registry, such when you manually pull a container image to your development workstation, prefer using your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) for registry access (for example, with [az acr login][az-acr-login]).
+For individual access to a registry, such as when you manually pull a container image to your development workstation, you should instead use your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) for registry access (for example, with [az acr login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
