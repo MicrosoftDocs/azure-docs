@@ -12,21 +12,250 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 01/23/2018
 ms.author: shlo
 ---
 
 # Create a trigger that runs a pipeline on a schedule
-This article provides information about the schedule trigger and the steps to create, start, and monitor a trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+This article provides information about the schedule trigger and the steps to create, start, and monitor a schedule trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+
+When creating a schedule trigger, you specify a schedule (start date, recurrence, end date etc.) for the trigger, and associate with a pipeline. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
 
 > [!NOTE]
 > This article applies to Azure Data Factory version 2, which is currently in preview. If you're using Azure Data Factory version 1, which is generally available (GA), see [Get started with Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## Define the JSON for a schedule trigger
-When you create a schedule trigger, you can specify scheduling and recurrence by using a JSON definition.
+The following sections provide steps to create a schedule trigger in different ways. 
 
-To have your schedule trigger kick off a pipeline run, include a pipeline reference for the particular pipeline in the trigger definition. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
+## Data Factory UI
+You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
+> [!NOTE]
+> For a complete walkthrough of creating a pipeline and a schedule trigger, associating the trigger with the pipeline, and running and monitoring the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
+
+1. Switch to the **Edit** tab. 
+
+    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+1. Click **Trigger** on the menu, and click **New/Edit**. 
+
+    ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+2. In the **Add Triggers** page, click **Choose trigger...**, and click **New**. 
+
+    ![Add triggers - new trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+3. In the **New Trigger** page, do the following steps: 
+
+    1. Confirm that **Schedule** is selected for **Type**. 
+    2. Specify the start datetime of the trigger for **Start Date (UTC)**. It's set to the current datetime by default. 
+    3. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+    4. For the **End** field, if you do not want to specify an end datetime for the trigger, select **No End**. To specify an end date time, select **On Date**, and specify end datetime, and click **Apply**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+
+        ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings.png)
+4. In the **New Trigger** window, check the **Activated** option, and click **Next**. You can use this checkbox to deactivate the trigger later. 
+
+    ![Trigger settings - Next button](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+5. In the **New Trigger** page, review the warning message, and click **Finish**.
+
+    ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+6. Click **Publish** to publish changes to Data Factory. Until you publish changes to Data Factory, the trigger does not start triggering the pipeline runs. 
+
+    ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
+8. Switch to the **Monitor** tab on the left. Click **Refresh** to refresh the list. You see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use **Trigger Now** option, you see the manual trigger run in the list. 
+
+    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+9. Click the down-arrow next to **Pipeline Runs** to switch to the **Trigger Runs** view. 
+
+    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+## Azure PowerShell
+This section shows you how to use Azure PowerShell to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
+
+1. Create a JSON file named **MyTrigger.json** in the C:\ADFv2QuickStartPSH\ folder with the following content:
+
+    > [!IMPORTANT]
+    > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
+
+    ```json   
+    {
+        "properties": {
+            "name": "MyTrigger",
+            "type": "ScheduleTrigger",
+            "typeProperties": {
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 15,
+                    "startTime": "2017-12-08T00:00:00",
+                    "endTime": "2017-12-08T01:00:00"
+                }
+            },
+            "pipelines": [{
+                    "pipelineReference": {
+                        "type": "PipelineReference",
+                        "referenceName": "Adfv2QuickStartPipeline"
+                    },
+                    "parameters": {
+                        "inputPath": "adftutorial/input",
+                        "outputPath": "adftutorial/output"
+                    }
+                }
+            ]
+        }
+    }
+    ```
+
+    In the JSON snippet:
+    - The **type** element of the trigger is set to "ScheduleTrigger."
+    - The **frequency** element is set to "Minute" and the **interval** element is set to 15. Therefore, the trigger runs the pipeline every 15 minutes between the start and end times.
+    - The **endTime** element is one hour after the value of the **startTime** element. Therefore, the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the start time. Don't forget to update the start time to the current UTC time, and the end time to one hour past the start time. 
+    - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
+    - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. Therefore, you pass values for these parameters from the trigger.
+
+2. Create a trigger by using the **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+
+    ```powershell
+    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
+
+3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+
+    ```powershell
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    ```
+
+4. Start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+
+    ```powershell
+    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    ```
+
+5. Confirm that the status of the trigger is **Started** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+
+    ```powershell
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    ```
+
+6.  Get the trigger runs in Azure PowerShell by using the **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
+
+    ```powershell
+    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    ```
+    
+    To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+
+## .NET SDK
+This section shows you how to use the .NET SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
+
+To create and start a schedule trigger that runs every 15 minutes, add the following code to the main method:
+
+```csharp
+            // Create the trigger
+            Console.WriteLine("Creating the trigger");
+
+            // Set the start time to the current UTC time
+            DateTime startTime = DateTime.UtcNow;
+
+            // Specify values for the inputPath and outputPath parameters
+            Dictionary<string, object> pipelineParameters = new Dictionary<string, object>();
+            pipelineParameters.Add("inputPath", "adftutorial/input");
+            pipelineParameters.Add("outputPath", "adftutorial/output");
+
+            // Create a schedule trigger
+            string triggerName = "MyTrigger";
+            ScheduleTrigger myTrigger = new ScheduleTrigger()
+            {
+                Pipelines = new List<TriggerPipelineReference>()
+                {
+                    // Associate the Adfv2QuickStartPipeline pipeline with the trigger
+                    new TriggerPipelineReference()
+                    {
+                        PipelineReference = new PipelineReference(pipelineName),
+                        Parameters = pipelineParameters,
+                    }
+                },
+                Recurrence = new ScheduleTriggerRecurrence()
+                {
+                    // Set the start time to the current UTC time and the end time to one hour after the start time
+                    StartTime = startTime,
+                    TimeZone = "UTC",
+                    EndTime = startTime.AddHours(1),
+                    Frequency = RecurrenceFrequency.Minute,
+                    Interval = 15,
+                }
+            };
+
+            // Now, create the trigger by invoking the CreateOrUpdate method
+            TriggerResource triggerResource = new TriggerResource()
+            {
+                Properties = myTrigger
+            };
+            client.Triggers.CreateOrUpdate(resourceGroup, dataFactoryName, triggerName, triggerResource);
+
+            // Start the trigger
+            Console.WriteLine("Starting the trigger");
+            client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
+```
+
+To monitor a trigger run, add the following code before the last `Console.WriteLine` statement in the sample:
+
+```csharp
+            // Check that the trigger runs every 15 minutes
+            Console.WriteLine("Trigger runs. You see the output every 15 minutes");
+
+            for (int i = 0; i < 3; i++)
+            {
+                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(15));
+                List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-15 * (i + 1)), DateTime.UtcNow.AddMinutes(2)).ToList();
+                Console.WriteLine("{0} trigger runs found", triggerRuns.Count);
+
+                foreach (TriggerRun run in triggerRuns)
+                {
+                    foreach (KeyValuePair<string, string> triggeredPipeline in run.TriggeredPipelines)
+                    {
+                        PipelineRun triggeredPipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, triggeredPipeline.Value);
+                        Console.WriteLine("Pipeline run ID: {0}, Status: {1}", triggeredPipelineRun.RunId, triggeredPipelineRun.Status);
+                        List<ActivityRun> runs = client.ActivityRuns.ListByPipelineRun(resourceGroup, dataFactoryName, triggeredPipelineRun.RunId, run.TriggerRunTimestamp.Value, run.TriggerRunTimestamp.Value.AddMinutes(20)).ToList();
+                    }
+                }
+            }
+```
+
+To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+
+## Python SDK
+This section shows you how to use the Python SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the Python SDK](quickstart-create-data-factory-python.md). Then, add the following code block after the "monitor the pipeline run" code block in the Python script. This code creates a schedule trigger that runs every 15 minutes between the specified start and end times. Update the **start_time** variable to the current UTC time, and the **end_time** variable to one hour past the current UTC time.
+
+```python
+    # Create a trigger
+    tr_name = 'mytrigger'
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
+    pipelines_to_run = []
+    pipeline_reference = PipelineReference('copyPipeline')
+    pipelines_to_run.append(TriggerPipelineReference(pipeline_reference, pipeline_parameters))
+    tr_properties = ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
+    adf_client.triggers.create_or_update(rg_name, df_name, tr_name, tr_properties)
+
+    # Start the trigger
+    adf_client.triggers.start(rg_name, df_name, tr_name)
+```
+
+To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+## Azure Resource Manager template
+You can use an Azure Resource Manager template to create a trigger. For step-by-step instructions, see [Create an Azure data factory by using a Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).  
+
+## Pass the trigger start time to a pipeline
+Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In Azure Data Factory version 2, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
+
+```json
+"parameters": {
+    "scheduledRunTime": "@trigger().scheduledTime"
+}
+```    
+
+For more information, see the instructions in [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
+
+## JSON schema
 The following JSON definition shows you how to create a schedule trigger with scheduling and recurrence:
 
 ```json
@@ -170,196 +399,6 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
-
-## Use Azure PowerShell
-This section shows you how to use Azure PowerShell to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
-
-1. Create a JSON file named **MyTrigger.json** in the C:\ADFv2QuickStartPSH\ folder with the following content:
-
-    > [!IMPORTANT]
-    > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
-
-    ```json   
-    {
-        "properties": {
-            "name": "MyTrigger",
-            "type": "ScheduleTrigger",
-            "typeProperties": {
-                "recurrence": {
-                    "frequency": "Minute",
-                    "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
-                }
-            },
-            "pipelines": [{
-                    "pipelineReference": {
-                        "type": "PipelineReference",
-                        "referenceName": "Adfv2QuickStartPipeline"
-                    },
-                    "parameters": {
-                        "inputPath": "adftutorial/input",
-                        "outputPath": "adftutorial/output"
-                    }
-                }
-            ]
-        }
-    }
-    ```
-
-    In the JSON snippet:
-    - The **type** element of the trigger is set to "ScheduleTrigger."
-    - The **frequency** element is set to "Minute" and the **interval** element is set to 15. Therefore, the trigger runs the pipeline every 15 minutes between the start and end times.
-    - The **endTime** element is one hour after the value of the **startTime** element. Therefore, the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the start time. Don't forget to update the start time to the current UTC time, and the end time to one hour past the start time. 
-    - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
-    - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. Therefore, you pass values for these parameters from the trigger.
-
-2. Create a trigger by using the **Set-AzureRmDataFactoryV2Trigger** cmdlet:
-
-    ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
-    ```
-
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet:
-
-    ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
-    ```
-
-4. Start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet:
-
-    ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
-    ```
-
-5. Confirm that the status of the trigger is **Started** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet:
-
-    ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
-    ```
-
-6.  Get the trigger runs in Azure PowerShell by using the **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
-
-    ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
-    ```
-    
-    To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
-
-
-## Use the .NET SDK
-This section shows you how to use the .NET SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
-
-To create and start a schedule trigger that runs every 15 minutes, add the following code to the main method:
-
-```csharp
-            // Create the trigger
-            Console.WriteLine("Creating the trigger");
-
-            // Set the start time to the current UTC time
-            DateTime startTime = DateTime.UtcNow;
-
-            // Specify values for the inputPath and outputPath parameters
-            Dictionary<string, object> pipelineParameters = new Dictionary<string, object>();
-            pipelineParameters.Add("inputPath", "adftutorial/input");
-            pipelineParameters.Add("outputPath", "adftutorial/output");
-
-            // Create a schedule trigger
-            string triggerName = "MyTrigger";
-            ScheduleTrigger myTrigger = new ScheduleTrigger()
-            {
-                Pipelines = new List<TriggerPipelineReference>()
-                {
-                    // Associate the Adfv2QuickStartPipeline pipeline with the trigger
-                    new TriggerPipelineReference()
-                    {
-                        PipelineReference = new PipelineReference(pipelineName),
-                        Parameters = pipelineParameters,
-                    }
-                },
-                Recurrence = new ScheduleTriggerRecurrence()
-                {
-                    // Set the start time to the current UTC time and the end time to one hour after the start time
-                    StartTime = startTime,
-                    TimeZone = "UTC",
-                    EndTime = startTime.AddHours(1),
-                    Frequency = RecurrenceFrequency.Minute,
-                    Interval = 15,
-                }
-            };
-
-            // Now, create the trigger by invoking the CreateOrUpdate method
-            TriggerResource triggerResource = new TriggerResource()
-            {
-                Properties = myTrigger
-            };
-            client.Triggers.CreateOrUpdate(resourceGroup, dataFactoryName, triggerName, triggerResource);
-
-            // Start the trigger
-            Console.WriteLine("Starting the trigger");
-            client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
-```
-
-To monitor a trigger run, add the following code before the last `Console.WriteLine` statement in the sample:
-
-```csharp
-            // Check that the trigger runs every 15 minutes
-            Console.WriteLine("Trigger runs. You see the output every 15 minutes");
-
-            for (int i = 0; i < 3; i++)
-            {
-                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(15));
-                List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-15 * (i + 1)), DateTime.UtcNow.AddMinutes(2)).ToList();
-                Console.WriteLine("{0} trigger runs found", triggerRuns.Count);
-
-                foreach (TriggerRun run in triggerRuns)
-                {
-                    foreach (KeyValuePair<string, string> triggeredPipeline in run.TriggeredPipelines)
-                    {
-                        PipelineRun triggeredPipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, triggeredPipeline.Value);
-                        Console.WriteLine("Pipeline run ID: {0}, Status: {1}", triggeredPipelineRun.RunId, triggeredPipelineRun.Status);
-                        List<ActivityRun> runs = client.ActivityRuns.ListByPipelineRun(resourceGroup, dataFactoryName, triggeredPipelineRun.RunId, run.TriggerRunTimestamp.Value, run.TriggerRunTimestamp.Value.AddMinutes(20)).ToList();
-                    }
-                }
-            }
-```
-
-To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
-
-
-## Use the Python SDK
-This section shows you how to use the Python SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the Python SDK](quickstart-create-data-factory-python.md). Then, add the following code block after the "monitor the pipeline run" code block in the Python script. This code creates a schedule trigger that runs every 15 minutes between the specified start and end times. Update the **start_time** variable to the current UTC time, and the **end_time** variable to one hour past the current UTC time.
-
-```python
-    # Create a trigger
-    tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
-    pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
-    pipelines_to_run = []
-    pipeline_reference = PipelineReference('copyPipeline')
-    pipelines_to_run.append(TriggerPipelineReference(pipeline_reference, pipeline_parameters))
-    tr_properties = ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
-    adf_client.triggers.create_or_update(rg_name, df_name, tr_name, tr_properties)
-
-    # Start the trigger
-    adf_client.triggers.start(rg_name, df_name, tr_name)
-```
-
-To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
-
-## Use a Resource Manager template
-You can use an Azure Resource Manager template to create a trigger. For step-by-step instructions, see [Create an Azure data factory by using a Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).  
-
-## Pass the trigger start time to a pipeline
-Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In Azure Data Factory version 2, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
-
-```json
-"parameters": {
-    "scheduledRunTime": "@trigger().scheduledTime"
-}
-```    
-
-For more information, see the instructions in [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
