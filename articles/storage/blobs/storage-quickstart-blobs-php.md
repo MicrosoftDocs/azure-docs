@@ -94,17 +94,25 @@ In this section, you set up an instance of Azure storage client, instantiate the
 
 ```PHP
 # Setup a specific instance of an Azure::Storage::Client
-client = Azure::Storage.client(storage_account_name: account_name, storage_access_key: account_key)
+$connectionString = getenv('storageconnectionstring');
+
+// Create blob client.
+$blobClient = BlobRestProxy::createBlobService($connectionString);
 
 # Create the BlobService that represents the Blob service for the storage account
-blob_service = client.blob_client
+$createContainerOptions = new CreateContainerOptions();
 
-# Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
-container = blob_service.create_container(container_name)   
+$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
-# Set the permission so the blobs are public.
-blob_service.set_container_acl(container_name, "container")
+    // Set container metadata.
+    $createContainerOptions->addMetaData("key1", "value1");
+    $createContainerOptions->addMetaData("key2", "value2");
+
+    $containerName = "blockblobs".generateRandomString();
+
+    try    {
+        // Create container.
+        $blobClient->createContainer($containerName, $createContainerOptions);
 ```
 
 ### Upload blobs to the container
@@ -116,21 +124,20 @@ To upload a file to a blob, get the full path of the file by joining the directo
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob as **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
-# Create a file in Documents to test the upload and download.
-local_path=File.expand_path("~/Documents")
-local_file_name ="QuickStart_" + SecureRandom.uuid + ".txt"
-full_path_to_file =File.join(local_path, local_file_name)
+    $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");
+    $txt = "Hello Azure!";
+    fwrite($myfile, $txt);
+    fclose($myfile);
 
-# Write text to the file.
-file = File.open(full_path_to_file,  'w')
-file.write("Hello, World!")
-file.close()
+    # Upload file as a block blob
+    echo "Uploading BlockBlob: ".PHP_EOL;
+    echo $fileToUpload;
+    echo "<br />";
+    
+    $content = fopen($fileToUpload, "r");
 
-puts "Temp file = " + full_path_to_file
-puts "\nUploading to Blob storage as blob" + local_file_name
-
-# Upload the created file, using local_file_name for the blob name
-blob_service.create_block_blob(container.name, local_file_name, full_path_to_file)
+    //Upload blob
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
 To perform a partial update of the content of a block blob, use the **create\_block\_list()** method. Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Append blob should be used in a single writer model. Most objects stored in Blob storage are block blobs.
@@ -140,12 +147,14 @@ To perform a partial update of the content of a block blob, use the **create\_bl
 You can get a list of files in the container using the **list\_blobs()** method. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
 
 ```PHP
-# List the blobs in the container
-puts "\n List blobs in the container"
-blobs = blob_service.list_blobs(container_name)
-blobs.each do |blob|
-    puts "\t Blob name #{blob.name}"   
-end  
+$blob_list = $blobClient->listBlobs($containerName);
+    $blobs = $blob_list->getBlobs();
+    echo "These are the blobs present in the container: ";
+    foreach($blobs as $blob)
+    {
+        echo $blob->getName().": ".$blob->getUrl()."<br />";
+    }
+    echo "<br />";
 ```
 
 ### Download the blobs
@@ -153,23 +162,30 @@ end
 Download blobs to your local disk using the **get\_blob()** method. The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
 
 ```PHP
-# Download the blob(s).
-# Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = File.join(local_path, local_file_name.gsub('.txt', '_DOWNLOADED.txt'))
-
-puts "\n Downloading blob to " + full_path_to_file2
-blob, content = blob_service.get_blob(container_name,local_file_name)
-File.open(full_path_to_file2,"wb") {|f| f.write(content)}
+    $blob = $blobClient->getBlob($containerName, $fileToUpload);
+    fpassthru($blob->getContentStream());
 ```
 
 ### Clean up resources
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **delete\_container()** method. If the files created are no longer needed, you use the **delete\_blob()** method to delete the files.
 
 ```PHP
-# Clean up resources. This includes the container and the temp files
-blob_service.delete_container(container_name)
-File.delete(full_path_to_file)
-File.delete(full_path_to_file2)    
+    // Delete blob.
+    echo "Deleting Blob".PHP_EOL;
+    echo $fileToUpload;
+    echo "<br />";
+    $blobClient->deleteBlob($_GET["containerName"], $fileToUpload);
+
+    // Delete container.
+    echo "Deleting Container".PHP_EOL;
+    echo $_GET["containerName"].PHP_EOL;
+    echo "<br />";
+    $blobClient->deleteContainer($_GET["containerName"]);
+
+    //Deleting local file
+    echo "Deleting file".PHP_EOL;
+    echo "<br />";
+    unlink($fileToUpload);   
 ```
 
 ## Next steps
@@ -177,7 +193,7 @@ File.delete(full_path_to_file2)
 In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Ruby. To learn more about working with blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](./storage-php-how-to-use-blob-storage.md)
+> [Blob Storage Operations How-To](./storage-php-how-to-use-blobs.md)
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
