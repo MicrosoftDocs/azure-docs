@@ -43,40 +43,6 @@ This page is updated monthly, so revisit it regularly.
 ## January 2018
  
 
-[345461](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=345461&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD administration experience in Azure classic portal has been retired
-
-**Type:** Plan for change  
-**Service category:** Azure AD  
-**Product capability:** Directory
- 
-
-As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. Going forward, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
- 
-
----
- 
-
-[346035](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=346035&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD administration experience in Azure classic portal has been retired
-
-**Type:** Plan for change  
-**Service category:** Azure AD  
-**Product capability:** Directory
- 
-
-As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com. 
-
-The MFA configuration is located at: **Azure Active Directory \> MFA Server**.
- 
-
----
- 
-
-[349651](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=349651&triage=true&fullScreen=false&_a=edit)
-
 ### New Federated Apps available in Azure AD App gallery 
 
 **Type:** New feature  
@@ -94,7 +60,6 @@ You can also find the documentation of all the applications in [SaaS application
 ---
  
 
-[284786](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=284786&triage=true&fullScreen=false&_a=edit)
 
 ### Sign-in with additional risk detected
 
@@ -111,9 +76,6 @@ For more information, see [Azure Active Directory risk events](active-directory-
  
 
 ---
- 
-
-[345042](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=345042&triage=true&fullScreen=false&_a=edit)
 
 ### Hide Office 365 applications from end user's access panels
 
@@ -125,10 +87,11 @@ For more information, see [Azure Active Directory risk events](active-directory-
 You can now better manage how Office 365 applications show up on your user's access panels through a new user setting. This option is helpful for reducing the amount of apps in a user's access panels if you prefer to only show Office apps in the Office portal. The setting is located in the **User Settings** and is labeled **Users can only see Office 365 apps in the Office 365 portal**.
  
 
+For more information, see [Hide an application from user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
 ---
  
 
-[9109](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=9109&triage=true&fullScreen=false&_a=edit)
 
 ### Seamless sign into apps enabled for Password SSO directly from app's URL 
 
@@ -137,18 +100,41 @@ You can now better manage how Office 365 applications show up on your user's acc
 **Product capability:** SSO
  
 
-We’ve updated the My Apps browser extension into a convenient tool that gives users the My Apps single-sign on capability as a shortcut on their browser. After installing user's will see a waffle icon in their browser that provides them quick access to apps. Users can now take advantage of:
+The My Apps browser extension is now available via a convenient tool that gives you the My Apps single-sign on capability as a shortcut in your browser. After installing user's will see a waffle icon in their browser that provides them quick access to apps. Users can now take advantage of:
 
-Ability to directly sign in to password-SSO based apps from the app’s login page
-Launch any app from the quick search feature
-Find shortcuts to Recently Used apps from the extension
-The extension is available for Edge, Chrome and Firefox.
+- The ability to directly sign in to password-SSO based apps from the app’s login page
+- Launch any app using the quick search feature
+- Shortcuts to recently used apps from the extension
+- The extension is available for Edge, Chrome and Firefox.
  
+For more information, see [My Apps Secure Sign-in Extension](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ---
+
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Deprecated functionality  
+**Service category:** Azure AD  
+**Product capability:** Directory
  
 
+As of January 8, 2018, the Azure AD administration experience in the Azure classic portal has been retired. This took place in conjunction with the retirement of the Azure classic portal itself. Going forward, you should use the [Azure AD admin center](https://aad.portal.azure.com) for all your portal-based administration of Azure AD.
+ 
+---
 
+### Azure AD administration experience in Azure classic portal has been retired
+
+**Type:** Deprecated functionality 
+**Service category:** Azure AD  
+**Product capability:** Directory
+ 
+
+As of January 8, 2018, the PhoneFactor web portal has been retired. This portal was used for the administration of MFA server, but those functions have been moved into the Azure portal at portal.azure.com. 
+
+The MFA configuration is located at: **Azure Active Directory \> MFA Server**
+ 
+---
+ 
 
 
 ## December 2017
