@@ -233,7 +233,7 @@ This error code means that the deployment failed due to violation of a policy.
 
 **Troubleshooting tips:**
 
-Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. For learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md#fields-and-sources?toc=%2fazure%2fautomation%2ftoc.json)
+Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. For learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## Next steps
 
