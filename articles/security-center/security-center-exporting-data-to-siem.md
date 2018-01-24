@@ -34,9 +34,9 @@ High-level overview
 
 ## What is the Azure security data exposed to SIEM?
 
-In this preview version we expose the [security alerts.](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts) In upcoming releases, we enrich the data set with security recommendations.
+In this preview version we expose the [security alerts.](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts) In upcoming releases, we will enrich the data set with security recommendations.
 
-## How to set up the pipeline? 
+## How to setup the pipeline? 
 
 ### Create an event hub 
 
@@ -44,7 +44,7 @@ Before you begin, you need to [create an Event Hubs namespace and event hub](htt
 
 ### Stream the Azure Activity Log to Event Hubs
 
-Please refer to the following article [stream activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs#stream-azure-activity-log-data-into-an-event-hub)
+Please refer to the following article [stream activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md#stream-azure-activity-log-data-into-an-event-hub)
 
 ### Install a partner SIEM connector 
 
