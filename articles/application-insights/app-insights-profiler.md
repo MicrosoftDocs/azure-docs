@@ -34,13 +34,13 @@ In [the Azure portal](https://portal.azure.com), open the Application Insights r
 
 ![Select the Enable profiler banner][enable-profiler-banner]
 
-Alternatively, you can select **Configure** to view status and enable or disable the profiler.
+Alternatively, you can select **Profiler** configuration to view status and enable or disable the profiler.
 
-![Under Performance, select Configure][performance-blade]
+![Under Performance, select Profiler configuration][performance-blade]
 
-Web apps that are configured with Application Insights are listed in the Profiler **Configure** blade. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
+Web apps that are configured with Application Insights are listed in the Profiler **Profiler** configuration blade. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
 
-To control the profiler on all your linked web apps, in the **Configure** pane, select **Enable Profiler** or **Disable Profiler**.
+To control the profiler on all your linked web apps, in the **Profiler** configuration blade, select **Enable Profiler** or **Disable Profiler**.
 
 ![Configure pane options][linked app services]
 
