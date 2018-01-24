@@ -51,9 +51,9 @@ No. You can only use the native VPN client on Windows for SSTP, and the native V
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016, but requires users to install updates and set a registry key value. Versions prior to Windows 10 are NOT supported and can only use SSTP.
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
 
-To prepare Windows 10 or Server 2016:
+To prepare Windows 10 or Server 2016 for IKEv2:
 
 1. Install the update.
 
