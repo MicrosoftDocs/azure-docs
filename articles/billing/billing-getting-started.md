@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
 ---
 # Prevent unexpected charges with Azure billing and cost management
@@ -157,6 +157,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
+    - You don't have enough RBAC permission at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
 - Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
 
 ### Check your subscription and access
