@@ -1,6 +1,6 @@
 ---
 title: Custom fields in Azure Log Analytics | Microsoft Docs
-description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from Log Analytics data that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
+description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from Log Analytics records that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -37,8 +37,7 @@ When you create a custom field, Log Analytics must understand which data to use 
 The following sections provide the procedure for creating a custom field.  At the bottom of this article is a walkthrough of a sample extraction.
 
 > [!NOTE]
-> The custom field is populated as records matching the specified criteria are added toLog Analytics, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
-> 
+> The custom field is populated as records matching the specified criteria are added to Log Analytics, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 > 
 
 ### Step 1 – Identify records that will have the custom field
