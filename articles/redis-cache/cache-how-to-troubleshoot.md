@@ -191,7 +191,7 @@ This error message contains metrics that can help point you to the cause and pos
 ### Steps to investigate
 1. As a best practice make sure you are using the following pattern to connect when using the StackExchange.Redis client.
 
-    ```c#
+    ```csharp
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
 	    return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

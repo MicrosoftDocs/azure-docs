@@ -3,7 +3,7 @@ title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
+ms.author: mabrigg
 
 ---
 
@@ -88,7 +88,7 @@ The system account must have the following privileges:
 
 6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
-7. Run the DeploySqlProvider.ps1 script.
+7. Run the `DeployMySqlProvider.ps1` script.
 
 The script performs these steps:
 
@@ -153,12 +153,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### DeploySqlProvider.ps1 parameters
+### DeployMySqlProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _required_ |
 | **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privileged Endpoint. |  _required_ |
@@ -321,7 +321,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
-| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privileged Endpoint. |  _required_ |
 | **DependencyFilesLocalPath** | Your certificate PFX file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
 | **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
