@@ -11,14 +11,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 12/14/2017
 ms.author: apimpm
 ---
 
 # Configure a custom domain name 
 
 When you create an API Management (APIM) instance, Azure assigns it to a subdomain of azure-api.net (for example, `apim-service-name.azure-api.net`). However, you can expose your APIM endpoints using your own domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an Azure API Management instance.
-
 
 ## Prerequisites
 
@@ -55,6 +54,8 @@ To perform the steps described in this article, you must have:
 
     >[!NOTE]
     >The process of assigning the certificate may take 15 minutes or so.
+
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## Next steps
 

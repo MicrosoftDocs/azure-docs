@@ -4,7 +4,7 @@ description: Learn how to create an Azure Multi-Factor Auth Provider.
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 12/08/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
@@ -27,6 +27,7 @@ An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
 > The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature is no longer supported for new customers. Current customers can continue using the SDK until November 14, 2018. After that time, calls to the SDK will fail.
+
 > [!IMPORTANT]
 >To download the SDK, you need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own. 
 
@@ -40,11 +41,13 @@ There are two types of auth providers, and the distinction is around how your Az
 
 Use the following steps to create an Azure Multi-Factor Authentication Provider in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator. 
-2. Select **Azure Active Directory** > **MFA Server**.
-3. Select **Providers**.
-4. Select **Add**.
-5. Fill in the following fields and then select **Add**:
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator. 
+2. Select **Azure Active Directory** > **MFA Server** > **Providers**.
+
+   ![Providers][Providers]
+
+3. Select **Add**.
+4. Fill in the following fields and then select **Add**:
    - **Name** – The name of the Provider.
    - **Usage Model** – Choose one of two options:
       * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
@@ -66,3 +69,5 @@ If your MFA provider is not linked to an Azure AD tenant, or you link the new MF
 ## Next steps
 
 [Configure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
+
+[Providers]: ./media/multi-factor-authentication-get-started-auth-provider/add-providers.png "Add MFA Providers"

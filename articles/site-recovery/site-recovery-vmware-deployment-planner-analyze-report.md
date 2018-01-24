@@ -234,8 +234,8 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
-* Average data churn exceeds supported Site Recovery data churn limit of 10 MBps for average I/O size for the disk.
-* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MBps per VM.
+* Average data churn exceeds supported Site Recovery data churn limit of 10 MB/s for average I/O size for the disk.
+* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MB/s per VM.
 * Average effective write IOPS exceeds the supported Site Recovery IOPS limit of 840 for disk.
 * Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB.
 
@@ -263,12 +263,12 @@ The following table provides the Azure Site Recovery limits. These limits are ba
  
 **Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
-Standard storage | 8 KB	| 2 MBps | 168 GB per disk
-Premium P10 or P15 disk | 8 KB	| 2 MBps | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MBps |	336 GB per disk
-Premium P10 or P15 disk | 32 KB or greater | 8 MBps | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MBps | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MBps | 842 GB per disk
+Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
 These are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 

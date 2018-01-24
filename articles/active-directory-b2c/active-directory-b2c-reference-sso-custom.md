@@ -4,7 +4,7 @@ description: Learn how to manage SSO sessions using custom policies in Azure AD 
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f

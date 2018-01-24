@@ -46,13 +46,13 @@ Name | Purpose
 [Bandwidth Parameters](#bandwidth-parameters) | Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) are active.
 [Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the edge servers.
 [Bypass Cache](#bypass-cache) | Determines whether the request should bypass caching.
-[Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of Cache-Control headers by the edge server when External Max-Age feature is active.
+[Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of `Cache-Control` headers by the edge server when External Max-Age feature is active.
 [Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key will include or exclude query string parameters associated with a request.
 [Cache-Key Rewrite](#cache-key-rewrite) | Rewrites the cache-key associated with a request.
 [Complete Cache Fill](#complete-cache-fill) | Determines what happens when a request results in a partial cache miss on an edge server.
 [Compress File Types](#compress-file-types) | Defines the file formats that will be compressed on the server.
 [Default Internal Max-Age](#default-internal-max-age) | Determines the default max-age interval for edge server to origin server cache revalidation.
-[Expires Header Treatment](#expires-header-treatment) | Controls the generation of Expires headers by an edge server when the External Max-Age feature is active.
+[Expires Header Treatment](#expires-header-treatment) | Controls the generation of `Expires` headers by an edge server when the External Max-Age feature is active.
 [External Max-Age](#external-max-age) | Determines the max-age interval for browser to edge server cache revalidation.
 [Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for edge server to origin server cache revalidation.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
@@ -160,6 +160,7 @@ Name | Purpose
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) | Determines the set of additional HTTP methods that can be cached on the network.
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
+[User Variable](#user-variable) | For internal use only.
 
  
 ## URL features
@@ -176,8 +177,9 @@ Name | Purpose
 
 ## Azure CDN rules engine features reference
 
+---
 ### Age Response Header
-**Purpose**: Determines whether an Age response header will be included in the response sent to the requester.
+**Purpose**: Determines whether an Age response header is included in the response sent to the requester.
 Value|Result
 --|--
 Enabled | The Age response header is included in the response sent to the requester.
@@ -185,6 +187,11 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 **Default Behavior**: Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Bandwidth Parameters
 **Purpose:** Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) will be active.
 
@@ -196,7 +203,12 @@ Enabled|Allows the edge servers to honor bandwidth throttling requests.
 Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The requested content will be served normally (that is, without bandwidth throttling).
 
 **Default Behavior:** Enabled.
+ 
+[Back to top](#azure-cdn-rules-engine-features)
 
+</br>
+
+---
 ### Bandwidth Throttling
 **Purpose:** Throttles the bandwidth for the response provided by the edge servers.
 
@@ -205,10 +217,15 @@ Both of the following options must be defined to properly set up bandwidth throt
 Option|Description
 --|--
 Kbytes per second|Set this option to the maximum bandwidth (Kb per second) that may be used to deliver the response.
-Prebuf seconds|Set this option to the number of seconds that the edge servers will wait until throttling bandwidth. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
+Prebuf seconds|Set this option to the number of seconds for the edge servers to wait until bandwidth is throttled. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Bypass Cache
 **Purpose:** Determines whether the request should bypass caching.
 
@@ -223,21 +240,31 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 
 <!---
 - **ADN:** Enabled
+
 --->
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Cacheable HTTP Methods
 **Purpose:** Determines the set of additional HTTP methods that can be cached on the network.
 
 Key information:
 
 - This feature assumes that GET responses should always be cached. As a result, the GET HTTP method should not be included when setting this feature.
-- This feature only supports the POST HTTP method. Enable POST response caching by setting this feature to:POST 
-- By default, only requests whose body is smaller than 14 Kb will be cached. Use the Cacheable Request Body Size Feature to set the maximum request body size.
+- This feature supports only the POST HTTP method. Enable POST response caching by setting this feature to `POST`.
+- By default, only requests whose body is smaller than 14 Kb are cached. Use the Cacheable Request Body Size Feature to set the maximum request body size.
 
-**Default Behavior:** Only GET responses will be cached.
+**Default Behavior:** Only GET responses are cached.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Cacheable Request Body Size
-
 **Purpose:** Defines the threshold for determining whether a POST response can be cached.
 
 This threshold is determined by specifying a maximum request body size. Requests that contain a larger request body will not be cached.
@@ -254,6 +281,11 @@ Key information:
 
 **Default Behavior:** 14 Kb
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Cache-Control Header Treatment
 **Purpose:** Controls the generation of `Cache-Control` headers by the edge server when the External Max-Age Feature is active.
 
@@ -261,13 +293,18 @@ The easiest way to achieve this type of configuration is to place the External M
 
 Value|Result
 --|--
-Overwrite|Ensures that the following actions will take place:<br/> - Overwrites the Cache-Control header generated by the origin server. <br/>- Adds the `Cache-Control` header produced by the External Max-Age feature to the response.
-Pass Through|Ensures that the `Cache-Control` header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces a `Cache-Control` header, it will pass through to the end-user. <br/> If the origin server does not produce a `Cache-Control` header, then this option may cause the response header to not contain a `Cache-Control` header.
-Add if Missing|If a `Cache-Control` header was not received from the origin server, then this option adds the `Cache-Control` header produced by the External Max-Age feature. This option is useful for ensuring that all assets will be assigned a `Cache-Control` header.
-Remove| This option ensures that a `Cache-Control` header is not included with the header response. If a `Cache-Control` header has already been assigned, then it will be stripped from the header response.
+Overwrite|Ensures that the following actions occur:<br/> - Overwrites the `Cache-Control` header generated by the origin server. <br/>- Adds the `Cache-Control` header produced by the External Max-Age feature to the response.
+Pass Through|Ensures that the `Cache-Control` header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces a `Cache-Control` header, it passes through to the end user. <br/> If the origin server does not produce a `Cache-Control` header, then this option may cause the response header to not contain a `Cache-Control` header.
+Add if Missing|If a `Cache-Control` header was not received from the origin server, then this option adds the `Cache-Control` header produced by the External Max-Age feature. This option is useful for ensuring that all assets are assigned a `Cache-Control` header.
+Remove| This option ensures that a `Cache-Control` header is not included with the header response. If a `Cache-Control` header has already been assigned, then it is removed from the header response.
 
 **Default Behavior:** Overwrite.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Cache-Key Query String
 **Purpose:** Determines whether the cache-key will include or exclude query string parameters associated with a request.
 
@@ -336,6 +373,11 @@ This type of configuration would generate the following query string parameter c
 
 	/800001/Origin/folder/asset.htm
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Cache-Key Rewrite
 **Purpose:** Rewrites the cache-key associated with a request.
 
@@ -349,6 +391,11 @@ Original Path| Define the relative path to the types of requests whose cache-key
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of HTTP variables
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Comment
 **Purpose:** Allows a note to be added within a rule.
 
@@ -360,16 +407,22 @@ Key information:
 - Use only alphanumeric characters.
 - This feature does not affect the behavior of the rule. It is merely meant to provide an area where you can provide information for future reference or that may help when troubleshooting the rule.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Complete Cache Fill
 **Purpose:** Determines what happens when a request results in a partial cache miss on an edge server.
 
 A partial cache miss describes the cache status for an asset that was not completely downloaded to an edge server. If an asset is only partially cached on an edge server, then the next request for that asset will be forwarded again to the origin server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 A partial cache miss typically occurs after a user aborts a download or for assets that are solely requested using HTTP range requests. This feature is most useful for large assets where users will not typically download them from start to finish (for example, videos). As a result, this feature is enabled by default on the HTTP Large platform. It is disabled on all other platforms.
 
-It is recommended to leave the default configuration for the HTTP Large platform, since it will reduce the load on your customer origin server and increase the speed at which your customers download your content.
+Keep the default configuration for the HTTP Large platform, because it reduces the load on your customer origin server and increases the speed at which your customers download your content.
 
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following Match conditions: Edge Cname, Request Header Literal, Request Header Wildcard, URL Query Literal, and URL Query Wildcard.
 
@@ -380,6 +433,11 @@ Disabled|Prevents an edge server from performing a background fetch for the asse
 
 **Default Behavior:** Enabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Compress File Types
 **Purpose:** Defines the file formats that will be compressed on the server.
 
@@ -400,12 +458,17 @@ Key information:
 - Wildcard characters, such as asterisks, are not supported.
 - Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Custom Log Field 1
 **Purpose:** Determines the format and the content that will be assigned to the custom log field in a raw log file.
 
-The main purpose behind this custom field is to allow you to determine which request and response header values will be stored in your log files.
+This custom field allows you to determine which request and response header values are stored in your log files.
 
-By default, the custom log field is called "x-ec_custom-1." However, the name of this field can be customized from the [Raw Log Settings page]().
+By default, the custom log field is called "x-ec_custom-1." However, the name of this field can be customized from the Raw Log Settings page.
 
 The formatting that you should use to specify request and response headers is defined below.
 
@@ -424,6 +487,11 @@ Key information:
 
 **Default Value:** -
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Debug Cache Response Headers
 **Purpose:** Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
 
@@ -447,20 +515,25 @@ Disabled|The X-EC-Debug response header will be excluded from the response.
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Default Internal Max-Age
 **Purpose:** Determines the default max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server will check whether a cached asset matches the asset stored on the origin server.
 
 Key information:
 
-- This action will only take place for responses from an origin server that did not assign a max-age indication in the Cache-Control or Expires header.
+- This action will only take place for responses from an origin server that did not assign a max-age indication in the `Cache-Control` or `Expires` header.
 - This action will not take place for assets that are not deemed cacheable.
-- This action does not affect browser to edge server cache revalidations. These types of revalidations are determined by the Cache-Control or Expires headers sent to the browser, which can be customized with the External Max-Age feature.
+- This action does not affect browser to edge server cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser, which can be customized with the External Max-Age feature.
 - The results of this action do not have an observable effect on the response headers and the content returned from edge servers for your content, but it may have an effect on the amount of revalidation traffic sent from edge servers to your origin server.
 - Configure this feature by:
     - Selecting the status code for which a default internal max-age can be applied.
     - Specifying an integer value and then selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the default internal max-age interval.
 
-- Setting the time unit to "Off" will assign a default internal max-age interval of 7 days for requests that have not been assigned a max-age indication in their Cache-Control or Expires header.
+- Setting the time unit to "Off" will assign a default internal max-age interval of 7 days for requests that have not been assigned a max-age indication in their `Cache-Control` or `Expires` header.
 - Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
     - Edge 
 	- Cname
@@ -472,6 +545,11 @@ Key information:
 
 **Default Value:** 7 days
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Deny Access (403)
 **Purpose**: Determines whether all requests are rejected with a 403 Forbidden response.
 
@@ -485,35 +563,50 @@ Disabled| Restores the default behavior. The default behavior is to allow the or
 > [!TIP]
    > One possible use for this feature is to associate it with a Request Header match condition to block access to HTTP referrers that are using inline links to your content.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Expires Header Treatment
-**Purpose:** Controls the generation of Expires headers by an edge server when the External Max-Age feature is active.
+**Purpose:** Controls the generation of `Expires` headers by an edge server when the External Max-Age feature is active.
 
 The easiest way to achieve this type of configuration is to place the External Max-Age and the Expires Header Treatment features in the same statement.
 
 Value|Result
 --|--
-Overwrite|Ensures that the following actions will take place:<br/>- Overwrites the Expires header generated by the origin server.<br/>- Adds the Expires header produced by the External Max-Age feature to the response.
-Pass Through|Ensures that the Expires header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces an Expires header, it will pass through to the end-user. <br/>If the origin server does not produce an Expires header, then this option may cause the response header to not contain an Expires header.
-Add if Missing| If an Expires header was not received from the origin server, then this option adds the Expires header produced by the External Max-Age feature. This option is useful for ensuring that all assets will be assigned an Expires header.
-Remove| Ensures that an Expires header is not included with the header response. If an Expires header has already been assigned, then it will be stripped from the header response.
+Overwrite|Ensures that the following actions will take place:<br/>- Overwrites the `Expires` header generated by the origin server.<br/>- Adds the `Expires` header produced by the External Max-Age feature to the response.
+Pass Through|Ensures that the `Expires` header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces an `Expires` header, it will pass through to the end user. <br/>If the origin server does not produce an `Expires` header, then this option may cause the response header to not contain an `Expires` header.
+Add if Missing| If an `Expires` header was not received from the origin server, then this option adds the `Expires` header produced by the External Max-Age feature. This option is useful for ensuring that all assets will be assigned an `Expires` header.
+Remove| Ensures that an `Expires` header is not included with the header response. If an `Expires` header has already been assigned, then it is removed from the header response.
 
 **Default Behavior:** Overwrite
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### External Max-Age
 **Purpose:** Determines the max-age interval for browser to edge server cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from an edge server.
 
-Enabling this feature will generate Cache-Control:max-age and Expires headers from the edge servers and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
+Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the edge servers and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
 
 Key information:
 
-- This action does not affect edge server to origin server cache revalidations. These types of revalidations are determined by the Cache-Control/Expires headers received from the origin
+- This action does not affect edge server to origin server cache revalidations. These types of revalidations are determined by the `Cache-Control` and `Expires` headers received from the origin
 server, and can be customized with the Default Internal Max-Age and the Force Internal Max-Age features.
 - Configure this feature by specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.).
-- Setting this feature to a negative value causes the edge servers to send a Cache-Control:no-cache and an Expires time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect the edge servers' ability to cache the response from the origin server.
-- Setting the time unit to "Off" will disable this feature. The Cache-Control/Expires headers cached with the response of the origin server will pass through to the browser.
+- Setting this feature to a negative value causes the edge servers to send a `Cache-Control: no-cache` and an `Expires` time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect the edge servers' ability to cache the response from the origin server.
+- Setting the time unit to "Off" will disable this feature. The `Cache-Control` and `Expires` headers cached with the response of the origin server will pass through to the browser.
 
 **Default Behavior:** Off
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Follow Redirects
 **Purpose:** Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server.
 
@@ -528,6 +621,11 @@ Disabled|Requests will not be redirected.
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Force Internal Max-Age
 **Purpose:** Determines the max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server can check whether a cached asset matches the asset stored on the origin server.
 
@@ -552,6 +650,11 @@ Key information:
 
 **Default Behavior:** Off
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### H.264 Support (HTTP Progressive Download)
 **Purpose:** Determines the types of H.264 file formats that may be used to stream content.
 
@@ -562,10 +665,15 @@ Key information:
 
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Honor No-Cache Request
 **Purpose:** Determines whether an HTTP client's no-cache requests will be forwarded to the origin server.
 
-A no-cache request occurs when the HTTP client sends a Cache-Control:no-cache and/or Pragma:no-cache header in the HTTP request.
+A no-cache request occurs when the HTTP client sends a `Cache-Control: no-cache` and/or `Pragma: no-cache` header in the HTTP request.
 
 Value|Result
 --|--
@@ -578,6 +686,11 @@ The cache status that will be reported for a request that is allowed to be forwa
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Ignore Origin No-Cache
 **Purpose:** Determines whether the CDN will ignore the following directives served from an origin server:
 
@@ -602,6 +715,11 @@ Key information:
 
 **Default Behavior:** The default behavior is to honor the above directives.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Ignore Unsatisfiable Ranges 
 **Purpose:** Determines the response that will be returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
 
@@ -614,6 +732,11 @@ Disabled|Restores the default behavior. The default behavior is to honor the 41
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Internal Max-Stale
 **Purpose:** Controls how long past the normal expiration time a cached asset may be served from an edge server when the edge server is unable to revalidate the cached asset with the origin server.
 
@@ -623,7 +746,7 @@ If the edge server is unable to establish a connection with the origin server wh
 
 Note that this time interval starts when the asset's max-age expires, not when the failed revalidation occurs. Therefore, the maximum period during which an asset can be served without successful revalidation is the amount of time specified by the combination of max-age plus max-stale. For example, if an asset was cached at 9:00 with a max-age of 30 minutes and a max-stale of 15 minutes, then a failed revalidation attempt at 9:44 would result in an end user receiving the stale cached asset, while a failed revalidation attempt at 9:46 would result in the end user receiving a 504 Gateway Timeout.
 
-Any value configured for this feature is superseded by `Cache-Control:must-revalidate` or `Cache-Control:proxy-revalidate` headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the edge server will not serve a stale cached asset. In such a case, if the edge server is unable to revalidate with the origin when the asset's max-age interval has expired, the edge server returns a 504 Gateway Timeout error.
+Any value configured for this feature is superseded by `Cache-Control: must-revalidate` or `Cache-Control: proxy-revalidate` headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the edge server will not serve a stale cached asset. In such a case, if the edge server is unable to revalidate with the origin when the asset's max-age interval has expired, the edge server returns a 504 Gateway Timeout error.
 
 Key information:
 
@@ -643,6 +766,11 @@ Key information:
 
 **Default Behavior:** Two minutes
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Log Query String
 **Purpose:** Determines whether a query string will be stored along with the URL in access logs.
 
@@ -653,6 +781,11 @@ Disabled|Restores the default behavior. The default behavior is to ignore query 
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Maximum Keep-Alive Requests
 **Purpose:** Defines the maximum number of requests for a Keep-Alive connection before it is closed.
 
@@ -665,6 +798,11 @@ Key information:
 
 **Default Value:** 10,000 requests
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Modify Client Request Header
 **Purpose:** Each request contains a set of request headers that describe it. This feature can either:
 
@@ -684,7 +822,7 @@ Delete|Deletes the specified request header.|**Request header value (Client):**V
 Key information:
 
 - Ensure that the value specified in the Name option is an exact match for the desired request header.
-- Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the Cache-Control header name can be used to identify it:
+- Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the `Cache-Control` header name can be used to identify it:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -698,6 +836,11 @@ Key information:
     - x-forwarded-for
     - All header names that start with "x-ec" are reserved.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Modify Client Response Header
 Each response contains a set of response headers that describe it. This feature can either:
 
@@ -717,7 +860,7 @@ Delete|Deletes the specified response header.|**Response header value (Client):*
 Key information:
 
 - Ensure that the value specified in the Name option is an exact match for the desired response header. 
-- Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the Cache-Control header name can be used to identify it:
+- Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the `Cache-Control` header name can be used to identify it:
 	- cache-control
 	- CACHE-CONTROL
 	- cachE-Control
@@ -739,6 +882,11 @@ Key information:
     - warning
     - All header names that start with "x-ec" are reserved.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Partial Cache Sharing
 **Purpose:** Determines whether a request can generate partially cached content.
 
@@ -751,6 +899,11 @@ Disabled|Requests can only generate a fully cached version of the requested cont
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Prevalidate Cached Content
 **Purpose:** Determines whether cached content will be eligible for early revalidation before its TTL expires.
 
@@ -762,6 +915,11 @@ Key information:
 
 **Default Behavior:** Off. Revalidation may only take place after the cached content's TTL has expired.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Proxy Special Headers
 **Purpose:** Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
 
@@ -772,6 +930,11 @@ Key information:
 
 **Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Refresh Zero-Byte Cache Files
 **Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
 
@@ -787,6 +950,11 @@ for such content, then this feature can prevent these types of assets from being
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Set Cacheable Status Codes
 **Purpose:** Defines the set of status codes that can result in cached content.
 
@@ -802,6 +970,11 @@ Key information:
 
 **Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Set Client IP Custom Header
 **Purpose:** Adds a custom header that identifies the requesting client by IP address to the request.
 
@@ -821,6 +994,11 @@ Ensure that the specified header name does not match any of the following names:
     - x-forwarded-for
     - All header names that start with "x-ec" are reserved.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Stale Content Delivery on Error
 **Purpose:** Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
 
@@ -831,6 +1009,11 @@ Disabled|The origin server's error is forwarded to the requester.
 
 **Default Behavior:** Disabled
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Stale While Revalidate
 **Purpose:** Improves performance by allowing the edge servers to serve stale content to the requester while revalidation takes place.
 
@@ -843,6 +1026,11 @@ Key information:
 
 **Default Behavior:** Off. Revalidation must take place before the requested content can be served.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Token Auth
 **Purpose:** Determines whether Token-Based Authentication will be applied to a request.
 
@@ -857,6 +1045,11 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 
 **Default Behavior:** Disabled.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Token Auth Denial Code
 **Purpose:** Determines the type of response that will be returned to a user when a request is denied due to Token-Based Authentication.
 
@@ -897,6 +1090,11 @@ The above configuration can be achieved by performing the following steps:
 
 The WWW-Authenticate header is only applicable for 401 response codes.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Token Auth Ignore URL Case
 **Purpose:** Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
 
@@ -914,7 +1112,12 @@ Enabled|Causes the edge server to ignore case when comparing URLs for Token-Base
 Disabled|Restores the default behavior. The default behavior is for URL comparisons for Token Authentication to be case-sensitive.
 
 **Default Behavior:** Disabled.
- 
+
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### Token Auth Parameter
 **Purpose:** Determines whether the Token-Based Authentication query string parameter should be renamed.
 
@@ -931,6 +1134,11 @@ Disabled|A token may be specified as an undefined query string parameter in the 
 
 **Default Behavior:** Disabled. A token may be specified as an undefined query string parameter in the request URL.
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### URL Redirect
 **Purpose:** Redirects requests via the Location header.
 
@@ -969,7 +1177,12 @@ This URL redirection may be achieved through the following configuration:
 		- Request URL (after redirect): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - The Request Scheme (%{scheme}) variable was leveraged in the Destination option. This ensures that the request's scheme remains unchanged after redirection.
 - The URL segments that were captured from the request are appended to the new URL via "$1."
- 
+
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### URL Rewrite
 **Purpose:** Rewrites the request URL.
 
@@ -1028,6 +1241,17 @@ This feature includes matching criteria that must be met before it can be applie
 - URL Query Regex
 - URL Query Wildcard
 
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
+### User Variable
+**Purpose:** For internal use only.
+
+[Back to top](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## Next Steps
 * [Rules Engine Reference](cdn-rules-engine-reference.md)

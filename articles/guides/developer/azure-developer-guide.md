@@ -106,7 +106,7 @@ Most applications must store data, so regardless of how you decide to host your 
 -   **Azure Cosmos DB**: A globally distributed, multi-model database service that enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA. 
 	>**When to use:** When your application needs document, table, or graph databases, including MongoDB databases, with multiple well-defined consistency models. 
 
-    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-documentdb-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-sql-api-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
 

@@ -42,7 +42,7 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of Dcember 2, 2017.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of December 18, 2017.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
@@ -231,8 +231,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | chef-software | chef-automate-vm-image | byol |
 | cisco | cisco-asav | asav-azure-byol |
 | cisco | cisco-csr-1000v | 16_6 |
+| cisco | cisco-csr-1000v | 16_7 |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-ftdv | ftdv-azure-byol |
 | citrix | netscalervpx-120 | netscalerbyol |
 | citrix | netscalervpx110-6531 | netscalerbyol |
 | citrix | netscalervpx111 | netscalerbyol |
@@ -439,6 +441,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
 | paloaltonetworks | vmseries1 | byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-v7020 | fd-vm-azure-byol |
+| pivotal | pivotal-ops-manager | pivotal-ops-manager |
 | qlik | qlik-sense | qliksense |
 | rapid7 | nexpose-scan-engine | nexpose-scan-engine |
 | rapid7 | rapid7-vm-console | rapid7-vm-console |
@@ -474,7 +478,6 @@ The table below contains a snapshot of the list of virtual machine images availa
 | starwind | starwindvirtualsan | starwindbyol |
 | starwind | starwindvtl | starwindvtl |
 | stonefly | stonefly-cloud-drive | byol_stonefly |
-| SUSE | openSUSE-Leap | 42.2 |
 | SUSE | openSUSE-Leap | 42.3 |
 | SUSE | SLES | 11-SP4 |
 | SUSE | SLES | 12-SP2 |

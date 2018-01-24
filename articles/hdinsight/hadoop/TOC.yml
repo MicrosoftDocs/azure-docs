@@ -428,9 +428,6 @@
     - name: Access YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
-    - name: Use Apache Phoenix and SQuirreL
-      href: ../hdinsight-hbase-phoenix-squirrel.md
-      maintainContext: true
     - name: Generate movie recommendations using Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true

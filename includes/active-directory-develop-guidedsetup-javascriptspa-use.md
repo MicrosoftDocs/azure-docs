@@ -1,4 +1,3 @@
-
 ## Use the Microsoft Authentication Library (MSAL) to sign-in the user
 
 1.	Create a file named `app.js`. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`:

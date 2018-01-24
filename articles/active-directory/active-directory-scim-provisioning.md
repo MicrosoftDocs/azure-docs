@@ -4,7 +4,7 @@ description: Azure Active Directory can automatically provision users and groups
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 
 ms.author: asmalser
 
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
+ms.custom: aaddev;it-pro
 
 
 ---
@@ -26,11 +26,6 @@ ms.custom: aaddev;it-pro;oldportal
 
 ## Overview
 Azure Active Directory (Azure AD) can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify, or delete assigned users and groups to the web service. The web service can then translate those requests into operations on the target identity store. 
-
-> [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
-
-
 
 ![][0]
 *Figure 1: Provisioning from Azure Active Directory to an identity store via a web service*

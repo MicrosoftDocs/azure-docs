@@ -38,14 +38,14 @@ By default, an HTTP trigger responds to the request with an HTTP 200 OK status c
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -232,14 +232,14 @@ module.exports = function(context, req) {
 
 See the language-specific example:
 
-* [Precompiled C#](#webhook---c-example)
-* [C# script](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# script (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### Webhook - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends an HTTP 200 in response to a generic JSON request.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends an HTTP 200 in response to a generic JSON request.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -361,7 +361,7 @@ module.exports = function (context, data) {
 
 ## Trigger - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+In [C# class libraries](functions-dotnet-class-library.md), use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 You can set the authorization level and allowable HTTP methods in attribute constructor parameters, and there are properties for webhook type and route template. For more information about these settings, see [Trigger - configuration](#trigger---configuration). Here's an `HttpTrigger` attribute in a method signature:
 
@@ -374,18 +374,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 ## Trigger - configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `HttpTrigger` attribute.
+
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
 | **type** | n/a| Required - must be set to `httpTrigger`. |
 | **direction** | n/a| Required - must be set to `in`. |
 | **name** | n/a| Required - the variable name used in function code for the request or request body. |
-| **authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
 | **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the http endpoint](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
@@ -536,7 +537,7 @@ Use the HTTP output binding to respond to the HTTP request sender. This binding 
 
 ## Output - configuration
 
-For precompiled C#, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
+For C# class libraries, there are no output-specific binding configuration properties. To send an HTTP response, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`.
 
 For other languages, an HTTP output binding is defined as a JSON object in the `bindings` array of function.json, as shown in the following example:
 

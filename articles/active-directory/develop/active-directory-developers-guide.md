@@ -3,7 +3,7 @@ title: Azure Active Directory for developers | Microsoft Docs
 description: This article provides an overview of signing in Microsoft work and school accounts by using Azure Active Directory.
 services: active-directory
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2

@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

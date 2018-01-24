@@ -4,7 +4,7 @@ description: Explains the different methods to upgrade to the latest release of 
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f

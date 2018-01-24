@@ -4,7 +4,7 @@ description: Sample using Google+ as identity provider using OAuth2 protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

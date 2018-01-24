@@ -157,6 +157,9 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
 
+   >[!NOTE] 
+   If you are deploying to an ACS cluster, you need register the **Microsoft.ContainerService** resource provider as well using the exact same approach.
+
 3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
    Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
@@ -202,7 +205,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    This command generates a web service ID you can use later.
 
@@ -212,6 +215,7 @@ Now you're ready to create the real-time web service.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
    * `-r`: The type of model. In this case, it's a Python model.
    * `--collect-model-data true`: This enables data collection.
+   * `-c`: Path to the conda dependencies file where additional packages are specified.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
@@ -250,10 +254,10 @@ First, register the model. Then generate the manifest, build the Docker image, a
 
 3. Create a Docker image.
 
-   To create a Docker image, use the following command and provide the manifest ID value output from the previous step:
+   To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You can also optionally include the conda dependencies using the `-c` switch.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    This command generates a Docker image ID.
    

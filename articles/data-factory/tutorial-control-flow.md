@@ -449,7 +449,7 @@ The first section of our pipeline defines parameters.
 
 - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
 - sinkBlobContainer – parameter in the pipeline consumed by the sink blob dataset
-- receiver – parameter in the pipeline consumed by the two web activities on which email address receives the email
+- receiver – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
 
 ```csharp

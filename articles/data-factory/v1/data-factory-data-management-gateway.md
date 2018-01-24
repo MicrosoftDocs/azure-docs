@@ -322,6 +322,9 @@ The Settings page allows you to do the following actions:
 * **Status** of the endpoint
 * View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
 
+### Remote access from intranet  
+This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials. 
+
 ### Diagnostics page
 The Diagnostics page allows you to do the following actions:
 

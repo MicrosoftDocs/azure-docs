@@ -4,7 +4,7 @@ description: Provides information about how password synchronization works and h
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501

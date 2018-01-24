@@ -4,7 +4,7 @@ description: Covers how to create and manage groups of connectors in Azure AD Ap
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

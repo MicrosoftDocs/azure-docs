@@ -66,9 +66,6 @@ For instructions on how to publish an asset and build a streaming URL, see [Buil
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
-
 ## Clear asset delivery policy
 ### <a id="create_asset_delivery_policy"></a>Create asset delivery policy
 The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. 

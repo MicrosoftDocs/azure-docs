@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -29,6 +29,7 @@ Availability Zones help to protect you from datacenter-level failures. They are 
 
 - East US 2
 - West Europe
+- France Central
 
 ## Services that support Availability Zones
 
@@ -39,17 +40,11 @@ The Azure services that support Availability Zones are:
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
-
-## Supported virtual machine size families
-
-- Av2
-- Dv2
-- DSv2
-
+- Public IP address
 
 ## Get started with the Availability Zones preview
 
-The Availability Zones preview is available in the East US 2 and West Europe regions for specific Azure services. 
+The Availability Zones preview is available in the East US 2, West Europe, and France Central regions for specific Azure services. 
 
 1. [Sign up for the Availability Zones preview](http://aka.ms/azenroll). 
 2. Sign in to your Azure subscription.

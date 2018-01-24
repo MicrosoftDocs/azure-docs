@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -69,12 +69,12 @@ Now that we've assigned the policy definition, we're going to create a new polic
    - The name of the policy definition - *Require VM SKUs smaller than the G series*
    - The description of what the policy definition is intended to do – This policy definition enforces that all VMs created in this scope have SKUs smaller than the G series to reduce cost.
    - The subscription in which the policy definition will live in – In this case, our policy definition will live in  **Advisor Analytics Capacity Dev**. Your subscription list will differ.
-   - Write the json code with:
+   - Copy the following json code and then update it for your needs with:
       - The policy parameters.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-    Here's what the json should look like
+    Here's what the json should look like. Paste your revised code into the Azure portal.
 
     ```json
 {

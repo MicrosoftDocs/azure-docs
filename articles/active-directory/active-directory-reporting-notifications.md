@@ -4,7 +4,7 @@ description: How to use the Azure Active Directory reporting notifications for s
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92

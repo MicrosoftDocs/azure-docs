@@ -4,7 +4,7 @@ description: Use self-service signup in an Azure Active Directory (Azure AD) ten
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b

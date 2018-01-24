@@ -45,6 +45,7 @@ How to set CDN caching rules:
 1. Create a global caching rule as follows:
    1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings**.
    2. Set **Caching behavior** to **Set if missing**.
+       
    3. For **Cache expiration duration**, enter 10 in the **Days** field.
 
        The global caching rule affects all requests to the endpoint. This rule honors the origin cache-directive headers, if they exist (`Cache-Control` or `Expires`); otherwise, if they are not specified, it sets the cache to 10 days. 

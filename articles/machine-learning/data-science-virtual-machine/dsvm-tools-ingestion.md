@@ -60,11 +60,11 @@ Here are some data movement tools we have provided on the DSVM.
 | Related Tools on the DSVM      | AdlCopy     |
 
 
-## Azure Cosmos DB: DocumentDB API Data Migration tool
+## Azure Cosmos DB Data Migration tool
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Tool to import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB DocumentDB API collections into Azure Cosmos DB or Azure DocumentDB.      |
+| What is it?   | Tool to import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections into Azure Cosmos DB.      |
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Importing files from a VM to CosmosDB, importing data from Azure table storage to CosmosDB, or importing data from a SQL Server database to CosmosDB.     |
 |  How to use / run it?    |   To use the command line version, Open a command prompt, then type `dt`. To use the GUI tool, open a command prompt, then type `dtui`.    |

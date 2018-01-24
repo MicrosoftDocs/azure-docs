@@ -4,7 +4,7 @@ description: How to call the Graph API for a B2C tenant by using an application 
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0

@@ -4,7 +4,7 @@ description: Covers how to use Azure AD Application Proxy to provide secure remo
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory

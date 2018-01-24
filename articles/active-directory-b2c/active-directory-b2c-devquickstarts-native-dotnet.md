@@ -4,7 +4,7 @@ description: How to build a Windows desktop application that includes sign-in, s
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
@@ -29,8 +29,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Include a **native client** in the application.
 * Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
 * Copy the **Application ID** that is assigned to your app. You will need it later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the

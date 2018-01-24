@@ -26,6 +26,9 @@
   - name: Scale with Azure VM agents
     href: /azure/jenkins/jenkins-azure-vm-agents
     maintainContext: true
+  - name: Build using Azure Container Instances
+    href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+    maintainContext: true
 - name: How-to
   items:
     - name: Secure Jenkins on Azure

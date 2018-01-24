@@ -1,4 +1,3 @@
-
 ## Setting up your iOS application
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.

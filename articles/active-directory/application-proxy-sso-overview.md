@@ -4,7 +4,7 @@ description: Learn about the basics of single sign-on with Application Proxy
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory

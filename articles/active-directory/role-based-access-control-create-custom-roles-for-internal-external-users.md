@@ -4,8 +4,8 @@ description: Assign custom RBAC roles created using PowerShell and CLI for inter
 services: active-directory
 documentationcenter: ''
 author: andreicradu
-manager: catadinu
-editor: ''
+manager: mtillman
+editor: 'kgremban'
 
 ms.assetid:
 ms.service: active-directory

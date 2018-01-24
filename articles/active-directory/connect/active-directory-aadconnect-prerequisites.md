@@ -4,7 +4,7 @@ description: This topic describes the pre-requisites and the hardware requiremen
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07

@@ -19,12 +19,6 @@ ms.author: markgal;trinadhk;
 
 ---
 # Use the Azure portal to restore virtual machines
-> [!div class="op_single_selector"]
-> * [Restore VMs in the classic portal](backup-azure-restore-vms.md)
-> * [Restore VMs in the Azure portal](backup-azure-arm-restore-vms.md)
->
->
-
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
 
 * Create a new VM, which is a point-in-time representation of your backed-up VM.

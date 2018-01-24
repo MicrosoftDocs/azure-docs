@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -34,6 +34,10 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 9. Determine when you want to enforce registration. You can choose to enforce registration at any point. You can also require users to reconfirm their authentication information after a certain period of time.
 10. Use the reporting capability. Over time, you can review the users registration and usage with the [reporting capability that Azure AD provides](active-directory-passwords-reporting.md).
 11. Enable password reset. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**. 
+
+   > [!NOTE]
+   > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
+
 12. [Enable Windows 10 users to reset their password at the login screen](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -53,9 +57,9 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 
 Many customers choose to host a webpage and create a root DNS entry, like https://passwords.contoso.com. They populate this page with links to the following information:
 
-* [Azure AD password reset portal](https://aka.ms/sspr)
-* [Azure AD password reset registration portal](http://aka.ms/ssprsetup)
-* [Azure AD password change portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Azure AD password reset portal - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Azure AD password reset registration portal - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD password change portal - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Other organization-specific information
 
 In any email communications or fliers you send out you can include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a [sample password reset page](https://github.com/ajamess/password-reset-page) that you can use and customize to your organization’s needs.

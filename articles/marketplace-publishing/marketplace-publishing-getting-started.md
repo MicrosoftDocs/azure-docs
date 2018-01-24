@@ -1,3 +1,5 @@
+
+
 ---
 title: Overview of how to create and deploy an offer to the Marketplace | Microsoft Docs
 description: Understand the steps required to become an approved Microsoft developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace
@@ -17,6 +19,9 @@ ms.date: 01/05/2017
 ms.author: hascipio
 
 ---
+> [!NOTE]
+> This documentation is no longer current and is not accurate. Please instead go to the Azure Marketplace [Seller Guide](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) for guidance on publishing an offer to Azure Marketplace.
+
 # Publish and manage an offer in the Azure Marketplace
 This article is provided to help developers create, deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and use.
 

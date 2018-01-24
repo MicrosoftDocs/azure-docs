@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service. 
 2. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, we may add support for Cloud Service VMs.
-3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
+3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not seeing compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. I am not seeing all data populated for new version of 2017-08-01
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 7. Would this work for Virtual Machine Scale Set Instance?
    * Yes Metadata service is available for Scale Set Instances. 
 8. How do I get support for the service?
-   * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
+   * To get support for the service, create a support request in Azure portal for the VM where you are not able to get metadata response after long retries 
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
     

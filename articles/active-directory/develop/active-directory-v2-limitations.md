@@ -4,7 +4,7 @@ description: A list of limitations and restrictions for the Azure AD v2.0 endpoi
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Containers are quickly becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 
-Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend the [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
+Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend [Azure Container Service (AKS)](../aks/index.yml).
 
 ## Fast startup times
 
@@ -24,7 +24,7 @@ Containers offer significant startup benefits over virtual machines. With Azure 
 
 ## Hypervisor-level security
 
-Historically, containers have offered application dependency isolation and resource governance but have not been considered sufficiently hardened for hostile multi-tenant usage. With Azure Container Instances, your application is as isolated in a container as it would be in a VM.
+Historically, containers have offered application dependency isolation and resource governance, but have not been considered sufficiently hardened for hostile multi-tenant usage. With Azure Container Instances, your application is as isolated in a container as it would be in a VM.
 
 ## Custom sizes
 
@@ -36,7 +36,7 @@ With Azure Container Instances, you can expose your containers directly to the i
 
 ## Persistent storage
 
-To retrieve and persist state with Azure Container Instances, we offer direct mounting of Azure files shares.
+To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](container-instances-mounting-azure-files-volume.md).
 
 ## Linux and Windows containers
 
@@ -44,7 +44,7 @@ With Azure Container Instances, you can schedule both Windows and Linux containe
 
 ## Co-scheduled groups
 
-Azure Container Instances supports scheduling of multi-container groups that share a host machine, local network, storage, and lifecycle. This enables you to combine your main application with others acting in a supporting role, such as logging.
+Azure Container Instances supports scheduling of [multi-container groups](container-instances-container-groups.md) that share a host machine, local network, storage, and lifecycle. This enables you to combine your main application with others acting in a supporting role, such as logging.
 
 ## Next steps
 

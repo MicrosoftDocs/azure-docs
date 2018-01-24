@@ -1,4 +1,3 @@
-
 ## Test querying the Microsoft Graph API from your iOS application
 
 To run the code in the simulator, press **Command** + **R**.

@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 12/15/2017
 ms.author: lbosq
 
 ---
@@ -56,7 +56,6 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
     Storage Capacity|Fixed (10 GB)|Leave the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
     Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-    Partition key|Leave blank|For the purpose of this quickstart, leave the partition key blank.
 
 3. Once the form is filled out, click **OK**.
 

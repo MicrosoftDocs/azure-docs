@@ -3,7 +3,7 @@ title: Choose an Azure hybrid identity solution | Microsoft Docs
 description: Get a basic understanding of the available hybrid identity solutions and recommendations for you to make the best identity governance decision for your organization.
 keywords:
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/5/2017

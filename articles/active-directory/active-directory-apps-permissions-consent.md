@@ -5,7 +5,7 @@ keywords: introduction to Azure AD, apps, what is Azure AD Connect, install acti
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory

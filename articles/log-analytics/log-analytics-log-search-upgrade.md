@@ -56,7 +56,7 @@ The following changes are made to your workspace when it's converted:
 - Have a look at the [Log Search FAQ](log-analytics-log-search-faq.md) for common questions about the upgrade.
 
 ## How do I know if there were any issues from the upgrade?
-After the upgrade has completed, there will be an **Upgrade Summary** section in the settings for the workspace.  Check this section for information about your upgrade and to view the
+After the upgrade has completed, there will be an **Upgrade Summary** section in the settings for the workspace.  Check this section for information about your upgrade and to view any issues that were encountered.
 
  ![Upgrade summary](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

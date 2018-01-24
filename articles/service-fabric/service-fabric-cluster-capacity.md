@@ -105,7 +105,7 @@ Use Silver or Gold durability for all node types that host stateful services you
 
 
 > [!WARNING]
-> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommened. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause dataloss for stateful services or cause other unforseen operational issues, even for stateless workloads. 
+> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
 	
 3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has durability level of Gold or Silver enabled

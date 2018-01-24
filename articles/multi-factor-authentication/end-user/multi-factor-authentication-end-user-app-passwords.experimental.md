@@ -4,7 +4,7 @@ description: This page will help users understand what app passwords are and wha
 services: multi-factor-authentication
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5

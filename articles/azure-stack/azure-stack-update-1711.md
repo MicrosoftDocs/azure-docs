@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
 
 ---
@@ -49,6 +49,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - Users can now activate Windows VMs automatically
 - Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
 - Support for updating the offline images when updating infrastructure
+- Enable Infrastructure backup with the Enable Backup Service
 
 #### Fixes
 
@@ -121,6 +122,7 @@ This section contains post-installation known issues with build **20171201.3**.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
  
 #### SQL/MySQL
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
@@ -135,6 +137,17 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 > [!IMPORTANT]
 > Even though the **azurestack\cloudadmin** account is the owner of the Default Provider Subscription in ADFS deployed environments, it does not have permissions to RDP into the host. Continue to use the **azurestack\azurestackadmin** account or the local administrator account to login, access and manage the host as needed.
+
+#### Infrastructure Backup Sevice
+<!-- 1974890-->
+
+- **Pre-1711 backups are not supported for cloud recovery.**  
+  Pre-1711 backups are not compatible with cloud recovery. You must update to 1711 first and enable backups. If you already enabled backups, make sure to take a backup after updating to 1711. Pre-1711 backups should be deleted.
+
+- **Enabling infrastructure backup on ASDK is for testing purposes only.**  
+  Infrastructure backups can be used to restore multi-node solutions. You can enable infrastructure backup on ASDK but there is no way to test recovery.
+
+For more information see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## Download the update
 

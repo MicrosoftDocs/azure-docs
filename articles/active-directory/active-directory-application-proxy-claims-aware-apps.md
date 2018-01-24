@@ -4,7 +4,7 @@ description: How to publish on-premises ASP.NET applications that accept ADFS cl
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: harshja
 
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15

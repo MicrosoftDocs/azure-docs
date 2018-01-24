@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -26,11 +26,11 @@ Our diagnostics tools help ensure the log collection mechanism is easy and effic
  
 ## Trace Collector
  
-The Trace Collector is enabled by default and runs continuously in the background to collect all Event Tracing for Windows (ETW) logs from Azure Stack component services. ETW logs are stored in a common local share with a five day age limit. Once this limit is reached, the oldest files are deleted as new ones are created. The default maximum size allowed for each file  is 200MB. A size check occurs periodically (every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8GB  limit on the total file size generated per event session. 
+The Trace Collector is enabled by default and runs continuously in the background to collect all Event Tracing for Windows (ETW) logs from Azure Stack component services. ETW logs are stored in a common local share with a five day age limit. Once this limit is reached, the oldest files are deleted as new ones are created. The default maximum size allowed for each file  is 200 MB. A size check occurs every 2 minutes, and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB limit on the total file size generated per event session. 
 
 ## Log collection tool
  
-The PowerShell cmdlet **Get-AzureStackLog** can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+The PowerShell cmdlet **Get-AzureStackLog** can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If the Azure Stack technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
 > [!CAUTION]
 > These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
@@ -133,11 +133,11 @@ if($s)
 
 
 ### Collect logs using a graphical user interface
-Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub repository at http://aka.ms/AzureStackTools.
+Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub tools repository at http://aka.ms/AzureStackTools.
 
-The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script will default to prompting for parameters via a graphical user interface.
+The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. To ensure that you have the latest version available, you should download it directly from http://aka.ms/ERCS. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script defaults to prompting for parameters via a graphical user interface.
 
-To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
+To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
 
 ### Additional considerations
 

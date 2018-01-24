@@ -58,9 +58,12 @@ $DataFactoryLocation = "EastUS"
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
-$AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
-$AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.
+# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+$AzureSSISNodeSize = "Standard_A4_v2" 
+# In public preview, only 1-10 nodes are supported.
+$AzureSSISNodeNumber = 2 
+# In public preview, only 1-8 parallel executions per node are supported.
+$AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
@@ -71,11 +74,22 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## Remove these two variables if you are using Azure SQL Database. 
-## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-$VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
-$SubnetName = "[your subnet name or leave it empty]" # OPTIONAL: In public preview, only classic VNet is supported.
+# Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
+# These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
+# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
+# It should be in the format: $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
 
+# OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
+$VnetId = "[your VNet resource ID or leave it empty]" 
+$SubnetName = "[your subnet name or leave it empty]" 
+
+```
+## Log in and select subscription
+Add the following code the script to log in and select your Azure subscription: 
+
+```powershell
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## Validate the connection to database
@@ -98,14 +112,6 @@ Catch [System.Data.SqlClient.SqlException]
         Return;
     } 
 }
-```
-
-## Log in and select subscription
-Add the following code the script to log in and select your Azure subscription: 
-
-```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## Configure virtual network
@@ -143,10 +149,9 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ## Create an integration runtime
-Run the following command to create an Azure-SSIS integration runtime that runs SSIS packages in Azure: 
+Run the following command to create an Azure-SSIS integration runtime that runs SSIS packages in Azure: Use the script from the section based on the type of database (Azure SQL Database vs. Azure SQL Managed Instance (private preview)) you are using. 
 
-If you are using **Azure SQL Database** to host the SSISDB database (SSIS catalog): 
-
+### Azure SQL Database to host the SSISDB database (SSIS catalog) 
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -167,7 +172,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 You don't need to pass values for VNetId and Subnet, unless you need on-premises data access, that is, you have on-premises data sources/destinations in your SSIS packages. You must pass value for the CatalogPricingTier parameter. For a list of supported pricing tiers for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
-If you are using **Azure SQL Managed Instance (private preview)** to host the SSISDB database:
+### Azure SQL Managed Instance (private preview) to host the SSISDB database
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -203,6 +208,107 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")                                  
 ```
 This command takes from **20 to 30 minutes** to complete. 
+
+
+## Full script
+Here is the full script that creates an Azure-SSIS IR and joins it to a VNet. This script assumes that you are using the Azure SQL Managed Instance (MI) to host the SSIS catalog. 
+
+```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
+$SubscriptionName = "[your Azure subscription name]"
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$DataFactoryLocation = "EastUS" 
+
+# Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
+$AzureSSISName = "[your Azure-SSIS integration runtime name]"
+$AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+$AzureSSISLocation = "EastUS" 
+# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+$AzureSSISNodeSize = "Standard_A4_v2" 
+# In public preview, only 1-10 nodes are supported.
+$AzureSSISNodeNumber = 2 
+# In public preview, only 1-8 parallel executions per node are supported.
+$AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# SSISDB info
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerAdminUserName = "[your server admin username]"
+$SSISDBServerAdminPassword = "[your server admin password]"
+
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
+
+## Remove these two OPTIONAL variables if you are using Azure SQL Database. 
+## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
+# In public preview, only classic virtual network (VNet) is supported.
+$VnetId = "[your VNet resource ID or leave it empty]" 
+$SubnetName = "[your subnet name or leave it empty]" 
+
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
+$sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
+Try
+{
+    $sqlConnection.Open();
+}
+Catch [System.Data.SqlClient.SqlException]
+{
+    Write-Warning "Cannot connect to your Azure SQL DB logical server/Azure SQL MI server, exception: $_"  ;
+    Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
+    $yn = Read-Host
+    if(!($yn -ieq "Y"))
+    {
+        Return;
+    } 
+}
+
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+        Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+
+Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+                         -Location $DataFactoryLocation `
+                         -Name $DataFactoryName
+
+$secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
+$serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
+Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
+                                            -DataFactoryName $DataFactoryName `
+                                            -Name $AzureSSISName `
+                                            -Type Managed `
+                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                            -CatalogAdminCredential $serverCreds `
+                                            -Description $AzureSSISDescription `
+                                            -Location $AzureSSISLocation `
+                                            -NodeSize $AzureSSISNodeSize `
+                                            -NodeCount $AzureSSISNodeNumber `
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -VnetId $VnetId `
+                                            -Subnet $SubnetName
+
+write-host("##### Starting #####")
+Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force
+
+write-host("##### Completed #####")
+write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
+```
 
 ## Deploy SSIS packages
 Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: &lt;servername&gt;.database.windows.net (for Azure SQL Database). See [Deploy packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) article for instructions. 

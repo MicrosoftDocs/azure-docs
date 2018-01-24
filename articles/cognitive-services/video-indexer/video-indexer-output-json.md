@@ -59,7 +59,7 @@ name|The name of the video. For example, "Azure Monitor".
 shortId|The id of the video. For example, "63c6d532ff".
 privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.
 duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.
-thumbnailUrl|The URL to the video's thumbnail.
+thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 faces|May contain one or more [faces](#faces)
 topics|May contain one or more [topics](#topics)
 sentiments|May contain one or more [sentiments](#sentiments)
@@ -78,7 +78,7 @@ externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4a
 externalUrl|You can set externalUrl during upload. 
 metadata|You can set metadata during upload. 
 insights|May contain one or more [insights](#insights)
-thumbnailUrl|For example, "https://www.videobreakdown.com/api/Thumbnail/63c6d532ff/b9316989-3467-4031-bf6a-27ee3c909bb4"
+thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 publishedUrl|The published URL. For example, "https://BreakdownMedia.azureedge.net:443/d5e5232d-48e2-4fbc-9893-0ea6335da563/Azure%20Monitor%20%20Azure%20Friday.ism/manifest".
 viewToken|The bearer token
 sourceLanguage|The source language. The following are supported: Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish.
@@ -108,7 +108,7 @@ shortId|The short id. Because a playlist may be derived from several breakdowns,
 name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
 description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
 title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
-thumbnailUrl|The thumbnail URL. For example, "/api/Thumbnail/63c6d532ff/616468f0-1636-4efa-94e7-262f2e575059".
+thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a 1 hour access token. After 1 hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 appearances|May contain one or more [appearances](#appearances)
 seenDuration|For how long the face was seen (in seconds).
 seenDurationRatio|Presence relative to the video duration (0-1).

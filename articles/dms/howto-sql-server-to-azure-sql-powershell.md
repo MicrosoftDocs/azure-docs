@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 12/13/2017
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
-In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell.  You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -22,7 +22,6 @@ In this article, you learn how to:
 > * Create an instance of the Azure Database Migration Service.
 > * Create a migration project in an Azure Database Migration Service instance.
 > * Run the migration.
-
 
 ## Prerequisites
 To complete these steps, you need:
@@ -32,15 +31,15 @@ To complete these steps, you need:
 - To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-- Azure Database Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- The Azure Database Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [ Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-- Download and install AzureRM.DataMigration  module from PowerShell Gallery using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
-- The credentials used to connect to source SQL Server instance must have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
-- The credentials used to connect to target Azure SQL DB instance must have CONTROL DATABASE permission on the target Azure SQL DB databases.
+- Download and install the AzureRM.DataMigration module from the PowerShell Gallery bu using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- The credentials used to connect to source SQL Server instance must have the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
+- The credentials used to connect to target Azure SQL DB instance must have the CONTROL DATABASE permission on the target Azure SQL Database databases.
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to your Microsoft Azure subscription
 Use the directions in the article [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) to log in to your Azure subscription by using PowerShell.
-
 
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you can create a virtual machine.
@@ -52,7 +51,6 @@ The following example creates a resource group named *myResourceGroup* in the *E
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## Create an Azure Database Migration Service instance 
 You can create new instance of Azure Database Migration Service by using the `New-AzureRmDataMigrationService` cmdlet. 
 This cmdlet expects the following required parameters:
@@ -83,7 +81,7 @@ You can create a Database Connection Info object by using the `New-AzureRmDmsCon
 - *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
 - *TrustServerCertificate* parameter sets a value that indicates whether the channel is encrypted while bypassing walking the certificate chain to validate trust. Value can be true or false.
 
-THe following example creates Connection Info object for source SQL Server called MySQLSourceServer using sql authentication 
+The following example creates Connection Info object for source SQL Server called MySQLSourceServer using sql authentication 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
@@ -128,12 +126,10 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## Create and start a migration task
-
 Finally, create and start Azure Database Migration task. Azure Database Migration task requires connection credential information for both source and target and list of database tables to be migrated in addition to the information already provided with the project created as a prerequisite. 
 
 ### Create credential parameters for source and target
-
-Connection security credentials can be created as [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object. 
+Connection security credentials can be created as a [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object. 
 
 The following example shows the creation of *PSCredential* objects for both source and target connections providing passwords as string variables *$sourcePassword* and *$targetPassword*. 
 
@@ -198,11 +194,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 You can monitor the migration task running by querying the state property of the task as shown in the following example:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## Next steps
-- Review the migration guidance in the [Microsoft Database Migration Guide](https://datamigration.microsoft.com/)
+- Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).

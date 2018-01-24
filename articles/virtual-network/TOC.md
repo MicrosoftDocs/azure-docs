@@ -5,6 +5,7 @@
 ## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
+## [Container networking](container-networking.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
@@ -90,8 +91,7 @@
 #### Create a VM with multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)

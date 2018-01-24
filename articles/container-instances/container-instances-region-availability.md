@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 08/31/2017
+ms.date: 12/15/2017
 ms.author: marsma
 ---
 
@@ -17,8 +17,8 @@ During preview, Azure Container Instances are available in the following regions
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| West Europe, West US, East US | Linux | 2 | 7 |
-| West Europe, West US, East US | Windows | 2 | 3.5 |
+| West Europe, West US, East US | Linux | 4 | 14 |
+| West Europe, West US, East US | Windows | 4 | 14 |
 
 ## Resource availability
 
