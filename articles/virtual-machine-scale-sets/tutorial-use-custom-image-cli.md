@@ -154,6 +154,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ## Next steps
 In this tutorial, you learned how to create and use a custom VM image for your scale sets using the Azure CLI 2.0:
 
+> [!div class="checklist"]
 > * Create and customize a VM
 > * Deprovision and generalize a VM
 > * Create a custom VM image
