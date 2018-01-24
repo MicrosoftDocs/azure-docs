@@ -13,6 +13,7 @@
 ### Deploy
 #### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
+##### [New authentication](storsimple-virtual-array-aad-registration-key.md)
 #### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +80,7 @@
 
 ### Deploy
 #### [StorSimple Device Manager service](storsimple-8000-manage-service.md)
+#### [New authentication for service](storsimple-8000-aad-registration-key.md)
 #### [Physical device in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Physical device in Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloud appliance in Azure](storsimple-8000-cloud-appliance-u2.md)
