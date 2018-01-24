@@ -1,5 +1,5 @@
 ---
-title: Marketplace Publisher Guide
+title: Azure Marketplace Publisher Guide
 description: Step by step guide and publishing checklists for new publishers to Azure Marketplace
 services: marketplace
 documentationcenter:
@@ -49,7 +49,7 @@ Take advantage of Marketplace capabilities to grow your business:
 
 ## What are Azure Marketplace and AppSource?
 
-Microsoft provides two distinct Marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft�s customers and ecosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) and [AppSource] (https://appsource.microsoft.com). These storefronts allow customers to find, try, and buy applications and services that accelerate their Digital Transformation, and help publishers grow their businesses by increasing access to Microsoft�s customers and partner ecosystem.
+Microsoft provides two distinct Marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft's customers and ecosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) and [AppSource] (https://appsource.microsoft.com). These storefronts allow customers to find, try, and buy applications and services that accelerate their Digital Transformation, and help publishers grow their businesses by increasing access to Microsoft's customers and partner ecosystem.
  
 The Marketplace storefronts are aligned to audiences and Microsoft cloud products to help customers find exactly what they need. Each storefront offers specialized publishing options, to help you maximize your publishing investment summarized by the following table:
 
@@ -94,7 +94,7 @@ Consider the additional benefits of each storefront:
 
 |Storefront Benefit  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Billing Flexibility**    | For Virtual Machines, �Pay as you go� billing options, use Microsoft enterprise agreements or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free, as well as a Try It Now subscription that is promotionally free for a limited period after which it converts to a paid subscription. �Bring Your Own License� activation is also an option for supporting publishers For both billing options, in scenarios where Virtual Machines are deployed using Azure Apps (e.g., Solution Template or Managed App), all Azure resources provisioned are billed directly to the customer | AppSource offers seamless provisioning of a trial experience but does not currently offer a commerce-enabled publishing option; this enables you to leverage your current ordering and billing infrastructure with no additional investment or changes        |
+|**Billing Flexibility**    | For Virtual Machines, 'Pay as you go' billing options, use Microsoft enterprise agreements or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free, as well as a Try It Now subscription that is promotionally free for a limited period after which it converts to a paid subscription. 'Bring Your Own License' activation is also an option for supporting publishers For both billing options, in scenarios where Virtual Machines are deployed using Azure Apps (e.g., Solution Template or Managed App), all Azure resources provisioned are billed directly to the customer | AppSource offers seamless provisioning of a trial experience but does not currently offer a commerce-enabled publishing option; this enables you to leverage your current ordering and billing infrastructure with no additional investment or changes        |
 |**Facilitate Connections with Other Partners**     |Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer         |  Independent Software Vendors, Systems Integrators, and Managed Services Providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers      |
 |**Automation**     |    Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer     | Leverage automated SaaS with add-in provisioning and use Solution Templates to automate SaaS-based data collection and deployment scenarios        |Independent Software Vendors, Systems Integrators, and Managed Services Providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers
 |**Multiple Cloud Types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds including China and Germany      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds     |
@@ -121,14 +121,14 @@ When the offer consists primarily of professional services (e.g., assessments, i
 
 Providing a Trial experience increases the engagement level offered to customers and therefore a richer exposure of your solution. A Trial enables customers to explore your solution before buying. With a Trial experience, you will have higher chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements.
  
-All Trial options are deployed into your Trial environment and/or Azure Subscription, rather than into the customer�s environment or Azure Subscription. Trials should be customer-led without any additional purchases and minimal, if any, additional configuration to complete a simple use case. Trials must include free support at least for the duration of the trial period. Trial users should be nurtured and monitored along a deliberate evaluation path for best results. Publishers are encouraged to use both Marketplace leads and the publisher�s own in-app intelligence to monitor and manage trial users.
+All Trial options are deployed into your Trial environment and/or Azure Subscription, rather than into the customer's environment or Azure Subscription. Trials should be customer-led without any additional purchases and minimal, if any, additional configuration to complete a simple use case. Trials must include free support at least for the duration of the trial period. Trial users should be nurtured and monitored along a deliberate evaluation path for best results. Publishers are encouraged to use both Marketplace leads and the publisher's own in-app intelligence to monitor and manage trial users.
 
 There are 3 typical Trial scenarios:
 
 
 |**Trial Option**  |**Key Benefits**  |**Choose this Option if...**  |
 |---------|---------|---------|
-|**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as �guest users�|
+|**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as 'guest users'|
 **Test Drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer |
 |**Interactive Demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period     |
 
@@ -138,7 +138,7 @@ Use a **Free Trial** when the solution or app offers a free-to-try, SaaS-based t
 
 #### Test Drive
 
-Use a **Test Drive** when the solution is deployed via one or more Virtual Machines via IaaS or SaaS Apps. The benefit of this approach is the automated provisioning of a virtual appliance or entire solution environment couched in a partner-hosted �guided tour� of the solution for customer evaluation at no additional cost to the customer. The customer does not need to be an existing Azure customer, helping to generate higher quality leads.
+Use a **Test Drive** when the solution is deployed via one or more Virtual Machines via IaaS or SaaS Apps. The benefit of this approach is the automated provisioning of a virtual appliance or entire solution environment couched in a partner-hosted 'guided tour' of the solution for customer evaluation at no additional cost to the customer. The customer does not need to be an existing Azure customer, helping to generate higher quality leads.
 
 There are additional benefits to a **Test Drive**:
 
@@ -153,11 +153,11 @@ Take your customers through a guided experience of your product with an **Intera
 
 ### TRANSACT
 
-In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer�s subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer�s preferred payment relationship with Microsoft, including the Enterprise Agreement. (Note: At this time, an Enterprise Agreement�s Monetary Commitments can be used against the virtual appliance�s Azure usage, but not against the publisher�s software license fees.)
+In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer's subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. (Note: At this time, an Enterprise Agreement's Monetary Commitments can be used against the virtual appliance's Azure usage, but not against the publisher's software license fees.)
 
 Use an **Azure Solution Template** when a solution requires additional deployment and configuration automation beyond the virtual appliance. Solution Templates can automate the provisioning of one or more virtual machine resources and in addition can provision Networking and Storage resources. Solution templates can provide automation benefits on single Virtual Machines as well as entire IaaS-based solution environments. Learn more about building Solution Templates [here](https://github.com/MicrosoftDocs/azure-docs).
 
-Use an Azure Managed App when deploying either a Virtual Machine or an entire IaaS-based solution to a customer�s subscription when the publisher or customer wishes the solution to be managed by a 3rd party, for example an SI or MSP. Learn more about [building Managed Apps here](https://docs.microsoft.com/azure/managed-applications/overview). For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
+Use an Azure Managed App when deploying either a Virtual Machine or an entire IaaS-based solution to a customer's subscription when the publisher or customer wishes the solution to be managed by a 3rd party, for example an SI or MSP. Learn more about [building Managed Apps here](https://docs.microsoft.com/azure/managed-applications/overview). For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 
 ### Azure Certified
 
@@ -206,11 +206,11 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published Virtu
 
 ### Single-Billing and Payment Methods
 
-An important benefit of using the Transact publishing option is that Microsoft can �single-bill� your license costs at the same time as the underlying Azure usage directly to the customer. In this scenario, Microsoft bills and collects on your behalf, eliminating the need for you to create your own procurement relationship with the customer. This can save you time and resources to focus on landing the sale, not collecting the bill.
+An important benefit of using the Transact publishing option is that Microsoft can 'single-bill' your license costs at the same time as the underlying Azure usage directly to the customer. In this scenario, Microsoft bills and collects on your behalf, eliminating the need for you to create your own procurement relationship with the customer. This can save you time and resources to focus on landing the sale, not collecting the bill.
 
 ### Enterprise Agreement
 
-Microsoft customers sometimes use an Enterprise Agreement (EA) to pay for Microsoft products, including Azure usage. This payment option is designed for organizations that want to license software and cloud services for a minimum three-year period. Customers have the option to spread payments instead of one up-front payment. When an EA customer uses Pay-as-You-Go Transact listing, billing for the publisher�s software license costs follows the quarterly EA overage billing cycle.
+Microsoft customers sometimes use an Enterprise Agreement (EA) to pay for Microsoft products, including Azure usage. This payment option is designed for organizations that want to license software and cloud services for a minimum three-year period. Customers have the option to spread payments instead of one up-front payment. When an EA customer uses Pay-as-You-Go Transact listing, billing for the publisher's software license costs follows the quarterly EA overage billing cycle.
 
 ### Monetary Commitment 
 
@@ -265,7 +265,7 @@ Microsoft authenticates all Marketplace users with AAD, hence when an authentica
 Using AAD to enable 1-click authentication to your app or Trial:
 
 - Streamlines the customer experience from Marketplace to Trial 
-- Maintains the feel of an �in-product experience� even when the user is redirected from Marketplace to your domain or Trial environment
+- Maintains the feel of an 'in-product experience' even when the user is redirected from Marketplace to your domain or Trial environment
 - Decreases the likelihood of abandonment on redirect because there is not an additional sign-in step
 - Reduces deployment barriers for the large population of AAD users
 
@@ -276,14 +276,14 @@ For Multi-Tenant Applications:
 If you support AAD today
 
 - Register your application in the Azure portal
-- Enable multi-tenancy support feature in AAD to get �one-click� trial experience
+- Enable multi-tenancy support feature in AAD to get 'one-click' trial experience
 - [Learn more here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
 If you are new to AAD Federated SSO
 
 - Register your application in the Azure portal
 - Develop SSO with AAD using [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
-- Enable multi-tenancy support feature in AAD to get �one-click� trial experience
+- Enable multi-tenancy support feature in AAD to get 'one-click' trial experience
 - [Learn more here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
 For Single-Tenant Applications:
@@ -291,13 +291,13 @@ For Single-Tenant Applications:
 There are multiple options for single tenant applications:
 
 - Add users to your directory as guest users using [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- Manually provision trials for customers via �Contact Me�
-- Develop a per customer �Test Drive�
+- Manually provision trials for customers via 'Contact Me'
+- Develop a per customer 'Test Drive'
 - Build a multi-tenant sample demo app with SSO
 
 ## Cloud Partner Portal Pre-Publishing Checklist
 
-Before starting the publishing process, it�s helpful to understand the components required to build an Offer. The following artifacts are required to complete the Create Offer publishing workflow in the Cloud Partner Portal. 
+Before starting the publishing process, it's helpful to understand the components required to build an Offer. The following artifacts are required to complete the Create Offer publishing workflow in the Cloud Partner Portal. 
 
 ### Storefront Details
 
@@ -353,22 +353,22 @@ Before starting the publishing process, it�s helpful to understand the compone
 
 |You'll Need this Publishing Artifact  |For this Offer Type  |
 |---------|---------|
-|**Title (Max 50 char)**    |  Transact � Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Summary (Max 200 char)**    |  Transact � Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Long Summary (Max 256 char)**     |   Transact � Virtual Machines, Azure Apps (Solution Templates and Managed Apps)      |
-|**HTML-based Description (Max 3000 char)**    |  Transact � Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Company Logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transact � Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
+|**Title (Max 50 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
+|**Summary (Max 200 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
+|**Long Summary (Max 256 char)**     |   Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)      |
+|**HTML-based Description (Max 3000 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
+|**Company Logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
 
 ### SKU
 
 
 |You'll Need this Publishing Artifact  |For this Offer Type  |
 |---------|---------|
-|**Version Number**     |    Transact � Azure Apps (Solution Templates and Managed Apps)     |
-|**Package file containing all the template files and createUIDefinitionFile**   |Transact � Azure Apps (Solution Templates and Managed Apps)         |
-|**Operating System Details**    |   Transact � Virtual Machines      |
-|**Ports and Protocols in Use**    |  Transact � Virtual Machines       |
-|**Disk Version and SAS URL for each VHD in use**   |  Transact � Virtual Machines       |
+|**Version Number**     |    Transact ' Azure Apps (Solution Templates and Managed Apps)     |
+|**Package file containing all the template files and createUIDefinitionFile**   |Transact ' Azure Apps (Solution Templates and Managed Apps)         |
+|**Operating System Details**    |   Transact ' Virtual Machines      |
+|**Ports and Protocols in Use**    |  Transact ' Virtual Machines       |
+|**Disk Version and SAS URL for each VHD in use**   |  Transact ' Virtual Machines       |
 
 ## Become a Publisher
 
@@ -393,15 +393,15 @@ Through the entire Marketplace publishing process, you will use an email address
 The email address selected should preferably be in your corporate domain and controlled by your IT team. Please review Appendix: Guidelines for creating a Microsoft ID to Manage Marketplace Account and Appendix: Guidance for Microsoft IDs in AAD Federated Domains for guidelines prior creating an ID. 
 
 #### Submit the Marketplace Nomination Form
-As part of the Marketplace onboarding process, you will need to submit a nomination form, submitting information about your application or service offer, your company�s information, and the level of support that you will be providing.  
+As part of the Marketplace onboarding process, you will need to submit a nomination form, submitting information about your application or service offer, your company's information, and the level of support that you will be providing.  
 Once the form is submitted the Marketplace team will review the application and validate the request. Once the request is reviewed, you will be notified via email with the next steps that need to be completed to become an approved Partner in the Cloud Partner Portal. Please submit your nomination in:
 
-�	Azure Marketplace Nomination: http://aka.ms/listonazuremarketplace   
-�	AppSource Nomination: http://aka.ms/listonappsource
+Azure Marketplace Nomination: http://aka.ms/listonazuremarketplace   
+AppSource Nomination: http://aka.ms/listonappsource
 
 #### Register in the Developer Center
 
-The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company�s information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company's information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one.
@@ -433,27 +433,27 @@ The quality of your app publication and commitment to customer centric demand ge
 
 This section walks you through marketing best practices for an offer, according to the following checklist:
 
-1. I�ve optimized my listing to drive traffic and engagement.
-2. I�ve created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
-3. I�ve published a Test Drive or other trial so that customers can experience my offer running live on Azure.
-4. I�ve planned and built my own marketing and promotions campaigns to drive awareness and engagement.
-5. I�ve enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
-6. I�ve learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
+1. I've optimized my listing to drive traffic and engagement.
+2. I've created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
+3. I've published a Test Drive or other trial so that customers can experience my offer running live on Azure.
+4. I've planned and built my own marketing and promotions campaigns to drive awareness and engagement.
+5. I've enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
+6. I've learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
 
 ### Create a Great Listing
 
 Your listing in marketplace can sometimes be your first interaction with a potential customer. Like any first impression, you want to make it strong and something your audience wants to follow up on. There are some basic things you can do to help make this first impression in marketplace great!
 
 - **Be found:** Write your offer description using key words and terms your buyer will search for. 
-- **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer�s top questions.
-- Provide an experience: Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you�ll generate. We�ve found that test drive leads result (on average) to 40% closed deals.
-- **Help your audience learn:** While we�d encourage you to keep your Overview space clear and simple, there�s also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it�s a fit for your customer�s needs; don�t be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
+- **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer's top questions.
+- Provide an experience: Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you'll generate. We've found that test drive leads result (on average) to 40% closed deals.
+- **Help your audience learn:** While we'd encourage you to keep your Overview space clear and simple, there's also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customer's needs; don't be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
 - **Leverage ratings & reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews will also help bump your offer up in search results and into key featured areas.
 
 ### Build a Great Landing Page
 A landing page on your company website is a gateway from your demand generation activities to your marketplace listing in Azure Marketplace. 
 
-Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be �Test Drive our solution,� or �Get a solution now.� Your landing page can be leveraged across multiple marketing tactics � anything from events, webcasts, and social media to whitepapers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
+Begin by identifying your goals. For your Marketplace solutions, decide who your target customer is and what action you want them to take. Sample actions would be 'Test Drive our solution,' or 'Get a solution now.' Your landing page can be leveraged across multiple marketing tactics ' anything from events, webcasts, and social media to whitepapers, technical training sessions, and press releases. The more consistent you are in your messaging and call to action, the easier your solution will be to find.
 
 When you have a campaign plan ready, follow these best practices and consider what to avoid when building the page to maximize the effectiveness of your landing page: 
 
@@ -461,13 +461,13 @@ When you have a campaign plan ready, follow these best practices and consider wh
 |Best Practice  |Things to Avoid  |
 |---------|---------|
 |**Articulate what customer problem your solution solves, and how you leverage Azure to make it happen**    |  Failing to articulate the ways in which your solution plus Azure work together       |
-|**Create a short, easy-to-remember URL**    |    Long URLs aren�t memorable and are hard to locate     |
+|**Create a short, easy-to-remember URL**    |    Long URLs aren't memorable and are hard to locate     |
 |**Add relevant visual content: a customer testimonial video or solution architecture are best practices**   |   Using too much text can make your audience tune out and stop exploring with you      |
 |**Create a clear call to action to direct visitors to your Marketplace catalog page**    |   Having too many links or possible actions on the page       |
 |**Put your call to action in a header or clearly delineated section**    |  Embedding the links to your Marketplace listing in a paragraph of text       |
 |**Research best keywords and optimize the page for search**    | Assuming your product name will generate higher search rankings        |
 |**Leverage keywords from your advertising campaigns**    |  Using many different keywords across your web properties will dilute your advertising investments       |
-|**Put relevant product names and keywords �above the fold�**     | Making users scroll to see what product or solution you are showcasing        |
+|**Put relevant product names and keywords 'above the fold'**     | Making users scroll to see what product or solution you are showcasing        |
 |**Use brand imagery (such as Azure Certified*) to validate your solution, and in accordance with Microsoft branding guidelines**    |    Using un-approved Microsoft brand imagery     |
 
 * Learn more about the [Azure Certified badge](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) members may access additional resources for branding through [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral) and access the [Logo Builder](https://logobuilder.partner.microsoft.com) tool. Click here to learn about joining [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
@@ -490,23 +490,23 @@ Knowing the answers to these questions will help you make decisions about where 
 
 #### Define where Your Audience Learns
 
-Buyers are 90% of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. Every audience for each industry, vertical, or category is different. Does your audience learn online, through email, at trade shows, through social media, or through conversations with trusted advisors? Depending on where and how your audience learns you�ll want to design activities and distribute your marketing dollars accordingly. The combination of these tactics becomes your campaign strategy.
+Buyers are 90% of the way through their journey by the time they visit a marketplace. Buyers get this far along in the decision-making process by learning about solutions and assessing options in advance. You want to design a campaign that aims to be where your buyers and influencers learn. Every audience for each industry, vertical, or category is different. Does your audience learn online, through email, at trade shows, through social media, or through conversations with trusted advisors? Depending on where and how your audience learns you'll want to design activities and distribute your marketing dollars accordingly. The combination of these tactics becomes your campaign strategy.
 
 #### Create Clear Campaign Goals
 
-You�ll need to define success for your marketplace campaign and create clear KPIs. You may run multiple campaigns with different end goals. Of course, we all want to grow sales. The ultimate end-goal is increased revenue or customer acquisition. However, your marketing campaigns may be tied to goals at other stages of the buying cycle.
+You'll need to define success for your marketplace campaign and create clear KPIs. You may run multiple campaigns with different end goals. Of course, we all want to grow sales. The ultimate end-goal is increased revenue or customer acquisition. However, your marketing campaigns may be tied to goals at other stages of the buying cycle.
 
 For instance, if you have newly launched your product in our Marketplace you may find your focus is best spent on audience education and lead generation. Success might be defined by the number of leads generated from your marketplace listing. In this case your marketing tactics (and landing page) would focus on drawing customers to your marketplace listing.
 
 If you have a trial set up in marketplace and you know that your product requires some level of engagement and experience before purchase, you may make your campaign goal the number of trials downloaded. In this case, the CTA for your campaign tactics would focus sharply on encouraging a trial in marketplace. 
 
-If your product or category is more well-known and you have purchase capabilities set up in marketplace you may decide to skip the trial step and direct your audience directly to your �buy now� link in marketplace.
+If your product or category is more well-known and you have purchase capabilities set up in marketplace you may decide to skip the trial step and direct your audience directly to your 'buy now' link in marketplace.
 
-At a more mature point in your offer�s history you may decide to focus your campaign efforts on upselling your customer base and in this case drive action toward increased purchase in Marketplace. Your tactics would focus on encouraging customers to �buy now� in marketplace. Your KPI might be the revenue generated through Marketplace.
+At a more mature point in your offer's history you may decide to focus your campaign efforts on upselling your customer base and in this case drive action toward increased purchase in Marketplace. Your tactics would focus on encouraging customers to 'buy now' in marketplace. Your KPI might be the revenue generated through Marketplace.
 
-Whatever your offer�s maturity and the goals of your organization, staying focused on this goal and mapping out a set of integrated marketing tactics aligned to this goal is key to maximizing your campaign effectiveness.
+Whatever your offer's maturity and the goals of your organization, staying focused on this goal and mapping out a set of integrated marketing tactics aligned to this goal is key to maximizing your campaign effectiveness.
 
-As part of being a new publisher in the Azure Marketplace, we�ll offer you some free Marketplace GTM benefits. You should think critically about how to leverage these benefits in your campaign strategy. Let our marketing team know your marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
+As part of being a new publisher in the Azure Marketplace, we'll offer you some free Marketplace GTM benefits. You should think critically about how to leverage these benefits in your campaign strategy. Let our marketing team know your marketplace campaign goals and your desired audience action. We can customize these deliverables to work into your plan.
 
 For additional go-to-market support including templates, web content, training, and tools to promote your business visit [www.MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) For additional content on campaign building and marketing best practices, visit [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), a program of the Microsoft Partner Network.
 
@@ -516,7 +516,7 @@ New listings in Marketplace will become eligible to receive free Marketplace GTM
 
 The activities we provide differ depending on your solution status in our marketplace. Benefits significantly increase for offers that come with a trial experience or transact capabilities within marketplace.
 
-To maximize the impact of these activities, we�d encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
+To maximize the impact of these activities, we'd encourage you to have your launch plan ready to execute. You may want to leverage your landing page for many of these tactics. Note that OCP Catalog (One Commercial Partner Catalog) is a benefit of members in the Microsoft Partner Network. 
 
 ![Marketplace GTM Benefits](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
 
@@ -538,16 +538,16 @@ However, Marketplace leads are different from Microsoft seller-qualified leads t
 
 #### Promote Your Business Through Microsoft
 
-There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you�ve listed in our marketplace you�ve opened access to our marketplace programs and resources. 
+There are many people and teams within Microsoft whose sole goal is to support our partners and reduce any friction you have in selling with us. Now that you've listed in our marketplace you've opened access to our marketplace programs and resources. 
 
-If you haven�t already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com), this should be your first step. MPN offers guidance for navigating Microsoft � from new business opportunities, connecting with teams or partners, to information about solutions and training to help grow your skillset.
+If you haven't already signed up to the [Microsoft Partner Network (MPN)](https://partner.microsoft.com), this should be your first step. MPN offers guidance for navigating Microsoft ' from new business opportunities, connecting with teams or partners, to information about solutions and training to help grow your skillset.
 The best next steps you can take to open access to even more partner benefits and resources are:
 
 1.	Leverage your [Core Benefits](https://partner.microsoft.com/en-US/membership/core-benefits)
     As part of our Microsoft Partner Network, you receive a set of core benefits that can help you save time and money while you strengthen your capabilities, better serve customers, and build connections to reach your full business potential.
 
 2.	Earn your [Cloud Platform Competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency)
-    Earning a competency allows you to differentiate yourself within Microsoft�s expansive partner network as well as demonstrate technical expertise and customer success in market. Earning a competency is also a prerequisite for many key partner programs like Co-Sell.
+    Earning a competency allows you to differentiate yourself within Microsoft's expansive partner network as well as demonstrate technical expertise and customer success in market. Earning a competency is also a prerequisite for many key partner programs like Co-Sell.
 
 3.	Become [Co-Sell Ready](https://partner.microsoft.com/en-US/reach-customers/promote-your-business)
     This program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to our sellers in their solution catalog and our sellers are rewarded for collaborating and winning with you.
@@ -559,7 +559,7 @@ In Azure Marketplace, you become eligible for featured apps when you enable Tria
 
 Featured apps are chosen based on which apps provide the best customer experience for a user and leverages high quality partner marketing engagement. This includes clarity of the listing, reliability of the technology, and growth of customers platform usage, and your level of engagement with creating high quality marketing material. 
 
-To maximize your app�s chances of being featured, you should invest in the success of your marketplace offering and consider the following approaches to ensure a great customer experience of your offer: 
+To maximize your app's chances of being featured, you should invest in the success of your marketplace offering and consider the following approaches to ensure a great customer experience of your offer: 
 
 - Ensure your marketing artifacts are uploaded and displaying correctly
 - Join the [Microsoft Partner Network](https://partner.microsoft.com/membership) and engage with the partner ecosystem
@@ -569,7 +569,7 @@ To maximize your app�s chances of being featured, you should invest in the suc
 
 ## Analytics and Reporting
 
-In the Insights section of the Cloud Partner Portal, you will see a high-level overview of your offer�s performance. The reports included in this section are:  
+In the Insights section of the Cloud Partner Portal, you will see a high-level overview of your offer's performance. The reports included in this section are:  
 - Summary snapshot of orders
 - Usage
 - Deployments
@@ -632,9 +632,9 @@ Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Busin
 |Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support Partners with technical issues. There 350+ Partners currently working on this environment.        |
 |MSDN Forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
 |StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow website has multiple sections that provide an environment to get solutions and ask questions about everything related to Azure and AMP: 
-<ul><li>StackOverflow: [Azure Marketplace]</li>(https://stackoverflow.com/questions/tagged/azure-marketplace)
-<li>StackOverflow: [Azure Resource Manager]</li>(https://stackoverflow.com/questions/tagged/azure-resource-manager)
-<li>StackOverflow: [Azure Virtual Machines]</li></ul>(https://stackoverflow.com/questions/tagged/azure-virtual-machine) |
+<ul><li>StackOverflow: [Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li>
+<li>StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li>
+<li>StackOverflow: [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
 
 **Marketing Resources**
@@ -652,14 +652,14 @@ Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Busin
 When creating a company account, follow these guidelines if more than one person will need to access the account by logging in with the Microsoft account that opened the account.
 
 >[!IMPORTANT]
->Allow multiple users to access your Dev Center account, we recommend using Azure Active Directory to assign roles to individual users, who can access the account by signing in with their individual Azure AD credentials. For more info, please review the [Guidance with AAD Federated Domains](#guidance-with-aad-federated-domains).Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual�for example, windowsapps@fabrikam.com.
+>Allow multiple users to access your Dev Center account, we recommend using Azure Active Directory to assign roles to individual users, who can access the account by signing in with their individual Azure AD credentials. For more info, please review the [Guidance with AAD Federated Domains](#guidance-with-aad-federated-domains).Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual'for example, windowsapps@fabrikam.com.
 
 - Limit access to this Microsoft account to the smallest possible number of developers.
-- Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security info. This allows all the employees on the list to receive security codes when needed and to manage your Microsoft account�s security info. If setting up a distribution list is not feasible, the owner of the individual email account will need to be available to access and share the security code when prompted (such as when new security info is added to the account or when it must be accessed from a new device).
+- Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security info. This allows all the employees on the list to receive security codes when needed and to manage your Microsoft account's security info. If setting up a distribution list is not feasible, the owner of the individual email account will need to be available to access and share the security code when prompted (such as when new security info is added to the account or when it must be accessed from a new device).
 - Add a company phone number that does not require an extension and is accessible to key team members.
 - In general, have developers use trusted devices to log in to your company's developer account. All key team members should have access to these trusted devices. This will reduce the need for security codes to be sent when accessing the account.
 - If you need to allow access to the account from a non-trusted PC, limit that access to a maximum of five developers. Ideally, these developers should access the account from machines that share the same geographical and network location.
-- Frequently review your company�s security info at [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) to make sure it's all current.
+- Frequently review your company's security info at [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) to make sure it's all current.
 
 Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
 For more information on additional developer account guidelines and security, click [here](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
@@ -688,7 +688,7 @@ After this last step is completed, you will have all emails/communications from 
 
 ### Instructions on how to register in the Development Center
 
-Step 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you�re not signed in to a personal account.
+Step 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
 
 Step 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
 
@@ -701,7 +701,7 @@ Step 4. In the "Registration-Account Info" section, select your **Account countr
 ![Account Info]./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png
 
 >[!WARNING]
->"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved �sell-from� countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+>"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved 'sell-from' countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 Step 5. Select your "Account Type" as **Company** and then click the **Next** button.
 
