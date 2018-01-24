@@ -2,7 +2,6 @@
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
-### [Region availability](storsimple-regions.md)
 
 ## Get started
 ### Plan
