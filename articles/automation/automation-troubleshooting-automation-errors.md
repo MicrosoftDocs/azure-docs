@@ -225,6 +225,16 @@ This error code means that the saved search computer group query used to target 
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
+### PolicyViolation
+
+**Reason for the error:**
+
+This error code means that the deployment failed due to violation of a policy.
+
+**Troubleshooting tips:**
+
+Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. For learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md#fields-and-sources?toc=%2fazure%2fautomation%2ftoc.json)
+
 ## Next steps
 
 If you have followed the preceding troubleshooting steps and can't find the answer, you can review the additional support following options:
