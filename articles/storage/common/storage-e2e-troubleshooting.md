@@ -16,7 +16,7 @@ ms.date: 03/15/2017
 ms.author: tamram
 
 ---
-# End-to-End Troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
+# End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnosing and troubleshooting is a key skill for building and supporting client applications with Microsoft Azure Storage. Due to the distributed nature of an Azure application, diagnosing and troubleshooting errors and performance issues may be more complex than in traditional environments.
@@ -34,9 +34,7 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
   * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) for more information about the request and response data that is written to the logs by Storage Analytics.
 
 > [!NOTE]
-> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
-> 
-> 
+> Storage accounts with a replication type of Zone-redundant storage (ZRS) support metrics and logging. ZRS Classic accounts do not support metrics or logging. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure portal**. You can configure metrics and logging for your storage account in the [Azure portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
   

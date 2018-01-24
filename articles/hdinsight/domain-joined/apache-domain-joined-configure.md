@@ -26,7 +26,6 @@ Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTT
 
 -	A standalone Active Directory running on Azure IaaS.
 -	Azure Active Directory.
--	Active Directory running on the customer on-premises environment.
 
 Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
 
