@@ -19,7 +19,7 @@ ms.author: chwolf
 ---
 # An introduction to Azure Service Bus
 
-Azure Service Bus (ASB) is a fully managed enterprise integration message broker. It is most commonly used to decouple applications and services from each other and give highly reliable and secure a platform for asynchronous data and state transfer. The data is transferred between the different applications, services or also commonly called endpoints via messages which can also be seen as data packages. A message can contain text (Including JSON and XML) as well as binary data.
+Azure Service Bus (ASB) is a fully managed enterprise integration message broker. It is most commonly used to decouple applications and services from each other. Azure Service Bus provides a highly reliable and secure platform for asynchronous data and state transfer. The data is transferred between the different applications, services, or also commonly called endpoints via messages, which can also be seen as data packages. A message can contain text (Including JSON and XML) as well as binary data.
 
 Some common messaging scenarios are:
 
@@ -27,7 +27,7 @@ Some common messaging scenarios are:
 * Improve reliability and scalability of applications and services through decoupling
 * Enable 1:N relations between publisher and subscribers
 
-The messages which are being send to and received from the message broker are stored in so called channels or also called Queues. The Queues allow you to store the messages till the receiving side is available to receive and process them.
+The messages, which are being send to and received from the message broker are stored in so called channels or also called Queues. The Queues allow you to store the messages until the receiving side is available to receive and process them.
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
@@ -37,13 +37,13 @@ Queues have two delivery modes: Pull and Forward
 * [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
 * [Forward](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) – delivers message to single forwarding destination.
 
-Azure Service Bus has many advanced features which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features can be found below.
+Azure Service Bus has many advanced features, which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features follows below.
 
-Another object which can be utilized to send and receive messages and decouple applications or services is the topic. Whereas the Queue is often used for point to point communication the topic is used for publisher / subscriber scenarios.
+Another object, within Azure Service Bus, which can be utilized to send and receive messages and decouple applications or services is the topic. Whereas the Queue is often used for point-to-point communication, topics are used for publisher / subscriber scenarios.
 
 ![Topic](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-[Topics](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) can have multiple, Independent Subscriptions. Each subscriber is eligible to receive a copy of each message. Subscriptions are named entities which are usually durably created but can optionally expire/auto-delete.
+[Topics](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) can have multiple, Independent Subscriptions. Each subscriber is eligible to receive a copy of each message. Subscriptions are named entities, which are durably created but can optionally expire/auto-delete.
 
 Many times the individual subscriptions should not get all the messages which are send to a topic. For that Azure Service Bus offers [rules and filter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters) conditions that can be defined, which trigger optional [actions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters) and set/modify message properties.
 
@@ -62,8 +62,8 @@ Topic 'tail' and subscription 'head' are fully protocol compatible with Queues a
 
 ## Next steps
 
-To learn more about Service Bus messaging, see the following articles.
+To learn more about Service Bus messaging, see the following articles:
 
-* Learn more about our [Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/service-bus/) tiers and about their pricing.
-* [Performance and Latency of our Premium offering](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
-* Try our quick starts in [.Net](service-bus-quickstart-powershell.md), [Java](TBD) or [JMS](TBD) or try these short tutorials about topics in .Net, Java and JMS.
+* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/service-bus/) tiers and about their pricing.
+* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
+* Try the following quick starts in [.Net](service-bus-quickstart-powershell.md), [Java](TBD) or [JMS](TBD) or try these short tutorials about topics in .Net, Java and JMS.
