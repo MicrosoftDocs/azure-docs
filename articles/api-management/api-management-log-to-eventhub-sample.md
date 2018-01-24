@@ -162,7 +162,7 @@ In this sample, we use the `EventProcessorHost` for simplicity, however it may n
 ### IEventProcessor
 The central concept when using `EventProcessorHost` is to create an implementation of the `IEventProcessor` interface, which contains the method `ProcessEventAsync`. The essence of that method is shown here:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -189,7 +189,7 @@ A list of EventData objects are passed into the method and we iterate over that 
 ### HttpMessage
 The `HttpMessage` instance contains three pieces of data:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -212,7 +212,7 @@ For this sample, I decided it would be interesting to push the HTTP Request over
 
 The `IHttpMessageProcessor` implementation looks like this,
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;

@@ -6,14 +6,14 @@ keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: philmea
 ms.author: philmea
 ms.date: 11/14/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
 ---
 
 # How to manage your Azure Location Based Services account and keys
 
-You can manage your Azure Location Based Services account and keys through the Azure portal. Once you have an account and a subscription key, you can implement the APIs in your web site or mobile application.
+You can manage your Azure Location Based Services account and keys through the Azure portal. Once you have an account and a key, you can implement the APIs in your web site or mobile application.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

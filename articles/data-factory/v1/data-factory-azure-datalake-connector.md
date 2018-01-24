@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
@@ -83,9 +83,9 @@ To use service principal authentication, register an application entity in Azure
 
 > [!IMPORTANT]
 > Make sure you grant the service principal proper permission in Azure Data Lake Store:
->- To use Data Lake Store as source, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control.
->- To use Data Lake Store as sink, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to empower copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, [specify executionLocation](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity.
->- If you use Copy Wizard to author pipelines, grant at least **Reader** role in account access control (IAM). Also, grant at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."
+>- **To use Data Lake Store as source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control.
+>- **To use Data Lake Store as sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to empower copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, [specify executionLocation](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity.
+>- If you **use Copy Wizard to author pipelines**, grant at least **Reader** role in account access control (IAM). Also, grant at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."
 
 Use service principal authentication by specifying the following properties:
 
@@ -123,9 +123,9 @@ Alternatively, you can use user credential authentication to copy from or to Dat
 
 > [!IMPORTANT]
 > Make sure you grant the user proper permission in Azure Data Lake Store:
->- To use Data Lake Store as source, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control.
->- To use Data Lake Store as sink, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to empower copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, [specify executionLocation](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity.
->- If you use Copy Wizard to author pipelines, grant at least **Reader** role in account access control (IAM). Also, grant at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."
+>- **To use Data Lake Store as source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control.
+>- **To use Data Lake Store as sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to empower copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, [specify executionLocation](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity.
+>- If you **use Copy Wizard to author pipelines**, grant at least **Reader** role in account access control (IAM). Also, grant at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."
 
 **Example: User credential authentication**
 ```json
@@ -186,6 +186,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 For details about the Data Factory classes used in the code, see the [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics. Add a reference to version `2.9.10826.1824` of `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` for the `WindowsFormsWebAuthenticationDialog` class used in the code.
+
+## Troubleshooting tips
+
+**Symptom:** When copying data **into** Azure Data Lake Store, if your copy activity fail with the following error:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Root cause:** There are 2 possible reasons:
+
+1. The `resourceGroupName` and/or `subscriptionId` specified in Azure Data Lake Store linked service is incorrect;
+2. The user or the service principal doesn't have the needed permission.
+
+**Resolution:**
+
+1. Make sure the `subscriptionId` and `resourceGroupName` you specify in the linked service `typeProperties` are indeed the ones that your data lake account belongs to.
+
+2. Make sure you grant at least "**Reader**" role to the user or service principal on the data lake account. Here is how to make it:
+
+    1. Go to Azure Portal -> your Data Lake Store account
+    2. Click "Access Control (IAM)" on the blade of the Data Lake Store
+    3. Click "Add" in the blade of "Access Control (IAM)"
+    4. Set "Role" as "Reader", and select the user or the service principal you use for copy to grant access
+
+3. If you don't want to grant "Reader" role to the user or service principal, alernative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activitywith the location of your Data Lake Store. Example:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## Dataset properties
 To specify a dataset to represent input data in a Data Lake Store, you set the **type** property of the dataset to **AzureDataLakeStore**. Set the **linkedServiceName** property of the dataset to the name of the Data Lake Store linked service. For a full list of JSON sections and properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections of a dataset in JSON, such as **structure**, **availability**, and **policy**, are similar for all dataset types (Azure SQL database, Azure blob, and Azure table, for example). The **typeProperties** section is different for each type of dataset and provides information such as location and format of the data in the data store. 

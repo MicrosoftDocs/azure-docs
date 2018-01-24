@@ -226,6 +226,83 @@ When you configure the profiler, updates are made to the web app's settings. You
 8. Install __Application Insights__ from the Azure Web Apps Gallery.
 9. Restart the web app.
 
+## <a id="profileondemand"></a> Manually trigger profiler
+When we developed the profiler we added a command line interface so that we could test the profiler on app services. Using this same interface users can also customize how the profiler starts. At a high level the profiler uses App Service's Kudu System to manage profiling in the background. When you install the Application Insights Extension we create a continuous web job which hosts the profiler. We will use this same technology to create a new web job which you can customize to fit your needs.
+
+This section explains how to:
+
+1.	Create a web job which can start the profiler for two minutes with the press of a button.
+2.	Create a web job which can schedule the profiler to run.
+3.	Set arguments for the profiler.
+
+
+### Set up
+First let's get familiar with the web job's dashboard. Under settings click on the WebJobs tab.
+
+![webjobs blade](./media/app-insights-profiler/webjobs-blade.png)
+
+As you can see this dashboard shows you all of the web jobs that are currently installed on your site. You can see the ApplicationInsightsProfiler2 web job which has the profiler job running. This is where we will end up creating our new web jobs for manual and scheduled profiling.
+
+First let's get the binaries we will need.
+
+1.	First go to the kudu site. Under the development tools tab click on the "Advanced Tools" tab with the Kudu logo. Click on "Go". This will take you to a new site and log you in automatically.
+2.	Next we need to download the profiler binaries. Navigate to the File Explorer via Debug Console -> CMD located at the top of the page.
+3.	Click on site -> wwwroot -> App_Data -> jobs -> continuous. You should see a folder "ApplicationInsightsProfiler2". Click on the download icon to the left of the folder. This will download an "ApplicationInsightsProfiler2.zip" file.
+4.	This will download all the files you will need moving forward. I recommend creating a clean directory to move this zip archive to before moving on.
+
+### Setting up the web job archive
+When you add a new web job to the azure website basically you create a zip archive with a run.cmd inside. The run.cmd tells the web job system what to do when you run the web job. There are other options you can read from the web job documentation but for our purpose we don't need anything else.
+
+1.	To start create a new folder, I named mine "RunProfiler2Minutes".
+2.	Copy the files from the extracted ApplicationInsightProfiler2 folder into this new folder.
+3.	Create a new run.cmd file. (I opened this working folder in vs code before starting for convenience)
+4.	Add the command `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`, and save the file.
+a.	The `start` command tells the profiler to start.
+b.	`--engine-mode immediate` tells the profiler we want to immediately start profiling.
+c.	`--single` means to run and then stop automatically
+d.	`--immediate-profiling-duration 120` means to have the profiler run for 120 seconds or 2 minutes.
+5.	Save this file.
+6.	Archive this folder, you can right click the folder and choose Send to -> Compressed (zipped) folder. This will create a .zip file using the name of your folder.
+
+![start profiler command](./media/app-insights-profiler/start-profiler-command.png)
+
+We now have a web job .zip we can use to set up web jobs in our site.
+
+### Add a new web job
+Next we will add a new web job in our site. This example will show you how to add a manual triggered web job. After you are able to do that the process is almost exactly the same for scheduled. You can read more about scheduled triggered jobs on your own.
+
+1.	Go to the web jobs dashboard.
+2.	Click on the Add command from the toolbar.
+3.	Give your web job a name, I chose it to match the name of my archive for clarity and to open it up to having different versions of the run.cmd.
+4.	In the file upload part of the form click on the open file icon and find the .zip file you made above.
+5.	For the type, choose Triggered.
+6.	For the Triggers choose Manual.
+7.	Hit OK to save.
+
+![start profiler command](./media/app-insights-profiler/create-webjob.png)
+
+### Run the profiler
+
+Now that we have a new web job that we can trigger manually we can try to run it.
+
+1.	By design you can only have one ApplicationInsightsProfiler.exe process running on a machine at any given time. So to start off with make sure to disable the Continuous web job from this dashboard. Click on the row and press "Stop". Refresh on the toolbar and confirm that the status confirms the job is stopped.
+2.	Click on the row with the new web job you've added and press run.
+3.	With the row still selected click on the Logs command in the toolbar, this will bring you to a web jobs dashboard for this web job you have started. It will list the most recent runs and their result.
+4.	Click on the run you've just started.
+5.	If all went well you should see some diagnostic logs coming from the profiler confirming we have started profiling.
+
+### Things to consider
+
+Though this method is relatively straightforward there are some things to consider.
+
+1.	Because this is not managed by our service we will have no way of updating the agent binaries for your web job. We do not currently have a stable download page for our binaries so the only way to get the latest is by updating your extension and grabbing it from the continuous folder like we did above.
+2.	As this is utilizing command line arguments that were originally designed with developer use rather than end-user use, these arguments may change in the future, so just be aware of that when upgrading. It shouldn't be much of a problem because you can add a web job, run, and test that it works. Eventually we will build UI to do this without the manual process but it's something to consider.
+3.	The Web Jobs feature for App Services is unique in that when it runs the web job it ensures that your process has the same environment variables and app settings that your web site will end up having. This means that you do not need to pass the instrumentation key through the command line to the profiler, it should just pick up the instrumentation key from the environment. However if you want to run the profiler on your dev box or on a machine outside of App Services you need to supply an instrumentation key. You can do this by passing in an argument `--ikey <instrumentation-key>`. Note that this value must match the instrumentation key your application is using. In the log output from the profiler it will tell you which ikey the profiler started with and if we detected activity from that instrumentation key while we are profiling.
+4.	The manually triggered web jobs can actually be triggered via Web Hook. You can get this url from right clicking on the web job from the dashboard and viewing the properties, Or choosing properties in the toolbar after selecting the web job from the table. There are a lot of articles that you can find online about this so I will not go into much detail about it, but this opens up the possibility of triggering the profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Depending on how fancy you want to make your run.cmd, which by the way can be a run.ps1, the possibilities are extensive.  
+
+
+
+
 ## <a id="aspnetcore"></a>ASP.NET Core support
 
 An ASP.NET Core application needs to install the Microsoft.ApplicationInsights.AspNetCore NuGet package 2.1.0-beta6 or later to work with the profiler. As of June 27, 2017, we don't support earlier versions.

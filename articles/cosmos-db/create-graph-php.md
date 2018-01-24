@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 01/05/2018
 ms.author: lbosq
 
 ---
@@ -56,7 +56,6 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
     Storage Capacity|Fixed (10 GB)|Leave the default value of **Fixed (10 GB)**. This value is the storage capacity of the database.
     Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-    Partition key|Leave blank|For the purpose of this quickstart, leave the partition key blank.
 
 3. Once the form is filled out, click **OK**.
 
@@ -135,7 +134,9 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-3. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
+3. If your graph database account was created on or after December 20th, 2017, change `graphs.azure.com` in the host name to `gremlin.cosmosdb.azure.com`.
+
+4. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -153,7 +154,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
+5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
 
     The Connection object initialization should now look like this:
 
@@ -169,7 +170,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     ]);
     ```
 
-5. Save the `connect.php` file.
+6. Save the `connect.php` file.
 
 ## Run the console app
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 03/30/2017
-ms.author: anvang;barbkess
+ms.date: 12/14/2017
+ms.author: kevin;barbkess
 
 ---
 # Install Visual Studio and SSDT for SQL Data Warehouse
@@ -24,7 +24,7 @@ To develop applications for SQL Data Warehouse, we recommend using the most rece
 Using Visual Studio with SSDT will allow you to use the SQL Server Object Explorer to visually explore tables, views, stored procedures and many more objects in your SQL Data Warehouse as well as run queries.
 
 > [!NOTE]
-> SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version.
+> SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version. To receive periodic updates on this feature, please vote on [UserVoice].
 > 
 > 
 
@@ -56,3 +56,4 @@ Now that you have the latest version of SSDT, you are ready to [connect][connect
 [Download Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
 ---
 
@@ -130,34 +130,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location **c:\temp\myIris>**.
 
-2. Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in your subscription. You must register this resource provider before you can create an environment in step 3. You can check to see if it's already registered by using the following command:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   You should see output like this: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   If **Microsoft.ContainerRegistry** is not registered, you can register it by using the following command:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registration can take a few minutes. You can check on its status by using the previous **az provider list** command or the following command:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
-
-3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+2. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
    Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
@@ -169,25 +142,25 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    
    The cluster name is a way for you to identify the environment. The location should be the same as the location of the Model Management account you created from the Azure portal.
 
-4. Create a Model Management account. (This is a one-time setup.)  
+3. Create a Model Management account. (This is a one-time setup.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Set the Model Management account.  
+4. Set the Model Management account.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Set the environment.
+5. Set the environment.
 
-   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
+6. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
 
    ```azurecli
    az ml env show
@@ -202,7 +175,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    This command generates a web service ID you can use later.
 
@@ -212,6 +185,7 @@ Now you're ready to create the real-time web service.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
    * `-r`: The type of model. In this case, it's a Python model.
    * `--collect-model-data true`: This enables data collection.
+   * `-c`: Path to the conda dependencies file where additional packages are specified.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
@@ -250,10 +224,10 @@ First, register the model. Then generate the manifest, build the Docker image, a
 
 3. Create a Docker image.
 
-   To create a Docker image, use the following command and provide the manifest ID value output from the previous step:
+   To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You can also optionally include the conda dependencies using the `-c` switch.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    This command generates a Docker image ID.
    

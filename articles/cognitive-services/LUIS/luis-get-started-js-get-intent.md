@@ -50,4 +50,4 @@ You can use JavaScript to access the same results you saw in the browser window 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Add utterances](luis-quickstart-javascript-add-utterance.md)

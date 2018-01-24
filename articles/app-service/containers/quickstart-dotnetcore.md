@@ -35,7 +35,7 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">Install the .NET Core SDK</a>
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Install .NET Core SDK 1.1</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -136,11 +136,11 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in an web app with built-in image.
+The .NET Core sample code is running in an web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service on Linux.
+**Congratulations!** You've deployed your first .NET Core app to App Service on Linux.
 
 ## Update and redeploy the code
 

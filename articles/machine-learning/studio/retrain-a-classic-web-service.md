@@ -113,7 +113,7 @@ The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint da
 
 The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the predictive experiment. To get the Resource Name:
 
-1. Sign in to the [classic Azure portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, click **Machine Learning**.
 3. Under Name, click your workspace and then click **Web Services**.
 4. Under Name, click **Census Model [predictive exp.]**.

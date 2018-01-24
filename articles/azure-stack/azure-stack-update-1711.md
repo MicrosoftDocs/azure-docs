@@ -49,6 +49,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - Users can now activate Windows VMs automatically
 - Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
 - Support for updating the offline images when updating infrastructure
+- Enable Infrastructure backup with the Enable Backup Service
 
 #### Fixes
 
@@ -136,6 +137,17 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 > [!IMPORTANT]
 > Even though the **azurestack\cloudadmin** account is the owner of the Default Provider Subscription in ADFS deployed environments, it does not have permissions to RDP into the host. Continue to use the **azurestack\azurestackadmin** account or the local administrator account to login, access and manage the host as needed.
+
+#### Infrastructure Backup Sevice
+<!-- 1974890-->
+
+- **Pre-1711 backups are not supported for cloud recovery.**  
+  Pre-1711 backups are not compatible with cloud recovery. You must update to 1711 first and enable backups. If you already enabled backups, make sure to take a backup after updating to 1711. Pre-1711 backups should be deleted.
+
+- **Enabling infrastructure backup on ASDK is for testing purposes only.**  
+  Infrastructure backups can be used to restore multi-node solutions. You can enable infrastructure backup on ASDK but there is no way to test recovery.
+
+For more information see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## Download the update
 
