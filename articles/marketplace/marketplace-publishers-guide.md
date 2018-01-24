@@ -153,7 +153,10 @@ Take your customers through a guided experience of your product with an **Intera
 
 ### TRANSACT
 
-In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer's subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. (Note: At this time, an Enterprise Agreement's Monetary Commitments can be used against the virtual appliance's Azure usage, but not against the publisher's software license fees.)
+In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer's subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. 
+
+>[!NOTE]
+>At this time, an Enterprise Agreement's Monetary Commitments can be used against the virtual appliance's Azure usage, but not against the publisher's software license fees.
 
 Use an **Azure Solution Template** when a solution requires additional deployment and configuration automation beyond the virtual appliance. Solution Templates can automate the provisioning of one or more virtual machine resources and in addition can provision Networking and Storage resources. Solution templates can provide automation benefits on single Virtual Machines as well as entire IaaS-based solution environments. Learn more about building Solution Templates [here](https://github.com/MicrosoftDocs/azure-docs).
 
@@ -234,10 +237,8 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 |**Requirement**  | **Details**  |**Publishing Option**  |
 |---------|---------|---------|
-|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time. 
-This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Since all Trial options are deployed to the publisher's Microsoft product subscription, Trial cost optimization and management is controlled solely by the publisher.
-You can choose a free trial, interactive demo, or Test Drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost. 
-Reach out to cloudmarketplace@microsoft.com to begin the process of creating a Test Drive. Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Trial      | **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
+|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Since all Trial options are deployed to the publisher's Microsoft product subscription, Trial cost optimization and management is controlled solely by the publisher.<br>You can choose a free trial, interactive demo, or Test Drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost.<br> Reach out to cloudmarketplace@microsoft.com to begin the process of creating a Test Drive. Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Trial      | 
+| **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
 |**Availability/Uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled.      |  Trial|
 
@@ -381,9 +382,7 @@ In this section, we explain the steps: to become a publisher in the Azure Market
 |---------|---------|---------|
 |Create a Microsoft ID     |   15 min      |   Partners need to have a Microsoft ID that is used to identify the Partner. This Microsoft ID will be used to access Cloud Partner Portal.       |
 |Marketplace Nomination Form     |  1-3 Days       |  Partners need to submit the Nomination Form to start the approval process for the Marketplace. Once the form is submitted the Marketplace Onboarding team will review the application and validate the request.       |
-|Register in Developer Center     |    5-10 Days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the Partner is a valid legal entity with a valid TAX ID for the country in which it is registered. Developer Center will enable the Partner to be a registered Microsoft Developer and provide them with access to the Azure developer program. 
-
-*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*  |
+|Register in Developer Center     |    5-10 Days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the Partner is a valid legal entity with a valid TAX ID for the country in which it is registered. Developer Center will enable the Partner to be a registered Microsoft Developer and provide them with access to the Azure developer program. <br><br>*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*  |
 |Log in to the Cloud Partner Portal     |  15 min       |   Once the Partner receives the approval from the Marketplace Team that their Nomination has been approved, Partner access to the [Cloud Partner Portal](https://cloudpartner.azure.com/) is enabled. Partner should use their Microsoft ID used in the Nomination form to login into their publisher profile in the Cloud Partner Portal. Once registered with Developer Center, the Partner will need to associate the Developer Center account with their Azure Marketplace Publisher Profile to publish.      |
 
 #### Create a Microsoft ID
@@ -433,12 +432,12 @@ The quality of your app publication and commitment to customer centric demand ge
 
 This section walks you through marketing best practices for an offer, according to the following checklist:
 
-1. I've optimized my listing to drive traffic and engagement.
-2. I've created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
-3. I've published a Test Drive or other trial so that customers can experience my offer running live on Azure.
-4. I've planned and built my own marketing and promotions campaigns to drive awareness and engagement.
-5. I've enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
-6. I've learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
+- I've optimized my listing to drive traffic and engagement.
+- I've created messaging on my website, leveraging a unique landing page, to drive traffic to my Marketplace listing.
+- I've published a Test Drive or other trial so that customers can experience my offer running live on Azure.
+- I've planned and built my own marketing and promotions campaigns to drive awareness and engagement.
+- I've enabled on-demand lead generation so that every time someone acts to test or deploy my application, I receive their name and contact information.
+- I've learned about and connected with the partner resources that are available to me through the [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
 
 ### Create a Great Listing
 
@@ -446,7 +445,7 @@ Your listing in marketplace can sometimes be your first interaction with a poten
 
 - **Be found:** Write your offer description using key words and terms your buyer will search for. 
 - **Be visual:** Images and videos help show users your key features and can help illustrate your experience. Think about what you can show that helps deliver your value proposition or answer your buyer's top questions.
-- Provide an experience: Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you'll generate. We've found that test drive leads result (on average) to 40% closed deals.
+- **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives prove to lead to more customer deals. The stronger the trial experience you can provide the stronger the lead you'll generate. We've found that test drive leads result (on average) to 40% closed deals.
 - **Help your audience learn:** While we'd encourage you to keep your Overview space clear and simple, there's also plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customer's needs; don't be afraid to direct them to additional materials to learn more. Bonus if these learning materials or links can track into your content marketing strategy so you can be consistently nurturing leads.
 - **Leverage ratings & reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews will also help bump your offer up in search results and into key featured areas.
 
@@ -636,7 +635,7 @@ Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Busin
 
 **Marketing Resources**
 
-|Support Channel  |Column2  |
+|Support Channel  |Description  |
 |---------|---------|
 |Email: cosell@microsoft.com    |  Provides support for onboarding processes and questions related to the Co-Sell program. Based in the Pacific Time Zone.        |
 |Email: gtm@microsoft.com    |  Provides support for go-to-market benefits and program questions. Business hours in the Pacific Time Zone.        |
@@ -674,7 +673,7 @@ We recommend you create a new email address in the **@outlook.com** domain. Foll
 2. Create the new email address and enter a password. This will create both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
 
 >[!IMPORTANT]
->Ensure that the email id or distribution list (a distribution list >is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link]>(https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
+>Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
 
 Also, **any email id under the Microsoft company domain** cannot be used for
 Dev Center registration.
@@ -685,49 +684,33 @@ After this last step is completed, you will have all emails/communications from 
 
 ### Instructions on how to register in the Development Center
 
-Step 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
+1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
+2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
 
-Step 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
+   ![Dev Center Email]./media/marketplace-publishers-guide/registerdevcenteremail.png
+3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
+4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
+   ![Account Info]./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png
+   
+   >[!WARNING]
+   >"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved 'sell-from' countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+5. Select your "Account Type" as **Company** and then click the **Next** button.
+   >[!IMPORTANT]
+   >To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+6. Enter the **Publisher display name**, typically the name of your company.
+   >[!TIP]
+   >The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
+7. Enter the **Contact info** for the account verification.
+   >[!IMPORTANT]
+   >You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
+8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
+   ![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment.png
+9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info, or PayPal in supported markets. When you are finished, click **Next** to move on to the **"Review screen."**
 
-![Dev Center Email]./media/marketplace-publishers-guide/registerdevcenteremail.png
-
-Step 3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
-
-Step 4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
-
-![Account Info]./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png
-
->[!WARNING]
->"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved 'sell-from' countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
-
-Step 5. Select your "Account Type" as **Company** and then click the **Next** button.
-
->[!IMPORTANT]
->To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
-
-Step 6. Enter the **Publisher display name**, typically the name of your company.
-
->[!TIP]
->The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
-
-Step 7. Enter the **Contact info** for the account verification.
-
->[!IMPORTANT]
->You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
-
-Step 8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
-
-![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment.png
-
-Step 9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info, or PayPal in supported markets. When you are finished, click **Next** to move on to the **"Review screen."**
-
-![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
-
-Step 10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace Publisher Agreement. Check the box to indicate you have read and accepted these terms.
-
-Step 11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
-
-Step 12. If you are planning to publish only free offers, click **Go to the [Cloud Partner Portal](https://cloudpartner.azure.com)**.
+   ![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
+10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace Publisher Agreement. Check the box to indicate you have read and accepted these terms.
+11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
+12. If you are planning to publish only free offers, click **Go to the [Cloud Partner Portal](https://cloudpartner.azure.com)**.
 
 If you are planning to publish commercial (TRANSACT) offers--e.g., Virtual Machine offers with hourly billing model-- click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
 
@@ -741,43 +724,29 @@ If you prefer to update your tax and bank information later, then you can move t
 If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free or BYOL offers, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
 **Bank Information**
-
-Step 1. Sign in to the Microsoft Developer Center with your Microsoft account.
-Step 2.  Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
-
->    [!IMPORTANT]
->    If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
-
-Step 3. Enter the payment info, and click Save when you are satisfied.
-
->    [!IMPORTANT]
->    If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
-
-Step 4. Click **Next.** 
+1. Sign in to the Microsoft Developer Center with your Microsoft account.
+2.  Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
+   >    [!IMPORTANT]
+   >    If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+3. Enter the payment info, and click Save when you are satisfied.
+   >    [!IMPORTANT]
+   >    If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
+4. Click **Next.** 
 
 **Tax Information**
 
-Step 1. Sign in to the [Microsoft Developer Center](https://dev.windows.com) with your Microsoft account (if needed).
-
-Step 2. Click **Tax profile** in the left menu.
-
-Step 3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **Next**.
-
-Step 4Enter your tax details, and then click **Next.**
-
->    [!WARNING]
->    You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
+1. Sign in to the [Microsoft Developer Center](https://dev.windows.com) with your Microsoft account (if needed).
+2. Click **Tax profile** in the left menu.
+3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **Next**.
+4. Enter your tax details, and then click **Next.**
+   >    [!WARNING]
+   >    You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
 
 If you have issues with Developer Center registration, please log a support ticket as below:
 
-Step 1. Go to the support link https://developer.microsoft.com/windows/support
-
-Step 2. Under **Contact Us** section, click on the button **Submit an incident** as shown in the screen shot below.
-
-Step 3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email."
-
-![Dev Center Issue]./media/marketplace-publishers-guide/devcentersubmitincident.png
-
-Step 4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account, then create one using this link. 
-
-Step 5. Fill in the details of the issue and submit the ticket by clicking on the **Submit** button.
+1. Go to the support link https://developer.microsoft.com/windows/support
+2. Under **Contact Us** section, click on the button **Submit an incident** as shown in the screen shot below.
+3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email."
+   ![Dev Center Issue]./media/marketplace-publishers-guide/devcentersubmitincident.png
+4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account, then create one using this link. 
+5. Fill in the details of the issue and submit the ticket by clicking on the **Submit** button.
