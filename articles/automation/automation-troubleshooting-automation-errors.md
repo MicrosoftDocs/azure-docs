@@ -179,7 +179,7 @@ This error typically occurs when the node is assigned to a configuration name (f
 
 ### Scenario: No node configurations (MOF files) were produced when a configuration is compiled
 **Error:**
-Your DSC compilation job suspends with the error: "Compilation completed successfully, but no node configuration .mofs were generated".
+Your DSC compilation job suspends with the error: "Compilation completed successfully, but no node configuration.mofs were generated".
 
 **Reason for the error:**
 When the expression following the **Node** keyword in the DSC configuration evaluates to `$null`, then no node configurations are produced.
