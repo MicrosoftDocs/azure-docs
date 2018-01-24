@@ -34,7 +34,7 @@ See the language-specific example:
 * [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
-### Trigger - C# example
+### C# example
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that logs some of the fields common to all events and all of the event-specific data.
 
@@ -49,7 +49,7 @@ public static void Run([EventGridTrigger] EventGridEvent myEvent, TraceWriter lo
 }
 ```
 
-### Trigger - C# script example
+### C# script example
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
 
@@ -84,7 +84,7 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 }
 ```
 
-### Trigger - JavaScript example
+### JavaScript example
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
 
