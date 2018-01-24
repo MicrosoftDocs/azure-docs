@@ -64,23 +64,7 @@ To pause a database:
 
 <a name="resume-compute-bk"></a>
 
-## Resume compute
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-To resume a database:
-
-1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Paused**.
-
-    ![Pause database][4]
-2. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
-
-    ![Confirm resume][5]
-3. While SQL Data Warehouse is starting the database, the status is "Resuming".
-4. When the status is **online**, the database is ready.
-
-    ![Online status][6]
-
-<a name="next-steps-bk"></a>
 
 ## Next steps
 For more information, see [Management overview][Management overview].
