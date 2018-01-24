@@ -1,53 +1,50 @@
 ---
-title: Render a scene with Arnold - Azure Batch 
-description: Tutorial - Step-by-step instructions to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
+title: Render a scene in the cloud - Azure Batch 
+description: Tutorial - How to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
 services: batch
 author: dlepow
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Render a 3ds Max scene with Batch 
+# Tutorial: Render a scene with Azure Batch 
 
-Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a 3ds Max scene with Batch using the Arnold ray-tracing renderer. You learn how to use Azure CLI commands to:
+Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a small scene with Batch using the Azure Command-Line Interface. You learn how to:
 
 > [!div class="checklist"]
 > * Upload a scene to Azure storage
 > * Create a Batch pool for rendering
-> * Render a single frame with Arnold
+> * Render a single-frame scene
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https://www.autodesk.com/products/arnold/overview) ray-tracing renderer. 
 
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is originally from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
-
+The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-
-
-
 ## Create a Batch account
 
 If you haven't already, create a resource group, a Batch account, and a linked storage account in your subscription. 
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *eastus2* location.
 
 ```azurecli-interactive 
 az group create \
     --name myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
 Create a general-purpose storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
@@ -56,7 +53,7 @@ Create a general-purpose storage account in your resource group with the [az sto
 az storage account create \
     --resource-group myResourceGroup \
     --name mystorageaccount \
-    --location eastus \
+    --location eastus2 \
     --sku Standard_LRS
 ```
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. The following example creates a Batch account named *mybatchaccount* in *myResourceGroup*, and links the storage account you created.  
@@ -66,7 +63,7 @@ az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
     --resource-group myResourceGroup \
-    --location eastus
+    --location eastus2
 ```
 
 To create and manage compute pools and jobs, you need to authenticate with Batch. Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. After you log in, your `az batch` commands use this account context. The following example uses shared key authentication, based on the Batch account name and key. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users or an unattended application.
@@ -77,7 +74,7 @@ az batch account login \
     --resource-group myResourceGroup \
     --shared-key-auth
 ```
-## Upload 3ds Max scene to storage
+## Upload a scene to storage
 
 To upload the input scene to storage, you first need to access the storage account and create a destination container for the blobs. To access the Azure storage account, export the `AZURE_STORAGE_KEY` and `AZURE_STORAGE_ACCOUNT` environment variables. The first Bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key. After you set these environment variables, your storage commands use this account context.
 
@@ -101,7 +98,7 @@ Download the scene `MotionBlur-Dragon-Flying.max` from [GitHub](https://github.c
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-Upload the scene file from your local working directory to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
+Upload the scene file from your local working directory to the blob container. The following example uses the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command, which can upload multiple files:
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -109,11 +106,9 @@ az storage blob upload-batch \
     --source ./
 ```
 
+## Create a rendering pool
 
-
-## Create a Batch pool
-
-Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file called *mypool.json*. Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/mypool.json).)
+Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file. Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
 
 
 ```json
@@ -141,7 +136,7 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
 ```
 Batch supports dedicated nodes and [low-priority](batch-low-pri-vms.md) nodes, and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. 
 
-The pool specified contains a single [low-priority](batch-low-pri-vms.md) node running a Windows Server image with software for the Batch Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, you scale the pool to a larger number of nodes.
+The pool specified contains a single low-priority node running a Windows Server image with software for the Batch Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, you scale the pool to a larger number of nodes.
 
 Create the pool by passing the JSON file to the `az batch pool create` command:
 
@@ -161,7 +156,7 @@ Continue the following steps to create a job and tasks while the pool state is c
 
 ## Create a blob container for output
 
-The rendering job in this tutorial creates an output file for every task. Before scheduling the job, create a blob container in your storage account as the destination for the output files. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create the *job-myrenderjob* container with public read access. 
+In the examples in this tutorial, every task in the rendering job creates an output file. Before scheduling the job, create a blob container in your storage account as the destination for the output files. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create the *job-myrenderjob* container with public read access. 
 
 ```azurecli-interactive
 az storage container create \
@@ -185,10 +180,11 @@ Take note of the token returned by the command, which looks similar to the follo
 se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-
 ## Render a single-frame scene
 
-Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. Initally the job has no tasks.
+### Create a job
+
+Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. Initially the job has no tasks.
 
 ```azurecli-interactive
 az batch job create \
@@ -196,7 +192,9 @@ az batch job create \
     --pool-id myrenderpool
 ```
 
-Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file named *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/myrendertask.json).)
+### Create a task
+
+Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file. Within your current shell, create a file named *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
 The task specifies a 3ds Max command to render a single frame of the scene *MotionBlur-DragonFlying.max*.
 
@@ -252,7 +250,7 @@ az batch task create \
 Batch schedules the task, and the task runs as soon as a node in the pool is available.
 
 
-## View task output
+### View task output
 
 The task takes a few minutes to run. Use the [az batch task show](/cli/azure/batch/task#az_batch_task_show) command to view details about the task.
 
@@ -279,18 +277,17 @@ Open *dragon.jpg* on your computer. The rendered image looks similar to the foll
 
 ## Scale the pool
 
-Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling.md) to add or remove nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of low-priority nodes in the pool to *6*:
+Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling.md) which adds or removes nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of low-priority nodes in the pool to *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
 ```
 
-The pool takes a few minutes to resize. While that process takes place, set up the next tasks to run in the rendering job.
-
+The pool takes a few minutes to resize. While that process takes place, set up the next tasks to run in the existing rendering job.
 
 ## Render a multiframe scene
 
-As in the single-frame example, use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create rendering tasks in the job. In this example, specify the task settings in a JSON file called *myrendertask_multi.json*. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/myrndertask_multi.json).) Each of the six tasks specifies an Arnold command line to render one frame of the 3ds Max scene *MotionBlur-DragonFlying.max*.
+As in the single-frame example, use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create rendering tasks in the job named *myrenderjob*. Here, specify the task settings in a JSON file called *myrendertask_multi.json*. (You can download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Each of the six tasks specifies an Arnold command line to render one frame of the 3ds Max scene *MotionBlur-DragonFlying.max*.
 
 Create a file in your current shell named *myrendertask_multi.json*, and copy and paste the contents from the downloaded file. Modify the `blobSource` and `containerURL` elements in the JSON file to include the name of your storage account and your SAS token. Be sure to change the settings for each of the six tasks. Save the file, and run the following command to queue the tasks:
 
@@ -298,7 +295,7 @@ Create a file in your current shell named *myrendertask_multi.json*, and copy an
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 ```
 
-## View task output
+### View task output
 
 The task takes a few minutes to run. Use the [az batch task list](/cli/azure/batch/task#az_batch_task_list) command to view the state of the tasks. For example:
 
@@ -329,7 +326,6 @@ Open one of the files on your computer. Rendered frame 6 looks similar to the fo
 ![Rendered dragon frame 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Batch account, pools, and all related resources. Delete the resources as follows:
@@ -349,4 +345,7 @@ In this tutorial, you learned about how to:
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
 
-For more information about rendering options with Batch, see the [Batch Rendering](batch-rendering-service.md) article. For example, you can also use the [BatchLabs](https://github.com/Azure/BatchLabs) desktop application or the [Batch Template CLI (Preview)](batch-cli-templates.md) for rendering workloads.
+To learn more about cloud-scale rendering, see the options for the Batch Rendering service. 
+
+> [!div class="nextstepaction"]
+> [Batch Rendering service](batch-rendering-service.md)

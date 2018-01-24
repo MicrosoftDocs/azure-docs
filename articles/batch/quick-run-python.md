@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Quickstart: Run your first Batch job with the Python API
 
-This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API. The app uploads some input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API. The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
  
 ![Quickstart app workflow](./media/quick-run-python/sampleapp.png)
 
@@ -141,7 +141,7 @@ credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
 batch_client = batch.BatchServiceClient(
     credentials,
     base_url=_BATCH_ACCOUNT_URL)
-  ```
+```
 
 
 ### Create a pool of compute nodes
@@ -166,7 +166,6 @@ new_pool = batch.models.PoolAddParameter(
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT
 )
-
 batch_service_client.pool.add(new_pool)
 ```
 
@@ -178,7 +177,6 @@ A Batch job is a logical grouping of one or more tasks. A job includes settings 
 job = batch.models.JobAddParameter(
     job_id,
     batch.models.PoolInformation(pool_id=pool_id))
-
 batch_service_client.job.add(job)
 ```
 
@@ -233,7 +231,6 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 ## Next steps
 
 In this quickstart, you ran a small app built using the Batch Python API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch Python tutorial.
-
 
 > [!div class="nextstepaction"]
 > [Process a parallel workload with Python](tutorial-parallel-python.md)
