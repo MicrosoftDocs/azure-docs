@@ -126,7 +126,7 @@ If this workflow is not possible, relying on [Storage Service Encryption](https:
 
 **Q:** Where can I go to ask questions or provide feedback?
 
-**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**A:** You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service and its capabilities, see the following articles:
