@@ -35,7 +35,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
     ![Create Location Based Services account in portal](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary subscription keys for your account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
+5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Location Based Services account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
 
 ## Download the demo application for Azure Maps
 
