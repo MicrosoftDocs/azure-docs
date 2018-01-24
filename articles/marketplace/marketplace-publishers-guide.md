@@ -687,27 +687,39 @@ After this last step is completed, you will have all emails/communications from 
 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
 
-   ![Dev Center Email]./media/marketplace-publishers-guide/registerdevcenteremail.png
+   ![Dev Center Email](./media/marketplace-publishers-guide/registerdevcenteremail.png)
+
 3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
 4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
-   ![Account Info]./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png
+
+   ![Account Info](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
    >"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved 'sell-from' countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+
 5. Select your "Account Type" as **Company** and then click the **Next** button.
+
    >[!IMPORTANT]
    >To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+
 6. Enter the **Publisher display name**, typically the name of your company.
+
    >[!TIP]
    >The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
+
 7. Enter the **Contact info** for the account verification.
+
    >[!IMPORTANT]
    >You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
+
 8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
-   ![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment.png
+
+   ![Dev Center Payment](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)
+
 9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info, or PayPal in supported markets. When you are finished, click **Next** to move on to the **"Review screen."**
 
-   ![Dev Center Payment]./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
+   ![Dev Center Payment](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
+
 10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace Publisher Agreement. Check the box to indicate you have read and accepted these terms.
 11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
 12. If you are planning to publish only free offers, click **Go to the [Cloud Partner Portal](https://cloudpartner.azure.com)**.
@@ -719,18 +731,22 @@ If you prefer to update your tax and bank information later, then you can move t
 >[!IMPORTANT]
 >In case of commercial (TRANSACT) offers, you will not be able to push your offers to production without completing the tax and bank account information.
 
-#### Add tax and banking information**
+#### Add tax and banking information
 
 If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free or BYOL offers, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
 **Bank Information**
 1. Sign in to the Microsoft Developer Center with your Microsoft account.
 2.  Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
+
    >    [!IMPORTANT]
    >    If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+
 3. Enter the payment info, and click Save when you are satisfied.
+
    >    [!IMPORTANT]
    >    If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
+
 4. Click **Next.** 
 
 **Tax Information**
@@ -739,6 +755,7 @@ If you want to publish commercial offers for purchase, you also need to add payo
 2. Click **Tax profile** in the left menu.
 3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **Next**.
 4. Enter your tax details, and then click **Next.**
+
    >    [!WARNING]
    >    You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
 
@@ -747,6 +764,8 @@ If you have issues with Developer Center registration, please log a support tick
 1. Go to the support link https://developer.microsoft.com/windows/support
 2. Under **Contact Us** section, click on the button **Submit an incident** as shown in the screen shot below.
 3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email."
-   ![Dev Center Issue]./media/marketplace-publishers-guide/devcentersubmitincident.png
+
+   ![Dev Center Issue](./media/marketplace-publishers-guide/devcentersubmitincident.png)
+
 4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account, then create one using this link. 
 5. Fill in the details of the issue and submit the ticket by clicking on the **Submit** button.
