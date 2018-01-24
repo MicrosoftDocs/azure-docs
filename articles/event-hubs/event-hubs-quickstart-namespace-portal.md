@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2017
+ms.date: 01/24/2018
 ms.author: sethm
 
 ---
