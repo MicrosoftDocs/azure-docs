@@ -1,6 +1,6 @@
 ---
 title: Install applications in a scale set with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to install applications into virtual machine scale sets using the Custom Script Extension and cloud-init with the Azure CLI 2.0
+description: Learn how to install applications into virtual machine scale sets using the Custom Script Extension with the Azure CLI 2.0
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -37,7 +37,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## What is the Azure Custom Script Extension?
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine Scale Set REST API. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
 To use the Custom Script Extension with the Azure CLI, you create a JSON file that defines what files to obtain and commands to execute. These JSON definitions can be reused across scale set deployments to apply consistent application installs.
 
@@ -157,7 +157,7 @@ All VM instances in the scale set are automatically updated with the latest vers
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all the resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
