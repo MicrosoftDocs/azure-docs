@@ -3,7 +3,7 @@ title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGo
+ms.date: 01/10/2018
+ms.author: mabrigg
 
 ---
 
@@ -23,7 +23,7 @@ ms.author: JeffGo
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
-To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) to a local share. Then, provide that share name when prompted. You must also install the Azure and Azure Stack PowerShell modules.
+To deploy the MySQL provider on a system that does not have internet access, you can copy the file [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) to a local share. Then, provide that share name when prompted. You must also install the Azure and Azure Stack PowerShell modules.
 
 
 ## MySQL Server Resource Provider Adapter architecture
@@ -69,10 +69,9 @@ The system account must have the following privileges:
 
     | Azure Stack Build | MySQL RP installer |
     | --- | --- |
-    | 1.0.180102.3 | **Please wait for further information, current builds will not install but will continue to run on multi-node after an Azure Stack upgrade.** |
-    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 or 1.0.180106.1 (multi-node) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -89,7 +88,7 @@ The system account must have the following privileges:
 
 6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
-7. Run the DeploySqlProvider.ps1 script.
+7. Run the `DeployMySqlProvider.ps1` script.
 
 The script performs these steps:
 
@@ -154,16 +153,16 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### DeploySqlProvider.ps1 parameters
+### DeployMySqlProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _required_ |
 | **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privileged Endpoint. |  _required_ |
-| **DependencyFilesLocalPath** | Path to a local share containing [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). If you provide one, the certificate file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
+| **DependencyFilesLocalPath** | Path to a local share containing [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). If you provide one, the certificate file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
 | **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
 | **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
@@ -322,7 +321,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
-| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privileged Endpoint. |  _required_ |
 | **DependencyFilesLocalPath** | Your certificate PFX file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
 | **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |

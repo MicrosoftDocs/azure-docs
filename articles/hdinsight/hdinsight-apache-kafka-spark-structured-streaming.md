@@ -123,7 +123,7 @@ The code for the example described in this document is available at [https://git
 
 Use the following steps to upload the notebooks from the project to your Spark on HDInsight cluster:
 
-1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your Kafka cluster:
+1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your __Spark__ cluster:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
 
 ---
@@ -33,7 +33,7 @@ Before registering Azure Stack with Azure, you must have:
 
 - The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the **Subscription ID**. China, Germany, and US government cloud subscriptions are not currently supported.
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported).
-- *Not required beginning with Azure Stack 1712 update version (1.0.180103.2):*   The Azure Active Directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal.
+- *Not required beginning with Azure Stack 1712 update version (180106.1):*   The Azure Active Directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal.
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
@@ -123,7 +123,7 @@ If you would like to change the billing model or syndication features for your i
 
 
 ## Disconnected registration
-*The information in this section applies beginning with the Azure Stack 1712 update version (1.0.180103.2) and is not supported with earlier versions.*
+*The information in this section applies beginning with the Azure Stack 1712 update version (180106.1) and is not supported with earlier versions.*
 
 If you are registering Azure Stack in a disconnected environment, you need to get a registration token from the Azure Stack environment and then use that token on a machine that can connect to Azure for registration.  
 

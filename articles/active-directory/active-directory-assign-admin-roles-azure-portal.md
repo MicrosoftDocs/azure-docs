@@ -1,6 +1,6 @@
 ---
 title: Assigning administrator roles in Azure Active Directory | Microsoft Docs
-description: An admin role can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
+description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 
 ms.reviewer: Vince.Smith
@@ -63,7 +63,7 @@ The following administrator roles are available:
 
 * **Partner Tier 2 Support**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
-* **Password Administrator / Helpdesk Administrator**: Users with this role can reset passwords, manage service requests, and monitor service health. Password administrators can reset passwords only for users and other password administrators.
+* **Password Administrator / Helpdesk Administrator**: Users with this role can change passwords, manage service requests, and monitor service health. Helpdesk administrators can change passwords only for users and other Helpdesk administrators. 
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator". It is "Password Administrator" in the [Azure portal](https://portal.azure.com/).
@@ -89,7 +89,7 @@ The following administrator roles are available:
   >
   >
 
-* **User Account Administrator**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitors service health. Some restrictions apply. For example, this role does not allow deleting a global administrator, and while it does allow changing passwords for non-admins, it does not allow changing passwords for global administrators or other privileged administrators.
+* **User Account Administrator**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitors service health. Some restrictions apply. For example, this role does not allow deleting a global administrator. User Account administrators can change passwords for users, Helpdesk administrators, and other User Account administrators only.
 
 ## Administrator permissions
 
@@ -110,20 +110,20 @@ The following administrator roles are available:
 | --- | --- |
 |<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p><p>Reset user passwords</p><p>Reset other administrator’s passwords</p> <p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |N/A |
 
-### Password administrator
+### Password administrator / Helpdesk administrator
 | Can do | Cannot do |
 | --- | --- |
-| <p>View company and user information</p><p>Manage Office support tickets</p><p>Reset user passwords</p> <p>Reset other administrator’s passwords</p>|<p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>|
+| <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users and other Helpdesk administrators only</p>|<p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>|
 
 ### Service administrator
 | Can do | Cannot do |
 | --- | --- |
 | <p>View company and user information</p><p>Manage Office support tickets</p> |<p>Reset user passwords</p><p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View audit logs</p> |
 
-### User administrator
+### User Account administrator
 | Can do | Cannot do |
 | --- | --- |
-| <p>View company and user information</p><p>Manage Office support tickets</p><p>Reset user passwords, with limitations.</p><p>Reset other administrator’s passwords</p><p>Reset other users' passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> |<p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |
+| <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users, Helpdesk administrators, and other User Account administrators only</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> |<p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |
 
 ### Security Reader
 | In | Can do |

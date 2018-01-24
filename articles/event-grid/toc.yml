@@ -38,6 +38,8 @@
     href: event-grid-event-hubs-integration.md
   - name: Templates for event subscriptions
     href: event-subscription-template.md
+  - name: Monitor event delivery
+    href: monitor-event-delivery.md
 - name: Reference
   items:
   - name: Azure CLI

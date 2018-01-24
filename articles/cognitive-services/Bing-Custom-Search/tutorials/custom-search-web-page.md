@@ -143,7 +143,7 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
 
     ![Screen shot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)
 
-5. Paste the script element below the container you added.
+5. Paste the script element into the container you added.
 
     ``` html
     @page
@@ -152,49 +152,15 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
         ViewData["Title"] = "Home page";
     }
     <br />
-    <div id="customSearch"></div>
-    <script type="text/javascript">
-        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate';
-        var s = document.createElement('script');
-        s.setAttribute('type', 'text/javascript');
-        s.id = 'bcs_js_snippet';
-        s.src = javasriptResourceUrl;
-        var scripts = document.getElementsByTagName("script"),
-        currentScript = scripts[scripts.length-1];
-        currentScript.parentElement.appendChild(s);
-    </script>
+    <div id="customSearch">
+        <script type="text/javascript"
+                id="bcs_js_snippet"
+                src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">
+        </script>
+    </div>
     ```
 
-6. Replace the last three lines of the script with the following code to make it compatible with the Visual Studio web app template.
-
-    ``` JavaScript
-    var customSearch = document.getElementById("customSearch");
-    customSearch.appendChild(s);
-    ```
-
-    The index.cshtml file should now look like this:
-
-    ``` html
-    @page
-    @model IndexModel
-    @{
-        ViewData["Title"] = "Home page";
-    }
-    <br />
-    <div id="customSearch"></div>
-    <script type="text/javascript">
-        var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate';
-        var s = document.createElement('script');
-        s.setAttribute('type', 'text/javascript');
-        s.id = 'bcs_js_snippet';
-        s.src = javasriptResourceUrl;
-        var customSearch = document.getElementById("customSearch");
-        customSearch.appendChild(s);
-    </script>
-    ```
-7. In the **Solution Explorer**, right click on **wwwroot** and click **View in Browser**.
+6. In the **Solution Explorer**, right click on **wwwroot** and click **View in Browser**.
 
     ![Screen shot of solution explorer selecting View in Browser from the wwwroot context menu](./media/custom-search-webapp-view-in-browser.png)
 

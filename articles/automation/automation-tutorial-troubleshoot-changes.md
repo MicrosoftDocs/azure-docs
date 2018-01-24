@@ -6,7 +6,7 @@ keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
 ---

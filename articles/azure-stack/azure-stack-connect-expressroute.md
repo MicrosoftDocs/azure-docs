@@ -221,19 +221,22 @@ infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to al
    In the example diagrams, the *External BGPNAT address* is 10.10.0.62 and the *Internal IP address* is 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -243,8 +246,8 @@ infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to al
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -254,8 +257,8 @@ infrastructure. You must configure NAT on the AzS-BGPNAT01 virtual machine to al
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```

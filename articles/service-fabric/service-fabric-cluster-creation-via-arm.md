@@ -694,7 +694,7 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/

@@ -82,9 +82,11 @@ The extension is required for users to sign into password-based single sign-on. 
 - Users can sign into apps directly by visiting the app's **Sign-on URL**. When the user navigates to the app's sign-on URL the extension will detect this and provide the option for the user to sign into it from the extension.
 - Users can also launch any of their apps from the access panel using the **quick search** feature of the extension. 
 - The extension will also show users the last three applications they launched under **Recently Used** section.
-> [!NOTE]
-> Additional features are only available for Edge, Chrome, Firefox.
 
+> [!NOTE]
+> Additional features are available only for Edge, Chrome, and Firefox.
+>
+>
 
 If you are using a different My Apps URL than https://myapps.microsoft.com then you must configure your default URL though the following steps:
 1. While not signed into the extension, **right click** the extension icon.

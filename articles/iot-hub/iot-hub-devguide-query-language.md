@@ -150,7 +150,7 @@ This grouping query would return a result similar to the following example. Here
 Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### C# example
