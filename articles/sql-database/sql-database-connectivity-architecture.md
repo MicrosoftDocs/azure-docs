@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 01/16/2018
+ms.date: 01/24/2018
 ms.author: carlrab
 ---
 # Azure SQL Database Connectivity Architecture 
