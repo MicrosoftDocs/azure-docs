@@ -24,7 +24,7 @@ Find out how much time is spent in each method in your live web application when
 The profiler currently works for ASP.NET and ASP.NET core web apps running on Azure App Service, in at least the Basic service tier.
 
 ## <a id="installation"></a> Enable the profiler for App Services Web App
-Navigate to App Services blade on Azure portal, go to *Monitoring | Application Insights*, follow instructions on the blade to create new or select existing Application Insights resource to monitor your Web App.
+Navigate to App Services pane on Azure portal, go to *Monitoring | Application Insights*, follow instructions on the pane to create new or select existing Application Insights resource to monitor your Web App.
 
 If you have access to your project source code, [install Application Insights](app-insights-asp-net.md). If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, redeploy your app.
 
@@ -38,9 +38,9 @@ Alternatively, you can select **Profiler** configuration to view status and enab
 
 ![Under Performance, select Profiler configuration][performance-blade]
 
-Web apps that are configured with Application Insights are listed in the Profiler **Profiler** configuration blade. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
+Web apps that are configured with Application Insights are listed in the **Profiler** configuration pane. Follow instructions to install the profiler agent, if needed. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
 
-To control the profiler on all your linked web apps, in the **Profiler** configuration blade, select **Enable Profiler** or **Disable Profiler**.
+To control the profiler on all your linked web apps, in the **Profiler** configuration pane, select **Enable Profiler** or **Disable Profiler**.
 
 ![Configure pane options][linked app services]
 
@@ -52,7 +52,7 @@ Get information about a [preview version of the profiler for Azure compute resou
 
 ## View profiler data
 
-Make sure your application is receiving traffics. If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and 2 minutes each time it runs.
+Make sure your application is receiving traffics. If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and two minutes each time it runs.
 
 Once your application received some traffic, go to the **Performance** blade,  go to the **Take Actions** section of the page to view profiler traces. Select the **Profiler Traces** button.
 
@@ -77,7 +77,7 @@ The Microsoft service profiler uses a combination of sampling methods and instru
 The call stack that's shown in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from the Microsoft .NET Framework, and from other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
-**clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions typically are very fast, and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it's an indication that the code might be allocating many objects and consuming significant amounts of memory.
+**clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions typically are fast, and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it's an indication that the code might be allocating many objects and consuming significant amounts of memory.
 
 ### <a id="theprestub"></a>Loading code (clr!ThePreStub)
 **clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This typically includes, but is not limited to, just-in-time (JIT) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
@@ -213,12 +213,12 @@ When you configure the profiler, updates are made to the web app's settings. You
 9. Restart the web app.
 
 ## <a id="profileondemand"></a> Manually trigger profiler
-When we developed the profiler we added a command line interface so that we could test the profiler on app services. Using this same interface users can also customize how the profiler starts. At a high level the profiler uses App Service's Kudu System to manage profiling in the background. When you install the Application Insights Extension we create a continuous web job which hosts the profiler. We will use this same technology to create a new web job which you can customize to fit your needs.
+When we developed the profiler we added a command-line interface so that we could test the profiler on app services. Using these same interface users can also customize how the profiler starts. At a high level, the profiler uses App Service's Kudu System to manage profiling in the background. When you install the Application Insights Extension, we create a continuous web job which hosts the profiler. We use this same technology to create a new web job which you can customize to fit your needs.
 
 This section explains how to:
 
-1.	Create a web job which can start the profiler for two minutes with the press of a button.
-2.	Create a web job which can schedule the profiler to run.
+1.	Create a web job, which can start the profiler for two minutes with the press of a button.
+2.	Create a web job, which can schedule the profiler to run.
 3.	Set arguments for the profiler.
 
 
@@ -227,7 +227,7 @@ First let's get familiar with the web job's dashboard. Under settings click on t
 
 ![webjobs blade](./media/app-insights-profiler/webjobs-blade.png)
 
-As you can see this dashboard shows you all of the web jobs that are currently installed on your site. You can see the ApplicationInsightsProfiler2 web job which has the profiler job running. This is where we will end up creating our new web jobs for manual and scheduled profiling.
+As you can see this dashboard shows you all of the web jobs that are currently installed on your site. You can see the ApplicationInsightsProfiler2 web job which, has the profiler job running. This is where we end up creating our new web jobs for manual and scheduled profiling.
 
 First let's get the binaries we will need.
 
@@ -248,7 +248,7 @@ b.	`--engine-mode immediate` tells the profiler we want to immediately start pro
 c.	`--single` means to run and then stop automatically
 d.	`--immediate-profiling-duration 120` means to have the profiler run for 120 seconds or 2 minutes.
 5.	Save this file.
-6.	Archive this folder, you can right click the folder and choose Send to -> Compressed (zipped) folder. This will create a .zip file using the name of your folder.
+6.	Archive this folder, you can right-click the folder and choose Send to -> Compressed (zipped) folder. This will create a .zip file using the name of your folder.
 
 ![start profiler command](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -260,7 +260,7 @@ Next we will add a new web job in our site. This example will show you how to ad
 1.	Go to the web jobs dashboard.
 2.	Click on the Add command from the toolbar.
 3.	Give your web job a name, I chose it to match the name of my archive for clarity and to open it up to having different versions of the run.cmd.
-4.	In the file upload part of the form click on the open file icon and find the .zip file you made above.
+4.	In the file upload parts of the form click on the open file icon and find the .zip file you made above.
 5.	For the type, choose Triggered.
 6.	For the Triggers choose Manual.
 7.	Hit OK to save.
@@ -282,9 +282,9 @@ Now that we have a new web job that we can trigger manually we can try to run it
 Though this method is relatively straightforward there are some things to consider.
 
 1.	Because this is not managed by our service we will have no way of updating the agent binaries for your web job. We do not currently have a stable download page for our binaries so the only way to get the latest is by updating your extension and grabbing it from the continuous folder like we did above.
-2.	As this is utilizing command line arguments that were originally designed with developer use rather than end-user use, these arguments may change in the future, so just be aware of that when upgrading. It shouldn't be much of a problem because you can add a web job, run, and test that it works. Eventually we will build UI to do this without the manual process but it's something to consider.
+2.	As this is utilizing command-line arguments that were originally designed with developer use rather than end-user use, these arguments may change in the future, so just be aware of that when upgrading. It shouldn't be much of a problem because you can add a web job, run, and test that it works. Eventually we will build UI to do this without the manual process but it's something to consider.
 3.	The Web Jobs feature for App Services is unique in that when it runs the web job it ensures that your process has the same environment variables and app settings that your web site will end up having. This means that you do not need to pass the instrumentation key through the command line to the profiler, it should just pick up the instrumentation key from the environment. However if you want to run the profiler on your dev box or on a machine outside of App Services you need to supply an instrumentation key. You can do this by passing in an argument `--ikey <instrumentation-key>`. Note that this value must match the instrumentation key your application is using. In the log output from the profiler it will tell you which ikey the profiler started with and if we detected activity from that instrumentation key while we are profiling.
-4.	The manually triggered web jobs can actually be triggered via Web Hook. You can get this url from right clicking on the web job from the dashboard and viewing the properties, Or choosing properties in the toolbar after selecting the web job from the table. There are a lot of articles that you can find online about this so I will not go into much detail about it, but this opens up the possibility of triggering the profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Depending on how fancy you want to make your run.cmd, which by the way can be a run.ps1, the possibilities are extensive.  
+4.	The manually triggered web jobs can actually be triggered via Web Hook. You can get this url from right-clicking on the web job from the dashboard and viewing the properties, Or choosing properties in the toolbar after selecting the web job from the table. There are a lot of articles that you can find online about this so I will not go into much detail about it, but this opens up the possibility of triggering the profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Depending on how fancy you want to make your run.cmd, which by the way can be a run.ps1, the possibilities are extensive.  
 
 
 
