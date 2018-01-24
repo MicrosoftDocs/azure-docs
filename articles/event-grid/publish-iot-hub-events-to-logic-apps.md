@@ -170,9 +170,9 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
-4. Uncheck **Subscribe to all event types**
 4. Create the event subscription with the following values: 
    * **Name**: Provide a descriptive name.
+   * **Subscribe to all event types**: Unselect the checkbox.
    * **Event types**: Select **DeviceCreated**.
    * **Subscriber endpoint**: Paste the URL that you copied from your logic app. 
 
