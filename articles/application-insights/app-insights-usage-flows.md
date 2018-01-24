@@ -10,8 +10,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: mbullwin
+ms.date: 01/24/2018
+ms.author: mbullwin; daviste
 ---
 
 # Analyze user navigation patterns with User Flows in Application Insights
