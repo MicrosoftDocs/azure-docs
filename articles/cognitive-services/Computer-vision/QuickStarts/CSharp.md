@@ -41,7 +41,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -290,7 +290,7 @@ The Domain-Specific Model is a model trained to identify a specific set of objec
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -492,7 +492,7 @@ Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -699,7 +699,7 @@ Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.c
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -955,7 +955,7 @@ Use the [RecognizeText method](https://westus.dev.cognitive.microsoft.com/docs/s
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `uriBase` to use the location where you obtained your subscription keys, and replace the `subscriptionKey` value with your valid subscription key.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Linq;
