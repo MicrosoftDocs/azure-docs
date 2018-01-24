@@ -8,12 +8,15 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: storage
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/21/2018
 ms.author: tamram
 ---
 
 # Azure Storage replication
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data in a few patterns - multiple copies can be placed within a data center, across data centers within a region, or across regions, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated across multiple data centers or regions, it's protected from a catastrophic failure in a single location.
+
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data so that it is protected from transient hardware failures, preserving your application up-time. 
+
+You can choose to replicate your data within the same data center, across data centers within the same region, or across regions. If your data is replicated across multiple data centers or across regions, it's also protected from a catastrophic failure in a single location.
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
@@ -81,7 +84,7 @@ Read-access geo-redundant storage (RA-GRS) maximizes availability for your stora
 
 When you enable read-only access to your data in the secondary region, your data is available on a secondary endpoint as well as on the primary endpoint for your storage account. The secondary endpoint is similar to the primary endpoint, but appends the suffix `–secondary` to the account name. For example, if your primary endpoint for the Blob service is `myaccount.blob.core.windows.net`, then your secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The access keys for your storage account are the same for both the primary and secondary endpoints.
 
-Considerations:
+Some considerations to keep in mind when using RA-GRS:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
