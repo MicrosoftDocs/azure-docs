@@ -17,7 +17,7 @@ This article describes how to post an event to a custom topic. It shows the form
 
 ## Endpoint
 
-When posting to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.
+When sending the HTTP POST to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.
 
 For example, a valid URI is: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 
@@ -58,11 +58,10 @@ For custom topics, the top-level data contains the same fields as standard resou
 ```json
 [
   {
-    "topic": string,
-    "subject": string,
-    "id": string,
+    "id": string,    
     "eventType": string,
-    "eventTime": string,
+    "subject": string,
+    "eventTime": string-in-date-time-format,
     "data":{
       object-unique-to-each-publisher
     },
