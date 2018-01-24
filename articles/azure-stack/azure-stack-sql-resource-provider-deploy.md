@@ -27,7 +27,7 @@ Use the SQL Server resource provider adapter to expose SQL databases as a servic
 - Workloads that are based on SQL.
 You don't have to provision a virtual machine (VM) that hosts SQL Server each time.
 
-The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, Elastic Database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL DB.
+The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, Elastic Database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL Database.
 
 ## SQL resource provider adapter architecture
 The resource provider consists of three components:
@@ -36,7 +36,7 @@ The resource provider consists of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host SQL Server**, which provide capacity for databases called hosting servers.
 
-You must create one (or more) SQL servers and/or provide access to external SQL instances.
+You must create one (or more) intances of SQL Server and/or provide access to external SQL Server instances.
 
 ## Deploy the resource provider
 
@@ -46,7 +46,9 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     - On Azure Stack Development Kit installations, sign in to the physical host.
 
-    - On multi-node systems, the host- On Azure Stack Development Kit installations, sign in to the physical host.
+    - On multi-node systems, the host must be a system that can access the privileged endpoint.
+    
+    - On Azure Stack Development Kit installations, sign in to the physical host.
 
     - On multi-node systems, the host must be a system that can access the privileged endpoint. 
     
@@ -85,18 +87,18 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
 7. Run the DeploySqlProvider.ps1 script, which performs these steps:
 
-- Uploads the certificates and other artifacts to a storage account on Azure Stack.
-- Publishes gallery packages so that you can deploy SQL databases through the gallery.
-- Publishes a gallery package for deploying hosting servers.
-- Deploys a VM by using the Windows Server 2016 image that was created in step 1, and then installs the resource provider.
-- Registers a local DNS record that maps to your resource provider VM.
-- Registers your resource provider with the local Azure Resource Manager (user and admin).
+    - Uploads the certificates and other artifacts to a storage account on Azure Stack.
+    - Publishes gallery packages so that you can deploy SQL databases through the gallery.
+    - Publishes a gallery package for deploying hosting servers.
+    - Deploys a VM by using the Windows Server 2016 image that was created in step 1, and then installs the resource provider.
+    - Registers a local DNS record that maps to your resource provider VM.
+    - Registers your resource provider with the local Azure Resource Manager (user and admin).
 
 > [!NOTE]
 > If the installation takes more than 90 minutes, it might fail. If it fails, you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications might not be able to deploy the SQL resoure provider.
 >
 
-Here's an example you can run from the PowerShell prompt. (Be sure to change the account information and passwords as needed):
+Here's an example you can run from the PowerShell prompt. (Be sure to change the account information and passwords as needed.)
 
 ```
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
@@ -177,7 +179,7 @@ The update process is similar to the installation process that's described earli
 Use the UpdateSQLProvider.ps1 script with the same arguments that we described earlier. You must provide the certificate here as well.
 
 > [!NOTE]
-> Update is only supported on multi-node systems.
+> This update process is only supported on multi-node systems.
 
 ```
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
