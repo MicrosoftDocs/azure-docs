@@ -251,8 +251,6 @@
       href: site-recovery-workload.md#workload-summary
   - name: Manage
     items:
-    - name: Upgrade to a Recovery Services vault
-      href: upgrade-site-recovery-vaults.md
     - name: Manage process servers in Azure
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
     - name: Manage the configuration server
