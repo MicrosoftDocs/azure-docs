@@ -38,7 +38,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Within a few minutes, your resources should be provisioned. Use the Web App and corresponding App Service Plan in the remainder of this tutorial.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## Navigate to Autoscale settings
 1. From the left-hand navigation pane, select the **Monitor** option. Once the page loads, select the **Autoscale** tab.
