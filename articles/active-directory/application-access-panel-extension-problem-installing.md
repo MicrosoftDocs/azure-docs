@@ -42,7 +42,7 @@ To install the access panel browser extension, do the following:
 
 1.  In one of the supported browsers, open the [access panel](https://myapps.microsoft.com), and then sign in as a user in your Azure AD account.
 
-2.  Select a password-enabled SSO application.
+2.  Select a password-based SSO application.
 
 3.  When you are prompted, select **Install Now**.  
     You are directed to the download link for your selected browser. 
@@ -53,7 +53,7 @@ To install the access panel browser extension, do the following:
 
 6.  After installation is complete, restart your browser.
 
-7.  Sign in to the access panel, and check to see whether you can start your password-enabled SSO applications.
+7.  Sign in to the access panel, and check to see whether you can start your password-based SSO applications.
 
 You can also download the extension for Chrome and Edge directly from following sites:
 
@@ -83,7 +83,7 @@ You can also download the extension for Chrome and Edge directly from following 
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
 
 > [!NOTE]
-> These options are available only for Edge, Chrome, and Firefox.
+> The preceding options are available only for Edge, Chrome, and Firefox.
 
 ## Set up a group policy for Internet Explorer
 
