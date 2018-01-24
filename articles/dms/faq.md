@@ -22,10 +22,10 @@ The Azure Database Migration Service is a fully managed service designed to enab
 - Continued investment in friction-free migrations.
 
 ### Q. What source-target pairs does the Azure Database Migration Service currently support?
-The service in Public Preview currently supports migrations from SQL Server to Azure SQL Database, and you can go to the Azure Portal now to start using the Azure Database Migration Service for this scenario. Other source-target pairs, such as SQL Server to Azure SQL Database Managed Instance and Oracle to Azure SQL Database are available via a limited Private Preview. For an opportunity to participate in the limited Private Preview of these scenarios, please sign up here.
+The service in Public Preview currently supports migrations from SQL Server to Azure SQL Database, and you can go to the Azure portal now to start using the Azure Database Migration Service for this scenario. Other source-target pairs, such as SQL Server to Azure SQL Database Managed Instance and Oracle to Azure SQL Database are available via a limited Private Preview. For an opportunity to participate in the limited Private Preview of these scenarios, sign up [here](https://sqldatabase-migrationpreview.azurewebsites.net/).
 
 ### Q. How does the Azure Database Migration Service compare to other Microsoft database migration tools such as the Database Migration Assistant (DMA) or SQL Server Migration Assistant (SSMA)?
-The Azure Database Migration Service is the preferred method for database migration to Microsoft Azure at scale. For more detail on how the Azure Database Migration Service compares to other Microsoft database migration tools and for recommendations on using the service for various scenarios, see the blog posting Differentiating Microsoft’s Database Migration Tools and Services.
+The Azure Database Migration Service is the preferred method for database migration to Microsoft Azure at scale. For more detail on how the Azure Database Migration Service compares to other Microsoft database migration tools and for recommendations on using the service for various scenarios, see the blog posting [Differentiating Microsoft’s Database Migration Tools and Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
 
 ### Q. How does the Azure Database Migration Service compare to the Azure Migrate offering?
 The Azure Migrate Service assists with migration of on-premises virtual machines to Azure IaaS. The service assesses migration suitability and performance-based sizing, and it provides cost estimates for running your on-premises virtual machines in Azure. Azure Migrate is very useful for lift-and-shift migrations of on-premises VM-based workloads to Azure IaaS VMs. However, unlike the Azure Database Migration Service, Azure Migrate isn’t a specialized database migration service offering for Azure PaaS relational database platforms such as Azure SQL Database or SQL Azure or Azure SQL Database Managed Instance.
@@ -54,7 +54,7 @@ You may need to add firewall rules allowing the Azure Database Migration Service
 
 You may also need to include the port source that SQL Server is listening on the allow list. By default, it is port 1433, but the source SQL Server may be configured to listen on other ports as well. In this case, you need to include those ports on the allow list as well.  You can determine the port that SQL Server is listening on by using a Dynamic Management View query:
 
-```powershell
+```sql
     SELECT DISTINCT 
         local_tcp_port 
     FROM sys.dm_exec_connections 
@@ -62,7 +62,7 @@ You may also need to include the port source that SQL Server is listening on the
 ```
 You can also determine the port that SQL Server is listening by querying the SQL Server error log:
 
-```powershell    
+```sql   
     USE master
     GO
     xp_readerrorlog 0, 1, N'Server is listening on' 
