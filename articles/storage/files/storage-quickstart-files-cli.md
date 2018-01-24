@@ -18,7 +18,7 @@ ms.author: cynthn
 ---
 
 # Quickstart with files using CLI for Azure Storage Services
-Introductory paragraph
+
 
 Install CLI
 Get CLI context
@@ -41,9 +41,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
-
 az group create --name myResourceGroup --location eastus
-
 ```
 
 ## Create a storage account
