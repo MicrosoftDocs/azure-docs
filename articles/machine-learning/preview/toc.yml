@@ -141,7 +141,7 @@
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
     - name: Load Azure Comos DB as a data source 
-    - href: data-prep-load-azure-cosmos-db-into-data-prep.md
+      href: data-prep-load-azure-cosmos-db-into-data-prep.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
