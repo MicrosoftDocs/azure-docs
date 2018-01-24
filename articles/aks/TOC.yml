@@ -75,3 +75,5 @@
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: FAQ
+    href: faq.md
