@@ -163,7 +163,6 @@ You can specify these parameters in the command line. If you do not, or if any p
 
 | Parameter name | Description | Comment or default value |
 | --- | --- | --- |
-
 | **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
