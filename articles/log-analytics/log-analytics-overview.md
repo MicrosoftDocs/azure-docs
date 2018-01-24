@@ -27,7 +27,7 @@ If you want to monitor your on-premises environment or you have existing monitor
 
 
 ## Using Log Analytics
-You can access Log Analytics through the Azure portal, which run in any browser and provide you with access to configuration settings and multiple tools to analyze and act on collected data.  From the portal you can leverage [log searches](log-analytics-log-searches.md) where you construct queries to analyze collected data, [dashboards](log-analytics-dashboards.md), which you can customize with graphical views of your most valuable searches, and [solutions](log-analytics-add-solutions.md), which provide additional functionality and analysis tools.
+You can access Log Analytics through the Azure portal, which runs in any browser and provide you with access to configuration settings and multiple tools to analyze and act on collected data.  From the portal you can leverage [log searches](log-analytics-log-searches.md) where you construct queries to analyze collected data, [dashboards](log-analytics-dashboards.md), which you can customize with graphical views of your most valuable searches, and [solutions](log-analytics-add-solutions.md), which provide additional functionality and analysis tools.
 
 The image below shows the Overview screen that displays summary information for the [solutions](#add-functionality-with-management-solutions) that are installed in the workspace.  You can click on any tile to drill further into the data for that solution.
 
@@ -49,7 +49,7 @@ Solutions are available for a variety of functions, and additional solutions are
 ![Solution Gallery](media/log-analytics-overview/solution-gallery.png)
 
 ## Log Analytics components
-At the center of Log Analytics is a repository of collected data which is hosted in the Azure cloud.  Data is collected  from connected sources by configuring data sources and adding solutions to your subscription.  Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository.  This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
+At the center of Log Analytics is a repository of collected data, which is hosted in the Azure cloud.  Data is collected  from connected sources by configuring data sources and adding solutions to your subscription.  Data sources and solutions will each create different record types that have their own set of properties but may still be analyzed together in queries to the repository.  This allows you to use the same tools and methods to work with different kinds of data collected by different sources.
 
 ![Log Analytics components](media/log-analytics-overview/overview.png)
 
@@ -62,7 +62,7 @@ If you have custom requirements, then you can use the [HTTP Data Collector API](
 ## Log Analytics architecture
 The deployment requirements of Log Analytics are minimal since the central components are hosted in the Azure cloud.  This includes the repository in addition to the services that allow you to correlate and analyze collected data.  The portal can be accessed from any browser so there is no requirement for client software.
 
-You must install agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) computers, but there is no additional agent required for computers that are already members of a [connected SCOM management group](log-analytics-om-agents.md).  SCOM agents will continue to communicate with management servers, which will forward their data to Log Analytics.  Some solutions though will require agents to communicate directly with Log Analytics.  The documentation for each solution will specify its communication requirements.
+You must install agents on [Windows](log-analytics-windows-agent.md) and [Linux](log-analytics-linux-agents.md) computers, but there is no additional agent required for computers that are already members of a [connected System Center Operations Manager management group](log-analytics-om-agents.md).  Operations Manager agents will continue to communicate with management servers, which will forward their data to Log Analytics.  Some solutions though will require agents to communicate directly with Log Analytics.  The documentation for each solution will specify its communication requirements.
 
 When you [sign up for Log Analytics](log-analytics-get-started.md), you will create a workspace.  You can think of the workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. You may create multiple workspaces in your subscription to support multiple environments such as production and test.
 
