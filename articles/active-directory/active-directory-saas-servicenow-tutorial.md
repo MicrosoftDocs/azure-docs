@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 1/24/2017
 ms.author: jeedes
 
 ---
@@ -237,20 +237,60 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
 	a. In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
-
-	b. In the **User Field** textbox, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
-
-	> [!NOTE]
-	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
-
-	c. Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+	
+	b. Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
 	> [!NOTE]
 	> The ServiceNow instance homepage is a concatenation of your **ServieNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-	d. Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+	c. Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+
+	d. Click **Advanced**. In the **User Field** textbox, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
+
+	> [!NOTE]
+	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
 
 	 e. Under **x509 Certificate**, lists the certificate you have created in the previous step.
+
+21. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694992.png "Configure single sign-on")
+
+22. In the upper left search box, search for **sys_properties.list** and press enter.
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694993.png "Configure single sign-on")
+
+23. Click **New**.
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "Configure single sign-on")
+
+24. In the **System Property** section, perform the following steps:
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694995.png "Configure single sign-on")
+
+	a. Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
+
+	b. In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
+
+	c. Select **Private**.
+
+	d. Click **Submit**.
+
+25. Click **New**.
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "Configure single sign-on")
+
+26. In the **System Property** section, perform the following steps:
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694996.png "Configure single sign-on")
+
+	a. Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
+
+	b. In the **Value** textbox, enter **false**.
+
+	c. Click **Submit**.
+
+27. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
 ### Configure Azure AD Single Sign-On for ServiceNow Express
 
