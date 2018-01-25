@@ -10,7 +10,7 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/25/2017
+ms.date: 01/25/2018
 ms.author: davidmu
 
 ---
