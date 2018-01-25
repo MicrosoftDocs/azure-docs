@@ -42,7 +42,7 @@ After the domain service has been provisioned, you need to create a service acco
 
 The next step is to create the HDInsight cluster using the AAD DS and the service account created in the previous section.
 
-It is easier to place both the Azure AD domain service and the HDInsight cluster in the same Azure virtual network(VNet). In case they are in different VNets, you must peer both VNets. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
+It is easier to place both the Azure AD domain service and the HDInsight cluster in the same Azure virtual network(VNet). In case they are in different VNets, you must peer both VNets. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md). If you are using VNET peering, then make sure name resolution is configured correctly. If you are using VNET peering, then name resolution should be done as mentioned [here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#example-dns).
 
 When you create a domain-joined HDInsight cluster, you must supply the following parameters:
 
