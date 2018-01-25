@@ -42,7 +42,7 @@ You can run the tool in two modes:
 ## Before you start
 
 * Gather information about your environment, including VMs, disks per VM, storage per disk.
-* Identify your daily change (churn) rate for replicated data. To do this, download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend that you run this tool over a week to capture averages.
+* Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend that you run this tool over a week to capture averages.
    
 
 ## Run the Quick Planner
@@ -52,7 +52,7 @@ You can run the tool in two modes:
 
    ![Get started](./media/site-recovery-capacity-planner/getting-started.png)
 
-3. On the **Capacity Planner** worksheet, enter the required information. You must fill in all the fields circled in red in the following screenshot:
+3. On the **Capacity Planner** worksheet, enter the required information. Fill in all the fields circled in red in the following screenshot:
 
    a. In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
 
@@ -72,7 +72,7 @@ You can run the tool in two modes:
    * **Bandwidth required for initial replication (in Megabits/sec)**: Network bandwidth for initial replication is calculated on the initial replication values you enter.
    * **Storage required (in GBs)**: The total Azure storage required.
    * **Total IOPS on Standard Storage**: The number is calculated based on the 8K IOPS unit size on the total standard storage accounts. For the Quick Planner, the number is calculated based on all the source VM disks and the daily data change rate. For the Detailed Planner, the number is calculated based on the total number of VMs that are mapped to standard Azure VMs and the data change rate on those VMs.
-   * **Number of Standard storage accounts required**: The total number of standard storage accounts needed to protect the VMs. A standard storage account can hold up to 20,000 IOPS across all the VMs in a standard storage. A maximum of 500 IOPS is supported per disk.
+   * **Number of Standard storage accounts required**: The total number of standard storage accounts needed to protect the VMs. A standard storage account can hold up to 20,000 IOPS across all the VMs in standard storage. A maximum of 500 IOPS is supported per disk.
    * **Number of Blob disks required**: The number of disks that are created on Azure storage.
    * **Number of premium accounts required**: The total number of premium storage accounts needed to protect the VMs. A source VM with high IOPS (greater than 20,000) needs a premium storage account. A premium storage account can hold up to 80,000 IOPS.
    * **Total IOPS on Premium Storage**: The number is calculated based on the 256K IOPS unit size on the total premium storage accounts. For the Quick Planner, the number is calculated based on all the source VM disks and the daily data change rate. For the Detailed Planner, the number is calculated based on the total number of VMs that are mapped to premium Azure VMs (DS and GS series) and the data change rate on those VMs.
@@ -110,7 +110,7 @@ You can run the tool in two modes:
 
    ![Workload Qualification worksheet](./media/site-recovery-capacity-planner/workload-qualification.png)
 
-4. If you select **Compute IaaS VMs** here's what it does:
+4. If you select **Compute IaaS VMs**, here's what it does:
 
    * Validates the mandatory inputs.
    * Calculates IOPS and suggests the best Azure VM size match for each VM that's eligible for replication to Azure. If an appropriate size Azure VM can't be detected, an error displays. For example, if the number of disks attached is 65, an error displays because the highest size for an Azure VM is 64.

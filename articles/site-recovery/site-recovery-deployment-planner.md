@@ -22,7 +22,7 @@ This article is the Azure Site Recovery Deployment Planner user guide for VMware
 
 ## Overview
 
-Before you begin protecting any VMware virtual machines (VMs) by using Site Recovery, allocate sufficient bandwidth, based on your daily data-change rate, to meet your desired recovery point objective (RPO). Be sure to deploy the right number of configuration servers and process servers on-premises.
+Before you begin to protect any VMware virtual machines (VMs) by using Azure Site Recovery, allocate sufficient bandwidth, based on your daily data-change rate, to meet your desired recovery point objective (RPO). Be sure to deploy the right number of configuration servers and process servers on-premises.
 
 You also need to create the right type and number of target Azure Storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics (for example, read/write I/O operations per second [IOPS] or data churn) and Site Recovery limits.
 
