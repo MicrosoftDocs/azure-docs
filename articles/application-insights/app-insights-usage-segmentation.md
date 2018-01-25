@@ -18,7 +18,7 @@ ms.author: mbullwin; daviste
 
 # Users, sessions, and events analysis in Application Insights
 
-Find out when people use your web app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](app-insights-overview.md).
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](app-insights-overview.md).
 
 ## Get started
 
@@ -29,7 +29,7 @@ If you don't yet see data in the users, sessions, or events blades in the Applic
 Three of the usage blades use the same tool to slice and dice telemetry from your web app from three perspectives. By filtering and splitting the data, you can uncover insights about the relative usage of different pages and features.
 
 * **Users tool**: How many people used your app and its features.  Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.
-* **Sessions tool**: How many sessions of user activity have included certain pages and features of your app. A session is counted after half an hour of user inactivity, or after continuous 24h of use.
+* **Sessions tool**: How many sessions of user activity have included certain pages and features of your app. A session is counted after half an hour of user inactivity, or after 24 hours of continuous use.
 * **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](app-insights-javascript.md). 
 
     A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
@@ -48,9 +48,9 @@ Explore different groups of users by adjusting the query options at the top of t
 ## Saving and sharing reports 
 You can save Users reports, either private just to you in the My Reports section, or shared with everyone else with access to this Application Insights resource in the Shared Reports section.
 
-To share a link to a Users, Sessions, or Events report; click “Share” in the toolbar, then copy the link.
+To share a link to a Users, Sessions, or Events report; click **Share** in the toolbar, then copy the link.
 
-To share a copy of the data in a Users, Sessions, or Events report; click “Share” in the toolbar, then click the Word icon to create a Word document with the data. Or, click the Word icon above the main chart.
+To share a copy of the data in a Users, Sessions, or Events report; click **Share** in the toolbar, then click the **Word icon** to create a Word document with the data. Or, click the **Word icon** above the main chart.
 
 ## Meet your users
 
