@@ -40,6 +40,8 @@
     href: event-grid-event-hubs-integration.md
   - name: Send notifications about IoT Hub events
     href: publish-iot-hub-events-to-logic-apps.md
+  - name: Post to custom topic
+    href: post-to-custom-topic.md
   - name: Templates for event subscriptions
     href: event-subscription-template.md
   - name: Monitor event delivery
@@ -63,10 +65,10 @@
       href: event-schema-blob-storage.md
     - name: Event hubs
       href: event-schema-event-hubs.md
-    - name: Resource groups
-      href: event-schema-resource-groups.md
     - name: IoT Hub
       href: event-schema-iot-hub.md
+    - name: Resource groups
+      href: event-schema-resource-groups.md
 - name: Resources
   items:
   - name: Azure Roadmap
