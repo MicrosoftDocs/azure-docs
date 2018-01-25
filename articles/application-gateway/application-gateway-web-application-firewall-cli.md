@@ -9,7 +9,7 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 01/25/2018
 ms.author: davidmu
 
 ---
@@ -17,12 +17,12 @@ ms.author: davidmu
 
 You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
-In this article, you learn how to
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway with WAF enabled
-> * Create a virtual machine scale
+> * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
@@ -65,7 +65,7 @@ az network public-ip create
 
 ## Create an application gateway with a WAF
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
+You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -117,7 +117,7 @@ az vmss create \
 
 ### Install NGINX
 
-For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` to create the file and see a list of available editors. In your current shell, create a file named customConfig.json and paste the following configuration:
+You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
 
 ```json
 {
@@ -187,3 +187,4 @@ In this tutorial, you learned how to:
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
+To learn more about application gateways and their associated resources, continue to the how-to articles.
