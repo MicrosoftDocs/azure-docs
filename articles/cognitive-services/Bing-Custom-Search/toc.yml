@@ -20,7 +20,9 @@
     - name: Node.js
       href: call-endpoint-nodejs.md 
     - name: Python
-      href: call-endpoint-python.md  
+      href: call-endpoint-python.md
+- name: SDK (preview)
+  href: sdk.md  
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
