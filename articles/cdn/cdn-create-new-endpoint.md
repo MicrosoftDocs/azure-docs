@@ -50,6 +50,7 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
     The CDN profile pane appears.
    
     ![CDN profile][cdn-profile-settings]
+
 2. Select **Endpoint**.
    
     ![Add endpoint button][cdn-new-endpoint-button]
@@ -57,18 +58,23 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
     The **Add an endpoint** pane appears.
    
     ![Add endpoint pane][cdn-add-endpoint]
+
 3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+
 4. For **Origin type**, select an origin type. Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
    
     ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
+
 5. For **Origin hostname**, select or enter your origin domain. The drop-down lists all available origins of the type you specified in step 4. If you selected **Custom origin** as your origin type, enter the domain of your custom origin.
+    
 6. For **Origin path**, enter the path to the resources you want to cache, or leave it blank to allow caching of any resource at the domain you specified in step 5.
+    
 7. For **Origin host header**, enter the host header you want Azure CDN to send with each request, or leave the default.
    
    > [!WARNING]
    > Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
    > 
-   > 
+    
 8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin. At least one protocol (HTTP or HTTPS) must be selected. Use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. 
    
    > [!NOTE]
@@ -80,7 +86,7 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
    > 
    > * Use the SSL certificate provided by the CDN. Third-party certificates are not supported.
    > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
-  
+    
 9. Select **Add** to create the new endpoint.
    
    After the endpoint is created, it appears in the list of endpoints for the profile.
