@@ -17,9 +17,9 @@ ms.author: sdash
 ---
 # Unified cross-component transaction diagnostics
 
-*This experience is currently in preview and replaces the existing diagnostics blades for server-side requests, dependencies and exceptions.*
+*This experience is currently in preview and replaces the existing diagnostics blades for server-side requests, dependencies, and exceptions.*
 
-The preview introduces a new unified diagnostics experience that automatically correlates server-side telemetry from across all your Application Insights monitored components into a single view. It doesn't matter if you have multiple resources with separate instrumentation keys; Application Insights detects the underlying relationship and allows you to easily diagnose the application component, dependency, or exception that caused a transaction slowdown or failure.
+The preview introduces a new unified diagnostics experience that automatically correlates server-side telemetry from across all your Application Insights monitored components into a single view. It doesn't matter if you have multiple resources with separate instrumentation keys. Application Insights detects the underlying relationship and allows you to easily diagnose the application component, dependency, or exception that caused a transaction slowdown or failure.
 
 ## What does component mean in the context of Application Insights?
 
@@ -29,9 +29,10 @@ Components are independently deployable parts of your distributed/microservices 
 * Components run on any number of server/role/container instances.
 * Components can be separate Application Insights instrumentation keys (even if subscriptions are different) or different roles reporting to a single Application Insights instrumentation key. The new experience shows details across all components, regardless of how they have been set up.
 
-> [!Tip]
-> * Missing the related item links? They are in 1-place now: All of the telemetry related to server side request, dependency and exception - for the transaction across all components are in the [top](#cross-component-transaction-chart) and [bottom](#details-of-the-selected-component-operation) sections of the left side. 
-> * For the best results, ensure all components are instrumented with the latest Application Insights stable SDKs. If there are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
+> [!NOTE]
+> * **Missing the related item links?** All of the telemetry related to server side request, dependency and exception are in the [top](#cross-component-transaction-chart) and [bottom](#all-telemetry-related-to-the-selected-component-operation) sections of the left side. 
+> * The [top](#cross-component-transaction-chart) section correlates the transaction across all components. For the best results, ensure all components are instrumented with the latest Application Insights stable SDKs. If there are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
+> * The [bottom](#all-telemetry-related-to-the-selected-component-operation) section of the left side shows **all** telemetry including traces and events related to the request from the selected component.
 
 ## Enable Transaction Diagnostics Experience
 Enable "Unified details: E2E Transaction Diagnostics" from the [previews list](app-insights-previews.md)
@@ -55,18 +56,18 @@ This chart provides a timeline with horizontal bars for the duration of requests
 * Any calls to external dependencies are simple non-collapsible rows, with icons representing the dependency type.
 * Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
 * By default, the request, dependency, or exception that you initially selected is displayed on the chart.
-* Select any row to see its [details on the right](#details-pane). 
+* Select any row to see its [details on the right](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
 Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars will help differentiate between them.
 
-## Details of the selected component-operation
+## All telemetry related to the selected component-operation
 
-Any row selected in the cross-component transaction chart is related to an operation invoked at a particular component. This selected component operation is reflected in the title of the bottom section. Open this section to see a flat time sequence of all the telemetry related to that particular operation. You can select any telemetry item in this list to see corresponding details on the right.
+Any row selected in the cross-component transaction chart is related to an operation invoked at a particular component. This selected component operation is reflected in the title of the bottom section. Open this section to see a flat time sequence of all the telemetry related to that particular operation. You can select any telemetry item in this list to see corresponding [details on the right](#details-of-the-selected-telemetry).
 
 ![Time sequence of all telemetry](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-## Details pane
+## Details of the selected telemetry
 
 This pane shows the detail of selected items from either of the two sections on the left. "Show all" lists all of the standard attributes that are collected. Any custom attributes are separately listed below the standard set. Click on "Open profiler traces" or "Open debug snapshot" for code level diagnostics in corresponding detail panes.
 

@@ -1,6 +1,6 @@
 ﻿---
 title: Application Map in Azure Application Insights | Microsoft Docs
-description: A visual presentation of the dependencies between app components, labeled with KPIs and alerts.
+description: Monitor complex application topologies with the application map
 services: application-insights
 documentationcenter: ''
 author: SoubhagyaDash
@@ -16,7 +16,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 
 ---
-# Application Map in Application Insights
+# Application Map: Triage Distributed Applications
 In [Azure Application Insights](app-insights-overview.md), Application Map is a visual layout of the dependency relationships of your application components. Each component shows KPIs such as load, performance, failures, and alerts, to help you discover any component causing a performance issue or failure. You can click through from any component to more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also click through to Azure diagnostics, such as SQL Database Advisor recommendations.
 
 Like other charts, you can pin an application map to the Azure dashboard, where it is fully functional. 
