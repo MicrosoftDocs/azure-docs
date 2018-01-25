@@ -1,6 +1,6 @@
 ---
 title: Copy data to and from Azure Table storage by using Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source stores to Azure Table storage (or) from Table storage to supported sink stores by using Data Factory.
+description: Learn how to copy data from supported source stores to Azure Table storage, or from Table storage to supported sink stores, by using Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -21,7 +21,7 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-azure-table-connector.md)
 > * [Version 2 - Preview](connector-azure-table-storage.md)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Table storage connector in version 1](v1/data-factory-azure-table-connector.md).
@@ -75,7 +75,7 @@ You can create an Azure Storage linked service by using the account key. It prov
 
 You also can create a Storage linked service by using a shared access signature. It provides the data factory with restricted/time-bound access to all/specific resources in the storage.
 
-A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+A shared access signature provides delegated access to resources in your storage account. You can use it to grant a client limited permissions to objects in your storage account for a specified time and with a specified set of permissions. You don't have to share your account access keys. The shared access signature is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the shared access signature, the client only needs to pass in the shared access signature to the appropriate constructor or method. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!IMPORTANT]
 > Data Factory now supports only service shared access signatures but not account shared access signatures. For more information about these two types and how to construct them, see [Types of shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). The shared access signature URL generated from the Azure portal or Azure Storage Explorer is an account shared access signature, which isn't supported.
