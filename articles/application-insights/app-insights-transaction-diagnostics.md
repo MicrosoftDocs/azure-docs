@@ -34,7 +34,7 @@ Components are independently deployable parts of your distributed/microservices 
 > * The [top](#cross-component-transaction-chart) section correlates the transaction across all components. For the best results, ensure all components are instrumented with the latest Application Insights stable SDKs. If there are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
 > * The [bottom](#all-telemetry-related-to-the-selected-component-operation) section of the left side shows **all** telemetry including traces and events related to the request from the selected component.
 
-## Enable Transaction Diagnostics Experience
+## Enable Transaction Diagnostics experience
 Enable "Unified details: E2E Transaction Diagnostics" from the [previews list](app-insights-previews.md)
 
 ![Enable preview](media/app-insights-e2eTxn-diagnostics/previews.png)

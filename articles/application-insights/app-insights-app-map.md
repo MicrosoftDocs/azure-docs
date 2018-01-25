@@ -44,7 +44,7 @@ This experience starts with progressive discovery of the components. When you fi
 On clicking "Update map components", the map is refreshed with all components discovered until that point.
 ![Preview loaded map](media/app-insights-app-map/components-loaded-hierarchical.png)
 
-Note: If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
+If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
 One of the key objectives with the new experience is to be able to visualize complex topologies with hundreds of components. The new experience supports zooming, and adds detail as you zoom-in. You can zoom-out to view more components at a glance, and still spot components with higher failure rates. 
 
