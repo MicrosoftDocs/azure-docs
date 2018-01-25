@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Route Blob storage events to a custom web endpoint 
+# Route Blob storage events to a custom web endpoint (preview)
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
