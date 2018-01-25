@@ -42,6 +42,7 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 These additional server parameters are nonconfigurable in the system:
 
 |**Parameter**|**Fixed value**|
+| :------------------------ | :-------- |
 |innodb_file_per_table in Basic tier|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
