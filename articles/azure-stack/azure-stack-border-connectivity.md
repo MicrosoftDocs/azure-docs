@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: wamota
 ---
 
-# Border connectivity datacenter network integration
+# Border connectivity 
 Network integration planning is an important prerequisite for successful Azure Stack integrated systems deployment, operation, and management. Border connectivity planning begins by choosing whether or not to use dynamic routing with border gateway protocol (BGP). This requires assigning a 16-bit BGP autonomous system number (public or private) or using static routing, where a static default route is assigned to the border devices.
 
 > [!IMPORTANT]
