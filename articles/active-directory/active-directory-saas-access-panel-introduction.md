@@ -35,7 +35,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View account details, such as user ID, alternate email, mobile and office phone numbers, and devices.
 
-- View and start cloud-based applications that the Azure AD administrator has granted you access to. For more information about the access panel from a user's perspective, see Using the access panel. 
+- View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
 - Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
 
