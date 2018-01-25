@@ -17,7 +17,7 @@ ms.service: iot-edge
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to debug your IoT Edge modules.
 
 ## Prerequisites
-This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device, or you can simulate your IoT Edge device on your development machine.
+This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
 
 Before you start this guidance, complete the following tutorial:
 - [Use Visual Studio Code to develop C# module with Azure IoT Edge](how-to-vscode-develop-csharp-module.md)
@@ -29,7 +29,7 @@ After you finish the preceding tutorial, you should have the following items rea
 - An IoT Edge runtime environment on your development machine.
 
 ## Build your IoT Edge module for debugging
-1. To start debugging, use **dockerfile.debug** to rebuild your docker image and deploy your IoT Edge solution again. In Visual Studio Code Explorer, select the Docker folder to open it. Then select the **linux-x64** folder, right-click **Dockerfile.debug**, and select **Build IoT Edge module Docker image**.
+1. To start debugging, use **dockerfile.debug** to rebuild your Docker image and deploy your IoT Edge solution again. In Visual Studio Code Explorer, select the Docker folder to open it. Then select the **linux-x64** folder, right-click **Dockerfile.debug**, and select **Build IoT Edge module Docker image**.
 
     ![Screenshot of VS Code Explorer](./media/how-to-debug-csharp-module/build-debug-image.png)
 
@@ -39,7 +39,7 @@ After you finish the preceding tutorial, you should have the following items rea
 6. You can reuse the `deployment.json` to redeploy. In the command palette, type and select **Edge: Restart Edge** to get your filter module running with the debug version.
 
 ## Start debugging in VS Code
-1. Go to the VS Code debug window. Press **F5**, and select **IoT Edge(.Net Core)**.
+1. Go to the VS Code debug window. Press **F5**, and select **IoT Edge(.NET Core)**.
 
     ![Screenshot of VS Code debug window](./media/how-to-debug-csharp-module/f5-debug-option.png)
 
