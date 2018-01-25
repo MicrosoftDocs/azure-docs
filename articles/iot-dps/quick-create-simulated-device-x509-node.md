@@ -23,7 +23,7 @@ These steps show how to simulate an X.509 device on your development machine run
 
 ## Prepare the development environment 
 
-- Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+- Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 - Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
 
@@ -38,7 +38,7 @@ These steps show how to simulate an X.509 device on your development machine run
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
     ```
 
-1. Make sure `OpenSSL` is installed on yur machine and is added to the environment variables accessible to the command window. This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
+1. Make sure `OpenSSL` is installed on your machine and is added to the environment variables accessible to the command window. This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_, and _device_ certificates, you may skip this step.
 
 1. Navigate to the certificate generator script and build the project. 
 
@@ -47,7 +47,7 @@ These steps show how to simulate an X.509 device on your development machine run
     npm install
     ```
 
-1. Execute the script using your own _certficiate-name_. Be sure to only use lower-case alphanumerics and hypens.
+1. Execute the script using your own _certificate-name_. Be sure to only use lower-case alphanumerics and hyphens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -59,7 +59,7 @@ These steps show how to simulate an X.509 device on your development machine run
 
 1. Under the **Add enrollment list entry**, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Certificate .pem or .cer file*, select the certificate file **_{{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
+    - Under the *Certificate .pem or .cer file*, select the certificate file **_{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
     - Optionally, you may provide the following information:
         - Select an IoT hub linked with your provisioning service.
         - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
@@ -91,7 +91,7 @@ These steps show how to simulate an X.509 device on your development machine run
     npm install
     ```
 
-1. Edit the **register\_x509.js** file. Replace _provisioning host_ with the **_Global Device Endpoint_** noted earlier and _id scope_ as well. Enter **_{certificatename}_** (without hypens) as your _registration id_ you noted earlier and replace _cert filename_ and _key filename_ with the files you copied in **Step 2**. Save **register\_x509.js**. 
+1. Edit the **register\_x509.js** file. Replace `provisioning host` with the **_Global Device Endpoint_** noted earlier and `id scope` as well. Enter **_{certificatename}_** (without hyphens) as your _registration id_ you noted earlier and replace `cert filename` and `key filename` with the files you copied in **Step 2**. Save **register\_x509.js**. 
 
 1. Execute the script and verify the device was provisioned successfully.
 
@@ -99,7 +99,7 @@ These steps show how to simulate an X.509 device on your development machine run
     node register_x509.js
     ```   
 
-1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT Devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT Devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hub-registration.png) 
 
