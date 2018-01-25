@@ -394,19 +394,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 ### Push to Azure from Git
 
-In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
-
-```bash
-git remote add azure <paste_copied_url_here>
-```
-
-Push to the Azure remote to deploy the PHP application. You are prompted for the password you supplied earlier as part of the creation of the deployment user.
-
-```bash
-git push azure master
-```
-
-During deployment, Azure App Service communicates its progress with Git.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 3, done.
