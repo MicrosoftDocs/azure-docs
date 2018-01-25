@@ -49,6 +49,14 @@
           href: automation-runbook-types.md
         - name: Create and import runbooks
           href: automation-creating-importing-runbook.md
+        - name: Create a graphical runbook
+          href: automation-first-runbook-graphical.md
+        - name: Create a PowerShell runbook
+          href: automation-first-textual-powershell.md
+        - name: Create a PowerShell workflow runbook
+          href: automation-first-runbook-textual.md
+        - name: Create a Python runbook
+          href: automation-first-runbook-textual-python2.md
         - name: Edit textual runbooks
           href: automation-edit-textual-runbook.md
         - name: Edit graphical runbooks
@@ -83,14 +91,6 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
-        - name: Create a graphical runbook
-          href: automation-first-runbook-graphical.md
-        - name: Create a PowerShell runbook
-          href: automation-first-textual-powershell.md
-        - name: Create a PowerShell workflow runbook
-          href: automation-first-runbook-textual.md
-        - name: Create a Python runbook
-          href: automation-first-runbook-textual-python2.md
     - name: Hybrid Runbook Worker
       items:
         - name: Deploy Hybrid Runbook Worker
