@@ -40,6 +40,7 @@ For the sample in this Quickstart, you need the connection string for your provi
 
 ## Create the enrollment group sample 
 
+The steps in this section show how to create a .NET Core console app that adds an enrollment group to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the enrollment group. To learn more about developing with IoT Core, see the [Windows IoT Core developer documentation](https://docs.microsoft.com/en-us/windows/iot-core/).
 1. In Visual Studio, add a Visual C# .NET Core Console App project to a new solution by using the **Console App (.NET Core)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateEnrollmentGroup**.
 
     ![New Visual C# Windows Classic Desktop project](media//quick-enroll-device-x509-csharp/create-app.png)
@@ -167,7 +168,7 @@ For the sample in this Quickstart, you need the connection string for your provi
 
     ![Enrollment properties in the command output](media/quick-enroll-device-x509-csharp/output.png)
 
-3. To Verify that the enrollment group has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Enrollment Groups** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the endorsement key and other properties for the entry.
+3. To Verify that the enrollment group has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Enrollment Groups** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the certificate thumbprint and other properties for the entry.
 
     ![Enrollment properties in the portal](media/quick-enroll-device-x509-csharp/verify-enrollment-portal.png)
  
@@ -179,7 +180,7 @@ If you plan to explore the C# service sample, do not clean up the resources crea
 3. From your Device Provisioning service in the Azure portal, click **Certificates**, click the certificate you uploaded for this Quickstart, and click the **Delete** button at the top of the **Certificate Details** window.  
  
 ## Next steps
-In this Quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
