@@ -379,7 +379,7 @@ This section helps you change an existing Azure VPN gateway from active-standby 
 
 The following example converts an active-standby gateway into an active-active gateway. When you change an active-standby gateway to active-active, you create another public IP address, then add a second Gateway IP configuration.
 
-#### 1. Declare the variables
+#### 1. Declare your variables
 
 Replace the following parameters used for the examples with the settings that you require for your own configuration, then declare these variables.
 
@@ -415,14 +415,14 @@ In this step, you enable active-active mode and update the gateway. In the examp
 
 * If you want to resize a current SKU, for example VpnGw1 to VpnGw3, you can do so using this step because the SKUs are in the same SKU family. To do so, you would use the value: ```-GatewaySku VpnGw3```
 
-When you are using this in your environment, if you don't need to resize the gateway, you won't need to specify the -GatewaySku. Notice that in this step, you must set the gateway object in PowerShell to trigger the actual update. This update can take 30 to 45 minutes.
+When you are using this in your environment, if you don't need to resize the gateway, you won't need to specify the -GatewaySku. Notice that in this step, you must set the gateway object in PowerShell to trigger the actual update. This update can take 30 to 45 minutes, even if you are not resizing your gateway.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 ```
 
 ### Change an active-active gateway to an active-standby gateway
-#### 1. Declare the variables
+#### 1. Declare your variables
 
 Replace the following parameters used for the examples with the settings that you require for your own configuration, then declare these variables.
 
