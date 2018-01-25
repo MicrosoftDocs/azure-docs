@@ -16,7 +16,7 @@ Azure Blob storage events allow applications to react to the creation and deleti
 
 Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-Event Grid is currently in preview and available for accounts in the ***West Central US*** or ***West US 2*** locations.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
+Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
@@ -42,6 +42,8 @@ Additional information about the usage of Event Grid event properties is documen
 > |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
 > |eventType|string|“Microsoft.Storage.BlobCreated” or “Microsoft.Storage.BlobDeleted”|
 > |Id|string|Unique identifier if this event|
+> |dataVersion|string|The schema version of the data object.|
+> |metadataVersion|string|The schema version of top-level properties.|
 > |data|object|Collection of blob storage-specific event data|
 > |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob|
 > |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, but not with BlobDeleted.|
@@ -71,7 +73,9 @@ Here is an example of a BlobCreated event:
     "blobType": "BlockBlob",
     "url": "https://myaccount.blob.core.windows.net/testcontainer/file1.txt",
     "sequencer": "00000000000000EB000000000000C65A",
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```
