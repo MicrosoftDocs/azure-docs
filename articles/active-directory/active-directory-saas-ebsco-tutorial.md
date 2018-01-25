@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/25/2018
 ms.author: jeedes
 
 ---
@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
-3. On the **EBSCO Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+3. On the **EBSCO Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
 
@@ -112,11 +112,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![EBSCO Domain and URLs single sign-on information](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=ehost`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 	 
 	> [!NOTE] 
-	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [EBSCO Client support team](mailto:sso@ebsco.com) to get the value.  
-    > Profile = Clients can tailor the link to direct users to a specific profile (depending on what they purchase from EBSCO). They can enter a specific profile ID. The main IDs are eds (EBSCO Discovery Service) and ehost (EBSOCOhost databases). [Instructions here](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [EBSCO Client support team](mailto:sso@ebsco.com) to get the value. 
+
+	o	**Unique elements:**  
+
+		**Custid** = Enter unique EBSCO customer ID 
+
+		**Profile** = Clients can tailor the link to direct users to a specific profile (depending on what they purchase from EBSCO). They can enter a specific profile ID. The main IDs are eds (EBSCO Discovery Service) and ehost (EBSOCOhost databases). Instructions for the same are given [here](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. EBSCO application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
@@ -128,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ---------------| --------------- |    
 	| FirstName   | user.givenname |
 	| LastName   | user.surname |
-	| Email   | user.userprincipalname |
+	| Email   | user.mail |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -191,20 +196,21 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in EBSCO.
 
-In the case of EBSCO, provisioning is a manual task.
+In the case of EBSCO, user provisioning is automatic but you need to follow the below steps when you login to the application for the first time.
 
 **To provision a user account, perform the following steps:**
 
-1. Click **‘sign in’** in the top right corner.  You will receive a one-time prompt to pair the institutional/SAML login with an existing **MyEBSCOhost** account OR **Create a new MyEBSCOhost account**. The account is used for personalization on our EBSCOhost application. 
+1. Once you login to the application, click on the **‘sign in’** button in the top right corner.
 
-2. Select **Create a new account**. You will see the form we use for personalization is pre-completed with the values. Here the screenshot below. Click **‘continue’** to save this selection.
+	![The EBSCO signin in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+2. You will receive a one-time prompt to pair the institutional/SAML login with an **Link your existing MyEBSCOhost account to your institution account now** OR **Create a new MyEBSCOhost account and link it to your institution account**. The account is used for personalization on the EBSCOhost application. Select the option **Create a new account** and  you will see that the form for personalization is pre-completed with the values from the saml response as shown in the screenshot below. Click **‘Continue’** to save this selection.
 	
 	 ![The EBSCO user in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
 
-3. **How EBSCO maps your attributes to equivalent fields in Ping Federate shows the screenshot below:**
+3. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered 
 
-    ![The EBSCO user in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_userclaims.png)
-
+ 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to EBSCO.
