@@ -4,7 +4,7 @@ description: The active directory connection wizard detected an incompatible aut
 services: active-directory
 documentationcenter: ''
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: ''
 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a

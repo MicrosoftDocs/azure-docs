@@ -25,10 +25,10 @@ To step through this how-to guide, you need to:
 
 
 ## Azure ML Logging API Overview
-The Azure ML Logging API is available via the **azureml.logging** module in Python (which is installed with the Azure ML Workbench.)
+The [Azure ML Logging API](reference-logging-api.md) is available via the **azureml.logging** module in Python (which is installed with the Azure ML Workbench.)
 After importing this module, you can use the **get_azureml_logger** method to instantiate a **logger** object.
 Then, you can use the logger's **log** method to store key/value pairs produced by your Python scripts.
-Currently, logging model metrics of scalar, dictionary, list, dataframe types are supported as shown.
+Currently, logging model metrics of scalar and list types are supported as shown.
 
 ```Python
 # create a logger instance in already set up environment 
@@ -38,16 +38,9 @@ logger = get_azureml_logger()
 # log scalar (any integer or floating point type is fine)
 logger.log("simple value", 7)
 
-# log dictionary
-logger.log("range", {"min":5, "max":7})
 
 # log list
 logger.log("all values", [5, 6, 7])
-
-# log dataframe
-import pandas
-df = pandas.DataFrame.from_records([(1,2),(3,4)],columns=["a","b"])
-logger.log("dataframe", df)
 ```
 It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
 

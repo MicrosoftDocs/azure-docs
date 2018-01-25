@@ -13,8 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
@@ -52,7 +53,7 @@ Create the account as follows:
 1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
    **Azure_Site_Recovery**.
 2. Assign the role the permissions summarized in the table below.
-3. Create a user on the vCenter server. or vSphere host. Assign the role to the user.
+3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
 
 ### VMware account permissions
 
@@ -135,7 +136,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 2. On the Azure VM after failover, allow incoming connections to the SSH port for the network
    security group rules on the failed over VM, and for the Azure subnet to which it's connected.
-   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)
+   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md)
    for the VM. You can check **Boot diagnostics** to view a screenshot of the VM.
 
 ## Next steps

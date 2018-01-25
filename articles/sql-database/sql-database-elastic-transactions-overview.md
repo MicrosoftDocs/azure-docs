@@ -13,7 +13,7 @@ ms.custom: scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: sql-database
+ms.workload: "On Demand"
 ms.date: 05/27/2016
 ms.author: torsteng
 

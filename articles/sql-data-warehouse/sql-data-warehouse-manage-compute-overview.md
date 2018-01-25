@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/22/2017
+ms.date: 3/23/2017
 ms.author: elbutter
 
 ---
@@ -30,7 +30,7 @@ ms.author: elbutter
 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, compute can be scaled to meet performance demands independent of the amount of data. A natural consequence of this architecture is that [billing][billed] for compute and storage is separate. 
 
-This overview describes how scale out works with SQL Data Warehouse and how to utilize the pause, resume, and scale capabilities of SQL Data Warehouse. Consult the [data warehouse units (DWUs)][data warehouse units (DWUs)] page to learn how DWUs and performance are related. 
+This overview describes how scale out works with SQL Data Warehouse and how to utilize the pause, resume, and scale capabilities of SQL Data Warehouse. 
 
 ## How compute management operations work in SQL Data Warehouse
 The architecture for SQL Data Warehouse consists of a control node, compute nodes, and the storage layer spread across 60 distributions. 
@@ -86,7 +86,7 @@ Checking the database state through various endpoints will allow you to correctl
 Performance in SQL Data Warehouse is measured in [data warehouse units (DWUs)][data warehouse units (DWUs)] which is an abstracted measure of compute resources such as CPU, memory, and I/O bandwidth. A user who wishes to scale their system's performance can do so through various means, such as through the portal, T-SQL, and REST APIs. 
 
 ### How do I scale compute?
-Compute power is managed for you SQL Data Warehouse by changing the DWU setting. Performance increases [linearly][linearly] as you add more DWU for certain operations.  We offer DWU offerings that ensure that your performance will change noticeably when you scale your system up or down. 
+Compute power is managed for you SQL Data Warehouse by changing the DWU setting. Performance increases linearly as you add more DWU for certain operations.  We offer DWU offerings that ensure that your performance will change noticeably when you scale your system up or down. 
 
 To adjust DWUs, you can use any of these individual methods.
 
@@ -178,9 +178,7 @@ Refer to the following articles to help you understand some additional key perfo
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk

@@ -3,7 +3,7 @@ title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Using the Azure CLI 2.0 with Azure Storage
@@ -367,6 +367,143 @@ You can copy a file to another file, a file to a blob, or a blob to a file. For 
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
 --destination-share share2 --destination-path dir2/file.txt		
+```
+
+## Create share snapshot
+You can create a share snapshot by using the `az storage share snapshot` command:
+
+```cli
+az storage share snapshot -n <share name>
+```
+
+Sample Output
+```json
+{
+  "metadata": {},
+  "name": "<share name>",
+  "properties": {
+    "etag": "\"0x8D50B7F9A8D7F30\"",
+    "lastModified": "2017-10-04T23:28:22+00:00",
+    "quota": null
+  },
+  "snapshot": "2017-10-04T23:28:35.0000000Z"
+}
+```
+
+### List share snapshots
+
+You may list share snapshots of a particular share using `az storage share list --include-snapshots`
+
+```cli
+az storage share list --include-snapshots
+```
+
+**Sample Output**
+```json
+[
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:44:13.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:45:18.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": null
+  }
+]
+```
+
+### Browse share snapshots
+You may also browse into a particular share snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name <snare name>` and the timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
+
+```azurecli-interactive
+az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
+```
+
+**Sample Output**
+```
+Name            Content Length    Type    Last Modified
+--------------  ----------------  ------  ---------------
+HelloWorldDir/                    dir
+IMG_0966.JPG    533568            file
+IMG_1105.JPG    717711            file
+IMG_1341.JPG    608459            file
+IMG_1405.JPG    652156            file
+IMG_1611.JPG    442671            file
+IMG_1634.JPG    1495999           file
+IMG_1635.JPG    974058            file
+
+```
+### Restore from share snapshots
+
+You can restore a file by copying or downloading a file from a share snapshot using `az storage file download` command
+
+```azurecli-interactive
+az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
+```
+**Sample Output**
+```
+{
+  "content": null,
+  "metadata": {},
+  "name": "IMG_0966.JPG",
+  "properties": {
+    "contentLength": 533568,
+    "contentRange": "bytes 0-533567/533568",
+    "contentSettings": {
+      "cacheControl": null,
+      "contentDisposition": null,
+      "contentEncoding": null,
+      "contentLanguage": null,
+      "contentType": "application/octet-stream"
+    },
+    "copy": {
+      "completionTime": null,
+      "id": null,
+      "progress": null,
+      "source": null,
+      "status": null,
+      "statusDescription": null
+    },
+    "etag": "\"0x8D50B5F49F7ACDF\"",
+    "lastModified": "2017-10-04T19:37:03+00:00",
+    "serverEncrypted": true
+  }
+}
+```
+## Delete share snapshot
+You can delete a share snapshot by using the `az storage share delete` command by providing `--snapshot` parameter with share snapshot timestamp:
+
+```cli
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+```
+
+Sample Output
+```json
+{
+  "deleted": true
+}
 ```
 
 ## Next steps

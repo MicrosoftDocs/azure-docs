@@ -60,11 +60,29 @@ virtualMachines      Standard_A2 southcentralus
 
 ### Solution 2
 
+In the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
+
+```bash
+$ az vm list-skus --output table
+ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
+----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
+availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
+avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
+availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
+availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
+availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
+availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
+availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
+availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```
+
+### Solution 3
+
 Use the [portal](https://portal.azure.com). Log in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
 ![available SKUs](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### Solution 3
+### Solution 4
 
 Use the REST API for virtual machines. Send the following request:
 

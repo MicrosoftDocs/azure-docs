@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 10/10/2017
 ms.author: kasing
 
 ---

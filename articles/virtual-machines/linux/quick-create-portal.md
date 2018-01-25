@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Create a Linux virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,11 +29,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file to the clipboard.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard. If you use Windows Subsystem for Linux, make sure that you don't copy line break characters from the output. Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+You can find more detailed information on this process [here](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
 
@@ -99,7 +101,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
 3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+5. In **Name**, type **http**. Make sure **Source Port range** is set to `*`, **Destination Port range** is set to *80*, and **Action** is set to *Allow*. 
 6. Click **OK**.
 
 

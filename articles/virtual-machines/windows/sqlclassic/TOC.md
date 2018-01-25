@@ -1,5 +1,5 @@
 # Overview
-## [What is SQL Server on Azure VMs?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [Windows SQL Server VMs](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [FAQ](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
@@ -12,7 +12,6 @@
 # How to
 ## Configure High Availability
 ### [High availability options](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Configure Always On availability group in the classic portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Configure Always On availability group with PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Configure an internal listener for an availability group](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configure an external listener for an availability group](virtual-machines-windows-classic-ps-sql-ext-listener.md)

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 
 robots: noindex
@@ -100,7 +100,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | &nbsp; | South Central US | South Central US |
 | &nbsp; | West Central US | West Central US |
 | &nbsp; | West US | West US |
-| &nbsp; | West US 2 | West US |
+| &nbsp; | West US 2 | West US 2 |
 | Canada | Canada East | Canada Central |
 | &nbsp; | Canada Central | Canada Central |
 | Brazil | Brazil South | Brazil South |

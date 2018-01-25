@@ -39,7 +39,7 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
+2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
 
 
 

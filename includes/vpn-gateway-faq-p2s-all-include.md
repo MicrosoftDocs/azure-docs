@@ -8,6 +8,7 @@ The following client operating systems are supported:
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
+* Windows Server 2016 (64-bit only)
 * Windows 10
 * OSX version 10.11 for Mac (El Capitan)
 * macOS version 10.12 for Mac (Sierra)
@@ -48,10 +49,6 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. Refer to the list of supported client operating systems.
 
-### Can I access the Internet when I am connected over P2S VPN?
-
-Yes, you can access the Internet while on a P2S VPN.
-
 ### Does Azure support IKEv2 VPN with Windows?
 
 Users can connect to Azure using the built-in Windows VPN client, which does support IKEv2. But, IKEv2 connections from a Windows device won't work in the following scenario:
@@ -62,6 +59,6 @@ Users can connect to Azure using the built-in Windows VPN client, which does sup
 
 Azure supports only Windows and Mac for P2S VPN.
 
-### I already have an Azure VPN Gateway deployed. Can I enabled RADIUS and/or IKEv2 VPN on it?
+### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
-Yes, you can enable these new features on already deployed gateways, both through Powershell and the Azure portal.
+Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.

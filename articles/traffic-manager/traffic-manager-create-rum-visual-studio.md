@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/20/2017
+ms.date: 09/29/2017
 ms.author: kumud
 ms.custom: 
 ---
@@ -77,7 +77,7 @@ To use Real User Measurements, complete the following procedure:
     ```groovy
     dependencies {   
      
-        def mobileCenterSdkVersion = '0.12.1-11+ff55f76'
+        def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"
     }
     ```

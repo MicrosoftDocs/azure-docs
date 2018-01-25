@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 
 robots: noindex
@@ -20,6 +20,9 @@ robots: noindex
 
 # File and compression formats supported by Azure Data Factory
 *This topic applies to the following connectors: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [File System](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), and [SFTP](data-factory-sftp-connector.md).*
+
+> [!NOTE]
+> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [supported file formats and compression codecs in Data Factory version 2](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory supports the following file format types:
 

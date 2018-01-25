@@ -85,6 +85,11 @@ az group create --name TestRG1 --location eastus
 
 If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet#create) command. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
 
+>[!NOTE]
+>In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. Otherwise, traffic will not route correctly if a duplicate address range exists on both sides of the VPN connection.
+>
+>
+
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
 ```azurecli
@@ -196,3 +201,5 @@ This section contains common commands that are helpful when working with site-to
 * For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](https://docs.microsoft.com/cli/azure/network).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

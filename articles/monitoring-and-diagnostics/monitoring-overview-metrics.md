@@ -86,11 +86,11 @@ Azure Monitor also has a new metrics charting experience available in preview. T
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
 
-* Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics, and any dimensions, that are available for a service.
-* Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
+* Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) to access the list of metrics, and any dimensions, that are available for a service.
+* Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
 
 > [!NOTE]
-> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/en-us/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
+> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
 >
 >
 
@@ -122,23 +122,6 @@ Some Azure resources support the scaling out or in of multiple instances to hand
  ![Metrics and Autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Learn about supported services and metrics
-Azure Monitor is a new metrics infrastructure. It supports the following Azure services in the Azure portal and the new version of the Azure Monitor API:
-
-* VMs (Azure Resource Manager-based)
-* Virtual machine scale sets
-* Batch
-* Event Hubs namespace
-* Service Bus namespace (premium SKU only)
-* SQL Database (version 12)
-* Elastic SQL Pool
-* Websites
-* Web server farms
-* Logic Apps
-* IoT hubs
-* Redis Cache
-* Networking: Application gateways
-* Search
-
 You can view a detailed list of all the supported services and their metrics at [Azure Monitor metrics--supported metrics per resource type](monitoring-supported-metrics.md).
 
 ## Next steps

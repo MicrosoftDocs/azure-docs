@@ -3,7 +3,7 @@ title: Azure CLI samples for Blob storage | Microsoft Docs
 description: Azure CLI samples for working with Azure Blob Storage
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
 ms.date: 06/13/2017
-ms.author: marsma
+ms.author: tamram
 ---
 # Azure CLI samples for Azure Blob storage
 

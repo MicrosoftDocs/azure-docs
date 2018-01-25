@@ -4,7 +4,7 @@ description: Learn how to monitor Analysis Services server metrics an in Azure p
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -35,6 +35,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
 
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## Server metrics
 Use this table to determine which metrics are best for your monitoring scenario. Only metrics of the same unit can be shown on the same chart.
 

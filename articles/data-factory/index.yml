@@ -43,6 +43,10 @@ sections:
         src: /azure/data-factory/media/index/portal.svg
       text: Azure portal
       href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image: 
+        src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+      text: Resource Manager template
+      href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

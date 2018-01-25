@@ -39,7 +39,7 @@ You can create an application gateway by using one of the following command-line
 
 ## Prerequisite: Install the Azure CLI 2.0
 
-To perform the steps in this article, you need to [install the Azure CLI for macOS, Linux, and Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure CLI for macOS, Linux, and Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > You need an Azure account to create an application gateway. If you don't have one, sign up for a [free trial](../active-directory/sign-up-organization.md).
@@ -127,7 +127,7 @@ az network application-gateway create \
 --resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet \
+--subnet "Appgatewaysubnet" \
 --subnet-address-prefix "10.0.0.0/28" \
 --servers "10.0.0.5"  \
 --public-ip-address pip

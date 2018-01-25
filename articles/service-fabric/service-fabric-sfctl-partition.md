@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
 
 ---
@@ -73,9 +73,7 @@ Gets the health information of the specified partition. Use EventsHealthStateFil
 ## sfctl partition info
 Gets the information about a Service Fabric partition.
 
-The Partitions endpoint returns information about the specified partition. The response
-        includes the partition ID, partitioning scheme information, keys supported by the partition,
-        status, health, and other details about the partition.
+The Partitions endpoint returns information about the specified partition. The response includes the partition ID, partitioning scheme information, keys supported by the partition, status, health, and other details about the partition.
 
 ### Arguments
 
@@ -122,9 +120,7 @@ Gets the list of partitions of a Service Fabric service. The s the partition
 ## sfctl partition load
 Gets the load of the specified Service Fabric partition.
 
-Returns information about the specified partition. The response includes a list of load
-        information. Each information includes load metric name, value, and last reported time in
-        UTC. .
+Returns information about the specified partition. The response includes a list of load information. Each information includes load metric name, value, and last reported time in UTC.
 
 ### Arguments
 

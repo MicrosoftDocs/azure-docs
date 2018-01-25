@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 
 robots: noindex
@@ -79,7 +79,7 @@ The following table lists the JSON properties that are specific to a DB2 linked 
 
 | Property | Description | Required |
 | --- | --- | --- |
-| **type** |This property must be set to **OnPremisesDB2**. |Yes |
+| **type** |This property must be set to **OnPremisesDb2**. |Yes |
 | **server** |The name of the DB2 server. |Yes |
 | **database** |The name of the DB2 database. |Yes |
 | **schema** |The name of the schema in the DB2 database. This property is case-sensitive. |No |
@@ -107,11 +107,7 @@ For Copy Activity, when the source is of type **RelationalSource** (which includ
 | **query** |Use the custom query to read the data. |SQL query string. For example: `"query": "select * from "MySchema"."MyTable""` |No (if the **tableName** property of a dataset is specified) |
 
 > [!NOTE]
-> Schema and table names are case-sensitive. In the query statement, enclose property names by using "" (double quotes). For example:
->
-> ```sql
-> "query": "select * from "DB2ADMIN"."Customers""
-> ```
+> Schema and table names are case-sensitive. In the query statement, enclose property names by using "" (double quotes).
 
 ## JSON example: Copy data from DB2 to Azure Blob storage
 This example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The example shows you how to copy data from a DB2 database to Blob storage. However, data can be copied to [any supported data store sink type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Azure Data Factory Copy Activity.

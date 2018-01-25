@@ -74,19 +74,23 @@ Use the following steps to configure the native Windows VPN client for certifica
 2. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
 3. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
 
-## <a name="installmac"></a>Install a Mac (OSX) VPN client configuration
+## <a name="installmac"></a>VPN client configuration on Macs (OSX)
 
-A separate VPN client configuration must be created for every Mac device that connects to an Azure VNet. You can't reuse the same configuration files for multiple Mac devices. This is because for these devices, you must specify the user certificate in the VPN client configuration files. The **Generic** folder has all the information required to create a VPN client configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder. The Generic folder contains the following files:
+Azure does not provide mobileconfig file for native Azure certificate authentication. You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. The **Generic** folder has all the information that you need to configure it. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder. The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
 
-Use the following steps to configure the native VPN client on Mac for certificate authentication:
+Use the following steps to configure the native VPN client on Mac for certificate authentication. You have to complete these steps on every Mac that will connect to Azure:
 
 1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it.  
 Click **Add** to import.
 
   ![add certificate](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
+  
+    >[!NOTE]
+    >Double-clicking on the certificate may not display the **Add** dialog, but the certificate is installed in the correct store. You can check for the certificate in the login keychain under the certificates category.
+  
 2. Open the **Network** dialog under **Network Preferences** and click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure VNet.
 
   The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then click **Create** to create the VPN client connection profile.
@@ -98,7 +102,7 @@ Click **Add** to import.
 4. Click **Authentication Settings** and select **Certificate**. 
 
   ![authentication settings](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Click **Select…** to choose the certificate that you want to use for authentication.
+5. Click **Select…** to choose the client certificate that you want to use for authentication. A client certificate should already be installed on the machine (see step #2 in the **P2S Workflow** section above).
 
   ![certificate](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 6. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then click **Continue**.

@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 11/15/2017
 ms.author: rajanaki
 
 ---
@@ -21,7 +21,6 @@ ms.author: rajanaki
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [Classic Portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
 >
 >

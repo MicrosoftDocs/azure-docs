@@ -70,6 +70,7 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | No | Yes
+**Azure**|NA|Yes
 
 ## Replicate virtual machines
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/09/2017
 ms.author: larryfr
 
 ---
@@ -26,7 +26,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Prerequisites
 
-* The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. For information on setting up the sandbox, see the [Get started with the Hortonworks sandbox.](hdinsight-hadoop-emulator-get-started.md) document.
+* The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. For information on setting up the sandbox, see the [Get started with the Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) document.
 
 * Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017 (any edition).
 
@@ -36,7 +36,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running. Then follow the steps in the [Get started in the Hortonworks Sandbox](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) document. These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running. Then follow the steps in the [Get started in the Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) document. These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 

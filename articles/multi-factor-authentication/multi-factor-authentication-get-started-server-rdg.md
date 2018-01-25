@@ -3,8 +3,8 @@ title: RDG and Azure MFA Server using RADIUS | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS

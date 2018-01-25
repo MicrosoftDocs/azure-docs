@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
 
@@ -28,7 +28,7 @@ The following sections include steps that you can take to create network securit
 This article provides steps to create network security groups through the Resource Manager deployment model, which is the deployment model we recommend using when creating network security groups. If you need to create a network security group (classic), see [Create a network security group (classic)](virtual-networks-create-nsg-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> This tutorial utilizes network security group features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release. While in preview, the features are available only in the following regions: WestCentralUS. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md). 
+> This tutorial utilizes network security group features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## Azure CLI
 
@@ -39,20 +39,23 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 3. Log in to Azure with the `az login` command.
 4. Register for the preview by entering the following commands:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Confirm that you are registered for the preview by entering the following command:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Do not continue with the remaining steps until *Registered* appears for **state** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+    > [!WARNING]
+    > Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **state** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+
 6. Run the following bash script to create a resource group:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -62,7 +65,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 7. Create three application security groups, one for each server type:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -81,7 +84,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 8. Create a network security group:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -90,7 +93,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 9. Create security rules within the NSG, setting the application security groups as the destination:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -130,7 +133,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 10. Create a virtual network: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -141,7 +144,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 11. Associate the network security group to the subnet in the virtual network:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -151,13 +154,12 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     
 12. Create three network interfaces, one for each server type: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -166,7 +168,6 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -175,16 +176,15 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Only the corresponding security rule you created in step 9 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
+    Only the corresponding security rule you created in step 9 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *AppRule* rule is effective for *myNic2*, because the network interface is a member of the *AppServers* application security group and the rule specifies the *AppServers* application security group as its destination. The *WebRule* and *DatabaseRule* rules are not applied to *myNic2*, because the network interface is not a member of the *WebServers* and *DatabaseServers* application security groups. Both the *WebRule* and *AppRule* rules are effective for *myNic1* however, because the *myNic1* network interface is a member of both the *WebServers* and *AppServers* application security groups and the rules specify the *WebServers* and *AppServers* application security groups as their destinations. 
 
 13. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -195,7 +195,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -204,7 +205,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -236,7 +238,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Do not continue with the remaining steps until *Registered* appears in the **RegistrationState** column of the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+    > [!WARNING]
+    > Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **RegistrationState** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
         
 6. Create a resource group:
 
@@ -277,8 +280,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80	
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -288,8 +291,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443	
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -299,7 +302,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336	
+      -DestinationPortRange 1336
     ``` 
 
 9. Create a network security group:
@@ -340,7 +343,6 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -348,7 +350,6 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -356,11 +357,10 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
+    Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *AppRule* rule is effective for *myNic2*, because the network interface is a member of the *AppServers* application security group and the rule specifies the *AppServers* application security group as its destination. The *WebRule* and *DatabaseRule* rules are not applied to *myNic2*, because the network interface is not a member of the *WebServers* and *DatabaseServers* application security groups. Both the *WebRule* and *AppRule* rules are effective for *myNic1* however, because the *myNic1* network interface is a member of both the *WebServers* and *AppServers* application security groups and the rules specify the *WebServers* and *AppServers* application security groups as their destinations. 
 
 13. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but before executing the script, you can change *-Windows* to *-Linux*, *MicrosoftWindowsServer* to *Canonical*, *WindowsServer* to *UbuntuServer* and *2016-Datacenter* to *14.04.2-LTS* to create Linux virtual machines instead.
 
@@ -428,6 +428,33 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 14. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
+## Remove a NIC from an ASG
+Once you remove a network interface from an application security group, none of the rules that specify the application security group are applied to the network interface you remove.
+
+### Azure CLI
+
+To remove *myNic3* from all application security groups, enter the following command:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### PowerShell
+
+To remove *myNic3* from all application security groups, enter the following commands:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Delete resources
 
 When you finish this tutorial, you might want to delete the resources that you created, so that you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group.
@@ -442,7 +469,7 @@ When you finish this tutorial, you might want to delete the resources that you c
 
 In a CLI session, enter the following command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

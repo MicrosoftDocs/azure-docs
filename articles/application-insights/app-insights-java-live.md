@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Application Insights for Java web apps that are already live

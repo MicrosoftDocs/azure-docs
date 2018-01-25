@@ -4,7 +4,7 @@ description: Create storage, a Linux VM, a virtual network and subnet, a load ba
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 
 ---
@@ -58,7 +58,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-The output shows the subnet as logically created inside the virtual network:
+The output shows the subnet is logically created inside the virtual network:
 
 ```json
 {
@@ -99,7 +99,7 @@ The output shows the subnet as logically created inside the virtual network:
 
 
 ## Create a public IP address
-Now let's create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#create). This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, we also create a named DNS entry with the `--domain-name-label` option. The following example creates a public IP named *myPublicIP* with the DNS name of *mypublicdns*. Because the DNS name must be unique, provide your own unique DNS name:
+Now let's create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#create). This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, create a named DNS entry with the `--domain-name-label` parameter. The following example creates a public IP named *myPublicIP* with the DNS name of *mypublicdns*. Because the DNS name must be unique, provide your own unique DNS name:
 
 ```azurecli
 az network public-ip create \
@@ -138,7 +138,7 @@ Output:
 
 
 ## Create a network security group
-To control the flow of traffic in and out of your VMs, create a network security group. A network security group can be applied to a NIC or subnet. The following example uses [az network nsg create](/cli/azure/network/nsg#create) to create a network security group named *myNetworkSecurityGroup*:
+To control the flow of traffic in and out of your VMs, you apply a network security group to a virtual NIC or subnet. The following example uses [az network nsg create](/cli/azure/network/nsg#create) to create a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -146,7 +146,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-You define rules that allow or deny the specific traffic. To allow inbound connections on port 22 (to support SSH), create an inbound rule for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
+You define rules that allow or deny specific traffic. To allow inbound connections on port 22 (to enable SSH access), create an inbound rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -159,7 +159,7 @@ az network nsg rule create \
     --access allow
 ```
 
-To allow inbound connections on port 80 (to support web traffic), add another network security group rule. The following example creates a rule named *myNetworkSecurityGroupRuleHTTP*:
+To allow inbound connections on port 80 (for web traffic), add another network security group rule. The following example creates a rule named *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -329,7 +329,7 @@ Output:
 ```
 
 ## Create a virtual NIC
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. You can also have more than one. In the following [az network nic create](/cli/azure/network/nic#create) command, you create a NIC named *myNic* and associate it with the network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](/cli/azure/network/nic#create) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
 
 ```azurecli
 az network nic create \
@@ -473,12 +473,12 @@ The output notes fault domains and update domains:
 ```
 
 
-## Create the Linux VMs
-You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this case, we're going to create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](cli-ps-findimage.md).
+## Create a VM
+You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this example, let's create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](/cli/azure/vm/image#list), as described in [finding Azure VM images](cli-ps-findimage.md).
 
-We also specify an SSH key to use for authentication. If you do not have an SSH public key pair, you can [create them](mac-create-ssh-keys.md) or use the `--generate-ssh-keys` parameter to create them for you. If you already a key pair, this parameter uses existing keys in `~/.ssh`.
+Specify an SSH key to use for authentication. If you do not have an SSH public key pair, you can [create them](mac-create-ssh-keys.md) or use the `--generate-ssh-keys` parameter to create them for you. If you already have a key pair, this parameter uses existing keys in `~/.ssh`.
 
-Create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named *myVM*:
+Create the VM by bringing all the resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named *myVM*:
 
 ```azurecli
 az vm create \
@@ -518,7 +518,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

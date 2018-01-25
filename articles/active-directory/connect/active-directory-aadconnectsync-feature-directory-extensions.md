@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Directory extensions | Microsoft Docs'
 description: This topic describes the directory extensions feature in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
@@ -30,6 +30,10 @@ The installation shows the following attributes, which are valid candidates:
 * Single-valued attributes: String, Boolean, Integer, Binary
 * Multi-valued attributes: String, Binary
 
+
+>[!NOTE]
+> While Azure AD Connect supports synchronizing multi-valued AD attributes to Azure AD as multi-valued directory extensions, there are currently no features in Azure AD that support the use of multi-valued directory extensions.
+
 The list of attributes is read from the schema cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, then the [schema must be refreshed](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
 An object in Azure AD can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, then it is truncated by the sync engine.
@@ -37,10 +41,20 @@ An object in Azure AD can have up to 100 directory extensions attributes. The ma
 During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.  
 ![Schema Extension App](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-These attributes are now available through Graph:  
+The attributes are prefixed with extension\_{AppClientId}\_. The AppClientId has the same value for all attributes in your Azure AD tenant.
+
+These attributes are now available through the **Azure AD Graph**:
+
+We can query the Azure AD Graph through the Azure AD Graph explorer: [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)
+
 ![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-The attributes are prefixed with extension\_{AppClientId}\_. The AppClientId has the same value for all attributes in your Azure AD tenant.
+Or through the **Microsoft Graph API**:
+
+We can query the Microsoft Graph API through the Microsoft Graph explorer: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
+
+>[!NOTE]
+> You need to explicitly ask for the attribute to be returned. This can be done by explicitly selecting the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division For more information please check [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

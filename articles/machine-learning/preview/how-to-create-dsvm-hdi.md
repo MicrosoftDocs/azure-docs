@@ -14,7 +14,7 @@ ms.date: 09/26/2017
 
 # Create DSVM and HDI Spark cluster as compute targets
 
-You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md).
+You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md).
 
 >[!NOTE]
 >You need to ensure you have proper permissions to create resources such as VM and HDI clusters in Azure before you proceed. Also both of these resources can consume many compute cores depending on your configuration. Make sure your subscription has enough capacity for the virtual CPU cores. You can always get in touch with Azure support to increase the maximum number of cores allowed in your subscription.
@@ -59,18 +59,22 @@ Copy and paste the following JSON snippet into the `mydsvm.json` file, and fill 
 
 For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu DSVM Azure resource management template](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). We recommend you use one of the below sizes as compute targets for Azure ML. 
 
-- Standard_DS2_v2 
-- Standard_DS3_v2 
-- Standard_DS4_v2 
-- Standard_DS12_v2 
-- Standard_DS13_v2 
-- Standard_DS14_v2 
-- Standard_NC6 
-- Standard_NC12 
-- Standard_NC24 
- 
+
 >[!TIP]
-> The VM sizes started with "NC" are the ones equipped with GPU.
+> For [deep learning workloads](how-to-use-gpu.md) you can deploy to GPU powered VMs.
+
+- [General Purpose VMs](/virtual-machines/linux/sizes-general.md)
+  - Standard_DS2_v2 
+  - Standard_DS3_v2 
+  - Standard_DS4_v2 
+  - Standard_DS12_v2 
+  - Standard_DS13_v2 
+  - Standard_DS14_v2 
+- [GPU powered VMs](/virtual-machines/linux/sizes-gpu.md)
+  - Standard_NC6 
+  - Standard_NC12 
+  - Standard_NC24 
+ 
 
 Read more about these [sizes for Linux virtual machines in Azure](../../virtual-machines/linux/sizes.md) and their [pricing information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
@@ -87,7 +91,7 @@ $ az account get-access-token
 
 # if you don't have a valid token, please log in to Azure first. 
 # if you already do, you can skip this step.
-$ az account login
+$ az login
 
 # list all subscriptions you have access to
 $ az account list -o table
@@ -104,7 +108,8 @@ $ az group create -n <resource group name> -l <azure region>
 # note we assume the mydsvm.json config file is placed in the "docs" sub-folder.
 $ az group deployment create -g <resource group name> --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @docs/mydsvm.json
 
-# find the FQDN (fully qualified domain name) of the VM just created
+# find the FQDN (fully qualified domain name) of the VM just created. 
+# you can also use IP address from the next command if FQDN is not set.
 $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 
 # find the IP address of the VM just created
@@ -116,7 +121,7 @@ Once the DSVM is created, you can now attach it to your Azure ML project.
 ```azurecli
 # attach the DSVM compute target
 # it is a good idea to use FQDN in case the IP address changes after you deallocate the VM and restart it
-$ az ml computetarget attach --name <compute target name> --address <ip address or FQDN> --username <admin username> --password <admin password> --type remotedocker
+$ az ml computetarget attach remotedocker --name <compute target name> --address <ip address or FQDN> --username <admin username> --password <admin password> 
 
 # prepare the Docker image on the DSVM 
 $ az ml experiment prepare -c <compute target name>
@@ -139,7 +144,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## Expand the DSVM OS disk
-Linux VM in Azure typically comes with a 30-GB operating system disk. When used as compute target for Azure ML, it can be eaten up quickly by Docker engine pulling down Docker images and building conda layers on top of it. It is a good idea to expand the OS disk to a larger size (such as 200 GB) to void the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
+Linux VM in Azure typically comes with a 30-GB operating system disk. When used as compute target for Azure ML, it can be eaten up quickly by Docker engine pulling down Docker images and building conda layers on top of it. It is a good idea to expand the OS disk to a larger size (such as 200 GB) to avoid the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
 
 ## Create an Apache Spark for Azure HDInsight cluster in Azure portal
 
@@ -166,7 +171,7 @@ Once the Spark HDI cluster is created, you can now attach it to your Azure ML pr
 
 ```azurecli
 # attach the HDI compute target
-$ az ml computetarget attach --name <compute target name> --address <cluster name, such as myhdicluster123.azurehdinsight.net> --username <ssh username> --password <ssh password> --type cluster
+$ az ml computetarget attach cluster --name <compute target name> --address <cluster name, such as myhdicluster123.azurehdinsight.net> --username <ssh username> --password <ssh password> 
 
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>
@@ -176,7 +181,7 @@ Now you should be ready to run experiments on this Spark cluster.
 ## Next steps
 
 Learn more about:
-- [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md)
-- [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md)
+- [Overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench experimentation service configuration files](experimentation-service-configuration-reference.md)
 - [Apache Spark for Azure HDInsight cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

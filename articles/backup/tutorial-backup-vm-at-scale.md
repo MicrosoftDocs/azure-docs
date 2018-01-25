@@ -6,8 +6,9 @@ keywords: virtual machine backup; virtual machine back up; back up vm; backup vm
 author: markgalioto
 ms.author: markgal
 ms.date: 09/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: backup
+ms.custom: mvc
 
 ---
 

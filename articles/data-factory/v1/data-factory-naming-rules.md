@@ -13,12 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - naming rules
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [naming rules in Data Factory version 2](../naming-rules.md).
+
 The following table provides naming rules for Data Factory artifacts.
 
 | Name | Name Uniqueness | Validation Checks |

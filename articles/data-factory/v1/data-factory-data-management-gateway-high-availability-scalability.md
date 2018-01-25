@@ -12,16 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/15/2017
 ms.author: abnarain
 
 robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
-This article helps you configure high availability and scalability solution with Data Management Gateway.    
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+
+
+This article helps you configure high availability and scalability solution with Data Management Gateway/ Integration.    
 
 > [!NOTE]
-> This article assumes that you are already familiar with basics of Data Management Gateway. If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).
+> This article assumes that you are already familiar with basics of Integration Runtime (Earlier Data Management Gateway). If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).
 
 >**This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
@@ -152,14 +156,21 @@ You can upgrade an existing gateway to use the high availability and scalability
 - Add at least two nodes to ensure high availability.  
 
 ### TLS/SSL certificate requirements
-Here are the requirements for the TLS/SSL certificate that is used for securing communications between gateway nodes:
+Here are the requirements for the TLS/SSL certificate that is used for securing communications between integration runtime nodes:
 
-- The certificate must be a publicly trusted X509 v3 certificate.
-- All gateway nodes must trust this certificate. 
-- We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
+- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
+- Each integration runtime node must trust this certificate, as well as the client machine that is running the credential manager application. 
+> [!NOTE]
+> Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on premise/ private data store.
+- Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
+- SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
-- Does not support certificates that use CNG keys.
-- Wild-card certificates are supported. 
+- Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
+
+#### FAQ: When would I not enable this encryption?
+Enabling encryption can add certain cost to your infrastructure (owning public certificate) hence you may skip enabling encryption in the below cases:
+- When the integration runtime is running on a trusted network, or a network with transparent encryption like IP/SEC. Since this channel communication is only limited within your trusted network, you may not need additional encryption.
+- When the integration runtime is not running in a production environment. This can help in reducing TLS/SSL certificate cost.
 
 
 ## Monitor a multi-node gateway

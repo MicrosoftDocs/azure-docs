@@ -73,6 +73,8 @@
   items:
   - name: Azure CLI
     href: /cli/azure/acs
+  - name: PowerShell
+    href: /powershell/module/azurerm.compute
   - name: REST
     href: /rest/api/container-service
 - name: Resources
