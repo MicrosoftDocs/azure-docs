@@ -17,6 +17,9 @@
 ## [Azure PowerShell](application-gateway-create-gateway-arm.md)
 ## [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
+## Create application gateway with VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
 ## [Use a template](application-gateway-create-gateway-arm-template.md)
 ## Configure web application firewall
 ### [Azure portal](application-gateway-web-application-firewall-portal.md)
@@ -30,7 +33,7 @@
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
-## Configure URL path based routing
+## Configure URL path-based routing
 ### [Azure portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
