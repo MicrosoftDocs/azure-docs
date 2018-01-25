@@ -14,11 +14,11 @@ ms.date: 01/24/2018
 ms.author: mbullwin; daviste
 ---
 
-![Screenshot of Application Insights Users](./media/app-insights-usage-segmentation/001-users.png)
-
 # Users, sessions, and events analysis in Application Insights
 
 Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](app-insights-overview.md).
+
+![Screenshot of Application Insights Users](./media/app-insights-usage-segmentation/0001-users.png)
 
 ## Get started
 
@@ -34,7 +34,7 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 
     A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
 
-## Querying for Certain Users
+## Querying for certain users
 
 Explore different groups of users by adjusting the query options at the top of the Users tool:
 
