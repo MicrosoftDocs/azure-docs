@@ -71,10 +71,13 @@ For maximum security, we strongly recommend always enabling both encryption at-r
 If you are using Azure File Sync to access your Azure File share, we will always use HTTPS and SMB 3.0 with encryption to sync your data to your Windows Servers, regardless of whether you require encryption of data at-rest.
 
 ## Data redundancy
-Azure Files supports two data redundancy options: locally redundant storage (LRS) and geo-redundant storage (GRS). The following sections describe the differences between locally redundant storage and geo-redundant storage:
+Azure Files supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). The following sections describe the differences between the different redundancy options:
 
 ### Locally redundant storage
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### Zone redundant storage
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redunancy-ZRS.md)]
 
 ### Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
