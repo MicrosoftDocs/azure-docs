@@ -1,6 +1,6 @@
 ---
 title: Copy data from and to Dynamics CRM or Dynamics 365 by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
+description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,10 +18,10 @@ ms.author: jingwang
 ---
 # Copy data from and to Dynamics 365 or Dynamics CRM by using Azure Data Factory
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy activity in version 1](v1/data-factory-data-movement-activities.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy Activity in version 1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
