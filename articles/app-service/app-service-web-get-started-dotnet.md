@@ -170,4 +170,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+> [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)

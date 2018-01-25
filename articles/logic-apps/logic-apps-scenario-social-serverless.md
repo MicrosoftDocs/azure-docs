@@ -33,7 +33,7 @@ The entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md
 
 ## Build the logic app to trigger on customer data
 
-After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or the Azure portal:
+After [creating a logic app](quickstart-create-first-logic-app-workflow.md) in Visual Studio or the Azure portal:
 
 1. Add a trigger for **On New Tweets** from Twitter
 2. Configure the trigger to listen to tweets on a keyword or hashtag.
