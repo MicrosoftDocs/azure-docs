@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 01/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -73,9 +73,6 @@ This /26 network is the subnet that contains the routable point-to-point IP /30 
 ### Switch management network
 This /29 (6 host IPs) network is dedicated to connecting the management ports of the switches. It allows out-of-band access for deployment, management, and troubleshooting. It is calculated from the switch infrastructure network mentioned above.
 
-## Transparent proxy
-The Azure Stack solution doesn’t support normal web proxies. If the datacenter requires all traffic to use a proxy, you must configure a transparent proxy to process all traffic from the rack to handle it according to policy, separating traffic between the zones on your network. A transparent proxy (also known as an intercepting, inline, or forced proxy) intercepts normal communication at the network layer without requiring any special client configuration. Clients need not to be aware of the existence of the proxy.
-
 ## Publish Azure Stack services
 You'll need to make Azure Stack services available to users from outside Azure Stack. Azure Stack sets up various endpoints for its infrastructure roles. These endpoints are assigned VIPs from the public IP address pool. A DNS entry is created for each endpoint in the external DNS zone, which was specified at deployment time. For example, the user portal is assigned the DNS host entry of portal.*&lt;region>.&lt;fqdn>*.
 
@@ -90,3 +87,4 @@ For more information, see:
 
 
 ## Next steps
+[Azure Stack border connectivity](azure-stack-border-connectivity.md)

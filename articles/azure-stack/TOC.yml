@@ -41,10 +41,12 @@
       href: azure-stack-connected-deployment.md
     - name: Disconnected deployment considerations
       href: azure-stack-disconnected-deployment.md
-    - name: Network connectivity
+    - name: Datacenter network integration
       items:
-      - name: Border connectivity
+      - name: Network integration
         href: azure-stack-network.md
+      - name: Border connectivity
+        href: azure-stack-border-connectivity.md
       - name: DNS integration
         href: azure-stack-integrate-dns.md
       - name: Firewall integration

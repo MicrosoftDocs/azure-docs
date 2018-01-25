@@ -16,7 +16,6 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-
 ---
 
 To ensure the deployment and integration of the Azure Stack solution is a success, it’s recommended to follow these three checklists.
@@ -55,7 +54,7 @@ To ensure the deployment and integration of the Azure Stack solution is a succes
 ## Post-Deployment Checklist 
 [  ] Install all current update packages. 
 
-[  ] Run and pass Canary tests. 
+[  ] Run and pass final verification tests. 
 
 [  ] Complete Azure Stack Registration 
 
