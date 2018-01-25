@@ -90,10 +90,10 @@ This section guides you through connecting your Azure Active Directory to Pingbo
 
 The initial takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Pingboard app.
 
-For more information on how to read the Azure Active Directory provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure Active Directory provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory/active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory/active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](active-directory/active-directory-saas-pingboard-tutorial.md)
+* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure Single Sign-on](active-directory-saas-pingboard-tutorial.md)

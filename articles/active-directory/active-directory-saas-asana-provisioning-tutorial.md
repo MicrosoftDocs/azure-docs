@@ -65,7 +65,7 @@ This section guides you through connecting your Azure AD to Asana user account p
 4)	Set the **Provisioning Mode** to **Automatic**.
 
     ![Asana Provisioning](media/active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)
-![](active-directory-saas-asana-provisioning-tutorial\asanaazureprovisioning.png)    
+![](active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)    
 5) Under the Admin Credentials section, follow below instructions to generate the token and enter it in the **Secret Token** textbox.
    
     * Login to [Asana](https://app.asana.com) using admin account
@@ -90,10 +90,10 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 This starts the initial synchronization of any users assigned to Asana in the Users section. The initial takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Asana app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory/active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory/active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](active-directory/active-directory-saas-asana-tutorial.md)
+* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure Single Sign-on](active-directory-saas-asana-tutorial.md)
