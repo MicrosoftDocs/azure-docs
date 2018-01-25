@@ -151,11 +151,11 @@ Define your database:
 
 You can customize your SQL Server docker file to automatically set up your SQL Server to be deployed on multiple IoT Edge devices. For more information, see the [Microsoft SQL Server container demo project](https://github.com/twright-msft/mssql-node-docker-demo-app).
 
-## Set up the SQL connection
+## Understand the SQL connection
 
 In other tutorials, we use routes to allow containers to communicate while remaining isolated from each other. When you work with a SQL Server database, though, a closer relationship is necessary. 
 
-IoT Edge automatically builds a bridge (Linux) or NAT (Windows) network when it starts. The network is called **azure-iot-edge**. You can look up its properties in the command line:
+IoT Edge automatically builds a bridge (Linux) or NAT (Windows) network when it starts. The network is called **azure-iot-edge**. If you ever need to debug this connection, you can look up its properties in the command line:
 
 * Windows
 
@@ -176,6 +176,8 @@ As an example, here is the connection string that we use in the next section:
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
+
+You can see that the connection string references the container by its name, **sql**. If you changed the module name to be something else, update this connection string as well. Otherwise, continue on to the next section. 
 
 ## Update your Azure Function
 To send the data to your database, update the FilterFunction Azure Function that you made in the previous tutorial. Change this file so that it structures the data received my your sensors then stores it in a SQL table. 
@@ -296,3 +298,6 @@ View your database:
 
 ## Next steps
 
+* Learn how to [configure SQL Server 2017 container images on Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
+
+* Visit the [mssql-docker GitHub repository](https://github.com/Microsoft/mssql-docker) for resources, feedback, and known issues.
