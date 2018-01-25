@@ -6,7 +6,7 @@ author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 1/09/2017
+ms.date: 1/23/2017
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
@@ -52,10 +52,11 @@ To register the sample web app in your tenant, use the following settings.
 
 | Setting      | Sample value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Name** | `My Sample Web App` | Enter a **Name** for the app that describes your app to consumers. | 
+| **Name** | `My Sample Web App` | Enter a **Name** that describes your app to consumers. | 
 | **Include web app / web API** | Yes | Select **Yes** for a web app. |
 | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
 | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
+| **Native client** | No | Since this is a web app and not a native client, select No. |
 
 Click **Create** to register your app.
 
@@ -96,7 +97,7 @@ To configure your policy, use the following settings.
 
 Click **Create** to create your policy. 
 
-## Configure web app
+## Update web app code
 
 Now that you have a web app registered and a policy created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app. 
 
