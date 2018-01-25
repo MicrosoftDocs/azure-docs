@@ -74,7 +74,7 @@ You must download and install the following hotfixes in the prescribed order and
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software update<br> Download both _HcsSfotwareUpdate.exe_ and _CisMSDAgent.exe_ |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 1. |KB4037264 |Software update<br> Download both _HcsSoftwareUpdate.exe_ and _CisMSDAgent.exe_ |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 
 If updating from a device running Update 4, you only need to install the OS cumulative updates as second order updates.
 

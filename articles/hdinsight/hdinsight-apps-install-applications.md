@@ -25,14 +25,14 @@ Learn how to install a third-party Hadoop application on Azure HDInsight. For in
 
 An HDInsight application is an application that users can install on an HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
-The follosing list shows the published applications:
+The following list shows the published applications:
 
 * **AtScale Intelligence Platform** turns your HDInsight cluster into a scale-out OLAP server. The application allows you to query billions of rows of data interactively using the BI tools from Microsoft Excel, PowerBI, Tableau Software to QlikView.
 * **Cask CDAP for HDInsight** provides the first unified integration platform for big data that cuts down the time to production for data applications and data lakes by 80%. This application only supports Standard HBase 3.4 clusters.
 * **DATAIKU DDS on HDInsight** allows data professionals to prototype, build, and deploy highly specific services that transform raw data into impactful business predictions.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offers analysts an interactive way to discover, analyze, and visualize the results on Big Data. Pull in additional data sources easily to discover new relationships and get the answers you need quickly.
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water supports the following distributed algorithms: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, and Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is an enterprise-ready data warehouse powered by Apache Kylin and Apache Hadoop; it empowers sub-second query latency on massive scale dataset, and simplifies data analytics for business users and analysts. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is an enterprise-ready data warehouse powered by Apache Kylin and Apache Hadoop; it provides sub-second query latency on massive scale dataset, and simplifies data analytics for business users and analysts. 
 * **Paxata Self-service Data Preparation**
 * **SnapLogic Hadooplex** The SnapLogic Hadooplex running on HDInsight enables customers to get to business insights faster by providing self-service data ingestion and preparation from virtually any source to the Microsoft Azure cloud platform.
 * **Spark Job Server for KNIME Spark Executor** Spark Job Server for KNIME Spark Executor is used to connect the KNIME Analytics Platform to HDInsight clusters.
@@ -47,7 +47,7 @@ If you want to install HDInsight applications on an existing HDInsight cluster, 
 ## Install applications to existing clusters
 The following procedure shows you how to install HDInsight applications to an existing HDInsight cluster.
 
-**To install an HDInsight application**
+**Install an HDInsight application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.
@@ -72,7 +72,7 @@ You have the option to install HDInsight applications when you create a cluster.
 ## List installed HDInsight apps and properties
 The portal shows a list of the installed HDInsight applications for a cluster, and the properties of each installed application.
 
-**To list HDInsight application and display properties**
+**List HDInsight application and display properties**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu. 
