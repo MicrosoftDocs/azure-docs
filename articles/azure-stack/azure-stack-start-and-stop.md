@@ -62,7 +62,7 @@ Get the startup for the Azure Stack startup routine with the following steps:
 
 ## Troubleshoot startup and shutdown of Azure Stack
 
-Perform the following steps if the infrastructure and tenant services don't successfully start after you power on your Azure Stack environment. 
+Perform the following steps if the infrastructure and tenant services don't successfully start 2 hours after you power on your Azure Stack environment. 
 
 1. Open a Privileged Endpoint Session from a machine with network access to the Azure Stack ERCS VMs.
 
