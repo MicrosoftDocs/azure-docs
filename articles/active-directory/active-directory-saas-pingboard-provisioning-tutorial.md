@@ -68,7 +68,7 @@ This section guides you through connecting your Azure AD to Pingboard user accou
     
 5) Under the Admin Credentials section, perform the following steps:
    
-    * In the **Tenant URL** textbox, enter `https://your_domain.pingboard.com/scim/v2`
+    * In the **Tenant URL** textbox, enter `https://your_domain.pingboard.com/scim/v2` and replace your_domain with your real domain
     * Login to [Pingboard](https://pingboard.com/) using admin account.
     * Click on Add-Ons > Integrations > Azure Active Directory.
     * Click on Configure tab and select **Enable user provisioning from Azure**.
