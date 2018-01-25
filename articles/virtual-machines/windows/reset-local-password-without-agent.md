@@ -97,11 +97,17 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      ![Create scripts.ini](./media/reset-local-password-without-agent/create_scripts_ini.png)
 6. Create `FixAzureVM.cmd` in `\Windows\System32` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
+   For non-Domain Controller or standalone server
     ```
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
+    ```
+    For Domain Controller
+    ```
+    net user <username> <newpassword> /add /domain
+    net localgroup "Domain Admins" <username> /add
+    net localgroup "remote desktop users" <username> /add
     ```
 
     ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
