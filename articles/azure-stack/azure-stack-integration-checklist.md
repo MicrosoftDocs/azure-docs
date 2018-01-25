@@ -18,6 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: wamota
 ---
 
+# Azure Stack datacenter integration checklist
 To ensure the deployment and integration of the Azure Stack solution is a success, it’s recommended to follow these three checklists.
 
 ## Pre-Onsite Checklist 
