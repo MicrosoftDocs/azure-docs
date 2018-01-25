@@ -1,6 +1,6 @@
 ---
 title: Connecting to Azure Cosmos DB as a Data Source in Azure Machine Learning Workbench | Microsoft Docs
-description: This document provides an example on how to connect to Azure Comos DB through Azure Machine Learning Workbench
+description: This document provides an example on how to connect to Azure Cosmos DB through Azure Machine Learning Workbench
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article 
 ms.date: 09/11/2017
 ---
-# Connecting to Azure Cosmos DB as a Data Source
+# Connecting to Azure Cosmos DB as a data source
 This article contains a python sample allows you to connect to Comos DB in the Azure Machine Learning Workbench.
 
 ## Load Azure Cosmos DB data into data preparation
@@ -46,3 +46,6 @@ docs = client.ReadDocuments(coll['_self'])
 
 df = pd.DataFrame(list(docs))
 ```
+
+## Other data source connections
+For other samples, read [Example additional source data connections](data-prep-appendix8-sample-source-connections-python.md)
