@@ -85,7 +85,7 @@ Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download t
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
 
-On Windows machine, install the PFX in *CurrentUser\My* certificate store.
+On a Windows computer, install the PFX in *CurrentUser\My* certificate store.
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
@@ -110,9 +110,9 @@ Copy the **Connection Endpoint** from the Party cluster page into the **Connecti
 
 ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
-
 Click **Publish**.
+
+Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
 
 Open a browser and navigate to http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
@@ -186,6 +186,7 @@ Here are the complete service and application manifests used in this quickstart.
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
