@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Make a configuration change in Azure AD Connect s
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31

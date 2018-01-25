@@ -176,6 +176,8 @@ You author two Linked Services in this section:
     
     ![Validate button](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Click **Publish**. Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service. 
+    
+    ![Publish button](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## Trigger a pipeline run
 Click **Trigger** on the toolbar, and click **Trigger Now**. 

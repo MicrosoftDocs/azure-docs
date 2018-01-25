@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Select your installation type | Microsoft Docs'
 description: This topic walks you through how to select the installation type to use for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

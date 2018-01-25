@@ -86,6 +86,8 @@ Execute the following command:
 3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can
     add it here. Otherwise, enter a placeholder value, like 777777.  If you are targeting Android, you can update
     this value in config.xml later.
+     Note that as of version 2.0.0 the SENDER_ID has been removed from install time and google-services.json needs
+    to be installed in the root folder of your project.  See more detail [here.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Click **Add**.
 
 The push plugin is now installed.
