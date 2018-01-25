@@ -27,7 +27,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
     * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
     * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/) for definitions and dependencies.
-* Get.s started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
+* Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/) for definitions and dependencies.
 
 SDK samples for each language include a ReadMe file with details about prerequisites and installing/running the samples.
