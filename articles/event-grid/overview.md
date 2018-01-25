@@ -43,8 +43,8 @@ Currently, the following Azure services have built-in publisher support for even
 * Event Hubs
 * IoT Hub
 * Resource Groups (management operations)
-* Service Bus
 * Storage Blob
+* Storage General-purpose v2 (GPv2)
 
 ## Event handlers
 

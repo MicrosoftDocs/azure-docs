@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/24/2018
 ms.author: tomfitz
 ---
 
@@ -92,14 +92,14 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field is not writeable. |
+| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
 | subject | string | Publisher-defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Subscription event data. |
-| dataVersion | string | The schema version of the data object. |
-| metadataVersion | string | The schema version of the event metadata. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 The data object has the following properties:
 
