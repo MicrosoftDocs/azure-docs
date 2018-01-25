@@ -21,7 +21,7 @@ The Bing Search API samples include search scenarios that:
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started: with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
-    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.1.0-preview)
+    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/) for definitions and dependencies.
 * Get started with [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/) for definitions and dependencies.
