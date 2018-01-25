@@ -33,7 +33,7 @@ You can now manage the lifecycle of Office 365 groups by setting expiration feat
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 ## Roles and permissions
-These are the roles needed for to set expiration for Office 365 groups in Azure AD.
+These are the roles that can configure and use expiration for Office 365 groups in Azure AD.
 
 Role | Permissions
 -------- | --------
