@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/25/2018
 ms.author: arramac
 
 ---
@@ -402,6 +402,14 @@ To collect debugging traces, run the following commands from an administrative c
 2. In the Windows search box, type **Apps & features** and click on the **Apps & features (System settings)** result.
 3. In the list of apps, scroll to **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and click **Uninstall** again.
 4. When the app is uninstalled, navigate to C:\Users\<user>\AppData\Local\CosmosDBEmulator and delete the folder. 
+
+## Change list
+
+You can check the version number by right clicking the local emulator icon on the task bar and clicking the about menu item.
+
+### 1.20 Released on 01-25-2018
+
+* Enabled the MongoDB aggregation pipeline by default.
 
 ## Next steps
 
