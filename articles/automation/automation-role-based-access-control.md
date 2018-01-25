@@ -22,8 +22,8 @@ ms.author: magoedte;sngun
 ## Role-based access control
 Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
-## RBAC in Automation Accounts
-In Azure Automation, access is granted by assigning the appropriate RBAC role to users, groups, and applications at the Automation account scope. Following are the built-in roles supported by an Automation account:  
+## Roles in Automation Accounts
+In Azure Automation, access is granted by assigning the appropriate RBAC role to users, groups, and applications at the Automation account scope. Following are the built-in roles supported by an Automation account:
 
 | **Role** | **Description** |
 |:--- |:--- |
@@ -31,6 +31,10 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Contributor |The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader |The Reader role allows you to view all the resources in an Automation account but cannot make any changes. |
 | Automation Operator |The Automation Operator role allows you to perform operational tasks such as start, stop, suspend, resume, and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
+| Log Analytics Contributor | The Log Analytics Contributor role allows you to read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure stoarge, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.|
+| Log Analytics Reader | The Log Analytics Reader role allows you to view and search all monitoring data as well as view monitoring settings. This includes viewing the configuration of Azure diagnostics on all Azure resources. |
+| Monitoring Contributor | The Monitoring Contributor role allows you to read all monitoring data and update monitoring settings.|
+| Monitoring Reader | The Montioring Reader role allows you to read all monitoring data. |
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 > [!NOTE]
@@ -38,6 +42,16 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 > 
 > 
 
+## Role permissions
+
+The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
+
+### Owner
+
+Can manage everything, including access
+|Actions|Description|
+|---|---|
+|*|Create and manage resources of all types|
 In this article we walk through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator, and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Otherwise it could result in unintended or undesirable consequences.     
 
 ## Contributor role permissions
@@ -260,6 +274,18 @@ In the above examples, replace **sign in Id**, **subscription Id**, **resource g
 |Create/edit saved search      | Write on workspace         | That workspace           |
 |Create/edit scope config      | Write on workspace           | That workspace       |
 |Link solution to scope config     | Write on solution         | That solution         |
+
+
+## Update management deployments
+
+The following 
+|**Resource**  |**Permission**  |**Minimum scope**  |
+|---------|---------|---------|
+|Automation account     | Log Analytics Contributor       |         |
+|Row2     |         |         |
+|Row3     |         |         |
+|Row4     |         |         |
+|Row5     |         |         |
 
 ## Next Steps
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
