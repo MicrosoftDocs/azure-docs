@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/25/2018
 ms.author: jeedes
 
 ---
@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with PatentSQUAR
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in PatentSQUARE is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in PatentSQUARE needs to be established.
 
-In PatentSQUARE, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with PatentSQUARE, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -106,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![PatentSQUARE Domain and URLs single sign-on information](./media/active-directory-saas-patentsquare-tutorial/tutorial_patentsquare_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL: `https://www3.pat-dss.com:443/patlics/secure/aad`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
 
-	b. In the **Identifier** textbox, type a URL: `https://www3.pat-dss.com:443/patlics`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companysubdomain>.pat-dss.com:443/patlics`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
