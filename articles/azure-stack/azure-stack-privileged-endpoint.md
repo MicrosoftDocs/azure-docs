@@ -42,7 +42,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
 
 We recommend that you connect to the PEP only from the hardware lifecycle host or from a dedicated, secure computer, such as a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Do either of the following depending on your environment:
+1. Access your Privileged Access Workstation.
 
     - On an integrated system, run the following command to add the PEP as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
 
@@ -99,20 +99,29 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
     - Stop-AzureStack
     - Get-ClusterLog
 
-## Usability tips for operating the privileged endpoint 
+## Tips for using the privileged endpoint 
 
 As mentioned above, the PEP is a [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint. While providing a strong security layer, a JEA endpoint reduces some of the basic PowerShell capabilities, such as scripting or tab completion. If you try any type of script operation, the operation fails with the error **ScriptsNotAllowed**. This is expected behavior.
 
 So, for instance, to get the list of parameters for a given cmdlet, you run the following command:
 
-    ````PowerShell
+```PowerShell
     Get-Command <cmdlet_name> -Syntax
-    ```` 
+```
+
 Alternatively, you can use the [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet to import all the PEP cmdlets into the current session on your local machine. By doing so, all cmdlets and functions of the PEP are now available on your local machine, together with tab completion and, more in general, scripting. 
 
 To import the PEP session on your local machine, do the following steps:
 
-1. Do step 1, same as above
+1. Access your Privileged Access Workstation.
+
+    - On an integrated system, run the following command to add the PEP as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
+
+      ````PowerShell
+        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+      ````
+    - If you’re running the ADSK, sign in to the development kit host.
+
 2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
     - On an integrated system:
