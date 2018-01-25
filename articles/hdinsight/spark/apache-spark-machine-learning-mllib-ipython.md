@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 01/25/2018
 ms.author: jgao
 
 ---
@@ -68,111 +68,136 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
     ![Provide a name for the notebook](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Provide a name for the notebook")
 1. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
-        from pyspark.ml import Pipeline
-        from pyspark.ml.classification import LogisticRegression
-        from pyspark.ml.feature import HashingTF, Tokenizer
-        from pyspark.sql import Row
-        from pyspark.sql.functions import UserDefinedFunction
-        from pyspark.sql.types import *
+    ```PySpark
+    from pyspark.ml import Pipeline
+    from pyspark.ml.classification import LogisticRegression
+    from pyspark.ml.feature import HashingTF, Tokenizer
+    from pyspark.sql import Row
+    from pyspark.sql.functions import UserDefinedFunction
+    from pyspark.sql.types import *
+    ```
 
 ## Construct an input dataframe
 We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*.
 
 1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
 
-        def csvParse(s):
-            import csv
-            from StringIO import StringIO
-            sio = StringIO(s)
-            value = csv.reader(sio).next()
-            sio.close()
-            return value
+    ```PySpark
+    def csvParse(s):
+        import csv
+        from StringIO import StringIO
+        sio = StringIO(s)
+        value = csv.reader(sio).next()
+        sio.close()
+        return value
+    
+    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+                    .map(csvParse)
+    ```
 
-        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
-                        .map(csvParse)
-1. We now have the CSV file as an RDD.  To understand the schema of the data, we retrieve one row from the RDD.
+2. We now have the CSV file as an RDD.  To understand the schema of the data, we retrieve one row from the RDD.
 
-        inspections.take(1)
+    ```PySpark
+    inpections.take(1)
+    ```
 
     You should see an output like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```PySpark
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
+    
+    [['413707',
+        'LUNA PARK INC',
+        'LUNA PARK  DAY CARE',
+        '2049789',
+        "Children's Services Facility",
+        'Risk 1 (High)',
+        '3250 W FOSTER AVE ',
+        'CHICAGO',
+        'IL',
+        '60625',
+        '09/21/2010',
+        'License-Task Force',
+        'Fail',
+        '24. DISH WASHING FACILITIES: PROPERLY DESIGNED, CONSTRUCTED, MAINTAINED, INSTALLED, LOCATED AND OPERATED - Comments: All dishwashing machines must be of a type that complies with all requirements of the plumbing section of the Municipal Code of Chicago and Rules and Regulation of the Board of Health. OBSEVERD THE 3 COMPARTMENT SINK BACKING UP INTO THE 1ST AND 2ND COMPARTMENT WITH CLEAR WATER AND SLOWLY DRAINING OUT. INST NEED HAVE IT REPAIR. CITATION ISSUED, SERIOUS VIOLATION 7-38-030 H000062369-10 COURT DATE 10-28-10 TIME 1 P.M. ROOM 107 400 W. SURPERIOR. | 36. LIGHTING: REQUIRED MINIMUM FOOT-CANDLES OF LIGHT PROVIDED, FIXTURES SHIELDED - Comments: Shielding to protect against broken glass falling into food shall be provided for all artificial lighting sources in preparation, service, and display facilities. LIGHT SHIELD ARE MISSING UNDER HOOD OF  COOKING EQUIPMENT AND NEED TO REPLACE LIGHT UNDER UNIT. 4 LIGHTS ARE OUT IN THE REAR CHILDREN AREA,IN THE KINDERGARDEN CLASS ROOM. 2 LIGHT ARE OUT EAST REAR, LIGHT FRONT WEST ROOM. NEED TO REPLACE ALL LIGHT THAT ARE NOT WORKING. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned. MISSING CEILING TILES WITH STAINS IN WEST,EAST, IN FRONT AREA WEST, AND BY THE 15MOS AREA. NEED TO BE REPLACED. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair. SPLASH GUARDED ARE NEEDED BY THE EXPOSED HAND SINK IN THE KITCHEN AREA | 34. FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED - Comments: The floors shall be constructed per code, be smooth and easily cleaned, and be kept clean and in good repair. INST NEED TO ELEVATE ALL FOOD ITEMS 6INCH OFF THE FLOOR 6 INCH AWAY FORM WALL.  ',
+        '41.97583445690982',
+        '-87.7107455232781',
+        '(41.97583445690982, -87.7107455232781)']]
+    ```
 
-        [['413707',
-          'LUNA PARK INC',
-          'LUNA PARK  DAY CARE',
-          '2049789',
-          "Children's Services Facility",
-          'Risk 1 (High)',
-          '3250 W FOSTER AVE ',
-          'CHICAGO',
-          'IL',
-          '60625',
-          '09/21/2010',
-          'License-Task Force',
-          'Fail',
-          '24. DISH WASHING FACILITIES: PROPERLY DESIGNED, CONSTRUCTED, MAINTAINED, INSTALLED, LOCATED AND OPERATED - Comments: All dishwashing machines must be of a type that complies with all requirements of the plumbing section of the Municipal Code of Chicago and Rules and Regulation of the Board of Health. OBSEVERD THE 3 COMPARTMENT SINK BACKING UP INTO THE 1ST AND 2ND COMPARTMENT WITH CLEAR WATER AND SLOWLY DRAINING OUT. INST NEED HAVE IT REPAIR. CITATION ISSUED, SERIOUS VIOLATION 7-38-030 H000062369-10 COURT DATE 10-28-10 TIME 1 P.M. ROOM 107 400 W. SURPERIOR. | 36. LIGHTING: REQUIRED MINIMUM FOOT-CANDLES OF LIGHT PROVIDED, FIXTURES SHIELDED - Comments: Shielding to protect against broken glass falling into food shall be provided for all artificial lighting sources in preparation, service, and display facilities. LIGHT SHIELD ARE MISSING UNDER HOOD OF  COOKING EQUIPMENT AND NEED TO REPLACE LIGHT UNDER UNIT. 4 LIGHTS ARE OUT IN THE REAR CHILDREN AREA,IN THE KINDERGARDEN CLASS ROOM. 2 LIGHT ARE OUT EAST REAR, LIGHT FRONT WEST ROOM. NEED TO REPLACE ALL LIGHT THAT ARE NOT WORKING. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned. MISSING CEILING TILES WITH STAINS IN WEST,EAST, IN FRONT AREA WEST, AND BY THE 15MOS AREA. NEED TO BE REPLACED. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair. SPLASH GUARDED ARE NEEDED BY THE EXPOSED HAND SINK IN THE KITCHEN AREA | 34. FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED - Comments: The floors shall be constructed per code, be smooth and easily cleaned, and be kept clean and in good repair. INST NEED TO ELEVATE ALL FOOD ITEMS 6INCH OFF THE FLOOR 6 INCH AWAY FORM WALL.  ',
-          '41.97583445690982',
-          '-87.7107455232781',
-          '(41.97583445690982, -87.7107455232781)']]
-1. The preceding output gives us an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that are useful for our predictive analysis and group the results as a dataframe, which we then use to create a temporary table.
+3. The preceding output gives us an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that are useful for our predictive analysis and group the results as a dataframe, which we then use to create a temporary table.
 
-        schema = StructType([
-        StructField("id", IntegerType(), False),
-        StructField("name", StringType(), False),
-        StructField("results", StringType(), False),
-        StructField("violations", StringType(), True)])
+    ```PySpark
+    schema = StructType([
+    StructField("id", IntegerType(), False),
+    StructField("name", StringType(), False),
+    StructField("results", StringType(), False),
+    StructField("violations", StringType(), True)])
+    
+    df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+    df.registerTempTable('CountResults')
+    ```
 
-        df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
-        df.registerTempTable('CountResults')
-1. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included four columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
+4. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included four columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
 
     Let's get a small sample of the data:
 
-        df.show(5)
+    ```PySpark
+    df.show(5)
+    ```
 
     You should see an output like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        +------+--------------------+-------+--------------------+
-        |    id|                name|results|          violations|
-        +------+--------------------+-------+--------------------+
-        |413707|       LUNA PARK INC|   Fail|24. DISH WASHING ...|
-        |391234|       CAFE SELMARIE|   Fail|2. FACILITIES TO ...|
-        |413751|          MANCHU WOK|   Pass|33. FOOD AND NON-...|
-        |413708|BENCHMARK HOSPITA...|   Pass|                    |
-        |413722|           JJ BURGER|   Pass|                    |
-        +------+--------------------+-------+--------------------+
+    +------+--------------------+-------+--------------------+
+    |    id|                name|results|          violations|
+    +------+--------------------+-------+--------------------+
+    |413707|       LUNA PARK INC|   Fail|24. DISH WASHING ...|
+    |391234|       CAFE SELMARIE|   Fail|2. FACILITIES TO ...|
+    |413751|          MANCHU WOK|   Pass|33. FOOD AND NON-...|
+    |413708|BENCHMARK HOSPITA...|   Pass|                    |
+    |413722|           JJ BURGER|   Pass|                    |
+    +------+--------------------+-------+--------------------+
+    ```
 
 ## Understand the data
 1. Let's start to get a sense of what our dataset contains. For example, what are the different values in the **results** column?
 
-        df.select('results').distinct().show()
+
+    ```PySpark
+    df.select('results').distinct().show()
+    ```
 
     You should see an output like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        +--------------------+
-        |             results|
-        +--------------------+
-        |                Fail|
-        |Business Not Located|
-        |                Pass|
-        |  Pass w/ Conditions|
-        |     Out of Business|
-        +--------------------+
+    +--------------------+
+    |             results|
+    +--------------------+
+    |                Fail|
+    |Business Not Located|
+    |                Pass|
+    |  Pass w/ Conditions|
+    |     Out of Business|
+    +--------------------+
+    ```
+
 1. A quick visualization can help us reason about the distribution of these outcomes. We already have the data in a temporary table **CountResults**. You can run the following SQL query against the table to get a better understanding of how the results are distributed.
 
-        %%sql -o countResultsdf
-        SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    ```PySpark
+    %%sql -o countResultsdf
+    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    ```
 
     The `%%sql` magic followed by `-o countResultsdf` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](http://pandas.pydata.org/) dataframe with the specified name **countResultsdf**.
 
@@ -183,15 +208,17 @@ We can use `sqlContext` to perform transformations on structured data. The first
     For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 1. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
 
-        %%local
-        %matplotlib inline
-        import matplotlib.pyplot as plt
+    ```PySpark
+    %%local
+    %matplotlib inline
+    import matplotlib.pyplot as plt
 
-        labels = countResultsdf['results']
-        sizes = countResultsdf['cnt']
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-        plt.axis('equal')
+    labels = countResultsdf['results']
+    sizes = countResultsdf['cnt']
+    colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+    plt.axis('equal')
+    ```
 
     You should see an output like the following:
 
@@ -204,30 +231,36 @@ We can use `sqlContext` to perform transformations on structured data. The first
    * Pss w/ conditions
    * Out of Business
 
-     Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we consider the two results equivalent. Data with the other results ("Business Not Located" or "Out of Business") are not useful so we remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
+    Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we consider the two results equivalent. Data with the other results ("Business Not Located" or "Out of Business") are not useful so we remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
 1. Let us go ahead and convert our existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In our case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. We filter those other results out when computing the new data frame.
 
-        def labelForResults(s):
-            if s == 'Fail':
-                return 0.0
-            elif s == 'Pass w/ Conditions' or s == 'Pass':
-                return 1.0
-            else:
-                return -1.0
-        label = UserDefinedFunction(labelForResults, DoubleType())
-        labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+    ```PySpark
+    def labelForResults(s):
+        if s == 'Fail':
+            return 0.0
+        elif s == 'Pass w/ Conditions' or s == 'Pass':
+            return 1.0
+        else:
+            return -1.0
+    label = UserDefinedFunction(labelForResults, DoubleType())
+    labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+    ```
 
     To see what the labeled data looks like, let's retrieve one row.
 
-        labeledData.take(1)
+    ```PySpark
+    labeledData.take(1)
+    ```
 
     You should see an output like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+    [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+    ```
 
 ## Create a logistic regression model from the input dataframe
 Our final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm should be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the "violations" column, which is semi-structured and contains many comments in free-text, to an array of real numbers that a machine could easily understand.
@@ -236,64 +269,77 @@ One standard machine learning approach for processing natural language is to ass
 
 MLlib provides an easy way to perform this operation. First, "tokenize" each violations string to get the individual words in each string. Then, use a `HashingTF` to convert each set of tokens into a feature vector that can then be passed to the logistic regression algorithm to construct a model. We conduct all of these steps in sequence using a "pipeline".
 
-    tokenizer = Tokenizer(inputCol="violations", outputCol="words")
-    hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
-    lr = LogisticRegression(maxIter=10, regParam=0.01)
-    pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
+```PySpark
+tokenizer = Tokenizer(inputCol="violations", outputCol="words")
+hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
+lr = LogisticRegression(maxIter=10, regParam=0.01)
+pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
-    model = pipeline.fit(labeledData)
+model = pipeline.fit(labeledData)
+```
 
 ## Evaluate the model on a separate test dataset
 We can use the model we created earlier to *predict* what the results of new inspections will be, based on the violations that were observed. We trained this model on the dataset **Food_Inspections1.csv**. Let us use a second dataset, **Food_Inspections2.csv**, to *evaluate* the strength of this model on new data. This second data set (**Food_Inspections2.csv**) should already be in the default storage container associated with the cluster.
 
 1. The following snippet creates a new dataframe, **predictionsDf** that contains the prediction generated by the model. The snippet also creates a temporary table called **Predictions** based on the dataframe.
 
-        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
-                 .map(csvParse) \
-                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-        testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
-        predictionsDf = model.transform(testDf)
-        predictionsDf.registerTempTable('Predictions')
-        predictionsDf.columns
+    ```PySpark
+    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+                .map(csvParse) \
+                .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
+    testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+    predictionsDf = model.transform(testDf)
+    predictionsDf.registerTempTable('Predictions')
+    predictionsDf.columns
+    ```
 
     You should see an output like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        ['id',
-         'name',
-         'results',
-         'violations',
-         'words',
-         'features',
-         'rawPrediction',
-         'probability',
-         'prediction']
+    ['id',
+        'name',
+        'results',
+        'violations',
+        'words',
+        'features',
+        'rawPrediction',
+        'probability',
+        'prediction']
+    ```
+
 1. Look at one of the predictions. Run this snippet:
 
-        predictionsDf.take(1)
+    ```PySpark
+    predictionsDf.take(1)
+    ```
 
    There is a prediction for the first entry in the test data set.
 1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. We can do some simple statistics to get a sense of how accurate our predictions were:
 
-        numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
-                                              (prediction = 1 AND (results = 'Pass' OR
-                                                                   results = 'Pass w/ Conditions'))""").count()
-        numInspections = predictionsDf.count()
+    ```Spark
+    numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
+                                            (prediction = 1 AND (results = 'Pass' OR
+                                                                results = 'Pass w/ Conditions'))""").count()
+    numInspections = predictionsDf.count()
 
-        print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-        print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
+    print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    ```
 
     The output looks like the following:
 
-        # -----------------
-        # THIS IS AN OUTPUT
-        # -----------------
+    ```
+    # -----------------
+    # THIS IS AN OUTPUT
+    # -----------------
 
-        There were 9315 inspections and there were 8087 successful predictions
-        This is a 86.8169618894% success rate
+    There were 9315 inspections and there were 8087 successful predictions
+    This is a 86.8169618894% success rate
+    ```
 
     Using logistic regression with Spark gives us an accurate model of the relationship between violations descriptions in English and whether a given business would pass or fail a food inspection.
 
@@ -302,28 +348,33 @@ We can now construct a final visualization to help us reason about the results o
 
 1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, we turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic.
 
-        %%sql -q -o true_positive
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
+    ```PySpark
+    %%sql -q -o true_positive
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-        %%sql -q -o false_positive
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    %%sql -q -o false_positive
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-        %%sql -q -o true_negative
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
+    %%sql -q -o true_negative
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-        %%sql -q -o false_negative
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    %%sql -q -o false_negative
+    SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
+    ```
+
 1. Finally, use the following snippet to generate the plot using **Matplotlib**.
 
-        %%local
-        %matplotlib inline
-        import matplotlib.pyplot as plt
+    ```PySpark
+    %%local
+    %matplotlib inline
+    import matplotlib.pyplot as plt
 
-        labels = ['True positive', 'False positive', 'True negative', 'False negative']
-        sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-        plt.axis('equal')
+    labels = ['True positive', 'False positive', 'True negative', 'False negative']
+    sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+    colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+    plt.axis('equal')
+    ```
 
     You should see the following output:
 
