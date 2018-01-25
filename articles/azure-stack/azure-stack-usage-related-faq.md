@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/25/2018
 ms.author: alfredop
 
 ---
@@ -46,6 +46,14 @@ resource providers.
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for cores |
 | **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transactions | Request count in 10,000's| Number of REST API requests received by Key Vault data plane |
 | **App service** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Virtual core hours  | Number of virtual cores used to run app service |
+|             | 67cc4afc-0691-48e1-a4b8-d744d1fedbde | Functions - Compute Requests      | 10 Requests              | Applies to Functions  |
+|             | 957e9f36-2c14-45a1-b6a1-1723ef71a01d | Shared App Service Hours          | 1 hour                   |                       |
+|             | 539cdec7-b4f5-49f6-aac4-1f15cff0eda9 | Free App Service Hours            | 1 hour                   |                       |
+|             | 88039d51-a206-3a89-e9de-c5117e2d10a6 | Small Standard App Service Hours  | 1 hour                   |                       |
+|             | 83a2a13e-4788-78dd-5d55-2831b68ed825 | Medium Standard App Service Hours | 1 hour                   |                       |
+|             | 1083b9db-e9bb-24be-a5e9-d6fdd0ddefe6 | Large Standard App Service Hours  | 1 hour                   |                       |
+|             | 264acb47-ad38-47f8-add3-47f01dc4f473 | SNI SSL                           | Per SNI SSL Binding      | Applies to AppService |
+|             | 60b42d72-dc1c-472c-9895-6c516277edb4 | IP SSL                            | Per IP Based SSL Binding | Applies to AppService |
 
 ## How do the Azure Stack usage APIs compare to the [Azure usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one
