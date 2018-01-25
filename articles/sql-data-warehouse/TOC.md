@@ -6,7 +6,7 @@
 # Quickstarts
 
 ## [Create and connect - portal](create-data-warehouse-portal.md)
-## [Pause and resume compute]
+## Pause and resume compute
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
 
