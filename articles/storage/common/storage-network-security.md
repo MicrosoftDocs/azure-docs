@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Storage Firewalls and Virtual Networks (preview) | Microsoft Docs
+title: Configure Azure Storage Firewalls and Virtual Networks | Microsoft Docs
 description: Configure layered network security for your storage account.
 services: storage
 documentationcenter: ''
@@ -16,15 +16,8 @@ ms.date: 10/25/2017
 ms.author: cbrooks
 
 ---
-# Configure Azure Storage Firewalls and Virtual Networks (preview)
+# Configure Azure Storage Firewalls and Virtual Networks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
-
-## Preview availability and support
-Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in all Azure public cloud regions.
-
-> [!NOTE]
-> Production workloads are not supported during preview.
->
 
 ## Scenarios
 Storage accounts can be configured to deny access to traffic from all networks (including internet traffic) by default.  Access can be granted to traffic from specific Azure Virtual networks, allowing you to build a secure network boundary for your applications.  Access can also be granted to public internet IP address ranges, enabling connections from specific internet or on-premises clients.
@@ -52,9 +45,6 @@ By default, storage accounts accept connections from clients on any network.  To
 
 #### Azure portal
 1. Navigate to the storage account you want to secure.  
-> [!NOTE]
-> Make sure your storage account is in one of the supported regions for the public preview.
->
 
 2. Click on the settings menu called **Firewalls and virtual networks**.
 3. To deny access by default, choose to allow access from 'Selected networks'.  To allow traffic from all networks, choose to allow access from 'All networks'.
