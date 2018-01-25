@@ -39,7 +39,7 @@ The article describes the properties and schema for the body of the request.
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | endpointType | string | The type of endpoint for the subscription (webhook/HTTP, Event Hub, or queue). | 
-| endpointUrl | string |  | 
+| endpointUrl | string | The destination URL for events in this event subscription. | 
 
 ### filter object
 
