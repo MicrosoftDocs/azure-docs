@@ -47,7 +47,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## Zone redundant storage
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redunancy-ZRS.md)]
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### ZRS Classic accounts
 

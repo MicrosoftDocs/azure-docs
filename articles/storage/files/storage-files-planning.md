@@ -77,7 +77,7 @@ Azure Files supports three data redundancy options: locally redundant storage (L
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ### Zone redundant storage
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redunancy-ZRS.md)]
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
