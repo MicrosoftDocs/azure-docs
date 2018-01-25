@@ -9,7 +9,7 @@ ms.assetid:
 ms.service: cognitive-services
 ms.technology: bing-news-search
 ms.topic: article
-ms.date: 1/19/2018
+ms.date: 1/24/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
