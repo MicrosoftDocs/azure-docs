@@ -93,7 +93,7 @@ Before you set up a group policy, ensure that:
 
 -   You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
 
--   To edit the Group Policy Object (GPO), you must have *Edit settings* permissions. By default, this permission is granted to members of the following security groups: domain administrators, enterprise administrators, and group policy creator owners. For more information, see [Learn more](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   To edit the Group Policy Object (GPO), you must have *Edit settings* permissions. By default, this permission is granted to members of the following security groups: domain administrators, enterprise administrators, and group policy creator owners.
 
 For step by step instructions about configuring the group policy and deploying it to users, see [Deploy the access panel extension for Internet Explorer by using group policy](active-directory-saas-ie-group-policy.md).
 
