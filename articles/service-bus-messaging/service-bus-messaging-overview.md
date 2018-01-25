@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 1/23/2017
+ms.date: 1/23/2018
 ms.author: chwolf
 
 ---
@@ -31,39 +31,39 @@ The messages, which are being send to and received from the message broker are s
 
 ![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Messages in [Queues](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) are ordered and timestamped on arrival. Once accepted, the message is held safely in redundantly triple replicated storage, with intra-region disaster-recovery backups.
+Messages in [Queues](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) are ordered and timestamped on arrival. Once accepted, the message is held safely in redundantly triple replicated storage, with intra-region disaster-recovery backups.
 
 Queues have two delivery modes: Pull and Forward
 * [Pull](service-bus-quickstart-powershell.md) – delivers messages on request.
-* [Forward](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) – delivers message to single forwarding destination.
+* [Forward](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) – delivers message to single forwarding destination.
 
-Azure Service Bus has many advanced features, which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features is following.
+Azure Service Bus has many advanced features, which allow you to solve more complex messaging problems like for example: Enforcing first in, first out receiving via [Sessions](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions), or chaining multiple entities utilizing [auto-forwarding](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) or [dead-letter](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues) queues in case messages can for some reason not be processed. A full list of key features is following.
 
 Another object, within Azure Service Bus, which can be utilized to send and receive messages and decouple applications or services is the topic. Whereas the Queue is often used for point-to-point communication, topics are used for publisher / subscriber scenarios.
 
 ![Topic](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-[Topics](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) can have multiple, Independent Subscriptions. Each subscriber is eligible to receive a copy of each message. Subscriptions are named entities, which are durably created but can optionally expire/auto-delete.
+[Topics](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) can have multiple, Independent Subscriptions. Each subscriber is eligible to receive a copy of each message. Subscriptions are named entities, which are durably created but can optionally expire/auto-delete.
 
-Many times the individual subscriptions should not get all the messages, which are send to a topic. For that Azure Service Bus offers [rules and filter](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters) conditions that can be defined, which trigger optional [actions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters) and set/modify message properties.
+Many times the individual subscriptions should not get all the messages, which are send to a topic. For that Azure Service Bus offers [rules and filter](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters) conditions that can be defined, which trigger optional [actions](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters) and set/modify message properties.
 
 Topic 'tail' and subscription 'head' are fully protocol compatible with Queues and share the same delivery modes.
 
 ## Key features and integrations
 |Features||Integrations|
 |--------|--------| -----|
-|[Scheduled delivery](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sequencing)|[Filtering and Actions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/topic-filters)| [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid/)|
-|[Dead lettering](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues)|[Auto-delete on idle](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet#Microsoft_ServiceBus_Messaging_SubscriptionDescription_AutoDeleteOnIdle)|[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)|
-|[Auto-forwarding](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding)|[Duplicate detection](https://docs.microsoft.com/en-us/azure/service-bus-messaging/duplicate-detection)|[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)|
-|[Deferral](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-deferral)|[SAS](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-sas), [RBAC],(https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-role-based-access-control) and [MSI](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-managed-service-identity) support|[Dynamics 365](https://docs.microsoft.com/en-us/dynamics365/) |
-|[Sessions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions)|[Geo-Recovery](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-geo-dr)||
-|[Batching](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-performance-improvements) and / or long polling |Secure, standard [AMQP 1.0](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-amqp-overview) and [HTTP/REST](https://docs.microsoft.com/en-us/rest/api/servicebus/) protocols||
-|[Transactions](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-transactions)|Client libraries for [.Net](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support||
+|[Scheduled delivery](https://docs.microsoft.com/azure/service-bus-messaging/message-sequencing)|[Filtering and Actions](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters)| [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)|
+|[Dead lettering](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues)|[Auto-delete on idle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet#Microsoft_ServiceBus_Messaging_SubscriptionDescription_AutoDeleteOnIdle)|[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
+|[Auto-forwarding](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding)|[Duplicate detection](https://docs.microsoft.com/azure/service-bus-messaging/duplicate-detection)|[Azure Functions](https://docs.microsoft.com/azure/azure-functions/)|
+|[Deferral](https://docs.microsoft.com/azure/service-bus-messaging/message-deferral)|[SAS](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-sas), [RBAC],(https://docs.microsoft.com/azure/service-bus-messaging/service-bus-role-based-access-control) and [MSI](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-managed-service-identity) support|[Dynamics 365](https://docs.microsoft.com/dynamics365/) |
+|[Sessions](https://docs.microsoft.com/azure/service-bus-messaging/message-sessions)|[Geo-Recovery](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr)||
+|[Batching](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-performance-improvements) and / or long polling |Secure, standard [AMQP 1.0](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-amqp-overview) and [HTTP/REST](https://docs.microsoft.com/rest/api/servicebus/) protocols||
+|[Transactions](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-transactions)|Client libraries for [.Net](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client) support||
 
 ## Next steps
 
 To learn more about Service Bus messaging, see the following articles:
 
-* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/en-us/pricing/details/service-bus/) tiers and about their pricing.
+* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and about their pricing.
 * [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/).
 * Try the following quick starts in [.Net](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md) or try these short tutorials about topics in .Net, Java, and JMS.
