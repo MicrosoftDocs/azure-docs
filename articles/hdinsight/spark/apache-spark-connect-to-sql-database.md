@@ -63,7 +63,7 @@ Start by creaing a Jupyter notebook associated with the Spark cluster. You use t
 
 You can now start creating your application.
 	
-## Read data from a SQL database
+## Read data from Azure SQL database
 
 1. In a new Jupyter notebook, in a code cell, paste the following snippet and replace the placeholder values with the values for your Azure SQL database.
 
@@ -106,6 +106,44 @@ You can now start creating your application.
 
        sqlTableDF.select("AddressLine1", "City").show(10)
 
+## Write data into Azure SQL database
+
+In this section, we use a sample CSV file available on the cluster to create a table in Azure SQL database and populate it with data. The sample CSV file (**HVAC.csv**) is available on all HDInsight clusters at `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv`.
+
+1. In a new Jupyter notebook, in a code cell, paste the following snippet and replace the placeholder values with the values for your Azure SQL database.
+
+       // Declare the values for your Azure SQL database
+
+       val jdbcUsername = "<SQL DB ADMIN USER>"
+       val jdbcPassword = "<SQL DB ADMIN PWD>"
+       val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
+       val jdbcPort = <JDBC PORT>                            //typically, this value is 1433
+       val jdbcDatabase ="<AZURE SQL DB NAME>"
+
+    Press **SHIFT + ENTER** to run the code cell.  
+
+2. Paste the following snippet in the next code cell and press **SHIFT + ENTER** to run it. This snippet builds a JDBC URL that you can pass to the Spark dataframe APIs creates an `Properties` object to hold the parameters.
+
+       import java.util.Properties
+
+       val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=60;"
+       val connectionProperties = new Properties()
+       connectionProperties.put("user", s"${jdbcUsername}")
+       connectionProperties.put("password", s"${jdbcPassword}")
+
+3. Extract the schema of the data in HVAC.csv and use the schema to load the data from the CSV in a dataframe.
+
+       val userSchema = spark.read.csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
+       val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+4. Use the `readDf` dataframe to create a temporary table. Use the temporary table to create a hive table.
+
+       readDf.createOrReplaceTempView("temphvactable")
+       spark.sql("create table hvactable_hive as select * from temphvactable")
+
+5. Finally, use the hive table to create a table in Azure SQL database. The following snippet creates `hvactale` in Azure SQL database.
+
+        spark.table("hvactable1").write.jdbc(jdbc_url, "hvactable", connectionProperties)
 
 ## Next steps
 
