@@ -1,6 +1,6 @@
 ---
 title: Copy data to or from Azure Blob storage by using Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source data stores to Azure Blob storage (or) from Blob storage to supported sink data stores by using Data Factory.
+description: Learn how to copy data from supported source data stores to Azure Blob storage, or from Blob storage to supported sink data stores, by using Data Factory.
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -17,7 +17,7 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-azure-blob-connector.md)
 > * [Version 2 - Preview](connector-azure-blob-storage.md)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Blob storage connector in version 1](v1/data-factory-azure-blob-connector.md).
@@ -29,7 +29,7 @@ You can copy data from any supported source data store to Blob storage. You also
 
 Specifically, this Blob storage connector supports:
 
-- Copying blobs to and from general purpose Azure Storage accounts and hot/cool blob storage. 
+- Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
 - Copying blobs by using both account key and service shared access signature authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
