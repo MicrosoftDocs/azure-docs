@@ -38,7 +38,7 @@ These are the roles that can configure and use expiration for Office 365 groups 
 Role | Permissions
 -------- | --------
 Global Administrator / Company Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings
-User | Can read the Office 365 groups expiration policy settings<br>Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own
+User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own
 
 For more information on permissions to restore a deleted groups, see [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md).
 
