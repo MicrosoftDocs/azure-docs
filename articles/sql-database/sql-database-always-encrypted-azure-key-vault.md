@@ -5,8 +5,7 @@ keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
@@ -56,7 +55,7 @@ You can quickly create a key vault by running the following script. For a detail
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $applicationId = '<application ID from >'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -218,7 +217,7 @@ The following code shows how to register the Azure Key Vault provider with the A
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientKey);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -384,7 +383,7 @@ Run the app to see Always Encrypted in action.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientKey);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
