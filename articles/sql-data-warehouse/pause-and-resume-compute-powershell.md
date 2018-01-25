@@ -61,8 +61,7 @@ Follow these steps to find location information for your data warehouse.
 2. Click **SQL databases** in the left page of the Azure portal.
 3. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
 
-![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
-
+    ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Write down the data warehouse name which will be used as the database name. Also write down the server name, and the resource group. You will use these in the pause and resume commands.
 5. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. We will use **newserver-20171113** as the server name in the PowerShell cmdlet.
