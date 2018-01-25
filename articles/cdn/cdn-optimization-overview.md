@@ -43,9 +43,9 @@ This article provides an overview of various optimization features and when you 
 
 **Azure Content Delivery Network from Verizon** supports the following optimizations:
 
-* General web delivery (can also be used for media streaming and large file download content)
+* [General web delivery](#general-web-delivery) (can also be used for media streaming and large file download content)
 
-* Dynamic site acceleration 
+* [Dynamic site acceleration](#dynamic-site-acceleration) 
 
 We highly recommend that you test performance variations between different providers to select the optimal provider for your delivery.
 
@@ -109,7 +109,7 @@ For more information about large file optimization, see [Large file optimization
 
 ### Dynamic site acceleration
 
- Dynamic site acceleration is available in both **Azure Content Delivery Network from Akamai** and **Azure Content Delivery Network from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/en-us/pricing/details/cdn/).
+ Dynamic site acceleration is available in both **Azure Content Delivery Network from Akamai** and **Azure Content Delivery Network from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
