@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 Use Azure IoT Edge devices to store the data that is generated at the edge. Devices with intermittent internet connections can maintain their own databases and report changes back to the cloud only when connected. 
 
-Suppose that you have a device that collects temperature telemetry but only sends the temperature data to IoT Hub when it exceeds a threshold. You still want to preserve the temperature data that wasn't sent to IoT Hub, though. This article walks through a solution to that problem. 
+Suppose that you have a device that collects temperature telemetry but only sends the data to IoT Hub if it exceeds a threshold. You still want to preserve the temperature data that wasn't sent to IoT Hub, though. This article walks through a solution to that problem. 
 
 This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions structures the incoming data then sends it to the database. The steps in this article can also be applied databases that work in containers, like mysql. 
 
@@ -32,7 +32,7 @@ The following articles aren't required to successfully complete this tutorial, b
 
 After you complete the required tutorials, you should have all the required prerequisites ready on your machine: 
 * An active Azure IoT hub.
-* An IoT Edge device with at least 2 GB RAM and a 2 GB disk drive.
+* An IoT Edge device with at least 2-GB RAM and a 2-GB disk drive.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -53,7 +53,7 @@ In this section, you add an MS-SQL database to your simulated IoT Edge device. U
 
 By default, the code in this section creates a container with the free Developer edition of SQL Server 2017. If you want to run production editions instead, see [Run production container images](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#production) for detailed information. 
 
-In step three, you add create options to the SQL Server container, which are important for establishing environment variables and persistant storage. The [environment variables](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-environment-variables.md) that we configure are accepting the European terms of use, and defining a password. The [persistant storage](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker.md#persist) is configured using two options called **volumes** and **binds**. These options create the SQL Server 2017 container with a *sqlvolume* volume attached so that your data persists even if the container is deleted. 
+In step 3, you add create options to the SQL Server container, which are important for establishing environment variables and persistant storage. The [environment variables](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-environment-variables.md) that we configure are accepting the European terms of use, and defining a password. The [persistant storage](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker.md#persist) is configured using two options called **volumes** and **binds**. These options create the SQL Server 2017 container with a *sqlvolume* volume attached so that your data persists even if the container is deleted. 
 
 1. Open the `deployment.json` file in Visual Studio Code. 
 2. Replace the **modules** section of the file with the following code: 
@@ -180,7 +180,7 @@ As an example, here is the connection string that we use in the next section:
 You can see that the connection string references the container by its name, **sql**. If you changed the module name to be something else, update this connection string as well. Otherwise, continue on to the next section. 
 
 ## Update your Azure Function
-To send the data to your database, update the FilterFunction Azure Function that you made in the previous tutorial. Change this file so that it structures the data received my your sensors then stores it in a SQL table. 
+To send the data to your database, update the FilterFunction Azure Function that you made in the previous tutorial. Change this file so that it structures the data received by your sensors then stores it in a SQL table. 
 
 1. In Visual Studio Code, open your FilterFunction folder. 
 2. Replace the run.csx file with the following code that includes the SQL connection string from the previous section: 
