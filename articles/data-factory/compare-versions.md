@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
 
 ---
@@ -125,7 +125,16 @@ For more information, see [Difference between custom activity in V1 and V2](tran
 The SDKs that are updated for V2 are not backward-compatible with V1 clients. 
 
 ## Authoring experience
-With Data Factory V1, you can author pipelines by using Data Factory Editor in the Azure portal. Currently, Data Factory V2 supports only programmatic methods (such as .NET SDK, REST API, PowerShell, and Python) of creating data factories. There is no user interface support yet.  Data Factory V1 also supports SDK, REST, and PowerShell authoring support.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure portal | [Yes](quickstart-create-data-factory-portal.md) | [Yes](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST API | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
+| Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## Monitoring experience
 In V2, you can also monitor data factories by using [Azure Monitor](monitor-using-azure-monitor.md). The new PowerShell cmdlets support monitoring of [integration runtimes](monitor-integration-runtime.md). Both V1 and V2 support visual monitoring via a monitoring application that can be launched from the Azure portal.

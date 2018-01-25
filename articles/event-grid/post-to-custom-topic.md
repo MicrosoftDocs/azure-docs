@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: tomfitz
 ---
 
@@ -17,7 +17,7 @@ This article describes how to post an event to a custom topic. It shows the form
 
 ## Endpoint
 
-When posting to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.
+When sending the HTTP POST to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.
 
 For example, a valid URI is: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 
@@ -53,16 +53,15 @@ To get the key for a custom topic with PowerShell, use:
 
 ## Event data
 
-For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a data property that contains properties unique to the custom topic. The event publisher determines the properties for that data object. You post event data with the following schema:
+For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a data property that contains properties unique to the custom topic. As event publisher, you determine the properties for that data object. Use the following schema:
 
 ```json
 [
   {
-    "topic": string,
-    "subject": string,
-    "id": string,
+    "id": string,    
     "eventType": string,
-    "eventTime": string,
+    "subject": string,
+    "eventTime": string-in-date-time-format,
     "data":{
       object-unique-to-each-publisher
     },
@@ -85,7 +84,7 @@ For example, a valid event data schema is:
     "make": "Ducati",
     "model": "Monster"
   },
-  "dataVersion": "mydataversion"
+  "dataVersion": "1.0"
 }]
 ```
 

@@ -102,7 +102,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 The image resize function is triggered by an event subscription to a Blob created event. The data passed to the trigger includes the URL of the blob, which is in turn passed to the input binding to obtain the uploaded image from Blob storage. The function generates a thumbnail image and writes the resulting stream to a separate container in Blob storage. To learn more about this function, see the [readme file in the sample repository](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
+
+This project uses `EventGridTrigger` for the trigger type. Using the Event Grid trigger is recommended over generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
+
 The function project code is deployed directly from the public sample repository. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
 ## Create your event subscription

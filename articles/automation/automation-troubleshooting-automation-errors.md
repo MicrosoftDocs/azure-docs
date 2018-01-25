@@ -179,7 +179,7 @@ This error typically occurs when the node is assigned to a configuration name (f
 
 ### Scenario: No node configurations (MOF files) were produced when a configuration is compiled
 **Error:**
-Your DSC compilation job suspends with the error: "Compilation completed successfully, but no node configuration .mofs were generated".
+Your DSC compilation job suspends with the error: "Compilation completed successfully, but no node configuration.mofs were generated".
 
 **Reason for the error:**
 When the expression following the **Node** keyword in the DSC configuration evaluates to `$null`, then no node configurations are produced.
@@ -224,6 +224,16 @@ This error code means that the saved search computer group query used to target 
 **Troubleshooting tips:**
 
 You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
+
+### PolicyViolation
+
+**Reason for the error:**
+
+This error code means that the deployment failed due to violation of a policy.
+
+**Troubleshooting tips:**
+
+Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. For learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## Next steps
 

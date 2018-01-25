@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/24/2018
 ms.author: babanisa
 ---
 
@@ -30,8 +30,6 @@ Currently, Event Grid supports the following regions:
 *	West US
 *	West US 2
 
-Other regions will be added.
-
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
@@ -45,10 +43,8 @@ Currently, the following Azure services have built-in publisher support for even
 * Event Hubs
 * IoT Hub
 * Resource Groups (management operations)
-* Service Bus
 * Storage Blob
-
-Other Azure services will be added this year.
+* Storage General-purpose v2 (GPv2)
 
 ## Event handlers
 
@@ -61,7 +57,7 @@ Currently, the following Azure services have built-in handler support for Event 
 * Microsoft Flow
 * WebHooks
 
-Other Azure services will be added this year.
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
 
 ## Concepts
 

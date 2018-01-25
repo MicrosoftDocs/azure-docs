@@ -49,7 +49,7 @@ Create a telemetry initializer, as described in detail [here](https://docs.micro
 
 This example sets the user ID to an identifier that expires after the session. If possible, use a user ID that persists across sessions.
 
-```C#
+```csharp
 
     using System;
     using System.Web;
