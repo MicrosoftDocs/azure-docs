@@ -359,7 +359,7 @@
     - name: Connect to Spark GraphX
       href: spark-connector-graph.md
     - name: Streaming with Kafka and Spark on HDInsight
-      href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=%2fcosmos-db%2ftoc.json&bc=%2fcosmos-db%2fbreadcrumb%2ftoc.json
+      href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=%2fazure%2fcosmos-db%2ftoc.json&bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json
     - name: Deploy a website with Azure App Service
       href: create-website.md
     - name: Application logging with Logic Apps
