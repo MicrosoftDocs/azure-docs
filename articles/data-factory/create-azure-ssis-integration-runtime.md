@@ -38,7 +38,7 @@ This article shows different ways of provisioning an Azure-SSIS IR:
 
 When you create an Azure-SSIS IR, Data Factory connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
 
-When you provision an instance of SQL Database to host SSISDB, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
+When you provision an instance of of Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
 
 ## Prerequisites
 
@@ -187,9 +187,8 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-# Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
-# These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# OPTIONAL: specify your VNet ID and the subnet name. 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
