@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 
 # Create and provision an X.509 simulated device using C device SDK for IoT Hub Device Provisioning Service
-[!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
