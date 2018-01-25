@@ -22,7 +22,7 @@ ms.author: jgao
 ---
 # Use Spark MLlib to build a machine learning application and analyze a dataset
 
-Learn how to use Spark **MLlib** to create a machine learning application to do simple predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression. 
+Learn how to use Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression. 
 
 > [!TIP]
 > This example is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To follow the tutorial from within a notebook, create a Spark cluster and launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Then, run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** under the **Python** folder.
@@ -38,7 +38,7 @@ MLlib is a core Spark library that provides many utilities useful for machine le
 * Singular value decomposition (SVD) and principal component analysis (PCA)
 * Hypothesis testing and calculating sample statistics
 
-## What are classification and logistic regression?
+## Understand classification and logistic regression
 *Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you could think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
 
 Logistic regression is the algorithm that you use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
@@ -50,23 +50,11 @@ In this example, you use Spark to perform some predictive analysis on food inspe
 
 In the steps below, you develop a model to see what it takes to pass or fail a food inspection.
 
-## Start building a Spark MMLib machine learning app
-1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
-1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+## Create a Spark MLlib machine learning app
 
-   > [!NOTE]
-   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-1. Create a notebook. Click **New**, and then click **PySpark**.
+1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-    ![Create a Jupyter notebook](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "Create a new Jupyter notebook")
-1. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
-
-    ![Provide a name for the notebook](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Provide a name for the notebook")
-1. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
+2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIRT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -76,11 +64,15 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
     from pyspark.sql.functions import UserDefinedFunction
     from pyspark.sql.types import *
     ```
+    Because of the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. 
 
-## Construct an input dataframe
+## Construct the input dataframe
+
 We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*.
 
-1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
+Because the raw data is in a CSV format, you can use the Spark context to pull  the file into memory as unstructured text, and then use Python's CSV library to parse each line of the data.
+
+1. Run the following lines to create a Resilient Distributed Dataset (RDD) by importing and parsing the input data.
 
     ```PySpark
     def csvParse(s):
@@ -95,19 +87,15 @@ We can use `sqlContext` to perform transformations on structured data. The first
                     .map(csvParse)
     ```
 
-2. We now have the CSV file as an RDD.  To understand the schema of the data, we retrieve one row from the RDD.
+2. Run the following code to retrieve one row from the RDD, so you can take a look of the data schema:
 
     ```PySpark
-    inpections.take(1)
+    inspections.take(1)
     ```
 
-    You should see an output like the following:
+    The output is:
 
-    ```PySpark
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-    
+    ```
     [['413707',
         'LUNA PARK INC',
         'LUNA PARK  DAY CARE',
@@ -127,7 +115,9 @@ We can use `sqlContext` to perform transformations on structured data. The first
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-3. The preceding output gives us an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that are useful for our predictive analysis and group the results as a dataframe, which we then use to create a temporary table.
+    The output gives you an idea of the schema of the input file. It includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. 
+
+3. Run the following code to create a dataframe (*df*) and a temporary table (*CountResults*) with a few columns that are useful for the predictive analysis:
 
     ```PySpark
     schema = StructType([
@@ -140,9 +130,9 @@ We can use `sqlContext` to perform transformations on structured data. The first
     df.registerTempTable('CountResults')
     ```
 
-4. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included four columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
+    The four columns of interest in the dataframe are **id**, **name**, **results**, and **violations**.
 
-    Let's get a small sample of the data:
+4. Run the following code to get a small sample of the data:
 
     ```PySpark
     df.show(5)
@@ -151,10 +141,6 @@ We can use `sqlContext` to perform transformations on structured data. The first
     You should see an output like the following:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     +------+--------------------+-------+--------------------+
     |    id|                name|results|          violations|
     +------+--------------------+-------+--------------------+
@@ -167,8 +153,8 @@ We can use `sqlContext` to perform transformations on structured data. The first
     ```
 
 ## Understand the data
-1. Let's start to get a sense of what our dataset contains. For example, what are the different values in the **results** column?
 
+1. Let's start to get a sense of what our dataset contains. For example, what are the different values in the **results** column?
 
     ```PySpark
     df.select('results').distinct().show()
@@ -320,7 +306,7 @@ We can use the model we created earlier to *predict* what the results of new ins
    There is a prediction for the first entry in the test data set.
 1. The `model.transform()` method applies the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. We can do some simple statistics to get a sense of how accurate our predictions were:
 
-    ```Spark
+    ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                             (prediction = 1 AND (results = 'Pass' OR
                                                                 results = 'Pass w/ Conditions'))""").count()
