@@ -18,7 +18,7 @@ Use Azure IoT Edge devices to store the data that is generated at the edge. Devi
 
 Suppose that you have a device that collects temperature telemetry but only sends the data to IoT Hub if it exceeds a threshold. You still want to preserve the temperature data that wasn't sent to IoT Hub, though. This article walks through a solution to that problem. 
 
-This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions structures the incoming data then sends it to the database. The steps in this article can also be applied databases that work in containers, like mysql. 
+This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like mysql. 
 
 ## Prerequisites 
 
@@ -60,13 +60,13 @@ In step 3, you add create options to the SQL Server container, which are importa
 
    ```json
    "modules": {
-          "storeToSQLFunction": {
+          "filterFunction": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/storetosqlfunction:latest",
+              "image": "localhost:5000/filterfunction:latest",
               "createOptions": "{}"
             }
           },
