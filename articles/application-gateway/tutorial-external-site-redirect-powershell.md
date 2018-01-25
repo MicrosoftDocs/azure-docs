@@ -100,7 +100,9 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### Create the listener and rule
 
-A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. You redirect traffic by creating a redirection configuration that can be added to the routing rule that you create.
+
+A routing rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) with the redirection configuration.
 
 ```azurepowershell-interactive
 $defaultListener = New-AzureRmApplicationGatewayHttpListener `
