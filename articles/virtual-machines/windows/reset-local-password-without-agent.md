@@ -17,7 +17,7 @@ ms.date: 01/25/2018
 ms.author: iainfou
 
 ---
-# How to reset local Windows password for Azure VM
+# Reset local Windows password for Azure VM offline
 You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
 
 > [!WARNING]
