@@ -64,8 +64,8 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 4)	Set the **Provisioning Mode** to **Automatic**.
 
-    ![Asana Provisioning](media/active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)
-![](active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)    
+    ![Asana Provisioning](./media/active-directory-saas-asana-provisioning-tutorial/asanaazureprovisioning.png)
+
 5) Under the Admin Credentials section, follow below instructions to generate the token and enter it in the **Secret Token** textbox.
    
     * Login to [Asana](https://app.asana.com) using admin account

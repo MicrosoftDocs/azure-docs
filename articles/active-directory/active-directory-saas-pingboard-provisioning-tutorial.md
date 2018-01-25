@@ -64,7 +64,7 @@ This section guides you through connecting your Azure Active Directory to Pingbo
 
 4)	Set the **Provisioning Mode** to **Automatic**.
 
-    ![Pingboard Provisioning](media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
+    ![Pingboard Provisioning](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
 5) Under the Admin Credentials section, perform the following steps:
    
