@@ -4,7 +4,7 @@ description: Using the Azure Cosmos DB Emulator, you can develop and test your a
 services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2018
-ms.author: arramac
+ms.author: danoble
 
 ---
 # Use the Azure Cosmos DB Emulator for local development and testing
