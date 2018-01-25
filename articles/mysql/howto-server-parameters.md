@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/25/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -39,7 +39,7 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
-These additional server parameters are nonconfigurable in the system:
+These additional server parameters are not configurable in the system:
 
 |**Parameter**|**Fixed value**|
 | :------------------------ | :-------- |
