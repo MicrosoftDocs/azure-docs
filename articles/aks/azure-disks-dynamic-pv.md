@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
 ---
 
@@ -48,13 +48,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## Create persistent volume claim
 
 A persistent volume claim uses a storage class object to dynamically provision a piece of storage. When using an Azure disk, the disk is created in the same resource group as the AKS resources.
 
 This example manifest creates a persistent volume claim using the `azure-managed-disk` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
+
+> [!NOTE]
+> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
@@ -107,4 +108,5 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md
