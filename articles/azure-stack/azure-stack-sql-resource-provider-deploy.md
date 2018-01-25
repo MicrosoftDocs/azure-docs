@@ -48,10 +48,6 @@ You must create one (or more) intances of SQL Server and/or provide access to ex
 
     - On multi-node systems, the host must be a system that can access the privileged endpoint.
     
-    - On Azure Stack Development Kit installations, sign in to the physical host.
-
-    - On multi-node systems, the host must be a system that can access the privileged endpoint. 
-    
     >[!NOTE]
     > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack SDK host meets this criterion.
 
