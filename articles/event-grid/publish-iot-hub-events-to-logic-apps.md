@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.service: iot-hub
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
@@ -19,14 +19,7 @@ ms.author: kgremban
 
 Azure Event Grid enables you to react to events in IoT Hub by triggering actions in your downstream business applications.
 
-This tutorial walks through a sample configuration that uses IoT Hub and Event grid. By the end, you will have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
-
-In this tutorial, you learn how to:    
-
-> [!div class="checklist"]
-> * Create a logic app that sends email notifications when triggered.
-> * Publish events from IoT Hub to trigger the logic app. 
-> * Use filters in Event Grid to publish events only from specific devices. 
+This article walks through a sample configuration that uses IoT Hub and Event grid. By the end, you will have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
 
 ## Prerequisites
 
@@ -221,6 +214,12 @@ Each subscription can have one free IoT hub. If you created a free hub for this 
 
 1. Navigate to your IoT hub. 
 2. On the **Overview** blade select **Delete**. 
+
+Even if you keep your IoT hub, you may want to delete the event subscription that you created. 
+
+1. In your IoT hub, select **Event Grid**.
+2. Select the event subscription that you want to remove. 
+3. Select **Delete**. 
 
 ## Next steps
 
