@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
 
 ---
@@ -38,7 +38,6 @@ The following sections provide the procedure for creating a custom field.  At th
 
 > [!NOTE]
 > The custom field is populated as records matching the specified criteria are added to Log Analytics, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
-> 
 > 
 
 ### Step 1 – Identify records that will have the custom field
@@ -69,7 +68,7 @@ Once you have performed the initial extract, Log Analytics will display its resu
 7. Use the custom field like any other record property.  You can use it to aggregate and group data and even use it to produce new insights.
 
 ## Viewing custom fields
-You can view a list of all custom fields in your management group from **Advanced Settings** for you Log Analytics workspace in the Azure portal.  Select **Data** and then **Custom fields** for a list of all custom fields in your workspace.  
+You can view a list of all custom fields in your management group from the **Advanced Settings** menu of your Log Analytics workspace in the Azure portal.  Select **Data** and then **Custom fields** for a list of all custom fields in your workspace.  
 
 ![Custom fields](media/log-analytics-custom-fields/list.png)
 
