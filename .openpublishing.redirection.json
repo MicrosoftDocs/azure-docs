@@ -16116,6 +16116,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/marketplace/seller-guide/cloud-partner-portal-seller-guide.md",
+            "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+            "redirect_document_id": false
+        },
+                {
             "source_path": "articles/app-service/app-service-deploy-spring-boot-web-app-on-azure.md",
             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-web-app-on-azure",
             "redirect_document_id": false
