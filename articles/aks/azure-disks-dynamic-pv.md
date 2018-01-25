@@ -55,7 +55,7 @@ A persistent volume claim uses a storage class object to dynamically provision a
 This example manifest creates a persistent volume claim using the `azure-managed-disk` storage class, to create a disk `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
 > [!NOTE]
-> An Azure disk can only be mounted with Access mode type ReadWriteOnce which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
+> An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
