@@ -21,14 +21,14 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-azure-table-connector.md)
 > * [Version 2 - Preview](connector-azure-table-storage.md)
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Table storage connector in version 1](v1/data-factory-azure-table-connector.md).
 
 ## Supported capabilities
 
-You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Azure Table connector supports copying data by using account key and service shared access signature authentications.
 
@@ -165,11 +165,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Table as a source type
 
-To copy data from Azure Table, set the source type in the Copy activity to **AzureTableSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Azure Table, set the source type in the copy activity to **AzureTableSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **AzureTableSource**. |Yes |
+| type | The type property of the copy activity source must be set to **AzureTableSource**. |Yes |
 | azureTableSourceQuery |Use the custom Table storage query to read data. See examples in the following section. |No |
 | azureTableSourceIgnoreTableNotFound |Indicates whether to allow the exception of the table to not exist.<br/>Allowed values are **True** and **False** (default). |No |
 
@@ -191,11 +191,11 @@ If you use the pipeline parameter, cast the datetime value to proper format acco
 
 ### Azure Table as a sink type
 
-To copy data to Azure Table, set the sink type in the Copy activity to **AzureTableSink**. The following properties are supported in the Copy activity **sink** section.
+To copy data to Azure Table, set the sink type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity sink must be set to **AzureTableSink**. |Yes |
+| type | The type property of the copy activity sink must be set to **AzureTableSink**. |Yes |
 | azureTableDefaultPartitionKeyValue |The default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify the name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify the name of the column whose column values are used as the row key. If not specified, use a GUID for each row. |No |
@@ -260,7 +260,7 @@ In the following example, source column DivisionID is mapped to the destination 
 
 ## Data type mapping for Azure Table
 
-When you copy data from and to Azure Table, the following mappings are used from Azure Table data types to Data Factory interim data types. To learn about how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from and to Azure Table, the following mappings are used from Azure Table data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 When you move data to and from Azure Table, the following [mappings defined by Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
 
@@ -276,4 +276,4 @@ When you move data to and from Azure Table, the following [mappings defined by A
 | Edm.String |String |A UTF-16-encoded value. String values can be up to 64 KB. |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

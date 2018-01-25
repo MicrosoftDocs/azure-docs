@@ -17,7 +17,7 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-azure-blob-connector.md)
 > * [Version 2 - Preview](connector-azure-blob-storage.md)
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Blob storage connector in version 1](v1/data-factory-azure-blob-connector.md).
@@ -25,9 +25,9 @@ This article outlines how to use the Copy activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
-You can copy data from any supported source data store to Blob storage. You also can copy data from Blob storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md) table.
+You can copy data from any supported source data store to Blob storage. You also can copy data from Blob storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
-Specifically, this Azure Blob connector supports:
+Specifically, this Blob storage connector supports:
 
 - Copying blobs to and from general purpose Azure Storage accounts and hot/cool blob storage. 
 - Copying blobs by using both account key and service shared access signature authentications.
@@ -120,19 +120,19 @@ When you create a shared access signature URI, consider the following points:
 
 - Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used in your data factory.
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
-- The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to an Azure Blob container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
+- The URI should be created at the right container/blob or table level based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to an Blob storage container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Azure Blob dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Blob storage dataset.
 
-To copy data to and from Azure Blob, set the type property of the dataset to **AzureBlob**. The following properties are supported.
+To copy data to and from Blob storage, set the type property of the dataset to **AzureBlob**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to **AzureBlob**. |Yes |
 | folderPath | The path to the container and folder in the blob storage. An example is myblobcontainer/myblobfolder/. |Yes |
-| fileName | Specify the name of the blob in **folderPath** if you want to copy to and from a specific blob. If you don't specify a value for this property, the dataset points to all blobs in the folder.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the Copy activity automatically generates the blob name with the following format: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. An example is `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |No |
+| fileName | Specify the name of the blob in **folderPath** if you want to copy to and from a specific blob. If you don't specify a value for this property, the dataset points to all blobs in the folder.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following format: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. An example is `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
@@ -166,15 +166,15 @@ To copy data to and from Azure Blob, set the type property of the dataset to **A
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure Blob source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Blob storage source and sink.
 
-### Azure Blob as a source type
+### Blob storage as a source type
 
-To copy data from Azure Blob, set the source type in the Copy activity to **BlobSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Blob storage, set the source type in the copy activity to **BlobSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **BlobSource**. |Yes |
+| type | The type property of the copy activity source must be set to **BlobSource**. |Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are **true** (default) and **false**. | No |
 
 **Example:**
@@ -209,13 +209,13 @@ To copy data from Azure Blob, set the source type in the Copy activity to **Blob
 ]
 ```
 
-### Azure Blob as a sink type
+### Blob storage as a sink type
 
-To copy data to Azure Blob, set the sink type in the Copy activity to **BlobSink**. The following properties are supported in the **sink** section.
+To copy data to Blob storage, set the sink type in the copy activity to **BlobSink**. The following properties are supported in the **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity sink must be set to **BlobSink**. |Yes |
+| type | The type property of the copy activity sink must be set to **BlobSink**. |Yes |
 | copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No |
 
 **Example:**
@@ -264,4 +264,4 @@ This section describes the resulting behavior of the Copy operation for differen
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
 title: Copy data from and to Dynamics CRM or Dynamics 365 by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a Copy activity in a data factory pipeline.
+description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,14 +18,14 @@ ms.author: jingwang
 ---
 # Copy data from and to Dynamics 365 or Dynamics CRM by using Azure Data Factory
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy activity in version 1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
-You can copy data from Dynamics 365 or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 or Dynamics CRM. For a list of data stores supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Dynamics 365 or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 or Dynamics CRM. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 This Dynamics connector supports the following Dynamics versions and authentication types. (IFD is short for internet-facing deployment.)
 
@@ -43,7 +43,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Marketing
 
 > [!NOTE]
-> To use the Dynamics connector, store your password in Azure Key Vault and let the Copy activity pull from there when you perform data copy. For more information on configuration, see the [Linked service properties](#linked-service-properties) section.
+> To use the Dynamics connector, store your password in Azure Key Vault and let the copy activity pull from there when you perform data copy. For more information on configuration, see the [Linked service properties](#linked-service-properties) section.
 
 ## Get started
 
@@ -208,11 +208,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Dynamics as a source type
 
-To copy data from Dynamics, set the source type in the Copy activity to **DynamicsSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Dynamics, set the source type in the copy activity to **DynamicsSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **DynamicsSource**. | Yes |
+| type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
 | query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
 **Example:**
@@ -269,17 +269,17 @@ To copy data from Dynamics, set the source type in the Copy activity to **Dynami
 
 ### Dynamics as a sink type
 
-To copy data to Dynamics, set the sink type in the Copy activity to **DynamicsSink**. The following properties are supported in the Copy activity **sink** section.
+To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity sink must be set to **DynamicsSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **DynamicsSink**. | Yes |
 | writeBehavior | The write behavior of the operation.<br/>Allowed value is **"Upsert"**. | Yes |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No (default is 10) |
 | ignoreNullValues | Indicates whether to ignore null values from input data (except key fields) during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert/update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert/update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 
 >[!NOTE]
->The default value of the sink writeBatchSize and the Copy activity [parallelCopies](copy-activity-performance.md#parallel-copy) for the Dynamics sink are both 10. Therefore, 100 records are submitted to Dynamics concurrently.
+>The default value of the sink writeBatchSize and the copy activity [parallelCopies](copy-activity-performance.md#parallel-copy) for the Dynamics sink are both 10. Therefore, 100 records are submitted to Dynamics concurrently.
 
 **Example:**
 
@@ -317,7 +317,7 @@ To copy data to Dynamics, set the sink type in the Copy activity to **DynamicsSi
 
 ## Data type mapping for Dynamics
 
-When you copy data from Dynamics, the following mappings are used from Dynamics data types to Data Factory interim data types. To learn how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Dynamics, the following mappings are used from Dynamics data types to Data Factory interim data types. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 Configure the corresponding Data Factory data type in a dataset structure based on your source Dynamics data type by using the following mapping table.
 
@@ -347,4 +347,4 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 > The Dynamics data types AttributeType.CalendarRules and AttributeType.PartyList aren't supported.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
