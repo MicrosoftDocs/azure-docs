@@ -64,15 +64,15 @@ This section guides you through connecting your Azure Active Directory to Pingbo
 
 4)	Set the **Provisioning Mode** to **Automatic**.
 
-    ![Pingboard Provisioning](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
+![Pingboard Provisioning](./media/active-directory-saas-pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
 5) Under the Admin Credentials section, perform the following steps:
-   
-    * In the **Tenant URL** textbox, enter `https://your_domain.pingboard.com/scim/v2` and replace your_domain with your real domain
-    * Log in to [Pingboard](https://pingboard.com/) using admin account.
-    * Click on Add-Ons > Integrations > Azure Active Directory.
-    * Click on Configure tab and select **Enable user provisioning from Azure**.
-    * Copy the **OAuth Bearer Token** field and enter into **Secret Token** textbox.
+
+* In the **Tenant URL** textbox, enter `https://your_domain.pingboard.com/scim/v2` and replace your_domain with your real domain
+* Log in to [Pingboard](https://pingboard.com/) using admin account.
+* Click on Add-Ons > Integrations > Azure Active Directory.
+* Click on Configure tab and select **Enable user provisioning from Azure**.
+* Copy the **OAuth Bearer Token** field and enter into **Secret Token** textbox.
 
 6) In the Azure portal, click **Test Connection** to ensure Azure Active Directory can connect to your Pingboard app. If the connection fails, ensure your Pingboard account has Admin permissions and try the **"Test Connection"** step again.
 
