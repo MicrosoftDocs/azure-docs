@@ -23,7 +23,7 @@ These steps show how to enroll a group of X.509 simulated devices programmatical
 Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 > [!NOTE]
-> This QuickStart only supports **Enrollment Groups**. **Individual Enrollments** via the _Python Provisioning Service SDK_ is a work in progress.
+> This quickstart only supports **Enrollment Group**. **Individual Enrollment** via the _Python Provisioning Service SDK_ is a work in progress.
 > 
 
 <a id="prepareenvironment"></a>
@@ -32,7 +32,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. 
 
-1. Choose one of the following:
+1. Choose one of the following options:
 
     - Build and compile the **Azure IoT Python SDK**. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages. If you are using Windows OS, then also install [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
 
@@ -51,7 +51,7 @@ This section shows how to add the provisioning details of your X.509 device to t
 
 1. Using a text editor, create a new **EnrollmentGroup.py** file.
 
-1. Add the following `import` statements and variables at the start of the **EnrollmentGroup.py** file. Then replace `dpsConnectionString` with your connection string found under **Shared access policies** in your **Device Provisiong Service** on the **Azure Portal**. Replace the certificate placeholder with the certificate created previously in [Prepare the environment](quick-enroll-device-x509-python.md#prepareenvironment). Finally, create a unique `registrationid` and be sure that it only consists of lower-case alphanumerics and hyphens.  
+1. Add the following `import` statements and variables at the start of the **EnrollmentGroup.py** file. Then replace `dpsConnectionString` with your connection string found under **Shared access policies** in your **Device Provisioning Service** on the **Azure Portal**. Replace the certificate placeholder with the certificate created previously in [Prepare the environment](quick-enroll-device-x509-python.md#prepareenvironment). Finally, create a unique `registrationid` and be sure that it only consists of lower-case alphanumerics and hyphens.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
@@ -121,7 +121,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 1. Close the Java sample output window on your machine.
 1. Close the _X509 Cert Generator_ window on your machine.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 
 ## Next steps
