@@ -48,7 +48,7 @@ After you've added the solution and a check is completed, summary information fo
 
 To perform the health check against your domain controllers that are members of the domain to be evaluated, they require an agent and connectivity to Log Analytics using one of the following supported methods:
 
-1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the domain controller can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
 3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) after you enable the solution in your workspace.  
 
@@ -104,10 +104,8 @@ After it is installed, you can view the summary of recommendations by using the 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
-4. On the **Overview** page, click the **AD Health Check** tile. 
+3. Click the **Overview** tile for your Log Analytics workspace in the Azure portal.
+4. On the **Overview** page, click the **Active Directory Health Check** tile. 
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.

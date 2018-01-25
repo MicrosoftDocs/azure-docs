@@ -2,7 +2,7 @@
 title: 'Introduction to Azure Cosmos DB Graph APIs | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: ''
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
@@ -11,8 +11,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: denlee
+ms.date: 01/05/2017
+ms.author: lbosq
 
 ---
 # Introduction to Azure Cosmos DB: Graph API
@@ -95,12 +95,12 @@ Azure Cosmos DB offers the following differentiated capabilities when compared t
 
 * Tunable consistency levels
 
- Select from five well-defined consistency levels to achieve optimal tradeoff between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs among consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](consistency-levels.md).
+ Select from five well-defined consistency levels to achieve optimal tradeoff between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs among consistency, availability, and latency. Learn more in [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos DB also can use multiple models, like document and graph, within the same containers/databases. You can use a document collection to store graph data side by side with documents. You can use both SQL queries over JSON and Gremlin queries to query the same data as a graph.
 
 ## Get started
-You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal with support for graph API to create Azure Cosmos DB accounts. After you create accounts, the Azure portal provides a service endpoint, like `https://<youraccount>.graphs.azure.com`, that provides a WebSocket front end for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
+You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal with support for graph API to create Azure Cosmos DB accounts. After you create accounts, the Azure portal provides a service endpoint, like `https://<youraccount>.gremlin.cosmosdb.azure.com`, that provides a WebSocket front end for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
 
 The following table shows popular Gremlin drivers that you can use against Azure Cosmos DB:
 
@@ -110,7 +110,7 @@ The following table shows popular Gremlin drivers that you can use against Azure
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript on Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB also provides a .NET library that has Gremlin extension methods on top of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) via NuGet. This library provides an "in-process" Gremlin server that you can use to connect directly to DocumentDB data partitions.
+Azure Cosmos DB also provides a .NET library that has Gremlin extension methods on top of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) via NuGet. This library provides an "in-process" Gremlin server that you can use to connect directly to data partitions.
 
 | Download | Documentation |
 | --- | --- |

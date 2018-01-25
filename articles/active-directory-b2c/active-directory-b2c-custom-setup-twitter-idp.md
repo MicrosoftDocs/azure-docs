@@ -4,7 +4,7 @@ description: Use Twitter as an identity provider by using the OAuth1 protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

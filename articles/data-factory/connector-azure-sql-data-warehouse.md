@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: jingwang
 
 ---
@@ -37,7 +37,8 @@ Specifically, this Azure SQL Data Warehouse connector supports:
 - As sink, loading data using **PolyBase** or bulk insert. The former is **recommended** for better copy performance.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Data Warehouse connector.
 
@@ -266,7 +267,7 @@ SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Stor
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore**.
-2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStoreFile**, and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
+2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStoreFile**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
@@ -293,7 +294,6 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 
 3. There is no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for the Copy activity in the pipeline.
 4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).
-5. There is no `columnMapping` being used in the associated in Copy activity.
 
 ```json
 "activities":[
@@ -317,7 +317,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -353,12 +353,15 @@ To use this feature, create an [Azure Storage linked service](connector-azure-bl
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }

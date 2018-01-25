@@ -13,15 +13,14 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
-## Create an Application Gateway
-### [Azure portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-### [Azure CLI](application-gateway-create-gateway-cli.md)
+## [Azure portal](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
 ## Create application gateway with VMSS
 ### [Azure PowerShell](tutorial-create-vmss-powershell.md)
 ### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Use a template](application-gateway-create-gateway-arm-template.md)
 ## Configure web application firewall
 ### [Azure portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)

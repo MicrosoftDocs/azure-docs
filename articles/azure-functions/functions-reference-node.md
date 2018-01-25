@@ -3,7 +3,7 @@ title: JavaScript developer reference for Azure Functions | Microsoft Docs
 description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: glenga
+ms.author: tdykstra
 
 ---
 # Azure Functions JavaScript developer guide

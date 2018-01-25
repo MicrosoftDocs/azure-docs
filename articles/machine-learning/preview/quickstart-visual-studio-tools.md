@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ---
 
 # Visual Studio Tools for AI
-Visual Studio Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. Finally, it provides an explorer for compute targets, which enables you to submit jobs to train models on remote environments like Azure Virtual Machines or Linux servers with GPU. It also provides a facilitated access to [Azure Batch AI (Preview)](https://docs.microsoft.com/en-us/azure/batch-ai/).
+Visual Studio Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. Finally, it provides an explorer for compute targets, which enables you to submit jobs to train models on remote environments like Azure Virtual Machines or Linux servers with GPU. It also provides a facilitated access to [Azure Batch AI (Preview)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## Getting started 
 To get started, you first need to download and install [Visual Studio](https://www.visualstudio.com/downloads/). Once you have Visual Studio open, do the following steps:
@@ -24,7 +24,7 @@ To get started, you first need to download and install [Visual Studio](https://w
 3. Click on the **Download** button. 
 4. After installation, restart Visual Studio. 
 
-Once Visual Studio is reloaded, the extension is active. [Learn more about finding extensions](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Once Visual Studio is reloaded, the extension is active. [Learn more about finding extensions](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > Visual Studio Tools for AI needs Visual Studio 2015 or 2017, professional or enterprise edition. It does not support Apple OSX version. 

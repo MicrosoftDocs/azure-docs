@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
 
 ---
@@ -684,6 +684,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |RunAsPolicyEnabled| bool, default is FALSE|Static| Enables running code packages as local user other than the user under which fabric process is running. In order to enable this policy Fabric must be running as SYSTEM or as user who has SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the sync Register(Stateless/Stateful)ServiceFactory call |
 |ServiceTypeDisableGraceInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. Time interval after which the service type can be disabled |
+|EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 
 ### Section Name: Federation
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |

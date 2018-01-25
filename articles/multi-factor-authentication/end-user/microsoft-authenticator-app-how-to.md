@@ -4,7 +4,7 @@ description: Learn how to upgrade to the latest version of Azure Authenticator.
 services: multi-factor-authentication
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication

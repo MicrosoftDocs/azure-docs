@@ -4,7 +4,7 @@ description: Provides a list of frequently asked questions and answers related t
 services: multi-factor-authentication
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication

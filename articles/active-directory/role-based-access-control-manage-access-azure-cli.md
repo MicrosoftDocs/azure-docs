@@ -4,7 +4,7 @@ description: Learn how to manage Role-Based Access Control (RBAC) with the Azure
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory

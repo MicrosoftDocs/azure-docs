@@ -11,9 +11,10 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: mvc
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 

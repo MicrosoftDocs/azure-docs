@@ -27,6 +27,10 @@
   items:
   - name: Understanding cost reports
     href: understading-cost-reports.md
+- name: How-to guides
+  items:
+  - name: Use Cost Management reports
+    href: use-reports.md
 - name: Resources
   items:
   - name: Cost Management videos

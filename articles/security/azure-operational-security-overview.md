@@ -157,5 +157,5 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 To learn more about OMS Security and Audit solution, see the following articles:
 
 - [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Monitoring Resources in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

@@ -41,7 +41,6 @@
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configure a custom domain name](cloud-services-custom-domain-name-portal.md)
-### [Stage a cloud service deployment (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
@@ -50,6 +49,7 @@
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
 ### [Configure automatic scaling](cloud-services-how-to-scale-portal.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
+### [Mitigating speculative execution](mitigate-se.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ### Guest OS retirement

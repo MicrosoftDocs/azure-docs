@@ -1,6 +1,6 @@
 ---
 title: How to target Azure Functions runtime versions
-description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of an Azure hosted function app.
+description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -11,7 +11,7 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
 
 ---
@@ -41,9 +41,11 @@ For more information, see [Supported languages](supported-languages.md).
 
 ### Bindings 
 
-The experimental bindings that runtime 1.x supports are not available in 2.x. For information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Runtime 2.x lets you create custom [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Built-in bindings that use this extensibility model are only available in 2.x; among the first of these is the [Microsoft Graph bindings](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+For more information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### Cross-platform development
 

@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -39,7 +39,7 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 You can use the Contoso sample IoT deployment to understand the basic scenarios the remote monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the remote monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
 
 > [!NOTE]
-> If you used the CLI to deploy the preconfigured solution, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to accss the deployed sample.
+> If you used the CLI to deploy the preconfigured solution, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
 
 The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the remote monitoring solution](iot-suite-remote-monitoring-monitor.md).
 
@@ -97,11 +97,11 @@ As an operator, you see in the dashboard that there's an alarm related to the pr
 
 1. Close **Device detail**.
 
-1. To navigate to the **Maintenance** page, click **...** in the **Explore Alarm** column next to the alarm in the alarm grid.
+1. To navigate to the **Maintenance** page, choose **Maintenance** on the navigation menu.
 
 On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
 
-1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
+1. The list of notifications shows the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
     ![Maintenance page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -119,9 +119,9 @@ You have now identified the issue that triggered the alarm and the associated de
 
     ![Select the device and schedule an action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. To view the job status, return to the **Maintenance** page and view the list of jobs in the **System Status** view. You can see the job has run to release the valve pressure on the chiller:
+1. To view the job status, return to the **Maintenance** page and view the list of jobs in the **Jobs** view. You can see the job has run to release the valve pressure on the chiller:
 
-    ![The status of the jobs in System Status](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![The status of the jobs in the Jobs view](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Finally, confirm that the telemetry values from the chiller are back to normal.
 
@@ -155,7 +155,7 @@ To perform the necessary device management tasks, use the **Devices** page. Star
     ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > With the simulated devices you can use any URL you like as the **Firemware URI** value. The simulated devices do not access the URL.
+    > With the simulated devices you can use any URL you like as the **Firmware URI** value. The simulated devices do not access the URL.
 
 1. Note how many devices the job affects and choose **Apply**:
 
@@ -163,13 +163,13 @@ To perform the necessary device management tasks, use the **Devices** page. Star
 
 You can use the **Maintenance** page to track the job as it runs.
 
-1. To view the list of jobs, navigate to the **Maintenance** page and click **System status**.
+1. To view the list of jobs, navigate to the **Maintenance** page and click **Jobs**.
 
 1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly.
 
-You can create a filter to verify the firmware version update correctly.
+You can create a filter to verify the firmware version updated correctly.
 
-1. To create a filter, navigate to the **Devices** page and select **Manage**:
+1. To create a filter, navigate to the **Devices** page and select **Manage filters**:
 
     ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -198,7 +198,7 @@ You can create tag names to use with devices.
 
     ![Select prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Choose **Tag** and then create a new string tag called **FieldService** with a value **ConnectedVehicle**. Choose a name for the job. Then click **Apply**:
+1. Choose **Tag** and then create a new text tag called **FieldService** with a value **ConnectedVehicle**. Choose a name for the job. Then click **Apply**:
 
     ![Add tag to prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -206,7 +206,7 @@ You can create tag names to use with devices.
 
     ![Select chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Choose **Tag** and then create a new tag called **FieldService** with a value **SmartBuilding**. Choose a name for the job. Then click **Save**:
+1. Choose **Tag** and then create a new text tag called **FieldService** with a value **SmartBuilding**. Choose a name for the job. Then click **Save**:
 
     ![Add tag to chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

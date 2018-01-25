@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
 ---
 
@@ -17,9 +17,18 @@ Azure Event Grid allows you to easily build applications with event-based archit
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered. Event Grid also has built in support for custom and third-party events.
 
-For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Other regions will be added.
+Currently, Event Grid supports the following regions:
 
-This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+* Central US
+*	East US
+*	East US 2
+*	West Central US
+*	West US
+*	West US 2
+
+Other regions will be added.
+
+This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
 
@@ -27,11 +36,11 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 Currently, the following Azure services have built-in publisher support for event grid:
 
-* Resource Groups (management operations)
 * Azure Subscriptions (management operations)
-* Event Hubs
-* Storage Blob
 * Custom Topics
+* Event Hubs
+* Resource Groups (management operations)
+* Storage Blob
 
 Other Azure services will be added this year.
 
@@ -39,11 +48,12 @@ Other Azure services will be added this year.
 
 Currently, the following Azure services have built-in handler support for Event Grid: 
 
-* Azure Functions
-* Logic Apps
 * Azure Automation
-* WebHooks
+* Azure Functions
+* Event Hubs
+* Logic Apps
 * Microsoft Flow
+* WebHooks
 
 Other Azure services will be added this year.
 

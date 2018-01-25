@@ -292,7 +292,7 @@ This is a setting that applies to the whole storage account. You can enable and 
 
 At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, you will get the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
 
-This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
+This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model. SSE applies to any kind of data: block blobs, page blobs, append blobs, tables, queues, and files.
 
 Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
 
@@ -377,7 +377,7 @@ Client-side encryption is more load on the client, and you have to account for t
 #### Storage Service Encryption (SSE)
 SSE is managed by Azure Storage. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
 
-You can only encrypt block blobs, append blobs, and page blobs using SSE. If you need to encrypt table data or queue data, you should consider using client-side encryption.
+You can encrypt any kind of data of the storage account using SSE (block blobs, append blobs, page blobs, table data, queue data and files).
 
 If you have an archive or library of VHD files that you use as a basis for creating new virtual machines, you can create a new storage account, enable SSE, and then upload the VHD files to that account. Those VHD files will be encrypted by Azure Storage.
 

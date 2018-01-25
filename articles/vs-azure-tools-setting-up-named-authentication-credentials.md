@@ -39,6 +39,6 @@ If you want to create a certificate yourself, you can refer to the instructions 
 ## Next steps
 
 - [General overview of Web Apps](https://docs.microsoft.com/azure/app-service/)
-- [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Deploy your app to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Deploy WebJobs using Visual Studio](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [Create and deploy a cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

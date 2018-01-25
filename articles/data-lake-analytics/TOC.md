@@ -31,6 +31,8 @@
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
 ### [U-SQL custom code for Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [U-SQL for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
@@ -59,3 +61,4 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

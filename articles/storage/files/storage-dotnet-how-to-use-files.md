@@ -17,11 +17,11 @@ ms.date: 11/22/2017
 ms.author: renash
 ---
 
-# Develop for Azure Files with .NET and WindowsAzure.Storage
+# Develop for Azure Files with .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-This tutorial demonstrates the basics of using .NET and the `WindowsAzure.Storage` API to develop applications that use [Azure Files](storage-files-introduction.md) to store file data. This tutorial creates a simple console application to perform basic actions with .NET and Azure Files:
+This tutorial demonstrates the basics of using .NET to develop applications that use [Azure Files](storage-files-introduction.md) to store file data. This tutorial creates a simple console application to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
 * Set the quota (maximum size) for the file share.
@@ -42,9 +42,6 @@ API | When to use | Notes
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files via SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | Coding file I/O with Azure Files over SMB is generally the same as coding I/O with any network file share or local storage device. See [this tutorial](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) for an introduction to a number of features in .NET, including file I/O.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Your application: <ul><li>Can't access Azure Files via SMB on port 445 due to firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the usage of `WindowsAzure.Storage` for file I/O using REST (instead of SMB) and management of the file share.
-
-> [!TIP]
-> Depending on the requirements of the application, Azure Blobs may be a more appropriate choice for storage. For more information on choosing Azure Files or Azure Blobs, see [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## Create the console application and obtain the assembly
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.

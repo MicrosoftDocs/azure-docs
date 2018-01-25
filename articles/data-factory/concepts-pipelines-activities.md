@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2017
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
@@ -199,7 +199,7 @@ typeProperties | Properties in the typeProperties section depend on each type of
 dependsOn | This property is used to define Activity Dependency, and how subsequent activities depend on previous activities. For more information, see [activity dependency](#activity-dependency). | No
 
 ### Activity dependency
-Activity Dependency defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can defend on one or multiple previous activities with different dependency conditions. 
+Activity Dependency defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can depend on one or multiple previous activities with different dependency conditions. 
 
 The different dependency conditions are: Succeeded, Failed, Skipped, Completed.
 

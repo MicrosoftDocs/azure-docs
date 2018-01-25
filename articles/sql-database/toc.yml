@@ -25,12 +25,14 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
-    - name: PHP
-      href: sql-database-connect-query-php.md
-    - name: Node.js
-      href: sql-database-connect-query-nodejs.md
+    - name: Go
+      href: sql-database-connect-query-go.md
     - name: Java
       href: sql-database-connect-query-java.md
+    - name: Node.js
+      href: sql-database-connect-query-nodejs.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
     - name: Python
       href: sql-database-connect-query-python.md
     - name: Ruby
@@ -57,9 +59,9 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service features
+  - name: Service features    
     items:
-    - name: Overview
+    - name: Servers and databases
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
@@ -103,7 +105,7 @@
       href: sql-vulnerability-assessment.md
     - name: SQL Server common features
       href: sql-database-features.md
-  - name: Security
+  - name: Security    
     items:
     - name: Overview
       href: sql-database-security-overview.md
@@ -119,6 +121,8 @@
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
+  - name: High availability
+    href: sql-database-high-availability.md  
   - name: Business continuity
     items:
     - name: Overview
@@ -139,7 +143,7 @@
       href: sql-database-disaster-recovery-drills.md
   - name: Migrate to SQL Database
     items:
-    - name: Migrate SQL Server DB
+    - name: Overview
       href: sql-database-cloud-migrate.md
     - name: T-SQL changes
       href: sql-database-transact-sql-information.md
@@ -201,10 +205,14 @@
     items:
     - name: SaaS design patterns
       href: saas-tenancy-app-design-patterns.md
+    - name: SaaS video indexer
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
     - name: SaaS app security
       href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
     items:
+    - name: Overview
+      href: sql-database-develop-overview.md
     - name: JSON data
       href: sql-database-json-features.md
     - name: In-memory
@@ -217,8 +225,6 @@
       href: sql-database-in-memory-oltp-migration.md
   - name: Develop apps
     items:
-    - name: Overview
-      href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
     - name: Authenticate app 
@@ -280,7 +286,7 @@
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
-      href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+      href: ../data-factory/connector-azure-sql-database.md
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & tune
@@ -350,8 +356,6 @@
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
-      - name: App guidance
-        href: saas-dbpertenant-wingtip-app-guidance-tips.md
       - name: Deploy example app
         href: saas-dbpertenant-get-started-deploy.md
       - name: Provision tenants

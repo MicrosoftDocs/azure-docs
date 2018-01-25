@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
 ---
 
@@ -297,7 +297,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
  
    ```azurecli
    REM creates an myvm compute target
-   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
+   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
    ```
    
    >[!NOTE]
@@ -323,7 +323,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
 3. Issue the same command as you did before in the CLI window, except this time target _myvm_:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    The command executes as if you're in a `docker-python` environment, except that the execution happens on the remote Linux VM. The CLI window displays the same output information.
 
@@ -342,13 +342,14 @@ To execute your script in a Docker container on a remote Linux machine, you need
 ## Execute script in an HDInsight cluster
 You can also run this script in an HDInsight Spark cluster. Learn [how to create HDInsight Spark Cluster to use in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->![NOTE] The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
+>[!NOTE] 
+>The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
 
 1. If you have access to Spark for Azure HDInsight cluster, generate an HDInsight run configuration command as shown here. Provide the HDInsight cluster name and your HDInsight username and password as the parameters. Use the following command:
 
    ```azurecli
    REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach --name myhdi --address <cluster head node FQDN> --username <username> --password <password> --type cluster
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
 
    REM prepares the HDInsight cluster
    az ml experiment prepare -c myhdi

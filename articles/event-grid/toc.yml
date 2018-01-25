@@ -22,6 +22,8 @@
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
     href: resize-images-on-storage-blob-upload-event.md
+  - name: Trigger Automation runbook
+    href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -34,6 +36,10 @@
   items:
   - name: Stream data from Event Hubs to data warehouse
     href: event-grid-event-hubs-integration.md
+  - name: Templates for event subscriptions
+    href: event-subscription-template.md
+  - name: Monitor event delivery
+    href: monitor-event-delivery.md
 - name: Reference
   items:
   - name: Azure CLI

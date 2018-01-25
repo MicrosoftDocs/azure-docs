@@ -20,6 +20,8 @@ The MAG data is mined from the Bing web index as well as an in-house knowledge b
 
 For more information on the Microsoft Academic Graph, see [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
 
+For help with setting up your free Azure account and adding the Academic Knowledge API to your dashboard, see this [step-by-step tutorial](https://www.microsoft.com/en-us/research/project/academic/articles/sign-academic-knowledge-api/). 
+
 ## Features
 The Academic Knowledge API consists of four related REST endpoints:  
   1. **interpret** – Interprets a natural language user query string. Returns annotated interpretations to enable rich search-box auto-completion experiences that anticipate what the user is typing.  

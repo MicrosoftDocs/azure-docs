@@ -3,8 +3,8 @@ title: Replace a hardware component on an Azure Stack scale unit node | Microsof
 description: Learn how to replace a hardware component on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the general process to replace hardware components that are non hot-swappable. Actual replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your Azure Stack integrated system.
+This article describes the general process to replace hardware components that are non hot-swappable. Actual replacement steps vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor’s field replaceable unit (FRU) documentation for detailed steps that are specific to your Azure Stack integrated system.
 
 Non hot-swappable components include the following:
 
@@ -38,7 +38,7 @@ Non hot-swappable components include the following:
 
 The following flow diagram shows the general FRU process to replace a non hot-swappable hardware component.
 
-![Flow diagram showing component replacement flow](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 *This action may not be required based on the physical condition of the hardware.
 
@@ -46,13 +46,17 @@ The following flow diagram shows the general FRU process to replace a non hot-sw
 
 ## Review alert information
 
-The Azure Stack health and monitoring system monitors the health of network adapters and data drives that are controlled by Storage Spaces Direct. It does not monitor other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.
+The Azure Stack health and monitoring system track the health of network adapters and data drives controlled by Storage Spaces Direct. It does not track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.
 
 ## Component replacement process
 
-The following steps are provided as a high-level overview of the component replacement process. Do not follow these steps without referring to your OEM-provided FRU documentation.
+The following steps provide a high-level overview of the component replacement process. Do not follow these steps without referring to your OEM-provided FRU documentation.
 
 1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]
+   > In any case, only one node can be drained and powered off at the same time without breaking the S2D (Storage Spaces Direct).
+
 2. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
  
    > [!NOTE]
@@ -67,4 +71,5 @@ The following steps are provided as a high-level overview of the component repla
 ## Next steps
 
 - For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md).
-- For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md). 
+- For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md).
+- 

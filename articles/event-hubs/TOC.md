@@ -22,6 +22,8 @@
 
 # How to
 ## Plan and design
+### [Managed Service Identity (preview)](event-hubs-managed-service-identity.md)
+### [Role-Based Access Control (preview)](event-hubs-role-based-access-control.md)
 ### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)

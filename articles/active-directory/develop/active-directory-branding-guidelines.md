@@ -4,7 +4,7 @@ description: A comprehensive guide to developer-oriented resources for Azure Act
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
