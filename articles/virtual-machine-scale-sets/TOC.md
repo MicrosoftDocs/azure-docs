@@ -1,7 +1,7 @@
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
-# Get Started
+# Quickstarts
 ## [Create in the Azure portal](virtual-machine-scale-sets-create-portal.md)
 ## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
 ## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
