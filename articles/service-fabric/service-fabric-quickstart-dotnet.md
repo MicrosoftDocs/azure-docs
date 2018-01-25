@@ -141,6 +141,8 @@ Thumbprint                                Subject
 3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
 ```
 
+Remember the thumbprint for a following step.
+
 > [!Note]
 > By default, the web front-end service is configured to listen on port 8080 for incoming traffic. Port 8080 is open in the Party Cluster.  If you need to change the application port, change it to one of the ports that are open in the Party Cluster.
 >
@@ -151,13 +153,15 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
 
-2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information, then click **Publish**.
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. 
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
 
-3. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
+3. Click **Publish**.
+
+4. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
 
 ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
