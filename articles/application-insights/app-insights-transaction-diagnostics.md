@@ -30,9 +30,10 @@ Components are independently deployable parts of your distributed/microservices 
 * Components can be separate Application Insights instrumentation keys (even if subscriptions are different) or different roles reporting to a single Application Insights instrumentation key. The new experience shows details across all components, regardless of how they have been set up.
 
 > [!Tip]
-> For the best results, ensure all components are instrumented with the latest Application Insights stable SDKs. If there are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
+> * Missing the related item links? They are in 1-place now: All of the telemetry related to server side request, dependency and exception - for the transaction across all components are in the [top](#cross-component-transaction-chart) and [bottom](#details-of-the-selected-component-operation) sections of the left side. 
+> * For the best results, ensure all components are instrumented with the latest Application Insights stable SDKs. If there are different Application Insights resources, ensure you have appropriate rights to view their telemetry.
 
-## Enable and access
+## Enable Transaction Diagnostics Experience
 Enable "Unified details: E2E Transaction Diagnostics" from the [previews list](app-insights-previews.md)
 
 ![Enable preview](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -41,12 +42,12 @@ This preview is currently available for server-side requests, dependencies, and 
 
 ![Performance samples](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## Transaction diagnostics experience 
+### Transaction diagnostics experience 
 This view has three key parts: a cross-component transaction chart, a time-sequence list of all telemetry from a specific component operation, and the details pane for any selected telemetry item on the left.
 
 ![Key parts](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### [1] Cross-component transaction chart
+## Cross-component transaction chart
 
 This chart provides a timeline with horizontal bars for the duration of requests and dependencies across components. Any exceptions that are collected are also marked on the timeline.
 
@@ -54,20 +55,20 @@ This chart provides a timeline with horizontal bars for the duration of requests
 * Any calls to external dependencies are simple non-collapsible rows, with icons representing the dependency type.
 * Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
 * By default, the request, dependency, or exception that you initially selected is displayed on the chart.
-* Select any row to see its details on the right. Click on "Open profiler traces" or "Open debug snapshot" for code level diagnostics in corresponding detail panes.
+* Select any row to see its [details on the right](#details-pane). 
 
 > [!NOTE]
 Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars will help differentiate between them.
 
-### [2] Time-sequenced telemetry of the selected component operation
+## Details of the selected component-operation
 
 Any row selected in the cross-component transaction chart is related to an operation invoked at a particular component. This selected component operation is reflected in the title of the bottom section. Open this section to see a flat time sequence of all the telemetry related to that particular operation. You can select any telemetry item in this list to see corresponding details on the right.
 
 ![Time sequence of all telemetry](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### [3] Details pane
+## Details pane
 
-This pane shows the detail of selected items from either of the two sections on the left. "Show all" lists all of the standard attributes that are collected. Any custom attributes are separately listed below the standard set.
+This pane shows the detail of selected items from either of the two sections on the left. "Show all" lists all of the standard attributes that are collected. Any custom attributes are separately listed below the standard set. Click on "Open profiler traces" or "Open debug snapshot" for code level diagnostics in corresponding detail panes.
 
 ![Exception detail](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
