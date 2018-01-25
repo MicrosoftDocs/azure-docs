@@ -41,12 +41,12 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 
 These additional server parameters are nonconfigurable in the system:
 
-| **Parameter** | **Fixed value** |
-| innodb_file_per_table in Basic tier | OFF |
-| innodb_flush_log_at_trx_commit | 1 |
-| sync_binlog | 1 |
-| innodb_log_file_size | 512MB |
- 
+|**Parameter**|**Fixed value**|
+|innodb_file_per_table in Basic tier|OFF|
+|innodb_flush_log_at_trx_commit|1|
+|sync_binlog|1|
+|innodb_log_file_size|512MB|
+
 Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## Next steps
