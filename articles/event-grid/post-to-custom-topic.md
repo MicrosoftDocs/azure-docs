@@ -84,7 +84,7 @@ For example, a valid event data schema is:
     "make": "Ducati",
     "model": "Monster"
   },
-  "dataVersion": "mydataversion"
+  "dataVersion": "1.0"
 }]
 ```
 
