@@ -54,3 +54,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
+## Azure Cosmos DB as a data source connection
+For an example of Azure Cosmos DB as a data connection, read [Load Azure Cosmos DB as a source data connection](data-prep-load-azure-cosmos-db-into-data-prep.md)
