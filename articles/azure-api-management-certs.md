@@ -1,6 +1,6 @@
 ---
-title: Upload an Azure Management API Certificate | Microsoft Docs
-description: Learn how to upload the Management API certificate for the Azure portal.
+title: Upload an Azure Service Management Certificate | Microsoft Docs
+description: Learn how to upload the Service Management certificate for the Azure portal.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
