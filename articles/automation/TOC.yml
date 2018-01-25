@@ -52,7 +52,7 @@
         - name: Create a graphical runbook
           href: automation-first-runbook-graphical.md
         - name: Create a PowerShell runbook
-          href: automation-first-textual-powershell.md
+          href: automation-first-runbbok-textual-powershell.md
         - name: Create a PowerShell workflow runbook
           href: automation-first-runbook-textual.md
         - name: Create a Python runbook
