@@ -13,7 +13,7 @@ After you run the script, take note of the service principal's **ID** and **pass
 ACR_NAME=myregistryname
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
-# Populate some values required for subsequent command args
+# Obtain the full registry ID for subsequent command args
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create the service principal with rights scoped to the registry.
