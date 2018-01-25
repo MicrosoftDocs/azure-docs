@@ -1,6 +1,6 @@
 ---
 title: Copy data from and to Salesforce by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a Copy activity in a data factory pipeline.
+description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -21,7 +21,7 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-salesforce-connector.md)
 > * [Version 2 - Preview](connector-salesforce.md)
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Salesforce connector in version 1](v1/data-factory-salesforce-connector.md).
@@ -63,8 +63,8 @@ The following properties are supported for the Salesforce linked service.
 | type |The type property must be set to **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the Copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. For instructions on how to reset and get a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the security token in Key Vault and let the Copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account.<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Specify a security token for the user account. For instructions on how to reset and get a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can mark this field as SecureString to store it securely in Data Factory. You also can store the security token in Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if the source linked service doesn't have integration runtime |
 
 >[!IMPORTANT]
@@ -178,11 +178,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Salesforce as a source type
 
-To copy data from Salesforce, set the source type in the Copy activity to **SalesforceSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Salesforce, set the source type in the copy activity to **SalesforceSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **SalesforceSource**. | Yes |
+| type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
 | query |Use the custom query to read data. You can use a SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. An example is `select * from MyTable__c`. | No (if "tableName" in the dataset is specified) |
 
 > [!IMPORTANT]
@@ -227,17 +227,17 @@ To copy data from Salesforce, set the source type in the Copy activity to **Sale
 
 ### Salesforce as a sink type
 
-To copy data to Salesforce, set the sink type in the Copy activity to **SalesforceSink**. The following properties are supported in the Copy activity **sink** section.
+To copy data to Salesforce, set the sink type in the copy activity to **SalesforceSink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity sink must be set to **SalesforceSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **SalesforceSink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External Id Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 
-**Example: Salesforce sink in a Copy activity**
+**Example: Salesforce sink in a copy activity**
 
 ```json
 "activities":[
@@ -294,7 +294,7 @@ When you specify the SOQL or SQL query, pay attention to the DateTime format dif
 
 ## Data type mapping for Salesforce
 
-When you copy data from Salesforce, the following mappings are used from Salesforce data types to Data Factory interim data types. To learn about how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Salesforce, the following mappings are used from Salesforce data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | Salesforce data type | Data Factory interim data type |
 |:--- |:--- |
@@ -319,4 +319,4 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | URL |String |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

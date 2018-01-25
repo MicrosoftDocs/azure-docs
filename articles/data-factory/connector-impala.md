@@ -1,6 +1,6 @@
 ---
 title: Copy data from Impala by using Azure Data Factory (beta) | Microsoft Docs
-description: Learn how to copy data from Impala to supported sink data stores by using a Copy activity in a data factory pipeline.
+description: Learn how to copy data from Impala to supported sink data stores by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,17 +18,17 @@ ms.author: jingwang
 ---
 # Copy data from Impala by using Azure Data Factory (beta)
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from Impala. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of  Data Factory, which is generally available, see [Copy activity in version 1](v1/data-factory-data-movement-activities.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy activity in version 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > This connector is currently in beta. You can try it out and provide feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
-You can copy data from Impala to any supported sink data store. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Impala to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
  Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
 
@@ -49,7 +49,7 @@ The following properties are supported for Impala linked service.
 | port | The TCP port that the Impala server uses to listen for client connections. The default value is 21050.  | No |
 | authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous**, **SASLUsername**, and **UsernameAndPassword**. | Yes |
 | username | The user name used to access the Impala server. The default value is anonymous when you use SASLUsername.  | No |
-| password | The password that corresponds to the user name when you use UsernameAndPassword. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the Copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password that corresponds to the user name when you use UsernameAndPassword. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted by using SSL. The default value is **false**.  | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is **false**.  | No |
@@ -109,11 +109,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Impala as a source type
 
-To copy data from Impala, set the source type in the Copy activity to **ImpalaSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Impala, set the source type in the copy activity to **ImpalaSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **ImpalaSource**. | Yes |
+| type | The type property of the copy activity source must be set to **ImpalaSource**. | Yes |
 | query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | Yes |
 
 **Example:**
@@ -149,4 +149,4 @@ To copy data from Impala, set the source type in the Copy activity to **ImpalaSo
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

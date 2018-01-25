@@ -21,14 +21,14 @@ ms.author: jingwang
 > * [Version 1 - Generally available](v1/data-factory-onprem-oracle-connector.md)
 > * [Version 2 - Preview](connector-oracle.md)
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the Copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of  Data Factory, which is generally available, see [Oracle connector in version 1](v1/data-factory-onprem-oracle-connector.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Oracle connector in version 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## Supported capabilities
 
-You can copy data from an Oracle database to any supported sink data store. You also can copy data from any supported source data store to an Oracle database. For a list of data stores that are supported as sources or sinks by the Copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from an Oracle database to any supported sink data store. You also can copy data from any supported source data store to an Oracle database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Oracle connector supports the following versions of an Oracle database. It also supports Basic or OID authentications:
 
@@ -115,11 +115,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### Oracle as a source type
 
-To copy data from Oracle, set the source type in the Copy activity to **OracleSource**. The following properties are supported in the Copy activity **source** section.
+To copy data from Oracle, set the source type in the copy activity to **OracleSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **OracleSource**. | Yes |
+| type | The type property of the copy activity source must be set to **OracleSource**. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No |
 
 If you don't specify "oracleReaderQuery", the columns defined in the "structure" section of the dataset are used to construct a query (`select column1, column2 from mytable`) to run against the Oracle database. If the dataset definition doesn't have "structure", all columns are selected from the table.
@@ -158,14 +158,14 @@ If you don't specify "oracleReaderQuery", the columns defined in the "structure"
 
 ### Oracle as a sink type
 
-To copy data to Oracle, set the sink type in the Copy activity to **OracleSink**. The following properties are supported in the Copy activity **sink** section.
+To copy data to Oracle, set the sink type in the copy activity to **OracleSink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity sink must be set to **OracleSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **OracleSink**. | Yes |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are Integer (number of rows). |No (default is 10,000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No |
-| preCopyScript | Specify a SQL query for the Copy activity to execute before writing data into Oracle in each run. You can use this property to clean up the preloaded data. | No |
+| preCopyScript | Specify a SQL query for the copy activity to execute before writing data into Oracle in each run. You can use this property to clean up the preloaded data. | No |
 
 **Example:**
 
@@ -200,7 +200,7 @@ To copy data to Oracle, set the sink type in the Copy activity to **OracleSink**
 
 ## Data type mapping for Oracle
 
-When you copy data from and to Oracle, the following mappings are used from Oracle data types to Data Factory interim data types. To learn about how the Copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from and to Oracle, the following mappings are used from Oracle data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | Oracle data type | Data Factory interim data type |
 |:--- |:--- |
@@ -231,4 +231,4 @@ When you copy data from and to Oracle, the following mappings are used from Orac
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the Copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
