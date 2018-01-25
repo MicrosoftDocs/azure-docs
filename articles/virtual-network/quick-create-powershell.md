@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/24/2018
+ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
 ---
@@ -64,7 +64,7 @@ All virtual networks have one or more address prefixes assigned to them. The add
 
 ## Create virtual machines
 
-A virtual network enables several types of Azure resources to communicate securely with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
+A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
 
 Create a virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
@@ -88,7 +88,7 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-Azure automatically assigned a public IP address to the virtual machine, but the *myVm2* virtual machine doesn't need one, since it won't be accessed from the Internet. Remove the public IP address with [Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface).
+Azure automatically assigned a public IP address to the virtual machine, but the *myVm2* virtual machine doesn't need one, since it won't be accessed from the Internet. Remove the public IP address with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) and [Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface).
 
 ```azurepowershell-interactive
 # Retrieve the network interface Azure created for the myVm2 virtual machine into a variable.
@@ -105,13 +105,15 @@ Since Azure previously assigned the first usable address of *10.0.0.4* in the su
 
 ## Connect to virtual machine
 
-Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine.
+Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of a virtual machine. The following example returns the public IP address of the *myVm1* virtual machine:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -Name myVm1 -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Enter the user name and password you specified when creating the virtual machine, then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection. 
+
+Use the following command to create a remote desktop session with the *myVm1* virtual machine from your local computer. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -156,8 +158,8 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this quickstart, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic management tasks, continue to the tutorial for creating a custom virtual network and managing it.
+In this article, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic management tasks, continue to the tutorial for creating a custom virtual network and managing it.
 
 
 > [!div class="nextstepaction"]
-> [Create a custom virtual network and manage it](./tutorial-create-manage-virtual-network.md)
+> [Create a custom virtual network and manage it](virtual-networks-create-vnet-arm-pportal.md#powershell)

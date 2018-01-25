@@ -39,11 +39,11 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
-    All Azure resources exist in a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), a [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), and a location (or [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region)). The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and ranges. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
+    The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and ranges. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
 
 ## Create virtual machines
 
-Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
+A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
@@ -57,7 +57,7 @@ Create two virtual machines in the virtual network so you can validate and under
 
     ![Select a size for a virtual machine](./media/quick-create-portal/virtual-machine-size.png)
 
-5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, click **Virtual network**, select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then click **OK**.
+5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, click **Virtual network**, then select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then click **OK**.
 
     ![Select a virtual network](./media/quick-create-portal/virtual-machine-network-settings.png)
 
@@ -95,7 +95,7 @@ The connection succeeds because a public IP address is assigned to *myVm1*. You 
 To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine, provide the credentials you used when you created the virtual machine and complete the connection:
 
 ```
-mstsc myVm2
+mstsc /v:myVm2
 ```
 
 The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. 
@@ -105,7 +105,7 @@ If you attempt to ping *myVm2* from *myVm1*, ping fails because ping is not allo
 To allow ping to a Windows virtual machine, enter the following command from the Windows virtual machine you want to allow ping to:
 
 ```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"
+netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
 ```
 
 To confirm outbound communication to the Internet, enter the following command:
@@ -118,12 +118,12 @@ You receive four replies from bing.com.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, and all its contents. To do so, select the resource group for the virtual machine and click **Delete**.
+When no longer needed, delete the resource group, and all its contents. At the top of the Azure portal, enter *myResourceGroup*. When **myResourceGroup** appears in the search results, click it. Click **Delete**.
 
 ## Next steps
 
-In this quickstart, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic management tasks, continue to the tutorial for creating a custom virtual network and managing it.
+In this article, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic management tasks, continue to the tutorial for creating a custom virtual network and managing it.
 
 
 > [!div class="nextstepaction"]
-> [Create a custom virtual network and manage it](./tutorial-create-manage-virtual-network-portal.md)
+> [Create a custom virtual network and manage it](virtual-networks-create-vnet-arm-pportal.md#portal)
