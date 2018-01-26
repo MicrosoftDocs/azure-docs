@@ -47,7 +47,7 @@ Policies | Read all properties of policies<br>Manage all properties of owned pol
 ## To restrict the default permissions for member users
 
 
-Default permissions for member users can be restricted in the following ways. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md)
+Default permissions for member users can be restricted in the following ways. For more information, see [Apps, permissions, and consent in Azure Active Directory](active-directory-apps-permissions-consent.md).
 
 Permission | Setting explanation
 ---------- | ------------
@@ -73,3 +73,10 @@ When a user adds a new enterprise application, they are automatically added as a
 ### Group owner permissions
 
 When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
+
+## Next steps
+
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [Manage users](active-directory-create-users.md)
