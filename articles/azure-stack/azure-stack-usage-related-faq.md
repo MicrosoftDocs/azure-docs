@@ -41,6 +41,8 @@ resource providers.
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Requests count in 10,000's |Queue service requests (in 10,000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingress data in GB |Queue service data ingress in GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Egress in GB |Queue service data egress in GB |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*hours   | Total DB capacity at creation, reported every hour.  |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*hours    | Total DB capacity at creation, reported every hour. |
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core minutes | Number of virtual cores times minutes the VM ran |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core minutes | Number of virtual cores times minutes the VM ran |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for cores |
