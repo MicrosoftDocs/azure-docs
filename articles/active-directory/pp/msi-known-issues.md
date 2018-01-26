@@ -57,15 +57,14 @@ Where:
 ### Are there RBAC roles for User Assigned Identities?
 Yes:
 1. MSI Contributor: 
-- Can: CRUD user assigned identities and grant permissions to a user assigned identity to access a resource. (i.e. grant the identity access to read Azure Key Vault.)
+- Can: CRUD user assigned identities. 
 - Cannot: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
 2. MSI Operator: 
 - Can: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
-- Cannot: CRUD user assigned identities and grant permissions to a user assigned identity to access a resource. (i.e. grant the identity access to read Azure Key Vault.)
+- Cannot: CRUD user assigned identities.
 
 Note: The built-in contributor role can perform all of the actions described above: 
 - CRUD user assigned identities
-- Grant an identity access to a resource to gain access. (i.e. grant the identity access to read Azure Key Vault.)
 - Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
 
 
