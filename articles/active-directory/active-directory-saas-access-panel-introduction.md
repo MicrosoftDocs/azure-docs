@@ -1,6 +1,6 @@
 ---
 title: What is the access panel in Azure Active Directory? | Microsoft Docs
-description: Learn how to use variations of the access panel (web browser, Android app, iPhone, and iPad app) to access SaaS apps.
+description: Learn how to use variations of the access panel (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
