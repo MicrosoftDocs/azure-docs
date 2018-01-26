@@ -26,7 +26,7 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * Azure HDInsight Spark cluster.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL database. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you createa a database with the sample AdventureWorks schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure keep the following values handy. You will need them to connect to the database from a Spark cluster.
+* Azure SQL database. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample AdventureWorks schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name hosting the Azure SQL database
     * Azure SQL database name
@@ -36,11 +36,11 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 ## Create a Jupyter notebook
 
-Start by creaing a Jupyter notebook associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
+Start by creating a Jupyter notebook associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
 
 1. From the [Azure portal](https://portal.azure.com/), open your cluster. 
 
-2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
+2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** view.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 
     ![Cluster dashboard on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Cluster dashboard on Spark") 
 
@@ -100,7 +100,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
 
        sqlTableDF.printSchema
    
-    You will see an output similar to the following:
+    You see an output similar to the following:
 
     ![Provide a name for the notebook](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "Provide a name for the notebook")
 
@@ -169,7 +169,7 @@ In this section, we stream data into the **hvactable** that you already created 
 
        DELETE FROM [dbo].[hvactable]
 
-2. Create a new Jupyter notebook on the HDInsight Spark clsuter. In a code cell, paste the following snippet and then press **SHIFT + ENTER**:
+2. Create a new Jupyter notebook on the HDInsight Spark cluster. In a code cell, paste the following snippet and then press **SHIFT + ENTER**:
 
        import org.apache.spark.sql._
        import org.apache.spark.sql.types._
@@ -184,7 +184,7 @@ In this section, we stream data into the **hvactable** that you already created 
        val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
-4. You should see an output that shows the schema of **HVAC.csv**. Note that the **hvactable** has the same schema as well. The output lists the columns (**_c0**, **_c1**, etc.) in the table.
+4. You should see an output that shows the schema of **HVAC.csv**. The **hvactable** has the same schema as well. The output lists the columns (**_c0**, **_c1**, etc.) in the table.
 
     ![Schema of table](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema of table")
 
