@@ -28,6 +28,12 @@ There are two types of availability tests:
 
 You can create up to 100 availability tests per application resource.
 
+
+> [!NOTE] 
+> * The availability test locations have moved to Azure datacenters recently. This move allows us to add  locations with the growing network of Azure datacenters.  
+> * You do not need to update tests. All tests are migrated, and are running from the new locations. 
+>* Please refer to the [service update](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) for more information.
+
 ## <a name="create"></a>Open a resource for your availability test reports
 
 **If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
@@ -116,7 +122,8 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 > [!NOTE]
-> You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+> * You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+> * Only English characters are supported in the multi-step web tests. If you use Visual Studio in other languages, please update the web test definition file to translate/exclude non-English characters.
 >
 
 #### 1. Record a scenario
