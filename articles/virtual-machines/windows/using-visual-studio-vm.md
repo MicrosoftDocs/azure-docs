@@ -20,7 +20,7 @@ Using Visual Studio running in a preconfigured Azure virtual machine (VM) is the
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
 ## What configurations and versions are available?
-In the Azure Marketplace you will find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.
+In the Azure Marketplace you find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.
 
 <table>
 <col width="20%">
@@ -98,10 +98,10 @@ Provisioning a new virtual machine is easy, and Azure offers a full range of vir
 
 For more information, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
-With Azure you’re not stuck with your first pick – you can rebalance your initial choice by resizing the VM.  You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware.  For more information, see [Resizing a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
+With Azure, you’re not stuck with your first pick – you can rebalance your initial choice by resizing the VM.  You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware.  For more information, see [Resizing a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
 ## After I get the VM running, then what?
-Visual Studio follows the “bring you own license” model in Azure.  So, similarly to an installation on proprietary hardware, one of the first steps will be licensing your Visual Studio installation.  You can unlock Visual Studio by either signing in with a Microsoft account that’s associated with a Visual Studio subscription, or you can unlock Visual Studio with the product key with your initial purchase.  For more information, see [Signing in to Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/signing-in-to-visual-studio) and [How to unlock Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-unlock-visual-studio).
+Visual Studio follows the “bring you own license” model in Azure.  So, similarly to an installation on proprietary hardware, one of the first steps is licensing your Visual Studio installation.  You can unlock Visual Studio by either signing in with a Microsoft account that’s associated with a Visual Studio subscription, or you can unlock Visual Studio with the product key with your initial purchase.  For more information, see [Signing in to Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/signing-in-to-visual-studio) and [How to unlock Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-unlock-visual-studio).
 
 ## After I build out the dev VM, how do I save (capture) it for future or team use?
 
