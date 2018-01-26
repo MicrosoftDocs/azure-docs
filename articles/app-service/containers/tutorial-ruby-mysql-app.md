@@ -2,12 +2,12 @@
 title: Build a Ruby and MySQL web app in Azure App Service on Linux | Microsoft Docs 
 description: Learn how to get a Ruby app working in Azure, with connection to a MySQL database in Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
