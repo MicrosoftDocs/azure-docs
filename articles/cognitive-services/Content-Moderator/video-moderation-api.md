@@ -48,7 +48,7 @@ Once you get your AMS credentials, there are two ways to try the Cntent Moderato
 
 ## Use Azure Media Services Explorer
 
-Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/en-us/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Install it](http://aka.ms/amse) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
+Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/en-us/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Download and install it](https://github.com/Azure/Azure-Media-Services-Explorer/releases) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
 
 ![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
 
