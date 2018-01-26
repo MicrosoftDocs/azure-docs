@@ -176,6 +176,16 @@
 ##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+###[User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md)
+####[App integration tutorials](active-directory-saas-tutorial-list.md)
+####[Automate provisioning to SCIM-Enabled app](active-directory-scim-provisioning.md)
+####[Customize attribute mappings]active-directory-saas-customizing-attribute-mappings.md)
+####[Write expressions for attribute mapping](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+####[Scoping filters](active-directory-saas-scoping-filters.md)
+####[Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
+####[Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started
