@@ -76,7 +76,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
 
-```c#
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 
@@ -117,7 +117,7 @@ Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the follo
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
-```c#
+```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 

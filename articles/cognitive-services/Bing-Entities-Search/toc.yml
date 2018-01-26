@@ -19,6 +19,8 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK (preview)
+  href: sdk.md  
 - name: How To Guides
   items:
   - name: Use and display requirements
