@@ -44,6 +44,7 @@ An admin can configure these capabilities using the following Azure AD cmdlet Se
 
 * **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup. 
+  
   > [!NOTE]
   > Flow and PowerApps viral signups are not controlled by the **AllowAdHocSubscriptions** setting:
   > * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
