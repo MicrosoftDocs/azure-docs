@@ -54,6 +54,20 @@ Where:
 - Extension name and type for Windows is: ManagedIdentityExtensionForWindows
 - Extension name and type for Linux is: ManagedIdentityExtensionForLinux
 
+### Are there RBAC roles for User Assigned Identities?
+Yes:
+1. MSI Contributor: 
+- Can: CRUD user assigned identities. 
+- Cannot: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+2. MSI Operator: 
+- Can: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+- Cannot: CRUD user assigned identities.
+
+Note: The built-in contributor role can perform all of the actions described above: 
+- CRUD user assigned identities
+- Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+
+
 ## Known issues
 
 ### "Automation script" fails when attempting schema export for MSI extension
