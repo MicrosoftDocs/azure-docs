@@ -14,12 +14,12 @@ hide_comments: true
 hideEdit: true
 ---
 
-## <a id="top"> </a> Visual Studio Images on Azure
+# <a id="top"> </a> Visual Studio Images on Azure
 Using Visual Studio running in a preconfigured Azure virtual machine (VM) is the easiest and fastest way to go from nothing to an up-and-running development environment.  System images with different Visual Studio configurations are available in the [Azure Marketplace](https://portal.azure.com/). Just boot a VM and off you go.
 
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
-### What configurations and versions are available?
+## What configurations and versions are available?
 In the Azure Marketplace you will find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.
 
 <table>
@@ -62,7 +62,7 @@ In the Azure Marketplace you will find images for the most recent major versions
 
 For more information, see the [Visual Studio Servicing Policy](https://www.visualstudio.com/en-us/productinfo/vs-servicing-vs).
 
-### What features are installed?
+## What features are installed?
 Each image contains the recommended feature set for that Visual Studio edition.  Generally, the installation includes:
 
 * All available workloads including that workload’s recommended optional components
@@ -85,7 +85,7 @@ This is the command line that we use to install Visual Studio when building the 
 
 If the images don't include a Visual Studio feature you require, provide that feedback through the feedback tool (top-right corner of the page).
 
-### What size VM should I choose?
+## What size VM should I choose?
 Provisioning a new virtual machine is easy, and Azure offers a full range of virtual machine sizes.  As with any hardware acquisition, you want to balance performance versus cost.  Since Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least two processors and 7 GB of memory.  In Azure that translates to at least these VM sizes:
 
    * Standard_D2_v3
@@ -100,10 +100,10 @@ For more information, see [Sizes for Windows virtual machines in Azure](https://
 
 With Azure you’re not stuck with your first pick – you can rebalance your initial choice by resizing the VM.  You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware.  For more information, see [Resizing a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
-### After I get the VM running, then what?
+## After I get the VM running, then what?
 Visual Studio follows the “bring you own license” model in Azure.  So, similarly to an installation on proprietary hardware, one of the first steps will be licensing your Visual Studio installation.  You can unlock Visual Studio by either signing in with a Microsoft account that’s associated with a Visual Studio subscription, or you can unlock Visual Studio with the product key with your initial purchase.  For more information, see [Signing in to Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/signing-in-to-visual-studio) and [How to unlock Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-unlock-visual-studio).
 
-### After I build out the dev VM, how do I save (capture) it for future or team use?
+## After I build out the dev VM, how do I save (capture) it for future or team use?
 
 The spectrum of development environments is huge, and there’s real cost associated with building out the more complex environments.  However, regardless of your environment’s configuration, Azure makes preserving that investment easy by saving/capturing your perfectly configured VM as a ‘base image’ for future use – for yourself and/or for other members of your team.  Then, when booting a new VM, provision it from the base image rather than the Marketplace image.
 
@@ -119,5 +119,3 @@ For more information, see [Capturing a VM to an image](https://docs.microsoft.co
 > You still incur some cost for storage of the image(s), but that incremental cost is likely insignificant compared to the manpower costs to rebuild the VM from scratch – for each person on your team who needs a VM.  For instance, it costs about $3/month to store a 127-GB image and a D2v3 VM costs about $1 for 8 hours of compute time.  However, these costs are insignificant compared to hours each employee invests to build out and validate a properly configured dev box.
 
 Additionally, you might need more scale – like varieties of development configurations and multiple machine configurations.  You can use Azure DevTest Labs to create _recipes_ that automate the construction of your ‘golden image,' and to manage policies for your team’s running VMs.  [Using Azure DevTest Labs for developers](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-developer-lab) is the best source for more information on DevTest Labs.
-
-<center>[Top of Page](#top)</center>
