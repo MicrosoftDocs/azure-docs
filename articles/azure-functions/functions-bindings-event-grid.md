@@ -330,9 +330,9 @@ The Event Grid trigger function executes and shows logs similar to the following
 Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with an open-source tool named [ngrok](https://ngrok.com/):
 
 3. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
-4. [Run your Event Grid trigger function](run-your-event-grid-trigger-function).
-5. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the ngrok endpoint.
-6. [Generate a request](#generate-a-request).
+4. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
+5. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
+6. [Trigger an event](#trigger-an-event).
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
 
@@ -362,11 +362,11 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 
 You'll use the https://{subdomain}.ngrok.io URL for your Event Grid subscription.
 
-### Run your Event Grid trigger function
+### Run the Event Grid trigger function
 
 The ngrok URL doesn't get special handling by Event Grid, so your function must be running locally when the subscription is created. If it isn't, the validation response doesn't get sent and the subscription creation fails.
 
-### Create an Event Grid subscription
+### Create a subscription
 
 Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint, using the following pattern:
 
@@ -384,7 +384,7 @@ az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7c
 
 For information about how to create a subscription, see [Create a subscription](#create-a-subscription) earlier in this article.
 
-### Generate a request
+### Trigger an event
 
 Trigger an event that will generate HTTP traffic to your ngrok endpoint.  For example, if you created a blob storage subscription, upload or delete a blob.
 
