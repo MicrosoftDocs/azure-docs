@@ -47,28 +47,80 @@ These steps show how to simulate an X.509 device on your development machine run
     npm install
     ```
 
-1. Execute the script using your own _certificate-name_. Be sure to only use lower-case alphanumerics and hyphens.
+1. Create the enrollment information in either of the following ways, as per your setup:
 
-    ```cmd/sh
-    node create_test_cert.js device {certificate-name}
-    ```
+    - **Individual enrollment**:
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+        1. Create the _device_ certificate. Execute the script using your own _certificate-name_. Be sure to only use lower-case alphanumerics and hyphens.
 
-1. Open **Manage enrollments** blade for your service. Select **Individual Enrollments** tab, and click the **Add** button at the top. 
+        ```cmd/sh
+        node create_test_cert.js device {certificate-name}
+        ```
+         
+        1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-1. Under the **Add enrollment list entry**, enter the following information:
-    - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Certificate .pem or .cer file*, select the certificate file **_{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
-    - Optionally, you may provide the following information:
-        - Select an IoT hub linked with your provisioning service.
-        - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-        - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+        1. Under the **Add enrollment list entry**, enter the following information:
+            - Select **X.509** as the identity attestation *Mechanism*.
+            - Under the *Certificate .pem or .cer file*, select the certificate file **_{certificate-name}\_cert.pem_** created in the previous steps using the *File Explorer* widget.
+            - Optionally, you may provide the following information:
+                - Select an IoT hub linked with your provisioning service.
+                - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+                - Update the **Initial device twin state** with the desired initial configuration for the device.
+            - Once complete, click the **Save** button. 
 
-    ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509-node/enter-device-enrollment.png)  
+        ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509-node/enter-device-enrollment.png)  
 
-    On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later. 
+    On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
+
+    - **Enrollment groups**: 
+
+        1. Create the _root_ certificate. Execute the script using your own _root-name_. Be sure to only use lower-case alphanumerics and hyphens.
+
+        ```cmd/sh
+        node create_test_cert.js root {root-name}
+        ```
+
+        1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
+
+        1. Under the **Add Certificate**, enter the following information:
+            - Enter a unique certificate name.
+            - Select the **_{root-name}\_cert.pem_** file you created previously.
+            - Once complete, click the **Save** button.
+
+        ![Add certificate](./media/quick-create-simulated-device-x509-node/add-certificate.png)
+
+        1. Select the newly created certificate:
+            - Click **Generate Verification Code**. Copy the code generated.
+            - Create the _verification_ certificate. Enter the _verification code_ or right-click to paste in your running Node script window with the following command.  Press **Enter**.
+
+                ```cmd/sh
+                node create_test_cert.js verification {rootname_cert} {verification code}
+                ```
+
+            - Under the *Verification certificate .pem or .cer file*, select the certificate file **_verification_cert.pem_** created in the previous steps using the *File Explorer* widget. Click **Verfiy**.
+
+            ![Validate certificate](./media/quick-create-simulated-device-x509-node/validate-certificate.png)
+
+        1. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
+            - Enter a unique group name.
+            - Select the unique certificate name created previously
+            - Optionally, you may provide the following information:
+                - Select an IoT hub linked with your provisioning service.
+                - Update the **Initial device twin state** with the desired initial configuration for the device.
+
+        ![Enter X.509 group enrollment information in the portal blade](./media/quick-create-simulated-device-x509-node/enter-group-enrollment.png)
+
+        On successful enrollment, your X.509 device group appears under the *Group Name* column in the *Enrollment Groups* tab.
+
+        1. Create the _device_ certificate. Execute the script using your own _certficate-name_ followed by the _root-name_ used previously. Be sure to only use lower-case alphanumerics and hyphens.
+
+            ```cmd/sh
+            node create_test_cert.js device {certificate-name} {root-name}
+            ```
+
+        > [!NOTE]
+        > You may also create _intermediate_ certificates using the `node create_test_cert.js intermediate {certificate-name} {parent-name}`. Just be sure to create the _device_ certificate as the last step using the last _intermediate_ as its root/parent. For more information, see [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/azure/azure-iot-sdk-node/tree/master/provisioning/tools).
+        >
 
 
 ## Simulate first boot sequence for the device
