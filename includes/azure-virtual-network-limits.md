@@ -31,7 +31,7 @@ The following limits apply only for networking resources managed through Azure R
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |350 |20000 |
 | Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |500 |
+| NSG rules per NSG |200 |1000 |
 | IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
 | Application security groups |200 |500 |
 | Application security groups per IP configuration, per NIC |10 |20 |
