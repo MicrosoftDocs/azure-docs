@@ -134,7 +134,7 @@ Learn how to use Key Vault to safeguard and manage cryptographic keys and secret
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                         <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p>
+                        <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p>
                         <p><a href="/java/api/overview/azure/keyvault">Java</a></p>
                         <p><a href="/python/api/overview/azure/key-vault">Python</a></p>
                         <p><a href="/javascript/api/overview/azure/key-vault">Node.js</a></p>
