@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 01/26/2018
 ms.author: larryfr
 
 ---
@@ -25,10 +25,15 @@ ms.author: larryfr
 
 Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure HDInsight cluster.
 
-[Curl](http://curl.haxx.se/) is used to demonstrate how you can interact with HDInsight by using raw HTTP requests. The [jq](http://stedolan.github.io/jq/) utility is used to process the JSON data returned from REST requests.
+# Prerequisites
 
-> [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see the [What you need to know about Hadoop on Linux-based HDInsight](../hdinsight-hadoop-linux-information.md) document.
+* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* [Curl](http://curl.haxx.se/) is used to demonstrate how you can interact with HDInsight by using raw HTTP requests. 
+* [Jq](http://stedolan.github.io/jq/) is used to process the JSON data returned from REST requests.
 
 ## <a id="curl"></a>Run Hive queries
 
@@ -126,25 +131,6 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
 
     You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
-
-5. Use the following statements to create a new 'internal' table named **errorLogs**:
-
-    ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
-    ```
-
-    These statements perform the following actions:
-
-   * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. This statement creates an internal table, which is stored in the Hive data warehouse. This table is managed by Hive.
-
-     > [!NOTE]
-     > Unlike external tables, dropping an internal table deletes the underlying data as well.
-
-   * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
-   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
-   * **SELECT** - Selects all rows from the new **errorLogs** table.
-
-6. Use the job ID returned to check the status of the job. Once it has succeeded, use the Azure CLI as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
 
 ## <a id="nextsteps"></a>Next steps
 

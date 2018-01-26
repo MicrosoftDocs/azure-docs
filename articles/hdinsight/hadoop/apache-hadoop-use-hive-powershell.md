@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 01/26/2018
 ms.author: larryfr
 
 ---
@@ -27,18 +27,18 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 > [!NOTE]
 > This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
-**Prerequisites**
+## Prerequisites
 
-* **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
+* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* **A workstation with Azure PowerShell**.
+* A client with Azure PowerShell.
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-## Run Hive queries using Azure PowerShell
+## Run Hive query
 
 Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries on HDInsight. Internally, the cmdlets make REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) on the HDInsight cluster.
 
