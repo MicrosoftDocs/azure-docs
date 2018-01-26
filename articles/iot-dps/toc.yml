@@ -39,6 +39,8 @@
           href: quick-enroll-device-tpm-java.md
         - name: Node.js
           href: quick-enroll-device-tpm-node.md
+        - name: Python
+          href: quick-enroll-device-tpm-python.md
     - name: X.509 
       items:
         - name: Java
