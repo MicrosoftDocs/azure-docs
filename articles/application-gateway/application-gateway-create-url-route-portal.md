@@ -1,5 +1,5 @@
 ---
-title: Create an application gateway with path-based routing rules - Azure portal | Microsoft Docs
+title: Create an application gateway with URL path-based routing rules - Azure portal | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: davidmu1
@@ -10,13 +10,13 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 01/26/2018
 ms.author: davidmu
 
 ---
 # Create an application gateway with path-based routing rules using the Azure portal
 
-You can use the Azure portal to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using virtual machines. You then create URL routing rules that make sure web traffic gets to the appropriate servers in the pools.
+You can use the Azure portal to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
 In this article, you learn how to:
 
@@ -156,11 +156,11 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm to the end of the base URL and you should see something like the following example:
+3. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm and you should see something like the following example:
+4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -174,3 +174,5 @@ In this article, you learned how to
 > * Create backend pools with the backend servers
 > * Create a backend listener
 > * Create a path-based routing rule
+
+To learn more about application gateways and their associated resources, continue to the how-to articles.

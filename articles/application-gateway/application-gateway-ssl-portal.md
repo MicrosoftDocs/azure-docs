@@ -1,5 +1,5 @@
 ---
-title: Create an application gateway with a certificate - Azure portal | Microsoft Docs
+title: Create an application gateway with SSL termination - Azure portal | Microsoft Docs
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure portal.
 services: application-gateway
 author: davidmu1
@@ -10,11 +10,11 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 01/26/2018
 ms.author: davidmu
 
 ---
-# Create an application gateway with a certificate for SSL termination using the Azure portal
+# Create an application gateway with SSL termination using the Azure portal
 
 You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses virtual machines for backend servers.
 
@@ -45,24 +45,23 @@ New-SelfSignedCertificate \
 
 You should see something like this response:
 
-    
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname www.contoso.com
-
+```
 PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-3. Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-    ```powershell
-    $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
-    Export-PfxCertificate \
-      -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
-      -FilePath c:\appgwcert.pfx \
-      -Password $pwd
-    ```
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
 ## Create an application gateway
 
@@ -89,8 +88,7 @@ A virtual network is needed for communication between the resources that you cre
 
     ![Create new application gateway](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-11. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
-the deployment finishes successfully before moving on to the next section.
+11. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
 
@@ -176,3 +174,5 @@ In this tutorial, you learned how to:
 > * Create a self-signed certificate
 > * Create an application gateway with the certificate
 > * Create the virtual machines used as backend servers
+
+To learn more about application gateways and their associated resources, continue to the how-to articles.

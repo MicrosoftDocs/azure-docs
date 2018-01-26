@@ -10,7 +10,7 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 01/26/2018
 ms.author: davidmu
 
 ---
@@ -116,13 +116,13 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Add backend servers
 
-3. Click **All resources**, and then click **myAppGateway**.
-4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
-5. Click **Add target** to add each virtual machine that you created to the backend pool.
+1. Click **All resources**, and then click **myAppGateway**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+3. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-6. Click **Save**.
+4. Click **Save**.
 
 ## Create a storage account and configure diagnostics
 
@@ -166,3 +166,5 @@ In this article, you learned how to:
 > * Create an application gateway with WAF enabled
 > * Create the virtual machines used as backend servers
 > * Create a storage account and configure diagnostics
+
+To learn more about application gateways and their associated resources, continue to the how-to articles.
