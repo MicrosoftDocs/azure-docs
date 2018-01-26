@@ -59,7 +59,7 @@ az role definition list --output table | grep Maintainer
 az role assignment create --assignee <user, group, or service principal> --role "Virtual Machine Maintainer"
 
 ## Test
-Try to install an extension. If using the portal, the extension 'Add' button is greyed out.
+Try to install an extension. If using the portal, the extension 'Add' button is grayed out.
 
 Using CLI:
 
