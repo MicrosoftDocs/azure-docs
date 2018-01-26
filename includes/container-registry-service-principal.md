@@ -4,7 +4,7 @@ To create a service principal with access to your container registry, you can us
 
 After you run the script, take note of the service principal's **ID** and **password**. Once you have its credentials, you can configure your applications and services to authenticate to your container registry as the service principal.
 
-[!code-azurecli-interactive[acr-sp-create](../../cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
+[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
 ## Use an existing service principal
 
@@ -12,7 +12,7 @@ To grant registry access to an existing service principal, you must assign a new
 
 The following script uses the [az role assignment create][az-role-assignment-create] command to grant *pull* permissions to a service principal you specify in the `SERVICE_PRINCIPAL_ID` variable. Adjust the `--role` value if you'd like to grant a different level of access.
 
-[!code-azurecli-interactive[acr-sp-role-assign](../../cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
+[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 You can find both of these scripts on GitHub, as well as versions for PowerShell:
 
