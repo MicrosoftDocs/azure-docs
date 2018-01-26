@@ -26,7 +26,7 @@ ms.author: juliako;dbgeorge
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 ## Prerequisites
-*   Access to a Haivision KB encoder, running SW v5.01 or greater.
+*   Access to a Haivision KB encoder, running SW v5.01, or greater.
 * [Create an Azure Media Services account](media-services-portal-create-account.md)
 * Ensure there is a Streaming Endpoint running. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
 * Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
@@ -34,11 +34,11 @@ ms.author: juliako;dbgeorge
 
 ## Tips
 * Whenever possible, use a hardwired internet connection.
-* A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-* When using software based encoders, close out any unnecessary programs.
+* A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it helps mitigate the impact of network congestion.
+* When using software-based encoders, close out any unnecessary programs.
 
 ## Create a channel
-1. In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
 	![Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
 2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is. Make sure the **Start the new channel now** is selected.
 3. Click **Create Channel**.
@@ -48,7 +48,7 @@ ms.author: juliako;dbgeorge
 > The channel can take as long as 20 minutes to start.
 
 ## Configure the Haivision KB encoder
-In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail.
+In this tutorial, the following output settings are used. The rest of this section describes configuration steps in more detail.
 
 Video:
 -   Codec: H.264
@@ -63,7 +63,7 @@ Audio:
 -   Sample Rate: 44.1 kHz
 
 ## Configuration steps
-1.  Login to the Haivision KB user interface.
+1.  Log in to the Haivision KB user interface.
 2.  Click on the **Menu Button** in the channel control center and select **Add Channel**  
     ![Screen Shot 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Type the **Channel Name** in the Name field and click next.  
@@ -74,27 +74,27 @@ Audio:
     ![Screen Shot 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  From the **Select New Output** drop-down choose **RTMP** and click next.  
     ![Screen Shot 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
-7.  From the **Channel Output** window, populate the Azure stream information. Paste the **RTMP** link from the initial channel setup in the **Server** area. In the **Output Name** area type in the name of the channel. In the **Stream Name Template** area use the template RTMPStreamName_%video_bitrate% to name the stream.
+7.  From the **Channel Output** window, populate the Azure stream information. Paste the **RTMP** link from the initial channel setup in the **Server** area. In the **Output Name** area type in the name of the channel. In the Stream Name Template area, use the template RTMPStreamName_%video_bitrate% to name the stream.
     ![Screen Shot 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Click next and then click Done.
 9.  Click the **Play Button** to start the encoder channel.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## Test playback
-Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over Playback the Preview and select with Azure Media Player.
+Navigate to the AMSE tool, and right-click the channel to be tested. From the menu, hover over Playback the Preview and select with Azure Media Player.
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS.
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the troubleshooting topic for guidance.
+If an error is received, the channel needs to be reset and encoder settings adjusted. See the troubleshooting article for guidance.
 
 ## Create a program
-1.  Once channel playback is confirmed, create a program. Under the Live tab in the AMSE tool, right click within the program area and select Create New Program.
+1.  Once channel playback is confirmed, create a program. Under the Live tab in the AMSE tool, right-click within the program area and select Create New Program.
 ![Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-2.  Name the program and, if needed, adjust the Archive Window Length (which defaults to 4 hours). You can also specify a storage location or leave as the default.
+2.  Name the program and, if needed, adjust the Archive Window Length (which defaults to four hours). You can also specify a storage location or leave as the default.
 3.  Check the Start the Program now box.
 4.  Click Create Program.
-5.  Once the program is running, confirm playback by right clicking the program and navigating to Playback the program(s) and then selecting with Azure Media Player.
-6.  Once confirmed, right click the program again and select Copy the Output URL to Clipboard (or retrieve this information from the Program information and settings option from the menu).
+5.  Once the program is running, confirm playback by right-clicking the program and navigating to Play back the program(s) and then selecting with Azure Media Player.
+6.  Once confirmed, right-click the program again and select Copy the Output URL to Clipboard (or retrieve this information from the Program information and settings option from the menu).
 
 The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.
 
