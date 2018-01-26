@@ -13,8 +13,8 @@ ms.date: 1/19/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
-The Bing Search API samples include search scenarios that:
-1.	Qurey for a simple image.
+The Bing Image Search API samples include senarios that:
+1.	Query for a simple image.
 2.	Search restricting to specific image types and aspect ratios, showing image filtering capabilities.
 3.	Search for images trending on various social networks at the moment.
 4.	Query for rich details of an image, such as the source of the image, representative query text, etc.

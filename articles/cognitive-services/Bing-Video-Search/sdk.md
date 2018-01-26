@@ -13,9 +13,9 @@ ms.date: 1/25/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
-The Bing Search API samples include search scenarios that:
+The Bing Video Search API samples include scenarios that:
 1.	Query fora simple video.
-2.	Query restricted to free, short, and with certain aspect ratio, showing, video filtering capabilities.
+2.	Query restricted to free, short, and with certain aspect ratio, showing video filtering capabilities.
 3.	Search for videos trending on various social networks at the moment.
 4.	Query using rich information of the video such as source of the video, title, etc.
 

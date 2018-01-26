@@ -13,7 +13,7 @@ ms.date: 1/24/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
-The Bing Search API samples include search scenarios that:
+The Bing News Search API samples include scenarios that:
 1. Query news for search terms with `market` and `count` parameters, verify number of results, and print out `totalEstimatedMatches`, name, URL, description, published time, and name of provider of the first news result.
 2. Query most recent news for search terms with `freshness` and `sortBy` parameters, verify number of results, and print out `totalEstimatedMatches`, URL, description, published time and name of provider of the first news result.
 3. Query category news for `movie` and `TV entertainment` with safe search, verify number of results, and print out category, name, URL, description, published time and name of provider of the first news result.

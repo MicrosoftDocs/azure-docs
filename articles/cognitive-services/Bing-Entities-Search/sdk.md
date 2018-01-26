@@ -13,7 +13,7 @@ ms.date: 1/24/2018
 ms.author: v-gedod
 ---
 # Bing Search SDK preview
-The Bing Search API samples include search scenarios that:
+The Bing Entity Search API samples include scenarios that:
 1.	Search for entity such as Tom Cruise and get rich information.
 2.	Handle disambiguation of terms for queries with possibly multiple intents.
 3.	Search for a local entity such as a restaurant and get rich information around it.
