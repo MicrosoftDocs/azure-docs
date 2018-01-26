@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
 
 ---
@@ -58,6 +58,10 @@ Currently, there is no portal experience for modifying responses. To learn how t
 ## <a name="using-variables"></a>Use variables
 
 The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
+### <a name="reference-localhost"></a>Reference local functions
+You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
+
+`"backendurl": "localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -127,6 +131,36 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 
 > [!NOTE] 
 > The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
+
+### <a name="debugProxies"></a>Troubleshoot Proxies
+
+By adding the flag `"debug":true` to any proxy in your `proxy.json` you will enable debug logging to `D:\home\LogFiles\Application\Proxies\DetailedTrace` whenever that proxy is executed. The request will also return a `Proxy-Trace-Location` header with a URL to access the log file.
+
+You can also debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
+
+#### Block proxy traces
+
+For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
+
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxy.json`.
+
+### <a name="disableProxies"></a>Disable individual proxies
+
+You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
