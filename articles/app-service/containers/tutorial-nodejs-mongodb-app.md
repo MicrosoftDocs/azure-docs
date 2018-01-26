@@ -244,7 +244,9 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### Create a linux based web app
+<a name="create"></a>
+
+### Create a web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -262,7 +264,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
 
-In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
+In your local MEAN.js repository, open _config/env/production.js_ (not _config/env/local-production.js_), which has production-environment specific configuration. The default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -420,9 +422,6 @@ In the local terminal window, test your changes in production mode again.
 gulp prod
 NODE_ENV=production node server.js
 ```
-
-> [!NOTE]
-> Remember that your _config/env/production.js_ has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 

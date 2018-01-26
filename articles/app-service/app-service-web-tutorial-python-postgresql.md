@@ -17,7 +17,7 @@ ms.custom: mvc
 
 [Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Python web app in Azure. You connect this app to a PostgreSQL database. When you are done, you have a Python Flask application running on App Service.
 
-![Docker Python Flask app in App Service on Linux](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
+![Python Flask app in App Service on Linux](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
 
-You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps in this tutorial on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -81,9 +81,6 @@ This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 
 ### Run the application
 
-> [!NOTE] 
-> In a later step you simplify this process by building a Docker container to use with the production database.
-
 Install the required packages and start the application.
 
 ```bash
@@ -124,7 +121,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### Createa a PostgreSQL server
+### Create a PostgreSQL server
 
 Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
 
@@ -302,18 +299,16 @@ Browse to the deployed web app using your web browser.
 ```bash 
 http://<app_name>.azurewebsites.net 
 ```
-> [!NOTE]
-> The web app takes some time to load because the container has to be downloaded and started after the container configuration is changed.
 
 You see previously registered guests that were saved to the Azure production database in the previous step.
 
-![Docker container-based Python Flask application running locally](./media/app-service-web-tutorial-python-postgresql/docker-app-deployed.png)
+![Python Flask application running locally](./media/app-service-web-tutorial-python-postgresql/docker-app-deployed.png)
 
-**Congratulations!** You're running a Docker container-based Python Flask app in Azure App Service.
+**Congratulations!** You're running a Python Flask app in Azure App Service.
 
 ## Update data model and redeploy
 
-In this step, you add the number of attendees to each event registration by updating the Guest model.
+In this step, you add the number of attendees to each event registration by updating the `Guest` model.
 
 Check out the *0.2-migration* release with the following git command:
 
@@ -340,7 +335,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 
 Navigate to http://localhost:5000 in your browser to view the changes. Create a test registration.
 
-![Docker container-based Python Flask application running locally](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
+![Python Flask application running locally](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 
 ### Publish changes to Azure
 
@@ -358,7 +353,7 @@ Navigate to your Azure web app and try out the new functionality again. Create a
 http://<app_name>.azurewebsites.net 
 ```
 
-![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
+![Python Flask app in Azure App Service](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
 
 ## Manage your Azure web app
 
