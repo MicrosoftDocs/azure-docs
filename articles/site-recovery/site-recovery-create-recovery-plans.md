@@ -35,7 +35,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 Recovery plans help you plan for a systematic recovery process by creating small independent units that you can manage. These units will typically represent an application in your environment. Recovery plan not only allows you to define the sequence in which the virtual machines start, but also helps you automate common tasks during recovery.
 
 
-Essentially, one way to check that you are prepared for cloud migration or disaster recovery is by ensuring that every application of yours is part of a recovery plan and each of the recovery plans is tested for recovery to Microsoft Azure. With this preparedness, you can confidently migrate or failover your complete datacenter to Microsoft Azure.
+**Essentially, one way to check that you are prepared for cloud migration or disaster recovery is by ensuring that every application of yours is part of a recovery plan and each of the recovery plans is tested for recovery to Microsoft Azure. With this preparedness, you can confidently migrate or failover your complete datacenter to Microsoft Azure.**
  
 Following are the three key value propositions of a recovery plan:
 
@@ -51,6 +51,17 @@ Let us take the example of a typical three tier application with
 
 The recovery plan can be customized to ensure that the virtual machines come up in the right order post a failover. The SQL backend should come up first, the middleware should come up next, and the web frontend should come up last. This order makes certain that the application is working by the time the last virtual machine comes up. For example, when the middleware comes up, it will try to connect to the SQL tier, and the recovery plan has ensured that the SQL tier is already running. Frontend servers coming up last also ensures that end users do not connect to the application URL by mistake until all the components are up are running and the application is ready to accept requests. To build these dependencies, you can customize the recovery plan to add groups. Then select a virtual machine and change its group to move it between groups.
 
+
+Once you complete the customization, you can visualize the exact steps of the recovery. Here is the order of steps executed during the failover of a recovery plan:
+
+* First there is a shutdown step that attempts to turn off the virtual machines on-premises (except in test failover where the primary site needs to continue to be running)
+* Next it triggers failover of all the virtual machines of the recovery plan in parallel. The failover step prepares the virtual machines’ disks from replicated data.
+* Finally the startup groups execute in their order, starting the virtual machines in each group - Group 1 first, then Group 2, and finally Group 3. If there are more than one virtual machines in any group (for example, a load-balanced web frontend) all of them are booted up in parallel.
+
+**Sequencing across groups ensures that dependencies between various application tiers are honored and parallelism where appropriate improves the RTO of application recovery.**
+
+   > [!NOTE]
+   > Machines that are part of a single group will failover in parallel. Machines that are part of different groups will failover in the oder of the groups. Only after all machines of Group 1 have failed over and booted, will the machines of Group 2 start their failover.
 
 
 ## How to create a recovery plan
