@@ -46,7 +46,7 @@ An admin can configure these capabilities using the following Azure AD cmdlet Se
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup. 
   
   > [!NOTE]
-  > Flow and PowerApps viral signups are not controlled by the **AllowAdHocSubscriptions** setting:
+  > Flow and PowerApps viral signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
   > * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
   > * [Flow in your organization Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
 
