@@ -23,8 +23,8 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingVideoSearch) for definitions and dependencies.
-* Get started with [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
-    * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/videoSearch) for definitions and dependencies.
+* Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
+    * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/videoSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
     * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-videosearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
