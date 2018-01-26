@@ -45,8 +45,8 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 |Action  |Description  |Minimum Scope  |
 |---------|---------|---------|
 |Microsoft.Resources/deployments/*     | Create and manage resource group deployments        | Subscription         |
-|Row2     |         |         |
-|Row3     |         |         |
+|Microsoft.Resources/subscriptions/resourceGroups/write     | Write roles and role assignments        | Subscription        |
+|Microsoft.OperationalInsights/workspaces/write     | Create a new default Workspace          | Resource group        |
 |Row4     |         |         |
 |Row5     |         |         |
 |Row6     |         |         |
