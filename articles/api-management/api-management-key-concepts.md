@@ -27,7 +27,7 @@ Watch the following video for an overview of Azure API Management and learn how 
 > 
 > 
 
-This topic provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The topic, then, gives a more detailed overview of each component.
+This article provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The article, then, gives a more detailed overview of each component.
 
 ## Overview
 
@@ -47,14 +47,14 @@ The system is made up of the following components:
   * Transforms your API on the fly without code modifications.
   * Caches backend responses where set up.
   * Logs call metadata for analytics purposes.
-* The **publisher portal** is the administrative interface where you set up your API program. Use it to:
+* The **Azure portal** is the administrative interface where you set up your API program. Use it to:
   
   * Define or import API schema.
   * Package APIs into products.
   * Set up policies like quotas or transformations on the APIs.
   * Get insights from analytics.
   * Manage users.
-* The **developer portal** serves as the main web presence for developers, where they can:
+* The **Developer portal** serves as the main web presence for developers, where they can:
   
   * Read API documentation.
   * Try out an API via the interactive console.
@@ -96,12 +96,12 @@ For more information, see  [How to create and use groups][How to create and use 
 ## <a name="developers"> </a> Developers
 Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can be subscribe to the products that grant visibility to those groups.
 
-When developers subscribe to a product they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
+When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
 
 For more information, see [How to create or invite developers][How to create or invite developers] and [How to associate groups with developers][How to associate groups with developers].
 
 ## <a name="policies"> </a> Policies
-Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
+Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) and [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 
