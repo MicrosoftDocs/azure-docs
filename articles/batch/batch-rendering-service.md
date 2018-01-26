@@ -22,8 +22,8 @@ With Maya and 3ds Max, you can run jobs using the [BatchLabs](https://github.com
 
 The Batch Rendering service currently supports the following applications:
 
-•	Autodesk Maya I/O 2017 (version 17.4.5459)
-•	Autodesk 3ds Max I/O 2018 Update 3 (version 20.1.0.238)
+•	Autodesk Maya I/O 2017 Update 4 (version 17.4.5459)
+•	Autodesk 3ds Max I/O 2018 Update 1 (version 20.1.0.238)
 •	Autodesk Arnold for Maya (version 5.0.1.1)
 •	Autodesk Arnold for 3ds Max (version 1.0.836)
 •	Chaos Group V-Ray for Maya (version 3.52.03)
