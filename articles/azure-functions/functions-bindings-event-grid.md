@@ -1,6 +1,6 @@
 ---
-title: Handle Event Grid events in Azure Functions
-description: Understand how to use the Event Grid trigger or the HTTP trigger to handle Event Grid events in Azure Functions.
+title: Event Grid trigger for Azure Functions
+description: Understand how to handle Event Grid events in Azure Functions.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/26/2018
 ms.author: tdykstra
 ---
 
@@ -24,7 +24,9 @@ This article explains how to handle [Event Grid](../event-grid/overview.md) even
 
 Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-publishers). 
 
-Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). To handle Event Grid events in a function, you create a subscription that specifies which events you're handling and the endpoint that Event Grid should send them to. This article explains how to use an Event Grid trigger or an HTTP trigger to invoke a function when an event is received from Event Grid. To understand why you might choose to use an HTTP trigger, see [Use an HTTP trigger as an Event Grid trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
+Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
+
+If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use an HTTP trigger as an Event Grid trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -40,22 +42,22 @@ See the language-specific example for an Event Grid trigger:
 
 ### C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that logs some of the fields common to all events and all of the event-specific data.
+The following example shows a [C# function](functions-dotnet-class-library.md) that logs some of the fields that are common to all events and all of the event-specific data.
 
 ```cs
 [FunctionName("EventGridTest")]
-public static void Run([EventGridTrigger] EventGridEvent myEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
 {
     log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {myEvent.Subject}");
-    log.Info($"Time: {myEvent.EventTime}");
-    log.Info($"Data: {myEvent.Data.ToString()}");
+    log.Info($"Subject: {eventGridEvent.Subject}");
+    log.Info($"Time: {eventGridEvent.EventTime}");
+    log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
 
 ### C# script example
 
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
+The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields that are common to all events and all of the event-specific data.
 
 Here's the binding data in the *function.json* file:
 
@@ -90,7 +92,7 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 
 ### JavaScript example
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields common to all events and all of the event-specific data.
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs some of the fields that are common to all events and all of the event-specific data.
 
 Here's the binding data in the *function.json* file:
 
@@ -127,7 +129,7 @@ Here's an `EventGridTrigger` attribute in a method signature:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void Run([EventGridTrigger] EventGridEvent myEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -150,73 +152,6 @@ The following table explains the binding configuration properties that you set i
 For C# and F# functions, declare the type of your trigger input to be `EventGridEvent` or a custom type. For a custom type, the Functions runtime tries to parse the event JSON to set the object properties.
 
 For JavaScript functions, the parameter named by the *function.json* `name` property has a reference to the event object.
-
-## Manage subscriptions
-
-To subscribe to an Event Grid topic, you need the endpoint URL that Event Grid should send HTTP requests to.
-
-For functions that use the HTTP trigger to handle the Event Grid events, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md) for information about the URL to use for invoking the function.
-
-### Azure portal - Event Grid trigger
-
-For functions that you develop in the portal with the Event Grid trigger, the portal provides a link to create an Event Grid subscription.
-
-![Create subscription in portal](media/functions-bindings-event-grid/portal-sub-create.png)
-
-When you select this link, the portal opens the **Create Event Subscription** page with the subscription endpoint URL prefilled.
-
-For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
-
-### Azure CLI - Event Grid trigger
-
-IF you use the Azure CLI to create a subscription for an Event Grid trigger, you need to obtain a *system key*. The system key is an authorization key that has to be included in the endpoint URL, as shown here at the end of the URL:
-
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
-
-You can get the system key by using the following API (HTTP GET):
-
-```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={youradminkey}
-```
-
-The response is JSON:
-
-```
-{
-  "name":"eventgridextensionconfig_extension",
-  "value":"{the system key for the function}",
-  "links":
-    [{
-      "rel":"self",
-      "href":"{the URL for the function, without the system key}"
-    }]
-}
-```
-
-Your admin key lets you call this admin API to get the system key. Don't confuse the system key (for invoking an Event Grid trigger function ) with the admin key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key. For more information about authorization keys, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys) in the HTTP trigger reference article. 
-
-Alternatively, you can send an HTTP PUT to specify the key value yourself.
-
-### Azure CLI - create subscription
-
-to create a subscription, use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) command.
-
-Here's an example that subscribes to a blob storage account (with a placeholder for the system key):
-
-```azurecli
-az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code={systemkey}
-```
-
-For more information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-blob-storage-account) or the other Event Grid quickstarts.
-
-You can use the same subscription for testing and production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) command.
 
 ## Event schema
 
@@ -256,18 +191,217 @@ For explanations of the common and event-specific properties, see [Event propert
 
 The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`. 
 
+## Create a subscription
+
+To start receiving Event Grid HTTP requests, create an Event Grid subscription that specifies the endpoint URL that invokes the function.
+
+### Azure portal
+
+For functions that you develop in the Azure portal with the Event Grid trigger, select **Add Event Grid subscription**.
+
+![Create subscription in portal](media/functions-bindings-event-grid/portal-sub-create.png)
+
+When you select this link, the portal opens the **Create Event Subscription** page with the endpoint URL prefilled.
+
+![Endpoint URL prefilled](media/functions-bindings-event-grid/endpoint-url.png)
+
+For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
+
+## Azure CLI
+
+to create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) command.
+
+The command requires the endpoint URL that invokes the function. The following example shows the URL pattern:
+
+```
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
+
+The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
+
+Here's an example that subscribes to a blob storage account (with a placeholder for the system key):
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name glengablobstorage --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+```
+
+For more information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-blob-storage-account) or the other Event Grid quickstarts.
+
+### Get the system key
+
+You can get the system key by using the following API (HTTP GET):
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+```
+
+This is an admin API, so it requires Your [admin key](functions-bindings-http-webhook.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the admin key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+
+Here's an example of the response that provides the system key:
+
+```
+{
+  "name": "eventgridextensionconfig_extension",
+  "value": "{the system key for the function}",
+  "links": [
+    {
+      "rel": "self",
+      "href": "{the URL for the function, without the system key}"
+    }
+  ]
+}
+```
+
+For more information, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys) in the HTTP trigger reference article. 
+
+Alternatively, you can send an HTTP PUT to specify the key value yourself.
+
+## Local testing with RequestBin
+
+To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
+
+2. [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
+3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
+4. [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
+5. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
+
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
+
+### Create a RequestBin endpoint
+
+RequestBin is an open-source tool that accepts HTTP requests and shows you the request body. The http://requestb.in URL gets special treatment by Azure Event Grid. To facilitate testing, Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. Two other testing tools are given the same treatment: http://webhookinbox.com and http://hookbin.com.
+
+RequestBin is not intended for high throughput usage. If you push more than one event at a time, you might not see all of your events in the tool.
+
+Create an endpoint.
+
+![Create RequestBin endpoint](media/functions-bindings-event-grid/create-requestbin.png)
+
+Copy the endpoint URL.
+
+![Copy RequestBin endpoint](media/functions-bindings-event-grid/save-requestbin-url.png)
+
+### Create an Event Grid subscription
+
+Create an Event Grid subscription of the type you want to test, and give it your RequestBin endpoint. For information about how to create a subscription, see [Create a subscription](#create-a-subscription) earlier in this article.
+
+### Generate a request
+
+Trigger an event that will generate HTTP traffic to your RequestBin endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your RequestBin page, copy the request body.
+
+The subscription validation request will be received first; ignore any validation requests, and copy the event request.
+
+![Copy request body from RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+
+### Manually post the request
+
+Run your Event Grid function locally.
+
+Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
+
+* Set a `Content-Type: application/json` header.
+* Set an `aeg-event-type: Notification` header.
+* Paste the RequestBin data into the request body. 
+* Post to the URL of your Event Grid trigger function, using the following pattern:
+
+```
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+``` 
+
+The `functionName` parameter must be the method name, not the name specified in the `FunctionName` attribute. For this reason, if you have multiple functions in a project, they need to have unique method names (not all named `Run`) for local testing Event Grid triggers.
+
+The following screenshots show the headers and request body in Postman:
+
+![Headers in Postman](media/functions-bindings-event-grid/postman2.png)
+
+![Request body in Postman](media/functions-bindings-event-grid/postman.png)
+
+The Event Grid trigger function executes and shows logs similar to the following example:
+
+![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
+
+## Local testing with ngrok
+
+Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with an open-source tool named [ngrok](https://ngrok.com/):
+
+3. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
+4. [Run your Event Grid trigger function](run-your-event-grid-trigger-function).
+5. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the ngrok endpoint.
+6. [Generate a request](#generate-a-request).
+
+When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
+
+### Create an ngrok endpoint
+
+Download *ngrok.exe* from [ngrok](https://ngrok.com/), and run with the following command:
+
+```
+ngrok http -host-header=localhost 7071
+```
+
+The -host-header parameter is needed because the functions runtime expects requests from localhost when it runs on localhost. 7071 is the default port number when the runtime runs locally.
+
+The command creates output like the following:
+
+```
+Session Status                online
+Version                       2.2.8
+Region                        United States (us)
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    http://263db807.ngrok.io -> localhost:7071
+Forwarding                    https://263db807.ngrok.io -> localhost:7071
+
+Connections                   ttl     opn     rt1     rt5     p50     p90
+                              0       0       0.00    0.00    0.00    0.00
+```
+
+You'll use the https://{subdomain}.ngrok.io URL for your Event Grid subscription.
+
+### Run your Event Grid trigger function
+
+The ngrok URL doesn't get special handling by Event Grid, so your function must be running locally when the subscription is created. If it isn't, the validation response doesn't get sent and the subscription creation fails.
+
+### Create an Event Grid subscription
+
+Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint, using the following pattern:
+
+```
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+``` 
+
+The `functionName` parameter must be the method name, not the name specified in the `FunctionName` attribute. For this reason, if you have multiple functions in a project, they need to have unique method names (not all named `Run`) for local testing Event Grid triggers.
+
+Here's an example using the Azure CLI:
+
+```
+az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName=EventGridTrigger
+```
+
+For information about how to create a subscription, see [Create a subscription](#create-a-subscription) earlier in this article.
+
+### Generate a request
+
+Trigger an event that will generate HTTP traffic to your ngrok endpoint.  For example, if you created a blob storage subscription, upload or delete a blob.
+
+The Event Grid trigger function executes and shows logs similar to the following example:
+
+![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
+
 ## Use an HTTP trigger as an Event Grid trigger
 
-Event Grid events are received as HTTP requests, and the Event Grid trigger is an HTTP trigger that does some additional processing before invoking a function. You can also handle events by using an HTTP trigger instead of an Event Grid trigger.
+Event Grid events are received as HTTP requests, so you can handle events by using an HTTP trigger instead of an Event Grid trigger. One possible reason for doing that is to get more control over the endpoint URL that invokes the function. 
 
-One advantage of using an HTTP trigger is that you can test locally. You also have more control over the endpoint URL that invokes the function, and it's easier to get the authorization keys that need to be included in the URL. If you use an HTTP trigger function for local testing, you can use the same function in production and you have no need to use an Event Grid trigger. The Event Grid trigger is the better choice if you are doing development in the Azure portal and you manage your Event Grid subscriptions in the portal and you have no need for local testing.
+If you use an HTTP trigger, you have to write code for what the Event Grid trigger does automatically:
 
-If you use an HTTP trigger, you have to write code for what the Event Grid trigger does automatically. The Event Grid trigger acts on an Event Grid HTTP request in the following ways:
+* Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
+* Invokes the function once per element of the event array contained in the request body.
 
-* **Sends a validation response to a subscription validation request.** When you create an Event Grid subscription, it sends a validation request to the subscribed endpoint. Event Grid sends events to that endpoint only after it receives a response to the validation request. The response must echo back a validation code contained in the request body.
-* **Invokes the function once per element of the event array contained in the request body.**
-
-The following C# code for an HTTP trigger simulates Event Grid trigger behavior:
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior:
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -305,7 +439,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-The following JavaScript code for an HTTP trigger simulates Event Grid trigger behavior:
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior:
 
 ```javascript
 module.exports = function (context, req) {
@@ -331,67 +465,9 @@ module.exports = function (context, req) {
 };
 ```
 
-Inside the loop through the `messages` array is where your event-handling code goes. The following sections explain how you can test your event-handling code locally.
+Your event-handling code goes inside the loop through the `messages` array.
 
-## Local testing
-
-You can't test an Event Grid trigger locally for these reasons:
-
-* The runtime doesn't provide a URL to use for invoking the function.
-* Event Grid topics in Azure can't send HTTP requests to localhost on your development machine.
-
-You can test locally with an [HTTP trigger that handles Event Grid events](#use-an-http-trigger-as-an-event-grid-trigger). Here's how:
-
-2. [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
-3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
-4. [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
-5. [Manually post the request](#manually-post-the-request) to the localhost URL of your HTTP trigger function.
-
-When local testing is complete, delete the subscription you created for it.
-
-### Create a RequestBin endpoint
-
-RequestBin is an open-source tool that accepts HTTP requests and shows you the request body. The http://requestb.in URL gets special treatment by Azure Event Grid. To facilitate testing, Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. Two other testing tools are given the same treatment: http://webhookinbox.com and http://hookbin.com.
-
-RequestBin is not intended for high throughput usage. If you push more than one event at a time, you might not see all of your events in the tool.
-
-Create an endpoint.
-
-![Create RequestBin endpoint](media/functions-bindings-event-grid/create-requestbin.png)
-
-Copy the endpoint URL.
-
-![Copy RequestBin endpoint](media/functions-bindings-event-grid/save-requestbin-url.png)
-
-### Create an Event Grid subscription
-
-Create an Event Grid subscription of the type you want to test, and give it your RequestBin endpoint. For information about how to create a subscription, see [Manage subscriptions](#manage-subscriptions) earlier in this article.
-
-### Generate a request
-
-Trigger an event that will generate HTTP traffic to your RequestBin endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your RequestBin page, copy the request body.
-
-The subscription validation request will be received first; ignore any validation requests, and copy the event request.
-
-![Copy request body from RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
-
-### Manually post the request
-
-Run your HTTP function locally, and the runtime gives you the URL to use for invoking the function. 
-
-Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
-
-* Set a `Content-Type: application/json` header.
-* Paste into the request body the data from RequestBin. 
-* Post to the URL of your HTTP function. 
-
-The following screenshot shows the localhost URL and request body in Postman:
-
-![Endpoint and request body in Postman](media/functions-bindings-event-grid/postman.png)
-
-Now the event handling code in the HTTP function processes the same data that it gets when it runs in Azure.
-
-When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
+For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md) 
 
 ## Next steps
 
