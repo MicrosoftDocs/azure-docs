@@ -37,27 +37,27 @@ When you provision an HDInsight HBase Monitoring solution, you create an OMS wor
 2. In the **New** pane under **Marketplace**, select **Monitoring + management**.
 3. In the **Monitoring + management** pane, select **See all**.
 
-    ![Monitoring + management pane](./media/apache-hbase-monitoring-with-oms/monitoring-management-blade.png)  
+    ![Monitoring + management pane](./media/apache-hbase-monitor-with-oms/monitoring-management-blade.png)  
 
 4. In the listing, look for the **Management Solutions** band. To the right of **Management Solutions**, select **More**.
 
-    ![Monitoring + management pane](./media/apache-hbase-monitoring-with-oms/management-solutions.png) 
+    ![Monitoring + management pane](./media/apache-hbase-monitor-with-oms/management-solutions.png) 
 
 5. In the **Management Solutions** pane, select the HDInsight HBase Monitoring management solution to add to a workspace.
 
-    ![Management solutions pane](./media/apache-hbase-monitoring-with-oms/hbase-solution.png)  
+    ![Management solutions pane](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. In the management solution pane, review the information about the management solution, and then select **Create**. 
 7. In the *management solution name* pane, select an existing workspace to associate with the management solution, or create a new OMS workspace and then select it.
 8. Change workspace settings for the Azure subscription, resource group, and location as appropriate. 
-    ![solution workspace](./media/apache-hbase-monitoring-with-oms/solution-workspace.png)  
+    ![solution workspace](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Select **Create**.  
 10. To use this new management solution in its workspace, navigate to **Log Analytics** > ***workspace name*** > **Solutions**. An entry for your management solution is displayed in the list. Select the entry to navigate to the solution.
 
-    ![Log Analytics Solutions](./media/apache-hbase-monitoring-with-oms/log-analytics-solutions.png)  
+    ![Log Analytics Solutions](./media/apache-hbase-monitor-with-oms/log-analytics-solutions.png)  
 
 11. The pane for your HDInsight HBase monitoring solution appears.
 
-    ![HDInsight HBase Solutions pane](./media/apache-hbase-monitoring-with-oms/hdinsight-hbase-solution.png) 
+    ![HDInsight HBase Solutions pane](./media/apache-hbase-monitor-with-oms/hdinsight-hbase-solution.png) 
 
 12. The Summary tiles do not show any data because you have not yet configured your HDInsight HBase cluster to send data to Log Analytics.
 
@@ -71,19 +71,19 @@ You need your OMS Workspace ID and Workspace Key to enable the nodes in your clu
 
 1. From your HBase Monitoring pane in the Azure portal, select Overview.
 
-    ![HBase Monitoring solution pane](./media/apache-hbase-monitoring-with-oms/hdinsight-hbase-solution.png) 
+    ![HBase Monitoring solution pane](./media/apache-hbase-monitor-with-oms/hdinsight-hbase-solution.png) 
 
 2. Select OMS Portal to launch the OMS Portal in a new browser tab or window.
 
-    ![Select OMS Portal](./media/apache-hbase-monitoring-with-oms/select-oms-portal.png) 
+    ![Select OMS Portal](./media/apache-hbase-monitor-with-oms/select-oms-portal.png) 
 
 3. On the OMS Portal Home, select Settings.
 
-    ![OMS Portal](./media/apache-hbase-monitoring-with-oms/oms-portal-settings.png) 
+    ![OMS Portal](./media/apache-hbase-monitor-with-oms/oms-portal-settings.png) 
 
 4. Select Connected Source, Linux Servers.
 
-    ![Select Connected Source then Linux Servers](./media/apache-hbase-monitoring-with-oms/select-linux-servers.png) 
+    ![Select Connected Source then Linux Servers](./media/apache-hbase-monitor-with-oms/select-linux-servers.png) 
 
 5. Note the Workspace ID and Primary Key values displayed, as these are the values you need for the Script Action.
 
@@ -92,54 +92,52 @@ You need your OMS Workspace ID and Workspace Key to enable the nodes in your clu
 To enable data collection from your HDInsight HBase cluster, run a Script Action against all the nodes in the cluster:
 
 1. Navigate to the pane for your HDInsight HBase cluster in the Azure portal.
-2. Select Script Actions.
+2. Select **Script actions**.
 
-    ![Script Actions](./media/apache-hbase-monitoring-with-oms/script-actions.png) 
+    ![Script Actions](./media/apache-hbase-monitor-with-oms/script-actions.png) 
 
-3. Select Submit new.
+3. Select **Submit new**.
 
-    ![Submit New](./media/apache-hbase-monitoring-with-oms/script-actions-submit-new.png)  
+    ![Submit New](./media/apache-hbase-monitor-with-oms/script-actions-submit-new.png)  
 
-4. In the Submit script action, set the Script type to "- Custom".
+4. In the **Submit script** action, set the Script type to `"- Custom"`.
 5. Provide a name for this script.
-6. For the Bash Script URI, paste in the following URI:
+6. For the **Bash script URI**, paste in the following URI:
 
         https://raw.githubusercontent.com/hdinsight/HDInsightOMS/master/monitoring/script2.sh 
 
-7. For the Node types, select all three (Head, Region, ZooKeeper).
-8. In the Parameters text box, enter your Workspace ID and your Workspace Key, enclosing each value in quotes and separated by a space.
+7. For the **Node types**, select all three (**Head**, **Region**, **ZooKeeper**).
+8. In the **Parameters** text box, enter your Workspace ID and your Workspace Key, enclosing each value in quotes and separated by a space.
 
-        "WorkspaceID" "WorkspaceKey"
-    For example:
+        "<Workspace ID>" "<Workspace Key>"
 
-        "481506d5-f04e-4901-afa6-0a688232a1c1" "bQCW1P27febK2k/S/+70jxgap2A2HTUU9V1YHE7nfW8uR31XZx3OEzJvnVNvOBo7pe+W5+ahn/my6JDtTIufcg=="
-9. Select Persist this script action to rerun the action when new nodes are added to the cluster.
+9. Select **Persist this script action** to rerun the action when new nodes are added to the cluster.
 
-    ![Script action settings](./media/apache-hbase-monitoring-with-oms/submit-script-action.png)  
+    ![Script action settings](./media/apache-hbase-monitor-with-oms/submit-script-action.png)  
 
-10. Select Create.
-11. The Script Action takes a few minutes to run. You can monitor its status from the Script Actions pane.
+10. Select **Create**.
+11. The script action takes a few minutes to run. You can monitor its status from the Script Actions pane.
 
-    ![Script action running](./media/apache-hbase-monitoring-with-oms/script-action-running.png)  
+    ![Script action running](./media/apache-hbase-monitor-with-oms/script-action-running.png)  
 
 12. When the Script Action completes, you should see a green checkmark next to the script name in the listing.
 
-    ![Script action completed](./media/apache-hbase-monitoring-with-oms/script-action-done.png)  
+    ![Script action completed](./media/apache-hbase-monitor-with-oms/script-action-done.png)  
 
-## View the HDInsight HBase Monitoring Solution
+## View the HDInsight HBase Monitoring solution
 
-After the Script Action completes, you should see data in the Monitoring solution within a few minutes.
+After the Script action completes, you should see data in the Monitoring solution within a few minutes.
 
 1. Within the Azure portal, navigate to your HDInsight HBase solution's pane.
-2. Select the Overview tab.
-3. Under Summary, you see a tile indicating the count of Region Servers that are being monitored.
+2. Select the **Overview** tab.
+3. Under **Summary**, you see a tile indicating the number of Region Servers that are being monitored.
 
-    ![Monitoring Summary Tile](./media/apache-hbase-monitoring-with-oms/monitoring-summary-tile.png)  
+    ![Monitoring Summary Tile](./media/apache-hbase-monitor-with-oms/monitoring-summary-tile.png)  
 
 4. Select the tile with the region server count. The main dashboard is displayed.
-5. This Dashboard provides access to statistics about the Regions, the Write-Ahead-Log (WAL) count in use, a collection of Log Analytics searches (such as for Region Server Logs, Phoenix logs, and Exceptions) and a collection of Popular charts to visualize relevant metrics. 
+5. This dashboard provides access to statistics about the regions, the write-ahead log (WAL) count in use, a collection of Log Analytics searches (such as for region server Logs, Phoenix logs, and exceptions) and a collection of popular charts to visualize relevant metrics. 
 
-    ![Main Dashboard](./media/apache-hbase-monitoring-with-oms/main-dashboard.png)  
+    ![Main Dashboard](./media/apache-hbase-monitor-with-oms/main-dashboard.png)  
 
 6. Selecting any one of these will drill down into the Log Search view where you can refine the query and explore the data in more detail.
 

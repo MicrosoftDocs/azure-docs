@@ -34,7 +34,7 @@ HBase supports several approaches for guarding against data loss:
 
 The following sections describe the usage scenario for each of these approaches.
 
-## Copy the `hbase` folder
+## Copy the hbase folder
 
 With this approach, you copy all HBase data, without being able to select a subset of tables or column families. Subsequent approaches provide greater control.
 

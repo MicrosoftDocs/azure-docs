@@ -166,7 +166,7 @@
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
     - name: Migrate HBase cluster to newer version
-      href: apache-hbase-migrating-to-new-version.md
+      href: apache-hbase-migrate-new-version.md
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
@@ -237,7 +237,7 @@
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
     - name: Monitor HBase with OMS
-      href: apache-hbase-monitoring-with-oms.md
+      href: apache-hbase-monitor-with-oms.md
     - name: Cluster-specific dashboards
       href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true

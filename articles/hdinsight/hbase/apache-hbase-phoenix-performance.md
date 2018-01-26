@@ -23,7 +23,7 @@ ms.author: ashishth
 
 The most important aspect of Phoenix performance is to optimize the underlying HBase. Phoenix creates a relational data model atop HBase that converts SQL queries into HBase operations, such as scans. The design of your table schema, the selection and ordering of the fields in your primary key, and your use of indexes all affect Phoenix performance.
 
-## Table Schema Design
+## Table schema design
 
 When you create a table in Phoenix, that table is stored in an HBase table. The HBase table contains groups of columns (column families) that are accessed together. A row in the Phoenix table is a row in the HBase table, where each row consists of versioned cells associated with one or more columns. Logically, a single HBase row is a collection of key-value pairs, each having the same rowkey value. That is, each key-value pair has a rowkey attribute, and the value of that rowkey attribute is the same for a particular row.
 
@@ -138,7 +138,7 @@ For example, you could create an index to allow you to do case-insensitive searc
 
      CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
 
-## Query Design
+## Query design
 
 The main considerations in query design are:
 

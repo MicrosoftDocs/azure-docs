@@ -68,7 +68,7 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 
 2. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
-	![Use the same Storage account, but create a different Container](./media/apache-hbase-migrating-to-new-version/same-storage-different-container.png)
+	![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
 3. Flush your source HBase cluster. This is the cluster from which you are upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, the memstore is flushed to disk for long-term storage in the cluster's storage account. When deleting the old cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
@@ -192,15 +192,15 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 5. To ensure that any recent data in the memstore is flushed, run the previous script again.
 6. Log in to Ambari on the old cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) and stop the HBase services. When you are prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
-	![In Ambari, click the Services tab, then HBase on the left-hand menu, then Stop under Service Actions](./media/apache-hbase-migrating-to-new-version/stop-hbase-services.png)
+	![In Ambari, click the Services tab, then HBase on the left-hand menu, then Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
-	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrating-to-new-version/turn-on-maintenance-mode.png)
+	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. Log in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under HDFS > Configs > Advanced > Advanced core-site.
+7. Log in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
-	![In Ambari, click the Services tab, then HDFS on the left-hand menu, then the Configs tab, then the Advanced tab underneath](./media/apache-hbase-migrating-to-new-version/hdfs-advanced-settings.png)
+	![In Ambari, click the Services tab, then HDFS on the left-hand menu, then the Configs tab, then the Advanced tab underneath](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
-	![In Ambari, change the container name](./media/apache-hbase-migrating-to-new-version/change-container-name.png)
+	![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
 8. Save your changes.
 9. Restart all required services as indicated by Ambari.
