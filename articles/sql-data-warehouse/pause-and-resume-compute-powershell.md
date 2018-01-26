@@ -22,14 +22,11 @@ Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. R
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-This tutorial was tested with Azure PowerShell module version 5.1.1. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md). 
+This tutorial requires Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md). 
 
 ## Before you begin
 
 This quickstart assumes you already have a SQL data warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**. 
-
-This tutorial requires the Azure PowerShell module version 4.0 or later. To see your current version, open PowerShell and run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
-
 
 ## Log in to Azure
 
