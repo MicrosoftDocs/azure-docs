@@ -157,4 +157,4 @@ The following are the country codes that you may specify in the `cc` query param
 |United States|US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).

@@ -48,7 +48,7 @@ Here are some common benefits when using agreements:
 ## How to use an agreement
 
 You can create 
-[logic apps](logic-apps-what-are-logic-apps.md "Learn about Logic apps") with B2B capabilities by using an agreement that you created.
+[logic apps](logic-apps-overview.md "Learn about Logic apps") with B2B capabilities by using an agreement that you created.
 
 ## How to edit an agreement
 

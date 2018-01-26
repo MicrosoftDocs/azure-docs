@@ -216,7 +216,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Boot Type**: Boot type of the VM. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI VMs (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI VMs, Azure Site Recovery mobility service version must be 9.13 or above. Only failover is supported for EFI VMs. Failback is not supported.  
 
-**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other. 
+**OS Type**: It is OS type of the VM. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the VM.  
 
 ## Incompatible VMs
 
@@ -228,12 +228,12 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
 * Disk size is >4095 GB. Azure Storage currently does not support data disk sizes greater than 4095 GB.
+
 * OS disk is >2048 GB. Azure Storage currently does not support OS disk size greater than 2048 GB.
-* Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 
-* Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
+* Source IOPS exceeds supported storage IOPS limit of 7500 per disk.
 
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
 
@@ -241,11 +241,14 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 * Average data churn exceeds supported Site Recovery data churn limit of 25 MB/s for average I/O size for the VM (sum of all disks churn).
 
-* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MB/s per VM.
+* Peak data churn across all disks on the VM exceeds the maximum supported Site Recovery peak data churn limit of 54 MB/s per VM.
 
 * Average effective write IOPS exceeds the supported Site Recovery IOPS limit of 840 for disk.
 
 * Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB.
+
+* Total data churn per day exceeds supported churn per day limit of 2 TB by a Process Server.
+
 
 **Peak R/W IOPS (with Growth Factor)**: The peak workload IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of the VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 
@@ -261,13 +264,13 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
+**Boot Type**: Boot type of the VM. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI VMs (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI VMs, Azure Site Recovery mobility service version must be 9.13 or above. Only failover is supported for EFI VMs. Failback is not supported.
 
-**OS Type**: It is OS type of the VM. It can be either Windows or Linux or other based on the template from VMware vSphere chosen while creating the VM. 
+**OS Type**:  It is OS type of the VM. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the VM. 
 
 ## Azure Site Recovery limits
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by issuing a test failover to get the true performance picture of the application.
- 
+
 **Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
 Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
@@ -277,7 +280,14 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
+**Source data churn** | **Maximium Limit**
+---|---
+Average data churn per VM| 25 MB/s 
+Peak data churn across all disks on a VM | 54 MB/s
+Maximum data churn per day supported by a Process Server | 2 TB 
+
 These are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
+
 
 ## Cost estimation
 Learn more about [cost estimation](site-recovery-vmware-deployment-planner-cost-estimation.md). 
