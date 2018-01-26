@@ -54,6 +54,8 @@
     href: /powershell/module/azurerm.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: SDKs
+    href: sdk-overview.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
