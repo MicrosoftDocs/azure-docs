@@ -78,7 +78,7 @@ The `context` parameter has the following properties:
 - `deviceId`, for example `Simulated.Chiller.123`
 - `deviceModel`, for example `Chiller`
 
-The `state` parameter contains the state of the device as maintained by the device simulation service. This is the value returned by the previous call to `main`.
+The `state` parameter contains the state of the device as maintained by the device simulation service. This value is the `state` object returned by the previous call to `main`.
 
 The following example shows a typical implementation of the `main` method to handle the device state maintained by the simulation service:
 
@@ -114,7 +114,7 @@ function main(context, previousState) {
 }
 ```
 
-The following example shows how the `main` method can simulate telemtry values that vary over time:
+The following example shows how the `main` method can simulate telemetry values that vary over time:
 
 ```javascript
 /**
@@ -243,9 +243,9 @@ function main(context, previousState) {
 
 ## Debugging script files
 
-It's not possible to attach a debugger to the Javascript interpreter used by the device simulation service to run state and method scripts. However, you can log information in the service log. The device simulation service provides a `log()` function that you can use to save information to track and debug the function execution.
+It's not possible to attach a debugger to the Javascript interpreter used by the device simulation service to run state and method scripts. However, you can log information in the service log. The built-in `log()` function enables you to save information to track and debug function execution.
 
-If there is a syntax errors the interpreter fails, and writes a `Jint.Runtime.JavaScriptException` entry to the service log.
+If there is a syntax error the interpreter fails, and writes a `Jint.Runtime.JavaScriptException` entry to the service log.
 
 The [Create a simulated device](iot-suite-remote-monitoring-test.md) article shows you how to run the device simulation service locally. Running the service locally makes it easier to debug your simulated devices before you deploy them to the cloud.
 
@@ -259,7 +259,7 @@ This article described how to define the behavior of your own custom simulated d
 > * Define how a simulated device reponds to a method call from the remote monitoring solution
 > * Debug your scripts
 
-Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [create and test a new simulated device](iot-suite-remote-monitoring-test.md).
+Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-suite-remote-monitoring-test.md).
 
 For more developer information about the remote monitoring solution, see:
 
