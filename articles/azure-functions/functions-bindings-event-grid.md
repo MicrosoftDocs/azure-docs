@@ -55,6 +55,8 @@ public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEven
 }
 ```
 
+The `EventGridTrigger` attribute is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+
 ### C# script example
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs some of the fields that are common to all events and all of the event-specific data.
@@ -209,7 +211,7 @@ For more information about how to create subscriptions by using the Azure portal
 
 ### Azure CLI
 
-to create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) command.
+To create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) command.
 
 The command requires the endpoint URL that invokes the function. The following example shows the URL pattern:
 
