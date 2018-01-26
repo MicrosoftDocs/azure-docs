@@ -238,4 +238,4 @@ In this section, we stream data into the **hvactable** that you already created 
 
 * [Use HDInsight Spark cluster to analyze data in Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Process structured streaming events using EventHub](apache-spark-eventhub-structured-streaming.md)
-* [Use Spark Structured Streaming with Kafka on HDInsight](./hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Use Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
