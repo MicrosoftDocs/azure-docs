@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 01/25/2017
+ms.date: 01/26/2018
 ms.topic: article
 ms.service: iot-edge
 ---
@@ -43,7 +43,7 @@ After you complete the required tutorials, you should have all the required prer
 * AzureIoTEdgeFunction template (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
 * An active IoT hub with at least an IoT Edge device.
 
-Both Windows and Linux containers on x64 processor architectures work for this tutorial. SQL Server does not support ARM processors. 
+Both Windows and Linux containers on x64 processor architectures work for this tutorial. <!---Commented out because ARM is a blocking acronym, even though I don't think this refers to Azure Resoucre Manager: SQL Server does not support ARM processors. --->
 
 ## Deploy a SQL Server container
 
