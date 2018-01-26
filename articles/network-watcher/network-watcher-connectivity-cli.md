@@ -27,6 +27,8 @@ Learn how to use connection troubleshoot to verify whether a direct TCP connecti
 
 ## Before you begin
 
+This article assumes you have the following resources:
+
 * An instance of Network Watcher in the region you want to troubleshoot a connection.
 * Virtual machines to troubleshoot connections with.
 
