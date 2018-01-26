@@ -143,7 +143,8 @@ The script in the [Create Azure-SSIS integration runtime](create-azure-ssis-inte
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-# OPTIONAL: specify your VNet ID and the subnet name. 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+# Specify information about your classic or Azure Resource Manager virtual network (VNet).
 $VnetId = "<Name of your Azure virtual netowrk>"
 $SubnetName = "<Name of the subnet in VNet>"
 ```

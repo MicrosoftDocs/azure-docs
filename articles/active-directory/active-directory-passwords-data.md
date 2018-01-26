@@ -28,6 +28,8 @@ To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 > [!NOTE]
+> There needs to be a space between the country code and the phone number.
+>
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
 ## Fields populated
