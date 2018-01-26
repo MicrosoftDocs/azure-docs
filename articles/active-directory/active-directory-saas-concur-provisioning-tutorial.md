@@ -16,7 +16,7 @@ ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configure Concur for User Provisioning
+# Tutorial: Configure Concur for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Concur and Azure AD to automatically provision and de-provision user accounts from Azure AD to Concur.
 

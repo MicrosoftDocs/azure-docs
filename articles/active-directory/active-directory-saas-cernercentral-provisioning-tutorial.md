@@ -17,7 +17,7 @@ ms.date: 01/26/2018
 ms.author: asmalser-msft
 ---
 
-# Tutorial: Configure Cerner Central for Automatic User Provisioning
+# Tutorial: Configure Cerner Central for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Cerner Central and Azure AD to automatically provision and de-provision user accounts from Azure AD to a user roster in Cerner Central. 
 

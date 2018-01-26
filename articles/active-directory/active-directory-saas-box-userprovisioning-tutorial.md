@@ -16,7 +16,7 @@ ms.date: 01/26/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Configure Box for Automatic User Provisioning
+# Tutorial: Configure Box for automatic user provisioning
 
 The objective of this tutorial is to show the steps you need to perform in Box and Azure AD to automatically provision and de-provision user accounts from Azure AD to Box.
 

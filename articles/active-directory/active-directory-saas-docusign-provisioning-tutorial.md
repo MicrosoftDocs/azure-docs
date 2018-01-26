@@ -16,7 +16,7 @@ ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configure DocuSign for User Provisioning
+# Tutorial: Configure DocuSign for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in DocuSign and Azure AD to automatically provision and de-provision user accounts from Azure AD to DocuSign.
 

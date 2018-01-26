@@ -16,7 +16,7 @@ ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configure Dropbox for Business for Automatic User Provisioning
+# Tutorial: Configure Dropbox for Business for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Dropbox for Business and Azure AD to automatically provision and de-provision user accounts from Azure AD to Dropbox for Business.
 
