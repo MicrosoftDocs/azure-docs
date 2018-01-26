@@ -57,9 +57,12 @@ Where:
 ### Are there RBAC roles for User Assigned Identities?
 Yes:
 1. MSI Contributor: 
+
 - Can: CRUD user assigned identities. 
 - Cannot: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+
 2. MSI Operator: 
+
 - Can: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
 - Cannot: CRUD user assigned identities.
 
