@@ -23,7 +23,7 @@ manage, and viewing reports. For an overview of what Azure Automation DSC is, se
 [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
 This article provides a step-by-step guide to using Azure Automation DSC. If you want a sample environment that is already set up without following the steps described in this article,
-you can use the following [Resource Manager template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
+you can use the following Resource Manager template: This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
 
 ## Prerequisites
 To complete the examples in this article, the following are required:
@@ -146,11 +146,11 @@ you learn how to onboard only Azure Resource Manager VMs. For information about 
 ### To onboard an Azure Resource Manager VM for management by Azure Automation DSC
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, click **All resources** and then the name of your Automation account.
-3. On the **Automation account** page, click **DSC Nodes** under **Configuration Management**..
+3. On the **Automation account** page, click **DSC Nodes** under **Configuration Management**.
 4. In the **DSC Nodes** page, click **Add Azure VM**.
    
     ![Screenshot of the DSC Nodes page highlighting the Add Azure VM button](./media/automation-dsc-getting-started/OnboardVM.png)
-5. On the **Virtual Machines** page select your VM.  **Add Azure VMs** page, click **Select virtual machines to onboard**.
+5. On the Virtual Machines page, select your VM. **Add Azure VMs** page, click **Select virtual machines to onboard**.
 6. Click **Connect**.
    
    > [!IMPORTANT]
