@@ -93,12 +93,12 @@ If an error is received, the channel needs to be reset and encoder settings adju
 
 ## Create a program
 1.  Once channel playback is confirmed, create a program. Under the Live tab in the AMSE tool, right-click within the program area and select Create New Program.
-![Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-2.  Name the program and, if needed, adjust the Archive Window Length (which defaults to four hours). You can also specify a storage location or leave as the default.
-3.  Check the Start the Program now box.
-4.  Click Create Program.
-5.  Once the program is running, confirm playback by right-clicking the program and navigating to Play back the program(s) and then selecting with Azure Media Player.
-6.  Once confirmed, right-click the program again and select Copy the Output URL to Clipboard (or retrieve this information from the Program information and settings option from the menu).
+[Haivision](./media/media-services-configure-kb-live-encoder/program.png)
+1.  Name the program and, if needed, adjust the Archive Window Length (which defaults to four hours). You can also specify a storage location or leave as the default.
+2.  Check the Start the Program now box.
+3.  Click Create Program.
+4.  Once the program is running, confirm playback by right-clicking the program and navigating to Play back the program(s) and then selecting with Azure Media Player.
+5.  Once confirmed, right-click the program again and select Copy the Output URL to Clipboard (or retrieve this information from the Program information and settings option from the menu).
 
 The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.
 
