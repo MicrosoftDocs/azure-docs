@@ -58,6 +58,7 @@ Currently, there is no portal experience for modifying responses. To learn how t
 ## <a name="using-variables"></a>Use variables
 
 The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
+
 ### <a name="reference-localhost"></a>Reference local functions
 You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
 
@@ -96,6 +97,18 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 > [!TIP] 
 > Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
 
+## <a name="debugProxies"></a>Troubleshoot Proxies
+
+By adding the flag `"debug":true` to any proxy in your `proxy.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
+
+You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
+
+### Block proxy traces
+
+For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
+
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxy.json`.
+
 ## Advanced configuration
 
 The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The Azure Functions Proxies feature must be [enabled](#enable) for the file to be processed. 
@@ -131,18 +144,6 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 
 > [!NOTE] 
 > The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
-
-### <a name="debugProxies"></a>Troubleshoot Proxies
-
-By adding the flag `"debug":true` to any proxy in your `proxy.json` you will enable debug logging to `D:\home\LogFiles\Application\Proxies\DetailedTrace` whenever that proxy is executed. The request will also return a `Proxy-Trace-Location` header with a URL to access the log file.
-
-You can also debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
-
-#### Block proxy traces
-
-For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
-
-Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxy.json`.
 
 ### <a name="disableProxies"></a>Disable individual proxies
 
