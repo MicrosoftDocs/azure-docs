@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2017
+ms.date: 01/26/2018
 ms.author: raynew
 
 ---
@@ -30,8 +30,30 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 * Model dependencies between machines, by grouping them together into a recovery plan group. For example, to fail over and bring up a specific application, you group all of the VMs for that application into the same recovery plan group.
 * Run a failover. You can run a test, planned, or unplanned failover on a recovery plan.
 
+## Why use recovery plans?
 
-## Create a recovery plan
+Recovery plans help you plan for a systematic recovery process by creating small independent units that you can manage. These units will typically represent an application in your environment. Recovery plan not only allows you to define the sequence in which the virtual machines start, but also helps you automate common tasks during recovery.
+
+
+Essentially, one way to check that you are prepared for cloud migration or disaster recovery is by ensuring that every application of yours is part of a recovery plan and each of the recovery plans is tested for recovery to Microsoft Azure. With this preparedness, you can confidently migrate or failover your complete datacenter to Microsoft Azure.
+ 
+Following are the three key value propositions of a recovery plan:
+
+### Model an application to capture dependencies
+
+A recovery plan is a group of virtual machines generally comprising an application that failover together. Using the recovery plan constructs, you can enhance this group to capture your application-specific properties.
+ 
+Let us take the example of a typical three tier application with
+
+* one SQL backend
+* one middleware
+* one web frontend
+
+The recovery plan can be customized to ensure that the virtual machines come up in the right order post a failover. The SQL backend should come up first, the middleware should come up next, and the web frontend should come up last. This order makes certain that the application is working by the time the last virtual machine comes up. For example, when the middleware comes up, it will try to connect to the SQL tier, and the recovery plan has ensured that the SQL tier is already running. Frontend servers coming up last also ensures that end users do not connect to the application URL by mistake until all the components are up are running and the application is ready to accept requests. To build these dependencies, you can customize the recovery plan to add groups. Then select a virtual machine and change its group to move it between groups.
+
+
+
+## How to create a recovery plan
 
 1. Click **Recovery Plans** > **Create Recovery Plan**.
    Specify a name for the recovery plan, and a source and target. The source location must have virtual machines that are enabled for failover and recovery. Choose a source and target based on the virtual machines that you want to be part of the recovery plan. 
@@ -50,7 +72,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan. Only those virtual machines that were protected on Source (as selected in the recovery plan) and are protected to the Target (as selected in the recovery plan) will be allowed for selection.
 
-## Customize and extend recovery plans
+## How to customize and extend recovery plans
 
 You can customize and extend recovery plans by going to the Site Recovery recovery plan resource blade and clicking the Customize tab.
 
@@ -62,7 +84,7 @@ You can customize and extend recovery plans:
 - **Add Azure runbooks**—You can extend recovery plans with Azure runbooks. For example, to automate tasks, or to create single-step recovery. [Learn more](site-recovery-runbook-automation.md).
 
 
-## Add a script, runbook or manual action to a plan
+## How to add a script, runbook or manual action to a plan
 
 You can add a script or manual action to the default recovery plan group after you've added VMs or replication groups to it, and created the plan.
 
