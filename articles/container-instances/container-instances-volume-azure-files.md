@@ -12,7 +12,7 @@ ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Mount an Azure file share with Azure Container Instances
+# Mount an Azure file share in Azure Container Instances
 
 By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. This article shows how to mount an Azure file share for use with Azure Container Instances.
 

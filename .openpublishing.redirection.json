@@ -14356,6 +14356,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-instances/container-instances-mounting-azure-files-volume.md",
+            "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
@@ -16508,7 +16513,7 @@
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
             "redirect_url": "/azure/cognitive-services/translator/customization",
             "redirect_document_id": false
-	},     
+	},
 	{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
@@ -16524,7 +16529,7 @@
         "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
         "redirect_document_id": false
 }
-	
+
 
    ]
 }
