@@ -22,21 +22,21 @@ ms.author: nisoneji
 ## Overview
 
 
-Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some of these like payroll processing, financial applications and customer facing websites can be utmost critical for an organization. It will be important for the organization to have them up and running at all times to prevent loss of productivity and more importantly prevent any damage to the brand image of the organization.
+Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some of these like payroll processing, financial applications and customer facing websites can be utmost critical for an organization. It is important for the organization to have them up and running at all times to prevent loss of productivity and more importantly prevent any damage to the brand image of the organization.
 
-Critical web applications are typically set up as multi-tier applications with the web, database and application on different tiers. Apart from being spread across various tiers, the applications may also be using multiple servers in each tier to load balance the traffic. Moreover, the mappings between various tiers and on the web server may be based on static IP addresses. On failover, some of these mappings will need to be updated, especially, if you have multiple websites configured on the web server. In case of web applications using SSL, certificate bindings will need to be updated.
+Critical web applications are typically set up as multi-tier applications with the web, database, and application on different tiers. Apart from being spread across various tiers, the applications may also be using multiple servers in each tier to load balance the traffic. Moreover, the mappings between various tiers and on the web server may be based on static IP addresses. On failover, some of these mappings need to be updated, especially, if you have multiple websites configured on the web server. If web applications use SSL, certificate bindings need to be updated.
 
-Traditional non-replication based recovery methods involve backing up of various configuration files, registry settings, bindings, custom components (COM or .NET), content and also certificates and recovering the files through a set of manual steps. These techniques are clearly cumbersome, error prone and not scalable. It is, for example, easily possible for you to forget backing up certificates and be left with no choice but to buy new certificates for the server after failover.
+Traditional non-replication based recovery methods involve backing up of various configuration files, registry settings, bindings, custom components (COM or .NET), content, and also certificates and recovering the files through a set of manual steps. These techniques are clearly cumbersome, error prone and not scalable. It is, for example, easily possible for you to forget backing up certificates and be left with no choice but to buy new certificates for the server after failover.
 
-A good disaster recovery solution, should allow modeling of recovery plans around the above complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
+A good disaster recovery solution, should allow modeling of recovery plans around complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
 
 
-This article describes how to protect an IIS based web application using a [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
+This article describes how to protect an IIS based web application using a [Azure Site Recovery](site-recovery-overview.md). This article covers best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
 
 
 ## Prerequisites
 
-Before you start, make sure you understand the following:
+Before you start, make sure you understand the following requirements:
 
 1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
 1. How to [design a recovery network](site-recovery-network-design.md)
@@ -61,7 +61,7 @@ An IIS based web farm with Application Request Routing(ARR), IIS Server, Applica
 
 ## Site Recovery support
 
-For the purpose of creating this article VMware virtual machines with IIS Server version 7.5 on Windows Server 2012 R2 Enterprise were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well and for different version of IIS.
+For the purpose of creating this article, VMware virtual machines with IIS Server version 7.5 on Windows Server 2012 R2 Enterprise are used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well and for different version of IIS.
 
 ### Source and target
 
@@ -76,7 +76,7 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 
 Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating all the IIS web farm virtual machines to Azure.
 
-If you are using a static IP then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings.
+If you are using a static IP, then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings.
 
 ![Target IP](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -86,7 +86,7 @@ If you are using a static IP then specify the IP that you want the virtual machi
 A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application.  [Learn more about creating a recovery plan](./site-recovery-create-recovery-plans.md).
 
 ### Adding virtual machines to failover groups
-A typical multi-tier IIS web application will consist of a database tier with SQL virtual machines, the web tier constituted by a IIS server and an application tier. Add all these virtual machines to different group based on tier as below. [Learn more about customising recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+A typical multi-tier IIS web application consists of a database tier with SQL virtual machines, the web tier constituted by a IIS server and an application tier. Add all these virtual machines to different group based on tier as given in the folowing steps. [Learn more about customising recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 1. Create a recovery plan. Add the database tier virtual machines under Group 1 to ensure that they are shutdown last and brought up first.
 
@@ -101,12 +101,12 @@ A typical multi-tier IIS web application will consist of a database tier with SQ
 You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-how-to-add-vmmscript.md).
 
 #### DNS Update
-If the DNS is configured for dynamic DNS update then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
+If the DNS is configured for dynamic DNS update, then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines, then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
 
 #### Connection string in an application’s web.config
 The connection string specifies the database that the web site communicates with.
 
-If the connection string carries the name of the database virtual machine, no further steps will be needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it will need to be updated post failover. E.g. the below connection string points to the DB with IP 127.0.1.2
+If the connection string carries the name of the database virtual machine, no further steps are needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it needs to be updated post failover. For example, the following connection string points to the DB with IP 127.0.1.2
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<configuration>
@@ -118,11 +118,11 @@ If the connection string carries the name of the database virtual machine, no fu
 You can update the connection string in web tier by adding [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
 
 #### Site bindings for the application
-Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. At the time of a failover, these bindings might need to be updated if there is a change in the IP address associated with them.
+Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. During the failover, these bindings might need to be updated if there is a change in the IP address associated with them.
 
 > [!NOTE]
 >
-> If you have marked ‘all unassigned’ for the site binding as in the example below, you will not need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.)
+> If you have marked ‘all unassigned’ for the site binding as in the example below, you don't need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.)
 
 ![SSL Binding](./media/site-recovery-iis/sslbinding.png)
 
