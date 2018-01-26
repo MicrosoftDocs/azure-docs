@@ -19,6 +19,10 @@ ms.author: cbrooks
 # Configure Azure Storage Firewalls and Virtual Networks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
+> [!IMPORTANT]
+> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](#Exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
+>
+
 ## Scenarios
 Storage accounts can be configured to deny access to traffic from all networks (including internet traffic) by default.  Access can be granted to traffic from specific Azure Virtual networks, allowing you to build a secure network boundary for your applications.  Access can also be granted to public internet IP address ranges, enabling connections from specific internet or on-premises clients.
 
