@@ -179,7 +179,7 @@
 ###[User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md)
 ####[App integration tutorials](active-directory-saas-tutorial-list.md)
 ####[Automate provisioning to SCIM-Enabled app](active-directory-scim-provisioning.md)
-####[Customize attribute mappings]active-directory-saas-customizing-attribute-mappings.md)
+####[Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md)
 ####[Write expressions for attribute mapping](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 ####[Scoping filters](active-directory-saas-scoping-filters.md)
 ####[Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
