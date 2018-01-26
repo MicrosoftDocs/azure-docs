@@ -1,16 +1,16 @@
 ---
-title: Reacting to Azure Blob Storage events (preview) | Microsoft Docs
+title: Reacting to Azure Blob Storage events | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob Storage events. 
 services: storage,event-grid 
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/25/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ---
 
-# Reacting to Blob storage events (preview)
+# Reacting to Blob storage events
 
 Azure Blob storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures and without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 

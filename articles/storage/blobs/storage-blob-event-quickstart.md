@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Route Blob storage events to a custom web endpoint (preview)
+# Route Blob storage events to a custom web endpoint with Azure CLI
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob storage events, and trigger the event to view the result. 
 
@@ -49,7 +49,7 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
+Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier. You must use a location that is supported by Event Grid. See [supported regions](../../event-grid/overview.md).
 
 ```azurecli-interactive
 az storage account create \

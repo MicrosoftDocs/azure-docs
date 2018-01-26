@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Route Blob storage events to a custom web endpoint (preview)
+# Route Blob storage events to a custom web endpoint with PowerShell
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
@@ -35,7 +35,7 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, refer to the [Event Grid overview](/articles/event-grid/overview.md) page to see the current list of supported locations. This example uses **westus2** and stores the selection in a variable for use throughout.
+If you don't know which location you want to use, refer to the [Event Grid overview](../../event-grid/overview.md) page to see the current list of supported locations. This example uses **westus2** and stores the selection in a variable for use throughout.
 
 ```powershell
 $location = "westus2"
