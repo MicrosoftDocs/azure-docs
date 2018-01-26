@@ -63,7 +63,7 @@ Since a location wasn't specified in the previous command, Azure created the vir
 
 All virtual networks have one or more address prefixes assigned to them. Since an address prefix wasn't specified when creating the virtual network, Azure defined the 10.0.0.0/16 address space, by default. The address space is specified in CIDR notation. The address space 10.0.0.0/16 encompasses 10.0.0.0-10.0.255.254.
 
-Another portion of the information returned is the **addressPrefix** of *10.0.0.0/24* for the *default* subnet specified in the command. A virtual network contains zero or more subnets. The command created a single subnet named *default*, but no address prefix was specified for the subnet. When an address prefix isn't specified for a virtual network or subnet, Azure defines 10.0.0.0/16 as the address prefix for the first subnet, by default. As a result, the subnet encompasses 10.0.0.0-10.0.0.254, but only 10.0.0.4-10.0.0.254 are available, because Azure reserves the first four addresses (0-3) and the last address in each subnet.
+Another portion of the information returned is the **addressPrefix** of *10.0.0.0/24* for the *default* subnet specified in the command. A virtual network contains zero or more subnets. The command created a single subnet named *default*, but no address prefix was specified for the subnet. When an address prefix isn't specified for a virtual network or subnet, Azure defines 10.0.0.0/24 as the address prefix for the first subnet, by default. As a result, the subnet encompasses 10.0.0.0-10.0.0.254, but only 10.0.0.4-10.0.0.254 are available, because Azure reserves the first four addresses (0-3) and the last address in each subnet.
 
 
 ## Create virtual machines
