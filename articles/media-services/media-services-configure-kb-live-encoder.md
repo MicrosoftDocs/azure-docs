@@ -1,5 +1,5 @@
 ---
-title: Configure the Haivision KB encoder to send a single bitrate live stream | Microsoft Docs
+title: Configure the Haivision KB encoder to send a single bitrate live stream to Azure | Microsoft Docs
 description: 'This topic shows how to configure the Haivision KB live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.'
 services: media-services
 documentationcenter: ''
@@ -17,6 +17,11 @@ ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 
 ---
+
+This topic shows how to configure the [Havision KB live encoder]](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
+
 # Use the Haivision KB live encoder to send a single bitrate live stream
 > [!div class="op_single_selector"]
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -39,10 +44,10 @@ ms.author: juliako;dbgeorge
 
 ## Create a channel
 1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
-	![Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
+[Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
 2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is. Make sure the **Start the new channel now** is selected.
 3. Click **Create Channel**.
-   ![Haivision](./media/media-services-configure-kb-live-encoder/livechannel.png)
+[Haivision](./media/media-services-configure-kb-live-encoder/livechannel.png)
 
 > [!NOTE]
 > The channel can take as long as 20 minutes to start.
