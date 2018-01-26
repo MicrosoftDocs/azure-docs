@@ -25,6 +25,8 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 ![Sample app running in Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]

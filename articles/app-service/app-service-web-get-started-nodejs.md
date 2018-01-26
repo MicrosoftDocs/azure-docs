@@ -31,14 +31,13 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 To complete this quickstart:
 
 * <a href="https://nodejs.org/" target="_blank">Install Node.js and NPM</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 

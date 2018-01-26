@@ -37,6 +37,8 @@ What you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -45,8 +47,6 @@ To complete this tutorial:
 1. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Test local MongoDB
 

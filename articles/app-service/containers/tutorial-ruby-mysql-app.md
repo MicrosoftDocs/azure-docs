@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -37,8 +39,6 @@ To complete this tutorial:
 * [Install Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
 * [Install Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL
 

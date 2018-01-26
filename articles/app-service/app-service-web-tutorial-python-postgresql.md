@@ -30,6 +30,8 @@ In this tutorial, you learn how to:
 
 You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -37,8 +39,6 @@ To complete this tutorial:
 1. [Install Git](https://git-scm.com/)
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Test local PostgreSQL installation and create a database
 
@@ -116,7 +116,7 @@ To stop the Flask server at anytime, type Ctrl+C in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a production PostgreSQL database
+## Create PostgreSQL in Azure
 
 In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
@@ -124,7 +124,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### Create an Azure Database for PostgreSQL server
+### Createa a PostgreSQL server
 
 Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
 
@@ -160,7 +160,7 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 }
 ```
 
-### Create a firewall rule for the Azure Database for PostgreSQL server
+### Configure server firewall
 
 Run the following Azure CLI command to allow access to the database from all IP addresses.
 
@@ -181,11 +181,7 @@ The Azure CLI confirms the firewall rule creation with output similar to the fol
 }
 ```
 
-## Connect your Python Flask application to the database
-
-In this step, you connect your Python Flask sample application to the Azure Database for PostgreSQL server you created.
-
-### Create an empty database and set up a new database application user
+### Create a production database and user
 
 Create a database user with access to a single database only. You use these credentials to avoid giving the application full access to the server.
 
@@ -205,7 +201,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 
 Type `\q` to exit the PostgreSQL client.
 
-### Test the application locally against the Azure PostgreSQL database
+### Test app locally with Azure PostgreSQL
 
 Going back now to the *app* folder of the cloned Github repository, you can run the Python Flask application by updating the database environment variables.
 
@@ -228,9 +224,13 @@ Navigate to http://localhost:5000 in a browser. Click **Register!** and create a
 
 ![Python Flask application running locally](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
-## Upload the Docker container to a container registry
+## Deploy to Azure
 
 In this step, you deploy the PostgreSQL-connected Python application to Azure App Service.
+
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Create an App Service plan
 
@@ -239,7 +239,25 @@ In this step, you deploy the PostgreSQL-connected Python application to Azure Ap
 <a name="create"></a>
 ### Create a web app
 
-[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-python-no-h.md)] 
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)] 
+
+### Install Python
+
+Install Python 3.6.2 in your web app. You can do this with [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22) in App Service. You will use the credentials you configured in [Configure a deployment user](#configure-a-deployment-user) to authenticate against the REST endpoint.
+
+In the Cloud Shell, run the next command to get the Python 3.6.2 package information. Replace *\<deployment_user>* with the deployment username you configured, and *\<app_name>* with your app name. When prompted, use the deployment password you configured.
+
+```bash
+packageinfo=$(curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/extensionfeed/python362x86)
+```
+
+In the Cloud Shell, run the next command to install the Python package. Replace *\<deployment_user>* with the deployment username you configured, and *\<app_name>* with your app name. When prompted, use the deployment password you configured.
+
+```bash
+curl -X PUT -u <deployment_user> -H "Content-Type: application/json" -d '$packageinfo' https://<app_name>.scm.azurewebsites.net/api/siteextensions/python362x86
+```
+
+From the command output, you can see Python is installed at the path `D:\home\python362x86\python.exe`.
 
 ### Configure database settings
 
@@ -247,10 +265,10 @@ Earlier in the tutorial, you defined environment variables to connect to your Po
 
 In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
 
-The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
+The following example specifies the database connection details as app settings. Replace *\<app_name>* with your app name and *\<postgresql_name>* with your PostgreSQL server name.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
 ```
 
 ### Push to Azure from Git
@@ -353,6 +371,8 @@ From the left menu, click **App Services**, then click the name of your Azure we
 By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-python-postgresql/app-mgmt.png)
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

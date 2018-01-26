@@ -30,6 +30,8 @@ In this tutorial, you learn how to:
 
 You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -38,8 +40,6 @@ To complete this tutorial:
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
 1. [Install Docker Community Edition](https://www.docker.com/community-edition)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Test local PostgreSQL installation and create a database
 

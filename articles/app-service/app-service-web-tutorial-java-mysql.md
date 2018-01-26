@@ -38,14 +38,13 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from Azure
 > * Monitor the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 1. [Download and install Git](https://git-scm.com/)
 1. [Download and install the Java 7 JDK or above](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL 
 
