@@ -1,6 +1,6 @@
 ---
 
-title: 'Tutorial: Configuring Pingboard for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Pingboard for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.reviewer: asmalser
 
 ---
 
-# Tutorial: Configuring Pingboard for Automatic User Provisioning
+# Tutorial: Configure Pingboard for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform to enable automatic provisioning and de-provisioning of user accounts from Azure Active Directory to Pingboard.
 

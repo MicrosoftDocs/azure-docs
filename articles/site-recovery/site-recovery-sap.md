@@ -78,7 +78,7 @@ If you are using a static IP, you can specify the IP that you want the virtual m
 A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the steps described [here](site-recovery-create-recovery-plans.md) while creating a recovery plan for a multi-tier web application.
 
 ### Adding scripts to the recovery plan
-You may need to do some operations on the Azure virtual machines post failover/test failover for your applications to function correctly. You can automate the post failover operation such as updating DNS entry, and changing bindings and connections, by adding corresponding scripts in the recovery plan as described in [this article](site-recovery-create-recovery-plans.md#add-scripts).
+You may need to do some operations on the Azure virtual machines post failover/test failover for your applications to function correctly. You can automate the post failover operation such as updating DNS entry, and changing bindings and connections, by adding corresponding scripts in the recovery plan as described in [this article](site-recovery-how-to-add-vmmscript.md).
 
 ### DNS update
 If the DNS is configured for dynamic DNS update, then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
