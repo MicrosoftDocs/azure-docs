@@ -33,10 +33,6 @@ This sample creates an Azure Function app and adds a Cosmos DB endpoint and acce
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
-## Clean up deployment
-
-After the script sample has been run, the follow command can be used to remove the resource group and all related resources.
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
