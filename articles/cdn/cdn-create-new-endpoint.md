@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 01/25/2018
 ms.author: mazha
 
 ---
 # Getting started with Azure CDN
-This article describes how to enable Azure CDN by creating a new CDN profile and endpoint.
+This article describes how to enable Azure Azure Content Delivery Network (CDN) by creating a new CDN profile and endpoint.
 
 > [!IMPORTANT]
 > For an introduction to CDN and a list of features, see [CDN Overview](cdn-overview.md).
