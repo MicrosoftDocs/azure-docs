@@ -19,7 +19,7 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. In the example below is a walk through  example on how to do this.
+If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. In the following example is a walk-through  example on how to do this.
 
 ## Create the policy definition
 Ensure you are using the latest Azure CLI.
@@ -27,7 +27,7 @@ Ensure you are using the latest Azure CLI.
 ```azurecli-interactive
 az policy definition create --name 'not-allowed-vmextension' --display-name 'Not allowed VM Extensions' --description 'This policy governs which VM extensions that are explicitly denied.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' --mode All
 ```
-The rules show how you can block 'Microsoft.Compute' extensions, for example, Windows Custom Script extension, or password resets.
+The rules show how you can block 'Microsoft.Compute' extensions, such as, Windows Custom Script extension, or password resets.
 
 ## Assign the policy
 Scope is to be set a resource group, it needs to be specified in this format, for example:
@@ -124,7 +124,7 @@ Remove-AzureRMPolicyAssignment -Name $assignmentName -Scope $scope
 Remove-AzureRmPolicyDefinition -Name $policyDefinitionName 
 ```
 ## Testing
-The fastest way to test, is to try to reset the password on a VM or test executing a script with the Windows Custom Script Extension, this should return an error very quickly.
+The fastest way to test, is to try to reset the password on a VM or test executing a script with the Windows Custom Script Extension, this should return an error quickly.
 
 ## Next Steps
-For more information please refer to [Azure Policy](../azure-policy/azure-policy-introduction).
+For more information, please refer to [Azure Policy](../azure-policy/azure-policy-introduction).
