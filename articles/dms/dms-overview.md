@@ -35,3 +35,5 @@ The Public Preview release of the Azure Database Migration Service is currently 
 ## Next steps
 - [Create an instance of the Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
 - [Migrate SQL Server to Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+- [Overview of prerequisites for using the Azure Database Migration Service](pre-reqs.md)
+- [FAQ about using the Azure Database Migration Service](faq.md)
