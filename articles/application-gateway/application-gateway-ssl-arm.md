@@ -42,13 +42,13 @@ New-SelfSignedCertificate `
 
 You should see something like this result:
 
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname www.contoso.com
-
+```
 PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
 
 Use the thumbprint to create the pfx file:
 
