@@ -17,11 +17,6 @@ ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 
 ---
-
-This topic shows how to configure the [Havision KB live encoder]](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
-
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
-
 # Use the Haivision KB live encoder to send a single bitrate live stream
 > [!div class="op_single_selector"]
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -29,6 +24,10 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
+
+This topic shows how to configure the [Havision KB live encoder]](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## Prerequisites
 *   Access to a Haivision KB encoder, running SW v5.01, or greater.
