@@ -77,19 +77,20 @@ When the cluster is ready, you get a notification from the local cluster system 
 
 Once the application starts, Visual Studio automatically brings up the **Diagnostics Event Viewer**, where you can see trace output from your services.
    
-![Diagnostic events viewer][empty-diagnostic-events]
+![Diagnostic events viewer][5]
 
-In order to track events, you must configure the Event Source name in the Diagnostics Event Viewer. To do that, first open the `ServiceEventSource.cs` file, located in the project **MyStatefulService**. Copy the value of the `EventSource` attribute at the top of the `ServiceEventSource` class. In the example below the event source is called `"MyCompany-MyApplication-MyStatefulService"`, which may be different in your situation.
-
-![Locating Service Event Source Name][service-event-source-name]
-
-Next, click on the gear icon located in the Diagnostics Event Viewer tab to open the **ETW Providers** dialog. Paste the name of the event source you just copied into the **ETW Providers** input box. Then click the **Apply** button. This automatically starts tracing events.
-
-![Setting Diagnostics Event Source Name][setting-event-source-name]
-
-You should now be seeing events appear in the Diagnostics Events window.
-   
-![Diagnostic events viewer tracking events][5]
+>[!NOTE]
+>Events should automatically start tracking in the Diagnostic Events Viewer, but in case it you need to manually configure it, first open the `ServiceEventSource.cs` file, located in the project **MyStatefulService**. Copy the value of the `EventSource` attribute at the top of the `ServiceEventSource` class. In the example below the event source is called `"MyCompany-MyApplication-MyStatefulService"`, which may be different in your situation.
+>
+>![Locating Service Event Source Name][service-event-source-name]
+>
+>Next, click on the gear icon located in the Diagnostics Event Viewer tab to open the **ETW Providers** dialog. Paste the name of the event source you just copied into the **ETW Providers** input box. Then click the **Apply** button. This automatically starts tracing events.
+>
+>![Setting Diagnostics Event Source Name][setting-event-source-name]
+>
+>You should now be seeing events appear in the Diagnostics Events window.
+>   
+>![Diagnostic events viewer tracking events][5]
 
 The stateful service template used shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
 
@@ -157,4 +158,3 @@ Read more about [reliable services](service-fabric-reliable-services-introductio
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
 [setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png
-[empty-diagnostic-events]: ./media/service-fabric-create-your-first-application-in-visual-studio/disconnected-diagnostic-events-window.png
