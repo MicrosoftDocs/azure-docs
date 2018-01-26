@@ -13841,11 +13841,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
             "redirect_document_id": false
