@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
 
 ---
@@ -28,7 +28,7 @@ This tutorial shows you how to connect a physical device to the remote monitorin
 
 Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed on your development machine. You can run `node --version` at the command line to check the version.
 
-1. Create a folder called `RemoteMonitoring` on your development machine. Navigate to this folder in your command-line environment.
+1. Create a folder called `remotemonitoring` on your development machine. Navigate to this folder in your command-line environment.
 
 1. To download and install the packages you need to complete the sample app, run the following commands:
 
@@ -37,7 +37,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In the `RemoteMonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
+1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor.
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
