@@ -1,5 +1,5 @@
 ---
-title: Create an application gateway with path-based routing rules - Azure CLI | Microsoft Docs
+title: Create an application gateway with URL path-based routing rules - Azure CLI | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure CLI.
 services: application-gateway
 author: davidmu1
@@ -9,15 +9,15 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 01/26/2018
 ms.author: davidmu
 
 ---
-# Create an application gateway with path-based routing rules using the Azure CLI
+# Create an application gateway with URL path-based routing rules using the Azure CLI
 
-You can use the Azure CLI to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic arrives at the appropriate servers in the pools.
+You can use the Azure CLI to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
-In this article, you learn how to
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
@@ -44,7 +44,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,7 +66,7 @@ az network public-ip create \
 
 ## Create the application gateway with URL map
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
+You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -95,7 +95,7 @@ az network application-gateway create \
 
 ### Add image and video backend pools and port
 
-You can add backend address pools to your application gateway by using [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
+You can add backend pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -115,7 +115,7 @@ az network application-gateway frontend-port create \
 
 ### Add backend listener
 
-Add the backend listener that is needed to route traffic using [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Add the backend listener named *backendListener* that's needed to route traffic using [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -129,7 +129,7 @@ az network application-gateway http-listener create \
 
 ### Add URL path map
 
-URL path maps make sure that specific URLs are routed to specific backend pools. You can create URL path maps using [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) and [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
+URL path maps make sure that specific URLs are routed to specific backend pools. You can create URL path maps named *imagePathRule* and *videoPathRule* using [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) and [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -141,10 +141,10 @@ az network application-gateway url-path-map create \
   --default-address-pool appGatewayBackendPool \
   --default-http-settings appGatewayBackendHttpSettings \
   --http-settings appGatewayBackendHttpSettings \
-  --rule-name Images
+  --rule-name imagePathRule
 az network application-gateway url-path-map rule create \
   --gateway-name myAppGateway \
-  --name Videos \
+  --name videoPathRule \
   --resource-group myResourceGroupAG \
   --path-map-name myPathMap \
   --paths /video/* \
@@ -153,7 +153,7 @@ az network application-gateway url-path-map rule create \
 
 ### Add routing rule
 
-The routing rule associates the URL maps with the listener that you created. You can add the rule using [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+The routing rule associates the URL maps with the listener that you created. You can add the rule named *rule2* using [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -168,7 +168,7 @@ az network application-gateway rule create \
 
 ## Create virtual machine scale sets
 
-In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -256,4 +256,4 @@ In this tutorial, you learned how to:
 > * Create an application gateway with URL map
 > * Create virtual machine scale sets with the backend pools
 
-
+To learn more about application gateways and their associated resources, continue to the how-to articles.
