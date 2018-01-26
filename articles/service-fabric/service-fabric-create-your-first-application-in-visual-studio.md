@@ -89,8 +89,6 @@ Once the application starts, Visual Studio automatically brings up the **Diagnos
 >![Setting Diagnostics Event Source Name][setting-event-source-name]
 >
 >You should now be seeing events appear in the Diagnostics Events window.
->   
->![Diagnostic events viewer tracking events][5]
 
 The stateful service template used shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
 
