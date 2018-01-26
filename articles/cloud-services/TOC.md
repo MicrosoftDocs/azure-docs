@@ -49,6 +49,7 @@
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
 ### [Configure automatic scaling](cloud-services-how-to-scale-portal.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
+### [Mitigating speculative execution](mitigate-se.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ### Guest OS retirement

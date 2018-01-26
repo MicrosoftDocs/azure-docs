@@ -56,4 +56,4 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Integrate LUIS with a bot](luis-nodejs-tutorial-build-bot-framework-sample.md)
+> [Add utterances](luis-quickstart-node-add-utterance.md)

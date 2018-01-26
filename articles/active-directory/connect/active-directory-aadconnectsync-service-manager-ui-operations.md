@@ -3,7 +3,7 @@ title: 'Azure AD Connect Synchronization Service Manager Operations | Microsoft 
 description: Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 

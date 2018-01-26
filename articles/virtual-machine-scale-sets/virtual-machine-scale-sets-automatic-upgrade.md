@@ -3,7 +3,7 @@ title: Automatic OS upgrades with Azure virtual machine scale sets | Microsoft D
 description: Learn how to automatically upgrade the OS on VM instances in an scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Azure virtual machine scale set automatic OS upgrades
@@ -149,7 +149,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 The following example uses the Azure CLI (2.0.20 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -169,7 +169,7 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### Azure CLI 2.0
 The following example uses the Azure CLI (2.0.20 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 

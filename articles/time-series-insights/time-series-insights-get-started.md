@@ -3,8 +3,8 @@ title: Create an Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to use the Azure portal to create a new Time Series Insights environment. 
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan

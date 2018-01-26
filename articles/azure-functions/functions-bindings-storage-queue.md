@@ -32,13 +32,13 @@ Use the queue trigger to start a function when a new item is received on a queue
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 ```csharp
 public static class QueueFunctions
@@ -55,7 +55,7 @@ public static class QueueFunctions
 
 ### Trigger - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 Here's the *function.json* file:
 
@@ -150,7 +150,7 @@ The [usage](#trigger---usage) section explains `myQueueItem`, which is named by 
 
 ## Trigger - attributes
  
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
+In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -178,7 +178,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   }
   ```
  
-  For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+  For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -263,13 +263,13 @@ Use the Azure Queue storage output binding to write messages to a queue.
 
 See the language-specific example:
 
-* [Precompiled C#](#output---c-example)
-* [C# script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that creates a queue message for each HTTP request received.
+The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -287,7 +287,7 @@ public static class QueueFunctions
 
 ### Output - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a POCO payload for each HTTP request received.
+The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a POCO payload for each HTTP request received.
 
 Here's the *function.json* file:
 
@@ -398,7 +398,7 @@ module.exports = function(context) {
 
 ## Output - attributes
  
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
 
@@ -415,16 +415,16 @@ You can set the `Connection` property to specify the storage account to use, as 
 
 ```csharp
 [FunctionName("QueueOutput")]
-[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 {
     ...
 }
 ```
 
-For a complete example, see [Output - precompiled C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attribute).
 
 ## Output - configuration
 
