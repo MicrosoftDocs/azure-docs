@@ -106,7 +106,7 @@ If the DNS is configured for dynamic DNS update, then virtual machines usually u
 #### Connection string in an application’s web.config
 The connection string specifies the database that the web site communicates with.
 
-If the connection string carries the name of the database virtual machine, no further steps are needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it needs to be updated post failover. For example, the following connection string points to the DB with IP 127.0.1.2
+If the connection string carries the name of the database virtual machine, no further steps are needed post failover. The application can automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it needs to be updated post failover. For example, the following connection string points to the DB with IP 127.0.1.2
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<configuration>
@@ -118,7 +118,7 @@ If the connection string carries the name of the database virtual machine, no fu
 You can update the connection string in web tier by adding [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
 
 #### Site bindings for the application
-Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. During the failover, these bindings might need to be updated if there is a change in the IP address associated with them.
+Every site consists of binding information that includes, the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number, and the host names for the site. During the failover, these bindings might need to be updated if there is a change in the IP address associated with them.
 
 > [!NOTE]
 >

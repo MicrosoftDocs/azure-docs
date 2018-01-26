@@ -51,6 +51,7 @@ Let us take the example of a typical three tier application with
 
 The recovery plan can be customized to ensure that the virtual machines come up in the right order post a failover. The SQL backend should come up first, the middleware should come up next, and the web frontend should come up last. This order makes certain that the application is working by the time the last virtual machine comes up. For example, when the middleware comes up, it will try to connect to the SQL tier, and the recovery plan has ensured that the SQL tier is already running. Frontend servers coming up last also ensures that end users do not connect to the application URL by mistake until all the components are up are running and the application is ready to accept requests. To build these dependencies, you can customize the recovery plan to add groups. Then select a virtual machine and change its group to move it between groups.
 
+![Sample recovery plan](./media/site-recovery-create-recovery-plans/rp.png)
 
 Once you complete the customization, you can visualize the exact steps of the recovery. Here is the order of steps executed during the failover of a recovery plan:
 
@@ -80,6 +81,8 @@ Recovering large applications can be a complex task. It is also difficult to rem
 ### Test failover to be ready for a disaster
 
 A recovery plan can be used to trigger both a failover or a test failover. You should always complete a test failover on the application before doing a failover. Test failover helps you to check whether the application will come up on the recovery site.  If you have missed something, you can easily trigger cleanup and redo the test failover. Do the test failover multiple times until you know with certainty that the application recovers smoothly.
+
+![Test recovery plan](./media/site-recovery-create-recovery-plans/rptest.png)
 
 **Each application is different and you need to build recovery plans that are customized for each. Also, in this dynamic datacenter world, the applications and their dependencies keep changing. Test failover your applications once a quarter to check that the recovery plan is current.**
 
