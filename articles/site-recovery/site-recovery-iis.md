@@ -48,7 +48,7 @@ Before you start, make sure you understand the following requirements:
 ## Deployment patterns
 An IIS based web application typically follows one of the following deployment patterns:
 
-**Deployment pattern 1 **
+**Deployment pattern 1**
 An IIS based web farm  with Application Request Routing(ARR), IIS Server, and Microsoft SQL Server.
 
 ![Deployment Pattern](./media/site-recovery-iis/deployment-pattern1.png)
