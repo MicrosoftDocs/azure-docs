@@ -67,9 +67,8 @@ az policy definition delete --name 'not-allowed-vmextension'
 ### Update to the latest version of AzureRM PSCmdLets
 ```powershell
 Install-Module AzureRM
-```
-### Authenticate to Azure & Select Subscription
-```powershell
+
+# Authenticate to Azure & Select Subscription
 Add-AzureRmAccount
 
 Get-AzureRmSubscription
