@@ -17,7 +17,7 @@ ms.author: sdash
 ---
 # Unified cross-component transaction diagnostics
 
-*This experience is currently in preview and replaces the existing server-side diagnostics blades.*
+*This experience is currently in preview and replaces the existing diagnostics blades for server-side requests, dependencies and exceptions.*
 
 The preview introduces a new unified diagnostics experience that automatically correlates server-side telemetry from across all your Application Insights monitored components into a single view. It doesn't matter if you have multiple resources with separate instrumentation keys; Application Insights detects the underlying relationship and allows you to easily diagnose the application component, dependency, or exception that caused a transaction slowdown or failure.
 
@@ -46,7 +46,7 @@ This view has three key parts: a cross-component transaction chart, a time-seque
 
 ![Key parts](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### Cross-component transaction chart
+### [1] Cross-component transaction chart
 
 This chart provides a timeline with horizontal bars for the duration of requests and dependencies across components. Any exceptions that are collected are also marked on the timeline.
 
@@ -54,18 +54,18 @@ This chart provides a timeline with horizontal bars for the duration of requests
 * Any calls to external dependencies are simple non-collapsible rows, with icons representing the dependency type.
 * Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
 * By default, the request, dependency, or exception that you initially selected is displayed on the chart.
-* Select any row to see its details on the right. Clicking on the profiler icon on a request row, or a debug snapshot icon in an exception row opens the corresponding detail pane.
+* Select any row to see its details on the right. Click on "Open profiler traces" or "Open debug snapshot" for code level diagnostics in corresponding detail panes.
 
 > [!NOTE]
-Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The latter is called localhost to help differentiate between them. Use the top-right corner feedback channel to let us know how you feel about the updated presentation.
+Calls to other components have two rows: one row represents the outbound call (dependency) from the caller component, and the other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars will help differentiate between them.
 
-### Time-sequenced telemetry of the selected component operation
+### [2] Time-sequenced telemetry of the selected component operation
 
 Any row selected in the cross-component transaction chart is related to an operation invoked at a particular component. This selected component operation is reflected in the title of the bottom section. Open this section to see a flat time sequence of all the telemetry related to that particular operation. You can select any telemetry item in this list to see corresponding details on the right.
 
 ![Time sequence of all telemetry](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### Details pane
+### [3] Details pane
 
 This pane shows the detail of selected items from either of the two sections on the left. "Show all" lists all of the standard attributes that are collected. Any custom attributes are separately listed below the standard set.
 
@@ -85,7 +85,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, do you have required access to them?
+* If these components are separate Application Insights resources, do you have required access to their telemetry?
 
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the top right feedback channel.
 
@@ -97,7 +97,7 @@ Yes. The new experience unifies all related server-side telemetry into a single 
 
 *I see duplicate rows for the dependencies. Is this expected?*
 
-At this time, we are showing the outbound dependency call separate from the inbound request. Typically, the two calls look identical with only the duration value being different due to the network round trip. To help distinguish between them, we are calling the component receiving the request "localhost" with a server icon. This row will immediately follow the dependency row. Is this presentation of the data confusing? Give us your feedback!
+At this time, we are showing the outbound dependency call separate from the inbound request. Typically, the two calls look identical with only the duration value being different due to the network round trip. The leading icon and distinct styling of the duration bars will help differentiate between them. Is this presentation of the data confusing? Give us your feedback!
 
 *What about clock skews across different component instances?*
 
