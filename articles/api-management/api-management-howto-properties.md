@@ -17,9 +17,9 @@ ms.author: apimpm
 
 ---
 # How to use properties in Azure API Management policies
-API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
+API Management policies are a powerful capability of the system that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
 
-Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property can have the following attributes.
+Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property can have the following attributes:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
@@ -72,7 +72,7 @@ To filter the property list by tag values, enter one or more tags into the **Fil
 
 ## To use a property
 
-To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example.
+To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -102,7 +102,7 @@ If you look at the [API Inspector trace](api-management-howto-api-inspector.md) 
 
 ![API Inspector trace][api-management-api-inspector-trace]
 
-Note that while property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
+While property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
 
 ## Next steps
 * Learn more about working with policies
