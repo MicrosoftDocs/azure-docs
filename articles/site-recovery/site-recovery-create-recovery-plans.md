@@ -63,6 +63,25 @@ Once you complete the customization, you can visualize the exact steps of the re
    > [!NOTE]
    > Machines that are part of a single group will failover in parallel. Machines that are part of different groups will failover in the oder of the groups. Only after all machines of Group 1 have failed over and booted, will the machines of Group 2 start their failover.
 
+### Automate most recovery tasks to reduce RTO
+
+Recovering large applications can be a complex task. It is also difficult to remember the exact customization steps post failover or migration. Sometimes, it is not you, but someone else who is unaware of the application intricacies, who needs to trigger the failover. Remembering too many manual steps in times of chaos is difficult and error prone. A recovery plan gives you a way to automate the required actions you need to take at every step, by using Microsoft Azure Automation runbooks. With runbooks, you can automate common recovery tasks like the examples given below. For those tasks that cannot be automated, recovery plans also provide you the ability to insert manual actions.
+
+* Tasks on the Azure virtual machine post failover – these are required typically so that you can connect to the virtual machine, for example:
+	* Create a public IP on the virtual machine post failover
+	* Assign an NSG to the failed over virtual machine’s NIC
+	* Add a load balancer to an availability set
+* Tasks inside the virtual machine post failover – these reconfigure the application so that it continues to work correctly in the new environment, for example:
+	* Modify the database connection string inside the virtual machine
+	* Change web server configuration/rules
+
+**With a complete recovery plan that automates the post recovery tasks using automation runbooks, you can achieve one-click failover and optimize the RTO.**
+
+### Test failover to be ready for a disaster
+
+A recovery plan can be used to trigger both a failover or a test failover. You should always complete a test failover on the application before doing a failover. Test failover helps you to check whether the application will come up on the recovery site.  If you have missed something, you can easily trigger cleanup and redo the test failover. Do the test failover multiple times until you know with certainty that the application recovers smoothly.
+
+**Each application is different and you need to build recovery plans that are customized for each. Also, in this dynamic datacenter world, the applications and their dependencies keep changing. Test failover your applications once a quarter to check that the recovery plan is current.**
 
 ## How to create a recovery plan
 
