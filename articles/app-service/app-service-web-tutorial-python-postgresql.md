@@ -69,12 +69,12 @@ In this step, you set up the local Python Flask project.
 
 Open the terminal window, and `CD` to a working directory.
 
-Run the following commands to clone the sample repository and go to the *0.1-initialapp* release.
+Run the following commands to clone the sample repository, then revert to the commit for the initial app (before `modelChange`).
 
 ```bash
-git clone https://github.com/Azure-Samples/docker-flask-postgres.git
-cd docker-flask-postgres
-git checkout tags/0.1-initialapp
+git clone https://github.com/Azure-Samples/flask-postgresql-app
+cd flask-postgresql-app
+git revert modelChange --no-edit
 ```
 
 This sample repository contains a [Flask](http://flask.pocoo.org/) application. 
@@ -310,17 +310,13 @@ You see previously registered guests that were saved to the Azure production dat
 
 In this step, you add the number of attendees to each event registration by updating the `Guest` model.
 
-Check out the *0.2-migration* release with the following git command:
+Check out the files tagged by the `modelChange` commit:
 
 ```bash
-git checkout tags/0.2-migration
+git checkout modelChange -- *
 ```
 
-This release already made the necessary changes to views, controllers, and model. It also includes a database migration generated via *alembic* (`flask db migrate`). You can see all changes made via the following git command:
-
-```bash
-git diff 0.1-initialapp 0.2-migration
-```
+This release already made the necessary changes to views, controllers, and model. It also includes a database migration generated via *alembic* (`flask db migrate`). You can see the changes to all files in the [GitHub commit view](https://github.com/Azure-Samples/flask-postgresql-app/commit/139a53023688631c3cc2caefd70086f4722ecd7e).
 
 ### Test your changes locally
 
