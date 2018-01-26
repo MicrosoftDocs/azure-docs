@@ -78,7 +78,7 @@ Select the appropriate setting according to your requirements.
 
 **ExpressRoute**: By default, the tool selects the nearest ExpressRoute plan that matches with the required network bandwidth for delta replication. You can change the plan according to your requirements.
 
-**VPN Gateway type**: Select the Azure VPN Gateway if you have any in your environment. By default, it's NA.
+**VPN Gateway type**: Select the Azure VPN Gateway if you have any in your environment. By default, it is NA.
 
 **Target region**: Specified Azure region for DR. The price used in the report for compute, storage, network, and license is based on the Azure pricing for that region. 
 
@@ -133,7 +133,7 @@ To manually add VMs:
 
 **VM Name**: The name of the VM.
 
-**Number of VMs**: The number of VMs that match the configuration. You can update the number of existing VMs if a similar configuration of VMs aren't profiled but protected.
+**Number of VMs**: The number of VMs that match the configuration. You can update the number of existing VMs if a similar configuration of VMs isn't profiled but protected.
 
 **IaaS size (Recommendation)**: The VM role size of the compatible VM that the tool recommends. 
 
