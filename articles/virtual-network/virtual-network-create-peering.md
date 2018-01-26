@@ -269,9 +269,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="register"></a>Register for the global virtual network peering preview
 
-Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) for available regions. You must [register your subscription for the preview](virtual-network-create-peering.md).
-
-To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell, or the Azure CLI:
+Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) for available regions. To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
 
 ### PowerShell
 
