@@ -202,33 +202,32 @@ In this section, we stream data into the **hvactable** that you already created 
           val driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
           val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
   
- 
-        def open(partitionId: Long, version: Long):Boolean = {
-         Class.forName(driver)
-         connection = DriverManager.getConnection(jdbc_url, jdbcUsername, jdbcPassword)
-         statement = connection.createStatement
-         true
-        }
+         def open(partitionId: Long, version: Long):Boolean = {
+           Class.forName(driver)
+           connection = DriverManager.getConnection(jdbc_url, jdbcUsername, jdbcPassword)
+           statement = connection.createStatement
+           true
+         }
   
-        def process(value: Row): Unit = {
-          val _c0  = value(0)
-          val _c1 = value(1)
-          val _c2 = value(2)
-          val _c3 = value(3)
-          val _c4 = value(4)
-          val _c5 = value(5)
-          val _c6 = value(6)  
+         def process(value: Row): Unit = {
+           val _c0  = value(0)
+           val _c1 = value(1)
+           val _c2 = value(2)
+           val _c3 = value(3)
+           val _c4 = value(4)
+           val _c5 = value(5)
+           val _c6 = value(6)  
     
-          val valueStr = "'" + _c0 + "'," + "'" + _c1 + "'," + "'" + _c2 + "'," + "'" + _c3 + "'," + "'" + _c4 + "'," + "'" + _c5 + "'," + "'" + _c6 + "'"
-          statement.execute("INSERT INTO " + "dbo.hvactable" + " VALUES (" + valueStr + ")")   
-          }
+           val valueStr = "'" + _c0 + "'," + "'" + _c1 + "'," + "'" + _c2 + "'," + "'" + _c3 + "'," + "'" + _c4 + "'," + "'" + _c5 + "'," + "'" + _c6 + "'"
+           statement.execute("INSERT INTO " + "dbo.hvactable" + " VALUES (" + valueStr + ")")   
+           }
 
-        def close(errorOrNull: Throwable): Unit = {
+         def close(errorOrNull: Throwable): Unit = {
             connection.close
           }
-        })
+         })
         
-        var streamingQuery = WriteToSQLQuery.start()
+         var streamingQuery = WriteToSQLQuery.start()
 
 6. Verify that the data is being streamed into the **hvactable** by running the following query. Everytime you run the query, it should show new rows getting added to the table.
 
