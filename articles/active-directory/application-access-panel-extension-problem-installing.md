@@ -99,10 +99,10 @@ For step by step instructions about configuring the group policy and deploying i
 
 ## Troubleshoot the access panel extension in Internet Explorer
 
-For access to a diagnostics tool and information about configuring the extension for IE, see [Troubleshoot the access panel extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md).
+For access to a diagnostics tool and information about configuring the extension for Internet Explorer, see [Troubleshoot the access panel extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> IE is on limited support and no longer receives new software updates. Edge is the recommended browser.
+> Internet Explorer is on limited support and no longer receives new software updates. Edge is the recommended browser.
 
 ## If the preceding steps do not resolve the issue
 
