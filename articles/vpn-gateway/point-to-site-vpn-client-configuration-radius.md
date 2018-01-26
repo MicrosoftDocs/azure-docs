@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
 
 ---
@@ -53,7 +53,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders: 
  
 * **WindowsAmd64** and **WindowsX86** - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
-* **GenericDevice** - This folder contains general information used to create your own VPN client configuration. This folder is not needed for username/password authentication configurations.
+* **Generic** - This folder contains general information used to create your own VPN client configuration. This folder is not needed for username/password authentication configurations.
 * **Mac** - If IKEv2 was configured when you created the virtual network gateway, you see a folder named 'Mac' that contains a **mobileconfig** file. This file is used to configure Mac clients.
 
 If you already created client configuration files, you can retrieve them by using the 'Get-AzureRmVpnClientConfiguration' cmdlet. However, if you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to create a new configuration download.
@@ -122,7 +122,7 @@ You can create VPN client configuration files for RADIUS certificate authenticat
 Generate VPN client configuration files for use with certificate authentication. You can generate the VPN client configuration files using the following command:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders:
@@ -135,7 +135,7 @@ If you already created client configuration files, you can retrieve them by usin
 To retrieve previously generated client configuration files, use the following command:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Configure Windows and Mac VPN clients

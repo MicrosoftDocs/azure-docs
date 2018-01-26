@@ -4,12 +4,11 @@ description: Understanding options for using Azure Storage.
 services: storage
 author: jirwin
 manager: jwillis
-editor:
 
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 01/17/2018
 ms.author: jirwin
 
 ---
@@ -137,11 +136,11 @@ You cannot set the access tier to archive in the following examples because this
 
     When you select GPv2, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
+6. Select the replication option for the storage account: **LRS**, **ZRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
+    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    For more details on Azure Storage replication options, see [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 
@@ -216,7 +215,7 @@ To monitor your existing storage accounts and gather this data, you can make use
 For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account. GPv1 ZRS storage accounts do not support metrics data.
+> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. Zone-redundant storage (ZRS) accounts support collecting metrics data, while ZRS Classic storage accounts do not. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
 
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
