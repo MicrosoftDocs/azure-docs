@@ -24,7 +24,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.1.0-preview)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingNewsSearch) for definitions and dependencies.
 * Get started with [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
-    * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/) for definitions and dependencies.
+    * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/newsSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
     * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-newssearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
