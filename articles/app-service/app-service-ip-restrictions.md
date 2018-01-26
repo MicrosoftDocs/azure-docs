@@ -21,7 +21,7 @@ ms.author: byvinyal
 
 IP Restrictions allow you to define a list of IP addresses that are allowed to access your app. The allow list can include individual IP addresses or a range of IP addresses defined by a subnet mask.
 
-When a request to the app is generated from a client, the IP address is evaluated against the allow list. If the ip address is not in the list, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+When a request to the app is generated from a client, the IP address is evaluated against the allow list. If the IP address is not in the list, the app replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
 IP Restrictions are defined in the web.config that your app consumes at runtime. Under certain circumstances, some module might be executed before IP restrictions logic in the HTTP pipeline. When this happens, the request fails with a different HTTP error code.
 

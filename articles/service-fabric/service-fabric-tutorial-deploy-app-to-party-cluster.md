@@ -24,15 +24,15 @@ This tutorial is part two of a series and shows you how to deploy an Azure Servi
 
 In part two of the tutorial series, you learn how to:
 > [!div class="checklist"]
-> * Deploy an application to a remote cluster using Visual Studio
-> * Remove an application from a cluster using Service Fabric Explorer
-
-In this tutorial series you learn how to:
-> [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * Deploy the application to a remote cluster
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Deploy an application to a remote cluster using Visual Studio
+> * Remove an application from a cluster using Service Fabric Explorer
 
 ## Prerequisites
 Before you begin this tutorial:
