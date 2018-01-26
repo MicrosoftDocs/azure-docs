@@ -30,10 +30,10 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
-- **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. Azure Data Factory creates the SSIS catalog database (SSISDB) on this database server. We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to the SSISDB without crossing Azure regions. 
+- **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. Azure Data Factory creates the SSIS Catalog (SSISDB database) on this database server. We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to the SSISDB database without crossing Azure regions. 
    - Confirm that the **Allow access to Azure services** setting is enabled for the database server. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
    - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md).
-   - Confirm that your Azure SQL Database server does not have an SSIS catalog (or an SSISDB). The provisioning of an Azure-SSIS IR does not support using an existing SSIS catalog.
+   - Confirm that your Azure SQL Database server does not have an SSIS Catalog (SSISDB database). The provisioning of an Azure-SSIS IR does not support using an existing SSIS Catalog.
  
 ## Create a data factory
 
@@ -97,7 +97,7 @@ In this tutorial, you complete the following steps:
 
    d. For **Admin Password**, enter the password for the administrator.
 
-   e. For **Catalog Database Server Tier**, select the service tier for the SSISDB. The default value is **Basic**.
+   e. For **Catalog Database Server Tier**, select the service tier for the SSISDB database. The default value is **Basic**.
 
    f. Select **Next**. 
 1. On the **Advanced Settings** page, select a value for **Maximum Parallel Executions Per Node**.   
@@ -117,7 +117,7 @@ In this tutorial, you complete the following steps:
    > [!IMPORTANT]
    > This process takes approximately 20 to minutes to complete.
    >
-   > The Data Factory service connects to your Azure SQL database to prepare the SSIS catalog database. The script also configures permissions and settings for your virtual network, if specified. And it joins the new instance of the Azure-SSIS integration runtime to the virtual network.
+   > The Data Factory service connects to your Azure SQL database to prepare the SSIS Catalog (SSISDB database). The script also configures permissions and settings for your virtual network, if specified. And it joins the new instance of the Azure-SSIS integration runtime to the virtual network.
    > 
    > When you provision an instance of an Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time. (This restriction includes third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
 
@@ -130,7 +130,7 @@ In this tutorial, you complete the following steps:
 9. Select the **Monitor** link under **Actions** to view monitoring details.  
 
    ![Monitoring details](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
-10. If an error was associated with the Azure-SSIS IR, you see the number of errors on this tab and the link to view details about the error. For example, if the SSIS catalog already exists on the database server, you see an error that indicates the existence of the SSISDB.  
+10. If an error was associated with the Azure-SSIS IR, you see the number of errors on this tab and the link to view details about the error. For example, if the SSIS Catalog already exists on the database server, you see an error that indicates the existence of the SSISDB database.  
 11. To see all integration runtimes associated with the data factory, select **Integration Runtimes** at the top to go to the previous page.  
 
 ## Create an Azure-SSIS integration runtime
@@ -147,12 +147,12 @@ In this tutorial, you complete the following steps:
 
  
 ## Deploy SSIS packages
-Now, use SQL Server Data Tools or SQL Server Management Studio to deploy your SSIS packages to Azure. Connect to your Azure database server that hosts the SSISDB. The name of the Azure database server is in the format `<servername>.database.windows.net` (for Azure SQL Database). 
+Now, use SQL Server Data Tools or SQL Server Management Studio to deploy your SSIS packages to Azure. Connect to your Azure database server that hosts the SSIS Catalog (SSISDB database). The name of the Azure database server is in the format `<servername>.database.windows.net` (for Azure SQL Database). 
 
 See the following articles from the SSIS documentation: 
 
 - [Deploy, run, and monitor an SSIS package on Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
-- [Connect to the SSIS catalog on Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
+- [Connect to the SSIS Catalog on Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
 - [Schedule package execution on Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 
