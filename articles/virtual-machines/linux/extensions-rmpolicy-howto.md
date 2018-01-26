@@ -127,4 +127,4 @@ Remove-AzureRmPolicyDefinition -Name $policyDefinitionName
 The fastest way to test, is to try to reset the password on a VM or test executing a script with the Windows Custom Script Extension, this should return an error quickly.
 
 ## Next Steps
-For more information, please refer to [Azure Policy](../azure-policy/azure-policy-introduction).
+For more information, please refer to [Azure Policy](../../azure-policy/azure-policy-introduction).
