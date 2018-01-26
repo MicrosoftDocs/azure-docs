@@ -16,7 +16,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with SSL termination using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+You can use Azure PowerShell to create an [application gateway](application-gateway-introduction.md) with a certificate for [SSL termination](application-gateway-backend-ssl.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
 In this article, you learn how to:
 
@@ -116,7 +116,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### Create the backend pool and settings
 
-Create the backend pools named *appGatewayBackendPool* for the application gateway using [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configure the settings for the backend address pools using [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Create the backend pool named *appGatewayBackendPool* for the application gateway using [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configure the settings for the backend pool using [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```powershell
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `

@@ -15,7 +15,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with SSL termination using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a certificate for [SSL termination](application-gateway-backend-ssl.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
@@ -59,7 +59,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-Create the virtual network named *myVNet*and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -83,7 +83,7 @@ az network public-ip create \
 
 You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
-The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
+The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 
 ```azurecli-interactive
 az network application-gateway create \
