@@ -123,6 +123,8 @@
       href: site-recovery-create-recovery-plans.md
     - name: Add Azure runbooks to recovery plans
       href: site-recovery-runbook-automation.md
+    - name: Add VMM scripts to recovery plans
+      href: site-recovery-how-to-add-vmmscript.md
     - name: Fail over
       items:
       - name: About failover
