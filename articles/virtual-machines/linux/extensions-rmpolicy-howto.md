@@ -19,7 +19,7 @@ ms.author: danis
 
 # How to use Azure Policy to Restrict Extensions Installation on VMs
 
-If you want to prevent extension installation, or certain extensions being install to your VMs, you can use ARM Policy to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. In the example below we walk through an example on how to do this.
+If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. In the example below is a walk through  example on how to do this.
 
 ## Create the policy definition
 Ensure you are using the latest Azure CLI.
@@ -35,20 +35,14 @@ Scope is to be set a resource group, it needs to be specified in this format, fo
 /subscriptions/<subID>/resourceGroups/resourceGroupName
 ```
 ### Defining the extensions to block
-Also note, you need to pass in a parameters file that has the AzureCompute extensions you wish to block. This is an example:
+Also note, you need to pass in a parameters file that has the Azure extensions you wish to block. This is an example:
 
 ```json
 {
     "notAllowedExtensions": {
         "value": [
             "VMAccessAgent",
-            "CustomScriptExtension",
-            "RunCommandWindows",
-            "RunCommandLinux",
-            "DSCForLinux",
-            "CustomScript",
-            "CustomScriptForLinux",
-            "DSC"
+            "CustomScriptExtension"
         ]
     }
 }
@@ -100,20 +94,14 @@ Scope is to be set a resource group, it needs to be specified in this format, fo
 /subscriptions/<subID>/resourceGroups/resourceGroupName 
 ```
 ## Defining the extensions to block
-Also note, you need to pass in a parameters file that has the AzureCompute extensions you wish to block. This is an example:
+Also note, you need to pass in a parameters file that has the Azure extensions you wish to block. This is an example:
 
 ```json
 {
     "notAllowedExtensions": {
         "value": [
             "VMAccessAgent",
-            "CustomScriptExtension",
-            "RunCommandWindows",
-            "RunCommandLinux",
-            "DSCForLinux",
-            "CustomScript",
-            "CustomScriptForLinux",
-            "DSC"
+            "CustomScriptExtension"
         ]
     }
 }
