@@ -38,9 +38,27 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 > [!NOTE]
-> You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.  
-> 
-> 
+> You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.
+
+
+
+|Action  |Description  |Minimum Scope  |
+|---------|---------|---------|
+|Microsoft.Resources/deployments/*     | Create and manage resource group deployments        | Subscription         |
+|Row2     |         |         |
+|Row3     |         |         |
+|Row4     |         |         |
+|Row5     |         |         |
+|Row6     |         |         |
+|Row7     |         |         |
+|Row8     |         |         |
+|Row9     |         |         |
+|Row10     |         |         |
+|Row11     |         |         |
+|Row12     |         |         |
+|Row13     |         |         |
+|Row14     |         |         |
+|Row15     |         |         |
 
 ## Role permissions
 
@@ -52,10 +70,12 @@ Can manage everything, including access
 |Actions|Description|
 |---|---|
 |*|Create and manage resources of all types|
+
 In this article we walk through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator, and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Otherwise it could result in unintended or undesirable consequences.     
 
-## Contributor role permissions
-The following table presents the specific actions that can be performed by the Contributor role in Automation.
+## Contributor
+
+Can manage everything except access
 
 | **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
 |:--- |:--- |:--- |:--- |:--- |
@@ -238,7 +258,11 @@ In the above examples, replace **sign in Id**, **subscription Id**, **resource g
 
 ## Onboarding
 
+Onboarding a virtual machine for update management or change and inventory control requires numerous permissions across many resources. The following tables show you the permissions needed for the actions.
+
 ### Virtual machine
+
+The following table shows the permissions needed when onboarding a virtual machine from the virtual machine.
 
 |**Action**  |**Permission**  |**Minimum scope**  |
 |---------|---------|---------|
@@ -260,6 +284,8 @@ In the above examples, replace **sign in Id**, **subscription Id**, **resource g
 
 ### Automation account
 
+The following table shows the permissions needed when onboarding virtual machines from the Automation account.
+
 |**Action**  |**Permission**  |**Minimum scope**  |
 |---------|---------|---------|
 |Create new deployment      | Write on deployments         | That subscription         |
@@ -275,17 +301,18 @@ In the above examples, replace **sign in Id**, **subscription Id**, **resource g
 |Create/edit scope config      | Write on workspace           | That workspace       |
 |Link solution to scope config     | Write on solution         | That solution         |
 
+## Update management
 
-## Update management deployments
+Update management reaches across multiple services to provide its service. The following table shows the permissions needed to management update management deployments:
 
-The following 
-|**Resource**  |**Permission**  |**Minimum scope**  |
+|**Resource**  |**Permission**  |**Scope**  |
 |---------|---------|---------|
-|Automation account     | Log Analytics Contributor       |         |
-|Row2     |         |         |
-|Row3     |         |         |
-|Row4     |         |         |
-|Row5     |         |         |
+|Automation account     | Log Analytics Contributor       | Automation account        |
+|Automation account    | Virtual Machine Contributor        | Resource Group for the account        |
+|Log Analytics workspace     | Log Analytics Contributor| Log Analytics workspace        |
+|Solution     |Log Analytics Contributor         | Solution
+        |
+|Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 
 ## Next Steps
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
