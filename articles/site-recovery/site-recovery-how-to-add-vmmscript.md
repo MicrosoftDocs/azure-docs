@@ -1,6 +1,6 @@
 ---
 title: How to add scripts to recovery plan in Azure Site Recovery | Microsoft Docs
-description: Describes the pre-requisites in adding a new script to a recovery plan in VMM to Azure
+description: Describes the prerequisites in adding a new script to a recovery plan in VMM to Azure
 services: site-recovery
 documentationcenter: ''
 author: ruturaj
@@ -17,14 +17,14 @@ ms.date: 12/13/2017
 ms.author: ruturaj
 
 ---
-# Add VMM scripts to recovery plan
+# Add VMM scripts to a recovery plan
 
 
 This article provides information about creating and adding VMM scripts for recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Pre-requisites of adding a script to recovery plan
+## Prerequisites of adding a script to recovery plan
 
 You can use PowerShell scripts in your recovery plans. You will need to author them and place them in the VMM library to be accessible from the recovery plan. Below are some considerations while you write the script.
 
@@ -49,7 +49,7 @@ You can use PowerShell scripts in your recovery plans. You will need to author t
         * Type: **Set-executionpolicy bypass**. [Learn more](https://technet.microsoft.com/library/ee176961.aspx).
 
 > [!IMPORTANT]
-> You should set execution policy to Bypass on the 64-bit powershell only. If you have set it for the 32-bit powershell, the scripts will not exeute.
+> You should set execution policy to Bypass on the 64-bit PowerShell only. If you have set it for the 32-bit PowerShell, the scripts will not exeute.
 
 ## Add the script to the VMM library
 

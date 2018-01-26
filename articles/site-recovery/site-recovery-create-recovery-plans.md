@@ -110,7 +110,7 @@ You can customize and extend recovery plans:
 
 - **Add new groups**—Add additional recovery plan groups (up to seven) to the default group, and then add more machines or replication groups to those recovery plan groups. Groups are numbered in the order in which you add them. A virtual machine, or replication group, can only be included in one recovery plan group.
 - **Add a manual action**—You can add manual actions that run before or after a recovery plan group. When the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
-- **Add a script**—You can add scripts that run before or after a recovery plan group. When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 will be created with the name: Group 1: pre-steps. All pre-steps will be listed inside this set. You can only add a script on the primary site if you have a VMM server deployed. [Learn more](site-recovery-how-to-add-vmmscript.md).
+- **Add a script**—You can add scripts that run before or after a recovery plan group. When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 will be created with the name: Group 1: pre-steps. All pre-steps are listed inside this set. You can only add a script on the primary site if you have a VMM server deployed. [Learn more](site-recovery-how-to-add-vmmscript.md).
 - **Add Azure runbooks**—You can extend recovery plans with Azure runbooks. For example, to automate tasks, or to create single-step recovery. [Learn more](site-recovery-runbook-automation.md).
 
 
@@ -120,12 +120,12 @@ You can add a script or manual action to the default recovery plan group after y
 
 1. Open the recovery plan.
 2. Click an item in the **Step** list, and then click **Script** or **Manual Action**.
-3. Specify whether to want to add the script or action before or after the selected item. Use the **Move Up** and **Move Down**  buttons, to move the position of the script up or down.
+3. Specify whether to want to add the script or action before or after the selected item. To move the position of the script up or down, use the **Move Up** and **Move Down**  buttons.
 4. If you add a VMM script, select **Failover to VMM script**. In **Script Path**, type the relative path to the share. In the VMM example below, you specify the path: **\RPScripts\RPScript.PS1**.
 5. If you add an Azure automation run book, specify the Azure Automation account in which the runbook is located, and select the appropriate Azure runbook script.
-6. Do a failover of the recovery plan, to make sure the script works as expected.
+6. To make sure the script works as expected, do a failover of the recovery plan.
 
-The script or runbook options are available only in the below scenarios when doing a failover or failback. A manual action is available for both failover and failback.
+The script or runbook options are available only in the following scenarios when doing a failover or failback. A manual action is available for both failover and failback.
 
 
 |Scenario               |Failover |Failback |

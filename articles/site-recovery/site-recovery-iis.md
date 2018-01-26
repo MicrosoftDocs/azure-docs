@@ -31,7 +31,7 @@ Traditional non-replication based recovery methods involve backing up of various
 A good disaster recovery solution, should allow modeling of recovery plans around complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
 
 
-This article describes how to protect an IIS based web application using a [Azure Site Recovery](site-recovery-overview.md). This article covers best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
+This article describes how to protect an IIS based web application using [Azure Site Recovery](site-recovery-overview.md). This article covers best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
 
 
 ## Prerequisites
@@ -133,17 +133,17 @@ If you have associated the IP address with a site, you will need to update all s
 If you have  Application Request Routing virtual machine, add [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4 to update the IP address.
 
 #### The SSL cert binding for an https connection
-Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding will need to be added for the cert with the IP of the IIS virtual machine post failover.
+Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding needs to be added for the cert with the IP of the IIS virtual machine post failover.
 
 The SSL cert can be issued against-
 
 a) The fully qualified domain name of the website<br>
 b) The name of the server<br>
 c) A wildcard certificate for the domain name<br>
-d) An IP address – If the SSL cert is issued against the IP of the IIS server, another SSL cert needs to be issued against the IP address of the IIS server on the Azure site and an additional SSL binding for this certificate will need to be created. Hence, it is advisable to not use an SSL cert issued against IP. This is a less widely used option and will soon be deprecated as per new CA/browser forum changes.
+d) An IP address – If the SSL cert is issued against the IP of the IIS server, another SSL cert needs to be issued against the IP address of the IIS server on the Azure site, and an additional SSL binding for this certificate needs to be created. Hence, it is advisable to not use an SSL cert issued against IP. This option is a less widely used and will soon be deprecated as per new CA/browser forum changes.
 
 #### Update the dependency between the web and the application tier
-If you have an application specific dependency based on the IP address of the virtual machines, you need to update this dependency post failover.
+If you have an application-specific dependency based on the IP address of the virtual machines, you need to update this dependency post failover.
 
 ## Doing a test failover
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
@@ -153,7 +153,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 1.	Click on 'Test Failover'.
 1.	Select recovery point and Azure virtual network to start the test failover process.
 1.	Once the secondary environment is up, you can perform your validations.
-1.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
+1.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment is cleaned.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
