@@ -234,7 +234,7 @@ parameters = models.job_create_parameters.JobCreateParameters(
  
      # Container configuration
      container_settings=models.ContainerSettings(
-        models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0cudnn6.0')), 
+        models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0')), 
  
      # Toolkit specific settings
      cntk_settings = models.CNTKsettings(
