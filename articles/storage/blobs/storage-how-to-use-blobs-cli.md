@@ -228,7 +228,7 @@ Navigate to the blob's URL in a private browser window. You're presented with a 
 
 ### Create a SAS URI
 
-Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
+Now we'll create a SAS URI that permits access to the blob. In the following example, we first populate a variable with the URL for the blob with [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), then populate another variable with a SAS token generated with the [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas) command. Finally, we output the full SAS URI for blob by concatenating the two, separated by the `?` query string separator.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
