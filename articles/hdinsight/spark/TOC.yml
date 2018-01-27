@@ -88,7 +88,7 @@
       items:
         - name: Overview
           href: apache-spark-streaming-overview.md
-        - name: Create highly-available Spark streaming jobs in YARN
+        - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
         - name: Process streaming events
           href: apache-spark-eventhub-streaming.md

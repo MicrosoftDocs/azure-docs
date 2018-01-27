@@ -125,9 +125,6 @@ To summarize, using checkpointing + WAL + reliable receivers, you will be able t
 
 * [Spark Streaming Overview](apache-spark-streaming-overview.md)
 * [Create Spark Streaming jobs with exactly-once event processing](apache-spark-streaming-exactly-once.md)
-
-## See also
-
 * [Long-running Spark Streaming Jobs on YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Structured Streaming: Fault Tolerant Semantics](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

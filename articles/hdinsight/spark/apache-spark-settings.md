@@ -152,8 +152,5 @@ There are a number of core configuration settings that you need to monitor and a
 * [Hadoop components and versions available with HDInsight?](../hdinsight-component-versioning.md)
 * [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)
 * [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight-hadoop-provision-linux-clusters.md)
-
-## See also
-
 * [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html)
 * [Running Spark on YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)
