@@ -78,7 +78,7 @@ Let's have a closer look at **acmetomcat**.  Click in the top right of **acmetom
 
 
 ### 7. View change tracking
-Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that Log Analytics has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with interesting recent information should already be expanded, and you can expand other sections to inspect information that they contain.
+Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that Log Analytics has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with relevant recent information should already be expanded, and you can expand other sections to inspect information that they contain.
 
 
 If **Change Tracking** isn't already open, then expand it.  This shows information collected by the [Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).  It looks like there was a software change made during this time window.  Click on **Software** to get details.  A backup process was added to the machine just after 4:00 AM, so this appears to be the culprit for the excessive resources being consumed.
@@ -88,13 +88,13 @@ If **Change Tracking** isn't already open, then expand it.  This shows informati
 
 
 ### 8. View details in Log Search
-We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the repository.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
+We can further verify this by looking at the detailed performance information collected in the Log Analytics workspace.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the workspace.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
 
 ![Log search](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### 9. Open saved search
-Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  These are queries that we created specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
+Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  We created these queries specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
 
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
@@ -107,7 +107,7 @@ In this case, we can see that the backup process is consistently consuming about
 ## Summary points
 - [Service Map](operations-management-suite-service-map.md) provides you with a view of your entire application even if you don't know all of its servers and dependencies.
 - Service Map surfaces data collected by other management solutions to help you identify issues with your application and its underlying infrastructure.
-- [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics repository.    
+- [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics workspace.    
 
 ## Next steps
 - Learn more about [Service Map](operations-management-suite-service-map.md).
