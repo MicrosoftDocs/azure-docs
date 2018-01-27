@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 01/29/2018
 ms.author: nitinme
 
 ---
@@ -24,15 +24,15 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 ## Prerequisites
 
-* Azure HDInsight Spark cluster.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Azure HDInsight Spark cluster**.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL database. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample AdventureWorks schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
+* **Azure SQL database**. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample AdventureWorksLT schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name hosting the Azure SQL database
     * Azure SQL database name
     * Azure SQL database admin user name / password
 
-* SQL Server Management Studio. Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
+* **SQL Server Management Studio**. Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
 
 ## Create a Jupyter notebook
 
@@ -55,7 +55,7 @@ Start by creating a Jupyter notebook associated with the Spark cluster. You use 
    > 
    > 
 
-4. In the Jupyter notebook, from the top-right corner, click **New**, and then click **Spark** to create a Scala notebook. Jupyter notebooks on HDInsight Spark cluster also provide **PySpark** kernel for Python2 applications, and **PySpark3** kernel for Python3 applications. For this article, we create a Scala notebook.
+4. In the Jupyter notebook, from the top-right corner, click **New**, and then click **Spark** to create a Scala notebook. Jupyter notebooks on HDInsight Spark cluster also provide the **PySpark** kernel for Python2 applications, and the **PySpark3** kernel for Python3 applications. For this article, we create a Scala notebook.
    
     ![Kernels for Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter notebook on Spark")
 
@@ -139,7 +139,7 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
 3. Extract the schema of the data in HVAC.csv and use the schema to load the data from the CSV in a dataframe, `readDf`.
 
-       val userSchema = spark.read.csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
+       val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 4. Use the `readDf` dataframe to create a temporary table, `temphvactable`. Then use the temporary table to create a hive table, `hvactable_hive`.
@@ -149,7 +149,7 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
 5. Finally, use the hive table to create a table in Azure SQL database. The following snippet creates `hvactable` in Azure SQL database.
 
-        spark.table("hvactable1").write.jdbc(jdbc_url, "hvactable", connectionProperties)
+       spark.table("hvactable_hive").write.jdbc(jdbc_url, "hvactable", connectionProperties)
 
 6. Connect to the Azure SQL database using SSMS and verify that you see a `dbo.hvactable` there.
 
@@ -179,12 +179,11 @@ In this section, we stream data into the **hvactable** that you already created 
 
 3. We stream data from the **HVAC.csv** into the hvactable. HVAC.csv file is available on the cluster at */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. We first get the schema of the data to be streamed. Then, we create a streaming dataframe using that schema.
 
-       val hvacData = spark.read.csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-       val userSchema1 = hvacData.schema
+       val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
-4. You should see an output that shows the schema of **HVAC.csv**. The **hvactable** has the same schema as well. The output lists the columns (**_c0**, **_c1**, etc.) in the table.
+4. The output shows the schema of **HVAC.csv**. The **hvactable** has the same schema as well. The output lists the columns in the table.
 
     ![Schema of table](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema of table")
 
@@ -210,15 +209,15 @@ In this section, we stream data into the **hvactable** that you already created 
          }
   
          def process(value: Row): Unit = {
-           val _c0  = value(0)
-           val _c1 = value(1)
-           val _c2 = value(2)
-           val _c3 = value(3)
-           val _c4 = value(4)
-           val _c5 = value(5)
-           val _c6 = value(6)  
+           val Date  = value(0)
+           val Time = value(1)
+           val TargetTemp = value(2)
+           val ActualTemp = value(3)
+           val System = value(4)
+           val SystemAge = value(5)
+           val BuildingID = value(6)  
     
-           val valueStr = "'" + _c0 + "'," + "'" + _c1 + "'," + "'" + _c2 + "'," + "'" + _c3 + "'," + "'" + _c4 + "'," + "'" + _c5 + "'," + "'" + _c6 + "'"
+           val valueStr = "'" + Date + "'," + "'" + Time + "'," + "'" + TargetTemp + "'," + "'" + ActualTemp + "'," + "'" + System + "'," + "'" + SystemAge + "'," + "'" + BuildingID + "'"
            statement.execute("INSERT INTO " + "dbo.hvactable" + " VALUES (" + valueStr + ")")   
            }
 
@@ -229,9 +228,9 @@ In this section, we stream data into the **hvactable** that you already created 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Verify that the data is being streamed into the **hvactable** by running the following query. Everytime you run the query, it should show new rows getting added to the table.
+6. Verify that the data is being streamed into the **hvactable** by running the following query. Everytime you run the query, it shows the number of rows in the table increasing.
 
-        SELECT * FROM hvactable
+        SELECT COUNT(*) FROM hvactable
 
 ## Next steps
 
