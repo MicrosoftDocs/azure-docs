@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-    name: Monitoring in Azure
+  - name: Monitoring in Azure
     href: monitoring-overview.md
 - name: Quickstarts
   expanded: true
@@ -27,7 +27,7 @@
     href: monitoring-partners.md
   - name: Additional overviews
     items:
-      name: Azure Monitor
+    - name: Azure Monitor
       href: monitoring-overview-azure-monitor.md
     - name: Metrics
       href: monitoring-overview-metrics.md
