@@ -266,7 +266,7 @@ az storage blob download \
 
 ### List the blobs in a container
 
-List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#list) command.
+List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
 
 ```azurecli
 az storage blob list \
