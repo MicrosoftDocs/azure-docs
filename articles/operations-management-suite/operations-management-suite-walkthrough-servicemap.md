@@ -19,7 +19,7 @@ ms.author: bwren
 ---
 
 # Self paced demo - Service Map
-This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Azure to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other services and solutions to assist you in analyzing performance and identifying issues.  You'll also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
+This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Azure to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other services and solutions to assist you in analyzing performance and identifying issues.  You also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
 
 
 ## Scenario description
@@ -33,7 +33,7 @@ You've just received a notification that the ACME Customer Portal application is
 ## Walk through
 
 ### 1. Connect to the OMS Experience Center
-This walk through uses the [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/) which provides a complete Log Analytics environment with sample data. Start by following this link, provide your information and then select the **Insight and Analytics** scenario.
+This walk through uses the [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), which provides a complete Log Analytics environment with sample data. Start by following this link, provide your information and then select the **Insight and Analytics** scenario.
 
 
 ### 2. Start Service Map
@@ -41,7 +41,7 @@ Start the Service Map solution by clicking on the **Service Map** tile.
 
 ![Service Map Tile](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-The Service Map console is displayed.  In the left pane is a list of computers in your environment with the Service Map agent installed.  You'll select the computer that you want to view from this list.
+The Service Map console is displayed.  In the left pane is a list of computers in your environment with the Service Map agent installed.  You select the computer that you want to view from this list.
 
 ![Computer list](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
@@ -88,7 +88,7 @@ If **Change Tracking** isn't already open, then expand it.  This shows informati
 
 
 ### 8. View details in Log Search
-We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the repository.  Service Map already filled in a queriy for us to retrieve the alert we're interested in.  
+We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the repository.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
 
 ![Log search](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
