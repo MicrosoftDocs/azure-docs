@@ -3104,6 +3104,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/aks/azure-files.md",
+            "redirect_url": "/azure/aks/azure-files-dynamic-pv",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/data-lake-store/data-lake-store-get-started-cli.md",
             "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-cli-2.0",
             "redirect_document_id": false
