@@ -13,7 +13,7 @@ ms.author: nepeters
 
 # Frequently asked question about Azure Container Service (AKS)
 
-## Which Azure regions will has Azure Container Service (AKS) at GA? 
+## Which Azure regions will have Azure Container Service (AKS) at GA? 
 
 - Canada Central 
 - Canada East 
@@ -25,21 +25,17 @@ ms.author: nepeters
 
 ## When will additional regions be added? 
 
-Additional regions will be added as demand increases.
+Additional regions are added as demand increases.
 
 ## Are security updates applied to AKS nodes? 
 
 OS security patches are applied to the nodes in your cluster on a nightly schedule, however a reboot is not performed. If needed, nodes may be rebooted through the portal or the AZ CLI. When upgrading a cluster, the latest Ubuntu image is used and all security patches are applied (with a reboot).
 
-## When will AKS be supported on Azure Stack?  
-
-We are currently working to bring Kubernetes to Azure Stack with ACS Engine, followed later by Azure Container Service (AKS). 
-
 ## Do you recommend customers use ACS or AKSs? 
 
 Given that AKS will GA at a later date, we recommend that you build PoC’s, dev and test clusters in AKS but production clusters in ACS-Kubernetes.  
 
-## When will ACS be deprecated and what about ACS support after that? 
+## When will ACS be deprecated? 
 
 ACS will be deprecated around the time AKS becomes GA. Customers will have 12 months after that date to migrate clusters to AKS. During the 12-month period, customers will be able to run all ACS operations.
 
@@ -47,13 +43,13 @@ ACS will be deprecated around the time AKS becomes GA. Customers will have 12 mo
 
 Node auto scaling is not supported but is on the roadmap. You might want to take a look at this open-sourced [autoscaling implementation][auto-scaler].
 
-## Why do we have two resource groups created in AKS? 
+## Why are two resource groups created with AKS? 
 
 The second resource group is auto-created for easy deletion of all resources associated with an AKS deployment.
 
 ## Is Azure Key Vault integrated with AKS? 
 
-No, it is not but this is in the roadmap. In the meantime, you can try out the following solution from [Hexadite][hexadite]. 
+No, it is not but this integration is planned. In the meantime, you can try out the following solution from [Hexadite][hexadite]. 
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
