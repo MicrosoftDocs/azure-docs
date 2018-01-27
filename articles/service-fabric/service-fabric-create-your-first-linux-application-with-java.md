@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 01/27/2018
 ms.author: ryanwi
 
 ---
@@ -28,12 +28,12 @@ ms.author: ryanwi
 This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
 ## Prerequisites
-Before you get started, install the Service Fabric SDK, the Service Fabric CLI, Yeoman, setup Java development environment, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
+Before you get started, install the Service Fabric SDK, the Service Fabric CLI, Yeoman, setup the Java development environment, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [Set up a development environment on Mac using Docker](service-fabric-get-started-mac.md).
 
 Also install the [Service Fabric CLI](service-fabric-cli.md).
 
 ### Install and set up the generators for Java
-Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Before you proceed further make sure that you have Yeoman installed on your machine if not refer [this](service-fabric-get-started-linux.md). Please run the below command to install Service Fabric yeoman template generator for Java on your machine.
+Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator.  If Yeoman isn't already installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) for instructions on setting up Yeoman. Run the following command to install the Service Fabric Yeoman template generator for Java.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -178,12 +178,7 @@ public class HelloWorldActorHost {
 
 ## Build the application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal.
-Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If not yet installed, please refer [this](service-fabric-get-started-linux.md).
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If they are not installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-java-development) for instructions on installing JDK and Gradle.
 
 To build and package the application, run the following:
 
@@ -332,9 +327,6 @@ System level support for Service Fabric, which talks to native Service Fabric ru
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## Migrating old Service Fabric Java applications to be used with Maven
-We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
 
