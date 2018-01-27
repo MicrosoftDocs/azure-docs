@@ -105,9 +105,9 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 sudo pip3 install sfctl
 ```
 
-### RHEL
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
-To install Serivice Fabric CLI on Redhat, run the following commands:
+To install Service Fabric CLI on Redhat, run the following commands:
 
 ```bash
 sudo yum install -y python34
