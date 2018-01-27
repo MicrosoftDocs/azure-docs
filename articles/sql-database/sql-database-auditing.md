@@ -175,8 +175,6 @@ You can also configure auditing in Azure SQL Database by using the following aut
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 
