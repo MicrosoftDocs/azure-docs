@@ -164,7 +164,7 @@ parameters = models.ClusterCreateParameters(
                      credentials=models.AzureStorageCredentialsInfo(
          account_key=storage_account_key),
          azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
-               storage_account_name, mnist_dataset_directory),
+               storage_account_name, azure_file_share_name),
                   relative_mount_path = relative_mount_point)],
          ), 
     ), 
