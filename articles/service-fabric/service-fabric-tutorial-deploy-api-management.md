@@ -142,7 +142,7 @@ For this tutorial deploy a basic web server, which echoes messages back to the u
 5. Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World!!!" displayed.
 
 ## Download and understand the Resource Manager templates
-Download and save the following Resource Manager templates and parameterss file:
+Download and save the following Resource Manager templates and parameters file:
  
 - [network-apim.json][network-arm]
 - [network-apim.parameters.json][network-parameters-arm]
@@ -200,7 +200,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
  - Replica selection for stateful services.
  - Resolution retry conditions that allow you to specify the conditions for re-resolving a service location and resending a request.
 
-**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.
+**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.  *backend-id* references a backend resource, the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template.
     
 ```xml
 <policies>
