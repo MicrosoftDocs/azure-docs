@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/266/2018
+ms.date: 01/26/2018
 ms.author: ergreenl
 
 ---
@@ -64,4 +64,4 @@ Alerts are categorized into three different levels of severity: critical, warnin
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure AD Domain Services](active-directory-ds-features.md)
-- [Contact Us](active-directory-contact-us.md)
+- [Contact Us](active-directory-ds-contact-us.md)
