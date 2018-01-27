@@ -117,9 +117,9 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
   ```Python
   mnist_dataset_directory = 'mnistcntksample' 
  
-  service.create_directory(azure_file_share_namem, mnist_dataset_directory, fail_on_exist=False) 
+  service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False) 
   ```
-3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory.
+3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory where you will be executing the Python script.
 
   ```Python
   for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt', 'ConvNet_MNIST.py']:     
