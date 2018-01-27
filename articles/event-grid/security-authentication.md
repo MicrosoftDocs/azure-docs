@@ -20,7 +20,7 @@ Azure Event Grid has three types of authentication:
 
 ## WebHook Event delivery
 
-Webhooks are one of many ways to receive events in real time from Azure Event Grid. Every time there is a new event ready to be delivered, the Event Grid Webhook seeds an HTTP request to the configured HTTP endpoint with the event in the body.
+Webhooks are one of many ways to receive events in real time from Azure Event Grid. Every time there is a new event ready to be delivered, the Event Grid Webhook sends an HTTP request to the configured HTTP endpoint with the event in the body.
 
 When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code in order to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid does not deliver events to WebHook endpoints that have not passed the validation.
 
