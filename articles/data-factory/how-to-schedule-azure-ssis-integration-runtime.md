@@ -358,7 +358,18 @@ Now that the pipeline works as you expected, you can create a trigger to run thi
 
         ![Trigger -> New/Edit](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
 4. In the **Trigger Run Parameters** page, review the warning, and select **Finish**. 
-2. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left. For detailed steps, see [Monitor the pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+5. Publish the solution to Data Factory by selecting **Publish All** in the left pane. 
+
+    ![Publish All](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
+6. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left. For detailed steps, see [Monitor the pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+    ![Pipeline runs](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
+7. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. You see the four activity runs associated with each activity in the pipeline (first Web activity, Wait activity, Stored Procedure activity, and the second Web activity). To switch back to view the pipeline runs, select **Pipelines** link at the top.
+
+    ![Activity runs](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+8. You can also view trigger runs by selecting **Trigger runs** from the drop-down list that's next to the **Pipeline Runs** at the top. 
+
+    ![Trigger runs](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## Next steps
 See the following articles from SSIS documentation: 
