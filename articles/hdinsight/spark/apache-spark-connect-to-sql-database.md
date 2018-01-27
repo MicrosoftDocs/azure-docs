@@ -26,7 +26,7 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * **Azure HDInsight Spark cluster**.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* **Azure SQL database**. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample AdventureWorksLT schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
+* **Azure SQL database**. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name hosting the Azure SQL database
     * Azure SQL database name
@@ -61,6 +61,10 @@ Start by creating a Jupyter notebook associated with the Spark cluster. You use 
 
     For more information about the kernels, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
+   > [!NOTE]
+   > In this article, we use a Spark (Scala) kernel because streaming data from Spark into SQL database is only supported in Scala and Java currently. Even though reading from and writing into SQL can be done using Python, for consistency in this article, we use Scala for all three operations.
+   >
+
 5. This opens a new notebook with a default name, **Untitled**. Click the notebook name and enter a name of your choice.
 
     ![Provide a name for the notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the notebook")
@@ -78,12 +82,12 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
        val jdbcUsername = "<SQL DB ADMIN USER>"
        val jdbcPassword = "<SQL DB ADMIN PWD>"
        val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-       val jdbcPort = <JDBC PORT>                            //typically, this value is 1433
+       val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
     Press **SHIFT + ENTER** to run the code cell.  
 
-2. Paste the following snippet in the next code cell and press **SHIFT + ENTER** to run it. This snippet builds a JDBC URL that you can pass to the Spark dataframe APIs creates an `Properties` object to hold the parameters.
+2. The following snippet builds a JDBC URL that you can pass to the Spark dataframe APIs creates an `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        import java.util.Properties
 
@@ -92,7 +96,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. Paste the following snippet to create a dataframe with the data from a table in your Azure SQL database. In this snippet, we use a **SalesLT.Address** table that is available as part of the **AdventureWorks** database.
+3. The following snippet creates a dataframe with the data from a table in your Azure SQL database. In this snippet, we use a **SalesLT.Address** table that is available as part of the **AdventureWorksLT** database. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -123,12 +127,12 @@ In this section, we use a sample CSV file available on the cluster to create a t
        val jdbcUsername = "<SQL DB ADMIN USER>"
        val jdbcPassword = "<SQL DB ADMIN PWD>"
        val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-       val jdbcPort = <JDBC PORT>                            //typically, this value is 1433
+       val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
     Press **SHIFT + ENTER** to run the code cell.  
 
-2. Paste the following snippet in the next code cell and press **SHIFT + ENTER** to run it. This snippet builds a JDBC URL that you can pass to the Spark dataframe APIs creates an `Properties` object to hold the parameters.
+2. The following snippet builds a JDBC URL that you can pass to the Spark dataframe APIs creates an `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        import java.util.Properties
 
@@ -137,7 +141,7 @@ In this section, we use a sample CSV file available on the cluster to create a t
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. Extract the schema of the data in HVAC.csv and use the schema to load the data from the CSV in a dataframe, `readDf`.
+3. The following snippet extracts the schema of the data in HVAC.csv and uses the schema to load the data from the CSV in a dataframe, `readDf`. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -177,7 +181,7 @@ In this section, we stream data into the **hvactable** that you already created 
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-3. We stream data from the **HVAC.csv** into the hvactable. HVAC.csv file is available on the cluster at */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. We first get the schema of the data to be streamed. Then, we create a streaming dataframe using that schema.
+3. We stream data from the **HVAC.csv** into the hvactable. HVAC.csv file is available on the cluster at */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. In the following snippet, we first get the schema of the data to be streamed. Then, we create a streaming dataframe using that schema. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
@@ -187,7 +191,7 @@ In this section, we stream data into the **hvactable** that you already created 
 
     ![Schema of table](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema of table")
 
-5. Finally, use the following snippet to read data from the HVAC.csv and stream it into the **hvactable** in Azure SQL database. Replace the placeholder values with the values for your Azure SQL database.
+5. Finally, use the following snippet to read data from the HVAC.csv and stream it into the **hvactable** in Azure SQL database. Paste the snippet in a code cell, replace the placeholder values with the values for your Azure SQL database, and then press **SHIFT + ENTER** to run.
 
        val WriteToSQLQuery  = readStreamDf.writeStream.foreach(new ForeachWriter[Row] {
           var connection:java.sql.Connection = _
@@ -196,7 +200,7 @@ In this section, we stream data into the **hvactable** that you already created 
           val jdbcUsername = "<SQL DB ADMIN USER>"
           val jdbcPassword = "<SQL DB ADMIN PWD>"
           val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-          val jdbcPort = <JDBC PORT>                            //typically, this value is 1433
+          val jdbcPort = 1433
           val jdbcDatabase ="<AZURE SQL DB NAME>"
           val driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
           val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
