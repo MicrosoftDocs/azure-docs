@@ -21,14 +21,14 @@ ms.custom: mvc
 > * [C#](quick-enroll-device-x509-csharp.md)
 > * [Node.js](quick-enroll-device-x509-node.md)
 
-These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
+These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [C# Service SDK](https://github.com/Azure/azure-iot-sdk-csharp) and a sample C# .NET Core application. An enrollment group controls access the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
 
 ## Prepare the development environment
 
 1. Make sure you have [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
 2. Make sure you have the [.Net Core SDK](https://www.microsoft.com/net/download/windows) installed on your machine. 
 3. Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-4. You need a .pem or a .cer file that contains an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The **Azure IoT c SDK** contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. To use this tooling, clone the [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) and follow the steps in [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) on your machine.
+4. You need a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. To use this tooling, download the contents of the [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) folder to a working folder on your machine and follow the steps in [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
 ## Get the connection string for your provisioning service
 
@@ -54,7 +54,6 @@ The steps in this section show how to create a .NET Core console app that adds a
    
    ```csharp
    using System.Security.Cryptography.X509Certificates;
-   using System.Text;
    using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
@@ -82,8 +81,7 @@ The steps in this section show how to create a .NET Core console app that adds a
        {
            #region Create a new enrollmentGroup config
            Console.WriteLine("\nCreating a new enrollmentGroup...");
-           string certificatePassword = ReadCertificatePassword();
-           var certificate = new X509Certificate2(X509RootCertPath, certificatePassword);
+           var certificate = new X509Certificate2(X509RootCertPath);
            Attestation attestation = X509Attestation.CreateFromRootCertificates(certificate);
            EnrollmentGroup enrollmentGroup =
                    new EnrollmentGroup(
@@ -107,42 +105,7 @@ The steps in this section show how to create a .NET Core console app that adds a
    }
    ```
 
-7. Add the following method to the **Program** class to read the certificate password input by the user:
-
-   ```csharp
-   private static string ReadCertificatePassword()
-   {
-       var password = new StringBuilder();
-       Console.WriteLine($"Enter the PFX password for {X509RootCertPath}:");
- 
-       while (true)
-       {
-           ConsoleKeyInfo key = Console.ReadKey(true);
-           if (key.Key == ConsoleKey.Backspace)
-           {
-               if (password.Length > 0)
-               {
-                   password.Remove(password.Length - 1, 1);
-                   Console.Write("\b \b");
-               }
-           }
-           else if (key.Key == ConsoleKey.Enter)
-           {
-               Console.WriteLine();
-               break;
-           }
-           else
-           {
-               Console.Write('*');
-               password.Append(key.KeyChar);
-           }
-       }
- 
-       return password.ToString();
-   }
-   ```
-       
-8. Finally, replace the body of the **Main** method with the following lines:
+7. Finally, replace the body of the **Main** method with the following lines:
    
    ```csharp
    try
@@ -158,7 +121,7 @@ The steps in this section show how to create a .NET Core console app that adds a
    Console.ReadLine();
    ```
         
-9. Build the solution.
+8. Build the solution.
 
 ## Run the enrollment group sample
   
