@@ -37,7 +37,7 @@ Given that AKS will GA at a later date, we recommend that you build PoC’s, dev
 
 ## When will ACS be deprecated? 
 
-ACS will be deprecated around the time AKS becomes GA. Customers will have 12 months after that date to migrate clusters to AKS. During the 12-month period, customers will be able to run all ACS operations.
+ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
 
 ## Does AKS support node auto scaling? 
 
