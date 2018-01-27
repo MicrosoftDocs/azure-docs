@@ -45,13 +45,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
    c. For **Location**, select an appropriate location.
 
-   d. For **Pricing tier**, select an appropriate pricing tier for the service.
-
-      Select **View all** to view more pricing options, such as **Free** and **Shared**.
-    
-      After you have selected the pricing tier, click the **Select** button.
-
-   e. Select **OK**.
+   d. For **Pricing tier**, select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
 
 <a name="move"></a>
 
