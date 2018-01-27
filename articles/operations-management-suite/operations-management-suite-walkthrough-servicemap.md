@@ -99,9 +99,9 @@ Let's see if we can get some more detail on the performance collection that gene
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
-This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you were interested in the processes on other computers, you could modify the query to retrieve that information.
+This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you're interested in the processes on other computers, you could modify the query to retrieve that information.
 
-In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's pretty obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
+In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
 
 
 ## Summary points
@@ -112,4 +112,4 @@ In this case, we can see that the backup process is consistently consuming about
 ## Next steps
 - Learn more about [Service Map](operations-management-suite-service-map.md).
 - [Deploy and configure](operations-management-suite-service-map-configure.md) Service Map.
-- Learn about [Log Analytics](../log-analytics/log-analytics-overview.md) which is required for Service Map and stores operational data stored by agents.
+- Learn about [Log Analytics](../log-analytics/log-analytics-overview.md), which is required for Service Map and stores operational data stored by agents.
