@@ -68,7 +68,7 @@ az storage blob upload \
 
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
 
-To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload-batch) command.
+To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command.
 
 ## List the blobs in a container
 
