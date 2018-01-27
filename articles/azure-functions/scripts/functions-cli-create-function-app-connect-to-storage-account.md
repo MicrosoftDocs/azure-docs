@@ -46,7 +46,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Log in to Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Log in to Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |

@@ -30,15 +30,36 @@ The baseboard management controllers (BMC) monitor the physical state of your se
 
 1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The password for each BMC in your environment must be the same.
 2. Open a privileged endpoint in Azure Stack Sessions. For instruction, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcPassword` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter.  
-For example:
+3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcPassword` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
+
     ```powershell
-    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
-    
+    # Interactive Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        param($password)
-        set-bmcpassword -bmcpassword $password
-    } -ArgumentList (<LatestPassword as a SecureString>) 
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
+    ```
+    
+    You can also use the static PowerShell version with the Passwords as code lines:
+    
+    ```powershell
+    # Static Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
     ```
 
 ## Next steps

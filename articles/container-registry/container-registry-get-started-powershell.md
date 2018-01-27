@@ -6,7 +6,7 @@ author: neilpeterson
 manager: timlt
 
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -40,7 +40,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Create an ACR instance using the [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) command.
 
-The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic

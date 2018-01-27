@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 ---
@@ -68,7 +68,9 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -109,7 +111,9 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -136,7 +140,9 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -181,7 +187,9 @@ To copy data from SFTP, set the type property of the dataset to **FileShare**. T
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SFTPDataset",
+    "type": "Datasets",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{
@@ -216,7 +224,7 @@ To copy data from SFTP, set the source type in the copy activity to **FileSystem
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder.<br/>Allowed values are: **true** (default), **false** | No |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
 
 **Example:**
 

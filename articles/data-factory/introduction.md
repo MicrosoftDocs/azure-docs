@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
 
 ---
@@ -124,4 +124,13 @@ For an example, let's assume that your compute environments such as Azure HDInsi
 For a list of differences between version 1 and version 2 of the Data Factory service, see [Compare with version 1](compare-versions.md). 
 
 ## Next steps
-Learn how to create a data factory by following step-by-step instructions in the following Quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and Azure portal. 
+Get started with creating a Data Factory pipeline by using one of the following tools/SDKs: 
+
+- [Data Factory UI in the Azure portal](quickstart-create-data-factory-portal.md)
+- [Copy Data tool in the Azure portal](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md)
+ 
