@@ -20,7 +20,7 @@ ms.author: danis
 # How to use Azure RBAC to Restrict Extension Installation
 In the scenario where you wish to have an Azure user with a VM monitoring role and restrict extension installation you can use a custom RBAC role.
 
-## Create a Custom RBAC ROLE
+## Create a Custom RBAC Role
 Firstly you need to create the role metadata, the JSON example below allows a set of Actions and the 'NotActions' of restricting extension installation.
 
 
