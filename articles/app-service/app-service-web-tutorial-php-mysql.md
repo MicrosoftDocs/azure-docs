@@ -384,7 +384,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Set the virtual application path for the web app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
-In the Cloud Shell, set the virtual application path by using the [az resource update](/cli/azure/resource#update) command. Replace the _&lt;appname>_ placeholder.
+In the Cloud Shell, set the virtual application path by using the [az resource update](/cli/azure/resource#az_resource_update) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
