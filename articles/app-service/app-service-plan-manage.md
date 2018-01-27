@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Manage an App Service plan in Azure
 
-An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This how-to guide shows how to manage an App Service plan.
+An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -39,14 +39,14 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
    a. Select **[+] Create New**.
 
+      ![Create an App Service plan.][createASP] 
+
    b. For **App Service plan**, enter the name of the plan.
 
    c. For **Location**, select an appropriate location.
 
    d. For **Pricing tier**, select an appropriate pricing tier for the service.
 
-      ![Create an App Service plan.][createASP] 
-   
       Select **View all** to view more pricing options, such as **Free** and **Shared**.
     
       After you have selected the pricing tier, click the **Select** button.
@@ -61,11 +61,13 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the [Azure portal](https://portal.azure.com), browse to the app that you want to move.
 
-2. On the menu, look for the **App Service Plan** section. Select **Change App Service plan**.
+2. On the menu, look for the **App Service Plan** section.
 
-4. In the **App Service plan** selector, select an existing plan to move this app into.
+3. Select **Change App Service plan** to open the **App Service plan** selector.
 
    ![App Service plan selector.][change] 
+
+4. In the **App Service plan** selector, select an existing plan to move this app into.   
 
 > [!IMPORTANT]
 > The **Select App Service plan** page is filtered by the following criteria: 
