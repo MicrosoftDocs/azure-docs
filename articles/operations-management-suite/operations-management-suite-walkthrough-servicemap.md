@@ -88,20 +88,20 @@ If **Change Tracking** isn't already open, then expand it.  This shows informati
 
 
 ### 8. View details in Log Search
-We can further verify this by looking at the detailed performance information collected in the Log Analytics workspace.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the workspace.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
+We can further verify by looking at the detailed performance information collected in the Log Analytics workspace.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the workspace.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
 
 ![Log search](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### 9. Open saved search
-Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  We created these queries specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
+Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  We created these queries specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
 
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you're interested in the processes on other computers, you could modify the query to retrieve that information.
 
-In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
+In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually use Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
 
 
 ## Summary points
