@@ -32,7 +32,7 @@ To deploy and run [Azure Service Fabric applications](service-fabric-application
 The following operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
-* RHEL 7.4
+* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ## Installation Methods
 
@@ -147,7 +147,7 @@ Ubuntu
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
-Redhat
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
   ```bash
   sudo yum install nodejs
   sudo yum install npm
@@ -180,7 +180,7 @@ Ubuntu
   sudo apt-get install gradle
   ```
 
-Redhat
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
   ```bash
   sudo yum install java-1.8.0-openjdk-devel
   curl -s https://get.sdkman.io | bash
