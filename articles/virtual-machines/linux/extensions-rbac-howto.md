@@ -62,18 +62,20 @@ az role assignment create --assignee <user, group, or service principal> --role 
 Try to install an extension. If using the portal, the extension 'Add' button is grayed out.
 
 Using CLI:
-
+```bash
 az vm extension set \
   --resource-group operational \
   --vm-name pythonbottle \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute": "echo hello "}'
+```
 
-
+Example of the error, after the RBAC assignment:
+```text
 The client 'xxxxxxx' with object id 'b000000-000c-000c-0000-d00000000a' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/extensions/write' over scope '/subscriptions/oooooo-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/operational/providers/Microsoft.Compute/virtualMachines/pythonbottle/extensions/customScript'.
 
-
+```
 ## Next steps
 This is just a small example on how to restrict extension provisioning, but you can define the scope and a whole host of more options, please refer to:
 
