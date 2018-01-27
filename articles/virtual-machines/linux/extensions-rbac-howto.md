@@ -50,14 +50,17 @@ Firstly you need to create the role metadata, the JSON example below allows a se
 }
 ```
 ### Create The Role
+```bash
 az role definition create --role-definition @/Users/dansol/Data/extensions/howto/role.json
-
+```
 ## Check Role Definition Exists
+```bash
 az role definition list --output table | grep Maintainer
-
+```
 ## Assign the Role
+```bash
 az role assignment create --assignee <user, group, or service principal> --role "Virtual Machine Maintainer"
-
+```
 ## Test
 Try to install an extension. If using the portal, the extension 'Add' button is grayed out.
 
