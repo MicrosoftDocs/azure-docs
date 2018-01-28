@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-
 ---
 
 # Import the Postman environment 
