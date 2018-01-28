@@ -44,7 +44,7 @@ The following table shows the currently supported high-availability and disaster
 A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. Though, this is not a preferred choice for many customers.
 
 > [!NOTE]
-> SAP HANA MCOD deployments (multiple HANA Instances on one unit) as overlaying scenarios to the above scenarios work with the HA and DR methods listed in the table. Whereas for SAP HANA MDC deployments, only non-storage based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed are valid.  
+> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios to the above scenarios work with the HA and DR methods listed in the table. Whereas for [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed, are valid.  
 
 A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, you shut down the non-production system, you mount the storage-replicated (additional) volume sets, and then you start the production HANA instance. Most customers who use the HANA Large Instance disaster-recovery functionality, use this configuration. 
 
@@ -245,7 +245,7 @@ In the following example, the user is **SCADMIN01**, the hostname is **lhanad01*
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
 ```
-If you use a HANA MCOD deployment with multiple SAP HANA instances on one unit, the step needs to be repeated for every SAP HANA instance on the server.
+If you use a HANA MCOD deployment with multiple SAP HANA instances on one unit, the step needs to be repeated for every SAP HANA instance and the associated backup user on the unit.
 
 If you have an SAP HANA scale-out configuration, you should manage all scripting from a single server. In this example, the SAP HANA key **SCADMIN01** must be altered for each host in a way that reflects which host is related to the key. Amend the SAP HANA backup account with the instance number of the HANA DB. The key must have administrative privileges on the host it is assigned to, and the backup user for scale-out configurations must have access rights to all the SAP HANA instances. Assuming the three scale-out nodes have the names **lhanad01**, **lhanad02**, and **lhanad03**, the sequence of commands looks like this:
 
@@ -273,9 +273,9 @@ HANABackupCustomerDetails.txt
 ``` 
 
 
-Here is the purpose of the different scripts and files:
+The purpose of the different scripts and files are:
 
-- **azure\_hana\_backup.pl**: Schedule this script with cron to execute storage snapshots on either the HANA data/log/shared volumes, the /hana/logbackups volume, or the OS (on Type I SKUs of HANA Large Instances).
+- **azure\_hana\_backup.pl**: Schedule this script with cron to execute storage snapshots on either the HANA data/log/shared volumes, the /hana/logbackups volume, or the OS.
 - **azure\_hana\_replication\_status.pl**: This script provides the basic details around the replication status from the production site to the disaster-recovery site. The script monitors to ensure that the replication is taking place, and it shows the size of the items that are being replicated. It also provides guidance if a replication is taking too long or if the link is down.
 - **azure\_hana\_snapshot\_details.pl**: This script provides a list of basic details about all the snapshots, per volume, that exist in your environment. This script can be run on the primary server or on a server unit in the disaster-recovery location. The script provides the following information broken down by each volume that contains snapshots:
    * Size of total snapshots in a volume
@@ -405,7 +405,7 @@ As all the preparation steps are finished, you can start to configure the actual
 Three types of snapshot backups can be created:
 - **HANA**: Combined snapshot backup in which the volumes that contain /hana/data and /hana/shared (which contains /usr/sap as well) are covered by the coordinated snapshot. A single file restore is possible from this snapshot.
 - **Logs**: Snapshot backup of the /hana/logbackups volume. No HANA snapshot is triggered to execute this storage snapshot. This storage volume is the volume meant to contain the SAP HANA transaction-log backups. SAP HANA transaction-log backups are performed more frequently to restrict log growth and prevent potential data loss. A single file restore is possible from this snapshot. You should not lower the frequency to under five minutes.
-- **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN. For the Type II SKUs of HANA Large Instances, you can take the OS level backup, and restore the individual files as well. Refer the document “[How to Perform OS Backup for Type II SKUs](os-backup-type-ii-skus.md)” for more details.
+- **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN. 
 
 
 Note a change in the the call syntax for these three different types of snapshots since changing to include MCOD deployments :
@@ -830,7 +830,7 @@ In case of restoring to the latest replicated storage snapshots, the rough steps
 1. Because you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance pre-installed.
 2. Make sure that no SAP HANA processes are running. You use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
 The output should show you the **hdbdaemon** process in a stopped state and no other HANA processes in a running or started state.
-3. On the DR site HANA Large instance unit, execute the script **azure_hana_dr_failover.pl**. The script is asking for a SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA instances failed over, you need to run the script several times and on request type in the SAP HANA SID you want to fail over and restore. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the restored DR volumes as well
+3. On the DR site HANA Large instance unit, execute the script **azure_hana_dr_failover.pl**. The script is asking for an SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA instances failed over, you need to run the script several times and on request type in the SAP HANA SID you want to fail over and restore. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the restored DR volumes as well
 4. Mount the restored disaster-recovery volumes through Linux operating system commands to the HANA Large Instance unit in the disaster-recovery site. 
 6. Start the so far dormant SAP HANA production instance.
 7. If you chose to copy transaction-log backup logs additionally to reduce the RPO time, you need to merge those transaction-log backups into the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Just copy newer backups that have not been replicated with the latest replication of a storage snapshot.
@@ -843,7 +843,7 @@ You can test the DR failover as well without impacting the actual replication re
 
 Step #3 for the **failover test** needs to look like:
 
-On the DR site HANA Large instance unit, execute the script **azure_hana_test_dr_failover.pl**. This script is NOT stopping the replication relationship between the primary site and DR site. Instead, this script is cloning the DR storage volumes. After the cloning process succeeds, the cloned volumes are restored to the state of the most recent snapshot and then mounted to the DR unit. The script is asking for a SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA isntances you want to test, you need to run the script several times and on request type in the SAP HANA SID you want to test the failover. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the cloned DR volumes as well.
+On the DR site HANA Large instance unit, execute the script **azure_hana_test_dr_failover.pl**. This script is NOT stopping the replication relationship between the primary site and DR site. Instead, this script is cloning the DR storage volumes. After the cloning process succeeds, the cloned volumes are restored to the state of the most recent snapshot and then mounted to the DR unit. The script is asking for an SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA isntances you want to test, you need to run the script several times and on request type in the SAP HANA SID you want to test the failover. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the cloned DR volumes as well.
 
 Then continue with steps 4 to 8 of the procedure above.
 
