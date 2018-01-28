@@ -708,6 +708,33 @@ Next, we scan the parsed text captions with the text moderation service of Conte
 
 ## Program output
 
-The primary output of this utility is one or more video reviews hosted in Content Moderator. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
+The following command line output from the program shows the various tasks as they are completed. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
+
+	Microsoft.ContentModerator.AMSComponentClient
+	Enter the fully qualified local path for Uploading the video :
+	"Your File Name.MP4"
+	Generate Video Transcript? [y/n] : n
+	
+	Video compression process started...
+	Video compression process completed...
+	
+	Video moderation process started...
+	Video moderation process completed...
+	
+	Video review process started...
+	Video Frames Creation inprogress...
+	Frames(83) created successfully.
+	Review Created Successfully and the review Id 201801va8ec2108d6e043229ba7a9e6373edec5
+	Video review successfully completed...
+	
+	Total Elapsed Time: 00:05:56.8420355
+
+## Program result
+
+The primary result of this utility is one or more video reviews hosted in Content Moderator. 
+
+![Video review for human moderators](images/ams-video-review.PNG)
 
 ## Next steps
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) and sample files and required libraries for this tutorial, and get started on your integration.
