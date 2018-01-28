@@ -346,7 +346,7 @@ This code performs the following tasks:
 
 ## Sample video moderation response
 
-The result of the moderation job (See [video moderation quickstart](video-moderation-api.md)is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
+The result of the moderation job (See [video moderation quickstart](video-moderation-api.md) is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
 
 	{
 		"version": 2,
