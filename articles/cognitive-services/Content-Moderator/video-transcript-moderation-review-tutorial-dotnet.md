@@ -14,9 +14,7 @@ ms.author: sajagtap
 
 # Video and transcript moderation and review using .NET
 
-Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
-
-In this detailed tutorial, we help you understand how to build a complete video and transcript moderation solution that combines machine-assisted moderation with human-in-the-loop reviews.
+Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. In this detailed tutorial, we help you understand how to build a complete video and transcript moderation solution that combines machine-assisted moderation with human-in-the-loop reviews.
 
 We use the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 
@@ -234,7 +232,7 @@ The code performs the following steps:
 
 The method returns the filename of the compressed output file.
 
-## Uploading and moderating
+## Uploading and moderating the video
 
 The video must be stored in Azure Media Services before it can be processed by the Content Moderation service. The `Program` class in `Program.cs` has a short method `CreateVideoStreamingRequest()` that returns an object representing the streaming request used to upload the video.
 
@@ -276,7 +274,7 @@ These lines perform the following tasks:
 - Set the request's `GenerateVTT` flag if the user has requested a text transcript
 - Calls `CreateAzureMediaServicesJobToModerateVideo()` to perform the upload and receive the result
 
-## Deep dive into the video moderation step
+## Deep dive into video moderation
 
 The method `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.cs`, which contains the bulk of the code that interacts with Azure Media Services. The method's source code is shown below.
 
@@ -348,7 +346,7 @@ This code performs the following tasks:
 
 ## Sample video moderation response
 
-The result of the moderation job (See [video moderation quickstart](video-moderation-api.md) is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
+The result of the video moderation job (See [video moderation quickstart](video-moderation-api.md) is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
 
 	{
 		"version": 2,
@@ -406,9 +404,9 @@ A transcription of the audio from the video is also produced when the `GenerateV
 > The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 
-## Creating the review
+## Creating the human-in-the-loop review
 
-The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in Content Moderator so that the video is inspected by a human reviewer. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
+The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 
 	public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
 	{
@@ -460,7 +458,7 @@ The application performs the following tasks:
 |Flag frames of the video that contain inappropriate audio|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
 |Add the results to the review|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
 
-### Transcript configuration
+### Task configuration
 
 We covered gathering user input earlier, so let's jump right into submitting the transcription job. `CreateAzureMediaServicesJobToModerateVideo()` (already described) calls `ConfigureTranscriptTask()`.
 
@@ -480,7 +478,7 @@ The configuration for the transcript task is read from the file `MediaIndexerCon
 > [!NOTE]
 > The sample application recognizes speech in US English only.
 
-### Transcript generation and download
+### Transcript generation
 
 The transcript is published as an AMS asset. To scan the transcript for objectionable content, we download the asset from Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` calls `GenerateTranscript()`, shown here, to retrieve the file.
 
