@@ -112,7 +112,7 @@ Regardless of whether the program's options came from the command line or from i
 |-|-|
 |`AMSComponent`|Compresses video files before submitting them for moderation.|
 |`AMSconfigurations`|Interface to the application's configuration data, found in `App.config`.|
-|`VideoModerator`|Implements media-related functionality, including uploading, encoding, encryption, and moderation|
+|`VideoModerator`| Uploading, encoding, encryption, and moderation using AMS SDK|
 |`VideoReviewApi`|Manages video reviews in the Content Moderator service|
 
 These classes (aside from `AMSConfigurations`, which is straightforward) are covered in more detail in upcoming sections of this tutorial.
