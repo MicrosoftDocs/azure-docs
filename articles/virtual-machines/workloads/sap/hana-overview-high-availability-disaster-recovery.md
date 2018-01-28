@@ -19,6 +19,10 @@ ms.custom: H1Hack27Feb2017
 ---
 # SAP HANA Large Instances high availability and disaster recovery on Azure 
 
+>[!IMPORTANT]
+>This documentation is no replacement of the SAP HANA administration documentation or SAP Notes. It is expected that the reader has a solid understanding and expertise of SAP HANA administration and operations. Especially around the topics of backup, restore and high-availability and disaster-recovery. In this documentation, we show screenshots from SAP HANA Studio. Form, structure, and nature of the SAP Administration tools may change from SAP HANA release to release. Therefore it is important that you exercise steps and processes taken in your environment and with your HANA versions and releases. Some processes described in this documentation are simplified for a better general understanding and are not meant to be used as detailed steps for eventual operation handbooks. If you want to create operation handbooks for your particular configurations, you need to test and exercise your processes and document those related to your configurations. 
+
+
 High availability and disaster recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability and disaster-recovery strategy. It is also important to consider the recovery point objective (RPO) and the recovery time objective, which are specific to your environment.
 
 Microsoft supports some SAP HANA high-availability capabilities with HANA Large Instances. These capabilities include:
@@ -72,6 +76,7 @@ Additional requirements for a disaster-recovery setup with HANA Large Instances 
 
 - You must order SAP HANA on Azure (Large Instances) SKUs of the same size as your production SKUs and deploy them in the disaster-recovery region. In the current customer deployments, these instances are used to run non-production HANA instances. We refer to them as *multipurpose DR setups*.   
 - You must order additional storage on the DR site for each of your SAP HANA on Azure (Large Instances) SKUs that you want to recover in the disaster-recovery site. Buying additional storage lets you allocate the storage volumes. You can allocate the volumes that are the target of the storage replication from your production Azure region into the disaster-recovery Azure region.
+
  
 
 ## Backup and restore
@@ -560,7 +565,7 @@ HANA Backup ID:
 For the snapshot types hana and logs, you are able to access the snapshots directly on the volumes in the **.snapshot** directory. There is a subdirectory for each of the snapshots. You should be able to copy each file that is covered by the snapshot in the state it had at the point of the snapshot from that subdirectory into the actual directory structure.
 
 >[!NOTE]
->Single file restore does not work for snapshots of the boot LUN. The **.snapshot** directory is not exposed in the boot LUN. 
+>Single file restore does not work for snapshots of the boot LUN independent of the type of the HANA Large Instance units. The **.snapshot** directory is not exposed in the boot LUN. 
 
 
 ### Reducing the number of snapshots on a server
@@ -568,13 +573,13 @@ For the snapshot types hana and logs, you are able to access the snapshots direc
 As explained earlier, you can reduce the number of certain labels of snapshots that you store. The last two parameters of the command to initiate a snapshot are the label and the number of snapshots you want to retain.
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 30
+./azure_hana_backup.pl hana dailyhana 15min 28
 ```
 
 In the previous example, the snapshot label is **customer** and the number of snapshots with this label to be retained is **30**. As you respond to disk space consumption, you might want to reduce the number of stored snapshots. The easy way to reduce the number of snapshots to 15, for example, is to run the script with the last parameter set to **15**:
 
 ```
-./azure_hana_backup.pl hana HM3 hanadaily 15
+./azure_hana_backup.pl hana dailyhana 15min 15
 ```
 
 If you run the script with this setting, the number of snapshots, including the new storage snapshot, is 15. The 15 most recent snapshots are kept, whereas the 15 older snapshots are deleted.
@@ -744,7 +749,10 @@ The basis of the disaster-recovery functionality offered is the storage-replicat
 
 The first transfer of the complete data of the volume should be before the amount of data becomes smaller than the deltas between snapshots. As a result, the volumes in the DR site contain every one of the volume snapshots performed in the production site. This fact enables you to eventually use that DR system to get to an earlier status in order to recover lost data, without rolling back the production system.
 
+In case of a MCOD deployments with multiple independent SAP HANA instances on one HANA Large Instance unit, we expect that all SAP HANA instances are getting storage replicated to the DR side.
+
 In cases where you use HANA System Replication as high-availability functionality in your production site, only the volumes of the Tier 2 (or replica) instance are replicated. This configuration might lead to a delay in storage replication to the DR site if you maintain or take down the secondary replica (Tier 2) server unit or SAP HANA instance in this unit. 
+
 
 >[!IMPORTANT]
 >As with multitier HANA System Replication, a shutdown of the Tier 2 HANA instance or server unit blocks replication to the disaster-recovery site when you use the HANA Large Instance disaster-recovery functionality.
@@ -765,6 +773,10 @@ If the server instance has not been ordered already with the additional storage 
 ![DR setup next step](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
 The next step for you is to install the second SAP HANA instance on the HANA Large Instance unit in the disaster recovery Azure region, where you run the TST HANA instance. The newly installed SAP HANA instance needs to have the same SID. The users created need to have the same UID and Group ID that the production instance has. If the installation succeeded, you need to:
+
+- Execute step #2 of the storage snapshot preparation earlier in the document
+- Create a public key for the DR unit of HANA Large Instance unit if you did not perform that step before. The procedure is shown as step #3 of the storage snapshot preparation earlier in the document
+- Maintain the **HANABackupCustomerDetails.txt** with the new HANA instance and test whether connectivity into storage works correctly.  
 - Stop the newly installed SAP HANA instance on the HANA large Instance unit in the disaster recovery Azure region.
 - Unmount these PRD volumes and contact SAP HANA on Azure Service Management. The volumes can't stay mounted to the unit because they can't be accessible while functioning as storage replication target.  
 
@@ -805,7 +817,37 @@ As the replication progresses, the snapshots on the PRD volumes in the disaster 
 In case of a failover, you also can choose to restore to an older storage snapshot instead of the latest storage snapshot.
 
 ## Disaster-recovery failover procedure
-If you want or need to failover to the DR site, you need to interact with the SAP HANA on Azure operations team. In rough steps, the process so far looks like this:
+There are two different cases to consider when failing over to the DR site:
+
+- You need the SAP HANA database back to the latest status of data. In this case, there is a self-service script that allows you to perform the failover without the need to contact Microsoft. Though for the failback you need to work with Microsoft.
+- You want to restore to a storage snapshot that is not the latest replicated snapshot, you need to work with Microsoft. 
+
+>[!NOTE]
+>The process steps below need to be executed on the HANA Large instance unit which represents the DR unit. 
+ 
+In case of restoring to the latest replicated storage snapshots, the rough steps look like: 
+
+1. Because you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance pre-installed.
+2. Make sure that no SAP HANA processes are running. You use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
+The output should show you the **hdbdaemon** process in a stopped state and no other HANA processes in a running or started state.
+3. On the DR site HANA Large instance unit, execute the script **azure_hana_dr_failover.pl**. The script is asking for a SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA instances failed over, you need to run the script several times and on request type in the SAP HANA SID you want to fail over and restore. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the restored DR volumes as well
+4. Mount the restored disaster-recovery volumes through Linux operating system commands to the HANA Large Instance unit in the disaster-recovery site. 
+6. Start the so far dormant SAP HANA production instance.
+7. If you chose to copy transaction-log backup logs additionally to reduce the RPO time, you need to merge those transaction-log backups into the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Just copy newer backups that have not been replicated with the latest replication of a storage snapshot.
+8. You also can restore single files out of the snapshots that have been replicated to the /hana/shared/PRD volume in the disaster recovery Azure region. 
+
+You can test the DR failover as well without impacting the actual replication relationship. In order to perform a test failover, follow the steps 1 and 2 of the steps listed above. Step 3 is going to change though.
+
+>[!IMPORTANT]
+>You may NOT run any production transactions on the instance that you created in the DR site through the process of **TESTING a failover** with the script introduced next. The command introduced next will create a set of volumes that have no relationship to the primary site. As a result a synchronization back to the primary site is NOT possible. 
+
+Step #3 for the **failover test** needs to look like:
+
+On the DR site HANA Large instance unit, execute the script **azure_hana_test_dr_failover.pl**. This script is NOT stopping the replication relationship between the primary site and DR site. Instead, this script is cloning the DR storage volumes. After the cloning process succeeds, the cloned volumes are restored to the state of the most recent snapshot and then mounted to the DR unit. The script is asking for a SAP HANA SID to be restored. You need to type in one or the only SAP HANA SID that has been replicated and that is maintained in the HANABackupCustomerDetails.txt file on the HANA Large Instance unit in the DR site. If you want to have multiple SAP HANA isntances you want to test, you need to run the script several times and on request type in the SAP HANA SID you want to test the failover. Upon completion, the script will show a list of mount points of the volumes that are added to the HANA Large instance unit. This list includes the cloned DR volumes as well.
+
+Then continue with steps 4 to 8 of the procedure above.
+
+If you need to fail over to the DR site in order to rescue some data that has been deleted hours ago and hence needs the DR volumes to be set to an earlier than the latest snapshot, this procedure applies. 
 
 1. Because you are running a non-production instance of HANA on the disaster-recovery unit of HANA Large Instances, you need to shut down this instance. We assume that there is a dormant HANA production instance pre-installed.
 2. Make sure that no SAP HANA processes are running. You use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
