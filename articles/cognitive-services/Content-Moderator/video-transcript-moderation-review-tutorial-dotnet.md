@@ -1,6 +1,6 @@
 ---
-title: Azure Content Moderator - Moderate and review videos in .NET | Microsoft Docs
-description: How to use Content Moderator to moderate and review videos for possible adult and racy content.
+title: Azure Content Moderator - Moderate and review videos and transcripts in .NET | Microsoft Docs
+description: How to use Content Moderator to moderate and review videos and transcripts for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -16,13 +16,13 @@ ms.author: sajagtap
 
 Content Moderator's video related APIs allow you to moderate videos and create video reviews in the human review tool. The sample C# console application [hosted at GitHub](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) uses the SDK and related packages to do the following tasks:
 
-- Compress a video file
-- Moderate it to get shots and frames with insights
+- Compress the input video(s) for faster processing
+- Moderate the video to get shots and frames with insights
 - Use the frame timestamps to create thumbnails (images)
 - Submit timestamps and thumbnails to create video reviews
-- Convert video speech to transcript with the Media Indexer API
-- Moderate transcript with text moderation API
-- Add transcript to the video review
+- Convert the video speech to text (transcript) with the Media Indexer API
+- Moderate the transcript with the text moderation service
+- Add the moderated transcript to the video review
 
 In this tutorial, we explore the code in the sample application to better understand how to build a complete video moderation solution.
 
