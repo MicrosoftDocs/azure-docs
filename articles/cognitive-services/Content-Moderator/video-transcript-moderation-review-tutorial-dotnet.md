@@ -47,6 +47,7 @@ Edit the file `App.config` and add the Active Directory tenant name, service end
 The class `Program` in `Program.cs` is the main entry point to the video moderation application.
 
 ### Methods of class Program
+
 |Method|Description|
 |-|-|
 |`Main`|Parses command line, gathers user input, and starts processing.|
@@ -54,6 +55,8 @@ The class `Program` in `Program.cs` is the main entry point to the video moderat
 |`CreateVideoStreamingRequest`|Creates a stream to upload a video|
 |`GetUserInputs`|Gathers user input; used when no command-line options are present|
 |`Initialize`|Initializes objects needed for the moderation process|
+
+### The Main method
 
 `Main()` is where execution starts, so it's the place to start understanding the video moderation process.
 
@@ -105,6 +108,8 @@ If no command-line arguments are present, `Main()` calls `GetUserInputs()`. This
 
 > [!NOTE]
 > The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+
+### Initialize and ProcessVideo methods
 
 Regardless of whether the program's options came from the command line or from interactive user input, `Main()` next calls `Initialize()` to create the following instances:
 
@@ -341,7 +346,7 @@ This code performs the following tasks:
 
 ## Sample video moderation response
 
-The result of the moderation is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
+The result of the moderation job (See [video moderation quickstart](video-moderation-api.md)is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
 
 	{
 		"version": 2,
@@ -393,41 +398,43 @@ The result of the moderation is a JSON data structure containing the moderation 
 	]
 	}
 
-A transcription of the audio from the video is also produced when the `GenerateVTT` flag is set. For more information on the WebVTT format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+A transcription of the audio from the video is also produced when the `GenerateVTT` flag is set.
 
-## Creating the Review
+> [!NOTE]
+> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
-The moderation process returned a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in Content Moderator so that the video can be inspected by a human. Going back to the `ProcessVideo()` method in `Program.cs`, you can see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 
-```csharp
-public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
-{
-    string reviewId = string.Empty;
-    List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
-    string path = uploadAssetResult.GenerateVTT == true? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension(uploadAssetResult.VideoName) + "_aud_SpReco.vtt":"";
-    TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
-    if (File.Exists(path))
-    {
-        screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
-        uploadAssetResult.RacyTextScore = screenTextResult.RacyScore;
-        uploadAssetResult.OffensiveTextScore = screenTextResult.OffensiveScore;
-        uploadAssetResult.AdultTextScore = screenTextResult.AdultScore;
-        uploadAssetResult.RacyTextTag = screenTextResult.RacyTag;
-        uploadAssetResult.OffensiveTextTag = screenTextResult.OffensiveTag;
-        uploadAssetResult.AdultTextTag = screenTextResult.AdultTag;
-    }
-    var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
-    if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
-    {
-        throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
-    }
-    reviewId = JsonConvert.DeserializeObject<List<string>>(ExecuteCreateReviewApi(reviewVideoRequestJson).Result).FirstOrDefault();
-    frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
-    await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
+## Creating the review
 
-    return reviewId;
-}
-```
+The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in Content Moderator so that the video is inspected by a human reviewer. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
+
+	public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
+	{
+    	string reviewId = string.Empty;
+    	List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
+    	string path = uploadAssetResult.GenerateVTT == true? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension(uploadAssetResult.VideoName) + "_aud_SpReco.vtt":"";
+    	TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
+    	if (File.Exists(path))
+    	{
+        	screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
+        	uploadAssetResult.RacyTextScore = screenTextResult.RacyScore;
+        	uploadAssetResult.OffensiveTextScore = screenTextResult.OffensiveScore;
+        	uploadAssetResult.AdultTextScore = screenTextResult.AdultScore;
+        	uploadAssetResult.RacyTextTag = screenTextResult.RacyTag;
+        	uploadAssetResult.OffensiveTextTag = screenTextResult.OffensiveTag;
+        	uploadAssetResult.AdultTextTag = screenTextResult.AdultTag;
+    	}
+    	var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
+    	if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
+    	{
+        	throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
+    	}
+    	reviewId = JsonConvert.DeserializeObject<List<string>>(ExecuteCreateReviewApi(reviewVideoRequestJson).Result).FirstOrDefault();
+    	frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
+    	await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
+
+    	return reviewId;
+	}
 
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
 
@@ -437,110 +444,126 @@ public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult 
 |Scan the text transcript, if available, to locate adult or racy audio|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
 |Prepare and submits a video review request for human inspection|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
-## Transcript Generation and Moderation
+## Transcript generation
 
-Until now, the code presented in this tutorial has focused on inappropriate visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
+Until now, the code presented in this tutorial has focused on the visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
 
-The application must perform the following tasks:
+The application performs the following tasks:
 
 |Task|Methods|File|
 |-|-|-|
 |Determine whether text transcripts are to be generated|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |If so, submit a transcription job as part of moderation|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
 |Get a local copy of the transcript|`GenerateTranscript()`|`VideoModerator.cs`|
-|Flag frams of the video that contain inappropriate audio|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
+|Flag frames of the video that contain inappropriate audio|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
 |Add the results to the review|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
 
-The step of gathering user input has been covered, so let's jump right into submitting the transcription job. `CreateAzureMediaServicesJobToModerateVideo()` (already described) calls `ConfigureTranscriptTask()`. This method, shown here, is short and sweet.
+### Transcript configuration
 
-```csharp
-        private void ConfigureTranscriptTask(IJob job)
-        {
-            string mediaProcessorName = _amsConfigurations.MediaIndexer2MediaProcessor;
-            IMediaProcessor processor = _mediaContext.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
+We covered gathering user input earlier, so let's jump right into submitting the transcription job. `CreateAzureMediaServicesJobToModerateVideo()` (already described) calls `ConfigureTranscriptTask()`.
 
-            string configuration = File.ReadAllText(_amsConfigurations.MediaIndexerConfigurationJson);
-            ITask task = job.Tasks.AddNew("AudioIndexing Task", processor, configuration, TaskOptions.None);
-            task.InputAssets.Add(asset);
-            task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
-        }
-```
+	private void ConfigureTranscriptTask(IJob job)
+    {
+    	string mediaProcessorName = _amsConfigurations.MediaIndexer2MediaProcessor;
+        IMediaProcessor processor = _mediaContext.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
+
+        string configuration = File.ReadAllText(_amsConfigurations.MediaIndexerConfigurationJson);
+        ITask task = job.Tasks.AddNew("AudioIndexing Task", processor, configuration, TaskOptions.None);
+        task.InputAssets.Add(asset);
+        task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
+    }
 
 The configuration for the transcript task is read from the file `MediaIndexerConfig.json` in the solution's `Lib` folder. AMS assets are created for the configuration file and for the output of the transcription process. When the AMS job runs, this task creates a text transcript from the video file's audio track.
 
 > [!NOTE]
 > The sample application recognizes speech in US English only.
 
-The transcript is published as an AMS asset. To scan the transcript for objectionable content, we must download the asset from Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` calls `GenerateTranscript()`, shown here, to retrieve the file.
+### Transcript generation and download
 
-```csharp
-public bool GenerateTranscript(IAsset asset)
-{
-    try
-    {
-        var outputFolder = this._amsConfigurations.FfmpegFramesOutputPath;
-        IAsset outputAsset = asset;
-        IAccessPolicy policy = null;
-        ILocator locator = null;
-        policy = _mediaContext.AccessPolicies.Create("My 30 days readonly policy", TimeSpan.FromDays(360), AccessPermissions.Read);
-        locator = _mediaContext.Locators.CreateLocator(LocatorType.Sas, outputAsset, policy, DateTime.UtcNow.AddMinutes(-5));
-        DownloadAssetToLocal(outputAsset, outputFolder);
-        locator.Delete();
-        return true;
-    }
-    catch
-    {   //TODO:  Logging
-        Console.WriteLine("Exception occured while generating index for video.");
-        throw;
-    }
-}
-```
+The transcript is published as an AMS asset. To scan the transcript for objectionable content, we download the asset from Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` calls `GenerateTranscript()`, shown here, to retrieve the file.
+
+	public bool GenerateTranscript(IAsset asset)
+	{
+    	try
+    	{
+        	var outputFolder = this._amsConfigurations.FfmpegFramesOutputPath;
+        	IAsset outputAsset = asset;
+        	IAccessPolicy policy = null;
+        	ILocator locator = null;
+        	policy = _mediaContext.AccessPolicies.Create("My 30 days readonly policy", TimeSpan.FromDays(360), AccessPermissions.Read);
+        	locator = _mediaContext.Locators.CreateLocator(LocatorType.Sas, outputAsset, policy, DateTime.UtcNow.AddMinutes(-5));
+        	DownloadAssetToLocal(outputAsset, outputFolder);
+        	locator.Delete();
+        	return true;
+    	}
+    	catch
+    	{   //TODO:  Logging
+        	Console.WriteLine("Exception occured while generating index for video.");
+        	throw;
+    	}
+	}
 
 After some necessary AMS setup, the actual download is performed by calling `DownloadAssetToLocal()`, a generic function that copies an AMS asset to a local file.
 
-With the transcript close at hand, it can be scanned and used in the review. Creating the review is the purview of `CreateVideoReviewInContentModerator()`, which calls `GenerateTextScreenProfanity()` to do the job. In turn, this method calls `TextScreen()`, which contains the meat of the functionality. `TextScreen()` must:
+## Transcript moderation
 
-> [!div class="checklist"]
-> * Parse the transcript for time tamps and captions
-> * Submit each caption for text moderation
-> * Flag any frames that may have objectionable speech content
+With the transcript close at hand, it is scanned and used in the review. Creating the review is the purview of `CreateVideoReviewInContentModerator()`, that calls `GenerateTextScreenProfanity()` to do the job. In turn, this method calls `TextScreen()`, that contains most of the functionality. 
 
-Let's go to the source code.
+`TextScreen()` performs the following tasks:
 
-```csharp
-private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
-{
-    // Initialization
-    List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
-    string responseContent = string.Empty;
-    HttpResponseMessage response;
-    bool racyTag = false;
-    bool adultTag = false;
-    bool offensiveTag = false;
-    double racyScore = 0;
-    double adultScore = 0;
-    double offensiveScore = 0;
-    List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
-    StringBuilder sb = new StringBuilder();
-    List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
-    CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-    //
-    // Parse the transcript
-    //
-    foreach (var line in vttLines.Skip(1))
-    {
-        if (line.Contains("-->"))
-        {
-            if (sb.Length > 0)
-            {
-                captionScreentextResult.Captions.Add(sb.ToString());
-                sb.Clear();
-            }
-            if (captionScreentextResult.Captions.Count > 0)
-            {
-                csrList.Add(captionScreentextResult);
-                captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-            }
+- Parse the transcript for time tamps and captions
+- Submit each caption for text moderation
+- Flag any frames that may have objectionable speech content
+
+Let's examine each these tasks in more detail:
+
+### Initialize the code
+
+First, we initialize all variables and collections.
+
+	private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
+	{
+	    // Initialization
+    	List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
+    	string responseContent = string.Empty;
+    	HttpResponseMessage response;
+    	bool racyTag = false;
+    	bool adultTag = false;
+    	bool offensiveTag = false;
+    	double racyScore = 0;
+    	double adultScore = 0;
+    	double offensiveScore = 0;
+    	List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
+    	StringBuilder sb = new StringBuilder();
+    	List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
+    	CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+
+		// Code from the next sections in the tutorial
+	
+
+### Parse the transcript for captions
+
+Next, we parse the VTT formatetd transcript for captions and timestamps. The review tool displays these in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
+
+		// Code from the previous section(s) in the tutorial
+
+		//
+    	// Parse the transcript
+    	//
+    	foreach (var line in vttLines.Skip(1))
+    	{
+        	if (line.Contains("-->"))
+        	{
+            	if (sb.Length > 0)
+            	{
+                	captionScreentextResult.Captions.Add(sb.ToString());
+                	sb.Clear();
+            	}
+            	if (captionScreentextResult.Captions.Count > 0)
+            	{
+                	csrList.Add(captionScreentextResult);
+                	captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+            	}
             string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
             string startTimeString = times[0].Trim();
             string endTimeString = times[1].Trim();
@@ -567,8 +590,13 @@ private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<
     {
         csrList.Add(captionScreentextResult);
     }
+
+### Moderate captions with the text moderation service
+
+Next, we scan the parsed text captions with the text moderation service of Content Moderator for profanity and potential explicit, suggestive, or unwanted content.
+
     //
-    // Moderate the cues
+    // Moderate the captions or cues
     //
     int waitTime = 1000;
     foreach (var csr in csrList)
@@ -659,22 +687,24 @@ private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<
         AdultScore = adultScore
     };
     return screenTextResult;
-}
-```
+	}
+
+
+### Breaking down the text moderation step
 
 `TextScreen()` is a substantial method, so let's break it down a little. Comments have been added to the code above to indicate the main pieces of functionality.
 
-First, the method reads the transcript file line by line (ignoring blank lines and lines containing a `NOTE` with a confidence score) and extracts the time stamps and text items from the *cues* in the file. A cue represents text from the audio track and includes associated start and end times. A cue begins with the time stamp line, which contains the string `-->`, and is followed by one or more lines of text.
+1. First, the method reads the transcript file line by line (ignoring blank lines and lines containing a `NOTE` with a confidence score) and extracts the time stamps and text items from the *cues* in the file. A cue represents text from the audio track and includes associated start and end times. A cue begins with the time stamp line, which contains the string `-->`, and is followed by one or more lines of text.
 
-Instances of `CaptionScreentextResult` (defined in `TranscriptProfanity.cs`) are used to hold the information parsed from each cue.  When a new time stamp line is detected, or a maximum text length of 1024 characters is reached, a new `CaptionScreentextResult` is added to the `csrList`.
+1. Instances of `CaptionScreentextResult` (defined in `TranscriptProfanity.cs`) are used to hold the information parsed from each cue.  When a new time stamp line is detected, or a maximum text length of 1024 characters is reached, a new `CaptionScreentextResult` is added to the `csrList`.
 
-With the file parsed into a list of cues, the method next submits each cue to the Text Moderation API to detect its language and to screen it for undesirable content. This requires calls to both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
+1. With the file parsed into a list of cues, the method next submits each cue to the Text Moderation API to detect its language and to screen it for undesirable content. This requires calls to both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
 
-After receiving results from the Text Moderation service, the method then analyzes them to see whether they meet confidence thresholds. These values are established in `App.config` as `OffensiveTextThreshold`, `RacyTextThreshold`, and `AdultTextThreshold`. Finally, the objectionable terms themselves are also stored. All frames within the cue's time range are flagged as containing offensive, racy, and/or adult text.
+1. After receiving results from the Text Moderation service, the method then analyzes them to see whether they meet confidence thresholds. These values are established in `App.config` as `OffensiveTextThreshold`, `RacyTextThreshold`, and `AdultTextThreshold`. Finally, the objectionable terms themselves are also stored. All frames within the cue's time range are flagged as containing offensive, racy, and/or adult text.
 
-`TextScreen()` returns a `TranscriptScreenTextResult` instance that contains the text moderation result from the video as a whole. This object includes flags and scores for the various types of objectionable content, along with a list of all objectionable terms. The caller, `CreateVideoReviewInContentModerator()`, calls `UploadScreenTextResult()` to attach this information to the review so it is available to human reviewers.
+1. `TextScreen()` returns a `TranscriptScreenTextResult` instance that contains the text moderation result from the video as a whole. This object includes flags and scores for the various types of objectionable content, along with a list of all objectionable terms. The caller, `CreateVideoReviewInContentModerator()`, calls `UploadScreenTextResult()` to attach this information to the review so it is available to human reviewers.
 
-## Output file
+## Program output
 
 The primary output of this utility is one or more video reviews hosted in Content Moderator. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
 
