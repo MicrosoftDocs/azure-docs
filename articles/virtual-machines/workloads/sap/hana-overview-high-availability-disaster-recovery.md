@@ -44,7 +44,7 @@ The following table shows the currently supported high-availability and disaster
 A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. Though, this setup is not a preferred choice for many customers.
 
 > [!NOTE]
-> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. Whereas for [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed, are valid.  
+> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. Exception is the usage of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. Whereas for [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed, are valid.  
 
 A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, you shut down the non-production system, you mount the storage-replicated (additional) volume sets, and then you start the production HANA instance. Most customers who use the HANA Large Instance disaster-recovery functionality, use this configuration. 
 
@@ -484,6 +484,9 @@ The following graphic illustrates the sequences of the previous example, excludi
 ![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
 SAP HANA performs regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction-log backup is executed every five minutes. You also see that an SAP HANA snapshot is executed every hour as a result of triggering a combined storage snapshot over the /hana/data and /hana/shared volumes. After the HANA snapshot succeeds, the combined storage snapshot is executed. As instructed in crontab, the storage snapshot on the /hana/logbackup volume is executed every five minutes, around two minutes after the HANA transaction-log backup.
+
+> [!NOTE]
+>If you schedule storage snapshot backups on the two nodes of a HANA System Replication setup, you need to make sure that the execution of the snapshot backup do not overlap. SAP HANA has a restriction to deal with one HANA snapshot at a time only. Since a HANA snapshot is an elementary component of a successful storage snapshot backup, you need to make sure that the storage snapshot on the primary and secondary node and an eventual third node are timely apart of each other.
 
 
 >[!IMPORTANT]
