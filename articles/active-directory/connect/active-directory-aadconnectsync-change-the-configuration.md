@@ -207,8 +207,6 @@ Ensure no synchronization takes place while you are in the middle of updating sy
  3. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
  4. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress.”*
 
-![Synchronization Service Manager - check no operations in progress](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
-
 ### Step 2: Add the source attribute to the on-premises AD Connector schema
 Not all AD attributes are imported into the on-premises AD Connector Space. To add the source attribute to the list of the imported attributes:
 
