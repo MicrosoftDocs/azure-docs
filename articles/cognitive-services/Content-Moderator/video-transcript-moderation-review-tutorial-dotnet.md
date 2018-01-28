@@ -14,7 +14,9 @@ ms.author: sajagtap
 
 # Video and transcript moderation and review using .NET
 
-Content Moderator's video related APIs allow you to moderate videos and create video reviews in the human review tool. The sample C# console application [hosted at GitHub](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) uses the SDK and related packages to do the following tasks:
+Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. In this detailed tutorial, we help you understand how to build a complete video and transcript moderation solution that combines machine-assisted moderation with human-in-the-loop reviews.
+
+We use the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 
 - Compress the input video(s) for faster processing
 - Moderate the video to get shots and frames with insights
@@ -23,8 +25,6 @@ Content Moderator's video related APIs allow you to moderate videos and create v
 - Convert the video speech to text (transcript) with the Media Indexer API
 - Moderate the transcript with the text moderation service
 - Add the moderated transcript to the video review
-
-In this tutorial, we explore the code in the sample application to better understand how to build a complete video moderation solution.
 
 ## Prerequisites
 
