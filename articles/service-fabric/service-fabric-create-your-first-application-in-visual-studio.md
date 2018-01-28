@@ -80,7 +80,7 @@ Once the application starts, Visual Studio automatically brings up the **Diagnos
 ![Diagnostic events viewer][5]
 
 >[!NOTE]
->Events should automatically start tracking in the Diagnostic Events Viewer, but in case it you need to manually configure it, first open the `ServiceEventSource.cs` file, located in the project **MyStatefulService**. Copy the value of the `EventSource` attribute at the top of the `ServiceEventSource` class. In the example below the event source is called `"MyCompany-MyApplication-MyStatefulService"`, which may be different in your situation.
+>Events should automatically start tracking in the Diagnostic Events Viewer, but in case you need to manually configure it, first open the `ServiceEventSource.cs` file, located in the project **MyStatefulService**. Copy the value of the `EventSource` attribute at the top of the `ServiceEventSource` class. In the example below the event source is called `"MyCompany-MyApplication-MyStatefulService"`, which may be different in your situation.
 >
 >![Locating Service Event Source Name][service-event-source-name]
 >
