@@ -17,12 +17,12 @@ ms.author: spelluru
 
 ---
 # How to schedule starting and stopping of an Azure SSIS integration runtime 
-If you run SSIS (SQL Server Integration Services) packages in Azure only between certain times of a day or a certain day of a week etc., you may also want to run the Azure SSIS integration runtime only for that period of time. This action saves money as the Azure SSIS IR is charged as long as it's in the **Started** state. Using the Data Factory UI or Azure PowerShell, you can manually start or stop an Azure SSIS integration runtime as described in [Manage an Azure SSIS integration runtime](manage-azure-ssis-integration-runtime.md). This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Here are the high-level steps described in this article:
+Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a charge associated with it. Therefore, you want to run the IR only when you need to run SSIS packages in Azure and stop it when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR]((manage-azure-ssis-integration-runtime.md)). This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Here are the high-level steps described in this article:
 
-1. **Create and test an Azure Automation runbook.** In this step, you create a PowerShell runbook with the script that starts or stops an Azure SSIS IR based on the arguments passed to its parameters (resource group name, data factory name, Azure SSIS IR name, start/stop command). Then, you test the runbook in both START and STOP scenarios and confirm that IR starts or stops. 
-2. **Create two schedules for the runbook.** For the first schedule, configure the runbook with START as the operation. For the second schedule, configure the runbook with STOP as the operation. For both the schedules, you specify the cadence at which the runbook is run. For example, you may want to schedule the first one to run at 8 AM every day and the second one to run at 11 PM everyday. When the first runbook runs, it starts the Azure SSIS IR. When the second runbook runs, it stops the Azure SSIS IR. 
-3. **Create two webhooks for your Azure Automation runbook**, one for the START operation and the other for the STOP operation. You create a Data Factory pipeline with two web activities that use URIs for these webhooks. For example, you start IR in the first web activity, wait for 30 minutes for the Azure SSIS IR to start, run an SSIS package by using a stored procedure activity, and then stop the Azure SSIS IR. Then, you create a schedule trigger to schedule the pipeline to run at the cadence you specify. 
-4. **Create a Data Factory pipeline** with two web activities that invoke the webhooks to start and stop the Azure SSIS IR. 
+1. **Create and test an Azure Automation runbook.** In this step, you create a PowerShell runbook with the script that starts or stops an Azure SSIS IR. Then, you test the runbook in both START and STOP scenarios and confirm that IR starts or stops. 
+2. **Create two schedules for the runbook.** For the first schedule, you configure the runbook with START as the operation. For the second schedule, configure the runbook with STOP as the operation. For both the schedules, you specify the cadence at which the runbook is run. For example, you may want to schedule the first one to run at 8 AM every day and the second one to run at 11 PM everyday. When the first runbook runs, it starts the Azure SSIS IR. When the second runbook runs, it stops the Azure SSIS IR. 
+3. **Create two webhooks for the runbook**, one for the START operation and the other for the STOP operation. You use the URLs of these webhooks when configuring web activities in a Data Factory pipeline. 
+4. **Create a Data Factory pipeline**. The pipeline you create consists of four activities. The first **Web** activity invokes the first webhook to start the Azure SSIS IR. The **Wait** activity waits for 30 minutes (1800 seconds) for the Azure SSIS IR to start. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). Then, you create a schedule trigger to schedule the pipeline to run at the cadence you specify.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -39,7 +39,7 @@ In this section, you perform the following steps:
 3. Test the runbook in both start and stop scenarios to confirm that it works. 
 
 ### Create an Azure Automation account
-If you don't have an Azure Automation account, create by following the instructions in this step. For detailed steps, see [Create an Azure Automation account](../automation/automation-quickstart-create-account.md). As part of this step, you create an **Azure Run As** account (a service principal in your Azure Active Directory), and add it to the **Contributor** role of your Azure subscription. Ensure that it's same as the subscription that contains the data factory that has the Azure SSIS IR. Azure Automation uses this account to authenticate to Azure Resource Manager and operate on your resources. 
+If you don't have an Azure Automation account, create one by following the instructions in this step. For detailed steps, see [Create an Azure Automation account](../automation/automation-quickstart-create-account.md). As part of this step, you create an **Azure Run As** account (a service principal in your Azure Active Directory), and add it to the **Contributor** role of your Azure subscription. Ensure that it's same as the subscription that contains the data factory that has the Azure SSIS IR. Azure Automation uses this account to authenticate to Azure Resource Manager and operate on your resources. 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).    
 2. Select **New** on the left menu, select **Monitoring + Management**, and select **Automation**. 
@@ -65,7 +65,7 @@ If you don't have an Azure Automation account, create by following the instructi
 
 ### Import Data Factory modules
 
-1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.DataFactoryV2** in the list of modules. If it's not there, select **Browse gallery** on the toolbar.
+1. Select **Modules** in the **SHARED RESOURCES** section on the left menu, and verify whether you have **AzureRM.Profile** and **AzureRM.DataFactoryV2** in the list of modules. If it's not there, select **Browse gallery** on the toolbar.
 
     ![Automation home page](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
 2. In the **Browse Gallery** window, type **AzureRM.Profile** in the search window, and press **ENTER**. Select **AzureRM.Profile** in the list. Then, click **Import** on the toolbar. 
@@ -191,7 +191,9 @@ In the previous section, you created an Azure Automation runbook that can either
     ![Schedule for staring the Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
 4. Repeat the previous two steps to create a schedule named **Stop IR daily**. This time, specify time at least 30 minutes after the time you specified for the **Start IR daily** schedule. For **OPERATION**, specify **STOP**. 
 5. In the **Runbook** window, select **Jobs** on the left menu. You should see the jobs created by the schedules at the specified times and their statuses. You can see details about the job such as its output similar to what you have seen when you tested the runbook. 
-6. After you are done testing, disable the schedules by editing them and selecting **NO** for **Enabled**.  
+
+    ![Schedule for staring the Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/schedule-jobs.png)
+6. After you are done testing, disable the schedules by editing them and selecting **NO** for **Enabled**. Select **Schedules** in the left menu, select the **Start IR daily/Stop IR daily**, and select **No** for **Enabled**. 
 
 ## Create webhooks to start and stop the Azure SSIS IR
 Follow instructions in [Create a webhook](../automation/automation-webhooks.md#creating-a-webhook) to create two webhooks for the runbook. For the first one, specify START as the OPERATION, and for the second one, specify STOP as the OPERATION. Note down the URLs for both the webhooks. You use these URLs when configuring Web activities in the Data Factory pipeline. The following image shown an example of creating a webhook that starts the Azure SSIS IR:
@@ -212,7 +214,7 @@ Follow instructions in [Create a webhook](../automation/automation-webhooks.md#c
     ![Webhook - parameters and run settings](./media/how-to-schedule-azure-ssis-integration-runtime/webhook-parameters.png)
 4. Repeat the previous three steps to create another webhook named **StopAzureSsisIR**. Don't forget to copy the URL. When specifying the parameters and run settings, enter **STOP** for **OPERATION**. 
 
-You should have two URLs, one for the StartAzureSsisIR webhook and the other for the StopAzureSsisIR webhook. You can send an HTTP POST request to these URLs to start/stop your Azure SSIS IR. 
+You should have two URLs, one for the **StartAzureSsisIR** webhook and the other for the **StopAzureSsisIR** webhook. You can send an HTTP POST request to these URLs to start/stop your Azure SSIS IR. 
 
 ## Create and schedule a Data Factory pipeline that starts/stops the IR
 This section shows how to use a Web activity to invoke the webhooks you created in the previous section.
@@ -278,19 +280,19 @@ After you create and test the pipeline, you create a schedule trigger and associ
 6. Connect the **Web** activity and the **Wait** activity. To connect them, start dragging at the green square box attached to the Web activity to the Wait activity. 
 
     ![Connect Web and Wait](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
-5. Drag-drop the Stored Procedure activity from the **General*** section of the **Activities** toolbox. Set the name of the activity to **RunSSISPackage**. 
+5. Drag-drop the Stored Procedure activity from the **General** section of the **Activities** toolbox. Set the name of the activity to **RunSSISPackage**. 
 6. Switch to the **SQL Account** tab in the **Properties** window. 
 7. For **Linked service**, click **+ New**.
 8. In the **New Linked Service** window, perform the following actions: 
 
     1. Select **Azure SQL Database** for **Type**.
-    2. Select your Azure SQL server that hosts the SSISDB database for the **Server name** field.
+    2. Select your Azure SQL server that hosts the **SSISDB** database for the **Server name** field. The Azure SSIS IR provisioning process creates an SSIS Catalog (SSISDB database) in the Azure SQL server you specify.
     3. Select **SSISDB** for **Database name**.
     4. For **User name**, enter the name of user who has access to the database.
     5. For **Password**, enter the password of the user. 
     6. Test the connection to the database by clicking **Test connection** button.
     7. Save the linked service by clicking the **Save** button.
-9. In the **Properties** window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
+1. In the **Properties** window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
 
     1. For **Stored procedure name**, select **Edit** option, and enter **sp_executesql**. 
     2. Select **+ New** in the **Stored procedure parameters** section. 
@@ -329,7 +331,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
     ![Runbook jobs](./media/how-to-schedule-azure-ssis-integration-runtime/runbook-jobs.png)
 3. Launch SQL Server Management Studio. In the **Connect to Server** window, do the following actions: 
 
-    1. For **Server name**, specify **&lt;your Azure SQL database&gt;.database.windows.net.
+    1. For **Server name**, specify **&lt;your Azure SQL database&gt;.database.windows.net**.
     2. Select **Options >>**.
     3. For **Connect to database**, select **SSISDB**.
     4. Select **Connect**. 
