@@ -84,7 +84,7 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
--	Verify that the subnets match exactly between the Azure virtual network and on-premises definitions for the Azure virtual network.
+-	Verify that the virtual network address space(s) match exactly between the Azure virtual network and on-premises definitions.
 -	Verify that the subnets match exactly between the **Local Network Gateway** and on-premises definitions for the on-premises network.
 
 ### Step 7. Verify the Azure gateway health probe

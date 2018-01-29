@@ -1,18 +1,18 @@
 ---
-title: Deploy to Azure Container Instances from the Azure Container Registry
-description: Deploy Azure Container Instances from the Azure Container Registry
+title: Deploy to Azure Container Instances from Azure Container Registry
+description: Learn how to deploy containers in Azure Container Instances using container images in an Azure Container Registry.
 services: container-instances
 author: seanmck
 manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Deploy to Azure Container Instances from the Azure Container Registry
+# Deploy to Azure Container Instances from Azure Container Registry
 
 The Azure Container Registry is an Azure-based, private registry, for Docker container images. This article covers how to deploy container images stored in the Azure Container Registry to Azure Container Instances.
 
@@ -48,17 +48,23 @@ If you maintain container images in the Azure Container Registry, you can easily
 
 1. In the Azure portal, navigate to your container registry.
 
-2. Select **Repositories**, then select the repository that you want to deploy from, right-click the tag for the container image you want to deploy, and select **Run instance**.
+1. Select **Repositories**, then select the repository that you want to deploy from, right-click the tag for the container image you want to deploy, and select **Run instance**.
 
     !["Run instance" in Azure Container Registry in the Azure portal][acr-runinstance-contextmenu]
 
-3. Enter a name for the container and a name for the resource group. You can also change the default values if you wish.
+1. Enter a name for the container and a name for the resource group. You can also change the default values if you wish.
 
     ![Create menu for Azure Container Instances][acr-create-deeplink]
 
-4. Once the deployment completes, you can navigate to the container group from the notifications pane to find its IP address and other properties.
+1. Once the deployment completes, you can navigate to the container group from the notifications pane to find its IP address and other properties.
 
     ![Details view for Azure Container Instances container group][aci-detailsview]
+
+## Service principal authentication
+
+If the admin user for the Azure container registry is disabled, you can use an Azure Active Directory [service principal](../container-registry/container-registry-auth-service-principal.md) to authenticate to the registry when creating a container instance. Using a service principal for authentication is also recommended in headless scenarios, such as a script or application that creates container instances in an unattended manner.
+
+For more information, see [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md).
 
 ## Next steps
 

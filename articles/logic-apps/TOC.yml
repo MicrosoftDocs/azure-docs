@@ -140,6 +140,8 @@
         href: logic-apps-enterprise-integration-transform.md
       - name: Add maps for XML transform
         href: logic-apps-enterprise-integration-maps.md
+      - name: Transform JSON
+        href: logic-apps-enterprise-integration-liquid-transform.md
       - name: Add security certificates
         href: logic-apps-enterprise-integration-certificates.md
       - name: Troubleshoot B2B errors
