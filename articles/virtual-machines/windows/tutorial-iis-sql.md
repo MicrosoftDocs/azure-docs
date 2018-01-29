@@ -18,7 +18,6 @@ ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
-
 # Install a SQL&#92;IIS&#92;.NET stack in Azure
 
 In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
@@ -38,9 +37,10 @@ In this example, we use the [New-AzVM](https://www.powershellgallery.com/package
 Click on the **Try It** button to the upper right of the code block to launch Cloud Shell in this window. You will be asked to provide credentials for the virtual machine at the cmd prompt.
 
 ```azurepowershell-interactive
+$vmName = "myIISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Install IIS and the .NET framework using the custom script extension.
@@ -49,7 +49,7 @@ Install IIS and the .NET framework using the custom script extension.
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
