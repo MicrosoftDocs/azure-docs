@@ -15,6 +15,10 @@ ms.custom: mvc
 ---
 # Build a Python and PostgreSQL web app in Azure
 
+> [!NOTE]
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a Docker Python and PostgreSQL web app in Azure](./containers/tutorial-docker-python-postgresql-app.md).
+>
+
 [Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Python web app in Azure. You connect this app to a PostgreSQL database. When you are done, you have a Python Flask application running on App Service.
 
 ![Python Flask app in App Service on Linux](./media/app-service-web-tutorial-python-postgresql/docker-flask-in-azure.png)
@@ -225,6 +229,13 @@ Navigate to http://localhost:5000 in a browser. Click **Register!** and create a
 
 In this step, you deploy the PostgreSQL-connected Python application to Azure App Service.
 
+Your Git repository already contains the following files it needs to run the Flask web app in App Service:
+
+- `.deployment`: specifies the custom deployment script to run.
+- `deploy.cmd`: the deployment script. It is where `pip install` is run.
+- `web.config`: specifies the entry point script to run in an `httpPlatformHandler` in IIS.
+- `run_waitress_server.py`: the entry point script. It starts the Flask web app in a [`waitress`](https://docs.pylonsproject.org/projects/waitress) server.
+
 ### Configure a deployment user
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
@@ -240,7 +251,7 @@ In this step, you deploy the PostgreSQL-connected Python application to Azure Ap
 
 ### Install Python
 
-Install Python 3.6.2 in your web app. You can do this with [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22) in App Service. You will use the credentials you configured in [Configure a deployment user](#configure-a-deployment-user) to authenticate against the REST endpoint.
+In this step, you install Python 3.6.2 with [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22) in App Service. You will use the credentials you configured in [Configure a deployment user](#configure-a-deployment-user) to authenticate against the REST endpoint.
 
 In the Cloud Shell, run the next command to get the Python 3.6.2 package information. Replace *\<deployment_user>* with the deployment username you configured, and *\<app_name>* with your app name. When prompted, use the deployment password you configured.
 
