@@ -2,11 +2,12 @@
 title: Azure Stack datacenter integration - Publish endpoints
 description: Learn how to publish Azure Stack endpoints in your datacenter
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/29/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords:
 ---
 
@@ -41,11 +42,13 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Certificate revocation list|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
-|Key Vault (user)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Key Vault (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (user)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Storage Queue|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL Resource Provider|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## Ports and URLs (outbound)
 
@@ -60,49 +63,6 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Registration|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## Firewall publishing
-
-The ports listed in the previous section apply to inbound communication when publishing Azure Stack Services through an existing firewall.
-
-We recommend that you use a firewall device to help secure Azure Stack. However, it’s not a strict requirement. Although firewalls can help with things like distributed denial-of-service (DDOS) attacks, and content inspection, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
-
-Based on the Identity model (Azure AD or AD FS), it may or may not be required to publish the AD FS endpoint. If a disconnected deployment mode is used, you must publish the AD FS endpoint. (For more information, see the Datacenter integration identity topic.)
-
-The Azure Resource Manager (administrator), administrator portal, and Key Vault (administrator) endpoints do not necessarily require external publishing. It depends on the scenario. For example, as a service provider, you may want to limit the attack surface and only administer Azure Stack from inside your network, and not from the Internet.
-
-For an enterprise organization, the external network can be the existing corporate network. In such a scenario, you must publish those endpoints to operate Azure Stack from the corporate network.
-
-## Edge firewall scenario
-
-In an edge deployment, Azure Stack is deployed directly behind the edge router (provided by the ISP) with or without a firewall in front of it.
-
-![Architectural diagram of an Azure Stack edge deployment](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Typically, public routable IP addresses are specified for the public VIP pool at deployment time in an edge deployment. This scenario enables a user to experience the full self-controlled cloud experience like in a public cloud like Azure.
-
-### Using NAT
-
-Although not recommended because of the overhead, you could use Network Address Translation (NAT) for publishing endpoints. For endpoint publishing that is fully controlled by users, this requires a NAT rule per user VIP that contains all ports a user might use.
-
-Another consideration is that Azure does not support setting up a VPN tunnel to an endpoint using NAT in a hybrid cloud scenario with Azure.
-
-## Enterprise/intranet/perimeter network firewall scenario
-
-In an enterprise/intranet/perimeter deployment, Azure Stack is deployed beyond a second firewall, which is typically part of a perimeter network (also known as a DMZ).
-
-![Azure Stack firewall scenario](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-If public routable IP addresses have been specified for the public VIP pool of Azure Stack, these addresses logically belong to the perimeter network and require publishing rules at the primary firewall.
-
-### Using NAT
-
-If non-public routable IP addresses are used for the public VIP pool of Azure Stack, NAT is used at the secondary firewall to publish Azure Stack endpoints. In this scenario, you need to configure the publishing rules on the primary firewall beyond the edge, and on the secondary firewall. Consider the following points if you want to use NAT:
-
-- NAT adds overhead when managing firewall rules because users control their own endpoints and their own publishing rules in the software-defined networking (SDN) stack. Users must contact the Azure Stack operator to get their VIPs published, and to update the port list.
-- While NAT usage limits the user experience, it gives full control to the operator over publishing requests.
-- For hybrid cloud scenarios with Azure, consider that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
-
 
 ## Next steps
-
 [Azure Stack datacenter integration - Security](azure-stack-integrate-security.md)

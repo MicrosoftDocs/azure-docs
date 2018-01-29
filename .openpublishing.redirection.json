@@ -19,6 +19,11 @@
             "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
             "redirect_document_id": true
         },
+		     {
+            "source_path": "articles/active-directory/active-directory-saas-account-provisioning-notifications.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-app-provisioning",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
@@ -3101,6 +3106,11 @@
         {
             "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/azure-files.md",
+            "redirect_url": "/azure/aks/azure-files-dynamic-pv",
             "redirect_document_id": false
         },
         {
@@ -13841,11 +13851,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
             "redirect_document_id": false
@@ -16116,6 +16121,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/marketplace/seller-guide/cloud-partner-portal-seller-guide.md",
+            "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+            "redirect_document_id": false
+        },
+                {
             "source_path": "articles/app-service/app-service-deploy-spring-boot-web-app-on-azure.md",
             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-web-app-on-azure",
             "redirect_document_id": false
@@ -16518,7 +16528,12 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-bcp.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp",
             "redirect_document_id": false
-	}     
+    },
+	{
+        "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
+        "redirect_document_id": false
+}
 	
 
    ]

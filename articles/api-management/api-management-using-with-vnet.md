@@ -76,7 +76,7 @@ To perform the steps described in this article, you must have:
 >
 
 > [!IMPORTANT]
-> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to two hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
@@ -96,8 +96,8 @@ Following is a list of common misconfiguration issues that can occur while deplo
 * **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 > [!IMPORTANT]
-> It is recommended that, if you are using a Custom DNS Server(s) for the VNET, you set that up **before** deploying an API Management service into it. Otherwise you need to 
-> update the API Management service each time you change the DNS Servers(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> If you plan to use a Custom DNS Server(s) for the VNET, you should set it up **before** deploying an API Management service into it. Otherwise you need to 
+> update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -122,7 +122,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **DNS Access**: Outbound access on port 53 is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-* **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
+* **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
 
 * **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:
@@ -148,6 +148,13 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link. 
 
+## <a name="subnet-size"> </a> Subnet Size Requirement
+Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+In addition to the IP addresses used by the Azure VNET infrastructure, each Api Management instance in the subnet uses two IP addresses per unit of Premium SKU or one 1 IP address for the Developer SKU. Each instance reserves 1 IP address for the external load balancer. When deploying into Internal vnet, it requires an additional IP address for the internal load balancer.
+
+Given the calculation above the minimum size of the subnet, in which API Management can be deployed is /29 which gives 3 IP addresses.
+
 ## <a name="routing"> </a> Routing
 + A load balanced public IP address (VIP) will be reserved to provide access to all service endpoints.
 + An IP address from a subnet IP range (DIP) will be used to access resources within the vnet and a public IP address (VIP) will be used to access resources outside the vnet.
@@ -164,13 +171,14 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 * [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
+* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

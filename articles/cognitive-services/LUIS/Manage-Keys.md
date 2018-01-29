@@ -1,6 +1,7 @@
 ---
 title: Manage your keys in LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys. 
+titleSuffix: Azure
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
@@ -8,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/25/2018
 ms.author: v-geberr
 ---
 
@@ -56,7 +57,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 4. Choose the Azure subscription associated with the Azure LUIS key you want to add.
 
-5. Select the Azure LUIS account.
+5. Select the Azure LUIS account. The region of the account is displayed in parentheses. 
 
     ![Choose the key](./media/luis-manage-keys/assign-key-filled-out.png)
 
