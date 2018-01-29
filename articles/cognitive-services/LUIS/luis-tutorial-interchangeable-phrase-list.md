@@ -29,7 +29,7 @@ Improve the accuracy of intent scores and identify entities for words that have 
 ## Test a trained utterance
 Use the published endpoint to query an utterance that the app already knows. Because LUIS already knows the utterance, the score is high and the entity is detected.
 
-1. In [www.LUIS.ai][www.luis.ai], on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
+1. On the [Language Understanding (LUIS)][www.luis.ai] website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
 
     ![Publish the endpoint URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
@@ -80,7 +80,7 @@ Use the published endpoint to query an utterance that the app already knows. Bec
     }
     ```
 
-    The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. The utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
+    The intent score of 0.973 and the entity detection of 0.846 are high because the app was trained with this utterance. The utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text, `computer`, is labeled as the **Hardware** entity. 
     
     |status|word| intent score | entity score |
     |--|--|--|--|
@@ -88,7 +88,7 @@ Use the published endpoint to query an utterance that the app already knows. Bec
     
     
 ## Test an untrained utterance
-In the browser, use the same published endpoint to query with an utterance that the app doesn't know about:
+In the browser, use the same published endpoint to query with an utterance that the app doesn't already know:
 
 `I require a computer replacement`
 
@@ -138,12 +138,12 @@ The endpoint response is:
 | trained| want | 0.973 | 0.846 |
 | untrained| require | 0.840 | - |
 
-The untrained utterance intent score is lower than the labeled utterance because LUIS knows that the sentence is grammatically the same, but LUIS doesn't know that the utterances have the same meaning. Also, without the phrase list, the entity of **hardware** is not found.
+The untrained utterance intent score is lower than that of the labeled utterance because LUIS knows that the sentence is grammatically the same. But LUIS doesn't know that the utterances have the same meaning. Also, without the phrase list, the **Hardware** entity is not found.
 
-You need to teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
+You must teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
 
 ## Improve the score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named *want* with the value of `want`. Select **Enter**.
+1. Add a [phrase list](Add-Features.md) feature named *want* with the value of `want`, and then select **Enter**.
 
     > [!TIP]
     > After each word or phrase, select the **Enter** key. The word or phrase is added to the **Phrase list values** box while the cursor stays in the **Value** box. You can enter many values quickly with this feature.
@@ -154,7 +154,7 @@ You need to teach LUIS that **want** and **require** mean the same thing in this
 
 3. Add all the words. If `require` is not in the recommended list, add it as a required value. 
 
-4. Keep the setting of *interchangeable* because these words are synonyms. Select **Save**.
+4. Because these words are synonyms, keep the *interchangeable* setting, and then select **Save**.
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
@@ -175,7 +175,7 @@ In this app, the published model is not trained with the synonyms. Only the curr
 
     ![Inspect published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-After you add the phrase list, the increased accuracy of the utterance and the entity of hardware is found. 
+After you add the phrase list, the increased accuracy of the utterance and the **Hardware** entity is found. 
 
 |status | phrase list| intent score | entity score |
 |--|--|--|--|
@@ -232,7 +232,7 @@ To view the entity score, [publish](PublishApp.md) the model and query the endpo
 }
 ```
 
-The entity **Hardware** shows a score of 0.595 with the phrase list. Before the phrase list existed, the entity was not detected. 
+The **Hardware** entity shows a score of 0.595 with the phrase list. Before the phrase list existed, the entity was not detected. 
 
 |status | phrase list| intent score | entity score |
 |--|--|--|--|
