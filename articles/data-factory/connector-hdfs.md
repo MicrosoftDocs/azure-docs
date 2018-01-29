@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 01/29/2018
 
 ms.author: jingwang
 
 ---
-# Copy data from and to HDFS using Azure Data Factory
+# Copy data from HDFS using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-hdfs-connector.md)
 > * [Version 2 - Preview](connector-hdfs.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to HDFS. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from HDFS. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HDFS connector in V1](v1/data-factory-hdfs-connector.md).
@@ -40,7 +40,7 @@ Specifically, this HDFS connector supports:
 
 ## Prerequisites
 
-To copy data from/to an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
+To copy data from an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
 
 ## Getting started
 
@@ -149,7 +149,7 @@ To copy data from HDFS, set the type property of the dataset to **FileShare**. T
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by HDFS source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by HDFS source.
 
 ### HDFS as source
 

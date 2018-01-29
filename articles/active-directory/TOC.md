@@ -264,7 +264,8 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
+#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
+#### [Compare member and guest user permissions](users-default-permissions.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
