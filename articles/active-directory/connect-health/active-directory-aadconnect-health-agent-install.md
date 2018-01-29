@@ -213,7 +213,7 @@ If you completed the configuration, these services should already be running. Ot
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### Agent Registration using PowerShell
+## Agent Registration using PowerShell
 After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:
 
 ```
