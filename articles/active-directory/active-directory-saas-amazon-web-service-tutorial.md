@@ -27,7 +27,7 @@ Integrating AWS with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed in to AWS with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -73,11 +73,11 @@ To configure the integration of AWS into Azure AD, you need to add AWS from the 
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Amazon AWS based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Amazon AWS based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Amazon Web Services (AWS) is to a user in Azure AD. In other words, you need to establish a link  between an Azure AD user and a related user in AWS.
 
-In AWS, give the value **Username** the same value as **user name** in Azure AD to establish the link. 
+To establish the link, in AWS, give the value **Username** the same value as **user name** in Azure AD. 
 
 To configure and test Azure AD single sign-on with Amazon Web Services (AWS), complete the following building blocks:
 
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
 	
 	>[!TIP]
-	>You need to configure the user provisioning in Azure AD to fetch all the roles from the AWS console. Refer to the following provisioning steps.
+	>Configure the user provisioning in Azure AD to fetch all the roles from the AWS console. Refer to the following provisioning steps.
 
 	a. To open the **Add Attribute** dialog box, select **Add attribute**.
 
@@ -195,7 +195,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure single sign-on trust][19] 
 
-  	a. Select the SAML provider you created previously (for example: *WAAD*) 
+  	a. Select the SAML provider you created previously (for example: *WAAD*). 
   
   	b. Select **Next Step**.
 
@@ -233,9 +233,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating a new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-	a. In the **“Create policy”** section, select the **“JSON”** tab.
+	a. In the **Create policy** section, select the **“JSON”** tab.
 
-	b. In the policy document, add the following JSON.
+	b. In the policy document, add the following JSON:
 	
 	```
 	
@@ -265,7 +265,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	```
 
-	c. To validate the policy, select the **Review Policy button** .
+	c. To validate the policy, select the **Review Policy button**.
 
 	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
@@ -275,11 +275,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Provide the **Policy Name** as **AzureAD_SSOUserRole_Policy**.
 
-	b. You can provide **Description** to the policy as **This policy will allow to fetch the roles from AWS accounts**.
+	b. You can provide the following **Description** to the policy: **This policy will allow you to fetch the roles from AWS accounts**.
 	
 	c. Select the **“Create Policy”** button.
 		
-27.	To create a new user account in the AWS IAM service, take the following steps :
+27.	To create a new user account in the AWS IAM service, take the following steps:
 
 	a. Select **Users** in the AWS IAM console.
 
@@ -297,7 +297,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	* For Access type, select the **Programmatic access** option. This way the user can invoke the APIs and fetch the roles from the AWS account.
 	
-	* Select the **Next Permissions** button in the bottom right corner.
+	* Select the **Next Permissions** button in the lower right corner.
 
 28. Now create a new policy for this user by taking the following steps:
 
@@ -315,9 +315,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Review the user name, access type, and policy that are mapped to the user.
 	
-	b. Select the **Create user** button at the bottom right corner to create the user.
+	b. To create the user, select the **Create user** button at the lower right corner to create the user.
 
-30. Download the user credentials of a user by taking following steps:
+30. Download the credentials of a user by taking the following steps:
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
 	
@@ -325,7 +325,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Enter these credentials into the Azure AD user provisioning section to fetch the roles from the AWS console.
 	
-	c. Select the **Close** button at the bottom.
+	c. Select the **Close** button in the lower right corner.
 
 31. Navigate to the **User Provisioning** section of the AWS app in the Azure AD Management Portal.
 
@@ -343,12 +343,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Save the setting by selecting the **Save** button at the top.
  
-33. Now make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
+33. Make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app.  After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
@@ -389,7 +389,7 @@ The objective of this section is to create a user called Britta Simon in AWS. Am
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting them access to Amazon Web Services (AWS).
+In this section, you enable Britta Simon to use Azure single sign-on by granting them access to AWS.
 
 ![Assign the user role][200] 
 
@@ -421,7 +421,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the AWS tile in the access panel, you should get automatically signed-in to your AWS application. For more information about the Access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
+When you select the AWS tile in the access panel, you should get automatically signed-in to your AWS application. For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
