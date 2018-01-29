@@ -49,7 +49,7 @@ When running this step, you are prompted for credentials. The values that you en
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
+    -Name "myVM$(Get-Random)" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

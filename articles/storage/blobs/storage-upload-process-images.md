@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group 
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
  
 The following example creates a resource group named `myResourceGroup`.
  
@@ -66,7 +66,7 @@ az storage account create --name <blob_storage_account> \
  
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbs_ container. 
 
-Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
+Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
  
 In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbs_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
  
