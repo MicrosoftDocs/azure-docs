@@ -29,8 +29,9 @@ These steps show how to programmatically create an enrollment group for an inter
 2. Make sure you have the [.Net Core SDK](https://www.microsoft.com/net/download/windows) installed on your machine. 
 3. Make sure to complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 4. You need a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. To use this tooling, download the contents of the [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) folder to a working folder on your machine and follow the steps in [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Note: In addtion to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) in the **C# Service SDK** shows how to perform proof-of-possession with an existing X.509 intermediate or root CA certificate. 
-> [!IMPORTANT]
-> The certificates created with the SDK tooling are designed to be used for development only. To learn about obtaining obtaining certificates suitable for production code, see [How to get an X.509 CA certificate](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
+
+  > [!IMPORTANT]
+  > The certificates created with the SDK tooling are designed to be used for development only. To learn about obtaining obtaining certificates suitable for production code, see [How to get an X.509 CA certificate](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 
 ## Get the connection string for your provisioning service
 
@@ -67,8 +68,9 @@ The steps in this section show how to create a .NET Core console app that adds a
 
    > [!IMPORTANT]
    > In production code, be aware of the following security considerations:
-   > 1. Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
-   > 2. Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
+   >
+   > - Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
+   > - Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
         
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
