@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/29/2018
 ms.author: ergreenl
 
 ---
@@ -43,11 +43,11 @@ Statuses of a managed domain:
 ## Monitors
 Monitors detail certain aspects about your managed domain that Azure AD Domain Services supervises.
 
-Currently, the aspects monitored are:
-* Sync with Azure AD
-* Backups
+Currently, we monitor how often your managed domain is backed up. In the details column. you can see the time your managed domain was last backed up.
 
-For each monitor, you can see details about what Micorosoft has observed on your domain. For example, the backup monitor detail shows when backups were last taken for your managed domain.
+> [!NOTE]
+> If you have recently created your domain, the details column for your Backup monitor will read "Never backed up". This is normal for new domains and should be updated as soon as backups are created.
+>
 
 
 ## Alerts
