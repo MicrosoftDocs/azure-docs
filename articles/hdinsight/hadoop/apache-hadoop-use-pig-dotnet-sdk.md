@@ -67,7 +67,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {
