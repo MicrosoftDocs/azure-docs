@@ -73,6 +73,10 @@ namespace WebSrchSDK
             var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("19aa718a79d6444daaa415981d9f54ad"));
 
             WebResults(client);
+            // Include the following calls to use queries defined under the heading "Search options".
+            //WebResultsWithCountAndOffset(client);  
+            //WebSearchWithResponseFilter(client);
+            //WebSearchWithAnswerCountPromoteAndSafeSearch(client);
 
             Console.WriteLine("Any key to exit... ");
             Console.ReadKey();
