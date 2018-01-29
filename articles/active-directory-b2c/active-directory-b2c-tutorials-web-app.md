@@ -154,6 +154,8 @@ Press **F5** to start the web app. The default browser launches to the local web
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 
+Now the user can use their email address to sign in and use the web app.
+
 ## Clean up resources
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
