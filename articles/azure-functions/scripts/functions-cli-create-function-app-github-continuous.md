@@ -12,7 +12,7 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
 ---
-# Create a function in Azure that is deployed from GitHub
+# Create a function app in Azure that is deployed from GitHub
 
 This Azure Functions sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan), along with its related resources. The script also configures your function code for  continuous deployment from a GitHub repository. 
 
