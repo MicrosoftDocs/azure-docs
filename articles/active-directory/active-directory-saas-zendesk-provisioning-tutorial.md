@@ -28,7 +28,7 @@ The objective of this tutorial is to show you the steps you need to perform in Z
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant
-*   A Zendesk tenant with the [Standard plan](https://www.zendesk.com/product/pricing/) or better enabled 
+*   A Zendesk tenant with the [Enterprise plan](https://www.zendesk.com/product/pricing/) or better enabled 
 *   A user account in Zendesk with Admin permissions 
 
 > [!NOTE]
