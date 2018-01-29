@@ -83,10 +83,10 @@ namespace WebSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("19aa718a79d6444daaa415981d9f54ad"));
+            var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             WebResults(client);
-            // Include the following calls to use queries defined under the heading "Search options".
+            // Include the following calls to use queries defined under following headings.
             //WebResultsWithCountAndOffset(client);  
             //WebSearchWithResponseFilter(client);
             //WebSearchWithAnswerCountPromoteAndSafeSearch(client);
@@ -202,11 +202,10 @@ namespace WebSrchSDK
 }
 
 ```
-##Search options
 
 The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `WebSrchSDK` class.
 
-###Count and offset parameters
+##Count and offset parameters
 
 The following code searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of the first result.
 
@@ -246,7 +245,7 @@ The following code searches for "Best restaurants in Seattle", verifies the numb
         }
 
 ```
-###Response filter
+##Response filter
 
 The following query searches on the term "Microsoft" using a response filter set to `news` and then prints details of the results.
 ```
@@ -290,7 +289,7 @@ The following query searches on the term "Microsoft" using a response filter set
         }
 
 ```
-###Query parameters - count, promotion, safe search
+##Query parameters - count, promotion, safe search
 
 This query, "Lady Gaga", searches using `answerCount` and `promote` parameters then prints details of the results.
 
