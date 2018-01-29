@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2018
+ms.date: 01/29/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -110,7 +110,7 @@ Now that you have created your function project and an HTTP-triggered function, 
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
 
-1. To test your function, press F5 to start the function app project. Output from Core Tools is dislayed in the **Terminal** panel.
+1. To test your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 2. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function. 
 
@@ -136,7 +136,7 @@ Before you can publish your app, you must sign in to Azure.
 
 3. Paste the copied code in the **Device Login** page, verify the sign in is for VS Code, then select **Continue**.  
 
-4. Complete the sign in using your Azure account credentials. After you have successfully signed in, you can close the browser. 
+4. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser. 
 
 ## Publish the project to Azure
 
@@ -168,7 +168,7 @@ Back in the **Azure Functions** area of the **Explorer**, you see the new functi
 
 ![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
 
-From your function app node, you can Ctrl + click and choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal. 
+From your function app node, type Ctrl and click to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal. 
 
 ## Test your function in Azure
 
