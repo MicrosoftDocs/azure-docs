@@ -23,7 +23,7 @@ Use the client to search with a query text:
 ```
 // Search for "Yosemite National Park"
 var webData = client.Web.Search(query: "Yosemite National Park");
- Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
+Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
 
 ```
 Parse the results for web pages:
@@ -180,4 +180,124 @@ namespace WebSrchSDK
     }
 }
 
+```
+The Web Search SDK samples contain other functions to demonstrate various features.
+This segment searches for `Best restaurants in Seattle`, verifies the number of results, and prints out name and url of first result.
+```
+       public static void WebResultsWithCountAndOffset(WebSearchAPI client)
+        {
+            try
+            {
+                var webData = client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+                Console.WriteLine("\r\nSearched for Query# \" Best restaurants in Seattle \"");
+
+                if (webData?.WebPages?.Value?.Count > 0)
+                {
+                    // find the first web page
+                    var firstWebPagesResult = webData.WebPages.Value.FirstOrDefault();
+
+                    if (firstWebPagesResult != null)
+                    {
+                        Console.WriteLine("Web Results #{0}", webData.WebPages.Value.Count);
+                        Console.WriteLine("First web page name: {0} ", firstWebPagesResult.Name);
+                        Console.WriteLine("First web page URL: {0} ", firstWebPagesResult.Url);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't find first web result!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Didn't see any Web data..");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Encountered exception. " + ex.Message);
+            }
+        }
+
+```
+
+This will search on `Microsoft` with response filters to news and print details of news.
+```
+        public static void WebSearchWithResponseFilter(WebSearchAPI client)
+        {
+            //var client = new WebSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+            try
+            {
+                IList<string> responseFilterstrings = new List<string>() { "news" };
+                var webData = client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+                Console.WriteLine("\r\nSearched for Query# \" Microsoft \" with response filters \"news\"");
+
+                //News
+                if (webData?.News?.Value?.Count > 0)
+                {
+                    // find the first news result
+                    var firstNewsResult = webData.News.Value.FirstOrDefault();
+
+                    if (firstNewsResult != null)
+                    {
+                        Console.WriteLine("News Results #{0}", webData.News.Value.Count);
+                        Console.WriteLine("First news result name: {0} ", firstNewsResult.Name);
+                        Console.WriteLine("First news result URL: {0} ", firstNewsResult.Url);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't find first News results!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Didn't see any News data..");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Encountered exception. " + ex.Message);
+            }
+        }
+
+```
+This will search on `Lady Gaga` with answerCount and promote parameters and print details of answers.
+```
+        public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
+        {
+            //var client = new WebSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+            try
+            {
+                IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
+                var webData = client.Web.SearchAsync(query: "Lady Gaga", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+                Console.WriteLine("\r\nSearched for Query# \" Lady Gaga \"");
+
+                if (webData?.Videos?.Value?.Count > 0)
+                {
+                    var firstVideosResult = webData.Videos.Value.FirstOrDefault();
+
+                    if (firstVideosResult != null)
+                    {
+                        Console.WriteLine("Video Results #{0}", webData.Videos.Value.Count);
+                        Console.WriteLine("First Video result name: {0} ", firstVideosResult.Name);
+                        Console.WriteLine("First Video result URL: {0} ", firstVideosResult.ContentUrl);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't find videos results!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Didn't see any data..");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Encountered exception. " + ex.Message);
+            }
+        }
+    }
 ```
