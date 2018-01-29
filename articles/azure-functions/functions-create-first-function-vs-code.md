@@ -31,7 +31,7 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 To complete this tutorial:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This topic was developed and tested on a device running MacOS (High Sierra).    
+* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running MacOS (High Sierra).    
 
 * Install the following components, which are required by the [Azure Functions Core Tools]: 
 
@@ -134,7 +134,7 @@ Before you can publish your app, you must sign in to Azure.
 
 2.  When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser. 
 
-3. Paste the copied code in the **Device Login** page, verify the sign in is for VS Code, then select **Continue**.  
+3. Paste the copied code in the **Device Login** page, verify the sign-in is for VS Code, then select **Continue**.  
 
 4. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser. 
 
