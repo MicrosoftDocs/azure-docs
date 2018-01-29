@@ -4,9 +4,8 @@ description: Azure SQL DB Data Discovery & Classification
 services: sql-database
 documentationcenter: ''
 author: giladm
-manager: jhubbard
-editor: giladm
-
+manager: shaik
+ms.reviewer: carlrab
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
@@ -22,16 +21,16 @@ ms.author: giladm
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL DB for discovering, classifying, labeling, and protecting the sensitive data in your databases.
 Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
-* Controlling access to and hardening the security of databases containing highly-sensitive data.
+* Controlling access to and hardening the security of databases containing highly sensitive data.
 * Helping meet data privacy standards and regulatory compliance requirements, such as GDPR.
 
 
 
 ## <a id="subheading-1"></a>Feature Overview
 Data Discovery & Classification introduces a set of advanced services and new SQL capabilities, forming a new SQL Information Protection paradigm aimed at protecting the data, not just the database:
-* **Discovery & recommendations** – Our classification engine scans your database and identifies columns containing potentially sensitive data. It then provides you an easy way to review and apply the appropriate classification recommendations via the Azure Portal.
+* **Discovery & recommendations** – The classification engine scans your database and identifies columns containing potentially sensitive data. It then provides you an easy way to review and apply the appropriate classification recommendations via the Azure portal.
 * **Labeling** – Sensitivity classification labels can be persistently tagged on columns using new classification metadata attributes introduced into the SQL Engine. This metadata can then be utilized for advanced sensitivity-based auditing and protection scenarios.
-* **Query result set sensitivity** – The sensitivity of query result set is calculated in real-time for auditing purposes.
+* **Query result set sensitivity** – The sensitivity of query result set is calculated in real time for auditing purposes.
 * **Visibility** - The database classification state can be viewed in a detailed dashboard in the portal. Additionally, you can download a report (in Excel format) to be used for compliance & auditing purposes, as well as other needs.
 
 
@@ -56,17 +55,17 @@ The classification includes two metadata attributes:
 
     ![Navigation pane][2]
 
-4. To download a report in Excel format, click on the **Export** option in the top menu of the blade.
+4. To download a report in Excel format, click on the **Export** option in the top menu of the window.
 
     ![Navigation pane][3]
 
-5.  <a id="step-5"></a>To begin classifying your data, click on the **Classification tab** at the top of the blade.
+5.  <a id="step-5"></a>To begin classifying your data, click on the **Classification tab** at the top of the window.
 
     ![Navigation pane][4]
 
-6. Our classification engine scans your database for columns containing potentially sensitive data and provides a list of **recommended column classifications**. To view and apply classification recommendations:
+6. The classification engine scans your database for columns containing potentially sensitive data and provides a list of **recommended column classifications**. To view and apply classification recommendations:
 
-    * Click on the recommendations panel at the bottom of the blade to view the list of recommended column classifications:
+    * To view the list of recommended column classifications, click on the recommendations panel at the bottom of the window:
 
         ![Navigation pane][5]
 
@@ -80,15 +79,15 @@ The classification includes two metadata attributes:
 
 7. You can also **manually classify** columns as an alternative, or in addition, to the recommendation-based classification:
 
-    * Click on **Add classification** in the top menu of the blade.
+    * Click on **Add classification** in the top menu of the window.
 
         ![Navigation pane][8]
 
-    * In the context blade that opens, select the schema > table > column that you want to classify, and the information type and sensitivity label. Then click on the blue **Add classification** button at the bottom of the context blade.
+    * In the context window that opens, select the schema > table > column that you want to classify, and the information type and sensitivity label. Then click on the blue **Add classification** button at the bottom of the context window.
 
         ![Navigation pane][9]
 
-8. To complete your classification and persistently label (tag) the database columns with the new classification metadata, click on **Save** in the top menu of the blade.
+8. To complete your classification and persistently label (tag) the database columns with the new classification metadata, click on **Save** in the top menu of the window.
 
     ![Navigation pane][10]
 

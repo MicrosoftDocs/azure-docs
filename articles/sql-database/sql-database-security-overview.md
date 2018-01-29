@@ -3,10 +3,10 @@ title: Azure SQL Database Security Overview | Microsoft Docs
 description: Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises.
 services: sql-database
 documentationcenter: ''
-author: tmullaney
-manager: jhubbard
+author: giladm
+manager: shaik
+ms.reviewer: carlrab
 editor: ''
-
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "On Demand"
-ms.date: 07/05/2017
-ms.author: thmullan;jackr
+ms.date: 01/29/2018
+ms.author: giladm
 
 ---
 # Securing your SQL Database
