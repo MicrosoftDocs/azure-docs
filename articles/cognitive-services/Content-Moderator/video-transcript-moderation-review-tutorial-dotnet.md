@@ -717,18 +717,18 @@ Next, we scan the parsed text captions with Content Moderator's text API.
 
 ### Breaking down the text moderation step
 
-`TextScreen()` is a substantial method, so let's break it down a little.
+`TextScreen()` is a substantial method, so let's break it down.
 
 1. First, the method reads the transcript file line by line. It ignores blank lines and lines containing a `NOTE` with a confidence score. It extracts the time stamps and text items from the *cues* in the file. A cue represents text from the audio track and includes start and end times. A cue begins with the time stamp line with the string `-->`. It is followed by one or more lines of text.
 
-1. Instances of `CaptionScreentextResult` (defined in `TranscriptProfanity.cs`) are used to hold the information parsed from each cue.  When a new time stamp line is detected, or a maximum text length of 1024 characters is reached, a new `CaptionScreentextResult` is added to the `csrList`.
+1. Instances of `CaptionScreentextResult` (defined in `TranscriptProfanity.cs`) are used to hold the information parsed from each cue.  When a new time stamp line is detected, or a maximum text length of 1024 characters is reached, a new `CaptionScreentextResult` is added to the `csrList`. 
 
-1.The method next submits each cue to the Text Moderation API. It calls both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
+1. The method next submits each cue to the Text Moderation API. It calls both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
 
 1. After receiving results from the Text Moderation service, the method then analyzes them to see whether they meet confidence thresholds. These values are established in `App.config` as `OffensiveTextThreshold`, `RacyTextThreshold`, and `AdultTextThreshold`. Finally, the objectionable terms themselves are also stored. All frames within the cue's time range are flagged as containing offensive, racy, and/or adult text.
 
 1. `TextScreen()` returns a `TranscriptScreenTextResult` instance that contains the text moderation result from the video as a whole. This object includes flags and scores for the various types of objectionable content, along with a list of all objectionable terms. The caller, `CreateVideoReviewInContentModerator()`, calls `UploadScreenTextResult()` to attach this information to the review so it is available to human reviewers.
-
+ 
 ## Video review transcript view
 
 The following screen shows the result of the transcript generation and moderation steps.
