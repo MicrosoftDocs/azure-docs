@@ -23,7 +23,7 @@ ms.author: larryfr
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Learn how to run Hive queries by using Ambari Hive View. The Hive View allows you to author, optimize and run Hive queries from your web browser.
+Learn how to run Hive queries by using Ambari Hive View. The Hive View allows you to author, optimize, and run Hive queries from your web browser.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Learn how to run Hive queries by using Ambari Hive View. The Hive View allows yo
 
     ![Quick links section of the portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-    When prompted to authenticate, use the cluster login (default `admin`) account ame and password that you provided when you created the cluster.
+    When prompted to authenticate, use the cluster login (default `admin`) account name and password that you provided when you created the cluster.
 
 3. From the list of views, select __Hive View__.
 

@@ -239,7 +239,7 @@ For more information, see the [Azure Feature Pack][ssispack] documentation.
 
 ### Apache Oozie
 
-Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Oozie to define and run a workflow](./hdinsight-use-oozie-linux-mac.md) document.
+Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Oozie to define and run a workflow](../hdinsight-use-oozie-linux-mac.md) document.
 
 ## <a id="nextsteps"></a>Next steps
 
