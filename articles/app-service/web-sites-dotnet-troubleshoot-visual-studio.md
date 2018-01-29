@@ -3,8 +3,8 @@ title: Troubleshoot a web app in Azure App Service using Visual Studio
 description: Learn how to troubleshoot an Azure web app by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013.
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
+ms.author: cephalin
 
 ---
 # Troubleshoot a web app in Azure App Service using Visual Studio
