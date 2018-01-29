@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Create a Batch account | Microsoft Docs
+title: Azure CLI Script Example - Create Batch account - user subscription | Microsoft Docs
 description: Azure CLI Script Example - Create a Batch account in user subscription mode
 services: batch
 documentationcenter: ''
