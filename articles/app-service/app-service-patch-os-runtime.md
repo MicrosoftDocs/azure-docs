@@ -32,12 +32,13 @@ For security reasons, certain specifics of security information are not publishe
 
 Azure manages OS patching on two levels, the bare metal servers and the guest VMs that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied in a manner that’s transparent to App Service customers and that guarantees the high-availability SLA of Azure services. 
 
-Usually, bare metal servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release.  
-For detailed information on how updates are applied to App Service instances, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+Usually, bare metal servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release.
+
+For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
 
 ## How does Azure deal with significant vulnerabilities?
 
-In the case of severe vulnerabilities that require immediate patching, such as [zero-day vulnerabilities](https://wikipedia.org/wiki/Zero-day_(computing)), the high-priority updates are handled on a case-by-case basis.
+When severe vulnerabilities require immediate patching, such as [zero-day vulnerabilities](https://wikipedia.org/wiki/Zero-day_(computing)), the high-priority updates are handled on a case-by-case basis.
 
 Stay current with critical security announcements in Azure by visiting [Azure Security Blog](https://azure.microsoft.com/blog/topics/security/). 
 
@@ -54,11 +55,11 @@ https://github.com/Azure/app-service-announcements/issues
 
 ### New minor versions
 
-When a new minor .NET, PHP, Java SDK, or Tomcat/Jetty version (X.Y.**Z**) is updated in App Service, the old version is overwritten automatically with the new version. For Python (through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)) and Node.js, see information on major versions below.
+Minor version updates (X.Y.**Z**) to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. For Python (through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)) and Node.js, see the section on new major versions.
 
-### Newe major versions
+### New major versions
 
-When a new major version is added, they are installed side-by-side with the old versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it by running the following respective command in the [Cloud Shell](../cloud-shell/overview.md) for the respective runtime:
+When a new major version is added, they are installed side by side with the existing versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it by running the following respective command in the [Cloud Shell](../cloud-shell/overview.md) for the respective runtime:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -74,9 +75,9 @@ When an older version is deprecated, the removal date is announced so that you c
 
 ## How can I query OS and installed runtimes on my instances?
 
-While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version, installed software, and runtime versions. 
+While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
-The table below how to obtain each piece of information for your App Service instance :
+The following table shows how to obtain runtime versions for your App Service instance:
 
 | Information | Where to find it |
 |-|-|
