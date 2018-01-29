@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 01/29/2018
 ms.author: sethm
 
 ---
 
 # Send and receive messages using Azure CLI
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sale (POS) data to a back office or regional distribution center for replenishment and inventory updates.  
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
-![service-bus-flow][service-bus-flow]
+![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
 This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
 
@@ -38,7 +38,15 @@ This option launches an interactive shell that you can use to run the steps in t
 
 ![][2]
 
+## Install CLI locally
+
 If you choose to install and use the CLI locally, this article requires that you run the latest version of Azure CLI (2.0.14 or later). To find the version, run the `cli az –version` command. If you need to install or upgrade, see [Install Azure CLI 2.0][].
+
+1. Once CLI is installed, open a command prompt and issue the following commands:
+   ```azurecli-interactive
+   az extension add --source https://prodsbclipackages.blob.core.windows.net/cliextensions/servicebus-0.0.1-py2.py3-none-any.whl
+   ```
+2. 
 
 ## Create a resource group
 
