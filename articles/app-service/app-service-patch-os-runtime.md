@@ -42,7 +42,7 @@ Stay current with critical security announcements in Azure by visiting [Azure Se
 
 ## When are supported language runtime updated, added, or deprecated?
 
-When a supported language runtime has a new stable version (major or minor), the App Service team does extensive testing prior to pushing the version updates to App Service. 
+When a supported language runtime has a new stable version (major, minor, or patch), the App Service team does extensive testing prior to pushing the version updates to App Service. 
 
 Stay current with the runtime updates or deprecations by visiting:
 
@@ -54,20 +54,20 @@ Stay current with the runtime updates or deprecations by visiting:
 >
 >
 
-### New minor versions
+### New patch updates
 
-Minor version updates (X.Y.**Z**) to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. For Python (through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)) and Node.js, see the section on new major versions.
+Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. For Python (through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)) and Node.js, all patch updates are installed side by side (see the section on new major and minor versions).
 
-### New major versions
+### New major and minor versions
 
-When a new major version is added, they are installed side by side with the existing versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it by running the following respective command in the [Cloud Shell](../cloud-shell/overview.md) for the respective runtime:
+When a new major or minor version is added, they are installed side by side with the existing versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it by running the following respective command in the [Cloud Shell](../cloud-shell/overview.md) for the respective runtime:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
 az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
 az webapp config set --python-version 3.4 --resource-group <groupname> --name <appname>
-az webapp config set --java-version 1.8 --resource-group <groupname> --name <appname>
+az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
 ### Deprecated versions
