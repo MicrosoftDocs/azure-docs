@@ -104,7 +104,7 @@ The data object has the following properties:
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
-| blobType | string | The type of blob. |
+| blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
 | url | string | The path to the blob. |
 | sequencer | string | A user-controlled value that you can use to track requests. |
 | storageDiagnostics | object | Information about the storage diagnostics. |
