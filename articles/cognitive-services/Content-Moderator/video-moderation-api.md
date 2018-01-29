@@ -44,7 +44,15 @@ The Content Moderator's video capability is available as a private preview **med
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
-## Create your Visual Studio project
+Once you get your AMS credentials, there are two ways to try the Cntent Moderator media processor.
+
+## Use Azure Media Services Explorer
+
+Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/en-us/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Download and install it](https://github.com/Azure/Azure-Media-Services-Explorer/releases) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
+
+![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
+
+## .NET QuickStart with Visual Studio and C#
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
@@ -116,8 +124,6 @@ Create a JSON file in the current directory with the version number.
     //             "version": "2.0"
     //        }
     private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
-
-## Add code to moderate a video and get results
 
 ### Add the following code to the main method
 
@@ -353,7 +359,7 @@ These methods download the Content Moderator output file (JSON) from the Azure M
 		}
 	}
 
-## Run the program and review the output
+### Run the program and review the output
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
