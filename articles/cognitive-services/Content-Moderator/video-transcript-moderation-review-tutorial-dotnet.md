@@ -12,7 +12,7 @@ ms.date: 1/27/2018
 ms.author: sajagtap
 ---
 
-# Video and transcript moderation using .NET
+# Video and transcript moderation tutorial
 
 Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
 
@@ -614,6 +614,12 @@ Next, we parse the VTT formatted transcript for captions and timestamps. The rev
 ### Moderate captions with the text moderation service
 
 Next, we scan the parsed text captions with the text moderation service of Content Moderator for profanity and possible explicit, suggestive, or undesirable content.
+
+> [!NOTE]
+> Your Content Moderator service key has a requests per second (RPS)
+> rate limit. If you exceed the limit, the SDK throws an exception with a 429 error code. 
+>
+> A free tier key has a one RPS rate limit.
 
     //
     // Moderate the captions or cues
