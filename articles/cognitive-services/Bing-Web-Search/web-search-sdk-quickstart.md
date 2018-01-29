@@ -4,7 +4,7 @@ The Bing Web Search SDK contains the functionality of the REST API for web reque
 
 ##Application dependencies
 
-To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the Microsoft.Azure.CognitiveServices.Search.WebSearch package.
+To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.WebSearch` package.
 
 ![[NuGet packages]](media/NuGetPkgs.png)
 
@@ -191,7 +191,7 @@ namespace WebSrchSDK
 ```
 ##Search options
 
-The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined WebSrchSDK class.
+The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `WebSrchSDK` class.
 
 ###Count and offset parameters
 
