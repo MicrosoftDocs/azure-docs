@@ -29,7 +29,7 @@ var webData = client.Web.Search(query: "Yosemite National Park");
 Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
 
 ```
-Parse the results for web pages:
+Parse the web pages returned in the results of the previous query:
 ```
 //WebPages
 if (webData?.WebPages?.Value?.Count > 0)
@@ -56,7 +56,7 @@ else
 ```
 ##Complete console application
 
-The previous code runs in the following console application:
+The following console application executes the previously defined query:
 ```
 using System;
 using System.Collections.Generic;
@@ -187,11 +187,11 @@ namespace WebSrchSDK
 ```
 ##Search options
 
-The Web Search SDK samples contain code that demonstrates various features.
+The Web Search SDK samples demonstrate various features.
 
 ###Count and offset parameters
 
-The following segment searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of first result.
+The following code searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of first result.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -231,7 +231,7 @@ The following segment searches for "Best restaurants in Seattle", verifies the n
 ```
 ###Response filter
 
-This query searches on `Microsoft` with response filter set to `news` and prints details of results.
+The following query searches on "Microsoft" with response filter set to `news` and then prints details of the results.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -275,7 +275,7 @@ This query searches on `Microsoft` with response filter set to `news` and prints
 ```
 ###Count, promotion, safe search query parameters
 
-This query searches on `Lady Gaga` with `answerCount` and `promote` parameters then prints details of results.
+This query searches on "Lady Gaga" using `answerCount` and `promote` parameters then prints details of the results.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
