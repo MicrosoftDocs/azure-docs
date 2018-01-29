@@ -407,7 +407,7 @@ To collect debugging traces, run the following commands from an administrative c
 
 You can check the version number by right clicking the local emulator icon on the task bar and clicking the about menu item.
 
-### 1.20 Released on January 25, 2018
+### 1.20 Released on January 26, 2018
 
 * Enabled the MongoDB aggregation pipeline by default.
 
