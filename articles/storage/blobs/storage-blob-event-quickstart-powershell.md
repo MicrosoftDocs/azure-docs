@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/22/2018
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ---
@@ -35,7 +35,10 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, refer to the [Event Grid overview](../../event-grid/overview.md) page to see the current list of supported locations. This example uses **westus2** and stores the selection in a variable for use throughout.
+> [!NOTE]
+> Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does.
+
+This example uses **westus2** and stores the selection in a variable for use throughout.
 
 ```powershell
 $location = "westus2"
@@ -54,9 +57,9 @@ $resourceGroup = "gridResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## Create a Blob storage account
+## Create a storage account
 
-To use Azure Storage, you need a storage account.  Blob storage events are currently available today only in Blob storage accounts.
+To use Blob storage events, you need either a [Blob storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../common/storage-account-options.md#general-purpose-v2). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.  
 
 Create a Blob storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage(LRS) and blob encryption (enabled by default). 
 
@@ -83,9 +86,9 @@ Before subscribing to events from the Blob storage account, let's create the end
 $binEndPoint = "<bin URL>"
 ```
 
-## Subscribe to your Blob storage account
+## Subscribe to your storage account
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the storage account you created, and passes the URL from RequestBin as the endpoint for event notification. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
