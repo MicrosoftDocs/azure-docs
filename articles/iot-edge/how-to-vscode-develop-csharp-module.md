@@ -14,7 +14,7 @@ ms.service: iot-edge
 ---
 
 # Use Visual Studio Code to develop a C# module with Azure IoT Edge
-This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy your IoT Edge modules. 
+This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy your Azure IoT Edge modules. 
 
 ## Prerequisites
 This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
@@ -23,7 +23,7 @@ Before you start this guidance, complete the following tutorials:
 - Deploy Azure IoT Edge on a simulated device in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) or [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
 - [Develop and deploy a C# IoT Edge module to your simulated device](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module)
 
-Here is a checklist that shows the items you should have after you finish the preceding tutorials.
+Here is a checklist that shows the items you should have after you finish the preceding tutorials:
 
 - [Visual Studio Code](https://code.visualstudio.com/) 
 - [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
@@ -40,7 +40,7 @@ It is also helpful to install [Docker support for VS Code](https://marketplace.v
 ## Deploy an Azure IoT Edge module in VS Code
 
 ### List your IoT hub devices
-There are two ways to list your IoT hub devices in your VS Code. You can choose either way to continue.
+There are two ways to list your IoT hub devices in VS Code. You can choose either way to continue.
 
 #### Sign in to your Azure account in VS Code, and choose your IoT hub
 1. In the command palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then select **Copy & Open**. Paste (Ctrl + V) the code in your browser, and select **Continue**. Then sign in with your Azure account. You can see your account info in the VS Code status bar.
@@ -49,12 +49,12 @@ There are two ways to list your IoT hub devices in your VS Code. You can choose 
     ![Screenshot of device list](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### Set the IoT hub connection string
-In the command palette, type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (you can find it in the shared access policies of your IoT hub in the Azure portal).
+In the command palette, type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner**. (You can find it in the shared access policies of your IoT hub in the Azure portal.)
  
 You can see the device list in IoT Hub Devices Explorer, in the side bar on the left.
 
 ### Start your IoT Edge runtime and deploy a module
-Install and start the Azure IoT Edge runtime on your device. Deploy a simulated sensor module that sends telemetry data to IoT Hub.
+Install and start the Azure IoT Edge runtime on your device. Deploy a simulated sensor module that sends telemetry data to Azure IoT Hub.
 1. In Command Palette, select **Edge: Setup Edge** and choose your IoT Edge device ID. Alternatively, right-click the IoT Edge device ID in **Device List**, and select **Setup Edge**.
 
     ![Screenshot of Setup Edge runtime](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
