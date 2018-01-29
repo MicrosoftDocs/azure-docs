@@ -52,13 +52,13 @@ If you need to add an adapter after you've registered the configuration server i
 
 ## Reregister a configuration server in the same vault
 
-You can reregister the configuration server in the same vault if you need to. f you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
+You can reregister the configuration server in the same vault if you need to. If you have an additional process server machine, in addition to the default process server running on the configuration server machine, reregister both machines.
 
   1. In the vault, open **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
   2. In **Servers**, click **Download registration key**. This downloads the vault credentials file.
   3. Log onto the configuration server machine.
   4. In **%ProgramData%\ASR\home\svagent\bin**, open **cspsconfigtool.exe**.
-  5. On the **Vault Registration** tab, click browse and located the vault credentials file you downloaded.
+  5. On the **Vault Registration** tab, click browse and locate the vault credentials file you downloaded.
   6. If needed, provide proxy server details. Then click **Register**.
   7. Open an Admin PowerShell command window, and run the following command:
 
