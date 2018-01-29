@@ -77,7 +77,7 @@ a data disk**
 
 8.	Use the existing files on the troubleshooting VM as a repository for the VM agent installation: 
 
-    1. From the troubleshooting VM export the following keys in .reg format: 
+    1. From the troubleshooting VM, export the following keys in registry format (.reg): 
 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
@@ -85,17 +85,16 @@ a data disk**
 
         ![The image about export registry keys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit these three reg file by changing the SYSTEM to BROKENSYSTEM and save the files.
+    2. Edit these three registry files by changing the SYSTEM to BROKENSYSTEM and save the files.
         ![The image about change registry keys](./media/install-vm-agent-offline/change-reg.png)
-    3. Import the reg file by double-clicking the reg files.
-    4. Browse into the registry, make sure that the following keys are implaed into the BROKENSYSTEM hive successfully: WindowsAzureGuestAgent, WindowsAzureTelemetryService and RdAgent.
+    3. Import the registry files by double-clicking the files.
+    4. Browse into the registry, make sure that the following keys are imported into the BROKENSYSTEM hive successfully: WindowsAzureGuestAgent, WindowsAzureTelemetryService and RdAgent.
 
 9.  Copy the VM agent folder from C:\windowsazure\packages
     to the &lt;OS disk you attached&gt;:\windowsazure\packages.
     ![The image about copy files](./media/install-vm-agent-offline/copy-package.png)
       
-    **Note** Don’t copy the logs folder as we need fresh new logs, which
-    will be generated after service starts.
+    **Note** Don’t copy the logs folder. After service starts, the new logs will be generated.
 
 10.  Click BROKENSYSTEM and select **File** > **Unload Hive**​ from the menu.
 
