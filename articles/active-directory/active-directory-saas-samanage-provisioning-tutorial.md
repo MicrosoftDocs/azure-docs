@@ -83,9 +83,13 @@ This section guides you through connecting your Azure AD to Samanage's user acco
 
 10. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Samanage. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the Save button to commit any changes.
 
-11. To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section
+11. Under the Mappings section, select **Synchronize Azure Active Directory Groups to Samanage**.
 
-12. Click **Save**. 
+12. In the **Attribute Mappings** section, review the group attributes that are synchronized from Azure AD to Samanage. The attributes selected as **Matching** properties are used to match the groups in Samanage for update operations. Select the Save button to commit any changes.
+
+13. To enable the Azure AD provisioning service for Samanage, change the **Provisioning Status** to **On** in the **Settings** section
+
+14. Click **Save**. 
 
 This operation starts the initial synchronization of any users and/or groups assigned to Samanage in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
