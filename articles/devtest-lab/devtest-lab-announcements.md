@@ -44,7 +44,12 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. To create a message for the users in this lab, set **Enabled** to **Yes**.
 
-1. You can enter an **Expiration date** if you no longer want the announcement to be shown to users after a specific date and time. If you don't enter an expiration date, the announcement remains until you disable it.
+1. You can enter an **Expiration date** to specify a date and time after which the announcement is no longer shown to users. If you don't enter an expiration date, the announcement remains until you disable it.
+
+   > [!NOTE]
+   > After the announcement expires, it is no longer shown to users, but still exists in the **Lab announcement** pane. You can make edits to it and re-enable it to make it active again.
+   >
+   >
 
 1. Enter an **Announcement title** and the **Announcement text**.
 
