@@ -196,7 +196,7 @@ In the previous section, you created an Azure Automation runbook that can either
 6. After you are done testing, disable the schedules by editing them and selecting **NO** for **Enabled**. Select **Schedules** in the left menu, select the **Start IR daily/Stop IR daily**, and select **No** for **Enabled**. 
 
 ## Create webhooks to start and stop the Azure SSIS IR
-Follow instructions in [Create a webhook](../automation/automation-webhooks.md#creating-a-webhook) to create two webhooks for the runbook. For the first one, specify START as the OPERATION, and for the second one, specify STOP as the OPERATION. Note down the URLs for both the webhooks. You use these URLs when configuring Web activities in the Data Factory pipeline. The following image shown an example of creating a webhook that starts the Azure SSIS IR:
+Follow instructions in [Create a webhook](../automation/automation-webhooks.md#creating-a-webhook) to create two webhooks for the runbook. For the first one, specify START as the OPERATION, and for the second one, specify STOP as the OPERATION. Save the URLs for both the webhooks somewhere (like a text file or a OneNote notebook). You use these URLs when configuring Web activities in the Data Factory pipeline. The following image shown an example of creating a webhook that starts the Azure SSIS IR:
 
 1. In the **Runbook** window, select **Webhooks** from the left menu, and select **+ Add Webhook** on the toolbar. 
 
