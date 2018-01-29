@@ -1,6 +1,6 @@
 ---
-title: Enhance LUIS understanding of category items with a list entity using Nodejs | Microsoft Docs 
-description: Learn how to add a list entity to a LUIS app and see the improvement of the score in Nodejs.
+title: Label entities automatically with a list entity using Nodejs | Microsoft Docs 
+description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
 author: v-geberr
 titleSuffix: Azure
@@ -13,14 +13,14 @@ ms.date: 01/29/2018
 ms.author: v-geberr
 ---
 
-# Enhance LUIS understanding of category items with a list entity 
-Improve accuracy of entity identification for entities that can have multiple words and phrases to identify the entity. A list entity is used as an exact match for a known set of values of up to 20,000 items. 
+# Use a list entity to find a word or phrase with a limited set of variations 
+LUIS has two different strategies to find variations of a word or phrase. The first method is to use a list entity. This strategy is the best choice if there are a limited or known set of variations. The set can be altered over time but it is used as an exact match, not a guide. The second strategy is a phrase list, which is better suited to an unknown, or growing set of variations.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create list entity in C#
-* Add normalized values and synonyms in C#
+* Create list entity in Node.js
+* Add normalized values and synonyms in Node.js
 * Validate improved entity identification
 
 ## Prerequisite
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/luis-tutorial-list-entity) and each line associated with this tutorial is commented with `//APPINSIGHT:`. 
+All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## Use HomeAutomation app
 The HomeAutomation gives you control of devices such as lights, entertainment systems, and environment controls such as heating and cooling. These systems have several different names that can include Manufacturer names, nicknames, acronyms, and slang. 
@@ -47,14 +47,35 @@ The following utterances should resolve the term for the Prebuilt entity **HomeA
 |2|turn up the heat|HomeAutomation.Device - "heat"|0.784990132|
 |3|make it colder|||
 
-The third utterance utterance, "make it colder", doesn't map to a device but instead requests a result. The app needs to understand the end result term of "colder" maps to the thermostat. 
+The third utterance, "make it colder", doesn't map to a device but instead requests a result. The app needs to understand the term, "colder", maps to the thermostat. 
 
-## Create a list entity to manage device names
-A list entity is the best approach because there is a limited and known set of terms for a thermostat. If the purpose was to determine is a new, unknown term should be mapped to the thermostat, then a phrase list is a better setting.
+## Use a list entity
+The HomeAutomation.Device entity is great for a small number of devices or with few variations of the names. For an office building or campus, the set of devices and possible devices names grows beyond the value of the HomeAutomation.Device entity. A list entity is a good choice for this scenario because the set of terms for a device in a building or campus is a closed set, even if it is a huge set. 
 
-If there were other devices that had many, known names, acronyms and slang, you add these devices and there alternative names to the entity list.
+Additionally, by using a list entity, LUIS can receive any possible value in the set for the thermostat, and resolve it down to just the value "thermostat". 
 
-Create a Nodejs file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
+This tutorial is going to create a list of devices, with the first device as the thermostat. The alternative names for a thermostat in this tutorial are: 
+
+|alternative names for thermostat|
+|--|
+| ac |
+| AC |
+| A/C|
+| A-C|
+|heater|
+|hot|
+|hotter|
+|cold|
+|colder|
+
+If the app needs to determine a new alternative often, then a phrase list is a better answer.
+
+## Create a list entity
+A list entity is the best approach because there is a limited and known set of terms for a thermostat. 
+
+If there were other devices that had many, known names, acronyms, and slang, you add these devices and their alternative names to the entity list.
+
+Create a Node.js file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
@@ -64,15 +85,15 @@ Use the following command line to run the code and create the list entity:
 node add-entity-list.js
 ```
 
-The output of the run will be the ID of the list entity:
+The output of the run is the ID of the list entity:
 
 ```Javascript
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
 ## Train the model
-LUIS needs to be trained in order for the new list to affect the query results. Training is a two-part process of training, then checking status if the training is done. An app with many models may take a few moments to train. The following code trains the app then waits until the training is successful. The code uses a wait-and-retry strategy to avoid the 429 "Too many requests" error. 
+Train LUIS in order for the new list to affect the query results. Training is a two-part process of training, then checking status if the training is done. An app with many models may take a few moments to train. The following code trains the app then waits until the training is successful. The code uses a wait-and-retry strategy to avoid the 429 "Too many requests" error. 
 
-Create a Nodejs file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
+Create a Node.js file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
@@ -82,7 +103,7 @@ Use the following command line to run the code and train the app:
 node train.js
 ```
 
-The output of the run will be the status of each iteration of the training of the LUIS models. The following execution required only 1 check of training:
+The output of the run is the status of each iteration of the training of the LUIS models. The following execution required only one check of training:
 
 ```Javascript
 1 trained = true
@@ -101,10 +122,10 @@ The output of the run will be the status of each iteration of the training of th
 
 ```
 
-## Query the app to prove the enhancement
+## Query the app 
 Query the app to prove that the additional of the list entity helps LUIS determine the device type.
 
-Create a Nodejs file and copy the following code into it. Change the endpointKey, appId, and region values.
+Create a Node.js file and copy the following code into it. Change the endpointKey, appId, and region values.
 
    [!code-javascript[Query LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/query.js "Query LUIS")]
 
@@ -114,7 +135,7 @@ Use the following command line to run the code and query the app:
 node train.js
 ```
 
-The output of the run will be the query results. Because the code added the **verbose** name/value pair to the querystring, the output will include all intents:
+The output of the run is the query results. Because the code added the **verbose** name/value pair to the query string, the output includes all intents:
 
 ```JSON
 {
