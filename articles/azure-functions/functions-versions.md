@@ -102,7 +102,7 @@ When you need to target a version other than the current major version or versio
 
 ## Target a version using Azure CLI
 
- You can also set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI. Using the Azure CLI, update the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+ You can also set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI. Using the Azure CLI, update the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
