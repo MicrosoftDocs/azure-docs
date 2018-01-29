@@ -28,11 +28,19 @@ We use the [C# console application](https://github.com/MicrosoftContentModerator
 - Moderate the transcript with the text moderation service
 - Add the moderated transcript to the video review
 
+## A peek at the sample outputs
+
+Before we dig deep into the application source code, let's take a look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
+
 ## Prerequisites
 
-To run the sample application, you need an Azure account and an Azure Media Services account. Additionally, you need access to the Content Moderator private preview. Finally, you need Azure Active Directory authentication credentials. For details on obtaining this information, see [the Video Moderation API quickstart](video-moderation-api.md).
+1. Sign up for the [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) web site and [create custom tags](Review-Tool-User-Guide/tags.md) that the C# console application will assign from within the code. The following screen shows the custom tags.
 
-Edit the file `App.config` and add the Active Directory tenant name, service endpoints, and subscription keys indicated by `#####`. You need the following information:
+  ![Video moderation custom tags](images/video-tutorial-custom-tags.PNG)
+
+1. To run the sample application, you need an Azure account and an Azure Media Services account. Additionally, you need access to the Content Moderator private preview. Finally, you need Azure Active Directory authentication credentials. For details on obtaining this information, see [the Video Moderation API quickstart](video-moderation-api.md).
+
+1. Edit the file `App.config` and add the Active Directory tenant name, service endpoints, and subscription keys indicated by `#####`. You need the following information:
 
 |Key|Description|
 |-|-|
@@ -446,6 +454,12 @@ The moderation process returns a list of key frames from the video, along with a
 |Scan the text transcript, if available, to locate adult or racy audio|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
 |Prepare and submits a video review request for human inspection|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
+## Video review default view
+
+The following screen shows the results of the previous steps.
+
+![Video review default view](images/video-tutorial-default-view.PNG)
+
 ## Transcript generation
 
 Until now, the code presented in this tutorial has focused on the visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
@@ -706,6 +720,12 @@ Next, we scan the parsed text captions with the text moderation service of Conte
 
 1. `TextScreen()` returns a `TranscriptScreenTextResult` instance that contains the text moderation result from the video as a whole. This object includes flags and scores for the various types of objectionable content, along with a list of all objectionable terms. The caller, `CreateVideoReviewInContentModerator()`, calls `UploadScreenTextResult()` to attach this information to the review so it is available to human reviewers.
 
+## Video review transcript view
+
+The following screen shows the result of the transcript generation and moderation steps.
+
+![Video moderation transcript view](images/video-tutorial-transcript-view.PNG)
+
 ## Program output
 
 The following command line output from the program shows the various tasks as they are completed. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
@@ -729,11 +749,7 @@ The following command line output from the program shows the various tasks as th
 	
 	Total Elapsed Time: 00:05:56.8420355
 
-## Program result
 
-The primary result of this utility is one or more video reviews hosted in Content Moderator. 
-
-![Video review for human moderators](images/ams-video-review.PNG)
 
 ## Next steps
 
