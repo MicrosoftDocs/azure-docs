@@ -34,10 +34,10 @@ The status in the top right of your health page indicates the overall health of 
 Statuses of a managed domain:
 
 | Status | Icon | Explanation |
-| --- | --- | --- |
-| Running | ![Running Icon](.\media\active-directory-domain-services-alerts\running-icon.png) | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
-| Needs attention (Warning) | ![Warning Icon](.\media\active-directory-domain-services-alerts\warning-icon.png) | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
-| Needs attention (Critical) | ![Critical Icon](.\media\active-directory-domain-services-alerts\critical-icon.png) | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
+| --- | :----: | --- |
+| Running | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
+| Needs attention (Warning) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
+| Needs attention (Critical) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
 | Deploying | | Your domain is in the process of being deployed.  |
 
 ## Monitors
