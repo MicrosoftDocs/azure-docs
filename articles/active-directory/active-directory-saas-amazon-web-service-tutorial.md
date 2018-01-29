@@ -217,7 +217,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 21. Use AWS service account credentials for fetching the roles from the AWS account in Azure AD user provisioning. To start this task, open the AWS console home.
 
-22. Select **Services** -> **Security, Identity& Compliance** -> **IAM**.
+22. Select **Services** > **Security, Identity& Compliance** > **IAM**.
 
 	![Fetching the roles from AWS account](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
@@ -233,7 +233,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Creating a new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-	a. In the **Create policy** section, select the **“JSON”** tab.
+	a. In the **Create policy** section, select the **JSON** tab.
 
 	b. In the policy document, add the following JSON:
 	
@@ -275,9 +275,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Provide the **Policy Name** as **AzureAD_SSOUserRole_Policy**.
 
-	b. You can provide the following **Description** to the policy: **This policy will allow you to fetch the roles from AWS accounts**.
+	b. You can provide the following **Description** for the policy: **This policy will allow you to fetch the roles from AWS accounts**.
 	
-	c. Select the **“Create Policy”** button.
+	c. Select the **Create Policy** button.
 		
 27.	To create a new user account in the AWS IAM service, take the following steps:
 
@@ -299,7 +299,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	* Select the **Next Permissions** button in the lower right corner.
 
-28. Now create a new policy for this user by taking the following steps:
+28. Create a new policy for this user by taking the following steps:
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
 	
@@ -315,7 +315,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Review the user name, access type, and policy that are mapped to the user.
 	
-	b. To create the user, select the **Create user** button at the lower right corner to create the user.
+	b. To create the user, select the **Create user** button in the lower right corner to create the user.
 
 30. Download the credentials of a user by taking the following steps:
 
@@ -385,7 +385,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an AWS test user
 
-The objective of this section is to create a user called Britta Simon in AWS. Amazon Web Services doesn't need a user to be created in their system for single-sign-on, so you don't need to perform any action here.
+The objective of this section is to create a user called Britta Simon in AWS. AWS doesn't need a user to be created in their system for single-sign-on, so you don't need to perform any action here.
 
 ### Assign the Azure AD test user
 
