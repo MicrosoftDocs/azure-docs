@@ -19,6 +19,11 @@
             "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
             "redirect_document_id": true
         },
+		     {
+            "source_path": "articles/active-directory/active-directory-saas-account-provisioning-notifications.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-app-provisioning",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
