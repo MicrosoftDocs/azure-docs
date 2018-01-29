@@ -17,7 +17,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: Make a change to the default configuration
-The purpose of this topic is to walk you through how to make changes to the default configuration in Azure AD Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
+The purpose of this topic is to walk you through how to make changes to the default configuration in Azure Azure AD Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
 
 ## Synchronization Rules Editor
 The Synchronization Rules Editor is used to see and change the default configuration. You can find it in the Start menu under the **Azure AD Connect** group.  
@@ -131,7 +131,9 @@ String attributes are indexable by default, and the maximum length is 448 charac
 `attributeName` <- `Left([attributeName],448)`.
 
 ### Changing the userPrincipalSuffix
-The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. With the Azure AD Connect sync installation wizard,you can choose a different attribute, for example, *mail*. But in some cases, the attribute must be calculated. For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID:  
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. With the Azure AD Connect sync installation wizard,you can choose a different attribute, for example, *mail*. But in some cases, the attribute must be calculated.
+
+For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID:  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
 In this expression, take everything left of the first @-sign (Word) and concatenate with a fixed string.
@@ -174,7 +176,8 @@ You can instruct the sync engine that you want additional rules inserted before 
 1. Mark the first out-of-box sync rule (**In from AD-User Join**) in the sync rules editor and select **Export**. Copy the SR Identifier value.  
 ![PowerShell before change](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
 2. Create the new sync rule. You can use the sync rules editor to create it. Export the rule to a PowerShell script.
-3. In the property **PrecedenceBefore**, insert the Identifier value from the out-of-box rule. Set the **Precedence** to **0**. Make sure the Identifier attribute is unique and that you are not reusing a GUID from another rule. Also make sure that the **ImmutableTag** property is not set; this property should only be set for an out-of-box rule. Save the PowerShell script and run it. The result is that your custom rule is assigned the precedence value of 100 and all other out-of-box rules are incremented.  
+3. In the property **PrecedenceBefore**, insert the Identifier value from the out-of-box rule. Set the **Precedence** to **0**. Make sure the Identifier attribute is unique and that you are not reusing a GUID from another rule. Also make sure that the **ImmutableTag** property is not set; this property should only be set for an out-of-box rule.
+4. Save the PowerShell script and run it. The result is that your custom rule is assigned the precedence value of 100 and all other out-of-box rules are incremented.  
 ![PowerShell after change](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
 
 You can have many custom sync rules by using the same **PrecedenceBefore** value when needed.
@@ -193,9 +196,13 @@ By default, the UserType attribute is not enabled for synchronization because th
 
 Before enabling synchronization of the UserType attribute, you must first decide how the attribute is derived from on-premises Active Directory. The following are the most common approaches:
 
-- Designate an unused on-premises AD attribute (such as extensionAttribute1) to be used as the source attribute. The designated on-premises AD attribute should be of the type **string**, be single-valued, and contain the value **Member** or **Guest**. If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
+- Designate an unused on-premises AD attribute (such as extensionAttribute1) to be used as the source attribute. The designated on-premises AD attribute should be of the type **string**, be single-valued, and contain the value **Member** or **Guest**. 
 
-- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
+    If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
+
+- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. 
+
+    As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
 
 The steps to enable synchronization of the UserType attribute can be summarized as:
 
@@ -319,7 +326,9 @@ The outbound synchronization rule permits the attribute value to flow from the m
 ![Create outbound synchronization rule](./media/active-directory-aadconnectsync-change-the-configuration/usertype4.png)
 
 ### Step 6: Run a full synchronization cycle
-In general, a full synchronization cycle is required because we have added new attributes to both the Active Directory and Azure AD Connector schema, and introduced custom synchronization rules. You want to verify the changes before exporting them to Azure AD. You can use the following steps to verify the changes while manually running the steps that make up a full synchronization cycle.
+In general, a full synchronization cycle is required because we have added new attributes to both the Active Directory and Azure AD Connector schema, and introduced custom synchronization rules. You want to verify the changes before exporting them to Azure AD. 
+
+You can use the following steps to verify the changes while manually running the steps that make up a full synchronization cycle.
 
 1. Run a **Full import** on the **on-premises AD Connector**:
 
@@ -339,7 +348,9 @@ In general, a full synchronization cycle is required because we have added new a
 
 3. Verify the synchronization rule changes on an existing User object:
 
-    The source attribute from on-premises Active Directory and the UserType from Azure AD have been imported into their respective Connector Spaces. Before proceeding with a full synchronization, do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you chose should have the source attribute populated. A successful **Preview** with the UserType populated in the metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to the section [Verify the change](#verify-the-change).
+    The source attribute from on-premises Active Directory and the UserType from Azure AD have been imported into their respective Connector Spaces. Before proceeding with a full synchronization, do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you chose should have the source attribute populated.
+    
+    A successful **Preview** with the UserType populated in the metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to the section [Verify the change](#verify-the-change).
 
 4. Run a **Full Synchronization** on the **on-premises AD Connector**:
 
