@@ -51,14 +51,10 @@ The Language Detection API detects the language of a text document, using the [D
 
 ```python
 language_api_url = text_analytics_base_url + "languages"
-language_api_url
+print(language_api_url)
 ```
 
-
-
-
-    'https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages'
-
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 
 The payload to the API consists of a list of `documents`, each of which in turn contains an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed. 
@@ -79,29 +75,26 @@ The next few lines of code call out to the language detection API using the `req
 
 ```python
 import requests
+from pprint import pprint
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(language_api_url, headers=headers, json=documents)
 languages = response.json()
-languages
+pprint(languages)
 ```
 
-
-
-
     {'documents': [{'detectedLanguages': [{'iso6391Name': 'en',
-         'name': 'English',
-         'score': 1.0}],
-       'id': '1'},
-      {'detectedLanguages': [{'iso6391Name': 'es',
-         'name': 'Spanish',
-         'score': 1.0}],
-       'id': '2'},
-      {'detectedLanguages': [{'iso6391Name': 'zh_chs',
-         'name': 'Chinese_Simplified',
-         'score': 1.0}],
-       'id': '3'}],
+                                           'name': 'English',
+                                           'score': 1.0}],
+                    'id': '1'},
+                   {'detectedLanguages': [{'iso6391Name': 'es',
+                                           'name': 'Spanish',
+                                           'score': 1.0}],
+                    'id': '2'},
+                   {'detectedLanguages': [{'iso6391Name': 'zh_chs',
+                                           'name': 'Chinese_Simplified',
+                                           'score': 1.0}],
+                    'id': '3'}],
      'errors': []}
-
 
 
 The following lines of code render the JSON data as an HTML table.
@@ -128,14 +121,10 @@ The service endpoint for sentiment analysis is available for your region via the
 
 ```python
 sentiment_api_url = text_analytics_base_url + "sentiment"
-sentiment_api_url
+print(sentiment_api_url)
 ```
 
-
-
-
-    'https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment'
-
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
 
 As with the language detection example, the service is provided with a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. You can use the language detection API from the previous section to populate this field. 
@@ -157,18 +146,13 @@ The sentiment API can now be used to analyze the documents for their sentiments.
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(sentiment_api_url, headers=headers, json=documents)
 sentiments = response.json()
-sentiments
+pprint(sentiments)
 ```
 
-
-
-
-    {'documents': [{'id': '1', 'score': 0.9552919864654541},
-      {'id': '2', 'score': 0.002100616693496704},
-      {'id': '3', 'score': 0.7456425428390503},
-      {'id': '4', 'score': 0.334433376789093}],
+    {'documents': [{'id': '1', 'score': 0.7673527002334595},
+                   {'id': '2', 'score': 0.18574094772338867},
+                   {'id': '3', 'score': 0.5}],
      'errors': []}
-
 
 
 The sentiment score for a document is between $0$ and $1$, with a higher score indicating a more positive sentiment.
@@ -184,39 +168,22 @@ The service endpoint for the key-phrase extraction service is accessed via the f
 
 ```python
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
-key_phrase_api_url
+print(key_phrase_api_url)
 ```
 
-
-
-
-    'https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases'
-
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
 
 The collection of documents is the same as what was used for sentiment analysis.
 
 
 ```python
-documents
+pprint(documents)
 ```
 
-
-
-
-    {'documents': [{'id': '1',
-       'language': 'en',
-       'text': 'I had a wonderful experience! The rooms were wonderful and the staff was helpful.'},
-      {'id': '2',
-       'language': 'en',
-       'text': 'I had a terrible time at the hotel. The staff was rude and the food was awful.'},
-      {'id': '3',
-       'language': 'es',
-       'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},
-      {'id': '4',
-       'language': 'es',
-       'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}]}
-
+    {'documents': [{'id': '1', 'text': 'This is a document written in English.'},
+                   {'id': '2', 'text': 'Este es un document escrito en Español.'},
+                   {'id': '3', 'text': '这是一个用中文写的文件'}]}
 
 
 
@@ -224,19 +191,14 @@ documents
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
 key_phrases = response.json()
-key_phrases
+pprint(key_phrases)
 ```
 
-
-
-
-    {'documents': [{'id': '1',
-       'keyPhrases': ['wonderful experience', 'staff', 'rooms']},
-      {'id': '2', 'keyPhrases': ['food', 'terrible time', 'hotel', 'staff']},
-      {'id': '3', 'keyPhrases': ['Monte Rainier', 'caminos']},
-      {'id': '4', 'keyPhrases': ['carretera', 'tráfico', 'día']}],
+    {'documents': [{'id': '1', 'keyPhrases': ['document', 'English']},
+                   {'id': '2',
+                    'keyPhrases': ['Este es', 'document escrito en Español']},
+                   {'id': '3', 'keyPhrases': ['这是一个用中文写的文件']}],
      'errors': []}
-
 
 
 The JSON object can once again be rendered as an HTML table using the following lines of code:
