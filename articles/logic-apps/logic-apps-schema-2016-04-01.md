@@ -20,7 +20,7 @@ ms.author: LADocs; jehollan
 ---
 # Schema updates for Azure Logic Apps - June 1, 2016
 
-Th [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 
+The [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 
 and API version for Azure Logic Apps includes key improvements that make logic apps more reliable and easier to use:
 
 * [Scopes](#scopes) let you group or nest actions as a collection of actions.
