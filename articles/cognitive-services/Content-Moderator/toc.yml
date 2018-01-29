@@ -88,10 +88,12 @@
       href: Review-Tool-User-Guide/View-Dashboard.md
 - name: Tutorials
   items:
-  - name: Facebook content moderation
+  - name: Facebook image and text moderation
     href: facebook-post-moderation.md
-  - name: eCommerce catalog moderation
+  - name: eCommerce image moderation
     href: ecommerce-retail-catalog-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: API References
   items: 
   - name: All APIs  
