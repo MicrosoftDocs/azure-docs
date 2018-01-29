@@ -1,20 +1,20 @@
 #Web Search SDK quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing the results. 
+The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
 ##Application dependencies
 
-To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the following packages:
-> [!div class="checklist"]
->* Microsoft.Azure.CognitiveServices.Search.WebSearch
->* Microsoft.Rest.ClientRuntime
->* Microsoft.Rest.ClientRuntime.Azure
->* Newtonsoft.Json
+To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the Microsoft.Azure.CognitiveServices.Search.WebSearch package.
 
 ![[NuGet packages]](media/NuGetPkgs.png)
 
 ##Web Search client
+Add using directives:
+```
+using Microsoft.Azure.CognitiveServices.Search.WebSearch;
+using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
 
+```
 Create an instance of the `WebSearchAPI` client.
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
@@ -322,4 +322,4 @@ This query, "Lady Gaga", searches using `answerCount` and `promote` parameters t
 
 ##Next steps
 
-See the [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
