@@ -1,75 +1,34 @@
 ---
-title: 'Purchase an Azure subscription with an Office 365 account '
-description: This article explains how to purchase an Azure subscription with an Office 365 account.
-services: billing
-documentationcenter: 
-author: josefree
-manager: 
-editor: 
-tags: billing
-ms.assetid: 
-ms.service: billing
-ms.devlang: na
+title: Minimal-downtime migration to Azure Database for PostgreSQL | Microsoft Docs
+description: This article describes how to perform a minimal downtime migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
+services: postgresql
+author: HJToland3
+ms.author: jtoland
+manager: jhubbard
+editor: jasonwhowell
+ms.service: postgresql
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/07/2017
-ms.author: v-duji
-ms.custom: chiwen (ossa)
-ms.openlocfilehash: 74c5958e770f470744db02f3cc544f60c4591273
-ms.sourcegitcommit: 1116b291efe245acff6e8c3709c808e10f149463
-ms.translationtype: HT
-ms.contentlocale: en-US
-ms.lasthandoff: 01/04/2018
+ms.date: 01/04/2018
 ---
-# <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Purchase an Azure subscription through your Office 365 account
-If you have already purchased Office 365 products for China and you want to use the same account to manage Office 365 and Azure services, you can purchase an Azure subscription with the Office 365 account by doing the following:
 
-1. Go to the [Azure China website](https://www.azure.cn), sign in to the [Azure portal](https://portal.azure.cn) with your Office 365 account, select the account at the top right, and then select **View my accounts**.
+# Minimal-downtime migration to Azure Database for PostgreSQL
+You can migrate your existing PostgreSQL database to Azure Database for PostgreSQL by using Attunity Replicate for Microsoft Migrations. Attunity Replicate is a joint offering from Attunity and Microsoft. Along with Azure Database Migration Service, it is included at no additional cost to Microsoft customers. 
 
-   ![Azure China website](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-marketing-portal.png)
+Attunity Replicate helps minimize downtime during database migrations, and it keeps the source database operational throughout the process.
 
-   ![Azure China website](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-ibiza-portal.png)
+Attunity Replicate is a data replication tool that enables data sync between a variety of sources and targets. It propagates the schema-creation script and data associated with each database table. Attunity Replicate does not propagate any other artifacts (such as SP, triggers, functions, and so on) or convert, for example, the PL/SQL code that's hosted in such artifacts to T-SQL.
 
-2. Select **Subscriptions**, and then select **Create subscription**.  
+> [!NOTE]
+> Although Attunity Replicate supports a broad set of migration scenarios, it focuses on support for a specific subset of source/target pairs.
 
-   ![Create a subscription](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-ibiza-portal-new-subscription.png)
+An overview of the process for performing a minimal-downtime migration includes:
 
-    If you have not yet created a subscription, the system notifies you that "You have not provided any offers." Do not close this page. Instead, open a new window, go to the [Azure China website](https://www.azure.cn), and create a new subscription.
+* **Migrating the PostgreSQL source schema** to an Azure Database for PostgreSQL database by using the [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) command with the -n parameter, and then using the [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) command.
 
-   ![You have not provided any offers](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-screenshot.png)
- 
-3. In the [Azure China website](https://www.azure.cn), at the top right, select **I want to buy**.
+* **Setting up initial load and continuous data sync from the source database to the target database** by using Attunity Replicate for Microsoft Migrations. Doing so minimizes the time that the source database must be set as read-only as you prepare to switch your applications to the target PostgreSQL database on Azure.
 
-   ![The "I want to buy" link](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-pia.png)
-
-4. Select the application type, and then enter your phone number for authentication.
-
-   ![The application type option](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-pia-entrance.png)
- 
-5. Enter the real name verification details that correspond to the application type that you selected.
-
-    ![Application type](./media/billing-use-existing-office-365-account-azure-subscription/apply-types.png)   
-
-6. Verify your real name details online in real time.  
-    After your real name details have been verified, the system identifies your Office 365 account and takes you directly to the payment page. Please confirm the personal information, add a contact phone number, and save. 
-
-    ![Add personal information](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-purchase-contact.png)
-
-7. Confirm your personal information, add a contact phone number, and then select **Save**.
-
-8. Select the payment method and amount, and then select **Register**.
-
-    ![Payment page](./media/billing-use-existing-office-365-account-azure-subscription/azure-china-purchase-payment-info.png) 
-
-9. Complete the payment process for your payment method.  
-    After you have completed the payment process, you can sign in to the [Azure portal](https://portal.azure.cn) with your Office 365 account and begin managing your Azure subscription right away.
-
-
-## <a name="know-more"></a>Learn more
-- [Standard prepaid subscription details](https://www.azure.cn/zh-cn/offers/ms-mc-arz-33p/) (including payment methods and minimum payment amount rules)
-- [Telegraphic transfer details](billing-pay-for-subscription-via-wire-transfer.md)
-- [Use the Azure portal](https://school.azure.cn/courses/48) 
-
-## <a name="need-help-contact-support"></a>Contact support
-If you still need help to resolve your issue, contact [our support team](https://www.azure.cn/support/contact/).
+For more information about the Attunity Replicate for Microsoft Migrations offering, see the following resources:
+ - Go to the [Attunity Replicate for Microsoft Migrations](https://aka.ms/attunity-replicate) webpage.
+ - Download [Attunity Replicate for Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Go to the [Attunity Replicate Community](https://aka.ms/attunity-community/) for a Quick Start Guide, tutorials, and support.
+ - For step-by-step guidance on using Attunity Replicate to migrate from PostgreSQL to Azure Database for PostgreSQL, see the [Database Migration Guide](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).
