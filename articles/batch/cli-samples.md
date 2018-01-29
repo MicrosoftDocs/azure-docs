@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Batch | Microsoft Docs
-description: Azure CLI Samples for Batch service
+title: Azure CLI Examples - Batch | Microsoft Docs
+description: Azure CLI Examples for Batch service
 services: virtual-machines-linux
 documentationcenter: batch
 author: dlepow
@@ -11,22 +11,28 @@ tags:
 ms.assetid:
 ms.service: batch
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/07/2017
+ms.date: 01/29/2018
 ms.author: danlep
 ms.custom: mvc
 
 ---
-# Azure CLI samples for Batch
+# Azure CLI examples for Azure Batch
 
-The following table includes links to bash scripts built using the Azure CLI.
+The following table includes links to Azure CLI examples for Azure Batch.
 
 |  |  |
 |---|---|
-| [Create a Batch account](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account and associates it with a storage account. |
-| [Add an application](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
-| [Manage Batch pools](./scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing, and managing pools. |
+|**Create a Batch account**||
+| [Create a Batch account in Batch service mode](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account in the default mode and associates it with a storage account. |
+| [Create a Batch account in user subscription mode](./scripts/batch-cli-sample-create-user-subscription-account.md) | Creates a Batch account in user subscription mode. |
+|**Add an application**||
+| [Add an application to a Batch account](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
+|**Create and manage pools of compute nodes**||
+| [Create and manage a Linux pool](./scripts/batch-cli-sample-manage-linux-pool.md) | Demonstrates creating, resizing, and managing a Linux pool. |
+| [Create and manage a Windows pool](./scripts/batch-cli-sample-manage-windows-pool.md) | Demonstrates creating, resizing, and managing a Windows pool. |
+|**Run jobs and tasks**||
 | [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
 
