@@ -200,7 +200,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
  - Replica selection for stateful services.
  - Resolution retry conditions that allow you to specify the conditions for re-resolving a service location and resending a request.
 
-**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.  *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to "servicefabric".
+**policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.  *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to the value of the *service_fabric_backend_name* parameter.
     
 ```xml
 <policies>
@@ -248,7 +248,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-In *inbound_policy*, replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service. *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to "servicefabric".
+In *inbound_policy*, replace the *sf-service-instance-name* value with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service. *backend-id* references a backend resource, in this case the `Microsoft.ApiManagement/service/backends` resource defined in the *apim.json* template. *backend-id* can also reference another backend resource created using the API Management APIs. For this tutorial, set *backend-id* to the value of the *service_fabric_backend_name* parameter.
 
 ```xml
 <policies>
