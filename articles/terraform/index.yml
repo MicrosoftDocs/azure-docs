@@ -18,9 +18,9 @@ abstract:
   aside:
     image:
       alt: Terraform logo.
-      height: 80
       src: media/Terraform_VerticalLogo_FullColor.svg
-      width: 170  
+      height: 100
+    title: 
 sections:
 - title: Quickstarts
   items:
