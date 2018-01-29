@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/29/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -54,9 +54,8 @@ If you are going to use a CSP subscription, review the table below to identify w
 
 |Scenario|Domain and subscription options|
 |-----|-----|
-|You are a Direct or Indirect CSP Partner, and you will operate the Azure Stack|Use a CSL (Common Service Layer) subscription.|
-|You are a Direct or Indirect CSP Partner, and you will operate the Azure Stack|In Partner Center, create an Azure AD tenant with a descriptive name, for example <your organization>CSPAdmin, and an Azure CSP subscription associated with it.|
-|You are an Indirect CSP Reseller, and you will operate the Azure Stack|Ask your Indirect CSP Provider to create, using Partner Center, an Azure AD tenant for your organization, and an Azure CSP subscription associated with it.|
+|You are a **Direct CSP Partner** or an **Indirect CSP Provider**, and you will operate the Azure Stack|Use a CSL (Common Service Layer) subscription.<br>     or<br>Create an Azure AD tenant with a descriptive name in Partner Center. For example &lt;your organization>CSPAdmin with an Azure CSP subscription associated with it.|
+|You are an **Indirect CSP Reseller**, and you will operate the Azure Stack|Ask your Indirect CSP Provider to create an Azure AD tenant for your organization with an Azure CSP subscription associated with it using Partner Center.|
 
 ### Capacity based billing
 If you decide to use the capacity billing model, you must purchase an Azure Stack Capacity Plan SKU based on the capacity of your system. You will need to know the number of physical cores in your Azure Stack to purchase the correct quantity. 
