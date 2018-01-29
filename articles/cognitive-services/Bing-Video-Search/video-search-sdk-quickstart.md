@@ -1,17 +1,17 @@
 ---
-title: Image search SDK quickstart | Microsoft Docs
-description: Setup for image search SDK console application.
+title: Video search SDK quickstart | Microsoft Docs
+description: Setup for Video search SDK console application.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.technology: bing-video-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Web Search SDK quickstart
+#Video Search SDK quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
@@ -35,14 +35,14 @@ var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-
 VideoResults(client);
 
 ```
-Use the client to search with a query text:
+Use the client to search with a query text. Search videos for "Nasa CubeSat".
 ```
-var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
-Console.WriteLine("Search images for query \"canadian rockies\"");
+var imageResults = client.Images.SearchAsync(query: "Nasa CubeSat").Result;
+Console.WriteLine("Search images for query \"Nasa CubeSat\"");
 
 ```
-Search videos for "Nasa CubeSat", then verify number of results and print out id, name and url of first video result
 
+Parse the results, then verify number of results and print out id, name and url of first video result.
 ```
 if (videoResults == null)
 {
