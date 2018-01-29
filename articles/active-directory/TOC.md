@@ -176,14 +176,14 @@
 ##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-###[User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md)
-####[App integration tutorials](active-directory-saas-tutorial-list.md)
-####[Automate provisioning to SCIM-enabled apps](active-directory-scim-provisioning.md)
-####[Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md)
-####[Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-####[Use Scoping filters](active-directory-saas-scoping-filters.md)
-####[Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
-####[Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
+### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md)
+#### [App integration tutorials](active-directory-saas-tutorial-list.md)
+#### [Automate provisioning to SCIM-enabled apps](active-directory-scim-provisioning.md)
+#### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md)
+#### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Use scoping filters](active-directory-saas-scoping-filters.md)
+#### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
+#### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
 
 
 
