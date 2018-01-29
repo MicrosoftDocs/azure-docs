@@ -3,7 +3,7 @@ title: Transform data using U-SQL script - Azure | Microsoft Docs
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
+ms.date: 01/29/2018
+ms.author: abnarain
 
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
@@ -63,17 +63,17 @@ Use service principal authentication by specifying the following properties:
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -93,12 +93,12 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -121,7 +121,7 @@ The following table describes names and descriptions of properties that are spec
 | type                | For Data Lake Analytics U-SQL activity, the activity type is  **DataLakeAnalyticsU-SQL**. | Yes      |
 | linkedServiceName   | Linked Service to Azure Data Lake Analytics. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  |Yes       |
 | scriptPath          | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | Yes      |
-| scriptLinkedService | Linked service that links the storage that contains the script to the data factory | Yes      |
+| scriptLinkedService | Linked service that links the Azure Data Lake Store or Azure Storage that contains the script to the data factory | Yes      |
 | degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No       |
 | priority            | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No       |
 | parameters          | Parameters for the U-SQL script          | No       |
