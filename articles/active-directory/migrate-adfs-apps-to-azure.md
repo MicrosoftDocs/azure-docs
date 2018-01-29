@@ -125,7 +125,7 @@ Migrating SaaS apps from AD FS or another identity provider into Azure AD is a m
 The integration tutorials assume that you are doing a green field integration.  There are a few key concepts specific to migration you should know about as you plan, assess, configure and cutover your apps.  
 - While some apps can be migrated easily, apps with more complex requirements such as custom claims may require additional configuration in Azure AD and/or Azure AD Connect
 - In the most common scenarios, only the NameId claim and other common user identifier claims are required for an app; to determine if any additional claims are required, examine what claims you’re issuing from AD FS or your third party identity provider
-- Once you have determined that additional claim(s) are required, you’ll need to ensure they are available in AAD.  You need to check Azure AD Connect sync configuration to ensure a required attribute, for example samAccountName, is being sync’d to Azure AD
+- Once you have determined that additional claim(s) are required, you’ll need to ensure they are available in AAD.  You need to check Azure AD Connect sync configuration to ensure a required attribute, for example samAccountName, is being synched to Azure AD
 - Once the attributes are available in Azure AD, to add claim issuance rules in Azure AD to include those attributes as claims in issued tokens.  Done within the Single sign-on properties of the app in Azure AD.
 
 ### Assessing what can be migrated
@@ -152,7 +152,7 @@ In addition to custom claims and nameID elements, configurations that require ad
 - WS-Federation apps such as SharePoint apps that require SAML 1.1 version tokens must be configured manually using PowerShell
 
 #### Apps/Configurations not supported in Azure AD today
-Apps that require the following capabilities cannot be migrated today.  Please provide feedback in the comments section if you have apps that require these features.
+Apps that require the following capabilities cannot be migrated today.  Provide feedback in the comments section if you have apps that require these features.
 - Protocol Capabilities
     - Support for SAML Single Logout (SLO) of all signed in apps
     - Support for WS-Trust ActAs pattern
@@ -197,7 +197,7 @@ To verify access, the user should see said SaaS app in their [access panel](http
 ![](media/migrate-adfs-apps-to-azure/migrate8.png)
 
 ### Configuring the SaaS App
-The cutover process from on premises federation to Azure AD will depend on whether the SaaS app you are working with supports multiple Identity Providers (IdPs).  The following are some common questions regarding multiple IdP support:
+The cutover process from on premises federation to Azure AD depends on whether the SaaS app you are working with supports multiple Identity Providers (IdPs).  The following are some common questions regarding multiple IdP support:
 
     **Q: What does it mean for an app to support multiple IdPs?**
     
