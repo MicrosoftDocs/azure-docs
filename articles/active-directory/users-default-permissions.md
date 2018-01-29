@@ -1,5 +1,4 @@
 ---
-
 title: Compare default user permissions in Azure Active Directory | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
@@ -13,10 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-
 ---
 
 # Default user permissions in Azure Active Directory
@@ -66,7 +64,7 @@ Ability to read other users | For more information, see [Apps, permissions, and 
 ### Application registration owner permissions
 When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own. To assign an application registration owner, see [Azure Active Directory app registration](active-directory-app-registration.md).
 
-### Enterprise application owner permissions
+<!-- ### Enterprise application owner permissions
 
 When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
 
