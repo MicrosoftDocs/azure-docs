@@ -74,6 +74,10 @@ In this tutorial, you learn how to:
 > * Add a new device type to the dashboard
 > * Send custom telemetry from an existing device type
 
+The following video shows a walkthrough of connecting simulated and real devices to the remote monitoring solution:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
+
 ## Prerequisites
 
 To follow this tutorial, you need:
