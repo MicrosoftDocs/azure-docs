@@ -35,14 +35,14 @@ var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-
 VideoResults(client);
 
 ```
-Use the client to search with a query text. Search videos for "Nasa CubeSat".
+Use the client to search with a query text "NASA CubeSat" for videos.
 ```
-var imageResults = client.Images.SearchAsync(query: "Nasa CubeSat").Result;
-Console.WriteLine("Search images for query \"Nasa CubeSat\"");
+var imageResults = client.Images.SearchAsync(query: "NASA CubeSat").Result;
+Console.WriteLine("Search images for query \"NASA CubeSat\"");
 
 ```
 
-Parse the results, then verify number of results and print out id, name and url of first video result.
+Parse the results, then verify number of results and print out ID, name and url of first video result.
 ```
 if (videoResults == null)
 {
@@ -87,8 +87,8 @@ namespace VideoSrchSDK
 
             try
             {
-                var videoResults = client.Videos.SearchAsync(query: "Nasa CubeSat").Result;
-                Console.WriteLine("Search videos for query \"Nasa CubeSat\"");
+                var videoResults = client.Videos.SearchAsync(query: "NASA CubeSat").Result;
+                Console.WriteLine("Search videos for query \"NASA CubeSat\"");
 
                 if (videoResults == null)
                 {
@@ -130,7 +130,7 @@ namespace VideoSrchSDK
 
 ```
 ##URL parameters
-        Search videos for "Interstellar Trailer" that is without charges, short, and 1080p resolution, then verify number of results and print out id, name and url of first video result.
+        Search videos for "Interstellar Trailer" that is without charges, short, and 1080p resolution.  Verify the number of results, and print out ID, name and url of first video result.
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
         {
@@ -246,7 +246,7 @@ Search for trending videos then verify banner tiles and categories.
 
 ```
 ##Details
-Search videos for "Interstellar Trailer", and then search for detail information of the first video.
+Search videos for "Interstellar Trailer", and then search for detailed information of the first video.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
