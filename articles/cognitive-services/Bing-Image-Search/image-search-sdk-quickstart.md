@@ -80,7 +80,7 @@ namespace ImageSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("19aa718a79d6444daaa415981d9f54ad"));
+            var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
             ImageResults(client);
             ImageDetail(client);
             ImageTrending(client);
