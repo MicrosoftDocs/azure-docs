@@ -47,6 +47,8 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Storage Queue|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL Resource Provider|sqlrpvm.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL Resource Provider|mysqlrpvm.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## Ports and URLs (outbound)
 
