@@ -23,7 +23,11 @@
   - name: First query in Ruby
     href: quickstarts/ruby.md
 - name: SDK (preview)
-  href: sdk.md
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Bing web search SDK tutorial
+    href: web-search-sdk-quickstart.md  
 - name: How To Guides
   items:
   - name: Use and display results

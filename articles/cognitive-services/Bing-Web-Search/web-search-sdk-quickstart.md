@@ -9,11 +9,10 @@ To set up a console application using the Bing Web Search SDK, browse to the `Ma
 >* Microsoft.Rest.ClientRuntime.Azure
 >* Newtonsoft.Json
 
-The view should look like this:
 ![[NuGet packages]](media/NuGetPkgs.png)
 
 ##Web Search client
-Create an instance of the `WebSearchAPI`.
+Create an instance of the `WebSearchAPI` client.
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
