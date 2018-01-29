@@ -35,7 +35,10 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, refer to the [Event Grid overview](../../event-grid/overview.md) page to see the current list of supported locations. This example uses **westus2** and stores the selection in a variable for use throughout.
+> [!NOTE]
+> Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does.
+
+This example uses **westus2** and stores the selection in a variable for use throughout.
 
 ```powershell
 $location = "westus2"
