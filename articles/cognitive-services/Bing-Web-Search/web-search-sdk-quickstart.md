@@ -1,7 +1,9 @@
 #Web Search SDK quickstart
-The Bing Web Search SDK contains the functionality of the REST API without the complexity of writing web requests and parsing results. 
+
+The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing the results. 
 
 ##Application dependencies
+
 To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the following packages:
 > [!div class="checklist"]
 >* Microsoft.Azure.CognitiveServices.Search.WebSearch
@@ -12,6 +14,7 @@ To set up a console application using the Bing Web Search SDK, browse to the `Ma
 ![[NuGet packages]](media/NuGetPkgs.png)
 
 ##Web Search client
+
 Create an instance of the `WebSearchAPI` client.
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
@@ -52,6 +55,7 @@ else
 
 ```
 ##Complete console application
+
 The previous code runs in the following console application:
 ```
 using System;
@@ -182,8 +186,11 @@ namespace WebSrchSDK
 
 ```
 ##Search options
-The Web Search SDK samples contain code that demonstrate various features.
+
+The Web Search SDK samples contain code that demonstrates various features.
+
 ###Count and offset parameters
+
 The following segment searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of first result.
 
 ```
@@ -223,7 +230,8 @@ The following segment searches for "Best restaurants in Seattle", verifies the n
 
 ```
 ###Response filter
-This will search on `Microsoft` with response filters to news and print details of news.
+
+This query searches on `Microsoft` with response filter set to `news` and prints details of results.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -266,7 +274,8 @@ This will search on `Microsoft` with response filters to news and print details 
 
 ```
 ###Count, promotion, safe search query parameters
-This will search on `Lady Gaga` with answerCount and promote parameters and print details of answers.
+
+This query searches on `Lady Gaga` with `answerCount` and `promote` parameters then prints details of results.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
