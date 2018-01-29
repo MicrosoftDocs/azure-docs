@@ -28,7 +28,9 @@ In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell
 > * Create a VM running SQL Server
 > * Install the SQL Server extension
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a IIS VM 
 
