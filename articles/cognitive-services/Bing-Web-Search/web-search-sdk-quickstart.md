@@ -9,13 +9,13 @@ To set up a console application using the Bing Web Search SDK, browse to the `Ma
 ![[NuGet packages]](media/NuGetPkgs.png)
 
 ##Web Search client
-Add using directives:
+To create an instance of the `WebSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
 
 ```
-Create an instance of the `WebSearchAPI` client.
+Then, instantiate the client:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
