@@ -57,6 +57,11 @@ Additional details:
 * Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
 * Applications can request multiple change feeds simultaneously on the same collection.
+* ChangeFeedOptions.StartTime can be used to provide initial starting point, i.e. find continuation token corresponding to given clock time. 
+ContinuationToken, if specified, wins over StartTime and StartFromBeginning.
+Note: the precision of ChangeFeedOptions.StartTime is ~5 secs. 
+
+
 
 ## Use cases and scenarios
 
