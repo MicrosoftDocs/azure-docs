@@ -1,6 +1,6 @@
 ---
 
-title: 'Tutorial: Configuring Asana for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Asana for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Asana.
 services: active-directory
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
 
 ---
 
-# Tutorial: Configuring Asana for Automatic User Provisioning
+# Tutorial: Configure Asana for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Asana and Azure AD to automatically provision and de-provision user accounts from Azure AD to Asana.
 
