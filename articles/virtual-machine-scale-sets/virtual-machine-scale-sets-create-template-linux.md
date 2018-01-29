@@ -21,7 +21,7 @@ ms.author: iainfou
 ---
 
 # Quickstart: Create a Linux Virtual Machine Scale Set with an Azure template
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this quickstart, you create a Linux virtual machine scale set with an Azure Resource Manager template.
+AA virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -92,8 +92,8 @@ To create a scale with a template, you define the appropriate resources. The cor
  To keep the sample short, the virtual network interface card (NIC) configuration is not shown. Additional components, such as a load balancer, are also not shown. A complete scale set template is shown [at the end of this article](#deploy-the-template).
 
 
-## Install an application
-When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
+## Add a sample application
+To test your scale set, install a basic web application. When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
 
 - Extension type
 - Extension publisher
@@ -149,8 +149,8 @@ az group deployment create \
 Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting resources to be created.
 
 
-## Test your sample application
-To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
+## Test your scale set
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
