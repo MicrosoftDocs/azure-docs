@@ -52,7 +52,7 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 |Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|Onboarding state check - Read workspace      | Read on workspace         | That workspace         |
+|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | That workspace         |
 |Onboarding state check - Read linked workspace property of accoun     | Read linked workspace property         |  That account        |
 |Onboarding state check - Read solution      | Read on solution          | That solution         |
 |Onboarding state check - Read VM      | Read on VM         | That VM         |
