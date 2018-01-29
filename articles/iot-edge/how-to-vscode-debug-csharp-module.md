@@ -26,7 +26,7 @@ After you finish the preceding tutorial, you should have the following items rea
 - A local Docker registry running on your development machine. This is for prototyping and testing purposes.
 - The `Program.cs` file, with the latest filter module code.
 - An updated `deployment.json` file for your sensor and filter modules.
-- An IoT Edge runtime environment on your development machine.
+- An IoT Edge runtime that runs on your development machine.
 
 ## Build your IoT Edge module for debugging
 1. To start debugging, use **dockerfile.debug** to rebuild your Docker image and deploy your IoT Edge solution again. In Visual Studio Code Explorer, select the Docker folder to open it. Then select the **linux-x64** folder, right-click **Dockerfile.debug**, and select **Build IoT Edge module Docker image**.
