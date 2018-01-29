@@ -72,7 +72,7 @@ The Azure Functions extension is used to create, test, and deploy functions to A
 
 The Azure Functions extension for VS Code is in preview. To learn more, see [Azure Functions extension for Visual Studio Code].
 
-## Create a function app project
+## Create an Azure Functions project
 
 The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
 
