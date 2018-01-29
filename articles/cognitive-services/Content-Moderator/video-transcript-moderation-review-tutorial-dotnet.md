@@ -36,7 +36,7 @@ Before we dig deep into the application source code, let's take a look at the sa
 
 1. Sign up for the [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) web site and [create custom tags](Review-Tool-User-Guide/tags.md) that the C# console application will assign from within the code. The following screen shows the custom tags.
 
-  ![Video moderation custom tags](images/video-tutorial-custom-tags.PNG)
+  ![Video moderation custom tags](images/video-tutorial-custom-tags.png)
 
 1. To run the sample application, you need an Azure account and an Azure Media Services account. Additionally, you need access to the Content Moderator private preview. Finally, you need Azure Active Directory authentication credentials. For details on obtaining this information, see [the Video Moderation API quickstart](video-moderation-api.md).
 
