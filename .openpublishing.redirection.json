@@ -16525,7 +16525,7 @@
             "redirect_document_id": false
     },
 	{
-            "source_path": "articles/batch/scripts/batch-cli-sample-manage-pool.md ",
+            "source_path": "articles/batch/scripts/batch-cli-sample-manage-pool.md",
             "redirect_url": "/azure/batch/scripts/batch-cli-sample-manage-windows-pool",
             "redirect_document_id": false
     },
