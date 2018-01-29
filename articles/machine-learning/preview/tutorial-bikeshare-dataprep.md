@@ -93,7 +93,7 @@ You can use blob storage to host your data files.
 1. Launch the **Azure Machine Learning Workbench** from your start menu or launcher.
 
 2. Create a new Azure Machine Learning project.  Click the **+** button on the **Projects** page, or **File** > **New**.
-   - Use the **Blank Project** template.
+   - Use the **Bike Share** template.
    - Name your project **BikeShare**. 
 
 ## <a id="newdatasource"></a>Create a new data source
