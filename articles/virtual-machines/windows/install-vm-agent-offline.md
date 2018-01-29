@@ -68,10 +68,10 @@ The VM agent provides useful features likes local administrator password reset, 
 
         ![The image about export registry keys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit these three registry files by changing the SYSTEM to BROKENSYSTEM and save the files.
+    2. Edit these three registry files, change the SYSTEM to BROKENSYSTEM, and then save the files.
         ![The image about change registry keys](./media/install-vm-agent-offline/change-reg.png)
     3. Import the registry files by double-clicking the files.
-    4. Browse into the registry, make sure that the following keys are imported into the BROKENSYSTEM hive successfully: WindowsAzureGuestAgent, WindowsAzureTelemetryService and RdAgent.
+    4. Make sure that the following keys are imported into the BROKENSYSTEM hive successfully: WindowsAzureGuestAgent, WindowsAzureTelemetryService and RdAgent.
 
 9.  Copy the VM agent folder from C:\windowsazure\packages to the &lt;OS disk you attached&gt;:\windowsazure\packages.
     ![The image about copy files](./media/install-vm-agent-offline/copy-package.png)
@@ -97,7 +97,7 @@ The VM agent provides useful features likes local administrator password reset, 
         Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
         GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
 
-# Next steps
+## Next steps
 
 - [Azure Virtual Machine Agent overview](agent-user-guide.md)
 - [Virtual machine extensions and features for Windows](extensions-features.md)
