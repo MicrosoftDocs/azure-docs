@@ -5,7 +5,7 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/29/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords:
@@ -42,11 +42,13 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Certificate revocation list|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
-|Key Vault (user)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Key Vault (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (user)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Storage Queue|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Table|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL Resource Provider|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## Ports and URLs (outbound)
 
