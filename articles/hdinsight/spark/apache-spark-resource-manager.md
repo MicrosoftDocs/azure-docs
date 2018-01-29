@@ -73,7 +73,7 @@ The three key parameters that can be used for Spark configuration depending on a
 The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
 
 ### Change the parameters using Ambari UI
-1. From the Ambari UI click **Spark**, click **Contigs**, and then expand **Custom spark-defaults**.
+1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
     ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. The default values are good to have four Spark applications run concurrently on the cluster. You can change these values from the user interface, as shown in the following screenshot:
