@@ -40,6 +40,23 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 > [!NOTE]
 > You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.
 
+|**Action**  |**Permission**  |**Minimum scope**  |
+|---------|---------|---------|
+|Write new deployment      | Microsoft.Resources/deployments/*          |Subscription          |
+|Write new resource group      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Create new default Workspace      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|Create new Account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
+|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read </br>Automation ccount        |
+|Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
+|Create MMA extension      | Microsoft.Compute/virtualMachines/write         | That VM         |
+|Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
+|Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
+|Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
+|Onboarding state check - Read workspace      | Read on workspace         | That workspace         |
+|Onboarding state check - Read linked workspace property of accoun     | Read linked workspace property         |  That account        |
+|Onboarding state check - Read solution      | Read on solution          | That solution         |
+|Onboarding state check - Read VM      | Read on VM         | That VM         |
+|Onboarding state check - Read account      | Read on account         | That account         |
 
 
 |Action  |Description  |Minimum Scope  |
@@ -47,8 +64,8 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 |Microsoft.Resources/deployments/*     | Create and manage resource group deployments        | Subscription         |
 |Microsoft.Resources/subscriptions/resourceGroups/write     | Write roles and role assignments        | Subscription        |
 |Microsoft.OperationalInsights/workspaces/write     | Create a new default Workspace          | Resource group        |
-|Row4     |         |         |
-|Row5     |         |         |
+|Microsoft.Automation/automationAccounts/write     | Write access on automation accounts        | Resource group        |
+|Row5     | Link workspace and account         |         |
 |Row6     |         |         |
 |Row7     |         |         |
 |Row8     |         |         |
@@ -264,23 +281,7 @@ Onboarding a virtual machine for update management or change and inventory contr
 
 The following table shows the permissions needed when onboarding a virtual machine from the virtual machine.
 
-|**Action**  |**Permission**  |**Minimum scope**  |
-|---------|---------|---------|
-|Write new deployment      | Write on deployments         |That subscription          |
-|Write new resource group      | Write on resource groups         | That subscription          |
-|Create new default Workspace      | Write on workspaces         | That resource group         |
-|Create new Account      |  Write on accounts        |That resource group         |
-|Link workspace and account      |Write on workspace</br>Read on account          | That workspace</br>That account         |
-|Create solution      | Write on solutions         |That resource group          |
-|Create MMA extension      | Write on the VM         | That VM         |
-|Create saved search      | Write on workspace         | That workspace         |
-|Create scope config      | Write on workspace         | That workspace         |
-|Link solution to scope config      | Write on solution         | That solution         |
-|Onboarding state check - Read workspace      | Read on workspace         | That workspace         |
-|Onboarding state check - Read linked workspace property of accoun     | Read linked workspace property         |  That account        |
-|Onboarding state check - Read solution      | Read on solution          | That solution         |
-|Onboarding state check - Read VM      | Read on VM         | That VM         |
-|Onboarding state check - Read account      | Read on account         | That account         |
+
 
 ### Automation account
 
