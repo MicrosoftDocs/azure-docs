@@ -56,7 +56,7 @@ else
 ```
 ##Complete console application
 
-The following console application executes the previously defined query:
+The following console application executes the previously defined query and parses web pages, images, news, and videos contained in the results:
 ```
 using System;
 using System.Collections.Generic;
@@ -187,11 +187,11 @@ namespace WebSrchSDK
 ```
 ##Search options
 
-The Web Search SDK samples demonstrate various features.
+The Bing search samples demonstrate various features of the SDK.
 
 ###Count and offset parameters
 
-The following code searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of first result.
+The following code searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of the first result.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -231,7 +231,7 @@ The following code searches for "Best restaurants in Seattle", verifies the numb
 ```
 ###Response filter
 
-The following query searches on "Microsoft" with response filter set to `news` and then prints details of the results.
+The following query searches on the term "Microsoft" using a response filter set to `news` and then prints details of the results.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -273,9 +273,9 @@ The following query searches on "Microsoft" with response filter set to `news` a
         }
 
 ```
-###Count, promotion, safe search query parameters
+###Query parameters - count, promotion, safe search
 
-This query searches on "Lady Gaga" using `answerCount` and `promote` parameters then prints details of the results.
+This query, "Lady Gaga", searches using `answerCount` and `promote` parameters then prints details of the results.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
