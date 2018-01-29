@@ -68,7 +68,7 @@ Make note of the **Application Client ID**. The ID uniquely identifies the app a
 
 ### Create a client password
 
-Azure AD B2C uses [OAuth2 authorization for client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). [Web apps are confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client id and client secret are used when the web app [authenticates with Azure Active Directory](../active-directory/develop/active-directory-dev-glossary.md#authorization-server). 
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client id and client secret are used when the web app [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authorization-server) with Azure Active Directory. 
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
@@ -90,7 +90,7 @@ An Azure AD B2C policy defines user workflows. For example, signing in, signing 
 
     | Setting      | Sample value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | `b2c_1_SiUpIn` | Enter a **Name** for the policy. `b2c_1_SiUpIn` is policy name used in the sample code. | 
+    | **Name** | `SiUpIn` | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name `b2c_1_SiUpIn` in the sample code. | 
     | **Identity provider** | `email signup` | This is the identity provider used to uniquely identify the user. |
     | **Sign up attributes** | `Display Name` and `Postal Code` | Select attributes to be collected from the user during signup. |
     | **Application claims** | `Display Name`, `Postal Code`, `User is new`, `User's Object ID` | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
