@@ -121,11 +121,11 @@ The following table describes names and descriptions of properties that are spec
 | type                | For Data Lake Analytics U-SQL activity, the activity type is  **DataLakeAnalyticsU-SQL**. | Yes      |
 | linkedServiceName   | Linked Service to Azure Data Lake Analytics. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  |Yes       |
 | scriptPath          | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | Yes      |
-| scriptLinkedService | Linked service that links the Azure Data Lake Store or Azure Storage that contains the script to the data factory | Yes      |
+| scriptLinkedService | Linked service that links the **Azure Data Lake Store** or **Azure Storage** that contains the script to the data factory | Yes      |
 | degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No       |
 | priority            | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No       |
-| parameters          | Parameters for the U-SQL script          | No       |
-| runtimeVersion      | Runtime version of the U-SQL engine to use | No       |
+| parameters          | Parameters to pass into the U-SQL script.    | No       |
+| runtimeVersion      | Runtime version of the U-SQL engine to use. | No       |
 | compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values: **Semantic:** Only perform semantic checks and necessary sanity checks, **Full:** Perform the full compilation, including syntax check, optimization, code generation, etc., **SingleBox:** Perform the full compilation, with TargetType setting to SingleBox. If you don't specify a value for this property, the server determines the optimal compilation mode. | No |
 
 Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
@@ -177,12 +177,12 @@ It is possible to use dynamic parameters instead. For example:
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the slice start time.  
+In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the window start time being passed in when pipeline gets triggered.  
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
