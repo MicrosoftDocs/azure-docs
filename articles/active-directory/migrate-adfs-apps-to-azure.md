@@ -60,7 +60,7 @@ Most apps fit into one of a few categories based on the type of sign-on they use
 In short, SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery, or as non-gallery applications.  Apps that use OAuth 2.0 or OpenID Connect can be integrated with Azure AD similarly as “app registrations”.  Read on for more details.
 
 ### Federated SaaS apps vs custom LoB apps
-Federated apps include apps that fall into the categories listed below.
+Federated apps include apps that fall into the categories listed.
 
 - SaaS apps 
     - If your users sign-on to SaaS apps such as Salesforce, ServiceNow, or Workday, and you are integrating to an on premises identity provider such as AD FS or Ping, you are using federated sign-on for SaaS apps.
@@ -72,19 +72,19 @@ Federated apps include apps that fall into the categories listed below.
     - Custom apps that use Oauth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as App registrations, and custom apps that use SAML 2.0 or WS-Federation can be integrated as non-gallery applications within Enterprise applications
 
 ### Non-federated apps
-Additionally, non-federated apps can be integrated with Azure AD using the Azure AD Application Proxy and related capabilities.  For more information on the capabilities, follow the links below:
+Additionally, non-federated apps can be integrated with Azure AD using the Azure AD Application Proxy and related capabilities.  For more information on the capabilities, follow the links:
 - Apps that use Windows Integrated Auth (WIA) directly to Active Directory
     - These apps can be integrated to Azure AD via the [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)
 - Apps that integrate with your single sign-on provider via an agent and use headers for authorization
     - On premises apps that use an installed agent for sign-on and header-based authorization can be configured for Azure AD based sign-on using the Azure AD Application Proxy with [Ping Access for AzureAD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/)
 
 ## Translating on premises federated apps to Azure AD 
-Fortunately, AD FS and Azure AD work similarly, so the concepts of configuring trust, sign-on and sign out URLs and identifiers apply in both cases.  However, there are some small differences that you need to understand as you make the transition.
+Fortunately, AD FS and Azure AD work similarly, so the concepts of configuring trust, sign-on and sign out URLs and identifiers apply in both cases.  However, there are some small differences that need to be understood as you make the transition.
 
-In the table below, we’ve mapped several key ideas shared by AD FS, Azure AD, and SaaS apps to help you translate. 
+In the table, we’ve mapped several key ideas shared by AD FS, Azure AD, and SaaS apps to help you translate. 
 
 ### Representing the App in Azure AD or AD FS
-Migration starts with assessing how the application is configured on premises and mapping that configuration to Azure AD.  Below is a mapping of AD FS relying party configuration elements to the corresponding elements in Azure AD.  
+Migration starts with assessing how the application is configured on premises and mapping that configuration to Azure AD.  The following is a mapping of AD FS relying party configuration elements to the corresponding elements in Azure AD.  
 - AD FS term: Relying Party or Relying Party Trust
 - Azure AD term: Enterprise application or App registration (depending on the type of app)
 
@@ -99,9 +99,9 @@ Migration starts with assessing how the application is configured on premises an
 |Other Claims to be sent to the app|In addition to the User Identifier / NameID, other claim information is commonly sent from the IDP to the app, for example first name, last name, email address, and groups the user is a member of|In AD FS, this is found as other claim rules on the relying party.|In Azure AD, found within the Azure portal in the application’s Single sign-on Properties under the header User attributes, click View and edit all other user attributes.||	
 
 ### Representing Azure AD as an Identity Provider (IdP) in a SaaS App
-As part of migration you’ll need to configure the app to point to Azure AD (vs the on premises identity provider).  This section focuses primarily on SaaS apps that use SAML protocol and not on custom/LOB apps. However, a lot of the concepts described below would extend to custom/LOB apps. 
+As part of migration, the app needs to be configure to point to Azure AD (vs the on premises identity provider).  This section focuses primarily on SaaS apps that use SAML protocol and not on custom/LOB apps. However, the concepts described would extend to custom/LOB apps. 
 
-At a high level, there are a few key things you need to point a SaaS app to Azure AD
+At a high level, there are a few key things to point a SaaS app to Azure AD
 - Identity Provider Issuer:  https&#58;//sts.windows.net/{tenant-id}/
 - Identity Provider Login URL: https&#58;//login.microsoftonline.com/{tenant-id}/saml2
 - Identity Provider Logout URL: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 
@@ -109,27 +109,27 @@ At a high level, there are a few key things you need to point a SaaS app to Azur
 
 where {tenant-id} is replaced with your tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”, and {application-id} is replaced with your application’s ID found under the application’s Properties as “Application ID”
 
-The table below describes in more detail the key IdP configuration elements you need to configure SSO settings in the app and their values or locations within AD FS and Azure AD.  The table's frame of reference is the SaaS app, which needs to know where to send authentication requests and how to validate the tokens received.
+The table describes in more detail the key IdP configuration elements to configure SSO settings in the app and their values or locations within AD FS and Azure AD.  The table's frame of reference is the SaaS app, which needs to know where to send authentication requests and how to validate the tokens received.
 
 |Configuration element|Description|AD FS|Azure AD|
 |---|---|---|---|
-|IdP </br>sign-on </br>URL|sign-on URL of the IdP from the app’s perspective (where the user is redirected for login).|The AD FS sign-on URL is the AD FS federation service name followed by “/adfs/ls/”, for example: https&#58;//fs.contoso.com/adfs/ls/|The corresponding value for Azure AD follows the pattern below, where {tenant-id} is replaced with your tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”.</br></br>For apps that use the SAML-P protocol: https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2 </br></br>For apps that use the WS-Federation protocol https&#58;//login.microsoftonline.com</br>/{tenant-id}/wsfed|
-|IdP </br>Sign Out </br>URL|Sign out URL of the IdP from the app’s perspective (where the user is redirected when they choose to “sign out” of the app).|For AD FS, the sign out URL is either the same as the sign-on URL, or the same url with “wa=wsignout1.0” appended, for example https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|The corresponding value for Azure AD depends upon whether the app is able to support SAML 2.0 sign-out.</br></br>If the app supports SAML sign out, the value follows the pattern below, where the value for {tenant-id} is replaced with the tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”. https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2</br></br>If the app does not support SAML sign out: https&#58;//login.microsoftonline.com</br>/common /wsfederation?wa=wsignout1.0|
-|Token </br>Signing </br>Certificate|Certificate whose private key the IDP uses to sign issued tokens.  Verifies that the token came from the same IDP the app is configured to trust.|The AD FS token signing certificate is found in AD FS Management under Certificates.|In Azure AD, the token signing certificate can be found within the Azure portal in the application’s Single sign-on Properties under the header SAML Signing Certificate, where you can download the certificate for upload to the app.</br></br>  If the application has more than one certificate, then all certificates can be found in the federation metadata xml file (see below).|
-|Identifier / </br>“Issuer”|Identifier of the IdP from the app’s perspective (sometimes called the “Issuer” or “Issuer ID”)</br></br>In the SAML token, the value appears as the “Issuer” element|The identifier for AD FS is usually the federation service identifier in AD FS Management under: Service -> Edit Federation Service Properties.  For example: http&#58;//fs.contoso.com/adfs/services/trust|The corresponding value for Azure AD follows the pattern below, where the value for {tenant-id} is replaced with the tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”.  https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>Federation </br>Metadata|Location of the IDP’s publicly available federation metadata.  (Federation metadata is used by some apps as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually)|Find the AD FS federation metadata URL in AD FS Management under Service -> Endpoints -> Metadata -> Type: Federation Metadata, for example: https&#58;//fs.contoso.com/ FederationMetadata/2007-06/</br>FederationMetadata.xml|The corresponding value for Azure AD follows the pattern below  https&#58;//login.microsoftonline.com</br>/{TenantDomainName}/FederationMetadata/2007-06/</br>FederationMetadata.xml where the value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com” </br></br>[More information](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata) about federation metadata in Azure AD.
+|IdP </br>sign-on </br>URL|sign-on URL of the IdP from the app’s perspective (where the user is redirected for login).|The AD FS sign-on URL is the AD FS federation service name followed by “/adfs/ls/”, for example: https&#58;//fs.contoso.com/adfs/ls/|The corresponding value for Azure AD follows the pattern, where {tenant-id} is replaced with your tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”.</br></br>For apps that use the SAML-P protocol: https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2 </br></br>For apps that use the WS-Federation protocol https&#58;//login.microsoftonline.com</br>/{tenant-id}/wsfed|
+|IdP </br>Sign Out </br>URL|Sign out URL of the IdP from the app’s perspective (where the user is redirected when they choose to “sign out” of the app).|For AD FS, the sign out URL is either the same as the sign-on URL, or the same url with “wa=wsignout1.0” appended, for example https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|The corresponding value for Azure AD depends upon whether the app is able to support SAML 2.0 sign-out.</br></br>If the app supports SAML sign out, the value follows the pattern, where the value for {tenant-id} is replaced with the tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”. https&#58;//login.microsoftonline.com</br>/{tenant-id}/saml2</br></br>If the app does not support SAML sign out: https&#58;//login.microsoftonline.com</br>/common /wsfederation?wa=wsignout1.0|
+|Token </br>Signing </br>Certificate|Certificate whose private key the IDP uses to sign issued tokens.  Verifies that the token came from the same IDP the app is configured to trust.|The AD FS token signing certificate is found in AD FS Management under Certificates.|In Azure AD, the token signing certificate can be found within the Azure portal in the application’s Single sign-on Properties under the header SAML Signing Certificate, where you can download the certificate for upload to the app.</br></br>  If the application has more than one certificate, then all certificates can be found in the federation metadata xml file.|
+|Identifier / </br>“Issuer”|Identifier of the IdP from the app’s perspective (sometimes called the “Issuer” or “Issuer ID”)</br></br>In the SAML token, the value appears as the “Issuer” element|The identifier for AD FS is usually the federation service identifier in AD FS Management under: Service -> Edit Federation Service Properties.  For example: http&#58;//fs.contoso.com/adfs/services/trust|The corresponding value for Azure AD follows the pattern, where the value for {tenant-id} is replaced with the tenant ID, found in the Azure portal under Azure Active Directory -> Properties as the “Directory ID”.  https&#58;//sts.windows.net/{tenant-id}/|
+|IdP </br>Federation </br>Metadata|Location of the IDP’s publicly available federation metadata.  (Federation metadata is used by some apps as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually)|Find the AD FS federation metadata URL in AD FS Management under Service -> Endpoints -> Metadata -> Type: Federation Metadata, for example: https&#58;//fs.contoso.com/ FederationMetadata/2007-06/</br>FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com</br>/{TenantDomainName}/FederationMetadata/2007-06/</br>FederationMetadata.xml where the value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com” </br></br>[More information](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata) about federation metadata in Azure AD.
 
 ## Migrating SaaS Apps
 Migrating SaaS apps from AD FS or another identity provider into Azure AD is a manual process today. For app-specific guidance, [see the list of tutorials on integrating SaaS apps found in the Gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-The integration tutorials at the above link assume that you are doing a green field integration.  There are a few key concepts specific to migration you should know about as you plan, assess, configure and cutover your apps.  
+The integration tutorials assume that you are doing a green field integration.  There are a few key concepts specific to migration you should know about as you plan, assess, configure and cutover your apps.  
 - While some apps can be migrated easily, apps with more complex requirements such as custom claims may require additional configuration in Azure AD and/or Azure AD Connect
 - In the most common scenarios, only the NameId claim and other common user identifier claims are required for an app; to determine if any additional claims are required, examine what claims you’re issuing from AD FS or your third party identity provider
-- Once you have determined that additional claim(s) are required, you’ll need to ensure they are available in AAD.  You need to check Azure AD Connect sync configuration to ensure a required attribute, for example samAccountName, is being sync’d to AAD
-- Once the attributes are available in AAD, you need to add claim issuance rules in AAD to include those attributes as claims in issued tokens.  Done within the Single sign-on properties of the app in Azure AD.
+- Once you have determined that additional claim(s) are required, you’ll need to ensure they are available in AAD.  You need to check Azure AD Connect sync configuration to ensure a required attribute, for example samAccountName, is being sync’d to Azure AD
+- Once the attributes are available in Azure AD, to add claim issuance rules in Azure AD to include those attributes as claims in issued tokens.  Done within the Single sign-on properties of the app in Azure AD.
 
 ### Assessing what can be migrated
-As mentioned above, SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery, or as non-gallery applications.  
+SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery, or as non-gallery applications.  
 
 There are some configurations that require additional steps to configure in Azure AD, and some that are not supported today.  To determine what can be moved, look at the current configuration of each of your apps, specifically the following:
 - Claim rules configured (issuance transform rules)
@@ -143,7 +143,7 @@ Apps that can be migrated easily today include SAML 2.0 apps that use the standa
 - email address
 - Given Name
 - Surname
-- Alternate attribute as SAML NameID, including the AAD mail attribute, mail prefix, employeeid, extension attributes 1 – 15, or on premises SamAccountName (see [Editing the NameIdentifier claim)](./develop/active-directory-saml-claims-customization.md)
+- Alternate attribute as SAML NameID, including the Azure AD mail attribute, mail prefix, employeeid, extension attributes 1 – 15, or on premises SamAccountName (see [Editing the NameIdentifier claim)](./develop/active-directory-saml-claims-customization.md)
 - Custom claims (see the document [here](active-directory-claims-mapping.md) and [here](./develop/active-directory-saml-claims-customization.md) for information about supported claims mappings)
 
 In addition to custom claims and nameID elements, configurations that require additional configuration steps in Azure AD as part of the migration are:
@@ -175,7 +175,7 @@ Apps that require the following capabilities cannot be migrated today.  Please p
 ### Configuring Azure AD    
 #### Configure Single sign-on (SSO) Settings for the SaaS app
 
-In AAD, configuring SAML sign-on as required by your app is done within the Single sign-on properties of the app under User attributes as shown below:
+In Azure AD, configuring SAML sign-on as required by your app is done within the Single sign-on properties of the app under User attributes as shown:
 
 ![](media/migrate-adfs-apps-to-azure/migrate3.png)
 **Fig Note:** Click on ‘View and edit all other user attribute’ to see the attributes to send as claims in the security token
@@ -192,7 +192,7 @@ To assign users in the Azure AD portal, navigate to the SaaS app’s  screen wit
 ![](media/migrate-adfs-apps-to-azure/migrate6.png) 
 
 ![](media/migrate-adfs-apps-to-azure/migrate7.png)
-To verify access, the user should see said SaaS app in their [access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they log in, which can be found at http://myapps.microsoft.com. For example, the user below has been successfully assigned access to both Salesforce and ServiceNow.
+To verify access, the user should see said SaaS app in their [access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they log in, which can be found at http://myapps.microsoft.com. For example, the user has been successfully assigned access to both Salesforce and ServiceNow.
 
 ![](media/migrate-adfs-apps-to-azure/migrate8.png)
 
