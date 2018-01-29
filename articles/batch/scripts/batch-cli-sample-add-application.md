@@ -19,12 +19,12 @@ ms.author: danlep
 
 # CLI example: Add an application to an Azure Batch account
 
-This script demonstrates how to set up an application for use with an Azure Batch
-pool or task. To set up an application, package your executable, together with any dependencies, into a zip file. Then, add the zip file to your Batch account. 
+This script demonstrates how to add an application for use with an Azure Batch
+pool or task. To set up an application to add to your Batch account, package your executable, together with any dependencies, into a zip file. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Example script
 

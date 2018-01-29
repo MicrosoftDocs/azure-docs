@@ -10,14 +10,14 @@ editor:
 ms.assetid:
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
 ---
 
-# CLI Example: Create and manage a Linux pool in Azure Batch
+# CLI example: Create and manage a Linux pool in Azure Batch
 
 These script demonstrates some of the commands available in the Azure CLI to create and
 manage a pool of Linux compute nodes in Azure Batch.
@@ -28,7 +28,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Example script
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Linux Virtual Machine Pool")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Linux Virtual Machine Pool")]
 
 ## Clean up deployment
 
