@@ -130,7 +130,7 @@ namespace VideoSrchSDK
 
 ```
 ##URL parameters
-        Search videos for "Interstellar Trailer" that is without charges, short, and 1080p resolution.  Verify the number of results, and print out ID, name and url of first video result.
+        Search videos for "Interstellar Trailer" that is without charges, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
         {
@@ -171,7 +171,7 @@ namespace VideoSrchSDK
 
 ```
 ##Trending videos
-Search for trending videos then verify banner tiles and categories.
+Search for trending videos, then verify banner tiles and categories.
 ```
         public static void VideoTrending(VideoSearchAPI client)
         {
