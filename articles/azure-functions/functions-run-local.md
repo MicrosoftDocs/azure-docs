@@ -213,7 +213,7 @@ When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-ob host started
+Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 

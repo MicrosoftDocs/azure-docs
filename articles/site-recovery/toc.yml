@@ -69,10 +69,12 @@
     href: concepts-hyper-v-to-secondary-architecture.md
   - name: Azure to Azure support matrix
     href: site-recovery-support-matrix-azure-to-azure.md
-  - name: On-premises to Azure support matrix
-    href: site-recovery-support-matrix-to-azure.md
+  - name: VMware to Azure support matrix
+    href: support-matrix-vmware-to-azure.md
   - name: Hyper-V to Azure support matrix
     href: support-matrix-hyper-v-to-azure.md
+  - name: On-premises to Azure support matrix
+    href: site-recovery-support-matrix-to-azure.md
   - name: On-premises to secondary site support matrix
     href: site-recovery-support-matrix-to-sec-site.md
   - name: Disaster recovery for workloads
@@ -121,6 +123,8 @@
       href: site-recovery-create-recovery-plans.md
     - name: Add Azure runbooks to recovery plans
       href: site-recovery-runbook-automation.md
+    - name: Add VMM scripts to recovery plans
+      href: site-recovery-how-to-add-vmmscript.md
     - name: Fail over
       items:
       - name: About failover
@@ -181,6 +185,8 @@
       items:
       - name: Source environment for VMware to Azure
         href: site-recovery-set-up-vmware-to-azure.md
+      - name: Deploy the configuration server for VMware and physical servers
+        href: how-to-deploy-configuration-server.md
       - name: Source environment for physical to Azure
         href: site-recovery-set-up-physical-to-azure.md
     - name: Set up the target environment
@@ -247,8 +253,6 @@
       href: site-recovery-workload.md#workload-summary
   - name: Manage
     items:
-    - name: Upgrade to a Recovery Services vault
-      href: upgrade-site-recovery-vaults.md
     - name: Manage process servers in Azure
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
     - name: Manage the configuration server
@@ -261,7 +265,7 @@
       href: site-recovery-manage-registration-and-protection.md
     - name: Delete a vault
       href: delete-vault.md
-  - name: Troubleshoot
+  - name: Monitor and Troubleshoot
     items:
     - name: Azure to Azure replication issues
       href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -271,8 +275,8 @@
       href: site-recovery-vmware-to-azure-push-install-error-codes.md
     - name: Failover to Azure issues
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Collect logs and troubleshoot on-premises issues
-      href: site-recovery-monitoring-and-troubleshooting.md
+    - name: Monitor Azure Site Recovery
+      href: site-recovery-monitor-and-troubleshoot.md
 - name: Reference
   items:
   - name: Azure PowerShell

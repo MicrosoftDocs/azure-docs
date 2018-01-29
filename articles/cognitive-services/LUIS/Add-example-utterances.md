@@ -1,5 +1,6 @@
 ---
 title: Add example utterances in LUIS apps | Microsoft Docs
+titleSuffix: Azure
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: v-geberr
@@ -8,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/18/2018
 ms.author: v-geberr
 ---
 
@@ -24,9 +25,7 @@ In the following example, use the "BookFlight" intent in the TravelAgent app.
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 
-2. On the **Intents** page, click the intent name "BookFlight" to open the details page, shown in the following image:
-
-    ![Intent Details page](./media/add-example-utterances/bookflight-intent-new.png) 
+2. On the **Intents** page, click the intent name "BookFlight" to open the details page.
 
 3. Type `book 2 adult business tickets to Paris tomorrow on Air France` as a new utterance in the text box, and then press Enter. 
  
@@ -41,7 +40,7 @@ Utterances are added to the utterances list for the current intent.
 
 To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance then select **Edit**. 
 
-![Edit Utterance](./media/add-example-utterances/delete-utterance.png) 
+![Edit Utterance](./media/add-example-utterances/edit-utterance.png) 
 
 ## Delete an utterance
 
@@ -111,7 +110,7 @@ In the following procedure, you create and label a composite entity named `Ticke
 
 `book me 2 adult business tickets to Paris tomorrow on Air France`
 
-The composite entity contains three child entities: number (of tickets), Seat, and Category. The Seat hierarchical category was created in [a previous section](#add-list-entity-and-label). Label the word "business" as a Seat category, if it is not already labeled. 
+The composite entity contains three child entities: number (of tickets), Seat, and Category. The Seat hierarchical category was created in [a previous section](#add-list-entity-and-label). Label the word "business" as a Seat category. 
 
 1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities do not need to be labeled. 
 
@@ -147,28 +146,42 @@ In order to remove your own custom entity label from an utterance, click the ent
 
 ![Remove Labeling](./media/add-example-utterances/remove-label.png) 
 
-## Intent prediction discrepancy
-An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. 
-
-![Intent prediction discrepancy](./media/add-example-utterances/score-discrepancy.png) 
-
-## Switch to token view
-Control-E switches between tokens and entities. 
+Custom list entities cannot be removed because they are predicted by LUIS.
 
 ## Search in utterances
 
-Searching allows you to find utterances that contain text (words/phrases). For example, sometimes you notice an error that involves a particular word, and may want to find all the examples including it. 
+Searching allows you to find utterances that contain text (words/phrases). For example, sometimes you notice an error that involves a particular word, and may want to find all the examples including that particular word. 
 
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. 
-
-For example, in the following image, only the utterances that contain the search word "fly" are displayed. 
-
-![Search in utterances](./media/add-example-utterances/search.png)
+Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. [Fuzzy search](#switch-from-fuzzy-search-to-prefix-search) is turned on by default.
 
 To cancel the search and restore your full list of utterances, delete the search text you've typed.
 
-## Fuzzy search
+## Filter by intent prediction discrepancy errors
+An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. Use the **Errors** checkbox to filter the utterance list to only utterances with an intent prediction discrepancy. 
+
+![Intent prediction discrepancy](./media/add-example-utterances/score-discrepancy.png) 
+
+## Filter by entity type
+Use the **Entity** drop-down list to filter the utterances by entity. The new filter is shown under **Filters**. To remove the filter, click on the blue filter box with that word or phrase.  
+
+![Entity type filter](./media/add-example-utterances/entity-type-filter.png) 
+
+## Switch to token view
+Toggle **Tokens View** to view the tokens instead of the entity type names. The keyboard command, control + e, also switches between tokens and entities. 
+
+![Token View](./media/add-example-utterances/tokens-view.png)
+
+## Switch from fuzzy search to prefix search
 Fuzzy search is the default search method. This search method is the ability to search for letters in order but not necessarily in consecutive order. For example, a fuzzy search of 'fy' returns all utterances such as 'fly' because the 'f' and the 'y' are in non-consecutive, left-to-right order. A non-fuzzy search does not return 'fly' because the letters are not in consecutive order. 
+
+|utterance (search for 'fl') |found in fuzzy search|found in prefix search|
+|--|--|--|
+|book a **fl**ight to seattle| ✔ | ✔ |
+|book a trip to **F**ort Worth from **L**os Angeles | ✔ | X |
+
+The following list of utterances uses fuzzy search:
+
+![Search in utterances](./media/add-example-utterances/fuzzy-search.png)
 
 ## Next steps
 

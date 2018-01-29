@@ -1,5 +1,5 @@
 ---
-title: Regular expressions in OMS Log Analytics log searches | Microsoft Docs
+title: Regular expressions in Azure Log Analytics log searches | Microsoft Docs
 description: You can use the RegEx keyword in Log Analytics log searches to the filter the results according to a regular expression.  This article provides the syntax for these expressions with several examples.
 services: log-analytics
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/18/2018
 ms.author: bwren
 
 ---
@@ -22,7 +22,7 @@ ms.author: bwren
 > This article describes regular expressions using the legacy query language in Log Analytics.  If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to [Regular expressions in the language documentation](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
 
 
-[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expressions) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
+[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics workspace.  [Filter expressions](log-analytics-search-reference.md#filter-expressions) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
 
 This article provides details on the regular expression syntax used by Log Analytics.
 
@@ -98,4 +98,4 @@ Convert special characters to literal characters.  This includes characters that
 
 ## Next Steps
 
-* Get familiar with [log searches](log-analytics-log-searches.md) to view and analyze data in the Log Analytics repository.
+* Get familiar with [log searches](log-analytics-log-searches.md) to view and analyze data in the Log Analytics workspace.

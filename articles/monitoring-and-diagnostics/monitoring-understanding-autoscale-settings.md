@@ -122,7 +122,7 @@ There are three types of Autoscale profiles:
 
 1. **Regular profile:** Most common profile. If you don’t need to scale your resource differently based on the day of the week, or on a particular day, then you only need to set up a regular profile in your Autoscale setting. This profile can then be configured with metric rules that dictate when to scale-out and when to scale-in. You should only have one regular profile defined.
 
-	The example profile used earlier in this article is an example of a regular profile. Do not it is also possible to set a profile to scale to a static instance count for your resource.
+	The example profile used earlier in this article is an example of a regular profile. Do note it is also possible to set a profile to scale to a static instance count for your resource.
 
 2. **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
 

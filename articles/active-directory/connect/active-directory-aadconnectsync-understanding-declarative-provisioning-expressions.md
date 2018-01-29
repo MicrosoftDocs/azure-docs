@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Declarative Provisioning Expressions | Microsoft Docs'
 description: Explains the declarative provisioning expressions.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
