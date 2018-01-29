@@ -1,3 +1,16 @@
+---
+title: Web search SDK quickstart | Microsoft Docs
+description: Setup for Web search SDK in console application.
+services: cognitive-services
+author: mikedodaro
+manager: rosh
+ms.service: cognitive-services
+ms.technology: bing-web-search
+ms.topic: article
+ms.date: 01/29/2018
+ms.author: v-gedod
+---
+
 #Web Search SDK quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. 
