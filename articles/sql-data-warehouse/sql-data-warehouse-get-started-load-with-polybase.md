@@ -3,7 +3,7 @@ title: PolyBase in SQL Data Warehouse Tutorial | Microsoft Docs
 description: Learn what PolyBase is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
-ms.author: cakarst;barbkess
+ms.author: barbkess
 
 
 ---

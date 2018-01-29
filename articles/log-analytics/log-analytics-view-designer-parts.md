@@ -1,6 +1,6 @@
 ---
-title: Part reference for View Designer in OMS Log Analytics | Microsoft Docs
-description: View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article provides a reference of the settings for each of the visualization parts available to use in your custom views.
+title: Part reference for View Designer in Azure Log Analytics | Microsoft Docs
+description: View Designer in Log Analytics allows you to create custom Views in the Azure portal that contain different visualizations of data in your Log Analytics workspace. This article provides a reference of the settings for each of the visualization parts available to use in your custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
 
 ---
 # Log Analytics View Designer visualization part reference
-The View Designer in Log Analytics allows you to create custom views in the OMS console that contain different visualizations of data from the OMS repository. This article provides a reference of the settings for each of the visualization parts available to use in your custom views.
+The View Designer in Log Analytics allows you to create custom views in the Azure portal that contain different visualizations of data from your Log Analytics workspace. This article provides a reference of the settings for each of the visualization parts available to use in your custom views.
 
 Other articles available for View Designer are:
 
@@ -26,7 +26,7 @@ Other articles available for View Designer are:
 * [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  Any views that were created before the workspace was upgraded will be automtically converted.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 The following table describes the different types of tiles available in the View Designer.  The sections below describe each tile type in detail and their properties.
 

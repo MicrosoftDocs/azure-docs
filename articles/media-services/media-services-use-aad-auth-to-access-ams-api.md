@@ -4,7 +4,7 @@ description: Learn about concepts and steps to take to use Azure Active Director
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.service: media-services

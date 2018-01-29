@@ -1,35 +1,34 @@
 ---
 
-title: Find activity reports in the Azure portal | Microsoft Docs
-description: Learn how to find Azure Active Directory activity reports in the Azure portal.
+title: Find Azure Active Directory user activity reports in Azure portal | Microsoft Docs
+description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: ''
 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 07/19/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk 
 
 ---
 # Find activity reports in the Azure portal
 
-If you are moving from the Azure classic portal to the Azure portal, you get a new look at Azure Active Directory (Azure AD) activity logs. In a recent [blog post](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we explain how you can see activity logs in the context of the resource you are working on in the Azure portal. In this article, we describe how to find reports that you used in the Azure classic portal in the Azure portal.
+In this article, we describe how to find Azure Active Directory user activity reports in the Azure portal.
 
 ## What's new
 
-Reports in the Azure classic portal are separated into categories:
-
-1.	Security reports
-2.	Activity reports
-3.	Integrated app reports
+Reports in the Azure classic portal were separated into categories:
+* Security reports
+* Activity reports
+* Integrated app reports
 
 ### Activity and integrated app reports
 
@@ -41,14 +40,14 @@ To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, s
 
 The following reports are consolidated in this view:
 
--	Audit report
-- 	Password reset activity
-- 	Password reset registration activity
-- 	Self-service groups activity
-- 	Office365 Group Name Changes
-- 	Account provisioning activity
-- 	Password rollover status
-- 	Account provisioning errors
+* Audit report
+* Password reset activity
+* Password reset registration activity
+* Self-service groups activity
+* Office365 Group Name Changes
+* Account provisioning activity
+* Password rollover status
+* Account provisioning errors
 
 
 The Application Usage report has been enhanced and is included in the **Sign-ins** view. To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, select **Sign-ins**.

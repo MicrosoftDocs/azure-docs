@@ -3,7 +3,7 @@ title: Find Next Hop with Azure Network Watcher Next Hop - REST | Microsoft Docs
 description: This article will describe how you can find what the next hop type is and ip address using Next Hop using the Azure REST API
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Find out what the next hop type is using the Next Hop capability in Aure Network Watcher using Azure REST API

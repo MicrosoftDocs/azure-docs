@@ -10,10 +10,10 @@ tags: ''
 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -34,9 +34,17 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 ### Solution
 
-Make sure that the client certificate is installed in the following location of the Certificates store (Certmgr.msc):
- 
-**Certificates - Current User\Personal\Certificates**
+To resolve this problem, follow these steps:
+
+1. Make sure that the following certificates are in the correct location:
+
+    | Certificate | Location |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Current User\Personal\Certificates |
+    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+
+2. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
@@ -251,3 +259,52 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 ### Solution
 
 To resolve the problem, delete the old VPN client configuration files from **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, and then run the VPN client installer again.
+
+## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
+
+### Symptom
+
+When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQND of the resources in your local domain.
+
+### Cause
+
+Point-to-site VPN client uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client, so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
+
+### Solution
+
+To resolve the problem, make sure that the Azure DNS servers that used on the Azure virtual network can resolve the DNS records for local resources. To do this, you can use DNS Forwarders or Conditional forwarders. For more information, see [Name resolution using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## The point-to-site VPN connection is established, but you still cannot connect to Azure resources 
+
+### Cause
+
+This problem may occur if VPN client does not get the routes from Azure VPN gateway.
+
+### Solution
+
+To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+
+## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
+
+### Causes
+This error message occurs if the client cannot access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.  The revocation check requires access to these two sites.  This problem typically happens on the client that has proxy server configured. In some environments,  if the requests are not going through the proxy server, it will be denied at the Edge Firewall.
+
+### Solution
+
+Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## VPN Client Error: The connection was prevented because of a policy configured on your RAS/VPN server. (Error 812)
+
+### Cause
+
+This error occurs if the RADIUS server that you used for authenticating VPN client has incorrect settings. 
+
+### Solution
+
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## "Error 405" when you download root certificate from VPN Gateway
+
+### Cause
+
+Root certificate had not been installed. The root certificate is installed in the client's **Trusted certificates** store.

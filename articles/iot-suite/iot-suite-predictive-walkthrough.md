@@ -1,5 +1,5 @@
 ---
-title: Predictive maintenance walkthrough | Microsoft Docs
+title: Predictive maintenance solution walkthrough - Azure | Microsoft Docs
 description: A walkthrough of the Azure IoT predictive maintenance preconfigured solution.
 services: ''
 suite: iot-suite
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
 
 ---
@@ -30,7 +30,7 @@ The following diagram outlines the logical components of the preconfigured solut
 
 The blue items are Azure services provisioned in the region where you deployed the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
 
-The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
+The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the [Simulated devices](#simulated-devices) section.
 
 The gray items represent components that implement *device management* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
 
@@ -62,7 +62,7 @@ IoT Hub provides device command acknowledgment.
 The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API is exposed by a Machine Learning workspace that is provisioned as part of the solution.
 
 ## Machine Learning
-The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution. The tile is available when the solution is in the **Ready** state.
+The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from your solution's tile on the [azureiotsuite.com][lnk-azureiotsuite] page. The tile is available when the solution is in the **Ready** state.
 
 
 ## Next steps
@@ -75,10 +75,10 @@ You can also explore some of the other features and capabilities of the IoT Suit
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

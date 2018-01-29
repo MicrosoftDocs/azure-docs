@@ -3,8 +3,8 @@ title: How to Scale Azure Redis Cache | Microsoft Docs
 description: Learn how to scale your Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to Scale Azure Redis Cache

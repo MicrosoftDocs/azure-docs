@@ -4,7 +4,7 @@ description: Common Azure Stream Analytics query patterns
 keywords: query examples
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jenniehubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
-ms.author: jenniehubbard
+ms.author: samacha
 
 ---
 # Query examples for common Stream Analytics usage patterns
@@ -208,7 +208,7 @@ For example, how many unique makes of cars passed through the toll booth in a 2-
 
 **Output:**
 
-| Count | Time |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |

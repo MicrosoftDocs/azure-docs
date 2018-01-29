@@ -3,7 +3,7 @@ title: Application templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of the Application pages in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

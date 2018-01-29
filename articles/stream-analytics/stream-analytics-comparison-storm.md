@@ -229,29 +229,12 @@ This article provides a side-by-side comparison of features to help you choose b
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Support for user-defined functions (UDFs)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-                    Queries support JavaScript UDFs. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF integration</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-                    UDFs can be written in C#, Java, or any other language.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Extensibility using custom code?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    No. There is no support for extensible code in Stream Analytics.
+                    Partially support with JavaScript UDFs. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF integration</a>.
                 </p>
             </td>
             <td width="246" valign="top">

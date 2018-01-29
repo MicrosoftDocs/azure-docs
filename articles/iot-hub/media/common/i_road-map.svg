@@ -1,0 +1,30 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-3 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>i_road-map</title>
+  <path class="cls-1" d="M41.69,12.31,22.31,5.66,1,13V57.19l21.31-7.31,19.37,6.65L63,49.19V5Z"/>
+  <polygon class="cls-2" points="22 37 1 44.67 1 57.1 22 50 42 57 63 49.19 63 36 42 44 22 37"/>
+  <path class="cls-3" d="M41.69,12.31,22.31,5.66,1,13V57.19l21.31-7.31,19.37,6.65L63,49.19V5Z"/>
+  <rect class="cls-4" width="64" height="64"/>
+  <line class="cls-3" x1="22" y1="6" x2="22" y2="50"/>
+  <line class="cls-3" x1="42" y1="12" x2="42" y2="56"/>
+</svg>

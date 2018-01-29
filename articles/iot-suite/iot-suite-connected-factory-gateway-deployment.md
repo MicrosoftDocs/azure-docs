@@ -1,6 +1,6 @@
 ﻿---
-title: Deploy your Azure IoT Suite connected factory gateway | Microsoft Docs
-description: How to deploy a gateway on either Windows or Linux to enable connectivity to the connected factory preconfigured solution.
+title: Deploy your Connected factory gateway - Azure | Microsoft Docs
+description: How to deploy a gateway on either Windows or Linux to enable connectivity to the Connected factory preconfigured solution.
 services: ''
 suite: iot-suite
 documentationcenter: na
@@ -13,158 +13,161 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 01/17/2018
 ms.author: dobett
 
 ---
 
-# Deploy a gateway on Windows or Linux for the connected factory preconfigured solution
+# Deploy an edge gateway for the Connected factory preconfigured solution on Windows or Linux
 
-The software required to deploy a gateway for the connected factory preconfigured solution has two components:
+You need two software components to deploy an edge gateway for the *Connected factory* preconfigured solution:
 
-* The *OPC Proxy* establishes a connection to IoT Hub. The *OPC Proxy* then waits for command and control messages from the integrated OPC Browser that runs in the connected factory solution portal.
-* The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to IoT Hub.
+- The *OPC Proxy* establishes a connection to Connected factory. The OPC Proxy then waits for command and control messages from the integrated OPC Browser that runs in the Connected factory solution portal.
 
-Both components are open-source and are available as source on GitHub and as Docker containers:
+- The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to Connected factory. You can connect an OPC classic device using the [OPC classic adapter for OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+
+Both components are open-source and are available as source on GitHub and as Docker containers on DockerHub:
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [OPC Publisher][lnk-publisher-github] | [OPC Publisher][lnk-publisher-docker] |
-| [OPC Proxy][lnk-proxy-github] | [OPC Proxy][lnk-proxy-docker] |
+| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
-No public-facing IP address or holes in the gateway firewall are required for either component. The OPC Proxy and OPC Publisher use only outbound ports 443, 5671, and 8883.
+You do not need a public-facing IP address or open inbound ports in the gateway firewall for either component. The OPC Proxy and OPC Publisher components only use outbound port 443.
 
-The steps in this article show you how to deploy a gateway using Docker on either [Windows](#windows-deployment) or [Linux](#linux-deployment). The gateway enables connectivity to the connected factory preconfigured solution.
-
-> [!NOTE]
-> The gateway software that runs in the Docker container is [Azure IoT Edge].
-
-## Windows deployment
+The steps in this article show you how to deploy an edge gateway using Docker on either Windows or Linux. The gateway enables connectivity to the Connected factory preconfigured solution. You can also use the components without Connected factory.
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> Both components can be used as modules in [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
-### Install Docker
+## Choose a gateway device
 
-Install [Docker for Windows] on your Windows-based gateway device. During Windows Docker setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the D drive on your Windows system:
+If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
-![Install Docker][img-install-docker]
+Alternatively, use the following instructions to manually configure an existing gateway device.
 
-Then create a folder called **docker** in the root of the shared drive.
-You can also perform this step after installing docker from the **Settings** menu.
+## Install and configure Docker
 
-### Configure the gateway
+Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or use a package manager to install docker on your Linux-based gateway device.
 
-1. You need the **iothubowner** connection string of your Azure IoT Suite connected factory deployment to complete the gateway deployment. In the [Azure portal], navigate to your IoT Hub in the resource group created when you deployed the connected factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
+During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system to allow access to the host drive from inside a docker container:
 
-    ![Find the IoT Hub connection string][img-hub-connection]
-
-    Copy the **Connection string--primary key** value.
-
-1. Configure the gateway for your IoT Hub by running the two gateway modules **once** from a command prompt with:
-
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
-
-    * **&lt;ApplicationName&gt;** is the name to give to your OPC UA Publisher in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, if your factory network is called **myfactorynetwork.com**, the **ApplicationName** value is **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step, you don’t need it in the following steps:
-
-    You use the mapped D:\\docker folder (the `-v` argument) later to persist the two X.509 certificates that the gateway modules use.
-
-### Run the gateway
-
-1. Restart the gateway using the following commands:
-
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
-
-1. For security reasons, the two X.509 certificates persisted in the D:\\docker folder contain the private key. Limit access to this folder to the credentials (typically **Administrators**) you use to run the Docker container. Right-click the D:\\docker folder, choose **Properties**, then **Security**, and then **Edit**. Give **Administrators** full control and remove everyone else:
-
-    ![Grant permissions to Docker share][img-docker-share]
-
-1. Verify network connectivity. From a command prompt, enter the command `ping publisher.<your fully qualified domain name>` to ping your gateway. If the destination is unreachable, add the IP address and name of your gateway to the hosts file on your gateway. The hosts file is located in the **Windows\\System32\\drivers\\etc** folder.
-
-1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download and use an [open-source OPC UA client].
-
-1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the **D:\\docker\\Rejected Certificates\\certs** folder to the **D:\\docker\\UA Applications\\certs** folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
-
-### Add your OPC UA servers
-
-1. Browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Follow the same steps as in the preceding section to establish trust between the connected factory portal and the OPC UA server. This step establishes a mutual trust of the certificates from the connected factory portal and the OPC UA server and creates a connection.
-
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the **D:\\docker** folder. The publishesnodes.json file is automatically generated on the first successful publish of an OPC node.
-
-1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the connected factory portal under **New Factory**.
-
-## Linux deployment
+![Install Docker for Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
 
-[Install Docker] on your Linux gateway device.
+If you are using Linux, no additional configuration is required to enable access to the file system.
 
-### Configure the gateway
+On Windows, create a folder on the drive you shared with Docker, on Linux create a folder under the root filesystem. This walkthrough refers to this folder as `<SharedFolder>`.
 
-1. You need the **iothubowner** connection string of your Azure IoT Suite connected factory deployment to complete the gateway deployment. In the [Azure portal], navigate to your IoT Hub in the resource group created when you deployed the connected factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
+When you refer to the `<SharedFolder>` in a Docker command, be sure to use the correct syntax for your operating system. Here are two examples, one for Windows and one for Linux:
 
-    ![Find the IoT Hub connection string][img-hub-connection]
+- If your are using the folder `D:\shared` on Windows as your `<SharedFolder>`, the Docker command syntax is `d:/shared`.
 
-    Copy the **Connection string--primary key** value.
+- If your are using the folder `/shared` on Linux as your `<SharedFolder>`, the Docker command syntax is `/shared`.
 
-1. Configure the gateway for your IoT Hub by running the two gateway modules **once** from a shell with:
+For more information see the [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) docker engine reference.
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+## Configure the OPC components
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+Before you install the OPC components, complete the following steps to prepare your environment:
 
-    * **&lt;ApplicationName&gt;** is the name of the OPC UA application the gateway creates in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step, you don’t need it in the following steps:
+1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
 
-    You use the **/shared** folder (the `-v` argument) later to persist the two X.509 certificates that the gateway modules use.
+    ![Find the IoT Hub connection string](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
-### Run the gateway
+    Copy the **Connection string-primary key** value.
 
-1. Restart the gateway using the following commands:
+1. To allow communication between docker containers, you need a user-defined bridge network. To create a bridge network for your containers, run the following commands at a command prompt:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 –-rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    ```cmd/sh
+    docker network create -d bridge iot_edge
+    ```
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    To verify the **iot_edge** bridge network was created, run the following command:
 
-1. For security reasons, the two X.509 certificates persisted in the **/shared** folder contain the private key. Limit access to this folder to the credentials you use to run the Docker container. To set the permissions for **root** only, use the `chmod` shell command on the folder.
+    ```cmd/sh
+    docker network ls
+    ```
 
-1. Verify network connectivity. From a shell, enter the command `ping publisher.<your fully qualified domain name>` to ping your gateway. If the destination is unreachable, add the IP address and name of your gateway to your hosts file on your gateway. The hosts file is located in the **/etc** folder.
+    Your **iot_edge** bridge network is included in the list of networks.
 
-1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download and use an [open-source OPC UA client].
+To run the OPC Publisher, run the following command at a command prompt:
 
-1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the **/shared/Rejected Certificates/certs** folder to the **/shared/UA Applications/certs** folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
+```cmd/sh
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+```
 
-### Add your OPC UA servers
+- The [OPC Publisher GitHub](https://github.com/Azure/iot-edge-opc-publisher) and the [docker run reference](https://docs.docker.com/engine/reference/run/) provide more information about:
 
-1. Browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Follow the same steps as in the preceding section to establish trust between the connected factory portal and the OPC UA server. This step establishes a mutual trust of the certificates from the connected factory portal and the OPC UA server and creates a connection.
+  - The docker command line options specified before the container name (`microsoft/iot-edge-opc-publisher:2.1.3`).
+  - The meaning of the OPC Publisher command line parameters specified after the container name (`microsoft/iot-edge-opc-publisher:2.1.3`).
 
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the **/shared** folder. The publishesnodes.json is automatically generated on the first successful publish of an OPC node.
+- The `<IoTHubOwnerConnectionString>` is the **iothubowner** shared access policy connection string from the Azure portal. You copied this connection string in a previous step. You only need this connection string for the first run of OPC Publisher. On subsequent runs you should omit it because it poses a security risk.
 
-1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the connected factory portal under **New Factory**.
+- The `<SharedFolder>` you use and its syntax is described in the section [Install and configure Docker](#install-and-configure-docker). OPC Publisher uses the `<SharedFolder>` to read and write to the OPC Publisher configuration file, write to the log file, and make both these files available outside of the container.
+
+- OPC Publisher reads its configuration from the **publishednodes.json** file, which is read from and written to the `<SharedFolder>/docker` folder. This configuration file defines which OPC UA node data on a given OPC UA server the OPC Publisher should subscribe to. The full syntax of the **publishednodes.json** file is described on the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) page on GitHub. When you add a gateway, put an empty **publishednodes.json** into the folder:
+
+    ```json
+    [
+    ]
+    ```
+
+- Whenever the OPC UA server notifies OPC Publisher of a data change, the new value is sent to IoT Hub. Depending on the batching settings, the OPC Publisher may first accumulate the data before it sends the data to IoT Hub in a batch.
+
+- Docker does not support NetBIOS name resolution, only DNS name resolution. If you don't have a DNS server on the network, you can use the workaround shown in the previous command line example. The previous command line example uses the `--add-host` parameter to add an entry into the containers hosts file. This entry enables hostname lookup for the given `<OpcServerHostname>`, resolving to the given IP address `<IpAddressOfOpcServerHostname>`.
+
+- OPC UA uses X.509 certificates for authentication and encryption. You need to place the OPC Publisher certificate on the OPC UA server you are connecting to, to ensure it trusts OPC Publisher. The OPC Publisher certificate store is located in the `<SharedFolder>/CertificateStores` folder. You can find the OPC Publisher certificate in the `trusted/certs` folder in the `CertificateStores` folder.
+
+  The steps to configure the OPC UA server depend on the device you are using. these steps are typically documented in the OPC UA server's user manual.
+
+To install the OPC Proxy, run the following command at a command prompt:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+```
+
+You only need to run the installation once on a system.
+
+Use the following command to run the OPC Proxy:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+```
+
+OPC Proxy saves the connection string during the installation. On subsequent runs you should omit the connection string because it poses a security risk.
+
+## Enable your gateway
+
+Complete the following steps to enable your gateway in the Connected factory preconfigured solution:
+
+1. When both components are running, browse to the **Connect your own OPC UA Server** page in the Connected factory solution portal. This page is only available to Administrators in the solution. Enter the publisher endpoint URL (opc.tcp://publisher:62222) and click **Connect**.
+
+1. Establish a trust relationship between the Connected factory portal and OPC Publisher. When you see a certificate warning, click **Proceed**. Next, you see an error that the OPC Publisher doesn’t trust the UA Web client. To resolve this error, copy the **UA Web Client** certificate from the `<SharedFolder>/CertificateStores/rejected/certs` folder to the `<SharedFolder>/CertificateStores/trusted/certs` folder on the gateway. You do not need to restart the gateway.
+
+You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
+
+## Add your own OPC UA servers
+
+To add your own OPC UA servers to the Connected factory preconfigured solution:
+
+1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal.
+
+    1. Start the OPC UA server you want to connect to. Ensure that your OPC UA server can be reached from OPC Publisher and OPC Proxy running in the container (see the previous comments about name resolution).
+    1. Enter the endpoint URL of your OPC UA server (`opc.tcp://<host>:<port>`) and click **Connect**.
+    1. As part of the connection setup, a trust relationship between the Connected factory portal (OPC UA client) and the OPC UA server you are trying to connect is established. In the Connected factory dashboard you get a **Certificate of the server you want to connect cannot be verified** warning. When you see a certificate warning, click **Proceed**.
+    1. More difficult to setup is the certificate configuration of the OPC UA server you are trying to connect to. For PC based OPC UA servers, you may just get a warning dialog in the dashboard that you can acknowledge. For embedded OPC UA server systems, consult the documentation of your OPC UA server to look up how this task is done. To complete this task, you may need the certificate of the Connected factory portal's OPC UA client. An Administrator can download this certificate on the **Connect your own OPC UA server** page:
+
+        ![Solution portal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes you want to send values to Connected factory, and select **publish**.
+
+1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the Connected factory portal under **New Factory**.
 
 ## Next steps
 
-To learn more about the architecture of the connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough][lnk-walkthrough].
+To learn more about the architecture of the Connected factory preconfigured solution, see [Connected factory preconfigured solution walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-[img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
-[img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
-[img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png
-
-[Docker for Windows]: https://www.docker.com/docker-windows
-[Azure IoT device catalog]: https://catalog.azureiotsuite.com/?q=opc
-[Azure portal]: http://portal.azure.com/
-[open-source OPC UA client]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
-[Install Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[Azure IoT Edge]: https://github.com/Azure/iot-edge
-
-[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
-[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
-[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
-[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy
+Learn about the [OPC Publisher reference implementation](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

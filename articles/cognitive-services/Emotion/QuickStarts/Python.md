@@ -13,6 +13,11 @@ ms.author: anroth
 ---
 
 # Emotion API Python Quick Start
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisite
@@ -46,7 +51,10 @@ try:
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
-    print(data)
+    # 'data' contains the JSON data. The following formats the JSON data for display.
+    parsed = json.loads(data)
+    print ("Response:")
+    print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
@@ -76,7 +84,10 @@ try:
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
-    print(data)
+    # 'data' contains the JSON data. The following formats the JSON data for display.
+    parsed = json.loads(data)
+    print ("Response:")
+    print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
 except Exception as e:
     print(e.args)

@@ -12,13 +12,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 8/22/2017
+ms.topic: tutorial
+ms.date: 10/23/2017
 ms.author: victorh
 ms.custom: mvc
 
 ---
 # Make virtual machines available to your Azure Stack users
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
 
 This article shows you how to create an offer, and then test it. 
@@ -46,7 +49,7 @@ Now you can get things ready for your users. When you start the process, you are
 
    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
-   a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
+   a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Offers + Plans** > **Offer**.
    ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. In the **New Offer** section, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
@@ -109,7 +112,9 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to subscribe to an offer.
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
+   a. Log in to the user portal as a user and click **Get a Subscription**.
+   - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
    ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -125,19 +130,23 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.  
+   a. Log in to the user portal as a user.
+      - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
-   b. In the **Basics** section, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
+   b.  On the dashboard, click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**, and then click **Create**.
 
-   c. In the **Choose a size** section, click **A1 Basic**, and then click **Select**.  
+   c. In the **Basics** section, type a **Name**, **User name**, and **Password**, choose a **Subscription**, create a **Resource group** (or select an existing one), and then click **OK**.
 
-   d. In the **Settings** section, click **Virtual network**. In the **Choose virtual network** section, click **Create new**. In the **Create virtual network** section, accept all the defaults, and click **OK**. In the **Settings** section, click **OK**.
+   d. In the **Choose a size** section, click **A1 Standard**, and then click **Select**.  
+
+   e. In the **Settings** section, click **Virtual network**. In the **Choose virtual network** section, click **Create new**. In the **Create virtual network** section, accept all the defaults, and click **OK**. In the **Settings** section, click **OK**.
 
    ![Create virtual network](media/azure-stack-provision-vm/image04.png)
 
-   e. In the **Summary** section, click **OK** to create the virtual machine.  
+   f. In the **Summary** section, click **OK** to create the virtual machine.  
 
-   f. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+   g. To see the new virtual machine, click **All resources**, then search for the virtual machine and click its name.
 
     ![All resources](media/azure-stack-provision-vm/image06.png)
 

@@ -4,7 +4,7 @@ description: This topic gives an overview of Microsoft Azure Media Services scen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.service: media-services

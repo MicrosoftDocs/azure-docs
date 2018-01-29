@@ -36,7 +36,7 @@ If you are **preparing drives** for an import job, the following prerequisites m
 * You need a computer (the "copy machine") with Windows 7, Windows Server 2008 R2, or a newer Windows operating system installed.
 * The .NET Framework 4 must be installed on the copy machine.
 * BitLocker must be enabled on the copy machine.
-* You need one or more empty 3.5-inch SATA hard drives connected to the copy machine.
+* You need one or more empty 2.5-inch or 3.5-inch SATAII or III or SSD hard drives connected to the copy machine.
 * The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
 If you are attempting to **repair an import** that has partially failed, you need:
