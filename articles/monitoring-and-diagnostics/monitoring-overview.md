@@ -32,11 +32,13 @@ The following diagram shows a conceptual view of the different components that w
 The following Azure services provide rich capabilities for collecting and analyzing monitoring data.  They leverage common functionality in Azure and provide powerful analytics with collected data to give you unique insights to your applications and infrastructure.  They present data within the context of particular scenarios targeted to different audiences.
 
 ### Azure Monitor
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) allows collection of [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)  that provide details on the operation and performance of Azure resources.  You can view this data with one of the explorers in the Azure portal, send it to Log Analytics for trending and detailed analysis, or create alert rules to proactively notify you of critical issues.
+[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) enables basic monitoring for Azure service by allowing collection of [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).  For example, the Activity log will tell you when new resources are created or modified.  Metrics are available that provide performance statistics for different resources and even the operating system inside of a virtual machine.  You can view this data with one of the explorers in the Azure portal, send it to Log Analytics for trending and detailed analysis, or create alert rules to proactively notify you of critical issues.
 
+### Log Analytics
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources into a single repository where it can be analyzed with a powerful query language.  Application Insights and Azure Security Center store their data in the Log Analytics  data store and leverage its analytics engine.  This combined with data collected from Azure Monitor, management solutions, and agents installed on virtual machines allow you to form a complete picture of your entire environment. 
 
 ### Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) allows you to monitor your live web application.  This includes collecting performance metrics both from the server and client, identifying exceptions in the application, and proactively testing it from different locations.  Administrators can track application usage and performance, while developers can track exceptions down to the actual failing code.  Application Insights provides extensive analysis tools for interacting with its data, or you use the Log Analytics query language for ad hoc and custom analysis.
+[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) allows you to monitor availability, performance, and usage of your application.  By instrumenting your application to work with Application Insights, you can achieve deep insights allowing you to quickly identify and diagnose errors without waiting for a user to report them. With the information that you collect from Application Insights about the performance and effectiveness of your application, you can make informed choices on its maintenance and improvements.  Application Insights provides extensive analysis tools for interacting with its data and stores its data in a common repository to leverage shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
 
 
 ### Service Map
@@ -45,11 +47,9 @@ The following Azure services provide rich capabilities for collecting and analyz
 ### Network Watcher
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure.  It stores data in Azure metrics and diagnostics for further analysis and works with [management solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) for complete monitoring of your network resources.
 
-### Log Analytics
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources into a single repository where it can be analyzed with a powerful query language.  Application Insights and Azure Security Center store their data in the Log Analytics  data store and leverage its analytics engine.  This combined with data collected from Azure resources, management solutions, and agents installed on virtual machines allow you to form a complete picture of your entire environment. 
 
 ### Management solutions
-[Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service.  They rely on Log Analytics to store and analyze the monitoring data they collect.  Management solutions are available from Microsoft and partners that provide monitoring for various Azure and third party services. 
+[Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service.  They rely on Log Analytics to store and analyze the monitoring data they collect.  Management solutions are available from Microsoft and partners that provide monitoring for various Azure and third party services. Example of monitoring solutions include [Container Monitoring](../log-analytics/log-analytics-containers.md) which helps you view and manage your container hosts and [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md) which collects and visualizes performance metrics for SQL Azure databases.
 
 
 ## Shared functionality
@@ -63,8 +63,6 @@ Log Analytics currently has its own [alerting based on log searches](../log-anal
 
 ### Dashboards
 [Azure Dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data  into a single pane in the Azure portal.  For example, you could create a dashboard that combines tiles showing a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log search in Log Analytics.
-
-[Views in Log Analytics]() provide a wider range of visualizations and detail than Azure dashboards, but they can only include data stored in Log Analytics.  Since Log Analytics can collect data from a variety of sources though, you can often collect any data that you require for your view.  Management solutions will typically include custom views in Log Analytics to visualize the data they collect.
 
 You can also export Log Analytics data to [Power BI](https://docs.microsoft.com/power-bi/) to take advantage of additional visualizations and also to make the data available to others within and outside of your organization.
 
