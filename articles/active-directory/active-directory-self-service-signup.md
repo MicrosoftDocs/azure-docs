@@ -1,5 +1,5 @@
 ﻿---
-title: Self-service or viral signup in Azure Active Directory | Microsoft Docs
+title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2018
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -46,7 +46,7 @@ An admin can configure these capabilities using the following Azure AD cmdlet Se
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup. 
   
   > [!NOTE]
-  > Flow and PowerApps viral signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
+  > Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
   > * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
   > * [Flow in your organization Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
 
