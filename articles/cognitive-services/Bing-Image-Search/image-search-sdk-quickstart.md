@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.technology: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
@@ -13,26 +13,26 @@ ms.author: v-gedod
 
 #Image Search SDK quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. 
+The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
 
 ##Application dependencies
 
-To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
+To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
 
-[NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.1.0-preview)
+[NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.1.0-preview)
 
-##Web Search client
+##Image Search client
 To create an instance of the `ImageSearchAPI` client, add using directives:
 ```
-using Microsoft.Azure.CognitiveServices.Search.WebSearch;
-using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
+using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
+using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
 
 ```
 Then, instantiate the client:
 ```
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
-WebResults(client);
+ImageResults(client);
 
 ```
 Use the client to search with a query text:
@@ -42,7 +42,7 @@ var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 
 ```
-Parse the web pages results returned by the previous query:
+Parse the image results returned by the previous query:
 
 ```
 if (imageResults.Value.Count > 0)
@@ -180,7 +180,7 @@ The Bing search samples demonstrate various features of the SDK.  Add the follow
 
 ###Search using a filter
 
-Search images for "studio ghibli", filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail url, and web url of first result.
+Search images for "studio ghibli", filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail url, and url of first result.
 
 ```
         public static void ImageSearchWithFilters(ImageSearchAPI client)
@@ -396,4 +396,4 @@ Search images for "Degas", and then search for image details of the first image.
 
 ##Next steps
 
-[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
