@@ -191,7 +191,7 @@ namespace WebSrchSDK
 ```
 ##Search options
 
-The Bing search samples demonstrate various features of the SDK.
+The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined WebSrchSDK class.
 
 ###Count and offset parameters
 
@@ -319,3 +319,7 @@ This query, "Lady Gaga", searches using `answerCount` and `promote` parameters t
         }
     }
 ```
+
+##Next steps
+
+See the [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
