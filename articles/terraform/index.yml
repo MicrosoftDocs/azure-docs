@@ -15,6 +15,12 @@ metadata:
   ms.author: routlaw
 abstract:
   description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
+  aside:
+    image:
+      alt: Terraform logo.
+      height: 80
+      src: media/Terraform_VerticalLogo_FullColor.svg
+      width: 170  
 sections:
 - title: Quickstarts
   items:
