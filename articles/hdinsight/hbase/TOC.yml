@@ -180,6 +180,8 @@
     - name: Upgrade HDInsight cluster to newer version
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
+    - name: Migrate HBase cluster to newer version
+      href: apache-hbase-migrate-new-version.md
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
@@ -242,11 +244,15 @@
       href: apache-hbase-provision-vnet.md
     - name: HBase cluster replication in Azure VNet
       href: apache-hbase-replication.md
+    - name: Set up backup and replication for HBase and Phoenix
+      href: apache-hbase-backup-replication.md
   - name: Monitoring using OMS
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
+    - name: Monitor HBase with OMS
+      href: apache-hbase-monitor-with-oms.md
     - name: Cluster-specific dashboards
       href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
@@ -256,6 +262,8 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+    - name: Phoenix performance best practices
+      href: apache-hbase-phoenix-performance.md
 - name: Reference
   items:
   - name: Code samples
