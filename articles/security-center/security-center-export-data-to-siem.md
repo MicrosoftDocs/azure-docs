@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2018
+ms.date: 01/29/2018
 ms.author: barclayn
 
 ---
@@ -30,7 +30,7 @@ The next sections describe how you can configure data to be streamed to an event
 
 High-level overview
 
-![High-Level overview](media/security-center-exporting-data-to-siem/overview.png)
+![High-Level overview](media/security-center-export-data-to-siem/overview.png)
 
 ## What is the Azure security data exposed to SIEM?
 
@@ -61,3 +61,10 @@ Here is a couple of Splunk queries that you can use to pull alert data:
 | All Alerts                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
 | Summarize count of operations by their name             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | Get Alerts info: Time, Name, State, ID, and Subscription | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
+
+
+## Next steps
+
+- [Supported SIEMs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+- [Stream activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+- [Security alerts.](../security-center/security-center-managing-and-responding-alerts.md)
