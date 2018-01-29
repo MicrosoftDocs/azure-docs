@@ -1,6 +1,6 @@
 ---
-title: Azure Content Moderator - Moderate and review videos and transcripts in .NET | Microsoft Docs
-description: How to use Content Moderator to moderate and review videos and transcripts for possible adult and racy content.
+title: Azure Content Moderator - Moderate videos and transcripts in .NET | Microsoft Docs
+description: How to use Content Moderator to moderate videos and transcripts in .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,11 +12,11 @@ ms.date: 1/27/2018
 ms.author: sajagtap
 ---
 
-# Video and transcript moderation and review using .NET
+# Video and transcript moderation using .NET
 
 Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
 
-In this detailed tutorial, we help you understand how to build a complete video and transcript moderation solution that combines machine-assisted moderation with human-in-the-loop reviews.
+This detailed tutorial helps to understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 
 We use the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 
@@ -28,9 +28,9 @@ We use the [C# console application](https://github.com/MicrosoftContentModerator
 - Moderate the transcript with the text moderation service
 - Add the moderated transcript to the video review
 
-## A peek at the sample outputs
+## Sample program outputs
 
-Before we dig deep into the application source code, let's take a look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
+Before we dig deep into the application source code, let's look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
 
 ## Prerequisites
 
@@ -448,6 +448,9 @@ The moderation process returns a list of key frames from the video, along with a
 
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
 
+> [!NOTE]
+> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails corresponding to the frame timestamps in the [video moderation output](#sample-video-moderation-response).
+
 |Task|Methods|File|
 |-|-|-|
 |Extract the key frames from the video and creates thumbnail images of them|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
@@ -539,27 +542,26 @@ First, we initialize all variables and collections.
 
 	private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
 	{
-	    // Initialization
-    	List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
-    	string responseContent = string.Empty;
-    	HttpResponseMessage response;
-    	bool racyTag = false;
-    	bool adultTag = false;
-    	bool offensiveTag = false;
-    	double racyScore = 0;
-    	double adultScore = 0;
-    	double offensiveScore = 0;
-    	List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
-    	StringBuilder sb = new StringBuilder();
-    	List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
-    	CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+		List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
+        string responseContent = string.Empty;
+        HttpResponseMessage response;
+        bool category1Tag = false;
+        bool category2Tag = false;
+        bool category3Tag = false;
+        double category1Score = 0;
+        double category2Score = 0;
+        double category3Score = 0;
+        List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
+        StringBuilder sb = new StringBuilder();
+        List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
+        CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
 
 		// Code from the next sections in the tutorial
 	
 
 ### Parse the transcript for captions
 
-Next, we parse the VTT formatetd transcript for captions and timestamps. The review tool displays these in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
+Next, we parse the VTT formatted transcript for captions and timestamps. The review tool displays these in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
 
 		// Code from the previous section(s) in the tutorial
 
@@ -567,49 +569,51 @@ Next, we parse the VTT formatetd transcript for captions and timestamps. The rev
     	// Parse the transcript
     	//
     	foreach (var line in vttLines.Skip(1))
-    	{
-        	if (line.Contains("-->"))
-        	{
-            	if (sb.Length > 0)
-            	{
-                	captionScreentextResult.Captions.Add(sb.ToString());
-                	sb.Clear();
-            	}
-            	if (captionScreentextResult.Captions.Count > 0)
-            	{
-                	csrList.Add(captionScreentextResult);
-                	captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-            	}
-            string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
-            string startTimeString = times[0].Trim();
-            string endTimeString = times[1].Trim();
-            int startTime = (int)TimeSpan.ParseExact(startTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-            int endTime = (int)TimeSpan.ParseExact(endTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-            captionScreentextResult.StartTime = startTime;
-            captionScreentextResult.EndTime = endTime;
-        }
-        else
         {
-            sb.Append(line);
-        }
-        if (sb.Length + line.Length > 1024)
-        {
-            captionScreentextResult.Captions.Add(sb.ToString());
-            sb.Clear();
-        }
-    }
-    if (sb.Length > 0)
-    {
-        captionScreentextResult.Captions.Add(sb.ToString());
-    }
-    if (captionScreentextResult.Captions.Count > 0)
-    {
-        csrList.Add(captionScreentextResult);
-    }
+                if (line.Contains("-->"))
+                {
+                    if (sb.Length > 0)
+                    {
+                        captionScreentextResult.Captions.Add(sb.ToString());
+                        sb.Clear();
+                    }
+                    if (captionScreentextResult.Captions.Count > 0)
+                    {
+                        csrList.Add(captionScreentextResult);
+                        captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+                    }
+                    string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
+                    string startTimeString = times[0].Trim();
+                    string endTimeString = times[1].Trim();
+                    int startTime = (int)TimeSpan.ParseExact(startTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
+                    int endTime = (int)TimeSpan.ParseExact(endTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
+                    captionScreentextResult.StartTime = startTime;
+                    captionScreentextResult.EndTime = endTime;
+                }
+                else
+                {
+                    sb.Append(line);
+                }
+                if (sb.Length + line.Length > 1024)
+                {
+                    captionScreentextResult.Captions.Add(sb.ToString());
+                    sb.Clear();
+                }
+            }
+            if (sb.Length > 0)
+            {
+                captionScreentextResult.Captions.Add(sb.ToString());
+            }
+            if (captionScreentextResult.Captions.Count > 0)
+            {
+                csrList.Add(captionScreentextResult);
+            }
+
+			// Code from the following section in the quickstart
 
 ### Moderate captions with the text moderation service
 
-Next, we scan the parsed text captions with the text moderation service of Content Moderator for profanity and potential explicit, suggestive, or unwanted content.
+Next, we scan the parsed text captions with the text moderation service of Content Moderator for profanity and possible explicit, suggestive, or undesirable content.
 
     //
     // Moderate the captions or cues
@@ -617,94 +621,89 @@ Next, we scan the parsed text captions with the text moderation service of Conte
     int waitTime = 1000;
     foreach (var csr in csrList)
     {
-        bool captionAdultTextTag = false;
-        bool captionRacyTextTag = false;
-        bool captionOffensiveTextTag = false;
-        bool retry = true;
+                bool captionAdultTextTag = false;
+                bool captionRacyTextTag = false;
+                bool captionOffensiveTextTag = false;
+                bool retry = true;
 
-        foreach (var caption in csr.Captions)
-        {
-            // Submit cue to Content Moderator
-            while (retry)
-            {
-                try
+                foreach (var caption in csr.Captions)
                 {
-                    System.Threading.Thread.Sleep(waitTime);
-                    var lang = await CMClient.TextModeration.DetectLanguageAsync("text/plain", caption);
-                    var oRes = await CMClient.TextModeration.ScreenTextWithHttpMessagesAsync(lang.DetectedLanguageProperty, "text/plain", caption, null, null, null, true);
-                    response = oRes.Response;
-                    responseContent = await response.Content.ReadAsStringAsync();
-                    retry = false;
-                }
-                catch (Exception e)
-                {
-                    if (e.Message.Contains("429"))
+                    while (retry)
                     {
-                        Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                        waitTime = (int)(waitTime * 1.5);
-                        Console.WriteLine($"wait time: {waitTime}");
-                    }
-                    else
-                    {
-                        retry = false;
-                        Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                    }
-                }
-            }
-            // Determine if cue contains any objectionable content
-            var jsonTextScreen = JsonConvert.DeserializeObject<TextScreen>(responseContent);
-            if (jsonTextScreen != null)
-            {
-                TranscriptProfanity transcriptProfanity = new TranscriptProfanity();
-                transcriptProfanity.TimeStamp = "";
-                List<Terms> transcriptTerm = new List<Terms>();
-                // compare the text moderation result to our parameters
-                if (jsonTextScreen.Terms != null)
-                {
-                    foreach (var term in jsonTextScreen.Terms)
-                    {
-                        var profanityobject = new Terms
+                        try
                         {
-                            Term = term.Term,
-                            Index = term.Index
-                        };
-                        transcriptTerm.Add(profanityobject);
+                            System.Threading.Thread.Sleep(waitTime);
+                            var lang = await CMClient.TextModeration.DetectLanguageAsync("text/plain", caption);
+                            var oRes = await CMClient.TextModeration.ScreenTextWithHttpMessagesAsync(lang.DetectedLanguageProperty, "text/plain", caption, null, null, null, true);
+                            response = oRes.Response;
+                            responseContent = await response.Content.ReadAsStringAsync();
+                            retry = false;
+                        }
+                        catch (Exception e)
+                        {
+                            if (e.Message.Contains("429"))
+                            {
+                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
+                                waitTime = (int)(waitTime * 1.5);
+                                Console.WriteLine($"wait time: {waitTime}");
+                            }
+                            else
+                            {
+                                retry = false;
+                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
+                            }
+                        }
                     }
-                    transcriptProfanity.Terms = transcriptTerm;
-                    profanityList.Add(transcriptProfanity);
+                    var jsonTextScreen = JsonConvert.DeserializeObject<TextScreen>(responseContent);
+                    if (jsonTextScreen != null)
+                    {
+                        TranscriptProfanity transcriptProfanity = new TranscriptProfanity();
+                        transcriptProfanity.TimeStamp = "";
+                        List<Terms> transcriptTerm = new List<Terms>();
+                        if (jsonTextScreen.Terms != null)
+                        {
+                            foreach (var term in jsonTextScreen.Terms)
+                            {
+                                var profanityobject = new Terms
+                                {
+                                    Term = term.Term,
+                                    Index = term.Index
+                                };
+                                transcriptTerm.Add(profanityobject);
+                            }
+                            transcriptProfanity.Terms = transcriptTerm;
+                            profanityList.Add(transcriptProfanity);
+                        }
+                        if (jsonTextScreen.Classification.Category1.Score > _amsConfig.Category1TextThreshold) captionAdultTextTag = true;
+                        if (jsonTextScreen.Classification.Category2.Score > _amsConfig.Category2TextThreshold) captionRacyTextTag = true;
+                        if (jsonTextScreen.Classification.Category3.Score > _amsConfig.Category3TextThreshold) captionOffensiveTextTag = true;
+                        if (jsonTextScreen.Classification.Category1.Score > _amsConfig.Category1TextThreshold) category1Tag = true;
+                        if (jsonTextScreen.Classification.Category2.Score > _amsConfig.Category2TextThreshold) category2Tag = true;
+                        if (jsonTextScreen.Classification.Category3.Score > _amsConfig.Category3TextThreshold) category3Tag = true;
+                        category1Score = jsonTextScreen.Classification.Category1.Score > category1Score ? jsonTextScreen.Classification.Category1.Score : category1Score;
+                        category2Score = jsonTextScreen.Classification.Category2.Score > category2Score ? jsonTextScreen.Classification.Category2.Score : category2Score;
+                        category3Score = jsonTextScreen.Classification.Category3.Score > category3Score ? jsonTextScreen.Classification.Category3.Score : category3Score;
+                    }
+                    foreach (var frame in frameEntityList.Where(x => x.TimeStamp >= csr.StartTime && x.TimeStamp <= csr.EndTime))
+                    {
+                        frame.IsAdultTextContent = captionAdultTextTag;
+                        frame.IsRacyTextContent = captionRacyTextTag;
+                        frame.IsOffensiveTextContent = captionOffensiveTextTag;
+                    }
                 }
-                if (jsonTextScreen.Classification.Category1 > _amsConfig.AdultTextThreshold) captionAdultTextTag = true;
-                if (jsonTextScreen.Classification.Category2 > _amsConfig.RacyTextThreshold) captionRacyTextTag = true;
-                if (jsonTextScreen.Classification.Category3 > _amsConfig.OffensiveTextThreshold) captionOffensiveTextTag = true;
-                if (jsonTextScreen.Classification.Category1 > _amsConfig.AdultTextThreshold) adultTag = true;
-                if (jsonTextScreen.Classification.Category2 > _amsConfig.RacyTextThreshold) racyTag = true;
-                if (jsonTextScreen.Classification.Category3 > _amsConfig.OffensiveTextThreshold) offensiveTag = true;
-                adultScore = jsonTextScreen.Classification.Category1 > adultScore ? jsonTextScreen.Classification.Category1 : adultScore;
-                racyScore = jsonTextScreen.Classification.Category2 > racyScore ? jsonTextScreen.Classification.Category2 : racyScore;
-                offensiveScore = jsonTextScreen.Classification.Category3 > offensiveScore ? jsonTextScreen.Classification.Category3 : offensiveScore;
             }
-            // Flag the frames within the time stamp range
-            foreach (var frame in frameEntityList.Where(x => x.TimeStamp >= csr.StartTime && x.TimeStamp <= csr.EndTime))
+            TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult()
             {
-                frame.IsAdultTextContent = captionAdultTextTag;
-                frame.IsRacyTextContent = captionRacyTextTag;
-                frame.IsOffensiveTextContent = captionOffensiveTextTag;
-            }
-        }
-    }
-    TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult()
-    {
-        AdultTag = adultTag,
-        OffensiveTag = offensiveTag,
-        TranscriptProfanity = profanityList,
-        RacyTag = racyTag,
-        RacyScore = racyScore,
-        OffensiveScore = offensiveScore,
-        AdultScore = adultScore
-    };
-    return screenTextResult;
+                TranscriptProfanity = profanityList,
+                Category1Tag = category1Tag,
+                Category2Tag = category2Tag,
+                Category3Tag = category3Tag,
+                Category1Score = category1Score,
+                Category2Score = category2Score,
+                Category3Score = category3Score
+            };
+            return screenTextResult;
 	}
-
 
 ### Breaking down the text moderation step
 
@@ -733,7 +732,7 @@ The following command line output from the program shows the various tasks as th
 	Microsoft.ContentModerator.AMSComponentClient
 	Enter the fully qualified local path for Uploading the video :
 	"Your File Name.MP4"
-	Generate Video Transcript? [y/n] : n
+	Generate Video Transcript? [y/n] : y
 	
 	Video compression process started...
 	Video compression process completed...
@@ -748,7 +747,6 @@ The following command line output from the program shows the various tasks as th
 	Video review successfully completed...
 	
 	Total Elapsed Time: 00:05:56.8420355
-
 
 
 ## Next steps
