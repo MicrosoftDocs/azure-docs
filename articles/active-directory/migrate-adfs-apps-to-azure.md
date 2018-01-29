@@ -15,15 +15,15 @@ ms.author: billmath
 
 # Migrate AD FS on-premises apps to Azure. 
 
-This document is intended to help organizations understand how to migrate on -premises applications to Azure AD, with a focus on federated SaaS applications.  This document does not provide step by step guidance.  It provides conceptual guidance to help you achieve the migration by understanding how on premises configurations translate to Azure AD and what the most common scenarios require.
+This document is intended to help organizations understand how to migrate on -premises applications to Azure AD.  It has a focus on federated SaaS applications.  This document does not provide step by step guidance.  It provides conceptual guidance to help you achieve the migration by understanding how on premises configurations translate to Azure AD. Also covering what the most common scenarios require.
 
 ## Introduction
 
-If you have an on premises directory that contains user accounts, chances are you have at least one or two apps, and possibly hundreds of applications configured for users to access by signing on with those identities.
+If you have an on premises directory that contains user accounts, chances are you have at least one or two apps.  And these apps are configured for users to access by signing on with those identities.
 
 And if you’re like most organizations, you’re probably somewhere along the road to adopting cloud applications and identities.  Perhaps you’re up and running with Office 365 and Azure AD Connect.  Maybe you’ve setup cloud-based SaaS applications for some key workloads but not all.  
 
-Many organizations who started on the road to SaaS apps early have SaaS or custom line-of-business (LoB) apps federated directly to an on-premises sign-on service such as Active Directory Federation Service (AD FS), alongside Office 365 and Azure AD based apps.  This migration guide describes why and how to migrate on-premises applications to Azure AD.
+Many organizations have SaaS or custom line-of-business (LoB ) apps federated directly to an on-premises sign-on service such as Active Directory Federation Service (AD FS),alongside Office 365 and Azure AD based apps.  This migration guide describes why and how to migrate on-premises applications to Azure AD.
 
 >[NOTE!]
 >This guide provides detailed information on SaaS app configuration and migration, with high-level information about custom LoB apps.  More detailed guidance for custom LoB apps is planned for the future.
@@ -55,7 +55,7 @@ For the organization who already uses AD FS, Ping, or another on-premises authen
 - For organizations looking to retire the on-premises authentication product, migrating apps to Azure AD enables an easier transition by getting some of the work out 
 
 ## Mapping types of apps on premises to types of apps in Azure AD
-Most apps fit into one of a few categories based on the type of sign-on they use, and this determines how the app is represented in Azure AD.
+Most apps fit into one of a few categories based on the type of sign-on they use.  These categories determines how the app is represented in Azure AD.
 
 In short, SAML 2.0 applications can be integrated with Azure AD either via the Azure AD application gallery, or as non-gallery applications.  Apps that use OAuth 2.0 or OpenID Connect can be integrated with Azure AD similarly as “app registrations."  Read on for more details.
 
