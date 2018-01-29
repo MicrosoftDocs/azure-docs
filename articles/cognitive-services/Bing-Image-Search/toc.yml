@@ -26,7 +26,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Image search SDK quickstart
+  - name: Image search SDK quickstart (preview)
     href: image-search-sdk-quickstart.md
 - name: How To Guides
   items:

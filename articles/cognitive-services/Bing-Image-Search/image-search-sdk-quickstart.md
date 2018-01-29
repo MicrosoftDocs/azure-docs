@@ -42,9 +42,9 @@ var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 
 ```
-Parse the web pages returned in the results of the previous query:
+Parse the web pages results returned by the previous query:
 
-// Image results
+```
 if (imageResults.Value.Count > 0)
 {
     var firstImageResult = imageResults.Value.First();
