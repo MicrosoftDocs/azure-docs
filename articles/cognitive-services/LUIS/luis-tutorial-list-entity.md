@@ -14,7 +14,7 @@ ms.author: v-geberr
 ---
 
 # Use a list entity to increase entity detection 
-This tutorial demonstrates a the use of a list entity to increase entity detection. List entities do not need to be labeled as they are an exact match of terms.  
+This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.md) to increase entity detection. List entities do not need to be labeled as they are an exact match of terms.  
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Latest [Nodejs](https://nodejs.org)
 > * [HomeAutomation LUIS app](luis-get-started-create-app.md). If you do not have the Home Automation app created, create a new app, and add the Prebuilt Domain **HomeAutomation**. Train and publish the app. 
-> * ProgrammaticKey, EndpointKey (if querying many times), app ID, version ID, and region for the LUIS app.
+> * [ProgrammaticKey](manage-keys.md##programmatic-key), [EndpointKey](manage-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](manage-keys.md#regions-and-keys) for the LUIS app.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -69,17 +69,17 @@ This tutorial is going to create an entity list with the thermostat. The alterna
 |cold|
 |colder|
 
-If LUIS needs to determine a new alternative often, then a phrase list is a better answer.
+If LUIS needs to determine a new alternative often, then a [phrase list](luis-concept-feature.md#how-to-use-phrase-lists) is a better answer.
 
 ## Create a list entity
 Create a Node.js file and copy the following code into it. Change the programmaticKey, appId, versionId, and region values.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
-Use the following command to run the code and create the list entity:
+Use the following command to install the NPM dependencies and run the code to create the list entity:
 
 ```Javascript
-node add-entity-list.js
+npm install && node add-entity-list.js
 ```
 
 The output of the run is the ID of the list entity:
@@ -94,7 +94,7 @@ Create a Node.js file and copy the following code into it. Change the programmat
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
-Use the following command to run the code and train the app:
+Use the following command to run the code to train the app:
 
 ```Javascript
 node train.js
@@ -125,7 +125,7 @@ Create a Node.js file and copy the following code into it. Change the endpointKe
 
    [!code-javascript[Publish LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/publish.js "Publish LUIS")]
 
-Use the following command to run the code and query the app:
+Use the following command to run the code to query the app:
 
 ```Javascript
 node publish.js
