@@ -144,7 +144,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    In order to make sure that environment is setup successfully use the following command to check the status:
 
-   ```
+   ```azurecli
    az ml env show -n <deployment environment name> -g <existing resource group name>
    ```
 
