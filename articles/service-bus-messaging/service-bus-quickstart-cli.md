@@ -42,11 +42,24 @@ This option launches an interactive shell that you can use to run the steps in t
 
 If you choose to install and use the CLI locally, this article requires that you run the latest version of Azure CLI (2.0.14 or later). To find the version, run the `cli az –version` command. If you need to install or upgrade, see [Install Azure CLI 2.0][].
 
-1. Once CLI is installed, open a command prompt and issue the following commands:
+1. Once CLI is installed, open a command prompt and issue the following command:
+
    ```azurecli-interactive
    az extension add --source https://prodsbclipackages.blob.core.windows.net/cliextensions/servicebus-0.0.1-py2.py3-none-any.whl
    ```
-2. 
+
+2. Run the following command to log in to Azure:
+
+   ```azurecli-interactive
+   az login
+   ```
+   This command displays the following text:
+
+   ```cmd
+   To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
+   ```
+
+3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login. 
 
 ## Create a resource group
 
