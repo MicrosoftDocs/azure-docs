@@ -191,7 +191,7 @@ The output is the query results. Because the code added the **verbose** name/val
     },
     {
       "entity": "heat",
-      "type": "Devices",
+      "type": "DevicesList",
       "startIndex": 12,
       "endIndex": 15,
       "resolution": {
@@ -208,8 +208,12 @@ The specific device of **Thermostat** is identified with a result-oriented query
 
 Try the other two utterances to see that they are also returned as a thermostat. 
 
-|#|utterance|entity identified|score|
-|--|--|--|--|
-|1|turn on the ac|HomeAutomation.Device - "ac"|0.8748562|
-|2|turn up the heat|HomeAutomation.Device - "heat"|0.784990132|
-|3|make it colder|||
+|#|utterance|entity|type|value|
+|--|--|--|--|--|
+|1|turn on the ac| ac | DevicesList | Thermostat|
+|2|turn up the heat|heat| DevicesList |Thermostat|
+|3|make it colder|colder|DevicesList|Thermostat|
+
+## Next steps
+
+You can create another List entity to expand device locations to rooms, floors, or buildings. 
