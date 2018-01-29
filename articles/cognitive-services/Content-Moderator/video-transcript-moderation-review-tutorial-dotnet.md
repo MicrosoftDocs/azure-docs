@@ -30,7 +30,11 @@ Download the [C# console application](https://github.com/MicrosoftContentModerat
 
 ## Sample program outputs
 
-Before going further, let's look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
+Before going further, let's look at the follwing sample outputs from the program:
+
+- [Console output](#program-output)
+- [Video review](#video-review-default-view)
+- [Transcript view](#video-review-transcript-view)
 
 ## Prerequisites
 
