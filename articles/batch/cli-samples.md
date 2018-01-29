@@ -27,7 +27,7 @@ The following table includes links to Azure CLI examples for Azure Batch.
 |---|---|
 |**Create a Batch account**||
 | [Create a Batch account in Batch service mode](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account in the default mode and associates it with a storage account. |
-| [Create a Batch account in user subscription mode](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account in user subscription mode. |
+| [Create a Batch account in user subscription mode](./scripts/batch-cli-sample-create-user-subscription-account.md) | Creates a Batch account in user subscription mode. |
 |**Add an application**||
 | [Add an application to a Batch account](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
 |**Create and manage pools of compute nodes**||
