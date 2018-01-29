@@ -17,7 +17,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: Make a change to the default configuration
-The purpose of this topic is to walk you through how to make changes to the default configuration in Azure Active Directory (Azure AD) Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
+The purpose of this topic is to walk you through how to make changes to the default configuration in Azure AD Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
 
 ## Synchronization Rules Editor
 The Synchronization Rules Editor is used to see and change the default configuration. You can find it in the Start menu under the **Azure AD Connect** group.  
