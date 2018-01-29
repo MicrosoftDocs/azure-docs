@@ -32,9 +32,7 @@ For security reasons, certain specifics of security information are not publishe
 
 Azure manages OS patching on two levels, the bare metal servers and the guest VMs that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied in a manner that’s transparent to App Service customers and that guarantees the high-availability SLA of Azure services. 
 
-Usually, bare metal servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release.
-
-For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+Usually, bare metal servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release. For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
 
 ## How does Azure deal with significant vulnerabilities?
 
@@ -48,10 +46,13 @@ When a supported language runtime has a new stable version (major or minor), the
 
 Stay current with the runtime updates or deprecations by visiting:
 
-https://azure.microsoft.com/updates/?product=app-service 
-https://github.com/Azure/app-service-announcements/issues
+- https://azure.microsoft.com/updates/?product=app-service 
+- https://github.com/Azure/app-service-announcements/issues
 
->[!NOTE] Information here applies to language runtimes that come with your app. A custom runtime you upload to App Service, for example, remains unchanged unless you manually upgrade it.
+> [!NOTE] 
+> Information here applies to language runtimes that come with your app. A custom runtime you upload to App Service, for example, remains unchanged unless you manually upgrade it.
+>
+>
 
 ### New minor versions
 
