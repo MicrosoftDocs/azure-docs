@@ -343,7 +343,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Save the setting by selecting the **Save** button at the top.
  
-33. Make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
+33. Make sure that you turn the the Provisioning Status **On** in **Settings**. You do this by selecting **On**, and then selecting the **Save** button at the top.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 
