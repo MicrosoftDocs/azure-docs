@@ -88,7 +88,7 @@
       href: Review-Tool-User-Guide/View-Dashboard.md
 - name: Tutorials
   items:
-  - name: Facebook image and text moderation
+  - name: Facebook content moderation
     href: facebook-post-moderation.md
   - name: eCommerce image moderation
     href: ecommerce-retail-catalog-moderation.md
