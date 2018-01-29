@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Create your own [Azure AD B2C Tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started)
+* Create your own [Azure AD B2C Tenant](active-directory-b2c-get-started)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
 ## Register web app
@@ -42,23 +42,23 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+1. Select **Azure AD B2C** from the services list in the Azure portal
 
-[!INCLUDE [active-directory-b2c-portal-add-application](../../includes/active-directory-b2c-portal-add-application.md)]
+2. In the B2C settings, click **Applications** and then click **+ Add**.
 
-To register the sample web app in your tenant, use the following settings.
+    To register the sample web app in your tenant, use the following settings.
 
-![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
+    ![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
-| Setting      | Sample value  | Description                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Name** | `My Sample Web App` | Enter a **Name** that describes your app to consumers. | 
-| **Include web app / web API** | Yes | Select **Yes** for a web app. |
-| **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-| **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
-| **Native client** | No | Since this is a web app and not a native client, select No. |
+    | Setting      | Sample value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | `My Sample Web App` | Enter a **Name** that describes your app to consumers. | 
+    | **Include web app / web API** | Yes | Select **Yes** for a web app. |
+    | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+    | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
+    | **Native client** | No | Since this is a web app and not a native client, select No. |
 
-Click **Create** to register your app.
+3. Click **Create** to register your app.
 
 Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your web app from the list. The web app's property pane is displayed.
 
@@ -82,20 +82,20 @@ The key is displayed once in the portal. It's important to copy and save the key
 
 An Azure AD B2C policy defines user workflows. For example, signing in, signing up, or changing passwords are common workflows. To sign up users to access then sign in to the web app, create a **sign-up or sign-in** policy.
 
-From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
+1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
 
-To configure your policy, use the following settings.
+    To configure your policy, use the following settings.
 
-![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
+    ![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
 
-| Setting      | Sample value  | Description                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Name** | `b2c_1_SiUpIn` | Enter a **Name** for the policy. `b2c_1_SiUpIn` is policy name used in the sample code. | 
-| **Identity provider** | `email signup` | This is the identity provider used to uniquely identify the user. |
-| **Sign up attributes** | `Display Name` and `Postal Code` | Select attributes to be collected from the user during signup. |
-| **Application claims** | `Display Name`, `Postal Code`, `User is new`, `User's Object ID` | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | Setting      | Sample value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | `b2c_1_SiUpIn` | Enter a **Name** for the policy. `b2c_1_SiUpIn` is policy name used in the sample code. | 
+    | **Identity provider** | `email signup` | This is the identity provider used to uniquely identify the user. |
+    | **Sign up attributes** | `Display Name` and `Postal Code` | Select attributes to be collected from the user during signup. |
+    | **Application claims** | `Display Name`, `Postal Code`, `User is new`, `User's Object ID` | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
 
-Click **Create** to create your policy. 
+2. Click **Create** to create your policy. 
 
 ## Update web app code
 

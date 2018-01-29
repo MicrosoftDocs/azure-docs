@@ -61,7 +61,7 @@ Registering your web API with Azure AD B2C defines a trust relationship. Since t
 
 ## Define and configure scopes
 
-Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
+[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
 
 ### Define scopes for the web API
 
@@ -77,14 +77,14 @@ To configure scopes for the API, add the following entries.
 
 | Setting      | Sample value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Scope** | `Hello.Read` | Read hello. |
-| **Scope** | `Hello.Write` | Write hello. |
+| **Scope** | `Hello.Read` | Read access to hello |
+| **Scope** | `Hello.Write` | Write access to hello |
 
-The scope names
+The published scopes can be used to grant a client app permissions to the web API.
 
-### Grant the app permissions to the web API
+### Grant app permissions to web API
 
-In the previous steps, you created scopes for an API. In these steps, you define the API scopes for the Web App.
+In these steps, you define the API scopes for the Web App.
 
 Switch over to your web app `My Sample Web App` in the Portal and click API access (Preview)
 
