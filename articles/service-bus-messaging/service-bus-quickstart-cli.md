@@ -55,7 +55,7 @@ If you choose to install and use the CLI locally, this article requires that you
    ```
    This command displays the following text:
 
-   ```cmd
+   ```shell
    To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
    ```
 
