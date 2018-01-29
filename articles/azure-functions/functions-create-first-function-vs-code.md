@@ -158,17 +158,17 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 6. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
 
-The output panel shows the Azure resources that you created in a resource group in your subscription. 
+    The output panel shows the Azure resources that you created in a resource group in your subscription. 
 
-![Function app create output](./media/functions-create-first-function-vs-code/function-create-output.png)
+    ![Function app create output](./media/functions-create-first-function-vs-code/function-create-output.png)
 
-Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
+7. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
 
-Back in the **Azure Functions** area of the **Explorer**, you see the new function app displayed under your subscription. When you expand this node, you see the application settings and functions in the function app.
+8. Back in the **Azure Functions** area of the **Explorer**, you see the new function app displayed under your subscription. When you expand this node, you see the application settings and functions in the function app.
 
-![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
+    ![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
 
-From your function app node, type Ctrl and click to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal. 
+    From your function app node, type Ctrl and click to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal. 
 
 ## Test your function in Azure
 
