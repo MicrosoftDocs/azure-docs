@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in Zendesk with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Standard plan or better.
+> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
 
 ## Assigning users to Zendesk
 
@@ -78,15 +78,15 @@ This section guides you through connecting your Azure AD to Zendesk's user accou
 
 7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
-8. Click **Save**. 
+8. Click **Save**.
 
-9. Under the Mappings section, select **Synchronize Azure Active Directory Groups to ZenDesk**.
+9. Under the Mappings section, select **Synchronize Azure Active Directory Users to Zendesk**.
 
-10. In the **Attribute Mappings** section, review the group attributes that are synchronized from Azure AD to Zendesk. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. Select the Save button to commit any changes.
+10. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Zendesk. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. Select the Save button to commit any changes.
 
-11. Under the Mappings section, select **Synchronize Azure Active Directory Users to Zendesk**.
+11. Under the Mappings section, select **Synchronize Azure Active Directory Groups to ZenDesk**.
 
-12. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Zendesk. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the Save button to commit any changes.
+12. In the **Attribute Mappings** section, review the group attributes that are synchronized from Azure AD to Zendesk. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the Save button to commit any changes.
 
 13. To enable the Azure AD provisioning service for Zendesk, change the **Provisioning Status** to **On** in the **Settings** section
 
