@@ -14,7 +14,7 @@ ms.service: iot-edge
 ---
 
 # Use Visual Studio Code to debug a C# module with Azure IoT Edge
-This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to debug your IoT Edge modules.
+This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to debug your Azure IoT Edge modules.
 
 ## Prerequisites
 This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
@@ -48,7 +48,7 @@ After you finish the preceding tutorial, you should have the following items rea
     ![Screenshot of VS Code debug window](./media/how-to-debug-csharp-module/f5-debug-option.png)
 
 3. Browse to **Program.cs**. Add a breakpoint in the `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
-4. Press **F5** again, and select the process to attach to. In this tutorial, the process name should be `FilterModule.dll`
+4. Press **F5** again, and select the process to attach to. In this tutorial, the process name should be `FilterModule.dll`.
 
     ![Screenshot of VS Code debug window](./media/how-to-debug-csharp-module/attach-process.png)
 
