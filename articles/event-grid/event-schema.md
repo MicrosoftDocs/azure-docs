@@ -17,6 +17,8 @@ This article describes the properties and schema that are present for all events
 
 Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. The array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
 
+You can find the JSON schema for the Event Grid event and each Azure publisher's data payload in the [Event Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+
 ## Event schema
 
 The following example shows the properties that are used by all event publishers:
