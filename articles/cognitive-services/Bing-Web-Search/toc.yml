@@ -26,7 +26,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Web search SDK quickstart
+  - name: Web search SDK quickstart (preview)
     href: web-search-sdk-quickstart.md  
 - name: How To Guides
   items:
