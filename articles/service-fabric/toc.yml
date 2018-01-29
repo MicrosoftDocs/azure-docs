@@ -158,9 +158,7 @@
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics
-        href: service-fabric-reverse-proxy-diagnostics.md
-      - name: ASP.NET Core
-        href: service-fabric-reliable-services-communication-aspnetcore.md
+        href: service-fabric-reverse-proxy-diagnostics.md      
     - name: Application lifecycle
       href: service-fabric-application-lifecycle.md
       items:
@@ -388,8 +386,8 @@
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Configure reverse proxy for secure communication
       href: service-fabric-reverseproxy-configure-secure-communication.md
-    - name: Build an ASP.NET Core service
-      href: service-fabric-add-a-web-frontend.md
+    - name: ASP.NET Core
+      href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Configure security
       items:
       - name: Manage application secrets
