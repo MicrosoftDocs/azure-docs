@@ -75,17 +75,27 @@ With this new change, you want to make sure it is working as expected and is not
 Open the **Synchronization Service** from the Start menu. The steps in this section are all in this tool.
 
 **Full sync on all objects**  
-   Select **Connectors** at the top. Identify the connector you made a change to in the previous section, in this case, the Active Directory Domain Services, and select it. Select **Run** from Actions and then select **Full Synchronization** and **OK**.
+
+   1. Select **Connectors** at the top. Identify the connector you made a change to in the previous section, in this case, the Active Directory Domain Services, and select it. 
+   2. Select **Run** from Actions.
+   3. Select **Full Synchronization**, and then **OK**.
    ![Full sync](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    The objects are now updated in the metaverse. Verify your changes by looking at the object in the metaverse.
 
 **Preview and full sync on a single object**  
-   Select **Connectors** at the top. Identify the connector you made a change to in the previous section, in this case, the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use Scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.  
+
+   1. Select **Connectors** at the top. Identify the connector you made a change to in the previous section, in this case, the Active Directory Domain Services, and select it.
+   2. Select **Search Connector Space**. 
+   3. Use Scope to find an object you want to use to test the change. Select the object and click **Preview**. 
+   4. In the new screen, select **Commit Preview**.  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    The change is now committed to the metaverse.
 
 **View the object in the metaverse**  
-Pick a few sample objects to make sure the value is expected and that the rule applied. Select **Metaverse Search** from the top. Add any filter you need to find the relevant objects. From the search result, open an object. Look at the attribute values, and also verify in the **Sync Rules** column that the rule applied as expected.  
+
+1. Pick a few sample objects to make sure the value is expected and that the rule applied. 
+2. Select **Metaverse Search** from the top. Add any filter you need to find the relevant objects. 
+3. From the search result, open an object. Look at the attribute values, and also verify in the **Sync Rules** column that the rule applied as expected.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
 ### Enable the scheduler
@@ -102,16 +112,16 @@ With a default configuration, an object from the local forest looks like this:
 
 To create a rule with other attribute flows, do the following:
 
-* Open the **Synchronization Rules Editor** from the Start menu.
-* With **Inbound** still selected to the left, click the **Add new rule** button.
-* Give the rule a name and description. Select the on-premises Active Directory and the relevant object types. In **Link Type**, select **Join**. For **Precedence**, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
+1. Open the **Synchronization Rules Editor** from the Start menu.
+2. With **Inbound** still selected to the left, click the **Add new rule** button.
+3. Give the rule a name and description. Select the on-premises Active Directory and the relevant object types. In **Link Type**, select **Join**. For **Precedence**, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
   ![Attribute flow 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
-* Leave **Scoping filter** empty (that is, should apply to all user objects in the forest).
-* Leave **Join rules** empty (that is, let the out-of-box rule handle any joins).
-* In **Transformations**, create the following flows:  
+4. Leave **Scoping filter** empty (that is, should apply to all user objects in the forest).
+5. Leave **Join rules** empty (that is, let the out-of-box rule handle any joins).
+6. In **Transformations**, create the following flows:  
   ![Attribute flow 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
-* Click **Add** to save the rule.
-* Go to **Synchronization Service Manager**. On **Connectors**, select the connector where you added the rule. Select **Run**, and then **Full Synchronization**. A full synchronization recalculates all objects by using the current rules.
+7. Click **Add** to save the rule.
+8. Go to **Synchronization Service Manager**. On **Connectors**, select the connector where you added the rule. Select **Run**, and then **Full Synchronization**. A full synchronization recalculates all objects by using the current rules.
 
 This is the result for the same object with this custom rule:  
 ![Attribute flow 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
