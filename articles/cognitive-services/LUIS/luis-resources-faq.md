@@ -1,5 +1,6 @@
 ---
 title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
+titleSuffix: Azure
 description:  Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
 author: DeniseMak
@@ -8,8 +9,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: v-demak
+ms.date: 01/24/2018
+ms.author: v-demak;v-geberr;
 ---
 # Language Understanding FAQ
 
@@ -23,11 +24,13 @@ A LUIS app can support up to 500 intents.
 
 Limits on entities depend on the entity type, as shown in the following table:
 
-| Type | Limit | 
-|:------------- |:----- |
-| [Prebuilt entities](./Pre-builtEntities.md) | No limit. | 
-| [List entities](./luis-concept-entity-types.md) | 50 list entities. Each list can contain up to 20,000 items. | 
-| [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 30 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
+| Type | Entity Limit | Entity Child Limit|
+|:------------- |:----- |:--|
+| [Prebuilt entities](./Pre-builtEntities.md) | No limit | N/A|
+| [List entities](./luis-concept-entity-types.md) | 50 | 20,000 items | 
+| [Simple](./luis-concept-entity-types.md)|30|N/A|
+| [Hierarchical](./luis-concept-entity-types.md)|30| 10|
+| [Composite entities](./luis-concept-entity-types.md) | 30|10|
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 

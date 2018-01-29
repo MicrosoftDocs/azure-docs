@@ -33,7 +33,7 @@ The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservice
 1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

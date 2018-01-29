@@ -30,5 +30,5 @@ An overview of the process for performing a minimal-downtime migration includes:
 For more information about the Attunity Replicate for Microsoft Migrations offering, see the following resources:
  - Go to the [Attunity Replicate for Microsoft Migrations](https://aka.ms/attunity-replicate) webpage.
  - Download [Attunity Replicate for Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Go to the [Attunity Replicate Community](https://microsoft.attunity.com/) for a Quick Start Guide, tutorials, and support.
+ - Go to the [Attunity Replicate Community](https://aka.ms/attunity-community/) for a Quick Start Guide, tutorials, and support.
  - For step-by-step guidance on using Attunity Replicate to migrate from PostgreSQL to Azure Database for PostgreSQL, see the [Database Migration Guide](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).
