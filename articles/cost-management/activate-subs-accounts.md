@@ -48,7 +48,7 @@ When you add an account update a subscription, you grant Azure Cost Management a
 ### Add a new account (subscription)
 
 1. In the Azure Cost Management portal, click the gear symbol in the upper right and select **Cloud Accounts**.
-2. Click **Add new account** and the **Add new account** box appears. Enter the required information.
+2. Click **Add new account** and the **Add new account** box appears. Enter the required information.  
     ![Add new account box](./media/activate-subs-accounts//add-new-account.png)
 
 ### Update a subscription
