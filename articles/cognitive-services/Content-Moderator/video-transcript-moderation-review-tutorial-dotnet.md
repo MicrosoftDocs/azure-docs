@@ -18,7 +18,7 @@ Content Moderator's video APIs allow you to moderate videos and create video rev
 
 This detailed tutorial helps to understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 
-We use the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
+Download the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 
 - Compress the input video(s) for faster processing
 - Moderate the video to get shots and frames with insights
@@ -30,11 +30,11 @@ We use the [C# console application](https://github.com/MicrosoftContentModerator
 
 ## Sample program outputs
 
-Before we dig deep into the application source code, let's look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
+Before going further, let's look at the sample [program output](#program-output), and the generated default [video review](#video-review-default-view) and the [transcript view](#video-review-transcript-view) (examples).
 
 ## Prerequisites
 
-1. Sign up for the [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) web site and [create custom tags](Review-Tool-User-Guide/tags.md) that the C# console application will assign from within the code. The following screen shows the custom tags.
+1. Sign up for the [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) web site and [create custom tags](Review-Tool-User-Guide/tags.md) that the C# console application assigns from within the code. The following screen shows the custom tags.
 
   ![Video moderation custom tags](images/video-tutorial-custom-tags.png)
 
@@ -117,7 +117,7 @@ The class `Program` in `Program.cs` is the main entry point to the video moderat
 If no command-line arguments are present, `Main()` calls `GetUserInputs()`. This method prompts the user to enter the path to a single video file and to specify whether a text transcript should be generated.
 
 > [!NOTE]
-> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/en-us/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### Initialize and ProcessVideo methods
 
@@ -286,7 +286,7 @@ These lines perform the following tasks:
 
 ## Deep dive into video moderation
 
-The method `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.cs`, which contains the bulk of the code that interacts with Azure Media Services. The method's source code is shown below.
+The method `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.cs`, which contains the bulk of the code that interacts with Azure Media Services. The method's source code is shown in the following extract.
 
 	public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
 	{
@@ -449,7 +449,7 @@ The moderation process returns a list of key frames from the video, along with a
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
 
 > [!NOTE]
-> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails corresponding to the frame timestamps in the [video moderation output](#sample-video-moderation-response).
+> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails. These thumbnails (images) correspond to the frame timestamps in the [video moderation output](#sample-video-moderation-response).
 
 |Task|Methods|File|
 |-|-|-|
@@ -479,7 +479,7 @@ The application performs the following tasks:
 
 ### Task configuration
 
-We covered gathering user input earlier, so let's jump right into submitting the transcription job. `CreateAzureMediaServicesJobToModerateVideo()` (already described) calls `ConfigureTranscriptTask()`.
+Let's jump right into submitting the transcription job. `CreateAzureMediaServicesJobToModerateVideo()` (already described) calls `ConfigureTranscriptTask()`.
 
 	private void ConfigureTranscriptTask(IJob job)
     {
@@ -499,7 +499,7 @@ The configuration for the transcript task is read from the file `MediaIndexerCon
 
 ### Transcript generation
 
-The transcript is published as an AMS asset. To scan the transcript for objectionable content, we download the asset from Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` calls `GenerateTranscript()`, shown here, to retrieve the file.
+The transcript is published as an AMS asset. To scan the transcript for objectionable content, the application downloads the asset from Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` calls `GenerateTranscript()`, shown here, to retrieve the file.
 
 	public bool GenerateTranscript(IAsset asset)
 	{
@@ -538,7 +538,7 @@ Let's examine each these tasks in more detail:
 
 ### Initialize the code
 
-First, we initialize all variables and collections.
+First, initialize all variables and collections.
 
 	private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
 	{
@@ -561,7 +561,7 @@ First, we initialize all variables and collections.
 
 ### Parse the transcript for captions
 
-Next, we parse the VTT formatted transcript for captions and timestamps. The review tool displays these in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
+Next, parse the VTT formatted transcript for captions and timestamps. The review tool displays these captions in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
 
 		// Code from the previous section(s) in the tutorial
 
@@ -613,7 +613,7 @@ Next, we parse the VTT formatted transcript for captions and timestamps. The rev
 
 ### Moderate captions with the text moderation service
 
-Next, we scan the parsed text captions with the text moderation service of Content Moderator for profanity and possible explicit, suggestive, or undesirable content.
+Next, we scan the parsed text captions with Content Moderator's text API.
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
@@ -713,13 +713,13 @@ Next, we scan the parsed text captions with the text moderation service of Conte
 
 ### Breaking down the text moderation step
 
-`TextScreen()` is a substantial method, so let's break it down a little. Comments have been added to the code above to indicate the main pieces of functionality.
+`TextScreen()` is a substantial method, so let's break it down a little.
 
-1. First, the method reads the transcript file line by line (ignoring blank lines and lines containing a `NOTE` with a confidence score) and extracts the time stamps and text items from the *cues* in the file. A cue represents text from the audio track and includes associated start and end times. A cue begins with the time stamp line, which contains the string `-->`, and is followed by one or more lines of text.
+1. First, the method reads the transcript file line by line. It ignores blank lines and lines containing a `NOTE` with a confidence score. It extracts the time stamps and text items from the *cues* in the file. A cue represents text from the audio track and includes start and end times. A cue begins with the time stamp line with the string `-->`. It is followed by one or more lines of text.
 
 1. Instances of `CaptionScreentextResult` (defined in `TranscriptProfanity.cs`) are used to hold the information parsed from each cue.  When a new time stamp line is detected, or a maximum text length of 1024 characters is reached, a new `CaptionScreentextResult` is added to the `csrList`.
 
-1. With the file parsed into a list of cues, the method next submits each cue to the Text Moderation API to detect its language and to screen it for undesirable content. This requires calls to both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
+1.The method next submits each cue to the Text Moderation API. It calls both `ContentModeratorClient.TextModeration.DetectLanguageAsync()` and `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, which are defined in the `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. To avoid being rate-limited, the method pauses for a second before submitting each cue.
 
 1. After receiving results from the Text Moderation service, the method then analyzes them to see whether they meet confidence thresholds. These values are established in `App.config` as `OffensiveTextThreshold`, `RacyTextThreshold`, and `AdultTextThreshold`. Finally, the objectionable terms themselves are also stored. All frames within the cue's time range are flagged as containing offensive, racy, and/or adult text.
 
@@ -733,7 +733,7 @@ The following screen shows the result of the transcript generation and moderatio
 
 ## Program output
 
-The following command line output from the program shows the various tasks as they are completed. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
+The following command-line output from the program shows the various tasks as they are completed. Additionally, the moderation result (in JSON format) and the speech transcript are available in the same directory as the original video files.
 
 	Microsoft.ContentModerator.AMSComponentClient
 	Enter the fully qualified local path for Uploading the video :
