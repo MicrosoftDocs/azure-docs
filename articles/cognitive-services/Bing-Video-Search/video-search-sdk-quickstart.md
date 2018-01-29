@@ -42,7 +42,7 @@ Console.WriteLine("Search images for query \"NASA CubeSat\"");
 
 ```
 
-Parse the results, then verify number of results and print out ID, name and url of first video result.
+Parse the results, then verify number of results and print out ID, name, and url of first video result.
 ```
 if (videoResults == null)
 {
@@ -130,7 +130,9 @@ namespace VideoSrchSDK
 
 ```
 ##URL parameters
-        Search videos for "Interstellar Trailer" that is without charges, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
+
+Search on query text "Interstellar Trailer" for videos that are unchanged, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
+
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
         {
