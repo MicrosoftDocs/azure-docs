@@ -26,7 +26,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Bing web search SDK tutorial
+  - name: Web search SDK quickstart
     href: web-search-sdk-quickstart.md  
 - name: How To Guides
   items:

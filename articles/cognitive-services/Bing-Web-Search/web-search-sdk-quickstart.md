@@ -52,7 +52,7 @@ else
 
 ```
 ##Complete console application
-The code for a complete application follows:
+The previous code runs in the following console application:
 ```
 using System;
 using System.Collections.Generic;
@@ -181,8 +181,11 @@ namespace WebSrchSDK
 }
 
 ```
-The Web Search SDK samples contain other functions to demonstrate various features.
-This segment searches for `Best restaurants in Seattle`, verifies the number of results, and prints out name and url of first result.
+##Search options
+The Web Search SDK samples contain code that demonstrate various features.
+###Count and offset parameters
+The following segment searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of first result.
+
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
         {
@@ -219,7 +222,7 @@ This segment searches for `Best restaurants in Seattle`, verifies the number of 
         }
 
 ```
-
+###Response filter
 This will search on `Microsoft` with response filters to news and print details of news.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
@@ -262,7 +265,9 @@ This will search on `Microsoft` with response filters to news and print details 
         }
 
 ```
+###Count, promotion, safe search query parameters
 This will search on `Lady Gaga` with answerCount and promote parameters and print details of answers.
+
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
         {
