@@ -16,26 +16,34 @@ ms.author: sajagtap
 
 Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content. The operation scans your content for profanity, and compares the content against custom and shared blacklists.
 
-## Use the API console
+
+## Get your API key
 Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
-1.	Go to the [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+## Navigate to the API reference
+Go to the [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   The **Text - Screen** page opens.
 
-1. For **Open API testing console**, select the region that most closely describes your location. 
+## Open the API console
+For **Open API testing console**, select the region that most closely describes your location. 
 
   ![Text - Screen page region selection](images/test-drive-region.png)
 
   The **Text - Screen** API console opens.
 
-1.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
+## Select the inputs
+
+### Parameters
+Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
 
   ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
- 
-1.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-1.	In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
+### Content type
+For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
+
+### Sample text to scan
+In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -43,7 +51,8 @@ Before you can test-drive the API in the online console, you need your subscript
 	Also, 544-56-7788 looks like a social security number (SSN).
 ```
 
-1.	The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
+### Analyze the response
+The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
 > The machine-assisted 'Classification` feature is in preview.
@@ -126,7 +135,7 @@ Before you can test-drive the API in the online console, you need your subscript
 }
 ```
 
-For an explanation of the various insights, refer to the [text moderation API overview](text-moderation-api.md).
+For an explanation of the sections in the JSON response, refer to the [text moderation API overview](text-moderation-api.md).
 
 ## Next steps
 
