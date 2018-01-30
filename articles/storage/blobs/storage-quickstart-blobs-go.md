@@ -90,7 +90,7 @@ The first thing to do is to create the references to the ContainerURL and BlobUR
 
 * Create a **SharedKeyCredential** struct with your credentials. 
 
-* Create a **Pipeline** using the credentials and options. The pipeline specifies things like retry policies, logging, deserializaiton of HTTP response payloads, and more.  
+* Create a **Pipeline** using the credentials and options. The pipeline specifies things like retry policies, logging, deserialization of HTTP response payloads, and more.  
 
 * Instantiate a new ContainerURL, and a new BlobURL object to run operations on container (Create) and blobs (PutBlob and GetBlob).
 
@@ -162,7 +162,7 @@ handleErrors(err)
 
 ### List the blobs in a container
 
-Get a list of files in the container using the **ListBlobs** method on a **ContainerURL**. ListBlobs returns a single segment of blobs (up to 5000) starting from the specified **Marker**. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the previously-returned Marker.  
+Get a list of files in the container using the **ListBlobs** method on a **ContainerURL**. ListBlobs returns a single segment of blobs (up to 5000) starting from the specified **Marker**. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the previously returned Marker.  
 
 ```go
 // List the blobs in the container
