@@ -127,7 +127,7 @@ The transformed JSON output from your logic app looks like this example:
 ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
 ## More Liquid action examples
-Liquid is not limited to JSON to JSON transformations. It can be used for transformations across other formats as well. Other actions available for transformations using Liquid are following :
+Liquid is not limited to JSON to JSON transformations. Other actions available for transformations using Liquid are following :
 
 * Transform JSON to text
   
