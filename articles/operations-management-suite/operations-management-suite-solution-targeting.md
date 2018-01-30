@@ -21,7 +21,7 @@ ms.author: bwren
 When you add a management solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
 
 ## How to target a solution
-There are three steps to targeting a solution as described in the following sections.  Note that you will need both the OMS portal and the Azure portal for different steps.
+There are three steps to targeting a solution as described in the following sections. 
 
 
 ### 1. Create a computer group
