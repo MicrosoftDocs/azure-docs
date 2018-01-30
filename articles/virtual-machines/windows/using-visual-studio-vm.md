@@ -85,3 +85,9 @@ For more information, see [Capturing a VM to an image](https://docs.microsoft.co
 > You still incur some cost for storage of the image(s), but that incremental cost is likely insignificant compared to the manpower costs to rebuild the VM from scratch – for each person on your team who needs a VM.  For instance, it costs a few dollars to create and store a 127-GB image for a month that's reusable by all members of your team.  However, these costs are insignificant compared to hours each employee invests to build out and validate a properly configured dev box for thier individual use.
 
 Additionally, your development tasks or technologies might need more scale – like varieties of development configurations and multiple machine configurations.  You can use Azure DevTest Labs to create _recipes_ that automate the construction of your ‘golden image,' and to manage policies for your team’s running VMs.  [Using Azure DevTest Labs for developers](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-developer-lab) is the best source for more information on DevTest Labs.
+
+## Next steps
+Now that you know about the pre-configured Visual Studio images, the next step is to create a new VM:
+
+* [Create a VM through the Azure portal](quick-create-portal.md)
+* [Windows Virtual Machines overview](overview.md)
