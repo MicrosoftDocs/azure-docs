@@ -88,7 +88,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/en-us/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
+|Azure tools     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
