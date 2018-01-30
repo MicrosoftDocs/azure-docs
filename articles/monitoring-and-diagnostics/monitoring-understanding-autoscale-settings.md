@@ -119,11 +119,11 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 
 There are three types of Autoscale profiles:
 
-1. **Regular profile:** Most common profile. If you don’t need to scale your resource differently based on the day of the week, or on a particular day, then you only need to set up a regular profile in your Autoscale setting. This profile can then be configured with metric rules that dictate when to scale-out and when to scale-in. You should only have one regular profile defined.
+- **Regular profile:** Most common profile. If you don’t need to scale your resource based on the day of the week, or on a particular day, you can use a regular profile. This profile can then be configured with metric rules that dictate when to scale out and when to scale in. You should only have one regular profile defined.
 
-	The example profile used earlier in this article is an example of a regular profile. Do note it is also possible to set a profile to scale to a static instance count for your resource.
+	The example profile used earlier in this article is an example of a regular profile. Note that it is also possible to set a profile to scale to a static instance count for your resource.
 
-2. **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
+- **Fixed date profile:** This profile is for special cases. For example, let’s say you have an important event coming up on December 26, 2017 (PST). You want the minimum and maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s list of profiles. The profile is configured to run only on the event’s day. For any other day, Autoscale uses the regular profile.
 
     ``` JSON
     "profiles": [{
@@ -156,11 +156,12 @@ There are three types of Autoscale profiles:
     ]
     ```
 	
-3. **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
+- **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time. They run until the next recurrence profile or fixed date profile is set to start. An Autoscale setting with only one recurrence profile runs that profile, even if there is a regular profile defined in the same setting. The following two examples illustrate how this profile is used:
 
-    **Example 1 - Weekday vs. Weekends**
-    Let’s say that on weekends you want your max capacity to be 4 but on weekdays, since you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
-    The setting would look like this:
+    **Example 1: Weekdays vs. weekends**
+    
+	Let’s say that on weekends, you want your maximum capacity to be 4. On weekdays, because you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
+    The setting looks like this:
 
     ``` JSON
     "profiles": [
@@ -214,13 +215,13 @@ There are three types of Autoscale profiles:
     }]
     ```
 
-    By looking at the preceding setting, you’ll notice that each recurrence profile has a schedule, this schedule determines when the profile starts executing. The profile stops executing when it’s time to execute another profile.
+    The preceding setting shows that each recurrence profile has a schedule. This schedule determines when the profile starts running. The profile stops when it’s time to run another profile.
 
-    For example, in the preceding setting, “weekdayProfile” is set to start on Monday at 12 a.m., that means this profile starts executing on Monday at 12.am. It continues executing until Saturday at 12a.m., when “weekendProfile”  is scheduled to start executing.
+    For example, in the preceding setting, “weekdayProfile” is set to start on Monday at 12:00 AM. That means this profile starts running on Monday at 12:00 AM. It continues until Saturday at 12:00 AM, when “weekendProfile”  is scheduled to start running.
 
-    **Example 2 - Business hours**
-    Let’s take another example, maybe you want to have metric threshold = ‘x’ during business hours, 9 a.m. to 5 p.m., and then from 5 p.m. to 9 a.m. the next day, you want the metric threshold to be ‘y’.
-    The setting would look like this:
+    **Example 2: Business hours**
+    
+	Let's say you want to have one metric threshold during business hours (9:00 AM to 5:00 PM), and a different one for all other times. The setting would look like this:
 	
     ``` JSON
     "profiles": [
@@ -274,31 +275,37 @@ There are three types of Autoscale profiles:
     }]
     ```
 	
-    By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
+    The preceding setting shows that “businessHoursProfile” begins running on Monday at 9:00 AM, and continues to 5:00 PM. That’s when “nonBusinessHoursProfile” starts running. The “nonBusinessHoursProfile” runs until 9:00 AM Tuesday, and then the “businessHoursProfile” takes over again. This repeats until Friday at 5:00 PM. At that point, “nonBusinessHoursProfile” runs all the way to Monday at 9:00 AM.
 	
 > [!Note]
-> The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default profile in between recurrence profiles.
+> The Autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the autoscale setting's default profile in between recurrence profiles.
 	
-## Autoscale Evaluation
-Given that autoscale settings can have multiple autoscale profiles, and each profile can have multiple metric rules it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs it begins by choosing the profile that is applicable, after choosing the profile autoscale evaluates the min, max values and any metric rules in the profile and decides if a scale action is necessary.
+## Autoscale evaluation
+Given that autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
 
 ### Which profile will Autoscale pick?
-- Autoscale first looks for any fixed date profile that is configured to run now, if there is, Autoscale executes it. If there are multiple fixed date profiles that are supposed to run, Autoscale will select the first one.
-- If there are no fixed date profiles, Autoscale looks at recurrence profiles, if found, then it executes it.
-- If there are no fixed or recurrence profiles, then Autoscale execute the regular profile.
+
+Autoscale uses the following sequence to pick the profile:
+1. It first looks for any fixed date profile that is configured to run now. If there is, Autoscale runs it. If there are multiple fixed date profiles that are supposed to run, Autoscale selects the first one.
+2. If there are no fixed date profiles, Autoscale looks at recurrence profiles. If a recurrence profile is found, it runs it.
+3. If there are no fixed date or recurrence profiles, Autoscale runs the regular profile.
 
 ### How does Autoscale evaluate multiple rules?
 
-Once Autoscale determines which profile is supposed to execute, it starts by evaluating all the scale-out rule in the profile (rules with direction = “Increase”).
-- If one or more scale-out rules are triggered, Autoscale  calculates the new capacity determined by the scaleAction of each of those rules. Then it scales-out to the maximum of those capacities to ensure service availability.
-- For example: If there is a virtual machine scale set with a current capacity of 10 and there are two scale-out rules; one that increases capacity by 10%, and one that increases capacity by 3. The first rule would result in a new capacity of 11, and the second rule would result in a capacity of 13. To ensure service availability autoscale chooses the action that results in the max capacity, so the second rule is chosen.
+After Autoscale determines which profile to run, it evaluates all the scale-out rules in the profile (these are rules with **direction = “Increase”**).
 
-If no scale-out rules are triggered, Autoscale  evaluates all the scale-in rules (rules with direction = “Decrease”). Autoscale only takes a scale-in action if all of the scale-in rules are triggered.
-- Autoscale calculates the new capacity determined by the scaleAction of each of those rules. Then it chooses the scale action that results in the maximum of those capacities to ensure service availability.
-- For example: If there is a virtual machine scale set with a current capacity of 10 and there are two scale-in rules; one that decreases capacity by 50%, and one that decreases capacity by 3. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability autoscale chooses the action that results in the max capacity, so the second rule is chosen.
+If one or more scale-out rules are triggered, Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it scales out to the maximum of those capacities, to ensure service availability.
 
-## Next Steps
-To learn more about Autoscale refer to the following resources:
+For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-out rules: one that increases capacity by 10 percent, and one that increases capacity by 30 percent. The first rule would result in a new capacity of 11, and the second rule would result in a capacity of 13. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
+
+If no scale-out rules are triggered, Autoscale evaluates all the scale-in rules (rules with **direction = “Decrease”**). Autoscale only takes a scale-in action if all of the scale-in rules are triggered.
+
+Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it chooses the scale action that results in the maximum of those capacities to ensure service availability.
+
+For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-in rules: one that decreases capacity by 50 percent, and one that decreases capacity by 30 percent. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
+
+## Next steps
+Learn more about Autoscale by referring to the following:
 
 * [Overview of autoscale](monitoring-overview-autoscale.md)
 * [Azure Monitor autoscale common metrics](insights-autoscale-common-metrics.md)
