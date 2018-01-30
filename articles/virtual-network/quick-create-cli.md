@@ -110,13 +110,15 @@ az vm create \
 
 After the virtual machine is created, notice in the output returned that the private IP address is *10.0.0.5*. Since Azure previously assigned the first usable address of 10.0.0.4 in the subnet to the *myVm1* virtual machine, it assigned 10.0.0.5 to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
-## Validate communication
+## Connect to a virtual machine
 
 Use the following command to create an SSH session with the *myVm1* virtual machine. Replace `<publicIpAddress>` with the public IP address of your virtual machine. In the example above, the IP address is *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
 ```
+
+## Validate communication
 
 Use the following command to confirm communication with *myVm2* from *myVm1*:
 

@@ -82,7 +82,7 @@ New-AzureRmVm `
     -SubnetName "default" `
     -Name "myVm1"
 ```
-Azure DHCP automatically assigned 10.0.0.4 to the virtual machine because it is the first available address in the *default* subnet. Azure created and assigned a public IP address to the virtual machine. The public IP address is not assigned from within the virtual network or subnet address prefixes. Public IP addresses are assigned from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
+Azure DHCP automatically assigned 10.0.0.4 to the virtual machine because it is the first available address in the *default* subnet.
 
 Create a second virtual machine. 
 
@@ -96,9 +96,9 @@ New-AzureRmVm `
 
 Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
-## Connect to virtual machine
+## Connect to a virtual machine
 
-Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of a virtual machine. The following example returns the public IP address of the *myVm1* virtual machine:
+Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of a virtual machine. Azure assigns a public, Internet routable IP address to each virtual machine, by default. The public IP address is assigned to the virtual machine from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it. The following example returns the public IP address of the *myVm1* virtual machine:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -Name myVm1 -ResourceGroupName myResourceGroup | Select IpAddress
