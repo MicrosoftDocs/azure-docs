@@ -3,9 +3,9 @@ title: Custom events for Azure Event Grid with PowerShell | Microsoft Docs
 description: Use Azure Event Grid and PowerShell to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -71,7 +71,7 @@ To simplify this article, set up sample event data to send to the topic. Typical
 $eventID = Get-Random 99999
 $eventDate = Get-Date -Format s
 
-$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"}}]"
+$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
 ```
 
 If you view `$body`, you see the full event. The `data` element of the JSON is the payload of your event. Any well-formed JSON can go in this field. You can also use the subject field for advanced routing and filtering.
@@ -89,11 +89,13 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
   "id": "1807",
   "eventType": "recordInserted",
   "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "eventTime": "2018-01-25T15:58:13",
   "data": {
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```
