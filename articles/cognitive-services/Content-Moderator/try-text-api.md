@@ -28,13 +28,13 @@ Before you can test-drive the API in the online console, you need your subscript
 
   The **Text - Screen** API console opens.
 
-3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect** and **PII**, select **true**.
+3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **clssify**, select **true**. Leave the **ListId** field empty.
 
-  ![Text - Screen console query parameters](images/test-drive-text-api-1.png)
+  ![Text - Screen console query parameters](images/text-api-console-inputs.png)
  
 4.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-5.	In the **Request body** box, enter some text. Deliberately include a typo or two.
+5.	In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -42,7 +42,10 @@ Before you can test-drive the API in the online console, you need your subscript
 	Also, 544-56-7788 looks like a social security number (SSN).
 ```
 
-6.	See how the API handled the misspelled words and personally identifiable information (PII).
+6.	The following response shows the various insights from the API. It contains potential profanity, PII, classification information (in preview), and the auto-corrected version.
+
+> [!NOTE]
+> The machine-assisted 'Classification` feature is in preview.
 
 ```
 {
@@ -94,6 +97,18 @@ Before you can test-drive the API in the online console, you need your subscript
       			"Index": 266
     		}]
   		},
+	"Classification": {
+    	"ReviewRecommended": true,
+    	"Category1": {
+      		"Score": 1.5113095059859916E-06
+    	},
+    	"Category2": {
+      		"Score": 0.12747249007225037
+    	},
+    	"Category3": {
+      		"Score": 0.98799997568130493
+    	}
+  		},
   	"Language": "eng",
   	"Terms": [{
     		"Index": 21,
@@ -109,7 +124,9 @@ Before you can test-drive the API in the online console, you need your subscript
  	 "TrackingId": "2eaa012f-1604-4e36-a8d7-cc34b14ebcb4"
 }
 ```
-  
+
+For an explanation of the various insights, refer to the [text moderation API overview](text-moderation-api.md).
+
 ## Next steps
 
 Use the REST API in your code or start with the [text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) to integrate with your application.
