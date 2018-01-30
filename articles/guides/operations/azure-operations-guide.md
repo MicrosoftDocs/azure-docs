@@ -170,7 +170,7 @@ Azure PowerShell is a set of modules that provide cmdlets for managing Azure. Yo
 
 **Azure command-line interface**
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 **REST APIs**
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).

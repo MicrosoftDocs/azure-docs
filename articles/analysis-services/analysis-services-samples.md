@@ -42,5 +42,5 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 
 ## Next steps
 
-[Adventure Works tutorial](/tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works tutorial](/tutorials/aas-adventure-works-tutorial)   
 [Azure On-premises Data Gateway](analysis-services-gateway.md)  

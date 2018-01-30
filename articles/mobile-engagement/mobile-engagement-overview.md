@@ -44,7 +44,7 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 ### Next Steps:
 [Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Getting Started](/index.md)
+[Getting Started](/index)
 
 [Download demo apps with source code](https://aka.ms/azmedemoapps)
 
