@@ -130,6 +130,7 @@ The transformed JSON output from your logic app looks like this example:
 Liquid is not limited to JSON to JSON transformations. It can be used for transformations across other formats as well. Other actions available for transformations using Liquid are following :
 
 * Transform JSON to text
+  
   Liquid template used for this example
    
    ``` json
@@ -140,6 +141,7 @@ Liquid is not limited to JSON to JSON transformations. It can be used for transf
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
 * Transform XML to JSON
+  
   Liquid template used for this example
    
    ``` json
@@ -152,6 +154,7 @@ Liquid is not limited to JSON to JSON transformations. It can be used for transf
    ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
 * Transform XML to text
+  
   Liquid template used for this example
 
    ``` json
