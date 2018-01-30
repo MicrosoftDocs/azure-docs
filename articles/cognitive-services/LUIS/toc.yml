@@ -143,7 +143,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Glossary
     href: luis-glossary.md
-  - name: LUIS FAQ
+  - name: FAQ
     href: luis-resources-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
