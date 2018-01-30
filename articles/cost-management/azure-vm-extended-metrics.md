@@ -72,4 +72,4 @@ To view performance metrics on your Azure Instances in the Cloudyn portal, navig
 
 ## Next steps
 
-- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](activate-subs-acccounts.md)
+- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](activate-subs-accounts.md)
