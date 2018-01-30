@@ -127,7 +127,7 @@ The transformed JSON output from your logic app looks like this example:
 ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
 ## More Liquid action examples
-Liquid is not limited to JSON to JSON transformations. Other actions available for transformations using Liquid are following :
+Liquid is not limited to JSON only transformations. Other actions available for transformations using Liquid are following:
 
 * Transform JSON to text
   
@@ -136,7 +136,7 @@ Liquid is not limited to JSON to JSON transformations. Other actions available f
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Sample input and ouput
+   Sample input and output
   
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
