@@ -3,7 +3,7 @@ title: SaaS App Integration Tutorials for use with Azure AD | Microsoft Docs
 description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: mtillman
 
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2018
+ms.date: 01/30/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -32,92 +32,92 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | :---: | :--- | :--- |
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [&frankly](active-directory-saas-andfrankly-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-10000ftplans-tutorial.png)| [10,000ft Plans](active-directory-saas-10000ftplans-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_123contactform.png)| [123ContactForm](active-directory-saas-123contactform-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_15five.png)| [15Five](active-directory-saas-15five-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-123contactform-tutorial.png)| [123ContactForm](active-directory-saas-123contactform-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-15five-tutorial.png)| [15Five](active-directory-saas-15five-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-23video-tutorial.png)| [23 Video](active-directory-saas-23video-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_360Online.png)| [360 Online](active-directory-saas-360online-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-360online-tutorial.png)| [360 Online](active-directory-saas-360online-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8 Virtual Office](active-directory-saas-8x8virtualoffice-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-abintegro-tutorial.png)| [Abintegro](active-directory-saas-abintegro-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-absorblms-tutorial.png)| [Absorb LMS](active-directory-saas-absorblms-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-accredible-tutorial.png)| [Accredible](active-directory-saas-accredible-tutorial.md)|
 | ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-achieve3000-tutorial.png)| [Achieve3000](active-directory-saas-achieve3000-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdaptiveSuite.png)| [Adaptive Suite](active-directory-saas-adaptivesuite-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeCreateiveCloud.png)| [Adobe Creative Cloud](active-directory-saas-adobe-creative-cloud-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeEchoSign.png)| [Adobe Sign](active-directory-saas-adobe-echosign-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adaptivesuite-tutorial.png)| [Adaptive Suite](active-directory-saas-adaptivesuite-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-creative-cloud-tutorial.png)| [Adobe Creative Cloud](active-directory-saas-adobe-creative-cloud-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-echosign-tutorial.png)| [Adobe Sign](active-directory-saas-adobe-echosign-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe Experience Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPeTime.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPGlobalView.png)| [ADP Globalview](active-directory-saas-adglobalview-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adpetime-tutorial.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adglobalview-tutorial.png)| [ADP Globalview](active-directory-saas-adglobalview-tutorial.md)|
 |![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-agiloft-tutorial.png)| [Agiloft](active-directory-saas-agiloft-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.png)| [Aha!](active-directory-saas-aha-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Allocadia.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Anaplan.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
-| ![logo](media/active-directory-saas-tutorial-list/active-directory-apexportal-tutorial.png)| [Apex Portal](active-directory-saas-apexportal-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppBlade.png)| [AppBlade](active-directory-saas-appblade-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppDynamics.png)| [AppDynamics](active-directory-saas-appdynamics-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](active-directory-saas-aha-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-airwatch-tutorial.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-alcumus-info-tutorial.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-allocadia-tutorial.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/AWS)](active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-anaplan-tutorial.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-answerhub-tutorial.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
+| ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-apexportal-tutorial.png)| [Apex Portal](active-directory-saas-apexportal-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-appblade-tutorial.png)| [AppBlade](active-directory-saas-appblade-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-appdynamics-tutorial.png)| [AppDynamics](active-directory-saas-appdynamics-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-apptio-tutorial.png)| [Apptio](active-directory-saas-apptio-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aravo.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ArcGIS.png)| [ArcGIS Online](active-directory-saas-arcgis-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ariba.png)| [Ariba](active-directory-saas-ariba-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-aravo-tutorial.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-arcgis-tutorial.png)| [ArcGIS Online](active-directory-saas-arcgis-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-ariba-tutorial.png)| [Ariba](active-directory-saas-ariba-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-asana-tutorial.png)| [Asana](active-directory-saas-asana-tutorial.md)| [Asana - User Provisioning](active-directory-saas-asana-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_asccontracts.png)| [ASC Contracts](active-directory-saas-asccontracts-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AssetBank.png)| [Asset Bank](active-directory-saas-assetbank-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-asccontracts-tutorial.png)| [ASC Contracts](active-directory-saas-asccontracts-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-assetbank-tutorial.png)| [Asset Bank](active-directory-saas-assetbank-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](active-directory-saas-atlassian-cloud-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AtomicLearning.png)| [Atomic Learning](active-directory-saas-atomiclearning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-atomiclearning-tutorial.png)| [Atomic Learning](active-directory-saas-atomiclearning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask Workplace](active-directory-saas-autotaskworkplace-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BambooHR.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_bambubysproutsocial.png)| [Bambu by Sprout Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Bambu by Sprout Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC in the Cloud](active-directory-saas-bcinthecloud-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-beeline-tutorial.png)| [BeeLine](active-directory-saas-beeline-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefithub-tutorial.png)| [BenefitHub](active-directory-saas-benefithub-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Benefitssolver.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BenSelect.png)| [BenSelect](active-directory-saas-benselect-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BetterWorks.png)| [BetterWorks](active-directory-saas-betterworks-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BGS_Online.png)| [BGS Online](active-directory-saas-bgsonline-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefitsolver-tutorial.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-benselect-tutorial.png)| [BenSelect](active-directory-saas-benselect-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-betterworks-tutorial.png)| [BetterWorks](active-directory-saas-betterworks-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bgsonline-tutorial.png)| [BGS Online](active-directory-saas-bgsonline-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bime-tutorial.png)| [Bime](active-directory-saas-bime-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Birst.png)| [Birst Agile Business Analytics](active-directory-saas-birst-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearnShibboleth.png)| [Blackboard Learn - Shibboleth](active-directory-saas-blackboard-learn-shibboleth-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearn.png)| [Blackboard Learn](active-directory-saas-blackboard-learn-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlueJeans.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-birst-tutorial.png)| [Birst Agile Business Analytics](active-directory-saas-birst-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [Blackboard Learn - Shibboleth](active-directory-saas-blackboard-learn-shibboleth-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-blackboard-learn-tutorial.png)| [Blackboard Learn](active-directory-saas-blackboard-learn-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](active-directory-saas-bonus-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](active-directory-saas-boomi-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-box-tutorial.png)| [Box](active-directory-saas-box-tutorial.md)| [Box - User Provisioning](active-directory-saas-box-userprovisioning-tutorial.md)|
 | ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpm’online](active-directory-saas-bpmonline-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bridge.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Brightspace.png)| [Brightspace by Desire2Learn](active-directory-saas-brightspace-desire2learn-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](active-directory-saas-brightspace-desire2learn-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bitabiz-tutorial.png)| [BitaBIZ](active-directory-saas-bitabiz-tutorial.md)||
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bynder.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CAPPM.png)| [CA PPM](active-directory-saas-cappm-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.png)| [Canvas Lms](active-directory-saas-canvas-lms-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza Platform](active-directory-saas-capriza-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.png)| [Central Desktop](active-directory-saas-central-desktop-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cappm-tutorial.png)| [CA PPM](active-directory-saas-cappm-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-canvas-lms-tutorial.png)| [Canvas Lms](active-directory-saas-canvas-lms-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-capriza-tutorial.png)| [Capriza Platform](active-directory-saas-capriza-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-central-desktop-tutorial.png)| [Central Desktop](active-directory-saas-central-desktop-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-ceridiandayforcehcm-tutorial.png)| [Ceridian Dayforce HCM](active-directory-saas-ceridiandayforcehcm-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_cernercentral.png)| [Cerner Central](active-directory-saas-cernercentral-tutorial.md)| [Cerner Central - User Provisioning](active-directory-saas-cernercentral-provisioning-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cernercentral-tutorial.png)| [Cerner Central](active-directory-saas-cernercentral-tutorial.md)| [Cerner Central - User Provisioning](active-directory-saas-cernercentral-provisioning-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-certify-tutorial.png)| [Certify](active-directory-saas-certify-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cezannehrsoftware-tutorial.png)| [Cezanne HR Software](active-directory-saas-cezannehrsoftware-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.png)| [Cherwell](active-directory-saas-cherwell-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cherwell-tutorial.png)| [Cherwell](active-directory-saas-cherwell-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-chromeriver-tutorial.png)| [Chromeriver](active-directory-saas-chromeriver-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cimpl.png)| [Cimpl](active-directory-saas-cimpl-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cisco_Spark.png)| [Cisco Spark](active-directory-saas-cisco-spark-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CiscoWebEx.png)| [Cisco Webex](active-directory-saas-cisco-webex-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](active-directory-saas-cimpl-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](active-directory-saas-cisco-spark-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](active-directory-saas-cisco-webex-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-citrix-gotomeeting-tutorial.png)| [GoToMeeting](active-directory-saas-citrix-gotomeeting-tutorial.md)| [Citrix GoToMeeting - User Provisioning](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixShareFile.png)| [Citrix ShareFile](active-directory-saas-sharefile-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](active-directory-saas-sharefile-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-clearcompany-tutorial.png)| [ClearCompany](active-directory-saas-clearcompany-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Clear Review](active-directory-saas-clearreview-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-clever-tutorial.png)| [Clever](active-directory-saas-clever-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.png)| [ClickTime](active-directory-saas-clicktime-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.png)| [CloudPassage](active-directory-saas-cloudpassage-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-clicktime-tutorial.png)| [ClickTime](active-directory-saas-clicktime-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-cloudpassage-tutorial.png)| [CloudPassage](active-directory-saas-cloudpassage-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-collaborativeinnovation-tutorial.png)| [Collaborative Innovation](active-directory-saas-collaborativeinnovation-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-communifire-tutorial.png)| [Communifire](active-directory-saas-communifire-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-competencyiq-tutorial.png)| [CompetencyIQ](active-directory-saas-competencyiq-tutorial.md)
 | ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-complianceelf-tutorial.png)| [Compliance ELF](active-directory-saas-complianceelf-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-concur-tutorial.png)| [Concur](active-directory-saas-concur-tutorial.md)| [Concur - User Provisioning](active-directory-saas-concur-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.png)| [Condeco](active-directory-saas-condeco-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Convercent.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-condeco-tutorial.png)| [Condeco](active-directory-saas-condeco-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-convercent-tutorial.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.png)| [Cornerstone OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.png)| [Coupa](active-directory-saas-coupa-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.png)| [CS Stars](active-directory-saas-cs-stars-tutorial.md)|
