@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Amazon Web Services (AWS) with Azur
 Integrating Amazon Web Services (AWS) with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Amazon Web Services (AWS).
-- You can enable your users to automatically get signed in to AWS with their Azure AD accounts.
+- You can enable your users to automatically get signed in to Amazon Web Services (AWS) with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -50,8 +50,8 @@ In this tutorial, you test Azure AD single sign-on in a test environment. The sc
 1. Adding Amazon Web Services (AWS) from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Add AWS from the gallery
-To configure the integration of AWS into Azure AD, you need to add AWS from the gallery to your list of managed SaaS apps.
+## Add Amazon Web Services (AWS) from the gallery
+To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
 
 **To add Amazon Web Services (AWS) from the gallery, take the following steps:**
 
