@@ -18,7 +18,7 @@ Use Content Moderator’s machine-assisted text moderation and [human-in-the-loo
 
 Businesses use the text moderation service to either block, approve, or review the content based on their policies and thresholds. It is used to moderate environments that require partners, employees, and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more. 
 
-The API scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
+The API scans the incoming text (maximum 1024 characters) for profanity, classifies for possible undesired text (preview), autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
 
 The service response includes the following information:
 
