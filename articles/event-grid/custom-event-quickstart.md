@@ -40,7 +40,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-A topic provides a user-defined endpoint that you post your events to. The following example creates the topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry. For the preview release, Event Grid supports **westus2** and **westcentralus** locations.
+A topic provides a user-defined endpoint that you post your events to. The following example creates the topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry.
 
 ```azurecli-interactive
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
@@ -52,14 +52,14 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<topic_name>`, use the value you created earlier. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the URL from RequestBin or Hookbin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your subscription, and `<endpoint_URL>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<topic_name>`, use the value you created earlier. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin_or_Hookbin>
+  --endpoint <endpoint_URL>
 ```
 
 ## Send an event to your topic
