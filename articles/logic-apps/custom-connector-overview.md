@@ -30,9 +30,9 @@ like GitHub, Salesforce, Twitter, and more.
 
 Sometimes though, you might want to call APIs, services, and systems that aren't available as prebuilt connectors. 
 To support more tailored scenarios, you can build *custom connectors* with their own triggers and actions. 
-We have a complete set of basic and advanced tutorials for custom connectors on the Connectors documentation site. 
-We recommend that you start with the [custom connector overview](https://docs.microsoft.com/connectors/custom-connectors/), 
-but you can also go directly to these topics for details on a specific area:
+The Connectors documentation site has complete basic and advanced tutorials about custom connectors. 
+You can start with the [custom connector overview](https://docs.microsoft.com/connectors/custom-connectors/), 
+but you can also go directly to these topics for details about a specific area:
 
 * [Create a Logic Apps connector](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
 
