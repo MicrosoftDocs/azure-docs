@@ -28,7 +28,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
   The **Text - Screen** API console opens.
 
-3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **clssify (preview)**, select **true**. Leave the **ListId** field empty.
+3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
 
   ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
  
