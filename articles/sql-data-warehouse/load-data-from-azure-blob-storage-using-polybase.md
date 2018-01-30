@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs
+title: 'Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs'
 description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
