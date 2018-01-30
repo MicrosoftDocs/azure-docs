@@ -31,21 +31,21 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 To complete this tutorial:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running MacOS (High Sierra).    
+* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).    
 
 * Install the following components, which are required by the [Azure Functions Core Tools]: 
 
     * [Node.js 8.5 or a later version](https://docs.npmjs.com/getting-started/installing-node), which includes npm. 
 
-    * [.NET Core 2.0](https://www.microsoft.com/net/core)
+    * [.NET Core 2.0 or a later version](https://www.microsoft.com/net/core)
 
-* Use the following command to install the correct version of the [Core Tools][Azure Functions Core Tools]: 
+* Use the following command to install the [Core Tools][Azure Functions Core Tools]: 
 
     ```bash
     npm install -g azure-functions-core-tools@core
     ``` 
     
-     When installing on Ubuntu, you may need to use `sudo`. On MacOS and LInux, you may need to use the `unsafe-perm` flag, as follows:
+     When installing on Ubuntu, you may need to use `sudo`. On macOS and Linux, you may need to use the `unsafe-perm` flag, as follows:
     
     ```bash
     sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
@@ -76,7 +76,7 @@ The Azure Functions extension for VS Code is in preview. To learn more, see [Azu
 
 The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
 
-1. In the VS Code, open the **Explorer** and select the create project icon in the **Azure Functions** area.
+1. In VS Code, open the **Explorer**, locate and expand the **Azure Functions** area, and then select the create project icon. This area may be located at the bottom of the **Explorer**.
 
     ![Create a function app project](./media/functions-create-first-function-vs-code/create-function-app-project.png)
 
@@ -116,7 +116,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local runtime](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
@@ -182,7 +182,7 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 2. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
-    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
+    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)   
 
 ## Update the runtime version in Azure
 
