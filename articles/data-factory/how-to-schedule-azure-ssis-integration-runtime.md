@@ -29,7 +29,7 @@ Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR)
 
  
 ## Prerequisites
-If you haven't provisioned an Azure SSIS integration runtime already, provision it by following instructions in the [tutorial](tutorial-deploy-ssis-packages-azure.md) or [Create Azure SSIS integration runtime](create-azure-integration-runtime.md). 
+If you haven't provisioned an Azure SSIS integration runtime already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## Create and test an Azure Automation runbook
 In this section, you perform the following steps: 
