@@ -22,8 +22,8 @@
     href: quickstarts/ruby.md
 - name: SDK (preview)
   items:
-  - name: Spell Check SDK quickstart (preview)
-    href: sdk-quickstart-spell-check.md  
+  - name: SDK samples overview 
+    href: sdk.md
 - name: How-to guides
   items:
   - name: Use and display requirements
