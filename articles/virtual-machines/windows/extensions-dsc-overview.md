@@ -49,23 +49,16 @@ as part of the Azure PowerShell SDK.
 
 ## Prerequisites
 
-**Local machine**
-To interact with the Azure VM extension,
-you need to use either the Azure portal or the Azure PowerShell SDK.
-
-**Guest Agent**
-The Azure VM that is configured by the DSC configuration needs to be an OS
-that supports Windows Management Framework (WMF) 4.0 or later.
-The full list of supported OS versions can be found at the page
-[DSC Extension Version History](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+- **Local machine** - To interact with the Azure VM extension, you need to use either the Azure portal or the Azure PowerShell SDK.
+- **Guest Agent** - The Azure VM that is configured by the DSC configuration needs to be an OS that supports Windows Management Framework (WMF) 4.0 or later. The full list of supported OS versions can be found at the page [DSC Extension Version History](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## Terms and Concepts
 
 This guide presumes familiarity with the following concepts:
 
-* **Configuration** - A DSC configuration document.
-* **Node** - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
-* **Configuration Data** - A .psd1 file containing environmental data for a configuration.
+- **Configuration** - A DSC configuration document.
+- **Node** - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
+- **Configuration Data** - A .psd1 file containing environmental data for a configuration.
 
 ## Architectural Overview
 
