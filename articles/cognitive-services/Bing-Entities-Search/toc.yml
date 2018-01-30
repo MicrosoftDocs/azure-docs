@@ -20,7 +20,11 @@
   - name: Ruby
     href: quickstarts/ruby.md
 - name: SDK (preview)
-  href: sdk.md  
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Entity search SDK quickstart (preview)
+    href: entity-search-sdk-quickstart.md  
 - name: How To Guides
   items:
   - name: Use and display requirements
