@@ -1,5 +1,5 @@
 ---
-title: LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
+title: Enablr or disable LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/30/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ---
 
-# Enabling LinkedIn integration for Office applications 
-This article tells you how to enable LinkedIn integration for your users in Azure Active Directory (Azure AD). When LinkedIn integration is enabled, users can access public LinkedIn data within some of their Microsoft apps. Each user can independently choose to connect their work or school account to their LinkedIn account.
+# LinkedIn integration for Office applications
+This article tells you how to restrict the users to whom LinkedIn integration is provided in Azure Active Directory (Azure AD). LinkedIn integration is enabled by default when it is added to your tenant, which allows users to access public LinkedIn data within some of their Microsoft apps. Each user can independently choose to connect their work or school account to their LinkedIn account.
 
 > [!IMPORTANT]
 > LinkedIn integration is not being deployed to all Azure AD tenants at the same time. After it is rolled out to your Azure tenant, LinkedIn integration is enabled by default. LinkedIn integration is not available for go-local, sovereign, and government tenants. 
