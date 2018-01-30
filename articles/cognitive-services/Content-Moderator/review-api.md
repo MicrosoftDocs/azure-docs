@@ -19,7 +19,7 @@ Combine human reviews with machine-assisted moderation by using the Review API [
 The Review API offers the following ways to include human moderation in your content moderation process:
 
 1. The **Job** operations for machine-assisted moderation and human review creation.
-2. The **Review** operations for human review creation.
+1. The **Review** operations for human review creation.
 
 Both operations accept your callback endpoints for receiving detailed status and results after completion.
 
@@ -34,7 +34,7 @@ The inputs include the following information:
 - The content to be moderated
 - The workflow name (The default is the “default” workflow)
 - Your API callback point for notifications
-
+ 
 The following response shows the identifier of the job that was started. You use the job identifier to get the job status and receive detailed information.
 
 	{
@@ -47,79 +47,62 @@ Use the **Job.Get** operation and job identifier to get the details of a running
 
 Your inputs include the following information:
 
-- The review team ID
-- The job identifier returned by the previous operation
+- The review team ID - The job identifier returned by the previous operation
 
 The response includes the following information:
 
 - The identifier of the review created (use this ID to get the final review results)
-- The status of the review (completed or in-progress)
-- The assigned moderation tags (key-value pairs)
-
-#### Before human review
-
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "InProgress",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "",
-		"ResultMetaData": [],
-		"JobExecutionReport": [
-    	{
-      		"Ts": "2018-01-07T00:38:26.7714671",
-      		"Msg": "Successfully got hasText response from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:26.4181346",
-      		"Msg": "Getting hasText from Moderator"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:25.5122828",
-      		"Msg": "Starting Execution - Try 1"
-    	}
-		]
-	}
-
-![Image review for human moderators](images/ocr-sample-image.PNG)
-
-#### After human review
-
-	{
-		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "some team name",
-		"Status": "Complete",
-		"WorkflowId": "OCR",
-		"Type": "Image",
-		"CallBackEndpoint": "",
-		"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-		"ResultMetaData": [
-    	{
+- The status of the job (completed or in-progress)- The assigned moderation tags (key-value pairs)
+- Job execution report
+ 
+ 
+		{
+			"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+			"TeamName": "some team name",
+			"Status": "Complete",
+			"WorkflowId": "OCR",
+			"Type": "Image",
+			"CallBackEndpoint": "",
+			"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+			"ResultMetaData":[
+			{
 			"Key": "hasText",
 			"Value": "True"
-    	},
-		{
+			},
+			{
 			"Key": "ocrText",
 			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
+			}
+			],
+			"JobExecutionReport": [
+			{
+      			"Ts": "2018-01-07T00:38:29.3238715",
+      			"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.2928416",
+      			"Msg": "Job marked completed and job content has been removed"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.0856472",
+      			"Msg": "Execution Complete"
+    			},
+			{
+      			"Ts": "2018-01-07T00:38:26.7714671",
+      			"Msg": "Successfully got hasText response from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:26.4181346",
+      			"Msg": "Getting hasText from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:25.5122828",
+      			"Msg": "Starting Execution - Try 1"
+    			}
+			]
 		}
-		],
-		"JobExecutionReport": [
-		{
-      		"Ts": "2018-01-07T00:38:29.3238715",
-      		"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:29.2928416",
-      		"Msg": "Job marked completed and job content has been removed"
-    	},
-    	{
-      		"Ts": "2018-01-07T00:38:29.0856472",
-      		"Msg": "Execution Complete"
-    	},
-		.......
-	}
+ 
+![Image review for human moderators](images/ocr-sample-image.PNG)
 
 ## Review operations
 
@@ -140,7 +123,6 @@ The following response shows the review identifier:
 
 
 ### Get Review status
-
 Use the **Review.Get** operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. The operation returns two sets of tags, the tags assigned by the moderation service, and the tags after the human review was completed.
 
 Your inputs include at a minimum:
@@ -192,3 +174,5 @@ You see both the reviewer assigned tags (**reviewResultTags**) and the initial t
 Test drive the [Job API console](try-review-api-job.md) and use the REST API code samples. Also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) if you are familiar with Visual Studio and C#. 
 
 For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
+
+For video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md) and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).

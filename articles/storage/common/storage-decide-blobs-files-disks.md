@@ -38,7 +38,7 @@ The following table compares Azure Files with Azure Blobs.
 ||||  
 |-|-|-|  
 |**Attribute**|**Azure Blobs**|**Azure Files**|  
-|Durability options|LRS, ZRS, GRS (and RA-GRS for higher availability)|LRS, GRS|  
+|Durability options|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibility|REST APIs|REST APIs<br /><br /> SMB 2.1 and SMB 3.0 (standard file system APIs)|  
 |Connectivity|REST APIs -- Worldwide|REST APIs - Worldwide<br /><br /> SMB 2.1 -- Within region<br /><br /> SMB 3.0 -- Worldwide|  
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
