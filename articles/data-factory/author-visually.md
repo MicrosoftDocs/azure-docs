@@ -41,7 +41,6 @@ Visual authoring with VSTS Git integration supports source control and collabora
 You can configure a VSTS GIT repository with a data factory through two methods.
 
 <a name="method1"></a>
-
 #### Configuration method 1: Let's get started page
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 
@@ -68,7 +67,7 @@ A configuration pane appears. For details about the configuration settings, see 
 
 ![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
 
-### Version control
+### Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
 Each VSTS Git repository that's associated with a data factory has a master branch. When you have access to a VSTS Git repository, you can change the code by choosing **Sync** or **Publish**:
@@ -86,14 +85,14 @@ Select **Publish** to manually publish your code changes in the master branch to
 > [!IMPORTANT]
 > The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
 
-## Expression language
+## Use the expression language
 You can specify expressions for property values by using the expression language that's supported by Azure Data Factory. For information about the supported expressions, see [Expressions and functions in Azure Data Factory](control-flow-expression-language-functions.md).
 
 Specify expressions for property values by using the UX **Authoring canvas**:
 
-![Using the expression language](media/author-visually/expression-language.png)
+![Use the expression language](media/author-visually/expression-language.png)
 
-## Parameters
+## Specify parameters
 You can specify parameters for pipelines and datasets in the Azure Data Factory **Parameters** tab. You can easily use the parameters in properties by selecting **Add Dynamic Content**:
 
 ![Add Dynamic Content](media/author-visually/dynamic-content.png)
@@ -102,7 +101,7 @@ You can use existing parameters or specify new parameters for your property valu
 
 ![Specify parameters for property values](media/author-visually/parameters.png)
 
-## Feedback
+## Provide feedback
 Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:
 
 ![Feedback](media/monitor-visually/feedback.png)
