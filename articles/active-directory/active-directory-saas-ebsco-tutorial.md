@@ -196,14 +196,10 @@ In the case of EBSCO, user provisioning is automatic.
 
 **To provision a user account, perform the following steps:**
 
-1. Azure passes the required data to EBSCO application. EBSCO’s user provisioning can be automatic OR require a one-time form. It depends on whether the client has a lot of pre-existing EBSCOhost accounts with personal settings saved. We discuss that with them during the implementation. Either way, the client doesn’t have to create any EBSCOhost accounts prior to testing.
+Azure AD passes the required data to EBSCO application. EBSCO’s user provisioning can be automatic OR require a one-time form. It depends on whether the client has a lot of pre-existing EBSCOhost accounts with personal settings saved. The same can be discussed with the [EBSCO support team](mailto:sso@ebsco.com) during the implementation. Either way, the client doesn’t have to create any EBSCOhost accounts prior to testing.
 
-	![The EBSCO signin in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
- 
-2. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered.
-
-    >[!Note]
-    >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:sso@ebsco.com) about Just-In-Time user provisioning. 
+   >[!Note]
+   >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:sso@ebsco.com) about Just-In-Time user provisioning. 
  
 ### Assign the Azure AD test user
 
