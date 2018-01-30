@@ -19,7 +19,7 @@ In this quickstart, you learn how to use Go language to upload, download, and li
 ## Prerequisites
 
 To complete this quickstart: 
-* Install [Go](https://golang.org/)
+* Install [Go 1.8 or above](https://golang.org/)
 * Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Download the sample application
-The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) used in this quickstart is a basic Python application.  
+The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.  
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
@@ -38,10 +38,9 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 This command clones the repository to your local git folder. To open the Go program, look for storage-quickstart.go file.  
 
 ## Configure your storage connection string
-This solution requires Storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your Operating System to create the environment variable. If using Windows, close out of your open IDE or shell and restart it to be able to read the environment variable.
+This solution requires Storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your Operating System to create the environment variable.
 
 # [Linux](#tab/Linux)
-Linux
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
@@ -49,7 +48,6 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 # [Windows](#tab/Windows)
-Windows
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<yourconnectionstring>"
@@ -59,7 +57,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ---
 
 ## Run the sample
-This sample creates a test file in the current folder. It then uploads the test file to Blob storage, lists the blobs in the container, and downloads the file into a buffer. 
+This sample creates a test file in the current folder, uploads the test file to Blob storage, lists the blobs in the container, and downloads the file into a buffer. 
 
 To run the sample, issue the following command: 
 
@@ -79,20 +77,20 @@ this is a blob
 ```
 When you press any key to continue, the sample program deletes the storage container and the files. 
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
-
-After you've verified the downloaded file's content on the console, hit any key to finish the demo and delete the test file. Now that you know what the sample does, open the storage-quickstart.go file to look at the code. 
+> [!TIP]
+> You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+>
 
 ## Understand the sample code
 
 Next, we walk through the sample code so that you can understand how it works.
 
 ### Create ContainerURL and BlobURL objects
-The first thing to do is create the references to the Container URL and Blob URL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob, and GetBlob to issue REST APIs.
+The first thing to do is to create the references to the ContainerURL and BlobURL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob, and GetBlob to issue REST APIs.
 
 * Create a **SharedKeyCredential** struct with your credentials. 
 
-* Create a **Pipeline** using the credentials and options.
+* Create a **Pipeline** using the credentials and options. The pipeline specifies things like retry policies, logging, deserializaiton of HTTP response payloads, and more.  
 
 * Instantiate a new ContainerURL, and a new BlobURL object to run operations on container (Create) and blobs (PutBlob and GetBlob).
 
@@ -135,9 +133,9 @@ handleErrors(err)
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.  
 
-To upload a file to a blob, open the file using os.Open. You can then upload the file to the specified path using one of the REST APIs: PutBlob, PutBlock/PutBlockList. 
+To upload a file to a blob, open the file using **os.Open**. You can then upload the file to the specified path using one of the REST APIs: PutBlob, PutBlock/PutBlockList. 
 
-Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, UploadFileToBlockBlob function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
+Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadFileToBlockBlob*** function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
 
 The following example uploads the file to your container called **quickstartblobs-<random number>**.
 
@@ -164,7 +162,7 @@ handleErrors(err)
 
 ### List the blobs in a container
 
-Get a list of files in the container using the **ListBlobs** method on a ContainerURL. ListBlobs returns a single segment of blobs starting from the specified Marker. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the previously-returned Marker.  
+Get a list of files in the container using the **ListBlobs** method on a **ContainerURL**. ListBlobs returns a single segment of blobs (up to 5000) starting from the specified **Marker**. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the previously-returned Marker.  
 
 ```go
 // List the blobs in the container
@@ -187,7 +185,7 @@ for marker.NotDone() {
 
 ### Download the blobs with progress report
 
-Download blobs using the **GetBlob** low-level method on a BlobURL. Alternatively you can create a Stream and read ranges from it using NewDownloadStream high-level API provided in [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go).
+Download blobs using the **GetBlob** low-level method on a BlobURL. Alternatively you can create a Stream and read ranges from it using **NewDownloadStream** high-level API provided in [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go).
 The following code downloads the blob uploaded in a previous section and shows progress of downloaded bytes. The contents of the blob is written into a buffer and shown on the console.
 
 ```go
@@ -208,7 +206,7 @@ fmt.Printf("Downloaded the blob: " + downloadedData.String())
 ```
 
 ### Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **delete\_container**. If the files created are no longer needed, you use the **delete\_blob** method to delete the files.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **Delete** method. 
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally
