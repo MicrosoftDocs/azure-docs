@@ -105,7 +105,7 @@ These controls allow the use of certain external or custom services as condition
 
 Providers currently offering a compatible service include:
 
-- Duo Security
+- [Duo Security](https://duo.com/docs/azure-ca)
 
 - RSA
 

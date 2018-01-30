@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
 ---
 
@@ -48,7 +48,9 @@ The following example shows the schema of a blob created event:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -71,7 +73,9 @@ The schema for a blob deleted event is similar:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -81,12 +85,14 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field is not writeable. |
+| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
 | subject | string | Publisher-defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Blob storage event data. |
+| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 The data object has the following properties:
 
@@ -98,7 +104,7 @@ The data object has the following properties:
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
-| blobType | string | The type of blob. |
+| blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
 | url | string | The path to the blob. |
 | sequencer | string | A user-controlled value that you can use to track requests. |
 | storageDiagnostics | object | Information about the storage diagnostics. |

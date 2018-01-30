@@ -114,9 +114,9 @@ If the detailed error message doesn't provide enough information, and you can't 
 
 Remote debugging does not work in Express editions of Visual Studio.
 
-This section shows how to debug remotely using the project you create in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md].
+This section shows how to debug remotely using the project you create in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md).
 
-1. Open the web project that you created in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md].
+1. Open the web project that you created in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md).
 
 2. Open *Controllers\HomeController.cs*.
 
@@ -132,7 +132,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 
-6. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet.md]. Then, click Settings.
+6. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet.md). Then, click Settings.
 
 7. In the **Publish** dialog, click the **Settings** tab, and then change **Configuration** to **Debug**, and then click **Save**.
 

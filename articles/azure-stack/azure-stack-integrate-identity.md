@@ -5,7 +5,7 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/29/2017
 ms.author: mabrigg
 keywords:
 ---
@@ -22,7 +22,7 @@ The following table shows the differences between the two identity choices:
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
-|Marketplace syndication|Not currently available|Supported<br>BYOL licensing|
+|Marketplace syndication|Supported<br>BYOL licensing|Supported<br>BYOL licensing|
 |Registration|Recommended, requires removable media<br> and a separate connected device.|Automated|
 |Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
 
