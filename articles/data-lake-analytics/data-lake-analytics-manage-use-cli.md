@@ -105,7 +105,7 @@ storage account. The default Data Lake storage account is used to store job meta
 You can view the default Data Lake Store account used by running the `az dla account show` command. Default account name is listed under the defaultDataLakeStoreAccount property.
 
    ```azurecli
-   az dla account show --account
+   az dla account show --account "<Data Lake Analytics account name>"
    ```
 
 ### Add additional Blob storage accounts
@@ -185,8 +185,6 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 > [!NOTE]
 > The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 > 
-
-
    ```azurecli
    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
    ```
