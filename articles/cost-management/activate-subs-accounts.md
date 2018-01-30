@@ -17,7 +17,7 @@ ms.custom:
 
 Adding or updating your Azure Resource Manager credentials allows Azure Cost Management to discover all the accounts and subscriptions within your Azure Tenant. If you also have Azure Diagnostics extension enabled on your virtual machines, then Azure Cost Management can collect extended metrics like CPU and memory. This article describes how to enable access using Azure Resource Manager APIs for new and existing accounts. It also describes how to resolve common account problems.
 
-Azure Cost Management cannot access most of your Azure subscription data if the subscription is _unactivated_. You need to edit _unactivated_ accounts so that Azure Cost Management can access them.
+Azure Cost Management cannot access most of your Azure subscription data when the subscription is _unactivated_. You must edit _unactivated_ accounts so that Azure Cost Management can access them.
 
 ## Required Azure permissions
 
@@ -47,33 +47,33 @@ When you add an account update a subscription, you grant Azure Cost Management a
 
 ### Add a new account (subscription)
 
-1. In the Azure Cost Management portal, click the gear symbol in the upper right and select **Cloud Accounts**.
+1. In the Azure Cost Management portal, click the gear symbol in the upper-right and select **Cloud Accounts**.
 2. Click **Add new account** and the **Add new account** box appears. Enter the required information.  
     ![Add new account box](./media/activate-subs-accounts//add-new-account.png)
 
 ### Update a subscription
 
-1. If you want to update a _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the _tenant GUID_.
+1. If you want to update an _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the _tenant GUID_.
     ![Rediscover subscriptions](./media/activate-subs-accounts/existing-sub.png)
 2. If necessary, enter the Tenant ID. If you don't know your Tenant ID, use the following steps to find it:
     1. Log into the [Azure portal](https://portal.azure.com)
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    See [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id) for more information about tenant IDs.
+    For more information, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.
     3. Under **My subscriptions**, select the subscription.
     4. Your rate ID is shown under **Offer ID**. Copy the Offer ID for the subscription.
 4. In the Add new account (or Edit Subscription) box, click **Save** (or **Next**). You're redirected to the Azure portal.
-5. Sign in to the portal. Click **Accept** to authorize Azure Cost Management Collector to access your Azure account.
+5. Sign in to the portal. Click **Accept** to authorize Azure Cost Management Collector access your Azure account.
 
     You're redirected to the Azure Cost Management Accounts management page and your subscription is updated with **active** Account Status. It should display a green check mark symbol under the Resource Manager column.
 
     If you don't see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create the reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat this process.
 
-## Resolve common indirect enterprise set up problems
+## Resolve common indirect enterprise set-up problems
 
 When you first use the Azure Cost Management portal, you might see the following messages if you are an Enterprise Agreement or Cloud Solution Provider (CSP) user:
 
