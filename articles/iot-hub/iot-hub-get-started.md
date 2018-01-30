@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -23,7 +23,7 @@ ms.author: dobett
 You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions:
 
 * Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
-* Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, you use Azure IoT Edge to implement a gateway that connects devices to your IoT hub.
+* Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to implement a gateway that connects devices to your IoT hub.
 
 ## What the tutorials cover
 
