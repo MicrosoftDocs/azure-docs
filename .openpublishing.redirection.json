@@ -16523,7 +16523,7 @@
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
             "redirect_url": "/azure/cognitive-services/translator/customization",
             "redirect_document_id": false
-	},     
+	},
 	{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
@@ -16538,8 +16538,13 @@
         "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
         "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
         "redirect_document_id": false
+},
+{
+      "source_path": "articles/azure-stack/azure-stack-app-service-enable-ftp.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-app-service-overview",
+      "redirect_document_id": false
 }
-	
+
 
    ]
 }
