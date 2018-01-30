@@ -104,13 +104,13 @@ Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azur
 Get-AzureRmPublicIpAddress -Name myVm1 -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Enter the user name and password you specified when creating the virtual machine, then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection. 
-
-Use the following command to create a remote desktop session with the *myVm1* virtual machine from your local computer. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command to create a remote desktop session with the *myVm1* virtual machine from your local computer. Replace the IP address with the *publicIPAddress* of your virtual machine.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
+
+A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer. Open the downloaded rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
 ## Validate communication
 

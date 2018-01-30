@@ -81,8 +81,8 @@ A virtual network enables several types of Azure resources to communicate privat
     ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
 
 
-2. After clicking the **Connect** button, an .rdp file is downloaded to your computer.  
-3. Open the rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
+2. After clicking the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
+3. Open the downloaded rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, and then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
 ## Validate communication
 
