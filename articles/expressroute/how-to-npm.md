@@ -43,6 +43,7 @@ You can monitor ExpressRoute circuits in any part of the world by using a worksp
 * West Europe 
 * East US 
 * South East Asia 
+* South East Australia
 
 ## <a name="workflow"></a>Workflow
 
@@ -172,16 +173,13 @@ For monitoring agent servers that are in Azure, you must configure network secur
 
 For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Step 4: Request to whitelist Workspace
-
 >[!NOTE]
 >Make sure that you have installed the agents (both the on-premises server agent and the Azure server agent) and have run the PowerShell script before proceeding with this step.
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://aka.ms/npmcohort). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
 
-## <a name="setupmonitor"></a>Step 5: Configure NPM for ExpressRoute monitoring
+## <a name="setupmonitor"></a>Step 4: Configure NPM for ExpressRoute monitoring
 
 >[!WARNING]
 >Do not proceed further until your Workspace has been whitelisted and you receive a confirmation email.
@@ -206,7 +204,7 @@ After you complete the previous sections and verify that you have been whitelist
 
   ![monitoring tiles](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Step 6: View monitoring tiles
+## <a name="explore"></a>Step 5: View monitoring tiles
 
 ### <a name="dashboard"></a>Network Performance Monitor page
 
