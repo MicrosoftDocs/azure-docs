@@ -145,7 +145,7 @@ Azure AD Tenant user object:
 - MailNickName		: us4
 - UserPrincipalName	: us4@contoso.onmicrosoft.com
 
-## Scenario 5: Verified UPN Suffix – Update On-Premises userPrincipalName Attribute Suffix
+### Scenario 5: Verified UPN Suffix – Update On-Premises userPrincipalName Attribute Suffix
 
 On-Premises user object:
 - mailNickName		: us4
