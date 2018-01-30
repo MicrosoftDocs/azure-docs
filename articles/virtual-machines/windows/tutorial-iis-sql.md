@@ -39,7 +39,7 @@ In this example, we use the [New-AzVM](https://www.powershellgallery.com/package
 Click on the **Try It** button to the upper right of the code block to launch Cloud Shell in this window. You will be asked to provide credentials for the virtual machine at the cmd prompt.
 
 ```azurepowershell-interactive
-$vmName = "myIISVM$(Get-Random)"
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
 New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
