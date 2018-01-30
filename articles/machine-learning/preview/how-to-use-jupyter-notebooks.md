@@ -37,15 +37,15 @@ You can access many different kernels in Azure ML Workbench by configuring run c
 >Review the [Configure Execution](experimentation-service-configuration.md) for more details on run configurations and compute targets.
 
 ### Kernel naming convention
-The kernels are typically named in the format of "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_, you can find a kernel named "myIris docker-python" in the kernel list when you open a Jupyter notebook.
-
+Azure ML Workbench generates custom Jupyter kernels.  These are named "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_,  Azure ML makes available a kernel named "myIris docker-python".  You set the running kernel in the Jupyter Notebook "Kernel" menu, in the "Change kernel" sub-menu. The name of the running kernel appears on the far-right of the menu bar.
+ 
 Currently, the Workbench supports the following types of kernels.
 
 ### Local Python kernel
 This Python kernel supports execution on local machine. It is integrated with Azure Machine Learning's Run History support. The name of the kernel is typically "my_project_name local".
 
 >[!NOTE]
->Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities.
+>Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities; so, for example _%azureml_ Jupyter magic functions return will "not found" errors. 
 
 ### Python Kernel in Docker (local or remote)
 This Python kernel runs in a Docker container either on your local machine, or in a remote Linux VM. The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
