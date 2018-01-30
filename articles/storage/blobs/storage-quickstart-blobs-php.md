@@ -68,7 +68,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your 'Documents' folder for the two files. You can open them and see they are identical.
+When you press the button displayed, the sample program deletes the storage container and the files. Before you continue, check your server's folder for the two files. You can open them and see they are identical.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
@@ -159,7 +159,7 @@ $blob_list = $blobClient->listBlobs($containerName);
 
 ### Download the blobs
 
-Download blobs to your local disk using the **get\_blob()** method. The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
+Download blobs to your local disk using the **getBlob()** method. The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -167,7 +167,7 @@ Download blobs to your local disk using the **get\_blob()** method. The followin
 ```
 
 ### Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **delete\_container()** method. If the files created are no longer needed, you use the **delete\_blob()** method to delete the files.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **deleteContainer()** method. If the files created are no longer needed, you use the **deleteBlob()** method to delete the files.
 
 ```PHP
     // Delete blob.
