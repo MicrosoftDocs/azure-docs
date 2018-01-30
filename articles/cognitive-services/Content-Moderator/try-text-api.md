@@ -55,7 +55,7 @@ In the **Request body** box, enter some text. The following example shows an int
 The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
-> The machine-assisted 'Classification` feature is in preview.
+> The machine-assisted 'Classification' feature is in preview.
 
 ```
 {
