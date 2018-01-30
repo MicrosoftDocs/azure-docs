@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 01/26/2018
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -22,7 +22,7 @@ This article describes the device model schema that specifies the capabilities a
 
 The following articles are related to the current article:
 
-* [Understand the device model behavior](iot-suite-remote-monitoring-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
+* [Implement the device model behavior](iot-suite-remote-monitoring-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
 * [Create a new simulated device](iot-suite-remote-monitoring-test.md) puts it all together and shows you how to deploy a new simulated device type to your solution.
 
 In this article, you learn how to:
@@ -123,7 +123,7 @@ The `Properties` section of the schema defines the property values the device re
 }
 ```
 
-The solution uses the `Latitiude` and `Longitude` properties to add the location of the device to the map on the dashboard.
+When the solution starts, it queries all the simulated devices to build a list of `Type` values to use in the UI. The solution uses the `Latitiude` and `Longitude` properties to add the location of the device to the map on the dashboard.
 
 ## Telemetry
 
@@ -240,7 +240,7 @@ This article described how to create your own custom simulated device model. Thi
 > * Specify the telemetry the simulated device sends
 > * Specify the cloud-to-device methods the device responds to
 
-Now you have learned about the JSON schema, the suggested next step is to learn how to [specify the behavior of your simulated device](iot-suite-remote-monitoring-device-behavior.md).
+Now you have learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-suite-remote-monitoring-device-behavior.md).
 
 For more developer information about the remote monitoring solution, see:
 

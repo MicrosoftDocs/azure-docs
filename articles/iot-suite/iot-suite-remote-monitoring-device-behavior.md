@@ -7,14 +7,14 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 01/26/2018
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Understand the device model behavior
+# Implement the device model behavior
 
 The article [Understand the device model schema](iot-suite-remote-monitoring-device-schema.md) described the schema that defines a simulated device model. That article referred to two types of JavaScript file that implement the behavior of a simulated device:
 
