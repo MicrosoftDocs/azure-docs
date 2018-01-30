@@ -20,7 +20,11 @@ ms.author: garye;raymondl
 ---
 # Consume an Azure Machine Learning web service by using a web app template
 
-After you've developed your predictive model and deployed it as an Azure web service by using Azure Machine Learning Studio, or using tools such as R or Python, you can access the operationalized model by using a REST API.
+You can develop a predictive model and deploy it as an Azure web service by using:
+- Azure Machine Learning Studio.
+- Tools such as R or Python. 
+
+After that, you can access the operationalized model by using a REST API.
 
 There are a number of ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python by using the sample code generated for you when you deployed the web service. (The sample code is available in the [Machine Learning Web Services portal](https://services.azureml.net/quickstart) or in the web service dashboard in Machine Learning Studio.) Or you can use the sample Microsoft Excel workbook created for you at the same time.
 
@@ -99,7 +103,7 @@ You can stop, restart, or delete the web app in the Azure portal like any other 
 ## How to use the Batch Execution Service template
 You can use the BES web app template in the same way as the RRS template. The difference is that you can use the created web app to submit multiple rows of data and receive multiple results.
 
-The input values for a batch execution web service can come from Azure Storage or a local file. The results are stored in an Azure storage container. So, you'll need an Azure storage container to hold the results that the web app returns, and you'll need to get your input data ready.
+The input values for a batch execution web service can come from Azure Storage or a local file. The results are stored in an Azure storage container. So, you need an Azure storage container to hold the results that the web app returns. You also need to get your input data ready.
 
 ![Process to use BES web template][image2]
 
