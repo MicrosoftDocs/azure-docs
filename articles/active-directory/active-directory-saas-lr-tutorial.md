@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Identifier** textbox, type a URL: `https://lr.hub.loginradius.com/`
 	 
 	> [!NOTE] 
-	> Open the Sign-on URL page. Click on **"Single Sign-On"** tab and enter **"plugin"** and then click **"Sign in"** button. 
+	> Open the Sign-on URL page. Click on **"Single Sign-On"** tab and enter **"plugin name"** given by the [lr support team](mailto:support@loginradius.com) then click **"Sign in"** button and you will be redirected to the Azure AD page for login. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
