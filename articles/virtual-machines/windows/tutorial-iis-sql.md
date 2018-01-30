@@ -42,7 +42,7 @@ Click on the **Try It** button to the upper right of the code block to launch Cl
 $vmName = "myIISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Install IIS and the .NET framework using the custom script extension.

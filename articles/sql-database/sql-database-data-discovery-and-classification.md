@@ -1,6 +1,6 @@
 ---
-title: Azure SQL DB Data Discovery & Classification | Microsoft Docs
-description: Azure SQL DB Data Discovery & Classification
+title: Azure SQL Database Data Discovery & Classification | Microsoft Docs
+description: Azure SQL Database Data Discovery & Classification
 services: sql-database
 documentationcenter: ''
 author: giladm
@@ -17,23 +17,19 @@ ms.date: 01/29/2018
 ms.author: giladm
 
 ---
-# Azure SQL DB Data Discovery & Classification
-Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL DB for discovering, classifying, labeling, and protecting the sensitive data in your databases.
+# Azure SQL Database Data Discovery and Classification
+Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases.
 Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 * Controlling access to and hardening the security of databases containing highly sensitive data.
 * Helping meet data privacy standards and regulatory compliance requirements, such as GDPR.
 
-
-
-## <a id="subheading-1"></a>Feature Overview
+## <a id="subheading-1"></a>Overview
 Data Discovery & Classification introduces a set of advanced services and new SQL capabilities, forming a new SQL Information Protection paradigm aimed at protecting the data, not just the database:
 * **Discovery & recommendations** – The classification engine scans your database and identifies columns containing potentially sensitive data. It then provides you an easy way to review and apply the appropriate classification recommendations via the Azure portal.
 * **Labeling** – Sensitivity classification labels can be persistently tagged on columns using new classification metadata attributes introduced into the SQL Engine. This metadata can then be utilized for advanced sensitivity-based auditing and protection scenarios.
 * **Query result set sensitivity** – The sensitivity of query result set is calculated in real time for auditing purposes.
 * **Visibility** - The database classification state can be viewed in a detailed dashboard in the portal. Additionally, you can download a report (in Excel format) to be used for compliance & auditing purposes, as well as other needs.
-
-
 
 ## <a id="subheading-2"></a>Discovering, classifying & labeling sensitive columns
 The following section describes the steps for discovering, classifying, and labeling columns containing sensitive data in your database, as well as viewing the current classification state of your database and exporting reports.
@@ -91,19 +87,12 @@ The classification includes two metadata attributes:
 
     ![Navigation pane][10]
 
-
-
 ## <a id="subheading-3"></a>Auditing access to sensitive data
 
 [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classification (labels) of the actual data that was returned by the query.
 
-
-
-## <a id="subheading-4"></a>Next Steps
+## <a id="subheading-4"></a>Next steps
 Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
-
-
-
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1
