@@ -53,6 +53,7 @@ The basic structure of a management solution file is the same as a [Resource Man
 
 When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-management-solutions) they are prompted to select a [Log Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
+
 When the user installs your solution [another method](operations-management-suite-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
 
 A sample parameter is shown below.  
@@ -168,6 +169,7 @@ The **dependsOn** element specifies a [dependency](../azure-resource-manager/res
 
 ### Log Analytics workspace and Automation account
 Management solutions require a [Log Analytics workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
+
 
 ## Solution resource
 Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure. This includes [standard parameters](#parameters) and [variables](#variables) that are typically used to define properties of the solution.
