@@ -21,7 +21,7 @@ To set up a console application using the Bing Image Search SDK, browse to the `
 
 [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
 
-##Web Search client
+##Video Search client
 To create an instance of the `VideoSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
