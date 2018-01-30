@@ -116,7 +116,7 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
 1.  In the **Advanced Settings** page, select a value for the **Maximum Parallel Executions Per Node**.   
 
     ![Advanced settings](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. This step is **optional**. If you have a classic virtual network (VNet) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** option, and do the following steps: 
+5. This step is **optional**. If you have a VNet (Classic or Azure Resource Manager) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** option, and do the following steps: 
 
     ![Advanced settings with VNet](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
