@@ -203,7 +203,7 @@ In the case of EBSCO, user provisioning is automatic.
 2. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered.
 
     >[!Note]
-    >You can automate EBSCOhost user provisioning/personalization. Ask [EBSCO support team](mailto:sso@ebsco.com) about Just-In-Time user provisioning. 
+    >You can automate EBSCOhost user provisioning/personalization. Contact [EBSCO support team](mailto:sso@ebsco.com) about Just-In-Time user provisioning. 
  
 ### Assign the Azure AD test user
 
