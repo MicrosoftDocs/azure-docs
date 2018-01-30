@@ -153,7 +153,7 @@ On-Premises user object:
 - proxyAddresses		: {SMTP:us7@contoso.comu
 - serPrincipalName	: us5@verified.contoso.com
 
-Synchronize update on on-premises userPrincipalName attribute to Azure AD Tenant
+Synchronize update on on-premises userPrincipalName attribute to the Azure AD Tenant
 - Update on on-premises userPrincipalName attribute triggers recalculation of Azure AD UserPrincipalName attribute.
 - Set Azure AD UserPrincipalName attribute to on-premises userPrincipalName attribute as the UPN suffix is verified with the Azure AD Tenant.
 
