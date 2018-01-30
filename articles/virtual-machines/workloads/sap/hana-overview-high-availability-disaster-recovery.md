@@ -411,10 +411,10 @@ Three types of snapshot backups can be created:
 - **HANA**: Combined snapshot backup in which the volumes that contain /hana/data and /hana/shared (which contains /usr/sap as well) are covered by the coordinated snapshot. A single file restore is possible from this snapshot.
 - **Logs**: Snapshot backup of the /hana/logbackups volume. No HANA snapshot is triggered to execute this storage snapshot. This storage volume is the volume meant to contain the SAP HANA transaction-log backups. SAP HANA transaction-log backups are performed more frequently to restrict log growth and prevent potential data loss. A single file restore is possible from this snapshot. Don't lower the frequency to under three minutes.
 - **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN.
- 
+
 
 >[NOTE]
-> The call syntax for these three different types of snapshots changed with the move to the version 3.0 scripts, which support MCOD deployments. There is no need to specify the HANA SID of an instance anymore. You need to make sure that the SAP HANA instance(s) of a unit are configured in the configuration file **HANABackupCustomerDetails.txt**. 
+> The call syntax for these three different types of snapshots changed with the move to the version 3.0 scripts, which support MCOD deployments. There is no need to specify the HANA SID of an instance anymore. You need to make sure that the SAP HANA instance(s) of a unit are configured in the configuration file **HANABackupCustomerDetails.txt**.
 
 
 The new call syntax for executing storage snapshots with the script **azure_hana_backup.pl** looks like:
