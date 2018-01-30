@@ -30,13 +30,13 @@ This tutorial shows how to write a .NET Core console application that sends a se
 * [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 * An Azure subscription.
-* [An event hub namespace and an event hub](event-hubs-quickstart-namespace-portal.md).
+* [An event hub namespace and an event hub](event-hubs-quickstart-portal.md).
 
 To send messages to an event hub, this tutorial uses Visual Studio to write a C# console application.
 
 ## Create an Event Hubs namespace and an event hub
 
-To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with this tutorial.
+To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-portal.md), and then proceed with this tutorial.
 
 ## Create a console application
 

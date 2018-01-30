@@ -35,7 +35,7 @@ This tutorial shows how to write a .NET Core console application that receives m
 
 ## Create an Event Hubs namespace and an event hub  
 
-To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with this tutorial.
+To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-portal.md), and then proceed with this tutorial.
 
 ## Create a console application
 
