@@ -3,9 +3,9 @@ title: Custom events for Azure Event Grid with CLI | Microsoft Docs
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 01/19/2018
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
@@ -97,6 +97,8 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

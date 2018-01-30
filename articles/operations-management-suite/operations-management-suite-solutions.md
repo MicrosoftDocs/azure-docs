@@ -40,7 +40,7 @@ Management solutions provided by Microsoft and trusted partners may be installed
 5. Search for solutions that you're interested in either by browsing, clicking the **Filter** button, or typing in the **Search Everthing** box.
 6. Click a marketplace item to view its detailed information.
 7. Click **Create** to open the **Add Solution** pane.
-8. You will be prompted to required information such as the [Log Analytics workspace and Automation account](#oms-workspace-and-automation-account) in addition to values for any parameters in the solution.
+8. You will be prompted to required information such as the [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) in addition to values for any parameters in the solution.
 9. Click **Create** to install the solution.
 
 ### OMS Portal
