@@ -26,7 +26,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 **Prerequisites**
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following resources:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -177,7 +177,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 ### Get job details
 
    ```azurecli
-   az dla job show --account "<Data Lake Analytics account name>" --job-identity "<Job ID>"
+   az dla job show --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
 
 ### Submit jobs
@@ -193,15 +193,15 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 Use the list command to find the job id, and then use cancel to cancel the job.
 
    ```azurecli
-   az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job ID>"
+   az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
 
-## Use ARM groups
+## Use Azure Resource Manager groups
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
-as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
+and third party services. Azure Resource Manager enables you to work with the resources in your application 
+as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the 
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
-template can work for different environments such as testing, staging and production. You can clarify billing 
+template can work for different environments such as testing, staging, and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
 Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
@@ -212,16 +212,16 @@ A Data Lake Analytics service can include the following components:
 * Additional Azure Data Lake Storage accounts
 * Additional Azure Storage accounts
 
-You can create all these components under one ARM group to make them easier to manage.
+You can create all these components under one Resource Manager group to make them easier to manage.
 
 ![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
 A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
-The ARM group however can be located in a different data center.  
+The Resource Manager group however can be located in a different data center.  
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-* [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
+* [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
