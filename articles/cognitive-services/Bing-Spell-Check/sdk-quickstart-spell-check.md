@@ -133,6 +133,25 @@ namespace SpellCheckSDK
             Console.WriteLine("Any key to exit...");
             Console.ReadKey();
         }
+        
+        // This will trigger an error response from the API.
+        public static void SpellCheckError(string subscriptionKey)
+        {
+            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+            try
+            {
+                var result = client.SpellCheckerAsync(mode: "proof").Result;
+                Console.WriteLine("Correction for Query# \"empty text field\"");
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetBaseException().GetType() == typeof(Exception) )
+                {
+                    Console.WriteLine("Encountered exception. " + ex.Message);
+                }
+            }
+        }
     }
 }
 
