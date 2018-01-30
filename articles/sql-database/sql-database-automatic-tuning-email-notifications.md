@@ -39,7 +39,7 @@ Follow these steps to create Azure Automation Account through the method of sele
 - Search for “**Automation**” (press enter)
 - Click on the Automation app in the search results
 
-![Adding Azure automation](./media/sql-database-automatic-tuning/howto-email-01.png)
+![Adding Azure automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
 - Once inside the “Create an Automation Account” pane, click on “**Create**”
 - Populate the required information: enter a name for this automation account, select your Azure subscription ID and Azure resources to be used for the PowerShell script execution
@@ -61,7 +61,7 @@ Follow these steps to update Azure PowerShell modules:
 - Access the Automation app pane, and select “**Modules**” on the left-hand side menu (scroll down as this menu item is under Shared Resources).
 - In the Modules pane, click on “**Update Azure Modules**” at the top, and wait until the message “Azure modules have been updated” is displayed. This process can take a few minutes to complete.
 
-![Update Azure automation modules](./media/sql-database-automatic-tuning/howto-email-02.png)
+![Update Azure automation modules](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
 
 Required version of AzureRM.Resources and AzureRM.Sql modules needs to be version 4 and above.
 
@@ -77,7 +77,7 @@ Follow these steps to create a new Azure Automation runbook:
 - In the Runbook pane, type in the name of your runbook (for the purpose of this example, “**AutomaticTuningEmailAutomation**” is used), select the type of runbook as **PowerShell** and write a description of this runbook to describe its purpose.
 - Click on the **Create** button to finish creating a new runbook
 
-![Add Azure automation runbook](./media/sql-database-automatic-tuning/howto-email-03.png)
+![Add Azure automation runbook](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 Follow these steps to load a PowerShell script inside the runbook created:
 
@@ -177,7 +177,7 @@ Click the “**Save**” button in the upper right corner to save the script. Wh
 
 At the main runbook pane, you can choose to click on the “**Start**” button to **test** the script. Click on the “**Output**” to view results of the script executed. This output is going to be the content of your email. The sample output from the script can be seen in the following screenshot.
 
-![Run view automatic tuning recommendations with Azure Automation](./media/sql-database-automatic-tuning/howto-email-04.png)
+![Run view automatic tuning recommendations with Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
 
 Ensure to adjust the content by customizing the PowerShell script to your needs.
 
@@ -230,19 +230,19 @@ The next step is to add three jobs (create, get output and send email) to the ne
 
 The above concludes steps required to configure the email delivery job workflow. The entire flow consisting of three actions built is shown in the following image.
 
-![View automatic tuning email notifications flow](./media/sql-database-automatic-tuning/howto-email-05.png)
+![View automatic tuning email notifications flow](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
 
 To test the flow, click on “**Run Now**” in the upper right corner inside the flow pane.
 
 Statistics of running the automated jobs, showing success of email notifications sent out, can be seen from the Flow analytics pane.
 
-![Running flow for automatic tuning email notifications](./media/sql-database-automatic-tuning/howto-email-06.png)
+![Running flow for automatic tuning email notifications](./media/sql-database-automatic-tuning-email-notifications/howto-email-06.png)
 
 The Flow analytics is helpful for monitoring the success of job executions, and if required for troubleshooting.  In the case of troubleshooting, you also might want to examine the PowerShell script execution log accessible through Azure Automation app.
 
 The final output of the automated email looks similar to the following email received after building and running this solution:
 
-![Sample email output from automatic tuning email notifications](./media/sql-database-automatic-tuning/howto-email-07.png)
+![Sample email output from automatic tuning email notifications](./media/sql-database-automatic-tuning-email-notifications/howto-email-07.png)
 
 By adjusting the PowerShell script, you can adjust the output and formatting of the automated email to your needs.
 
