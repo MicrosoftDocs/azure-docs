@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with lr based on
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in lr is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in lr needs to be established.
 
-In lr, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with lr, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
