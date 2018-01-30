@@ -15,7 +15,9 @@
 ### [Access control lists](virtual-networks-acl.md)
 
 # Get Started
-## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
+## [Create virtual network - Portal](quick-create-portal.md)
+## [Create virtual network - PowerShell](quick-create-powershell.md)
+## [Create virtual network - Azure CLI](quick-create-cli.md)
 
 # How To
 ## Plan and design

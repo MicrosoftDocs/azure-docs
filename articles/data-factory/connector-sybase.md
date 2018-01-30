@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
 
 ---
@@ -57,7 +57,6 @@ The following properties are supported for Sybase linked service:
 | type | The type property must be set to: **Sybase** | Yes |
 | server | Name of the Sybase server. |Yes |
 | database | Name of the Sybase database. |Yes |
-| schema | Name of the schema in the database. |No |
 | authenticationType | Type of authentication used to connect to the Sybase database.<br/>Allowed values are: **Basic**, and **Windows**. |Yes |
 | username | Specify user name to connect to the Sybase database. |Yes |
 | password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |

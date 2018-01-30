@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/29/2018
 ms.author: apimpm
 
 ---
@@ -23,25 +23,8 @@ Azure Event Hubs is a highly scalable data ingress service that can ingest milli
 This article is a companion to the [Integrate Azure API Management with Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video and describes how to log API Management events using Azure Event Hubs.
 
 ## Create an Azure Event Hub
-To create a new Event Hub, sign-in to the [Azure classic portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
 
-![Create event hub][create-event-hub]
-
-Next, navigate to the **Configure** tab for your new Event Hub and create two **shared access policies**. Name the first one **Sending** and give it **Send** permissions.
-
-![Sending policy][sending-policy]
-
-Name the second one **Receiving**, give it **Listen** permissions, and click **Save**.
-
-![Receiving policy][receiving-policy]
-
-Each shared access policy allows applications to send and receive events to and from the Event Hub. To access the connection strings for these policies, navigate to the **Dashboard** tab of the Event Hub and click **Connection information**.
-
-![Connection string][event-hub-dashboard]
-
-The **Sending** connection string is used when logging events, and the **Receiving** connection string is used when downloading events from the Event Hub.
-
-![Connection string][event-hub-connection-string]
+For detailed steps on how create an event hub and get connection strings you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in your API Management service so that it can log events to the Event Hub.

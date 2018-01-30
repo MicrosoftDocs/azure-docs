@@ -13,13 +13,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
 
 ---
 
 
 # App Service on Azure Stack: Add more infrastructure or worker roles
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*  
 
 This document provides instructions about how to scale App Service on Azure Stack infrastructure and worker roles. It contains steps for creating additional worker roles to support applications of any size.
 
@@ -39,15 +40,15 @@ Add additional workers directly within the App Service Resource Provider Admin.
 2. Browse to **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 
 4. Right click on the row of the type you want to scale and then click **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
