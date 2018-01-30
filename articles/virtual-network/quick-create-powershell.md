@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a virtual network
 
-Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). The following example creates a default virtual network named *myVirtualNetwork* in the *EastUS* location:
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `

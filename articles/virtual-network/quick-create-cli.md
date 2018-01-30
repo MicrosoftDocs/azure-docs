@@ -41,9 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual network
 
-Create a virtual network with the [az network vnet create](/cli/azure/network/vnet#create) command. A virtual network is a logical isolation of the Azure cloud dedicated to your subscription. Resources deployed within a virtual network can communicate privately with each other, and with the Internet. 
-
-The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*. Since a location isn't specified, Azure creates the virtual network in the same location as the resource group.
+Create a virtual network with the [az network vnet create](/cli/azure/network/vnet#create) command. The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*. Since a location isn't specified, Azure creates the virtual network in the same location as the resource group.
 
 ```azurecli-interactive 
 az network vnet create \

@@ -53,7 +53,7 @@ A virtual network enables several types of Azure resources to communicate privat
 
     ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. Select a size for the virtual machine and then click **Select**. To see more sizes, select **View all** or change the **Supported disk type** filter. The sizes that appear for you may be different than the following example. 
+4. Select a size for the virtual machine and then click **Select**. To see more sizes, select **View all** or change the **Supported disk type** filter. The sizes that appear for you may be different than the following example: 
 
     ![Select a size for a virtual machine](./media/quick-create-portal/virtual-machine-size.png)
 
