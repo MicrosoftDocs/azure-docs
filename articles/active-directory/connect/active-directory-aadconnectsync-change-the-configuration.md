@@ -156,7 +156,7 @@ In this Fabrikam scenario, we have realized that some of the attributes we synch
 
 1. Create a new inbound synchronization rule and populate the description.
   ![Descriptions](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
-2. Create attribute flows with **Expression** for **FlowType** and with the **AuthoritativeNull** for **Source**. The literal **AuthoritativeNull** indicates that the value should be empty in the metaverse, even if a lower-precedence sync rule tries to populate the value.
+2. Create attribute flows with **Expression** for **FlowType** and with **AuthoritativeNull** for **Source**. The literal **AuthoritativeNull** indicates that the value should be empty in the metaverse, even if a lower-precedence sync rule tries to populate the value.
   ![Transformation for extension attributes](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
 3. Save the sync rule. Start the **Synchronization Service**, find the connector, select **Run**, and then select **Full Synchronization**. This step recalculates all attribute flows.
 4. Verify that the intended changes are about to be exported by searching the Connector Space.
