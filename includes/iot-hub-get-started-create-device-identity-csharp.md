@@ -46,7 +46,6 @@ In this section, you create a .NET console app that creates a device identity in
     ```
 
     This method creates a device identity with ID **myFirstDevice**. (If that device ID already exists in the identity registry, the code simply retrieves the existing device information.) The app then displays the primary key for that identity. You use this key in the simulated device app to connect to your IoT hub.
-
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 1. Finally, add the following lines to the **Main** method:
