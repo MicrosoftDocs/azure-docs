@@ -46,7 +46,7 @@ If you need to implement Network Security Group (NSG) in a VNet joined by your A
 
 | Ports | Direction | Transport Protocol | Purpose | Inbound Source/Outbound Destination |
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
-| 10100<br/>20100<br/>30100  | Inbound | TCP | Azure services use these ports to communicate with the nodes of your Azure-SSIS integration runtime in VNet. | Internet | 
+| 10100, 20100, 30100 (if you join IR into classic VNet)<br/><br/>29876, 29877 (if you join IR into Azure Resource Manager VNet) | Inbound | TCP | Azure services use these ports to communicate with the nodes of your Azure-SSIS integration runtime in VNet. | Internet | 
 | 443 | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in VNet use this port to access Azure services, for example, Azure Storage, Event Hub, etc. | INTERNET | 
 | 1433<br/>11000-11999<br/>14000-14999  | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in VNet use these ports to access SSISDB hosted by your Azure SQL Database server (not applicable to SSISDB hosted by Azure SQL Managed Instance). | Internet | 
 
