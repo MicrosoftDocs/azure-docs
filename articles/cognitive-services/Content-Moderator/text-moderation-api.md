@@ -48,7 +48,7 @@ Content Moderator’s machine-assisted text classification feature (preview) hel
 The following extract in the JSON extract shows an example output:
 
 > [!NOTE]
-> The machine-assisted 'Classification` feature is in preview.
+> The machine-assisted 'Classification' feature is in preview.
 
 	"Classification": {
     	"ReviewRecommended": true,
