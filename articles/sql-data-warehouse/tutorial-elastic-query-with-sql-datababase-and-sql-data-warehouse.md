@@ -38,9 +38,9 @@ Before you begin the tutorial, you must have the following prerequisites:
 
 2. Create a login and user that represents the SQL database to data warehouse connection.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Using SSMS or another query client, open a new query for the **SQL data warehouse instance** on your logical server.
 
@@ -74,14 +74,14 @@ Before you begin the tutorial, you must have the following prerequisites:
 
 9. Create an external data source that points to the data warehouse instance.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Now you can create external tables that reference this external data source. Queries using those tables are sent to the data warehouse instance to be processed and sent back to the database instance.
 

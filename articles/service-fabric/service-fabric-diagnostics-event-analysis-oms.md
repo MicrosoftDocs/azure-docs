@@ -39,7 +39,7 @@ See [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md) to get s
 
 ## Using the OMS Agent
 
-It is recommended to use EventFlow and WAD as aggregation solutions because they allow for a more modular approach to diagnostics and monitoring. For example, if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS Log Analytics, you should set up the [OMS agent](../log-analytics/log-analytics-windows-agents.md). You should also use the OMS agent when deploying containers to your cluster, as discussed below. 
+It is recommended to use EventFlow and WAD as aggregation solutions because they allow for a more modular approach to diagnostics and monitoring. For example, if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS Log Analytics, you should set up the [OMS agent](../log-analytics/log-analytics-windows-agent.md). You should also use the OMS agent when deploying containers to your cluster, as discussed below. 
 
 Head over to [Add the OMS Agent to a cluster](service-fabric-diagnostics-oms-agent.md) for steps on this.
 

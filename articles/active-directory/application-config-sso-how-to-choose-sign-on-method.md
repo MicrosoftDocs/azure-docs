@@ -4,7 +4,7 @@ description: Understand the single sign-on modes supported by Azure AD and how t
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

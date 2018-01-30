@@ -48,7 +48,7 @@ The list of devices in the solution dashboard uses a query to return the list of
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 
 * If you delete the preconfigured solution in [azureiotsuite.com][lnk-azureiotsuite], you delete all the resources that were provisioned when you created the preconfigured solution. If you added additional resources to the resource group, these resources are also deleted. 
-* If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
+* If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure portal][lnk-azure-portal].
 
 ### How many IoT Hub instances can I provision in a subscription?
 
@@ -83,13 +83,16 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
 
-Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark][lnk-dreamspark] account. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
+> [!NOTE]
+> Microsoft Azure for DreamSpark is now known as Microsoft Imagine for students.
+
+Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
 
 ### Can I create a preconfigured solution if I have Cloud Solution Provider (CSP) subscription?
 
 Currently, you cannot create a preconfigured solution with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
 
-### How do I delete an AAD tenant?
+### How do I delete an Azure AD tenant?
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
@@ -108,7 +111,6 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/

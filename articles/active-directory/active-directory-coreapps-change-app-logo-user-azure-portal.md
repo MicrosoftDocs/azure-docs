@@ -4,7 +4,7 @@ description: How to change the name or logo for a custom enterprise app in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d01303ce-e6cb-4f3b-a4d6-ec29dfd68146

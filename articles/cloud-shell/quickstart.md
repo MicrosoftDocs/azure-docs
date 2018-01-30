@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell (Preview) Quickstart | Microsoft Docs
+title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
 description: Quickstart for Bash in Cloud Shell
 services: 
 documentationcenter: ''
@@ -27,7 +27,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
 ![](media/quickstart/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share
+2. Select a subscription to create a storage account and Microsoft Azure Files share
 3. Select "Create storage"
 
 > [!TIP]
@@ -56,7 +56,7 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SS
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image.
+> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure Files share's 5-GB image.
 
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
@@ -76,4 +76,4 @@ Run `az group delete -n MyRG`
 ## Next steps
 [Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Learn about Azure File storage](../storage/files/storage-files-introduction.md) <br>
+[Learn about Azure Files storage](../storage/files/storage-files-introduction.md) <br>

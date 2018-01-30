@@ -5,7 +5,7 @@ description: How to view or search for groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 72686ee9-9f91-4fcc-86da-b990a1b6d4f2

@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 11/27/2017
 ---
 # Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
@@ -29,19 +29,19 @@ You may use the Azure Cloud Shell in the browser, or [install Azure CLI 2.0]( /c
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## Create a resource group
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
 ## Create an Azure Database for PostgreSQL server
-Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#create) command. A server contains a group of databases managed as a group. 
+Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
 
 The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
 ```azurecli-interactive
@@ -56,9 +56,9 @@ By default, **postgres** database gets created under your server. The [postgres]
 
 ## Configure a server-level firewall rule
 
-Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
+Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
 
-You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) to create a firewall rule `AllowAllIps` that allows connection from any IP address. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) to create a firewall rule `AllowAllIps` that allows connection from any IP address. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 To restrict access to your Azure PostgreSQL server to only your network, you can set the firewall rule to only cover your corporate network IP address range.
 

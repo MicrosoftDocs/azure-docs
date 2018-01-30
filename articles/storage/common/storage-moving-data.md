@@ -73,4 +73,4 @@ When you have on-premises workloads and applications, you'll need a solution tha
 See [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to learn more.
 ### Moving Data FAQ:
 ## Can I migrate VHDs from one region to another without copying?
-The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) to learn more.
+The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) to learn more.

@@ -44,7 +44,7 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -60,5 +60,5 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

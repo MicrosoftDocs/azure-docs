@@ -65,7 +65,7 @@ Specify the request body using the following template.
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -74,7 +74,7 @@ Specify the request body using the following template.
 }
 ```
 
-* `type` must be set to `AzureEventHub`.
+* `loggertype` must be set to `AzureEventHub`.
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
@@ -118,7 +118,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)    
 

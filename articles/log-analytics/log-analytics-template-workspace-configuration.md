@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: richrund
 
 ---
@@ -60,7 +60,7 @@ The following template sample illustrates how to:
 10. Collect a custom log 
 11. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -138,7 +138,7 @@ The following template sample illustrates how to:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -466,10 +466,12 @@ To deploy the sample template:
 3. Use PowerShell or the command line to deploy the template
 
 #### PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### Command line
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```

@@ -3,18 +3,18 @@ title: Configure the Azure Stack operator's PowerShell environment | Microsoft D
 description: Learn how to Configure the Azure Stack operator's PowerShell environment.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 
@@ -53,7 +53,10 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
-
+    
+  Set-AzureRmEnvironment `
+    -Name "AzureStackAdmin" `
+    -GraphAudience $GraphAudience 
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `

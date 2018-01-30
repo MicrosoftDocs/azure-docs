@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Dropbox for Business | Microsoft Docs'
+title: 'Tutorial: Configure Dropbox for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Dropbox for Business.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 0f3a42e4-6897-4234-af84-b47c148ec3e1
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Dropbox for Business for Automatic User Provisioning
+# Tutorial: Configure Dropbox for Business for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Dropbox for Business and Azure AD to automatically provision and de-provision user accounts from Azure AD to Dropbox for Business.
 

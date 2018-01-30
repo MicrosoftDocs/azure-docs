@@ -8,6 +8,7 @@ manager: kristin.tolle
 editor: miprasad
 
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -65,10 +66,9 @@ The order of Hands-on Labs to carry out the solution is as follows:
 | Order| File Name | Related Files |
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
-| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
-| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## Conclusion
 
-In conclusion, this solution introduces you to using Deep Learning to perform sentiment analysis with the Azure Machine Learning Workbench. The solution presented is flexible to use CNTK/Tensorflow as the backend with Keras. In addition, we also operationalize using HDF5 models.
+In conclusion, this solution introduces you to using Deep Learning to perform sentiment analysis with the Azure Machine Learning Workbench. We also operationalize using HDF5 models.

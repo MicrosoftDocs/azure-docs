@@ -1,5 +1,5 @@
 ---
-title: Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal | Microsoft Docs
+title: Create and manage firewall rules in Azure Database for PostgreSQL | Microsoft Docs
 description: Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
 services: postgresql
 author: jasonwhowell
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/27/2017
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
 Server-level firewall rules enable administrators to access an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses. 

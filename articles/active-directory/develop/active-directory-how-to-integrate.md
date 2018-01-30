@@ -4,7 +4,7 @@ description: A guide to benefits of and resources for integration with Azure Act
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648

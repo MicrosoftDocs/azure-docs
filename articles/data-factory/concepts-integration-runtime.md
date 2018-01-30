@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
@@ -89,7 +89,7 @@ For high availability and scalability, you can scale out the self-hosted IR by a
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.
 
 ### Network environment
-Azure-SSIS IR can be provisioned in either public network or private network.  On-premises data access is supported by joining Azure-SSIS IR to a Virtual Network (VNet) that is connected to your on-premises network. Currently, only classic VNet is supported. 
+Azure-SSIS IR can be provisioned in either public network or private network.  On-premises data access is supported by joining Azure-SSIS IR to a Virtual Network (VNet) that is connected to your on-premises network.  
 
 ### Compute resource and scaling
 Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. You can bring your own Azure SQL Database or Managed Instance (private preview) server to host the catalog of SSIS projects/packages (SSISDB) that is going to be attached to it. You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster. You can manage the cost of running your Azure-SSIS Integration Runtime by stopping and starting it as you see fit.
@@ -139,7 +139,7 @@ United States | East US | East US
 &nbsp; | South Central US | South Central US
 &nbsp; | West Central US | West Central US
 &nbsp; | West US | West US
-&nbsp; | West US 2 | West US
+&nbsp; | West US 2 | West US 2
 Canada | Canada East | Canada Central
 &nbsp; | Canada Central | Canada Central
 Brazil | Brazil South | Brazil South

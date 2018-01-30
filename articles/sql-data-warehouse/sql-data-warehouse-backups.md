@@ -39,7 +39,7 @@ order by run_id desc
 ## Geo-backups
 SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to the server in the geo-paired region. geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
 
-Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
+Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
 
 ## Backup costs
 You will notice the Azure bill has a line item for Azure Premium Storage and a line item for geo-redundant storage. The Premium Storage charge is the total cost for storing your data in the primary region, which includes snapshots.  The geo-redundant charge covers the cost for storing the geo-backups.  
