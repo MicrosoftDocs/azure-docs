@@ -224,7 +224,7 @@ Search images for "studio ghibli", filtered for animated gifs and wide aspect, t
 
 ###Trending images
 
-Search for trending images then verify categories and tiles.
+Search for trending images, and then verify categories and tiles.
 
 ```
         public static void ImageTrending(ImageSearchAPI client)
