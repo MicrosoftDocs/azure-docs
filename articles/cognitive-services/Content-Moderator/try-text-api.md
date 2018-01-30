@@ -42,7 +42,7 @@ Before you can test-drive the API in the online console, you need your subscript
 	Also, 544-56-7788 looks like a social security number (SSN).
 ```
 
-6.	The following response shows the various insights from the API. It contains potential profanity, PII, classification information (in preview), and the auto-corrected version.
+6.	The following response shows the various insights from the API. It contains potential profanity, PII, classification information (preview feature), and the auto-corrected version.
 
 > [!NOTE]
 > The machine-assisted 'Classification` feature is in preview.
