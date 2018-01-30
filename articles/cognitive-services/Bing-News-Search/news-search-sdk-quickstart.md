@@ -126,7 +126,7 @@ namespace NewsSrchSDK
 
 ```
 ##Recent news, freshness and sortBy parameters
-The following code searches most recent news for "Artificial Intelligence" with `freshness` and `sortBy` parameters. It verifys the number of results and prints out `totalEstimatedMatches`, `name`, `url`, `description`, `published time` and `name` of provider of the first news result.
+The following code searches most recent news for "Artificial Intelligence" with `freshness` and `sortBy` parameters. It verifies the number of results and prints out `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
         {
@@ -169,7 +169,7 @@ The following code searches most recent news for "Artificial Intelligence" with 
 ```
 
 ##Category news, safe search
-The following code searches category news for movie and TV entertainment with safe search.  It verifies the number of results and print out `category`, `name`, `url`, `description`, `published time` and `name` of provider of the first news result.
+The following code searches category news for movie and TV entertainment with safe search.  It verifies the number of results and prints out `category`, `name`, `url`, `description`, `published time`, and `name` of provider of the first news result.
 ```
         public static void NewsCategory(NewsSearchAPI client)
         {
@@ -211,7 +211,7 @@ The following code searches category news for movie and TV entertainment with sa
 
 ```
 ##Trending topics
-The following code searches news trending topics in Bing. It verifies the number of results and prints out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` and `image.Url` of the first news result.
+The following code searches news trending topics in Bing. It verifies the number of results and prints out `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, and `image.Url` of the first news result.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
         {
