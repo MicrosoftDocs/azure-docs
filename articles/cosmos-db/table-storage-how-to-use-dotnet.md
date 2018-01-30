@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 01/30/2018
 ms.author: mimig
 
 ---
@@ -26,14 +26,17 @@ Azure Table storage is a service that stores structured NoSQL data in the cloud,
 You can use Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
 ### About this tutorial
-This tutorial shows you how to use the [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) in some common Azure Table storage scenarios. The name of the package indicates it if for use with Azure Cosmos DB, but it the package works with both Azure Cosmos DB and Azure Storage Tables, each service just has a unique endpoint. These scenarios are presented using C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data.
+This tutorial shows you how to use the [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) in common Azure Table storage scenarios. The name of the package indicates it is for use with Azure Cosmos DB, but the package works with both Azure Cosmos DB and Azure Tables storage, each service just has a unique endpoint. These scenarios are explored using C# examples that illustrate how to:
+* Create and delete tables
+* Insert, update and delete rows
+* Query tables
 
 ## Prerequisites
 
 You need the following to complete this tutorial successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). This is a required preview package that is supported in production environments. 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
