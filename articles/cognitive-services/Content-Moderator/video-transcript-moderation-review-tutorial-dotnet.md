@@ -406,7 +406,7 @@ The result of the video moderation job (See [video moderation quickstart](video-
         		"timestamp": 18386372,
         		"shotIndex": 62
       		}
-    		]
+		]
 		]
 		}
 	]
