@@ -1,22 +1,13 @@
 ---
 title: Customize Azure Migrate assessment settings | Microsoft Docs
 description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Customize an assessment
 
 [Azure Migrate](migrate-overview.md) creates assessments with default settings. After creating an assessment, you can modify those default settings using the instructions in this article.
@@ -29,7 +20,7 @@ ms.author: raynew
 
     **Setting** | **Details** | **Default**
     --- | --- | ---
-    **Target location** | The Azure location to which you want to migrate. |  Only East US is currently supported.
+    **Target location** | The Azure location to which you want to migrate. |  West US 2 is the default location.
     **Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replication is currently supported.
     **Comfort factor** | Comfort factor is a buffer that is used during assessment. Use it to account for things such as seasonal usage, short performance history, likely increase in future usage. | Default setting is 1.3x.
     **Perfomance history** | Time used in evaluating performance history. | Default is one month.

@@ -35,8 +35,8 @@ sections:
     style: ordered
     items:
     - html: <a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Get started with Azure Databricks</a>    
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Import data from Azure Storage</a>
-    - hmtl: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>
+    - html: <a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Import data from Azure Storage</a>
+    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Work with notebooks</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Run Spark jobs</a>
     - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Use Spark data sources</a>

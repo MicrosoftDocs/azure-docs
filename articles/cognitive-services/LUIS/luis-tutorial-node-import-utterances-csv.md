@@ -1,5 +1,6 @@
 ---
 title: Build a LUIS app programmatically using Node.js | Microsoft Docs 
+titleSuffix: Azure
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API. 
 services: cognitive-services
 author: DeniseMak
@@ -8,7 +9,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 01/19/2018
 ms.author: v-demak
 ---
 
@@ -160,7 +161,8 @@ upload done
 ## Open the LUIS app in LUIS.ai
 Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and see the LUIS app you just created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
 
-![TurnOn intent](./media/luis-tutorial-node-import-utterances-csv/imported-utterances.png) 
+![TurnOn intent](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
+
 
 ## Next steps
 

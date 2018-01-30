@@ -4,7 +4,7 @@ description: This article shows you how to download and use the Azure MFA SDK to
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
 
 ---
@@ -35,7 +35,7 @@ Because the APIs do not have access to users registered in Azure Active Director
 
 
 ## Download the SDK
-Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).  This requires a full Azure subscription, even if Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses are owned. The public methods of downloading the SDK have been decomissioned since the SDK has been deprecated. You should open a support case with Microsoft if you need to download the SDK.
+Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).  This requires a full Azure subscription, even if Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses are owned. The public methods of downloading the SDK have been decommissioned since the SDK has been deprecated. You should open a support case with Microsoft if you need to download the SDK. The SDK is provided only to customers that are already using the SDK. New customers will not be onboarded.
 
 ## What's in the SDK
 The SDK includes the following items:

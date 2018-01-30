@@ -168,5 +168,5 @@ Webhook request
 
 ## Next steps
 
-* [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Find other connectors](apis-list.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
 
 ---
@@ -132,3 +132,17 @@ After the reprotect job finishes, the virtual machine is replicating back to Azu
 
 ## Common issues
 Make sure that the vCenter is in a connected state before you do a failback. Otherwise, disconnecting disks and attaching them back to the virtual machine will fail.
+
+### Common Error codes
+
+#### Error code 8038
+
+*Failed to bring up the on-premises virtual machine due to the error*
+
+This happens when 
+1. The the on-premises virtual machine is brought up on a host that does not have enough Memory provisioned.
+
+To resolve this issue
+1. You can provision more memory on the ESXi host.
+2. vMotion the VM to another ESXi host that has enough memory to boot the virtual machine.
+

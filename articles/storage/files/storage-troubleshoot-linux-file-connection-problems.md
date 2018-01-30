@@ -154,7 +154,7 @@ To resolve the issue, use the [Troubleshooting tool for Azure Files mounting err
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 
-When you try to list files in an Azure file share by using ls command, you receive the following error:
+When you try to list files in an Azure file share by using ls command, ls command hangs when listing files you receive the following error:
 
 **ls: cannot access'&lt;path&gt;': Input/output error**
 

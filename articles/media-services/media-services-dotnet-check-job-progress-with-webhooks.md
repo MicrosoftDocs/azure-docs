@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
 
 ---
 # Use Azure Webhooks to monitor Media Services job notifications with .NET
-When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with webhooks.
+When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This article shows how to work with webhooks.
 
-This topic shows how to
+This article shows how to
 
 *  Define an Azure Function that is customized to respond to webhooks. 
 	
@@ -30,9 +30,9 @@ This topic shows how to
 	>Before continuing, make sure you understand how [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md) work.
 	>
 	
-* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You will find an example that adds a webhook to your encoding task at the end of the topic.  
+* Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You will find an example that adds a webhook to your encoding task at the end of the article.  
 
-You can find definitions of various Media Services .NET Azure Functions (including the one shown in this topic) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+You can find definitions of various Media Services .NET Azure Functions (including the one shown in this article) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ The following are required to complete the tutorial:
 
 When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. 
 
-The [application settings](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) section defines parameters that are used in the webhook defined in this topic. Also add the following parameters to the app settings. 
+The [application settings](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) section defines parameters that are used in the webhook defined in this article. Also add the following parameters to the app settings. 
 
 |Name|Definition|Example| 
 |---|---|---|
@@ -69,7 +69,7 @@ Once your function app is deployed, you can find it among **App Services** Azure
 
 ### Files
 
-Your Azure Function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
+Your Azure Function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

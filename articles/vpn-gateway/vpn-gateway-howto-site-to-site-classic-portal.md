@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/010/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
 
 ---
@@ -93,8 +93,6 @@ When you create a virtual network to use for a S2S connection, you need to make 
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network")
-
-Once your virtual network is created, you see **Created** listed under **Status** on the networks page in the Azure classic portal.
 
 ## <a name="additionaladdress"></a>2. Add additional address space
 

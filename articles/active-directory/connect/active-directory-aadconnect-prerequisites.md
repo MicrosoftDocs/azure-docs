@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Prerequisites and hardware | Microsoft Docs'
 description: This topic describes the pre-requisites and the hardware requirements for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07

@@ -81,7 +81,7 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
-## Step 3: Handle results
+## Step 3: View results
 
 All POST requests return a JSON formatted response with the IDs and detected properties.
 

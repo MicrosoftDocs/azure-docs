@@ -44,6 +44,7 @@
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
@@ -58,6 +59,7 @@
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -174,6 +176,16 @@
 ##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md)
+#### [App integration tutorials](active-directory-saas-tutorial-list.md)
+#### [Automate provisioning to SCIM-enabled apps](active-directory-scim-provisioning.md)
+#### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md)
+#### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Use scoping filters](active-directory-saas-scoping-filters.md)
+#### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
+#### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started
@@ -205,11 +217,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
-#### Use the classic portal
-##### [Download connectors](application-proxy-enable-classic-portal.md)
-##### [Publish apps](active-directory-application-proxy-publish.md)
-##### [Use connectors](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -220,11 +227,10 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
-#### [Self-service access](active-directory-self-service-application-access.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
@@ -268,9 +274,11 @@
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
+#### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
+#### [Compare member and guest user permissions](users-default-permissions.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -286,11 +294,14 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Controls](active-directory-conditional-access-controls.md)
+#### [Location condition](active-directory-conditional-access-locations.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### [Migrate classic policies](active-directory-conditional-access-migration.md)
+#### [What if tool](active-directory-conditional-access-whatif.md)
 #### Tasks
-##### [Migrate classic policies](active-directory-conditional-access-migration.md)
+##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)

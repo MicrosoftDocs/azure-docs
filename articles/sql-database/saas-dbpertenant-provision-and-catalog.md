@@ -65,9 +65,9 @@ The provisioning approach you use must be comprehended in your overall schema ma
 The Wingtip Tickets SaaS Database per Tenant app provisions new tenants by copying a template database named _basetenantdb_, deployed on the catalog server.  Provisioning could be integrated into the application as part of a sign-up experience, and/or supported offline using scripts. This tutorial  explores provisioning using PowerShell. The provisioning scripts copy the basetenantdb database to create a new tenant database in an elastic pool, then initialize it with tenant-specific info and register it in the catalog shard map.  In Wingtip Tickets SaaS Database Per tenant app, tenant databases are given names based on the tenant name, but this is not a critical part of the pattern – the use of the catalog allows any name to be assigned to tenant databases.+ 
 
 
-## Get the Wingtip application scripts
+## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. [Steps to download the Wingtip Tickets SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 
 ## Provision and catalog detailed walkthrough

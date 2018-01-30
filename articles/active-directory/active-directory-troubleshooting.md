@@ -4,7 +4,7 @@ description: What to do when Active Directory menu item doesn't appear in the Az
 services: active-directory
 documentationcenter: na
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df

@@ -315,6 +315,6 @@ In this article, we described how you can use globally distributed multi-region 
 * Learn about how Azure Cosmos DB supports [global distribution](distribute-data-globally.md)
 * Learn about [automatic and manual failovers in Azure Cosmos DB](regional-failover.md)
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
-* Develop with multiple regions using the [Azure Cosmos DB - DocumentDB API](tutorial-global-distribution-documentdb.md)
+* Develop with multiple regions using the [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
 * Develop with multiple regions using the [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
 * Develop with multiple regions using the [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md)

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
 
 ---
@@ -47,6 +47,8 @@ ms.author: mimig
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
+The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated and replaced by the [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) package. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15th, 2018, at which time requests to the retired SDK will not be permitted.
+
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
@@ -55,7 +57,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
-| [0.9.0-preview](#0.1.0-preview) |November 11, 2017 |--- |
+| [0.9.0-preview](#0.9.0-preview) |November 11, 2017 |--- |
 
 ## Troubleshooting
 

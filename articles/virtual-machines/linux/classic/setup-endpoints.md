@@ -1,6 +1,6 @@
 ---
 title: Set up endpoints on a classic Linux VM | Microsoft Docs
-description: Learn to set up endpoints for a Linux VM in the Azure classic portal to allow communication with a Linux virtual machine in Azure
+description: Learn to set up endpoints for a Linux VM in the Azure portal to allow communication with a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn

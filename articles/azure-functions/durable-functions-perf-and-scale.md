@@ -28,11 +28,11 @@ The history table is an Azure Storage table that contains the history events for
 
 ## Internal queue triggers
 
-Orchestrator functions and activity functions are both triggered by internal queues in the function app's default storage account. There are two types of queues in Durable Functions: the **control queue** and the **work item queue**.
+Orchestrator functions and activity functions are both triggered by internal queues in the function app's default storage account. There are two types of queues in Durable Functions: the **control queue** and the **work-item queue**.
 
-### The work item queue
+### The work-item queue
 
-There is one work item queue per task hub in Durable Functions. This is a basic queue and behaves similarly to any other `queueTrigger` queue in Azure Functions. This queue is used to trigger stateless *activity functions*. When a Durable Functions application scales out to multiple VMs, these VMs all compete to acquire work from the work-item queue.
+There is one work-item queue per task hub in Durable Functions. This is a basic queue and behaves similarly to any other `queueTrigger` queue in Azure Functions. This queue is used to trigger stateless *activity functions*. When a Durable Functions application scales out to multiple VMs, these VMs all compete to acquire work from the work-item queue.
 
 ### Control queue(s)
 
@@ -50,18 +50,18 @@ The following diagram illustrates how the Azure Functions host interacts with th
 
 ![Scale diagram](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-As you can see, all VMs can compete for messages on the work item queue. However, only three VMs can acquire messages from control queues, and each VM locks a single control queue.
+As you can see, all VMs can compete for messages on the work-item queue. However, only three VMs can acquire messages from control queues, and each VM locks a single control queue.
 
 Orchestration instances are distributed across control queue instances by running an internal hash function against the orchestration's instance ID. Instance IDs are auto-generated and random by default that ensures that instances are balanced across all available control queues. The current default number of supported control queue partitions is **4**.
 
 > [!NOTE]
-> It's not currently possible to configure the number of partitions in Azure Functions. [Work to support this configuration option is being tracked](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> It's not currently possible to configure the number of control queue partitions in Azure Functions. [Work to support this configuration option is being tracked](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 In general, orchestrator functions are intended to be lightweight and should not need a lot of computing power. For this reason, it is not necessary to create a large number of control queue partitions to get great throughput. Rather, most of the heavy work is done in stateless activity functions, which can be scaled out infinitely.
 
 ## Auto-scale
 
-As with all Azure Functions running in the Consumption plan, Durable Functions support auto-scale via the [Azure Functions scale-controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). The Scale Controller monitors the length of the work-item queue and each of the control queues, adding or removing VM resources accordingly. If the control queue lengths are increasing over time, the scale controller will continue adding instances until it reaches the control queue partition count. If work item queue lengths are increasing over time, the scale controller will continue adding VM resources until it can match the load, regardless of the control queue partition count.
+As with all Azure Functions running in the Consumption plan, Durable Functions support auto-scale via the [Azure Functions scale controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). The Scale Controller monitors the length of the work-item queue and each of the control queues, adding or removing VM instances accordingly. If the control queue lengths are increasing over time, the scale controller will continue adding VM instances until it reaches the control queue partition count. If work-item queue lengths are increasing over time, the scale controller will continue adding VM instances until it can match the load, regardless of the control queue partition count.
 
 ## Thread usage
 

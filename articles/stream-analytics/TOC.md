@@ -17,10 +17,11 @@
 ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Azure Functions with Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
-### [Sample input data](stream-analytics-sample-data-input.md)
+### [Test queries and sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
 
@@ -51,13 +52,13 @@
 ## Manage
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Job reliability during updates](stream-analytics-job-reliability.md)
+### [Configure compatibility level](stream-analytics-compatibility-level.md)
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
 ### [Resource health blade](stream-analytics-resource-health.md)
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
-### [Event order handling](stream-analytics-out-of-order-and-late-events.md)
 ### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)

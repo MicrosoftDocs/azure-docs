@@ -4,7 +4,7 @@ description:  Explains how you can list your custom developed multi-tenant appli
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
