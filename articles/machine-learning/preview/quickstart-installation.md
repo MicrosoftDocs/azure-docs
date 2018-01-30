@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
 ---
 
 # Create Azure Machine Learning Preview accounts and install Azure Machine Learning Workbench
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning Preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning Preview features by using the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model that predicts the type of iris based on some of its physical characteristics.  
 
@@ -106,7 +106,7 @@ Install Azure Machine Learning Workbench on your computer running macOS Sierra o
 
 4. Azure Machine Learning Workbench is now installed in the following directory: 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## Run Azure Machine Learning Workbench to sign in for the first time
 1. After the installation process is complete, select the **Launch Workbench** button on the last screen of the installer. If you have closed the installer, find the shortcut to Machine Learning Workbench on your desktop and **Start** menu named **Azure Machine Learning Workbench** to start the app.

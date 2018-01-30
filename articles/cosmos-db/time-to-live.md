@@ -146,6 +146,11 @@ To disable TTL entirely on a collection and stop the background process from loo
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
+## TTL and index interaction
+Adding or changing the TTL setting on a collection changes the underlying index. When the TTL value is changed from Off to On, the collection is reindexed. When making changes to the indexing policy when the indexing mode is consistent, users will not notice a change to the index. When the indexing mode is is set to lazy, the index is always catching up and if the TTL value is changed, the index is recreated from scratch. When the TTL value is changed and the index mode is set to lazy, queries done during the index rebuild do not return complete or correct results.
+
+If you need exact data returned, do not change the TTL value when the indexing mode is set to lazy. Ideally consistent index should be chosen to ensure consistent query results. 
 
 ## FAQ
 **What will TTL cost me?**

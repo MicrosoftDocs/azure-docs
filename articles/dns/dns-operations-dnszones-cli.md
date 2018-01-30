@@ -3,7 +3,7 @@ title: Manage DNS zones in Azure DNS - Azure CLI 2.0 | Microsoft Docs
 description: You can manage DNS zones using Azure CLI 2.0. This article shows how to update, delete and create DNS zones on Azure DNS.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
+ms.author: kumud
 ---
 
 # How to manage DNS Zones in Azure DNS using the Azure CLI 2.0
@@ -21,18 +21,10 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
-
-## CLI versions to complete the task
-
-You can complete the task using one of the following CLI versions:
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - our next generation CLI for the resource management deployment model.
 
 ## Introduction
 
@@ -46,7 +38,7 @@ Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-* Install the latest version of the Azure CLI 2.0, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+* Install the latest version of the Azure CLI 2.0, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### Sign in to your Azure account
 

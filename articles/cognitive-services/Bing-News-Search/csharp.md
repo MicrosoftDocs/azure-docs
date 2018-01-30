@@ -26,14 +26,14 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing News search
 
-The [Bing News Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News search results from the Bing search engine.
+The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News search results from the Bing search engine.
 
 1. Create a new Console solution in Visual Studio (the Community Edition is fine).
 1. Replace Program.cs with the code provided below.
 1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

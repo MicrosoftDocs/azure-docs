@@ -14,10 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/12/2017
+ms.date: 11/07/2017
 ms.author: larryfr
 ---
-# Use Apache Kafka (preview) with Storm on HDInsight
+# Use Apache Kafka with Storm on HDInsight
 
 Learn how to use Apache Storm to read from and write to Apache Kafka. This example also demonstrates how to save data from a Storm topology to the HDFS-compatible file system used by HDInsight.
 
@@ -64,7 +64,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**. It creates the following resources:
+    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. It creates the following resources:
     
     * Azure resource group
     * Azure Virtual Network

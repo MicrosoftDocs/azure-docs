@@ -56,7 +56,7 @@ To create a simple schedule using the [Azure Scheduler REST API](https://msdn.mi
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,7 +89,7 @@ After this overview, let’s discuss each of these elements in detail.
 | ***startTime*** |String |No |None |ISO-8601 Date-Times |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
 | ***recurrence*** |Object |No |None |Recurrence object |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
 | ***frequency*** |String |Yes |None |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |No |1 |1 to 1000. |<code>"interval":10</code> |
+| ***interval*** |Number |Yes |None |1 to 1000. |<code>"interval":10</code> |
 | ***endTime*** |String |No |None |Date-Time value representing a time in the future |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 | ***count*** |Number |No |None |>= 1 |<code>"count": 5</code> |
 | ***schedule*** |Object |No |None |Schedule object |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
@@ -122,11 +122,11 @@ The following table describes *schedule* elements in detail.
 
 | **JSON name** | **Description** | **Valid Values** |
 |:--- |:--- |:--- |
-| **minutes** |Minutes of the hour at which the job will run |<ul><li>Integer, or</li><li>Array of integers</li></ul> |
-| **hours** |Hours of the day at which the job will run |<ul><li>Integer, or</li><li>Array of integers</li></ul> |
-| **weekDays** |Days of the week the job will run. Can only be specified with a weekly frequency. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Array of any of the above values (max array size 7)</li></ul>*Not* case-sensitive |
+| **minutes** |Minutes of the hour at which the job will run |<ul><li>Array of integers</li></ul> |
+| **hours** |Hours of the day at which the job will run |<ul><li>Array of integers</li></ul> |
+| **weekDays** |Days of the week the job will run. Can only be specified with a weekly frequency. |<ul><li>Array of any of the below values (max array size 7)<ul><li>"Monday"</li><li>"Tuesday"</li><li>"Wednesday"</li><li>"Thursday"</li><li>"Friday"</li><li>"Saturday"</li><li>"Sunday"</li></ul></li></ul>*Not* case-sensitive |
 | **monthlyOccurrences** |Determines which days of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>Array of monthlyOccurrence objects:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is *occurrence* of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p> |
-| **monthDays** |Day of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li><li>An array of above values</li></ul> |
+| **monthDays** |Day of the month the job will run. Can only be specified with a monthly frequency. |<ul><li>An array of below values</li><ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li></ul></ul> |
 
 ## Examples: Recurrence Schedules
 The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.

@@ -4,7 +4,7 @@ description: Address some of the common problems you may encounter when configur
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

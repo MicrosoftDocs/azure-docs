@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -97,86 +97,18 @@ In your environment, you should avoid the following configurations:
 
 ## Policy migration
 
-If you have policies in the Azure classic portal configured, you should migrate them to the Azure portal because:
+You should consider migrating the policies you have not created in the Azure portal because:
+
+- You can now address scenarios you could not handle before.
+
+- You can reduce the number of policies you have to manage by consolidating them.   
+
+- You can manage all your conditional access policies in one central location.
+
+- The Azure classic portal will be retired.   
 
 
-- A user who is in an Azure classic portal policy and an Azure portal policy needs to meet the requirements in both policies 
-
-- If you don't migrate your existing policies, you will not be able to implement policies that are granting access
-
-
-### Migration from the Azure classic portal
-
-In this scenario: 
-
-- In your [Azure classic portal](https://manage.windowsazure.com), you have configured:
-
-    - SharePoint Online
-
-    ![Conditional access](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - A device-based conditional access policy
-
-    ![Conditional access](./media/active-directory-conditional-access-best-practices/15.png)
-
-- You want to configure a mobile application management conditional access policy in the Azure portal 
- 
-
-#### Configuration 
-
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Add mobile application management conditional access policies
-
-
-### Migrating from Intune 
-
-In this scenario:
-
-- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), you have a mobile application management conditional access policy for either Exchange Online or SharePoint Online configured
-
-    ![Conditional access](./media/active-directory-conditional-access-best-practices/15.png)
-
-- You want to migrate to using mobile application management conditional access in the Azure portal
-
-
-#### Configuration 
- 
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Review you mobile application management conditional access policies configured for Exchange Online or SharePoint Online in Intune
-
-- Add the control for **Require approved applications** in addition to the device-based control 
- 
-
-### Migrating from the Azure classic portal and Intune
-
-In this scenario:
-
-- You have the following configured:
-
-    - **Azure classic portal:** Device-based conditional 
-
-    - **Intune:** Mobile application management conditional access policies 
-    
-- You want to migrate both policies to using mobile application management conditional access policies in the Azure portal
-
-
-#### Configuration
-
-- Review your device-based conditional access policies
-
-- Migrate them to the Azure portal 
-
-- Review you mobile application management conditional access policy configured for Exchange Online or SharePoint Online in Intune
-
-- Add the control for **Require approved applications** in addition to the device-based 
-
-
+For more information, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Amazon accounts in yo
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725

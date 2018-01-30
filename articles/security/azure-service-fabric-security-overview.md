@@ -48,7 +48,7 @@ Clusters that are running on Azure or standalone clusters that are running on Wi
 
 Service Fabric uses X.509 server certificates that you specify when you create a cluster. For a quick overview of what these certificates are and how you can acquire or create them, see [Working with certificates](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates that you specify for [client-to-node security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates that you specify for [client-to-node security](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### Client-to-node security
 You configure client-to-node security by using client identities. To establish trust between a client and a cluster, you must configure the cluster to know which client identities it can trust. This can be done in two different ways:

@@ -3,24 +3,24 @@ title: Configure the Azure Stack user's PowerShell environment | Microsoft Docs
 description: Configure the Azure Stack user's PowerShell environment
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 
 # Configure the Azure Stack user's PowerShell environment
 
-As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as subscribe to offers, create virtual machines, deploy Azure Resource Manager templates,  etc. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) topic. 
+As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as subscribe to offers, create virtual machines, deploy Azure Resource Manager templates,  etc. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) article. 
 
 ## Prerequisites 
 
@@ -31,7 +31,7 @@ Run the following prerequisites either from the [development kit](azure-stack-co
 
 ## Configure the user environment and sign in to Azure Stack
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure PowerShell for Azure Stack (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):
+Based on the type of deployment (Azure AD or AD FS), run one of the following scripts to configure PowerShell for Azure Stack (Make sure to replace the AAD tenantName, GraphAudience endpoint, and ArmEndpoint values as per your environment configuration):
 
 ### Azure Active Directory (AAD) based deployments
        
@@ -116,7 +116,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## Test the connectivity
 
-Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+Now that we've got everything set-up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

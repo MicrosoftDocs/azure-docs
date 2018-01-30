@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: Azure MFA, 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability

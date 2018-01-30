@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: Share and discover analytics resources and more in the Cortana Intelligence Gallery. Learn from others and make your own contributions to the community.
+title: Azure AI Gallery | Microsoft Docs
+description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -17,7 +17,7 @@ ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
-# Share and discover resources in the Cortana Intelligence Gallery
+# Share and discover resources in the Azure AI Gallery
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -25,7 +25,7 @@ ms.author: roopalik;garye
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## What can I find in the Gallery?
-The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.
+The Azure AI Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
 * **[Experiments](gallery-experiments.md)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 * **[Jupyter Notebooks](gallery-jupyter-notebooks.md)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas.
@@ -45,7 +45,7 @@ These basic Gallery resources can be grouped together logically in a couple diff
 
 Finally, **[Competitions](gallery-competitions.md)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
 
-![Cortana Intelligence Gallery home page](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Azure AI Gallery home page](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## Discover and learn
 Anyone can browse and search the different types of resources in the Gallery that have been contributed by Microsoft and the advanced analytics community.

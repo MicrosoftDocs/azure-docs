@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory
+# Tutorial: Configure Workday for automatic user provisioning
+
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday. 
 
 

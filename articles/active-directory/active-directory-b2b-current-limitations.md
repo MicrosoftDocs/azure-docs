@@ -4,7 +4,7 @@ description: Current limitations for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

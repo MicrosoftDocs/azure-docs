@@ -4,7 +4,7 @@ description: How to build an AngularJS single-page application that integrates w
 services: active-directory
 documentationcenter: ''
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Help secure AngularJS single-page apps by using Azure AD
+# Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 

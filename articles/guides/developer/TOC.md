@@ -64,8 +64,8 @@
 ## Store data
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [File shares](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relational tables](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Message queues](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
@@ -107,7 +107,7 @@
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
-## [Azure limits and quotas](../../azure-subscription-service-limits.md)
+## [Azure limits and quotas](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

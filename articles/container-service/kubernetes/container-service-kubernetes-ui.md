@@ -1,24 +1,15 @@
 ---
-title: Manage Azure Kubernetes cluster with web UI | Microsoft Docs
+title: Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes web UI in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: bburns
 manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-
 ---
 
 # Using the Kubernetes web UI with Azure Container Service
