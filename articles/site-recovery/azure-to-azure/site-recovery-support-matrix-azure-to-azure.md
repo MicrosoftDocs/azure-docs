@@ -146,7 +146,7 @@ Maximum OS disk size | 2048 GB | Refer to [Disks used by VMs.](../../virtual-mac
 Maximum data disk size | 4095 GB | Refer to [Disks used by VMs.](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../../virtual-machines/windows/sizes.md)
 Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) for more details.
-Data change rate on the disk | Maximum of 6 MBps per disk | If the average data change rate on the disk is beyond 6 MBps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 MBps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
+Data change rate on the disk | Maximum of 10 MBps per disk for Premium storage and 2 MBps per disk for Standard storage | If the average data change rate on the disk is beyond 10 MBps (for Premium) and 2 MBps (for Standard) continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 10 MBps (for Premium) and 2 MBps (for Standard)  for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
 Standard Managed disks | Not supported |  
@@ -161,7 +161,7 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks)  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported. 
+Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks)  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
 
 >[!IMPORTANT]
 > Ensure that you observe the VM disk scalability and performance targets for [Linux](../../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.

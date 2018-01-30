@@ -16633,17 +16633,27 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
             "redirect_document_id": false
-	},
-	{
+    },
+    {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-bcp.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/batch/scripts/batch-cli-sample-manage-pool.md",
+            "redirect_url": "/azure/batch/scripts/batch-cli-sample-manage-windows-pool",
             "redirect_document_id": false
     },
 	{
         "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
         "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
         "redirect_document_id": false
-}
+    },
+    {
+    "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+    "redirect_url": "/azure/virtual-network/quick-create-portal",
+    "redirect_document_id": false
+    }
 	
 
    ]
