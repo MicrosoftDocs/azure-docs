@@ -31,7 +31,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs:
 
 1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
 
-    ![Blade navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Pane navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)
 
 2.	Click the resource you want to monitor.
 
@@ -47,7 +47,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs:
 
 6.	Save the new diagnostics settings.
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
 For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
