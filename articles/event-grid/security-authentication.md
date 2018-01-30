@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -42,7 +42,9 @@ An example SubscriptionValidationEvent is shown in the following example:
     "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
+  "eventTime": "2018-01-25T22:12:19.4556811Z",
+  "metadataVersion": "1",
+  "dataVersion": "1"
 }]
 ```
 
