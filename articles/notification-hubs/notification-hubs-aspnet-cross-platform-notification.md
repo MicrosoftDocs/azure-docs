@@ -23,7 +23,7 @@ In a previous tutorial, [Notify users with Notification Hubs], you learned how t
 This article demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
 
 > [!IMPORTANT]
-> Windows Phone projects 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Windows Phone projects 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > With Notification Hubs, a device can register multiple templates with the same tag. In this case, an incoming message that targets the tag results in multiple notifications delivered to the device, one for each template. This process enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.

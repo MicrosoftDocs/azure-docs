@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. **NameIdentifier(User Identifier)** is the only mandatory claim and the default value is **user.userprincipalname** but ServiceChannel expects this to be mapped with **user.mail**. If you are planning to enable Just In Time user provisioning, then you should add the following claims as shown below. **Role** claim needs to be mapped to **user.assignedroles** which contains the role of the user.  
 
-	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
   	
 	![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 

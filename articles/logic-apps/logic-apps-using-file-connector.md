@@ -116,7 +116,7 @@ See the [swagger details](/connectors/fileconnector/).
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 * To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
 [Azure Logic Apps User Voice site](http://aka.ms/logicapps-wish).

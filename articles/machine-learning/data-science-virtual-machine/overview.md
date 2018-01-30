@@ -57,7 +57,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) with popular packages pre-installed   |Y                      | Y             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition includes, <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) parallel and distributed high-performance framework (R & Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) - New state-of-the-art ML algorithms from Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R and Python Operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus with shared activation - Excel, Word and PowerPoint   |Y                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus with shared activation - Excel, Word and PowerPoint   |Y                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 with popular packages pre-installed    |Y                      |Y              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) with popular packages for Julia language pre-installed                         |Y                      |Y              |
 | Relational Databases                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(CentOS only) |
@@ -104,7 +104,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu Only) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (Ubuntu only) |
 | **GPU-based Deep Learning Tools** |Windows Server 2016 edition  |Ubuntu edition |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (formerly known as CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (formerly known as CNTK)](https://www.microsoft.com/cognitive-toolkit/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y | Y|
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe & Caffe2](https://github.com/caffe2/caffe2) | N | Y |
@@ -121,7 +121,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 
 ## Get started with the Windows Data Science VM
 * Create an instance of the desired Windows DSVM edition by navigating to
-  * [Windows Server 2016 based DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
+  * [Windows Server 2016 based DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)
   
   or 
   * [Windows Server 2012 based DSVM](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 

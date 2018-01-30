@@ -1,4 +1,4 @@
-﻿---
+---
 title: Network security concepts & requirements in Azure | Microsoft Docs
 description: " This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
 services: security
@@ -249,9 +249,9 @@ Azure provides capabilities to help you in this key area with early detection, m
 ### Azure Network Watcher
 Azure Network Watcher includes a large number of capabilities that help with troubleshooting as well as provide a whole new set of tools to assist with the identification of security issues.
 
-[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
+[Security Group View ](/network-watcher/network-watcher-security-group-view-overview) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
 
-[Packet capture](/network-watcher/network-watcher-packet-capture-overview.md) allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
+[Packet capture](/network-watcher/network-watcher-packet-capture-overview) allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
 
 For more information on Azure Network Watcher and how to start testing some of the functionality in your labs take a look at the [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md)
 

@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	 
 	> [!NOTE] 
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
-    > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values.  
+    > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to get these values.  
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -153,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     >[!NOTE]
     > The value of the Environment attribute is tied to the value of the tenant URL:  
     >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
-    >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+    >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to get the matching **Environment** value.
 
 11. In the **SAML Setup** section, perform the following steps:
    
@@ -263,7 +263,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Workday test user
 
-In this section, you create a user called Britta Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Workday. Work with [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 

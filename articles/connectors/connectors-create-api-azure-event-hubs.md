@@ -169,7 +169,7 @@ View any triggers and actions defined in the swagger, and also see any limits in
 ## Get help
 
 To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 To help improve Logic Apps and connectors, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish).

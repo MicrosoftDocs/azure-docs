@@ -515,16 +515,16 @@ Resource Manager provides several benefits:
 
 Find out more about security by reading some of our in-depth security topics:
 
-- [Auditing and logging](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
+- [Auditing and logging](https://www.microsoft.com/trustcenter/security/auditingandlogging)
 
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
+- [Cybercrime](https://www.microsoft.com/trustcenter/security/cybercrime)
 
-- [Design and operational security](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
+- [Design and operational security](https://www.microsoft.com/trustcenter/security/designopsecurity)
 
-- [Encryption](https://www.microsoft.com/en-us/trustcenter/security/encryption)
+- [Encryption](https://www.microsoft.com/trustcenter/security/encryption)
 
-- [Identity and access management](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [Identity and access management](https://www.microsoft.com/trustcenter/security/identity)
 
-- [Network security](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Network security](https://www.microsoft.com/trustcenter/security/networksecurity)
 
-- [Threat management](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+- [Threat management](https://www.microsoft.com/trustcenter/security/threatmanagement)

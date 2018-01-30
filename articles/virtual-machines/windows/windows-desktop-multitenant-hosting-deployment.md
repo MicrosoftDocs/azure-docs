@@ -18,7 +18,7 @@ ms.author: xujing
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
 > This article shows you to implement the licensing benefit for Windows 10 Pro Desktop images on Azure Marketplace.
@@ -112,6 +112,6 @@ LicenseType              :
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
-- Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
+- Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)
 
 

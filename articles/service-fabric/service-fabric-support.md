@@ -28,8 +28,8 @@ or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid
 
 Learn more about:
  
-- [Support from Microsoft for Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
-- [Microsoft premier support](https://support.microsoft.com/en-us/premier).
+- [Support from Microsoft for Azure](https://azure.microsoft.com/support/plans/?b=16.44).
+- [Microsoft premier support](https://support.microsoft.com/premier).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -39,8 +39,8 @@ For reporting issues on your Service Fabric cluster deployed on-premises or on o
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
-- [Microsoft premier support](https://support.microsoft.com/en-us/premier).
+- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).
+- [Microsoft premier support](https://support.microsoft.com/premier).
 
 ## Report Azure Service Fabric issues 
 We have set up a GitHub repo for reporting Service Fabric issues.  We are also actively monitoring the following forums.

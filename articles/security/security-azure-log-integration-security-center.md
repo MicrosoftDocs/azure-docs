@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Log integration with security center | Microsoft Docs
 description: Learn how to get Azure Security center alerts working with Log integration
 services: security
@@ -45,7 +45,7 @@ The following steps will create the required Azure Active Directory Service Prin
  * **c:\Users\azlog\AzureSecurityCenterJson**
  * **c:\Users\azlog\AzureSecurityCenterJsonLD** </br></br>
 
-If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, please open a [support request](/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 To learn more about Azure Log Integration, see the following documents:

@@ -19,7 +19,7 @@ ms.custom: end-user
 ---
 # Microsoft Authenticator app FAQ
 
-This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
@@ -45,7 +45,7 @@ If you don't get notifications at all, check the following cases:
 - Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to talk to your service provider for help with the second option.
 - Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications.
 
-If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
+If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -99,7 +99,7 @@ The padlock icon indicates that the device is registered in Azure AD and registe
 ## Next steps
 
 ### Contact us
-If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
+If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
 
 
 ### Related topics

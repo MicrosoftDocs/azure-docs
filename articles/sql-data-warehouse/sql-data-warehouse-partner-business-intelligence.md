@@ -96,8 +96,8 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Marketplace Links -->
 [birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
-[dell_statistica_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dell-software/statistica-data-miner/ 
-[dundas_bi_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dundas/dundas-bi/ 
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/ 
+[dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 <!--[jinfonet_marketplace]:-->
 [logianalytics_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/logi-analytics/logi-info-11/ 
 [looker_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/looker/looker-analytics-platform-326/ 

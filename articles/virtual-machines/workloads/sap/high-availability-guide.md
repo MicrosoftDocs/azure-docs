@@ -1050,7 +1050,7 @@ To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, firs
 | Variable name |`KeepAliveTime` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Table 3:** Change the first TCP/IP parameter_
 
@@ -1061,7 +1061,7 @@ Then, add this Windows registry entries on both Windows cluster nodes for SAP AS
 | Variable name |`KeepAliveInterval` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Table 4:** Change the second TCP/IP parameter_
 

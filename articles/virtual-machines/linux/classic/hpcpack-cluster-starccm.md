@@ -26,7 +26,7 @@ This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and r
 Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. HPC Pack also supports running Linux HPC applications on Linux compute-node VMs that are deployed in an HPC Pack cluster. For an introduction to using Linux compute nodes with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md).
 
 ## Set up an HPC Pack cluster
-Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
+Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/download/details.aspx?id=44949) and extract them locally.
 
 Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](/powershell/azure/overview).
 

@@ -30,7 +30,7 @@ The following video demonstrates Failed Vertex Debug in Azure Data Lake Tools fo
 >
 
 > [!IMPORTANT]
-> Visual Studio requires the following two updates for using this feature: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) and the [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio requires the following two updates for using this feature: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/download/details.aspx?id=53840) and the [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## Download failed vertex to local machine

@@ -26,6 +26,6 @@ Data privacy is an integral part of how we operate the services. The Microsoft a
 
 Customers retain the rights, title, and interest in the customer data they store in Azure. It is our policy to not mine customer data for advertising purposes or use customer data except for purposes consistent with providing cloud productivity services. 
 
-For more information, see [Privacy and Control](https://www.trustcenter.cn/en-us/privacy/default.html) on the Trust Center website (in [English](https://www.trustcenter.cn/en-us/) or [Chinese](https://www.azure.cn/zh-cn/support/trust-center/)).
+For more information, see [Privacy and Control](https://www.trustcenter.cn/privacy/default.html) on the Trust Center website (in [English](https://www.trustcenter.cn/) or [Chinese](https://www.azure.cn/zh-cn/support/trust-center/)).
 
 

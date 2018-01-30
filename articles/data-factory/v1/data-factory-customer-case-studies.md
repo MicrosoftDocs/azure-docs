@@ -44,4 +44,4 @@ Data Factory is a cloud-based information management service that automates the 
 [Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## Microsoft Studio
-[Delivering epic Xbox experiences by analyzing hundreds of billions of game events each day](https://customers.microsoft.com/en-us/story/xboxunlimited)
+[Delivering epic Xbox experiences by analyzing hundreds of billions of game events each day](https://customers.microsoft.com/story/xboxunlimited)

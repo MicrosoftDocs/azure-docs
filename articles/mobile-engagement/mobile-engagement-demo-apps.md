@@ -36,7 +36,7 @@ This app is available in the following app stores:
 
 * **Windows Universal demo app**:
   
-  * Download the app at the [Windows App store](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
+  * Download the app at the [Windows App store](https://www.microsoft.com/store/apps/azure-mobile-engagement/9nblggh4qmh2).
   * The app was developed as a Windows 10 Universal app. The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
 * **iOS demo app**:
   

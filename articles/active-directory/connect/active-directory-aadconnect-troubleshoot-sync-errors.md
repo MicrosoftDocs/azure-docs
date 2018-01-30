@@ -101,7 +101,7 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
 >
 
 #### Related Articles
-* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### ObjectTypeMismatch
 #### Description
@@ -162,7 +162,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
 
 #### Related Articles
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+-[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ## Data Validation Failures
 ### IdentityDataValidationFailed
@@ -177,7 +177,7 @@ b. The UserPrincipalName attribute does not follow the required format.
 a. Ensure that the userPrincipalName attribute has supported characters and required format.
 
 #### Related Articles
-* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### FederatedDomainChangeError
 #### Description

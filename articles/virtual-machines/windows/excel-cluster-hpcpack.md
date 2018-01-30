@@ -1,4 +1,4 @@
-﻿---
+---
 title: HPC Pack cluster for Excel and SOA | Microsoft Docs
 description: Get started running large-scale Excel and SOA workloads on an HPC Pack cluster in Azure
 services: virtual-machines-windows
@@ -222,7 +222,7 @@ Follow these steps to offload an Excel workbook so that it runs on the HPC Pack 
     </configuration>
     ```
 4. Set up the client to submit jobs to the HPC Pack cluster. One option is to download the full [HPC Pack 2012 R2 Update 3 installation](http://www.microsoft.com/download/details.aspx?id=49922) and install the HPC Pack client. Alternatively, download and install the [HPC Pack 2012 R2 Update 3 client utilities](https://www.microsoft.com/download/details.aspx?id=49923) and the appropriate Visual C++ 2010 redistributable for your computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
-5. In this example, we use a sample Excel workbook named ConvertiblePricing_Complete.xlsb. You can download it [here](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+5. In this example, we use a sample Excel workbook named ConvertiblePricing_Complete.xlsb. You can download it [here](https://www.microsoft.com/download/details.aspx?id=2939).
 6. Copy the Excel workbook to a working folder such as D:\Excel\Run.
 7. Open the Excel workbook. On the **Develop** ribbon, click **COM Add-Ins** and confirm that the HPC Pack Excel COM add-in is loaded successfully.
    

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
 services: application-insights
@@ -50,7 +50,7 @@ This route allows you to write any Analytics query you like, or export from Usag
 ### One time: install Power BI Desktop
 To import your Application Insights query, you use the desktop version of Power BI. Then you can publish it to the web or to your Power BI cloud workspace. 
 
-Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
+Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 ### Export an Analytics query
 1. [Open Analytics and write your query](app-insights-analytics-tour.md).

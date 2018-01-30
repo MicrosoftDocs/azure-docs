@@ -55,7 +55,7 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following steps to add the Azure SQL Analytics solution to your workspace.
 
-1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. In the Azure portal, click **New** (the + symbol), then in the list of resources, select **Monitoring + Management**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In the **Monitoring + Management** list click **See all**.

@@ -86,7 +86,7 @@ The time taken to complete the data synchronization and boot the virtual machine
 
 Data synchronization takes a snapshot of the virtual machine's disks and starts checking block by block and calculates its checksum. This calculated checksum is sent to on-premises to compare with the on-premises checksum of the same block. In case the checksums match, the data block is not transferred. If it does not match, the data block is transferred to on-premises. This transfer time depends on the bandwidth available. The speed of the checksum is a few GBs per min. 
 
-To speed up the download of data, you can configure your MARS agent to use more threads to parallelize the download. Refer to the [document here](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) on how to change the download threads in the agent.
+To speed up the download of data, you can configure your MARS agent to use more threads to parallelize the download. Refer to the [document here](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) on how to change the download threads in the agent.
 
 
 ## Next Steps

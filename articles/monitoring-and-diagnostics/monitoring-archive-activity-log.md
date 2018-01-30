@@ -47,7 +47,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Property | Required | Description |
 | --- | --- | --- |
 | StorageAccountId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
 | Categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
@@ -60,7 +60,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | --- | --- | --- |
 | name |Yes |Name of your log profile. |
 | storageId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
 | categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 

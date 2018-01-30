@@ -68,7 +68,7 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 
 Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the VSTS server, you can easily create, manage, and track work items in your team project and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
-Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
+Follow [this link](https://www.visualstudio.com/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
 
 
 ## 3. <a name='AddFeature-3'></a>Add a feature  
@@ -184,9 +184,9 @@ After the data science process template is created, you can create and track you
 Here are additional links to resources on agile processes.
 
 - Agile process
-	[https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+	[https://www.visualstudio.com/docs/work/guidance/agile-process](https://www.visualstudio.com/docs/work/guidance/agile-process)
 - Agile process work item types and workflow
-	[https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+	[https://www.visualstudio.com/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/docs/work/guidance/agile-process-workflow)
 
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 

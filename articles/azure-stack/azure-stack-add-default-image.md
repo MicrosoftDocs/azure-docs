@@ -47,7 +47,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
 
 2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
-3. On the Windows Server Evaluations page, [download the Windows Server 2016 evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). When prompted, select the ISO version of the download. Record the path to the download location, which is used later in the steps described in this article. This step requires internet connectivity.  
+3. On the Windows Server Evaluations page, [download the Windows Server 2016 evaluation](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). When prompted, select the ISO version of the download. Record the path to the download location, which is used later in the steps described in this article. This step requires internet connectivity.  
 
 ### Add the image to the Azure Stack Marketplace
    

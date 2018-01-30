@@ -40,7 +40,7 @@ The following key improvements and bug fixes have been made in Update 5.
 
     If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md#networking-alerts).
 
-* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5 and is compatible with all the StorSimple devices that are running Update 4 or later. We recommend that you update to this version. The previous version of StorSimple Snapshot Manager is used for StorSimple devices that are running Update 3 or earlier. [Download the appropriate version of StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) and refer to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5 and is compatible with all the StorSimple devices that are running Update 4 or later. We recommend that you update to this version. The previous version of StorSimple Snapshot Manager is used for StorSimple devices that are running Update 3 or earlier. [Download the appropriate version of StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) and refer to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 
 ## Issues fixed in Update 5

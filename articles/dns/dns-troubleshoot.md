@@ -21,7 +21,7 @@ ms.author: jonatul
 
 This page provides troubleshooting information for common Azure DNS questions.
 
-If these steps don't resolve your issue, you can also search for or post your issue on our [community support forum on MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Alternatively, open an Azure support request.
+If these steps don't resolve your issue, you can also search for or post your issue on our [community support forum on MSDN](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork). Alternatively, open an Azure support request.
 
 
 ## I can't create a DNS zone
