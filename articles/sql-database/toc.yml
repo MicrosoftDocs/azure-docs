@@ -301,6 +301,8 @@
       href: sql-database-advisor-portal.md
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
+    - name: Automatic tuning e-mail notifications
+      href: sql-database-automatic-tuning-email-notifications.md
     - name: Intelligent Insights performance troubleshooting
       href: sql-database-intelligent-insights-troubleshoot-performance.md
     - name: Use DMVs to monitor perf
