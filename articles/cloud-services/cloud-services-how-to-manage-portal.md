@@ -31,6 +31,7 @@ For more information about how to scale your cloud service, see [Configure auto-
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
+
 2. In the blade, select **Update**.
 
     ![Update button](./media/cloud-services-how-to-manage-portal/update-button.png)
@@ -40,11 +41,13 @@ If you need to update the application code for your cloud service, use **Update*
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
 4. Optionally, update the storage account and the deployment label.
+
 5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** check box to enable the upgrade to proceed.
 
     Azure can guarantee only 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine processes client requests while the other is updated.
 
 6. Select the **Start deployment** check box to apply the update after the upload of the package has finished.
+
 7. Select **OK** to begin updating the service.
 
 ## Swap deployments to promote a staged deployment to production
@@ -53,6 +56,7 @@ When you decide to deploy a new release of a cloud service, stage and test your 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
+
 2. In the blade, select **Swap**.
 
     ![Cloud Services Swap button](./media/cloud-services-how-to-manage-portal/swap-button.png)
@@ -77,7 +81,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
 
-Note that Guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
+Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
@@ -91,6 +95,7 @@ To save compute costs, you can delete the staging deployment after you verify th
 Use the following procedure to delete a deployment or your cloud service.
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to delete. This step opens the cloud service instance blade.
+
 2. In the blade, select **Delete**.
 
     ![Cloud Services Delete button](./media/cloud-services-how-to-manage-portal/delete-button.png)
@@ -100,10 +105,11 @@ Use the following procedure to delete a deployment or your cloud service.
     ![Cloud Services Delete](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
 4. Select **Delete** at the bottom.
+
 5. To delete the cloud service, select **Delete cloud service**. Then, at the confirmation prompt, select **Yes**.
 
 > [!NOTE]
-> When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [Introduction to Cloud Service monitoring](cloud-services-how-to-monitor.md).
+> When a cloud service is deleted and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [Introduction to cloud service monitoring](cloud-services-how-to-monitor.md).
 
 
 ## Find more information about failed deployments

@@ -115,7 +115,7 @@ When you create a cloud service or storage service, you need to provide a valid 
 * Australia Southeast
 
 ## <a name="CreateCloudService"> </a>Create a cloud service
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service][cloud service] (known as a *hosted service* in earlier Azure releases). You can use the **create\_hosted\_service** method to create a new hosted service. Create the service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description, and a location.
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service][cloud service]. (It was known as a *hosted service* in earlier Azure releases.) You can use the **create\_hosted\_service** method to create a new hosted service. Create the service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description, and a location.
 
     from azure import *
     from azure.servicemanagement import *
@@ -391,7 +391,7 @@ To finally create the virtual machine by using the captured image, use the **cre
         role_size='Small',
         vm_image_name = image_name)
 
-To learn more about how to capture a Linux virtual machine in the classic deployment model, see [Capture a Linux virtual machine.](../virtual-machines/linux/classic/capture-image-classic.md).
+To learn more about how to capture a Linux virtual machine in the classic deployment model, see [Capture a Linux virtual machine](../virtual-machines/linux/classic/capture-image-classic.md).
 
 To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine.](../virtual-machines/windows/classic/capture-image-classic.md).
 
