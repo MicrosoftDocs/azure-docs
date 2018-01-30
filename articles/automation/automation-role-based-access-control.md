@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/30/2016
+ms.date: 01/30/2018
 ms.author: magoedte;sngun
 
 ---
 # Role-based access control in Azure Automation
-## Role-based access control
+
 Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
 ## Roles in Automation Accounts
@@ -40,139 +40,230 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 > [!NOTE]
 > You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.
 
-|**Action**  |**Permission**  |**Minimum scope**  |
-|---------|---------|---------|
-|Write new deployment      | Microsoft.Resources/deployments/*          |Subscription          |
-|Write new resource group      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
-|Create new default Workspace      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
-|Create new Account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
-|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read </br>Automation ccount        |
-|Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
-|Create MMA extension      | Microsoft.Compute/virtualMachines/write         | That VM         |
-|Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
-|Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
-|Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | That workspace         |
-|Onboarding state check - Read linked workspace property of accoun     | Read linked workspace property         |  That account        |
-|Onboarding state check - Read solution      | Read on solution          | That solution         |
-|Onboarding state check - Read VM      | Read on VM         | That VM         |
-|Onboarding state check - Read account      | Read on account         | That account         |
-
-
-|Action  |Description  |Minimum Scope  |
-|---------|---------|---------|
-|Microsoft.Resources/deployments/*     | Create and manage resource group deployments        | Subscription         |
-|Microsoft.Resources/subscriptions/resourceGroups/write     | Write roles and role assignments        | Subscription        |
-|Microsoft.OperationalInsights/workspaces/write     | Create a new default Workspace          | Resource group        |
-|Microsoft.Automation/automationAccounts/write     | Write access on automation accounts        | Resource group        |
-|Row5     | Link workspace and account         |         |
-|Row6     |         |         |
-|Row7     |         |         |
-|Row8     |         |         |
-|Row9     |         |         |
-|Row10     |         |         |
-|Row11     |         |         |
-|Row12     |         |         |
-|Row13     |         |         |
-|Row14     |         |         |
-|Row15     |         |         |
-
 ## Role permissions
 
 The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
+
+### Automation Job Operator
+
+You set Automation Job Operator at the Automation account level. This allows the operator permissions to manage jobs in the account.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Read authorization|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |  Read roles and role assignments       |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
+|Microsoft.Support/* |Create and manage support tickets|
+
+### Automation Runbook Operator
+
+You set Automation Runbook Operator on a runbook to allow the operator to see the runbook name. This also gives permission for the operator to perform the Automation Job Operator actions for a job for the particular runbook.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/\<runbookInstance\>/read     | List the runbooks        |
+|Microsoft.Authorization/*/read      | Read authorization        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
+|Microsoft.Resources/deployments/*      | Create and manage resource group deployments         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
+|Microsoft.Support/*      | Create and manage support tickets        |
 
 ### Owner
 
 Can manage everything, including access
 |Actions|Description|
 |---|---|
-|*|Create and manage resources of all types|
-
-In this article we walk through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator, and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Otherwise it could result in unintended or undesirable consequences.     
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
 
 ## Contributor
 
-Can manage everything except access
+Can manage everything except access. The following tables shows the permissions **NOT** allowed for a contributor. All other actions are permissable.
 
-| **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
-|:--- |:--- |:--- |:--- |:--- |
-| Azure Automation Account |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Certificate Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Connection Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Connection Type Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Credential Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Schedule Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Variable Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Desired State Configuration | | | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Hybrid Runbook Worker Resource Type |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Azure Automation Job |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Automation Job Stream |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Job Schedule |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Automation Module |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |
-| Azure Automation Runbook |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Automation Runbook Draft |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Automation Runbook Draft Test Job |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Automation Webhook |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
+|**Actions**  |**Description**  |
+|---------|---------|
+|*|Create and manage resources of all types|
+|**Not Actions**||
+|Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
+|Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
+|Microsoft.Authorization/elevateAccess/Action    |         |
 
+### Automation Operator
+
+Automation Operators are able to start, stop, suspend, and resume jobs
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Read authorization|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
+|Microsoft.Support/* |Create and manage support tickets|
+
+### Automation Runbook Operator
+
+Read Runbook properties - to be able to create Jobs of the runbook.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|Read authorization|
+|Microsoft.Automation/automationAccounts/runbooks/read|List runbooks|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
+|Microsoft.Support/* |Create and manage support tickets|
+
+### Log Analytics Contributor
+
+Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read resources of all types, except secrets.|
+|Microsoft.Automation/automationAccounts/*|Manage automation accounts|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys|
+|Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions|
+|Microsoft.Insights/alertRules/*|Read/write/delete alert rules.|
+|Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
+|Microsoft.OperationalInsights/*|Manage Log Analytics|
+|Microsoft.OperationsManagement/*|Manage solutions in workspaces|
+|Microsoft.Resources/deployments/*|Create and manage resource group deployments|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments|
+|Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys|
+|Microsoft.Support/*|Create and manage support tickets|
+
+
+### Log Analytics Reader
+
+Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read resources of all types, except secrets.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data|
+|Microsoft.Support/*|Create and manage support tickets|
+|**Not Actions**| |
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys|
 ## Reader role permissions
 The following table presents the specific actions that can be performed by the Reader role in Automation.
 
-| **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
-|:--- |:--- |:--- |:--- |:--- |
-| Classic subscription administrator |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Management lock |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Permission |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Provider operations |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Role assignment |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Role definition |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+### Monitoring Contributor
 
-## Automation Operator role permissions
-The following table presents the specific actions that can be performed by the Automation Operator role in Automation.
+Can read all monitoring data and update monitoring settings.
 
-| **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
-|:--- |:--- |:--- |:--- |:--- |
-| Azure Automation Account |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Certificate Asset | | | | |
-| Automation Connection Asset | | | | |
-| Automation Connection Type Asset | | | | |
-| Automation Credential Asset | | | | |
-| Automation Schedule Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | |
-| Automation Variable Asset | | | | |
-| Automation Desired State Configuration | | | | |
-| Hybrid Runbook Worker Resource Type | | | | |
-| Azure Automation Job |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |
-| Automation Job Stream |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Job Schedule |![Green Status](media/automation-role-based-access-control/green-checkmark.png) |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | |
-| Automation Module | | | | |
-| Azure Automation Runbook |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Runbook Draft | | | | |
-| Automation Runbook Draft Test Job | | | | |
-| Automation Webhook | | | | |
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read resources of all types, except secrets.|
+|Microsoft.AlertsManagement/alerts/*|**Insert description**|
+|Microsoft.AlertsManagement/alertsSummary/*|**Insert description**|
+|Microsoft.Insights/AlertRules/*|Read/write/delete alert rules.|
+|Microsoft.Insights/components/*|	Read/write/delete Application Insights components.|
+|Microsoft.Insights/DiagnosticSettings/*|Read/write/delete diagnostic settings.|
+|Microsoft.Insights/eventtypes/*|List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log.|
+|Microsoft.Insights/LogDefinitions/*|This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log.|
+|Microsoft.Insights/MetricDefinitions/*|Read metric definitions (list of available metric types for a resource).|
+|Microsoft.Insights/Metrics/*|Read metrics for a resource.|
+|Microsoft.Insights/Register/Action|Register the Microsoft.Insights provider.|
+|Microsoft.Insights/webtests/*|Read/write/delete Application Insights web tests.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Read/write/delete Log Analytics solution packs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Read/write/delete Log Analytics saved searches.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Read/write/delete Log Analytics storage insight configurations.|
+|Microsoft.Support/*|Create and manage support tickets|
+|Microsoft.WorkloadMonitor/workloads/*|**Insert description**|
 
-For further details, the [Automation operator actions](../active-directory/role-based-access-built-in-roles.md#automation-operator) lists the actions supported by the Automation operator role on the Automation account and its resources.
+### Monitoring Reader
 
-## User Access Administrator role permissions
-The following table presents the specific actions that can be performed by the User Access Administrator role in Automation.
+Can read all monitoring data.
 
-| **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
-|:--- |:--- |:--- |:--- |:--- |
-| Azure Automation Account |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Certificate Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Connection Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Connection Type Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Credential Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Schedule Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Variable Asset |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Desired State Configuration | | | | |
-| Hybrid Runbook Worker Resource Type |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Azure Automation Job |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Job Stream |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Job Schedule |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Module |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Azure Automation Runbook |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Runbook Draft |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Runbook Draft Test Job |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Webhook |![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read resources of all types, except secrets.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
+|Microsoft.Support/*|Create and manage support tickets|
+
+## User Access Administrator
+
+Lets you manage user access to Azure resources.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|Read all resources|
+|Microsoft.Authorization/*|Manage authorization|
+|Microsoft.Support/*|Create and manage support tickets|
+
+
+## Onboarding
+
+The following tables show the minimum required permissions needed for onboarding virtual machines with Azure Automation.
+
+### Onboarding from a virtual machine
+
+|**Action**  |**Permission**  |**Minimum scope**  |
+|---------|---------|---------|
+|Write new deployment      | Microsoft.Resources/deployments/*          |Subscription          |
+|Write new resource group      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Create new default Workspace      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|Create new Account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
+|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read </br>Automation Account|Workspace</br>Automation Account
+|Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
+|Create MMA extension      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
+|Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
+|Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
+|Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
+|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
+|Onboarding state check - Read linked workspace property of account     | Microsoft.Automation/automationAccounts/read      | Automation Account        |
+|Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
+|Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
+|Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation Account   |
+
+## Onboarding from Automation account
+
+|**Action**  |**Permission** |**Minimum Scope**  |
+|---------|---------|---------|
+|Create new deployment     | Microsoft.Resources/deployments/*        | Subscription         |
+|Create new resource group     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|AutomationOnboarding blade - Create new workspace     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
+|AutomationOnboarding blade - read linked workspace     | Microsoft.Automation/automationAccounts/read        | Automation Account       |
+|AutomationOnboarding blade - read solution     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solution        |
+|AutomationOnboarding blade - read workspace     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Workspace        |
+|Create link for workspace and Account     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
+|Write account for shoebox      | Microsoft.Automation/automationAccounts/write        | Account        |
+|Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Resource Group         |
+|Create/edit saved search     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
+|Create/edit scope config     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
+|Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
+|**Step 2   - Onboard Multiple VMs**     |         |         |
+|VMOnboarding blade - Create MMA extension     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
+|Create / edit saved search     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
+|Create / edit scope config  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
+
+## Update management
+
+Update management reaches across multiple services to provide its service. The following table shows the permissions needed to management update management deployments:
+
+|**Resource**  |**Role**  |**Scope**  |
+|---------|---------|---------|
+|Automation account     | Log Analytics Contributor       | Automation account        |
+|Automation account    | Virtual Machine Contributor        | Resource Group for the account        |
+|Log Analytics workspace     | Log Analytics Contributor| Log Analytics workspace        |
+|Solution     |Log Analytics Contributor         | Solution|
+|Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 
 ## Configure RBAC for your Automation Account using Azure portal
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.  
@@ -272,48 +363,6 @@ Role-based access can also be configured to an Automation Account using the foll
     Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
 In the above examples, replace **sign in Id**, **subscription Id**, **resource group name** and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
-
-## Onboarding
-
-Onboarding a virtual machine for update management or change and inventory control requires numerous permissions across many resources. The following tables show you the permissions needed for the actions.
-
-### Virtual machine
-
-The following table shows the permissions needed when onboarding a virtual machine from the virtual machine.
-
-
-
-### Automation account
-
-The following table shows the permissions needed when onboarding virtual machines from the Automation account.
-
-|**Action**  |**Permission**  |**Minimum scope**  |
-|---------|---------|---------|
-|Create new deployment      | Write on deployments         | That subscription         |
-|Create new resource group      | Write on resource groups         | That subscription        |
-|AutomationOnboarding blade - Create new workspace      | Write on workspaces         | That resource group          |
-|AutomationOnboarding blade - read linked workspace      | Read on linked workspace property of automation account         | That account         |
-|AutomationOnboarding blade - read solution      | Read on solution         | That solution         |
-|AutomationOnboarding blade - read workspace      | Read on workspace          | That workspace         |
-|Create link for workspace and Account      | Write on linked service property of workspace          | That workspace         |
-|Write account for shoebox      | Write account         | That account         |
-|Create solution      | Write  on solutions         | That resource group         |
-|Create/edit saved search      | Write on workspace         | That workspace           |
-|Create/edit scope config      | Write on workspace           | That workspace       |
-|Link solution to scope config     | Write on solution         | That solution         |
-
-## Update management
-
-Update management reaches across multiple services to provide its service. The following table shows the permissions needed to management update management deployments:
-
-|**Resource**  |**Permission**  |**Scope**  |
-|---------|---------|---------|
-|Automation account     | Log Analytics Contributor       | Automation account        |
-|Automation account    | Virtual Machine Contributor        | Resource Group for the account        |
-|Log Analytics workspace     | Log Analytics Contributor| Log Analytics workspace        |
-|Solution     |Log Analytics Contributor         | Solution
-        |
-|Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 
 ## Next Steps
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
