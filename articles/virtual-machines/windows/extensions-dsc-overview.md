@@ -114,9 +114,12 @@ see the dedicated documentation page
 
 ## DSC Extension PowerShell Cmdlets
 
-PowerShell cmdlets can be used to package, publish, and monitor
+The PowerShell cmdlets for managing DSC Extension
+are best used for interactive troubleshooting
+and information gathering scenarios.
+The cmdlets can be used to package, publish, and monitor
 DSC extension deployments.
-The cmdlets for DSC Extension have not yet been updated
+Please note that cmdlets for DSC Extension have not yet been updated
 to work with the
 [Default Configuration Script](###default-configuration-script).
 
