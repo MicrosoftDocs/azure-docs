@@ -64,7 +64,7 @@ This article only addresses the different roles that exist today. When you assig
 | [Redis Cache Contributor](#redis-cache-contributor) |Can manage Redis caches |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) |Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) |Can manage search services |
-| [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
+| [Security Admin](#security-administrator) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
 | [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
 | [Security Reader](#security-reader) | In Security Center only: Can view recommendations and alerts, view security policies, view security states, but cannot make changes |
 | [Site Recovery Contributor](#site-recovery-contributor) | Can manage Site Recovery in Recovery Services vault |
