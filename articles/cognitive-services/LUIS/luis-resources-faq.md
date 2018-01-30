@@ -9,7 +9,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/30/2018
 ms.author: v-demak;v-geberr;
 ---
 # Language Understanding FAQ
