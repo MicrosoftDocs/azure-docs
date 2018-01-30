@@ -44,7 +44,7 @@ The Content Moderator's video capability is available as a private preview **med
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
-Once you get your AMS credentials, there are two ways to try the Cntent Moderator media processor.
+Once you get your AMS credentials, there are two ways to try the Content Moderator media processor.
 
 ## Use Azure Media Services Explorer
 

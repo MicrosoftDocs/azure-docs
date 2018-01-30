@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
@@ -71,11 +71,11 @@ You can disable devices by updating the **status** property of an identity in th
 
 ## Import and export device identities
 
-You can export device identities in bulk from an IoT hub's identity registry by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
+Use asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints] to export device identities in bulk from an IoT hub's identity registry. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-You can import device identities in bulk to an IoT hub's identity registry by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
+Use asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints] to import device identities in bulk to an IoT hub's identity registry. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
 
-For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
+For more information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
 ## Device provisioning
 
@@ -177,7 +177,7 @@ Now that you have learned how to use the IoT Hub identity registry, you may be i
 * [Invoke a direct method on a device][lnk-devguide-directmethods]
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
 * [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
 
