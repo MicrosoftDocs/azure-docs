@@ -1,6 +1,6 @@
 ---
 title: Text Moderation with Azure Content Moderator | Microsoft Docs
-description: Use text moderation for potential profanity, PII, and matching against custom lists of terms.
+description: Use text moderation for possible unwanted, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 01/20/2018
+ms.date: 01/30/2018
 ms.author: sajagtap
 ---
 
@@ -18,7 +18,8 @@ Use Content Moderator’s machine-assisted text moderation and [human review too
 
 The service response includes the following information:
 
-- Profanity: detected profanity terms and their location
+- Profanity: term-based matching with built-in list of profane terms in multiple languages
+- Classification: machine-assisted classification into three categories
 - Personally Identifiable Information (PII)
 - Auto-corrected text
 - Original text
@@ -26,7 +27,7 @@ The service response includes the following information:
 
 ## Profanity
 
-If any profane terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
+If any profane terms are detected in any of the [supported languages](Text-Moderation-API-Languages.md), those terms are included in the response, along with their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
 
 	"Terms": [
 	{
@@ -35,6 +36,37 @@ If any profane terms are detected, those terms are included in the response, alo
 		"ListId": 0,
 		"Term": "crap"
 	}
+
+## Classification
+
+Content Moderator’s machine-assisted text moderation feature helps detect potentially undesired content that may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content.
+
+Businesses use the service to either block, approve or review the content based on their policies and thresholds. The text moderation feature uses a trained model to identify possible abusive, derogatory or discriminatory language such as slang, abbreviated words, offensive, and intentionally misspelled words. 
+
+The text moderation service can be used to moderate environments that require partners, employees and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more.
+
+The following extract in the JSON extract shows an example output:
+
+	"Classification": {
+    	"ReviewRecommended": true,
+    	"Category1": {
+      		"Score": 1.5113095059859916E-06
+    		},
+    	"Category2": {
+      		"Score": 0.12747249007225037
+    		},
+    	"Category3": {
+      		"Score": 0.98799997568130493
+    	}
+	}
+
+### Explanation
+
+- `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
+- `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
+- `Category3` represents the potential presence of language that may be considered offensive in certain situations.
+- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the above example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
 
 
 ## Personally Identifiable Information (PII)
