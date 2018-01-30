@@ -47,13 +47,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 The steps below will create the Service Fabric cluster and necessary resources required to deploy your application a Service Fabric cluster and monitor the health of your solution using the ELK (Elasticache, Logstash, Kibana) stack. This will be useful in the upcoming parts of this tutorial. If you are simply interested in seeing your Java application running in Azure, please go to the [Set up a party cluster](service-fabric-tutorial-java-deploy-azure#Set up a Party Cluster). In addition to creating a Service Fabric cluster, [Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) will be provisioned to pipe logs from the Service Fabric cluster to your Logstash instance. 
 
-1. Download the following pckage which contains necessary helper scripts and the templates to create the resources in Azure. 
+1. Open terminal and download the following package which contains necessary helper scripts and the templates to create the resources in Azure
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-2. Log in to your Azure account from Terminal 
+2. Log in to your Azure account 
 ```bash
 az login
 ```
@@ -61,21 +61,21 @@ az login
 ```bash
 az account set --subscription [SUBSCRIPTION-ID]
 ``` 
-4. Run the following command to create a cluster certificate in Key Vault that will be used to secure your Service Fabric cluster. You will have to provide the region (must be the same as your Service Fabric cluster), key vault resource group name, key vault name, certificate password and cluster dns name. 
+4. From the ```service-fabric-java-quickstart/AzureCluster``` folder, run the following command to create a cluster certificate in Key Vault that will be used to secure your Service Fabric cluster. You will have to provide the region (must be the same as your Service Fabric cluster), key vault resource group name, key vault name, certificate password and cluster dns name. 
 ```bash
 ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
 
 Example: ./new-service-fabric-cluster-certificate.sh 'westus' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.westus.cloudapp.azure.com'
 ```
 
-The above command will return the following information which should be noted for use later,
+The above command will return the following information which should be noted for use later.
 
 ```
 Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
 Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
 Certificate Thumbprint: <THUMBPRINT>
 ```
-5. Create a resource group for the storage account which will store your logs
+5. Create a resource group for the storage account which will store your logs 
 ``bash
 az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
@@ -83,66 +83,96 @@ Example: az group create --location westus --name teststorageaccountrg
 ```
 6. Create a storage account which will be used to store the logs that will be 
 ```bash
-az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind StorageV2
+az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
-Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind StorageV2
+Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
 ```
-6. Access the [Azure portal](portal.azure.com) and navigate to the **Shared Access Signature** tab for your Storage account.
-**Insert Picture**
-7. Copy the Table service SAS URL and set it aside for use when creating your Service Fabric cluster. It will resemble the URL below. 
+6. Access the [Azure portal](portal.azure.com) and navigate to the **Shared Access Signature** tab for your Storage account. Generate the SAS token as follows. 
+    ![Generate SAS for Storage](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
+
+7. Copy the account SAS URL and set it aside for use when creating your Service Fabric cluster. It will resemble the URL below. This is the SAS URL for the Storage Account.  
 ```
-https://<storage_account_name>.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-25T05:09:51Z&st=2018-01-24T21:09:51Z&spr=https&sig=U0cPmJWZqoEKS4%2FFaaFP%2B8ggAy7Nlxx2qkQZhmKUFPA%3D
+https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
 ```
 
-8. Create a resource group that will contain the Event Hub resources. 
+8. Create a resource group that will contain the Event Hub resources. Event Hubs is used to send messages from Service Fabric to the server running our ELK resources.
 ```bash
 az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
 Example: az group create --location westus --name testeventhubsrg
 ```
 
-8. Create an Event Hubs resource in a separate resource group using the command below,
+9. Create an Event Hubs resource using the command below. Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule and receiveAuthorizationRule. 
 
 ```bash
-az group deployment create -g [RESOURCE-GROUP-NAME] --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json --parameters namespaceName=[EVENT-HUB-NAMESPACE] eventHubName=[EVENT-HUB-NAME] consumerGroupName=[EVENT-HUB-CONSUMER-GROUP]
+az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
-Example: az group deployment create -g testeventhubsrg --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json --parameters namespaceName=testeventhubnamespace eventHubName=testeventhubs consumerGroupName=testeventhubconsumergroup
-
+Example: 
+az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
+Please provide string value for 'eventHubName' (? for help): testeventhub
+Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
+Please provide string value for 'sendAuthorizationRuleName' (? for help): sender
+Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
 ```
 
-9. Access the Azure Portal and navigate to the **Shared access policy** tab for your Event Hubs resource created. 
-**InsertPicture**
+Under the **output** field in the JSON output of the above command, copy the entire contents and make note of it as it used to set up the Service Fabric cluster. It will resemble the following
 
-10. Copy the name of the SAS policy and the Primary Key for use in the next command. 
+```json
+"outputs": {
+    "receiver Key": {
+        "type": "String",
+        "value": "[KEY]"
+    },
+    "receiver Name": {
+        "type": "String",
+        "value": "receiver"
+    },
+    "sender Key": {
+        "type": "String",
+        "value": "[KEY]"
+    },
+    "sender Name": {
+        "type": "String",
+        "value": "sender"
+    }
+}
+```
 
-11. Run the python script provided in the ```service-fabric-java-quickstart/AzureCluster``` directory to create a SAS token for your Event Hubs resource. The script will return the SAS URL for the Event Hubs resource which will be used in the next step. 
+10. Run the ```eventhubssastoken.py``` script to generate the SAS url for the EventHubs resource you created. This SAS URL will be used by the Service Fabric cluster to send logs to Event Hubs. As a result, we will use the **sender** policy to genereate the URL. The script will return the SAS URL for the Event Hubs resource which will be used in the next step.
 
 ```python
-python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' '<name_of_SAS_policy>' '<primary_key>'
+python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
 ```
 
-12. Open the ```azuredeploy.parameters.json``` file and replace the following contents from the steps above 
+Copy the value of the **sr** field in the JSON returned. It will resemble the below. This is your SAS URL for EventHubs. 
+
+```json
+https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+```
+
+11. Open the ```sfdeploy.parameters.json``` file and replace the following contents from the steps above 
 ```
 "applicationDiagnosticsStorageAccountName": {
     "value": "teststorageaccount"
 },
 "applicationDiagnosticsStorageAccountSasToken": {
-    "value": "<sas_url_from_step_7"
+    "value": "[SAS-URL-STORAGE-ACCOUNT]"
 },
 "loggingEventHubSAS": {
-    "value": "<sas_from_step_11"
+    "value": "[SAS-URL-EVENT-HUBS]"
 }
 ```
-13. Run the following command to create your Service Fabric cluster
+12. Run the following command to create your Service Fabric cluster
 ```bash
-az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file azuredeploy.json --parameter-file azuredeploy.parameters.json --secret-identifier <certificate_url_from_step4>
+az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
 ```
 
 ### Deploy your application to the cluster
 1. Before deploying your application, you will need to add the following snippet to the ```Voting/VotingApplication/ApplicationManifest.xml``` file. The **X509FindValue** field is the thumbprint returned from Step 4 of the **Create a Service Fabric cluster in Azure** section. This snippet is nested under the **ApplicationManifest** field (the root field). 
 ```xml
 <Certificates>
-      <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="<thumbprint_from_step_4>" />
+      <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="[CERTIFICATE-THUMBPRINT]" />
 </Certificates>
 ```
 2. To deploy your application to this cluster, you must use SFCTL to establish a connection to the cluster. SFCTL requires a PEM file with both the public and private key to connect to the cluster and as as result, run the following command to produce a PEM file with both the public and private key. 
@@ -159,11 +189,10 @@ sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.c
 ```
 5. Open your favorite browser and type in https://testlinuxcluster.westus.cloudapp.azure.com:19080 to access Service Fabric Explorer. You will have to choose the certificate from the certificate store that you want to use to connect to this endpoint. If you are using a Linux machine, the certificates that were generated by the ```new-service-fabric-cluster-certificate.sh``` script will have to be imported into Chrome to view Service Fabric Explorer. If you are using a Mac, you will have to install the PFX file into your Keychain. You will notice your application has been installed on the cluster. 
 
-**Insert Picture**
+    ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. To access your application, type in https://testlinuxcluster.westus.cloudapp.azure.com:19080 
-**Insert Picture**
-
+6. To access your application, type in https://testlinuxcluster.westus.cloudapp.azure.com:8080 
+    ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
 7. To uninstall your application from the cluster, run the ```uninstall.sh``` script in the **Scripts** folder 
 ```bash
@@ -200,8 +229,6 @@ sfctl cluster select --endpoint https://zlnx2us7j1vb.westus.cloudapp.azure.com:1
 ```bash
 ./uninstall.sh
 ```
-
-**Insert Picture**
 
 ## Next steps
 In this tutorial, you learned how to:

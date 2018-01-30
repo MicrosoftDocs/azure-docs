@@ -90,13 +90,165 @@ The execution could look something like this
 ```bash
 java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
 ```
-3. When you run your application, you will notice that in the path specified, you will find the log files. 
 
-If using the Service Fabric Cluster running in a [Docker container](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac) you might want to attach a volume to the container to map the directory you wish to write logs on to your host machine for accessibility. If you choose not to do this, the location the logs are piped towill be accessible inside the container. To attach the volume you will have to run the following command 
 
-```bash
-docker run -itd -p 19080:19080 -p 8080:8080 -p 8081:8081 -v <Location_on_host_machine>:<Location_in_container> --name sfonebox servicefabricoss/service-fabric-onebox
+## Update your existing application 
+
+1. Update the ```VotingApplication/VotingWebPkg/Code/wwwroot/index.html``` file with the below. 
+```html 
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<body>
+
+<script>
+var app = angular.module('VotingApp', ['ui.bootstrap']); 
+app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
+    $scope.votes = [];
+    
+    $scope.refresh = function () {
+        $http.get('getStatelessList')
+            .then(function successCallback(response) {
+		$scope.votes = Object.assign(
+		  {},
+		  ...Object.keys(response.data) .
+		    map(key => ({[decodeURI(key)]: response.data[key]}))
+		)
+  		},
+  		function errorCallback(response) {
+      		alert(response);
+  		});
+    };
+
+    $scope.remove = function (item) {            
+       $http.get("removeItem", {params: { item: encodeURI(item) }})
+       		.then(function successCallback(response) {
+     			$scope.refresh();
+  			},
+  			function errorCallback(response) {
+      			alert(response);
+  			});
+    };
+
+    $scope.add = function (item) {
+        if (!item) {return;}        
+       	$http.get("addItem", {params: { item: encodeURI(item) }})
+   			.then(function successCallback(response) {
+ 				$scope.refresh();
+			},
+			function errorCallback(response) {
+  				alert(response);
+			});        
+    };
+}]);
+</script>
+
+<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Service Fabric Voting Sample</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-offset-2">
+                <form style="width:50% ! important;" class="center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                    </div>
+                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Click to vote
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="(key, value)  in votes">
+                    <div class="col-xs-8">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(key)">
+                            <span class="pull-left">
+                                {{key}}
+                            </span>
+                            <span class="badge pull-right">
+                                {{value}} Votes
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(key)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
 ```
+
+2. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the ```Voting/VotingApplication/ApplicationManifest.xml``` file. 
+
+```xml
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+  <Description>Voting Application</Description>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="VotingDataServicePkg" ServiceManifestVersion="1.0.0"/>
+    </ServiceManifestImport>
+    <DefaultServices>
+      <Service Name="VotingWeb">
+         <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
+            <SingletonPartition/>
+         </StatelessService>
+      </Service>      
+   <Service Name="VotingDataService">
+            <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
+                <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
+            </StatefulService>
+        </Service>
+    </DefaultServices>      
+</ApplicationManifest>
+```
+
+3. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the ```Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml``` file to **2.0.0**.
+```xml
+<CodePackage Name="Code" Version="2.0.0">
+<EntryPoint>
+    <ExeHost>
+    <Program>entryPoint.sh</Program>
+    </ExeHost>
+</EntryPoint>
+</CodePackage>
+```
+4. In Terminal, run the ```Voting/Scripts/upgrade.sh``` script to initialize an upgrade of your application. 
+```bash
+./upgrade.sh 2.0.0
+``` 
+5. In Service Fabric Explorer, if you click on the **Applications** dropdown and click on the **Upgrades in Progress** tab, you will see the status of your upgrade. 
+![Upgrade in progress](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
+
+6. If you access **localhost:8080**, you will see the Voting application with full functionality now up and running. 
+![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
 At this stage, you have learned how to debug and access your application logs while developing your Service Fabric Java applications. 
 ## Next steps

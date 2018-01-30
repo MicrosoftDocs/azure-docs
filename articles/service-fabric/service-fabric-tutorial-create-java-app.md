@@ -104,13 +104,12 @@ To add UI that can be rendered by the stateless service, we will add an HTML fil
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="icon" href="data:;base64,=">
 <body>
 
 <script>
 var app = angular.module('VotingApp', ['ui.bootstrap']); 
 app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
-    $scope.votes = {Pizza : "1",Popcorn : "2"};
+    $scope.votes = [];
     
     $scope.refresh = function () {
         $http.get('getStatelessList')
@@ -149,7 +148,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 }]);
 </script>
 
-<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="">
+<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2 text-center">
@@ -163,7 +162,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
                     <div class="col-xs-6 form-group">
                         <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
                     </div>
-                    <button id="btnAdd" class="btn btn-default" ng-click="">
+                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                         Add
                     </button>
@@ -182,13 +181,19 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
                 </div>
                 <div class="row top-buffer" ng-repeat="(key, value)  in votes">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(key)">
                             <span class="pull-left">
                                 {{key}}
                             </span>
                             <span class="badge pull-right">
                                 {{value}} Votes
                             </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(key)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            Remove
                         </button>
                     </div>
                 </div>
@@ -204,39 +209,18 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 ### Update the VotingWebService.java file
 In the **VotingWeb** subproject, open the ```VotingWeb/src/statelessservice/VotingWebService.java``` file. The **VotingWebService** is the gateway into the stateless service and is responsible for setting up the communication listener for our front end API. 
 
-Replace the contents of the file with the following and save your changes.
+Replace the contents of the **createServiceInstanceListeners** method in the file with the following and save your changes.
 
 ```java
-package statelessservice;
+@Override
+protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.logging.Logger;
-
-import system.fabric.description.EndpointResourceDescription;
-
-import microsoft.servicefabric.services.communication.runtime.ServiceInstanceListener;
-import microsoft.servicefabric.services.runtime.StatelessService;
-
-public class VotingWebService extends StatelessService {
-    private static final Logger logger = Logger.getLogger(VotingWebService.class.getName());
-
-    // This is the name of the endpoint that specifies the port this service listens on. 
-    // This value is gathered from the ServiceManifest.xml for this service located under
-    // VotingApplication/VotingWebPkg/ServiceManifest.xml
-    private static final String webEndpointName = "WebEndpoint";
-
-    // Method responsible for instantiating the communication listener 
-    @Override
-    protected List<ServiceInstanceListener> createServiceInstanceListeners() {
-
-        EndpointResourceDescription endpoint = this.getServiceContext().getCodePackageActivationContext().getEndpoint(webEndpointName);
-        int port = endpoint.getPort();
-        
-        List<ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
-        listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationListener(context, port)));
-        return listeners;
-    }
+    EndpointResourceDescription endpoint = this.getServiceContext().getCodePackageActivationContext().getEndpoint(webEndpointName);
+    int port = endpoint.getPort();
+    
+    List<ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
+    listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationListener(context, port)));
+    return listeners;
 }
 ```
 
@@ -412,30 +396,7 @@ When the VotingWebService front-end service is created, Service Fabric will rand
       	<Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
-``` 
-
-## Deploy application to local cluster
-At this point, we can deploy the stateless service to a local Service Fabric cluster. The application deployed is going to render a static list of votes with no actions. In the following steps, we will add full functionality to this application and upgrade this application. 
-
-1. Right click on the **Voting** project in the Package Explorer and click **Service Fabric -> Build Application**. This will build your application.
-
-2. Run your local Service Fabric cluster. This step will depend on your development environment (Mac or Linux).
-
-    If you are using a Mac, you run the local cluster with the following command replacing the the command passed into the **-v** parameter with the path to your own workspace.
-
-    ```bash
-    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
-    ``` 
-
-    If you are running on a Linux machine, you start the local cluster with the following command: 
-
-    ```bash 
-    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-    ```
-
-4. In the Package Explorer for Eclipse, right click on the **Voting** project and click **Service Fabric -> Publish Application ...** 
-5. In the **Publish Application** window, select **Local.json** from the dropdown and click **Publish**.
-6. Go to your web browser and access **localhost:8080** to view your running application on the local Service Fabric cluster.  
+```  
 
 ## Add a stateful back-end service to your application
 Now that we have the skeleton of the Java Web API service for our application, let's go ahead and complete the stateful back end service.
@@ -456,7 +417,7 @@ Service Fabric allows you to consistently and reliably store your data right ins
 
 ### Add the VotingDataService.java file
 
-The ```VotingDataService.java``` file will contain the methods which contain logic to retrieve, add and remove votes from the reliable collections. Replace the contents of this file located under ```VotingDataService/src/statefulservice/VotingDataService.java``` with the following and save your changes.
+The ```VotingDataService.java``` file will contain the methods which contain logic to retrieve, add and remove votes from the reliable collections. Add the following methods to the **VotingDataService** class in the ```VotingDataService/src/statefulservice/VotingDataService.java``` file just created.
 
 ```java
 package statefulservice;
@@ -898,163 +859,28 @@ jar {
 defaultTasks 'clean', 'jar', 'copyDeps'
 ```
 
-## Update your existing application 
+## Deploy application to local cluster
+At this point, we can deploy the application a local Service Fabric cluster.
 
-1. Update the ```VotingApplication/VotingWebPkg/Code/wwwroot/index.html``` file with the below. 
-```html 
-<!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<body>
+1. Right click on the **Voting** project in the Package Explorer and click **Service Fabric -> Build Application**. This will build your application.
 
-<script>
-var app = angular.module('VotingApp', ['ui.bootstrap']); 
-app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
-    $scope.votes = [];
-    
-    $scope.refresh = function () {
-        $http.get('getStatelessList')
-            .then(function successCallback(response) {
-		$scope.votes = Object.assign(
-		  {},
-		  ...Object.keys(response.data) .
-		    map(key => ({[decodeURI(key)]: response.data[key]}))
-		)
-  		},
-  		function errorCallback(response) {
-      		alert(response);
-  		});
-    };
+2. Run your local Service Fabric cluster. This step will depend on your development environment (Mac or Linux).
 
-    $scope.remove = function (item) {            
-       $http.get("removeItem", {params: { item: encodeURI(item) }})
-       		.then(function successCallback(response) {
-     			$scope.refresh();
-  			},
-  			function errorCallback(response) {
-      			alert(response);
-  			});
-    };
+    If you are using a Mac, you run the local cluster with the following command replacing the the command passed into the **-v** parameter with the path to your own workspace.
 
-    $scope.add = function (item) {
-        if (!item) {return;}        
-       	$http.get("addItem", {params: { item: encodeURI(item) }})
-   			.then(function successCallback(response) {
- 				$scope.refresh();
-			},
-			function errorCallback(response) {
-  				alert(response);
-			});        
-    };
-}]);
-</script>
+    ```bash
+    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
+    ``` 
 
-<div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2 text-center">
-                <h2>Service Fabric Voting Sample</h2>
-            </div>
-        </div>
+    If you are running on a Linux machine, you start the local cluster with the following command: 
 
-        <div class="row">
-            <div class="col-xs-offset-2">
-                <form style="width:50% ! important;" class="center-block">
-                    <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
-                    </div>
-                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        Add
-                    </button>
-                </form>
-            </div>
-        </div>
+    ```bash 
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
-        <hr />
-
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="row">
-                    <div class="col-xs-4">
-                        Click to vote
-                    </div>
-                </div>
-                <div class="row top-buffer" ng-repeat="(key, value)  in votes">
-                    <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(key)">
-                            <span class="pull-left">
-                                {{key}}
-                            </span>
-                            <span class="badge pull-right">
-                                {{value}} Votes
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(key)">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            Remove
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-```
-
-2. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the ```Voting/VotingApplication/ApplicationManifest.xml``` file. 
-
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
-  <Description>Voting Application</Description>
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>
-  </ServiceManifestImport>
-  <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="VotingDataServicePkg" ServiceManifestVersion="1.0.0"/>
-    </ServiceManifestImport>
-    <DefaultServices>
-      <Service Name="VotingWeb">
-         <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
-            <SingletonPartition/>
-         </StatelessService>
-      </Service>      
-   <Service Name="VotingDataService">
-            <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
-                <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
-            </StatefulService>
-        </Service>
-    </DefaultServices>      
-</ApplicationManifest>
-```
-
-3. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the ```Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml``` file to **2.0.0**.
-```xml
-<CodePackage Name="Code" Version="2.0.0">
-<EntryPoint>
-    <ExeHost>
-    <Program>entryPoint.sh</Program>
-    </ExeHost>
-</EntryPoint>
-</CodePackage>
-```
-4. In Terminal, run the ```Voting/Scripts/upgrade.sh``` script to initialize an upgrade of your application. 
-```bash
-./upgrade.sh 2.0.0
-``` 
-5. In Service Fabric Explorer, if you click on the **Applications** dropdown and click on the **Upgrades in Progress** tab, you will see the status of your upgrade. 
-![Upgrade in progress](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
-
-6. If you access **localhost:8080**, you will see the Voting application with full functionality now up and running. 
-![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
+4. In the Package Explorer for Eclipse, right click on the **Voting** project and click **Service Fabric -> Publish Application ...** 
+5. In the **Publish Application** window, select **Local.json** from the dropdown and click **Publish**.
+6. Go to your web browser and access **localhost:8080** to view your running application on the local Service Fabric cluster. 
 
 ## Next steps
 In this part of the tutorial, you learned how to:
