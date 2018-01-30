@@ -22,7 +22,7 @@ ms.author: garye;raymondl
 
 After you've developed your predictive model and deployed it as an Azure web service by using Azure Machine Learning Studio, or using tools such as R or Python, you can access the operationalized model by using a REST API.
 
-There are a number of ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python by using the sample code generated for you when you deployed the web service. (The sample code is available in the [Machine Learning Web Services portal](https://services.azureml.net/quickstart) or in the web service dashboard in Machine Learning Studio). Or you can use the sample Microsoft Excel workbook created for you at the same time.
+There are a number of ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python by using the sample code generated for you when you deployed the web service. (The sample code is available in the [Machine Learning Web Services portal](https://services.azureml.net/quickstart) or in the web service dashboard in Machine Learning Studio.) Or you can use the sample Microsoft Excel workbook created for you at the same time.
 
 But the quickest and easiest way to access your web service is through the web app templates available in the [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
@@ -36,7 +36,7 @@ Two templates are available:
 * [Azure ML Request-Response Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
 * [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Each template creates a sample ASP.NET application, by using the API URI and key for your web service. The template then deploys the application as a website to Azure. 
+Each template creates a sample ASP.NET application by using the API URI and key for your web service. The template then deploys the application as a website to Azure. 
 
 The Request-Response Service (RRS) template creates a web app that you can use to send a single row of data to the web service to get a single result. The Batch Execution Service (BES) template creates a web app that you can use to send many rows of data to get multiple results.
 
@@ -84,7 +84,7 @@ Follow these steps to use the RRS web app template, as shown in the following di
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings that the web app uses.
    
    > [!NOTE]
-   > Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here, it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
+   > Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the text in **Description** here, it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
    > 
    > 
    
@@ -94,12 +94,12 @@ Follow these steps to use the RRS web app template, as shown in the following di
 
 If you want to return to the **Configuration** page, go to the **setting.aspx** page of the web app. For example, go to **http://carprediction.azurewebsites.net/setting.aspx**. You're prompted to enter the API key again. You need that to access the page and update the settings.
 
-You can stop, restart, or delete the web app in the Azure portal like any other web app. As long as it is running, you can browse to the home web address and enter new values.
+You can stop, restart, or delete the web app in the Azure portal like any other web app. As long as it's running, you can browse to the home web address and enter new values.
 
 ## How to use the Batch Execution Service template
 You can use the BES web app template in the same way as the RRS template. The difference is that you can use the created web app to submit multiple rows of data and receive multiple results.
 
-The input values for a batch execution web service can come from Azure storage or a local file. The results are stored in an Azure storage container. So, you'll need an Azure storage container to hold the results that the web app returns, and you'll need to get your input data ready.
+The input values for a batch execution web service can come from Azure Storage or a local file. The results are stored in an Azure storage container. So, you'll need an Azure storage container to hold the results that the web app returns, and you'll need to get your input data ready.
 
 ![Process to use BES web template][image2]
 
