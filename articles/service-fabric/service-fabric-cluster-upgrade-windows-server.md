@@ -118,7 +118,7 @@ Modify your cluster configuration to set the following property to *false* befor
 
         "fabricClusterAutoupgradeEnabled": false,
 
-For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://msdn.microsoft.com/library/mt788302.aspx). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 

@@ -760,7 +760,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 ## Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
 ### Prepare a RHEL 7 virtual machine from a kickstart file
 
-1.  Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.  Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
         # Kickstart for provisioning a RHEL 7 Azure VM
 

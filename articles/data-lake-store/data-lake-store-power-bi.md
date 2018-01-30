@@ -25,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md). This article assumes that you have already created a Data Lake Store account, called **mybidatalakestore**, and uploaded a sample data file (**Drivers.txt**) to it. This sample file is available for download from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
-* **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
+* **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331). 
 
 ## Create a report in Power BI Desktop
 1. Launch Power BI Desktop on your computer.

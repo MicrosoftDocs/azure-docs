@@ -164,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Versal test user
 
-In this section, you create a user called Britta Simon in Versal. Please follow the [Creating a SAML test user](https://support.versal.com/hc/en-us/articles/115011672887-Creating-a-SAML-test-user)
+In this section, you create a user called Britta Simon in Versal. Please follow the [Creating a SAML test user](https://support.versal.com/hc/articles/115011672887-Creating-a-SAML-test-user)
 support guide to create the user Britta Simon within your organization. Users must be created and activated in Versal before you use single sign-on. 
 
 ### Assign the Azure AD test user
@@ -200,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using a Versal course embedded within your website.
-Please see the [Embedding Organizational Courses](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On**
+Please see the [Embedding Organizational Courses](https://support.versal.com/hc/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On**
 support guide for instructions on how to embed a Versal course with support for Azure AD single sign-on. 
 
 You will need to create a course, share it with your organization, and publish it in order to test course embedding. 

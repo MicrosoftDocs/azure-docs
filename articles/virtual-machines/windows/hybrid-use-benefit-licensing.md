@@ -21,7 +21,7 @@ ms.author: kmouss
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines from any Azure supported platform Windows Server image or Windows custom images. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!IMPORTANT]
-> The legacy '[HUB]' Windows Server images that were published for customers with Enterprise Agreement on Azure Marketplace has been retired as of 9/11/2017, use the standard Windows Server with the "Save Money" option on the portal for Azure Hybrid Benefit for Windows Server. For more information, please refer to this [article.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
+> The legacy '[HUB]' Windows Server images that were published for customers with Enterprise Agreement on Azure Marketplace has been retired as of 9/11/2017, use the standard Windows Server with the "Save Money" option on the portal for Azure Hybrid Benefit for Windows Server. For more information, please refer to this [article.](https://support.microsoft.com/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
 
 > [!NOTE]

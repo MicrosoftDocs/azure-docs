@@ -200,6 +200,6 @@ Congratulations! You’ve successfully used SQL Server Integration Services to l
 
 <!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
-[Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+[SQL Server Evaluations]: https://www.microsoft.com/evalcenter/evaluate-sql-server-2016
+[Visual Studio Community]: https://www.visualstudio.com/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550

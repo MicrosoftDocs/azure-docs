@@ -94,7 +94,7 @@ If you need to talk to someone, you can open a support request. If you are an Az
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
+- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/gp/contactus81?Audience=Commercial).
 
 You can also try [our virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
 

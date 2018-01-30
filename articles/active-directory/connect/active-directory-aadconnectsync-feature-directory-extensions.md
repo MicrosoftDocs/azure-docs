@@ -18,7 +18,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: Directory extensions
-Directory extensions allows you to extend the schema in Azure AD with your own attributes from on-premises Active Directory. This feature allows you to build LOB apps consuming attributes you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the attributes available using [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) respectively.
+Directory extensions allows you to extend the schema in Azure AD with your own attributes from on-premises Active Directory. This feature allows you to build LOB apps consuming attributes you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the attributes available using [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) respectively.
 
 At present no Office 365 workload consumes these attributes.
 
@@ -51,7 +51,7 @@ We can query the Azure AD Graph through the Azure AD Graph explorer: [https://gr
 
 Or through the **Microsoft Graph API**:
 
-We can query the Microsoft Graph API through the Microsoft Graph explorer: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
+We can query the Microsoft Graph API through the Microsoft Graph explorer: [https://developer.microsoft.com/graph/graph-explorer#](https://developer.microsoft.com/graph/graph-explorer#)
 
 >[!NOTE]
 > You need to explicitly ask for the attribute to be returned. This can be done by explicitly selecting the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division For more information please check [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)

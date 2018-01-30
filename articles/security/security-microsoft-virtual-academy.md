@@ -22,11 +22,11 @@ Microsoft Virtual Academy provides free, online training to help Developers, IT 
 
 On this page, you find a curated collection of Azure security-related courses. Visit the [Microsoft Virtual Academy](https://mva.microsoft.com/) to see all the courses they have available.
 
-[Dev/Test in the Cloud](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
+[Dev/Test in the Cloud](https://mva.microsoft.com/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
 Are you a developer who needs to deliver faster and better applications? Moving your development and testing environments to the cloud can help you achieve exactly that! Learn how to get it done, and find out the benefits of making the move. Plus, see demonstrations and presentations that show you how Microsoft Azure can support your development and testing needs. Included are lesson on security development and deployment practices.
 
-[Common Tasks for Linux on Azure](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
+[Common Tasks for Linux on Azure](https://mva.microsoft.com/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
 If you have questions about using Linux on the Microsoft Azure platform, this detailed course has answers for you. Explore some common tasks with the experts from [Linux Academy](https://linuxacademy.com/). Learn about creating a Linux virtual machine (VM) in Azure, accessing the Linux VM using remote desktop software, and running virtual hosts. Many security technologies and configurations are addressed in this course.
 

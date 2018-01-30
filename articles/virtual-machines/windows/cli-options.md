@@ -32,7 +32,7 @@ To use the Azure CLI in WSL, complete the following.
 
 |Task | Instructions |
 |---|---|
-| Enable WSL | [Install WSL documentation ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Enable WSL | [Install WSL documentation ](https://msdn.microsoft.com/commandline/wsl/install_guide) |
 | Install the Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## PowerShell

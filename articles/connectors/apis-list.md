@@ -133,7 +133,7 @@ If you want to make your custom API Apps public and available to use in Azure, t
 
 ## Get help
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, go to the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+To ask questions, answer questions, and see what other Azure Logic Apps users are doing, go to the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 To help improve Azure Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 

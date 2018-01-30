@@ -43,7 +43,7 @@ Admins of the Publishing portal can add the other members of the company, who ar
     ![drawing](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
 6. Ensure that email ids provided at the various stages of the publishing process (e.g. Dev Center, Publishing portal) are monitored for any communication from Microsoft.
 7. For Dev Center registration, avoid using an account associated with a single person. This is suggested for removing dependency from one individual.
-8. If you face any issues with Dev Center registration, then please raise a ticket using this [link](https://developer.microsoft.com/en-us/windows/support).
+8. If you face any issues with Dev Center registration, then please raise a ticket using this [link](https://developer.microsoft.com/windows/support).
 
 ## Steps to delete a co-admin in the Publishing portal
 **Assuming that you are the admin,** given below are the steps to delete a co-admin.

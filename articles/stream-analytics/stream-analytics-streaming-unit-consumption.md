@@ -122,7 +122,7 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

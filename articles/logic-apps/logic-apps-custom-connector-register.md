@@ -367,7 +367,7 @@ Microsoft monitors this account for developer questions and problems,
 and routes them to the appropriate team.
 
 * To ask or answer questions, or see what other Azure Logic Apps users are doing, 
-visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish). 

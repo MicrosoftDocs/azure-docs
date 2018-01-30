@@ -218,7 +218,7 @@ Customers may also consider using an [enhanced security administrative model](ht
 
 ## NCSC Cloud Security Principles Compliance Documentation
 
-The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the classification of Microsoft in-scope enterprise cloud services to  G-Cloud v6, covering all its offerings at the OFFICIAL level. Details of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
+The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the classification of Microsoft in-scope enterprise cloud services to  G-Cloud v6, covering all its offerings at the OFFICIAL level. Details of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
 This UK-OFFICIAL Azure Blueprint Solution aligns to the 14 cloud security  principles that are documented in the NCSC [Cloud Security  Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK-OFFICIAL.
 
@@ -226,7 +226,7 @@ The [Customer Responsibility Matrix](https://aka.ms/blueprintuk-gcrm) (Excel Wor
 
 The [Principle Implementation Matrix](https://aka.ms/ukwebappblueprintpim) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the Azure Blueprint Automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s). This content is also available [here](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
-Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be  answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), which describes how Microsoft  addresses the suggested principles.
+Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be  answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)), which describes how Microsoft  addresses the suggested principles.
 
 ## Deploy the Solution
 

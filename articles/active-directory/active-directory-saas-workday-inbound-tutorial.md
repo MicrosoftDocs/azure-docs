@@ -481,7 +481,7 @@ If your Azure Active Directory tenant is located in one of the EU data centers, 
 
 **Agent troubleshooting**
 
-The [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
+The [Windows Event Log](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
 	
 1. Open **Eventvwr.msc**.
 2. Select **Windows Logs > Application**.
@@ -504,7 +504,7 @@ Once parts 1-3 have been completed, you can start the provisioning service back 
 
 4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-5.  Check the [Windows Event Log](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**. 
+5.  Check the [Windows Event Log](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**. 
 	
 
 6. One completed, it will write an audit summary report in the

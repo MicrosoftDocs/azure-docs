@@ -103,7 +103,7 @@ If you cannot connect to a VM network share, the problem may be caused by unavai
 
 ### Step 9: Check Inter-Vnet connectivity
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a NSG or UDR that is interfering with traffic flow. You can also verify your Inter-Vnet configuration [here](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
+Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a NSG or UDR that is interfering with traffic flow. You can also verify your Inter-Vnet configuration [here](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
 ### Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

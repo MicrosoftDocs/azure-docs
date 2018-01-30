@@ -24,7 +24,7 @@ ms.author: lbosq
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
 |**Quickstart**|[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
-|**Current supported framework**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Current supported framework**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## Release notes

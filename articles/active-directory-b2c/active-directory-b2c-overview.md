@@ -45,8 +45,8 @@ Then choose your application development scenario:
 Check back here often to learn about future changes to the Azure Active Directory B2C. We also tweet about any updates by using @AzureAD.
 
 * In addition to "Built-in Policies" (General Availability), the ["Custom Policies"](active-directory-b2c-overview-custom.md) feature is now available in public preview.  Custom policies are for identity pros that need control over the composition of their identity experience.
-* The [Access Token](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) feature is now available in public preview.
-* [General Availability of Europe-based Azure AD B2C](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/) directories has been announced.
+* The [Access Token](https://azure.microsoft.com/blog/azure-ad-b2c-access-tokens-now-in-public-preview) feature is now available in public preview.
+* [General Availability of Europe-based Azure AD B2C](https://azure.microsoft.com/blog/azuread-b2c-ga-eu/) directories has been announced.
 * Check out our growing library of [code samples on Github](https://github.com/Azure-Samples?q=b2c)!
 
 ## How-to articles
@@ -65,7 +65,7 @@ Learn how to use specific Azure Active Directory B2C features:
 These links are useful for exploring the service in depth:
 
 * See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-* Review our [code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) for Azure Active Directory B2C. 
+* Review our [code samples](https://azure.microsoft.com/resources/samples/?service=active-directory&term=b2c) for Azure Active Directory B2C. 
 * Get help on Stack Overflow by using the [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) tag.
 * Give us your thoughts by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c), we want to hear them!
 * Review the [Azure AD B2C Protocol Reference](active-directory-b2c-reference-protocols.md).

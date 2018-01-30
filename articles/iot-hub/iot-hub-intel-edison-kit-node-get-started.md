@@ -128,7 +128,7 @@ Now your sensor is ready.
 
 ### Connect Edison to your computer
 
-1. Toggle down the microswitch towards the two micro USB ports, so that Edison is in device mode. For differences between device mode and host mode, please reference [here](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode).
+1. Toggle down the microswitch towards the two micro USB ports, so that Edison is in device mode. For differences between device mode and host mode, please reference [here](https://software.intel.com/node/628233#usb-device-mode-vs-usb-host-mode).
 
    ![Toggle down the microswitch](media/iot-hub-intel-edison-kit-node-get-started/9_toggle_down_microswitch.jpg)
 
@@ -143,7 +143,7 @@ Now your sensor is ready.
 4. You will know that your board is fully initialized when your computer mounts a new drive (much like inserting a SD card into your computer).
 
 ## Download and run the configuration tool
-Get the latest configuration tool from [this link](https://software.intel.com/en-us/iot/hardware/edison/downloads) listed under the `Installers` heading. Execute the tool and follow its on-screen instructions, clicking Next where needed
+Get the latest configuration tool from [this link](https://software.intel.com/iot/hardware/edison/downloads) listed under the `Installers` heading. Execute the tool and follow its on-screen instructions, clicking Next where needed
 
 ### Flash firmware
 1. On the `Set up options` page, click `Flash Firmware`.

@@ -202,8 +202,8 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

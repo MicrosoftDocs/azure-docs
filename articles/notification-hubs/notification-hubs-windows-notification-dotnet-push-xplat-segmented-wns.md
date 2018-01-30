@@ -28,7 +28,7 @@ After you've completed this process, you can register for the breaking news cate
 You can enable broadcast scenarios by including one or more *tags* when you create a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag receive the notification. Because tags are simply strings, they do not have to be set up in advance. For more information about tags, see [Notification Hubs routing and tag expressions](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
-> Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
+> Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/productinfo/vs2017-compatibility-vs). 
 
 ## Prerequisites
 This topic builds on the app that you created in [Get started with Notification Hubs][get-started]. Before you start this tutorial, you must complete [Get started with Notification Hubs][get-started].

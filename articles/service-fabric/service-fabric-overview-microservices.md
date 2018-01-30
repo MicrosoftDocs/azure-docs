@@ -178,7 +178,7 @@ The objective of Service Fabric is to reduce the complexities of building applic
 
 ## Next steps
 * [Service Fabric terminology overview](service-fabric-technical-overview.md)
-* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

@@ -72,7 +72,7 @@ For more information about how to assign a user to an application role visit the
 
 ### Example
 
-This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) application using PowerShell.
+This example assigns the user Britta Simon to the [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) application using PowerShell.
 
 1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name. 
 

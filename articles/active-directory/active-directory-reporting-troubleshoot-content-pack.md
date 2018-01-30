@@ -64,6 +64,6 @@ This topic provides you with information about the possible causes and how to fi
 
 ## Next steps
 
-To install the Power BI Content Pack for Azure Active Directory Preview, click [here](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
+To install the Power BI Content Pack for Azure Active Directory Preview, click [here](https://powerbi.microsoft.com/blog/azure-active-directory-meets-power-bi/).
 
 

@@ -30,7 +30,7 @@ This tutorial contains four lessons:
 
 ## Prerequisites
 > [!NOTE]
-> Windows Store projects version 8.1 and earlier are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Windows Store projects version 8.1 and earlier are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/productinfo/vs2017-compatibility-vs).
 
 * Windows 8 32-bit or 64-bit.
 * Visual Studio versions 2012 through 2015.

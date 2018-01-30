@@ -438,7 +438,7 @@ Another helpful tool in Batch solution development is [Azure Batch File Conventi
 ### Batch Forum
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

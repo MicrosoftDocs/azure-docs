@@ -33,10 +33,10 @@ Even though Data Factory is available in only **West US**, **East US**, and **No
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using both programmatic and UI mechanisms.
 
 Data movement using Azure Data Factory has been **certified** for:
--	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-	[HIPAA/HITECH](https://www.microsoft.com/trustcenter/Compliance/HIPAA)  
+-	[ISO/IEC 27001](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27001)  
+-	[ISO/IEC 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018) 
+-	[CSA STAR](https://www.microsoft.com/trustcenter/Compliance/CSA-STAR-Certification)
 	 
 If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 

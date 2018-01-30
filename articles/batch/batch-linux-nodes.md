@@ -326,7 +326,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch

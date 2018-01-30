@@ -32,7 +32,7 @@ For running SAP NetWeaver on Azure, use SUSE Linux Enterprise Server SLES 12 (SP
 You need to use the Azure Resource Manager deployment framework for all installations on Azure. To look for SUSE SLES images and versions by using Azure PowerShell or the Azure command-line interface (CLI), use the commands shown below. You can then use the output, for example, to define the OS image in a JSON template for deploying a new SUSE Linux VM.
 These PowerShell commands are valid for Azure PowerShell version 1.0.1 and later.
 
-While it's still possible to use the standard SLES images for SAP installations, it's recommended to make use of the new SLES for SAP images. These images are available now in the Azure image gallery. More information about these images can be found on the corresponding [Azure Marketplace page]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) or the [SUSE FAQ web page about SLES for SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ).
+While it's still possible to use the standard SLES images for SAP installations, it's recommended to make use of the new SLES for SAP images. These images are available now in the Azure image gallery. More information about these images can be found on the corresponding [Azure Marketplace page]( https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES-SAP ) or the [SUSE FAQ web page about SLES for SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ).
 
 
 * Look for existing publishers, including SUSE:

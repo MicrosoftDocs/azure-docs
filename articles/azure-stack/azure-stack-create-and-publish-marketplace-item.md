@@ -111,7 +111,7 @@ ms.author: erikje
 | PublisherLegalName |X |String |Maximum of 256 characters | |
 | Summary |X |String |60 to 100 characters | |
 | LongSummary |X |String |140 to 256 characters |Not yet applicable in Azure Stack. |
-| Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 to 5,000 characters | |
+| Description |X |[HTML](https://auxdocs.azurewebsites.net/documentation/articles/gallery-metadata#html-sanitization) |500 to 5,000 characters | |
 
 ### Images
 The Marketplace uses the following icons:

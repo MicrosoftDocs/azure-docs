@@ -117,7 +117,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 ## Create and publish a Power BI report to visualize the data
 
 1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
-1. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
+1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
 1. Go to the group workspace that you set when you created the output for the Stream Analytics job.
 1. Click **Streaming datasets**.
 
@@ -148,7 +148,7 @@ You're provided the report link that you can share with anyone for report access
 
 ![Publish a Microsoft Power BI report](media/iot-hub-live-data-visualization-in-power-bi/10_publish-power-bi-report-microsoft.png)
 
-Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
+Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
 ## Next steps
 

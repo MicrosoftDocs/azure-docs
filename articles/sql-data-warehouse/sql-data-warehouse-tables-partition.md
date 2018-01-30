@@ -365,7 +365,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 
 <!-- MSDN Articles -->
 [Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
-[ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [partition function]: https://msdn.microsoft.com/library/ms187802.aspx
 [partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx

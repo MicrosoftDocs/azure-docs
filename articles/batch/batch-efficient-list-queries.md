@@ -252,7 +252,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx

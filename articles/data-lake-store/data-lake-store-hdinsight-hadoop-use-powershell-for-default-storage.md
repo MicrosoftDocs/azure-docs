@@ -39,7 +39,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). The SDK is used to create a security certificate.
+* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/downloads). The SDK is used to create a security certificate.
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
@@ -116,7 +116,7 @@ This section illustrates how to grant an application service, such as HDInsight,
 To set up Active Directory authentication for Azure Data Lake, perform the tasks in the following two sections.
 
 ### Create a self-signed certificate
-Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as *C:\mycertdir*, where you create the certificate.
+Make sure you have [Windows SDK](https://dev.windows.com/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as *C:\mycertdir*, where you create the certificate.
 
 1. From the PowerShell window, go to the location where you installed Windows SDK (typically, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) and use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands:
 
