@@ -265,23 +265,16 @@ Update management reaches across multiple services to provide its service. The f
 
 ## Configure RBAC for your Automation Account using Azure portal
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.  
-2. Click on the **Access** control at the top right corner. This opens the **Users** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation Account.  
+2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation Account.
    
    ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)  
 
-> [!NOTE]
-> **Subscription admins** already exists as the default user. The subscription admins active directory group includes the service administrator(s) and co-administrator(s) for your Azure subscription. The Service admin is the owner of your Azure subscription and its resources, and will have the owner role inherited for the automation accounts too. This means that the access is **Inherited** for **service administrators and co-admins** of a subscription and it’s **Assigned** for all the other users. Click **Subscription admins** to view more details about their permissions.  
-> 
-> 
-
 ### Add a new user and assign a role
-1. From the Users page, click **Add** to open the **Add access** page where you can add a user, group, or application, and assign a role to them.  
-   
-   ![Add user](media/automation-role-based-access-control/automation-02-add-user.png)  
-2. Select a role from the list of available roles. You choose the **Reader** role, but you can choose any of the available built-in roles that an Automation Account supports or any custom role you may have defined.  
-   
-   ![Select role](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Click on **Add users** to open the **Add users** page. If you have added any users, groups, or applications to manage your subscription then those users are listed and you can select them to add access. If there aren’t any users listed, or if the user you are interested in adding is not listed then click **invite** to open the **Invite a guest** page, where you can invite a user with a valid Microsoft account email address such as Outlook.com, OneDrive, or Xbox Live Ids. Once you have entered the email address of the user, click **Select** to add the user, and then click **OK**. 
+1. From the **Access control (IAM)** page, click **+ Add** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.  
+
+2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation Account supports or any custom role you may have defined.
+
+3. Type the username of the user you want to give permissions to in the **Select** field. Select the user from the list and click **Save**.
    
    ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)  
    
@@ -290,45 +283,32 @@ Update management reaches across multiple services to provide its service. The f
    ![List users](media/automation-role-based-access-control/automation-05-list-users.png)  
    
    You can also assign a role to the user from the **Roles** page. 
-4. Click **Roles** from the Users page to open the **Roles** page. From here, you can view the name of the role, the number of users and groups assigned to that role.
+4. Click **Roles** from the **Access control (IAM)** page to open the **Roles** page. From here, you can view the name of the role, the number of users and groups assigned to that role.
    
     ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Role-based access control can only be set at the Automation Account level and not at any resource below the Automation Account.
-   > 
-   > 
-   
-    You can assign more than one role to a user, group, or application. For example, if you add the **Automation Operator** role along with the **Reader role** to the user, then they can view all the Automation resources, as well as execute the runbook jobs. You can expand the dropdown to view a list of roles assigned to the user.  
-   
-    ![View multiple roles](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
 
 ### Remove a user
 You can remove the access permission for a user who is not managing the Automation Account, or who no longer works for the organization. Following are the steps to remove a user: 
 
-1. From the **Users** page, select the role assignment that you wish to remove.
+1. From the **Access control (IAM)** page, select the user wish to remove and click **Remove**.
 2. Click the **Remove** button in the assignment details pane.
-3. Click **Yes** to confirm removal. 
-   
-   ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)  
+3. Click **Yes** to confirm removal.
+
+   ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 
 ## Role Assigned User
-When a user assigned to a role logs in to their Automation account, they can now see the owner’s account listed in the list of **Default Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.  
 
-![Default directory](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
+When a user assigned to a role logs in to their Automation account, they can now see the owner’s account listed in the list of **Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.
 
 ### User experience for Automation operator role
-When a user, who is assigned to the Automation Operator role views the Automation account they are assigned to, they can only view the list of runbooks, runbook jobs, and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume, or schedule the runbook job. The user does not have access to other Automation resources such as configurations, hybrid worker groups, or DSC nodes.  
+When a user, who is assigned to the Automation Operator role views the Automation account they are assigned to, they can only view the list of runbooks, runbook jobs, and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume, or schedule the runbook job. The user does not have access to other Automation resources such as configurations, hybrid worker groups, or DSC nodes.
 
 ![No access to resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
-When the user clicks on the runbook, the commands to view the source or edit the runbook are not provided as the Automation operator role doesn’t allow access to them.  
-
-![No access to edit runbook](media/automation-role-based-access-control/automation-11-no-access-to-edit-runbook.png)  
-
-The user has access to view and to create schedules, but does not have access to any other asset type.  
-
-![No access to assets](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
+The user has access to view and to create schedules, but does not have access to any other asset type.
 
 This user also doesn’t have access to view the webhooks associated with a runbook
 
@@ -337,28 +317,73 @@ This user also doesn’t have access to view the webhooks associated with a runb
 ## Configure RBAC for your Automation Account using Azure PowerShell
 Role-based access can also be configured to an Automation Account using the following [Azure PowerShell cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.  
-    **Example:**  
-    ![Get role definition](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
+
+```
+Get-AzureRmRoleDefinition -Name 'Automation Operator'
+```
+
+The following is the example output:
+
+```powershell-interactive
+Name             : Automation Operator
+Id               : d3881f73-407a-4167-8283-e981cbba0404
+IsCustom         : False
+Description      : Automation Operators are able to start, stop, suspend, and resume jobs
+Actions          : {Microsoft.Authorization/*/read, Microsoft.Automation/automationAccounts/jobs/read, Microsoft.Automation/automationAccounts/jobs/resume/action, 
+                   Microsoft.Automation/automationAccounts/jobs/stop/action...}
+NotActions       : {}
+AssignableScopes : {/}
+``` 
 
 • [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lists Azure AD RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments for the specified user as well as the groups the user is a member of.  
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
-    Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
+```powershell-interactive
+    Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+```
 
-![Get role assignment](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
+The following is the example output:
+
+```powershell
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
+                     ers/Microsoft.Authorization/roleAssignments/cc594d39-ac10-46c4-9505-f182a355c41f
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount
+DisplayName        : admin@contoso.com
+SignInName         : admin@contoso.com
+RoleDefinitionName : Automation Operator
+RoleDefinitionId   : d3881f73-407a-4167-8283-e981cbba0404
+ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
+ObjectType         : User
+```
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) to assign access to users, groups, and applications to a particular scope.  
-    **Example:** Use the following command to assign the “Automation Operator” role for a user in the Automation Account scope.
+    **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation Account scope.
 
-    New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
+```powershell-interactive
+    New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+```
 
-![New role assignment](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
+The following is the example output:
+
+```powershell
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
+                     ers/Microsoft.Authorization/roleAssignments/25377770-561e-4496-8b4f-7cba1d6fa346
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount
+DisplayName        : admin@contoso.com
+SignInName         : admin@contoso.com
+RoleDefinitionName : Automation Operator
+RoleDefinitionId   : d3881f73-407a-4167-8283-e981cbba0404
+ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
+ObjectType         : User
+```
 
 • Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) to remove access of a specified user, group, or application from a particular scope.  
     **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation Account scope.
 
-    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+```powershell-interactive
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+```
 
 In the preceding examples, replace **sign in Id**, **subscription Id**, **resource group name**, and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
 
