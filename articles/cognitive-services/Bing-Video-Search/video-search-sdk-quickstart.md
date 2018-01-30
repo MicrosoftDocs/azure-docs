@@ -13,11 +13,11 @@ ms.author: v-gedod
 
 #Video Search SDK quickstart
 
-The Bing Image Search SDK contains the functionality of the REST API for web requests and parsing results. 
+The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
 ##Application dependencies
 
-To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
+To set up a console application using the Bing Video Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
 
 [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
 
@@ -32,13 +32,12 @@ Then, instantiate the client:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
-VideoResults(client);
 
 ```
 Use the client to search with a query text "NASA CubeSat" for videos.
 ```
-var imageResults = client.Images.SearchAsync(query: "NASA CubeSat").Result;
-Console.WriteLine("Search images for query \"NASA CubeSat\"");
+var videoResults = client.Videos.SearchAsync(query: "NASA CubeSat").Result;
+Console.WriteLine("Search videos for query \"NASA CubeSat\"");
 
 ```
 
