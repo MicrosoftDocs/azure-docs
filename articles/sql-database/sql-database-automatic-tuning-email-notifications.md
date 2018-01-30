@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: v-daljep
 
 ---
@@ -72,7 +72,7 @@ The next step is to create a Runbook in Azure Automation inside which the PowerS
 Follow these steps to create a new Azure Automation runbook:
 
 - Access the Azure Automation account you created in the previous step
-- Once in the automation account pane, click on the “**Runbooks**” menu item on the left-hand side to create a new Azure Automation runbook with the PowerShell script. To learn more about creating automation runbooks, see [Creating a new runbook]().
+- Once in the automation account pane, click on the “**Runbooks**” menu item on the left-hand side to create a new Azure Automation runbook with the PowerShell script. To learn more about creating automation runbooks, see [Creating a new runbook](../automation/automation-creating-importing-runbook.md).
 - To add a new runbook, click on the “**+Add a runbook**” menu option, and then click on the “**Quick create – Create a new runbook**”.
 - In the Runbook pane, type in the name of your runbook (for the purpose of this example, “**AutomaticTuningEmailAutomation**” is used), select the type of runbook as **PowerShell** and write a description of this runbook to describe its purpose.
 - Click on the **Create** button to finish creating a new runbook
