@@ -18,23 +18,24 @@ Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/se
 
 ## Use the API console
 Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+
 1.	Go to the [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   The **Text - Screen** page opens.
 
-2. For **Open API testing console**, select the region that most closely describes your location. 
+1. For **Open API testing console**, select the region that most closely describes your location. 
 
   ![Text - Screen page region selection](images/test-drive-region.png)
 
   The **Text - Screen** API console opens.
 
-3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
+1.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
 
   ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
  
-4.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
+1.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-5.	In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
+1.	In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
 	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -42,7 +43,7 @@ Before you can test-drive the API in the online console, you need your subscript
 	Also, 544-56-7788 looks like a social security number (SSN).
 ```
 
-6.	The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
+1.	The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
 > The machine-assisted 'Classification` feature is in preview.
