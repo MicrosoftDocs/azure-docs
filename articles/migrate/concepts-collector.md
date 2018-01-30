@@ -49,12 +49,12 @@ Additionally, the check also tries to validate connectivity to the following URL
 
 **URL** | **Purpose**  | **What if you don't whitelist**
 --- | --- | ---
-*.oneget.org:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
-*.windows.net:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
-*.windowsazure.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
-*.powershellgallery.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
-*.msecnd.net:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
-*.visualstudio.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. You need to install the module manually.
+*.oneget.org:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
+*.windows.net:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
+*.windowsazure.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
+*.powershellgallery.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
+*.msecnd.net:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
+*.visualstudio.com:443 | Required to download the powershell based vCenter PowerCLI module. | PowerCLI installation fails. Install the module manually.
 
 ### Time is in sync with the internet server
 
@@ -72,7 +72,7 @@ The Azure Migrate Collector service should be running on the machine. This servi
 
 The VMware PowerCLI powershell module needs to be installed so that the collector can communicate with the vCenter server and query for the machine details and their performance data. The powershell module is automatically downloaded and installed as part of the pre-requisite check. This requires a few URLs whitelisted if you are using the 
 
-If you have not whitelisted the URLs, the automatic installation will fail. You need to install the module manually using the following steps.
+If you have not whitelisted the URLs, the automatic installation will fail. Install the module manually using the following steps.
 
 1. To install the PowerCli on collector without internet connection, follow the steps given in [this link](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html) .
 2. Once you have installed the PowerShell module on a different computer, which has internet access, copy the files VMware.* from that machine to the collector machine.
