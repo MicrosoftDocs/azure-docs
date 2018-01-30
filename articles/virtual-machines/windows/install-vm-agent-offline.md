@@ -18,9 +18,9 @@ ms.date: 01/26/2018
 ms.author: genli
 
 ---
-# Install the VM Agent in Offline mode
+# Install the VM Agent in Offline mode in an Azure Windows VM 
 
-The VM agent provides useful features likes local administrator password reset, and script push. This article shows how to install the VM Agent for a VM that is offline.
+If the virtual machine (VM) that does not have VM agent installed is down or unable to authenticate, it could be difficult to troubleshoot. In this scenario, you might need to install the VM agent in an offline mode. The VM agent provides useful features like local administrator password reset, and script push.  This article shows how to install the VM agent for a VM that is offline. 
 
 ## Detail steps
 
