@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-Management solutions include packaged management scenarios that customers can add to their environment.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
+Management solutions include packaged management scenarios that customers can add to their Azure environment.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
 
 ## Finding and installing management solutions
 There are multiple methods for locating and installing management solutions as described in the following sections.
