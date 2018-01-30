@@ -42,7 +42,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-Other application types e.g. Operations and Finance, Talend, etc. are not supported.
+Other application types e.g. Operations and Finance, Talent, etc. are not supported.
 
 ## Get started
 
