@@ -38,7 +38,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 This command clones the repository to your local git folder. To open the Go program, look for storage-quickstart.go file.  
 
 ## Configure your storage connection string
-This solution requires Storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your Operating System to create the environment variable. If using Windows close out of your open IDE or shell and restart it to be able to read the environment variable.
+This solution requires Storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your Operating System to create the environment variable. If using Windows, close out of your open IDE or shell and restart it to be able to read the environment variable.
 
 # [Portal](#tab/Linux)
 Linux
@@ -83,7 +83,7 @@ After you've verified the downloaded file's content on the console, hit any key 
 Next, we walk through the sample code so that you can understand how it works.
 
 ### Create ContainerURL and BlobURL objects
-The first thing to do is create the references to the Container URL and Blob URL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob and GetBlob to issue REST APIs.
+The first thing to do is create the references to the Container URL and Blob URL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob, and GetBlob to issue REST APIs.
 
 * Create a **SharedKeyCredential** struct with your credentials. 
 
@@ -97,7 +97,7 @@ Once you have the ContainerURL, you can instantiate the **BlobURL** object that 
 > [!IMPORTANT]
 > Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
-In this section, you create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
+In this section, you create a new container. The container is called **quickstartblobs-<random number>**. 
 
 ```go 
 accountName, accountKey := os.Getenv("AZURE_STORAGE_ACCOUNT"), os.Getenv("AZURE_STORAGE_ACCESS_KEY")
@@ -132,7 +132,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, open the file using os.Open. You can then upload the file to the specified path using one of the REST APIs: PutBlob, PutBlock/PutBlockList. 
 
-Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, UploadFileToBlockBlob function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256MB, it uses PutBlob instead to complete the transfer in a single transaction.
+Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, UploadFileToBlockBlob function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
 
 The following example uploads the file to your container called **quickstartblobs-<random number>**.
 
@@ -159,7 +159,7 @@ handleErrors(err)
 
 ### List the blobs in a container
 
-Get a list of files in the container using the **ListBlobs** method on a ContainerURL. ListBlobs returns a single segment of blobs starting from the specified Marker. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the the previously-returned Marker.  
+Get a list of files in the container using the **ListBlobs** method on a ContainerURL. ListBlobs returns a single segment of blobs starting from the specified Marker. Use an empty Marker to start enumeration from the beginning. Blob names are returned in lexicographic order. After getting a segment, process it, and then call ListBlobs again passing the previously-returned Marker.  
 
 ```go
 // List the blobs in the container
@@ -183,7 +183,7 @@ for marker.NotDone() {
 ### Download the blobs with progress report
 
 Download blobs using the **GetBlob** low-level method on a BlobURL. Alternatively you can create a Stream and read ranges from it using NewDownloadStream high-level API provided in [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go).
-The following code downloads the blob uploaded in a previous section and shows progress of downloaded bytes. The contents of the blob will be written into a buffer and shown on the console.
+The following code downloads the blob uploaded in a previous section and shows progress of downloaded bytes. The contents of the blob is written into a buffer and shown on the console.
 
 ```go
 // Here's how to download the blob
