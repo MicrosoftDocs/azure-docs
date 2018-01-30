@@ -12,16 +12,17 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Use Azure Active Directory B2C to protect an ASP.NET Web API
+# Use Azure Active Directory B2C to protect an ASP.NET web API
 
 This tutorial shows you through how to call a Azure Active Directory (AD) B2C protected web API resource from an ASP.NET web app.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register a  sample ASP.NET web API in your Azure AD B2C tenant.
-> * 
-> *  
+> * Register a web API in your Azure AD B2C tenant
+> * Define and configure scopes for a web API
+> * Grant app permissions to the web API
+> * Update sample code to use Azure AD B2C to protect a web API
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,30 +33,30 @@ In this tutorial, you learn how to:
 
 ## Register web API
 
-Web API resources need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your [tenant](../active-directory/develop/active-directory-dev-glossary.md#tenant) before they can [accept and respond to protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
+Web API resources need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your [tenant](../active-directory/develop/active-directory-dev-glossary.md#tenant) before they can accept and respond to [protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-[!INCLUDE [active-directory-b2c-portal-add-application](../../includes/active-directory-b2c-portal-add-application.md)]
+2. In the B2C settings, click **Applications** and then click **+ Add**.
 
-To register the sample web api in your tenant, use the following settings.
-
-![Add a new API](media/active-directory-b2c-tutorials-web-app/web-api-registration.png)
-
-| Setting      | Sample value  | Description                                        |
-| ------------ | ------- | -------------------------------------------------- |
-| **Name** | `My Sample Web API` | Enter a **Name** that describes your web API to developers. |
-| **Include web app / web API** | Yes | Select **Yes** for a web API. |
-| **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-| **Reply URL** | `https://localhost:44332` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 44332. |
-| **App ID URI** | `myAPISample` | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
-| **Native client** | No | Since this is a web API and not a native client, select No. |
-
-Click **Create** to register your API.
+    To register the sample web API in your tenant, use the following settings.
+    
+    ![Add a new API](media/active-directory-b2c-tutorials-web-app/web-api-registration.png)
+    
+    | Setting      | Sample value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | `My Sample Web API` | Enter a **Name** that describes your web API to developers. |
+    | **Include web app / web API** | Yes | Select **Yes** for a web API. |
+    | **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
+    | **Reply URL** | `https://localhost:44332` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 44332. |
+    | **App ID URI** | `myAPISample` | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
+    | **Native client** | No | Since this is a web API and not a native client, select No. |
+    
+3. Click **Create** to register your API.
 
 Registering your web API with Azure AD B2C defines a trust relationship. Since the API is registered with B2C, the API can now trust the B2C access tokens it receives from other applications.
 
@@ -179,6 +180,10 @@ Press **F5** to start both applications. Each application opens in its own tab b
 * `https://localhost:44332/` - This page is the web API. For this walkthrough, you do not interact with this page.
 
 Click the sign up / sign in link to sign up for the Web Application. Once signed in, click the **To-do list** link. Now you can create todo items. 
+
+## Clean up resources
+
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next Steps
 

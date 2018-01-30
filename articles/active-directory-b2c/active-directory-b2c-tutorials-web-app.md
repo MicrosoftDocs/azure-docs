@@ -42,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Select **Azure AD B2C** from the services list in the Azure portal
+1. Select **Azure AD B2C** from the services list in the Azure portal.
 
 2. In the B2C settings, click **Applications** and then click **+ Add**.
 
@@ -162,7 +162,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 
 ## Next Steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create a sign-up or sign-in policy, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API secured by your Azure AD B2C tenant.
+In this tutorial, you learned how to create an Azure AD B2C tenant, create a sign-up or sign-in policy, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
-> [Access a B2C-secured ASP.NET Web API resource](active-directory-b2c-tutorials-web-api.md)
+> [Use Azure Active Directory B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
