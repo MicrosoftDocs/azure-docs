@@ -85,12 +85,12 @@ These limits apply to a single logic app run.
 These limits apply to a single logic app instance.
 
 | Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 | Can distribute workload across multiple apps as needed. | 
+| ----- | ----- | ----- | 
+| Actions executions per 5 minutes | 100,000 |<p>The limit can be increased up to 300,000 by running a logic app in `High Througput` mode and this can be done by setting the `operationOptions` property under`runtimeConfiguration` of the workflow resource to `OptimizedForHighThroughput`. <p>Please note that high throughput mode is in preview. Also a workload can be distributed across multiple apps as needed. | 
 | Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | Can distribute workload across multiple apps as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | Can distribute workload across multiple apps as needed. | 
+| Runtime endpoint: Concurrent incoming calls |~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across multiple apps as needed. | 
+| Runtime endpoint: Invoke calls per 5 minutes| 45,000 |Can distribute workload across multiple apps as needed. | 
 |||| 
 
 To exceed these limits in normal processing, 

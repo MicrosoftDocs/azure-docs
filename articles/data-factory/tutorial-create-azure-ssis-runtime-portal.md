@@ -1,6 +1,6 @@
 ---
-title: 'Provision an Azure SSIS integration runtime using the portal | Microsoft Docs'
-description: 'This article explains how to create an Azure-SSIS integration runtime by using the Azure portal.'
+title: 'Provision SSIS integration runtime using Azure Data Factory | Microsoft Docs'
+description: 'This article explains how to create an Azure SSIS integration runtime by using the Azure Data Factory (ADF).'
 services: data-factory
 documentationcenter: ''
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 01/29/2018
 ms.author: spelluru
 ---
-# Provision an Azure SSIS integration runtime by using the Data Factory UI
+# Provision an Azure SSIS integration runtime by using the Azure Data Factory UI
 This tutorial provides steps for using the Azure portal to provision an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. For conceptual information on Azure-SSIS IR, see [Azure-SSIS integration runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 In this tutorial, you do the following steps:
@@ -94,31 +94,27 @@ In this tutorial, you do the following steps:
 1.  In the **Advanced Settings** page, select a value for the **Maximum Parallel Executions Per Node**.   
 
     ![Advanced settings](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. This step is **optional**. If you have a classic virtual network (VNet) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** option, and do the following steps: 
+5. This step is **optional**. If you have a VNet (Classic or Azure Resource Manager) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** option, and do the following steps: 
 
     ![Advanced settings with VNet](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
-    1. Specify the **subscription** that has the classic VNet. 
-    2. Select the **VNet**. <br/>
-    4. Select the **Subnet**.<br/> 
+    1. For **Subscription**, specify the **subscription** that has the VNet. 
+    2. For type, specify the **type** of the VNet (Classic Virtual Network or Azure Resource Manager Virtual Network). 
+    3. For **VNet Name**, select the name of your **VNet**. <br/>
+    4. For **Subnet name**, select the name of the **Subnet** in the VNet.<br/> 
 1. Click **Finish** to start the creation of Azure-SSIS integration runtime. 
 
     > [!IMPORTANT]
     > - This process takes approximately 20 to minutes to complete
     > - The Data Factory service connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
-    > - When you provision an instance of SQL Database to host SSISDB, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
+    > - When you provision an instance of Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time (including third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
 
 7. In the **Connections** window, switch to **Integration Runtimes** if needed. Click **Refresh** to refresh the status. 
 
     ![Creation status](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
-8. Use the links under **Actions** column to monitor, stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
+8. Use the links under **Actions** column to stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
 
     ![Azure SSIS IR - actions](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
-9. Click **Monitor** link under **Actions**.  
-
-    ![Azure SSIS IR - details](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
-10. If there was an **error** associated with the Azure SSIS IR, you see the number of errors on this page and the link to view details about the error. For example, if the SSIS Catalog already exists on the database server, you see an error that indicates the existence of the SSISDB database.  
-11. Click **Integration Runtimes** at the top to navigate to back the previous page to see all integration runtimes associated with the data factory.  
 
 ## Azure SSIS integration runtimes in the portal
 
