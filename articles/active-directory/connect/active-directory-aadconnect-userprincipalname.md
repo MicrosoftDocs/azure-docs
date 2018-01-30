@@ -1,7 +1,7 @@
 ---
-title: UserPrincipalName Technical Reference
+title: Azure AD UserPrincipalName population
 description: 
-author: Erdinc
+author: billmath
 ms.author: billmath
 ms.date: 01/30/2018
 ms.topic: article
@@ -10,7 +10,7 @@ ms.service: active-Directory
 manager: mtillman
 ---
 
-# UserPrincipalName Technical Reference
+# Azure AD UserPrincipalName population
 
 This article describes how the UserPrincipalName attribute is populated in Azure Active Directory (Azure AD).
 The UserPrincipalName attribute value is the Azure AD username for the user accounts.
