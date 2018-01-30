@@ -19,20 +19,20 @@ Event Grid provides SDKs that enable you to programmatically manage your resourc
 
 The management SDKs enable you to create, update, and delete event grid topics and subscriptions. Currently, the following SDKs are available:
 
-* [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/1.1.0-preview)
+* [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * Go
 * [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
-* [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid/0.3.0)
+* [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * Ruby
 
 ## Publish SDKs
 
 The publish SDKs enable you to post events to topics by taking care of authenticating, forming the event, and asynchronously posting to the specified endpoint. Currently, the following SDKs are available:
 
-* [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/1.0.0-preview)
+* [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * Go
 * Node
-* Python
+* [Python](https://pypi.python.org/pypi/azure-eventgrid)
 * Ruby
 
 ## Next steps
