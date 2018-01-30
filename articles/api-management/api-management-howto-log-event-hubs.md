@@ -1,4 +1,4 @@
----
+ ---
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
 description: Learn how to log events to Azure Event Hubs in Azure API Management.
 services: api-management
@@ -24,7 +24,7 @@ This article is a companion to the [Integrate Azure API Management with Event Hu
 
 ## Create an Azure Event Hub
 
-For detailed steps on how create an event hub and get connection strings you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../../event-hubs/event-hubs-create.md)
+For detailed steps on how create an event hub and get connection strings you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in your API Management service so that it can log events to the Event Hub.
