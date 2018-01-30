@@ -19,6 +19,11 @@
             "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
             "redirect_document_id": true
         },
+		     {
+            "source_path": "articles/active-directory/active-directory-saas-account-provisioning-notifications.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-app-provisioning",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
@@ -7962,6 +7967,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-add-a-web-frontend.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore",
             "redirect_document_id": false
         },
         {
