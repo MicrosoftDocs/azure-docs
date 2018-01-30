@@ -14,7 +14,11 @@ ms.author: sajagtap
 
 # Text moderation
 
-Use Content Moderator’s machine-assisted text moderation and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate text content. The API scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
+Use Content Moderator’s machine-assisted text moderation and [human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
+
+Businesses use the text moderation service to either block, approve or review the content based on their policies and thresholds. It is used to moderate environments that require partners, employees and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more. 
+
+The API scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
 
 The service response includes the following information:
 
@@ -37,15 +41,14 @@ If any profane terms are detected in any of the [supported languages](Text-Moder
 		"Term": "crap"
 	}
 
-## Classification
+## Classification (preview)
 
-Content Moderator’s machine-assisted text moderation feature helps detect potentially undesired content that may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content.
-
-Businesses use the service to either block, approve or review the content based on their policies and thresholds. The text moderation feature uses a trained model to identify possible abusive, derogatory or discriminatory language such as slang, abbreviated words, offensive, and intentionally misspelled words. 
-
-The text moderation service can be used to moderate environments that require partners, employees and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more.
+Content Moderator’s machine-assisted text classification feature (preview) helps detect potentially undesired content that may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language such as slang, abbreviated words, offensive, and intentionally misspelled words. 
 
 The following extract in the JSON extract shows an example output:
+
+> [!NOTE]
+> The machine-assisted 'Classification` feature is in preview.
 
 	"Classification": {
     	"ReviewRecommended": true,
