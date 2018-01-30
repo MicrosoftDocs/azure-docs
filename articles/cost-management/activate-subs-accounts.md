@@ -32,7 +32,7 @@ If your account is assigned the **Contributor** role, you do not have adequate p
 
 ### Check Azure Active Directory permissions
 
-1. Log into the [Azure portal](https://portal.azure.com)
+1. Log into the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, select **Azure Active Directory**.
 3. In Azure Active Directory, select **User settings**.
 4. Check the **App registrations** option.
@@ -56,7 +56,7 @@ When you add an account update a subscription, you grant Azure Cost Management a
 1. If you want to update an _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the _tenant GUID_.
     ![Rediscover subscriptions](./media/activate-subs-accounts/existing-sub.png)
 2. If necessary, enter the Tenant ID. If you don't know your Tenant ID, use the following steps to find it:
-    1. Log into the [Azure portal](https://portal.azure.com)
+    1. Log into the [Azure portal](https://portal.azure.com).
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
@@ -72,6 +72,10 @@ When you add an account update a subscription, you grant Azure Cost Management a
     You're redirected to the Azure Cost Management Accounts management page and your subscription is updated with **active** Account Status. It should display a green check mark symbol under the Resource Manager column.
 
     If you don't see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create the reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat this process.
+
+Watch the [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) video that walks through the process.
+
+>[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
 ## Resolve common indirect enterprise set-up problems
 
