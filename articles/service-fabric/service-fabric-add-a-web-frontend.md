@@ -3,7 +3,7 @@ title: Create a web front end for your Azure Service Fabric app using ASP.NET Co
 description: Expose your Service Fabric application to the web by using an ASP.NET Core project and inter-service communication via Service Remoting.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
-ms.author: vturecek
+ms.author: ryanwi
 
 ---
 # Build a web service front end for your application using ASP.NET Core
