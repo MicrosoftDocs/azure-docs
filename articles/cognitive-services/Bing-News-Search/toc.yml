@@ -24,7 +24,11 @@
   - name: Ruby
     href: ruby.md
 - name: SDK (preview)
-  href: sdk.md
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: News search SDK quickstart (preview)
+    href: news-search-sdk-quickstart.md  
 - name: How to
   items:
   - name: Use and display requirements
