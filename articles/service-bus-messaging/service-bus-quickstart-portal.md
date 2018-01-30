@@ -13,35 +13,36 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 01/29/2018
 ms.author: sethm
 
 ---
 
 # Send and receive messages using the Azure portal
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sale (POS) data to a back office or regional distribution center for replenishment and inventory updates.  
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
-![service-bus-flow][service-bus-flow]
+![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
 This quickstart describes how to send and receive messages with Service Bus, using the Azure portal to create a messaging namespace and a queue within that namespace, and obtain authorization credentials on the namespace.
 
 If you do not have an Azure subscription, you can create a [free account][] before you begin.
 
+## Log in to the Azure portal
+
+Log in to the [Azure portal][Azure portal].
+
 ## Create a Service Bus messaging namespace
 
 A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in your resource group:
 
-1. Log on to the [Azure portal][Azure portal].
-2. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
-3. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-4. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
-5. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-6. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
-7. In **Location**, choose the country or region in which your namespace should be hosted.
-
-   ![Create namespace][create-namespace]
-8. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
+2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
+3. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
+4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
+5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+6. In **Location**, choose the country or region in which your namespace should be hosted.
+7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 ### Obtain the management credentials
 
@@ -50,8 +51,6 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 1.  Click **All resources**, then click the newly created namespace name.
 2. In the namespace window, click **Shared access policies**.
 3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-   
-    ![connection-info][connection-info]
 4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
 
     ![connection-string][connection-string]
@@ -64,14 +63,12 @@ To create a Service Bus queue, specify the namespace under which you want it cre
 1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
 2. Click the namespace in which you would like to create the queue. In this example, it is **sbnstest1**.
 3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
-   
-    ![Select Queues][createqueue2]
 4. Enter the queue **Name** and leave the other values with their defaults.
 5. At the bottom of the window, click **Create**.
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
 
 1. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
 2. Double-click **Program.cs** to open it in the Visual Studio editor.
@@ -96,8 +93,5 @@ In this article, you created a Service Bus namespace and other resources require
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-info]: ./media/service-bus-quickstart-portal/connection-info.png
 [connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
-[createqueue2]: ./media/service-bus-quickstart-portal/create-queue2.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png
-[create-namespace]: ./media/service-bus-quickstart-portal/create-namespace.png
