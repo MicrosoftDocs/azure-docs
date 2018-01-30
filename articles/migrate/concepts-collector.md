@@ -39,13 +39,13 @@ The collector appliance needs to be connected to the internet to send the discov
 
 #### Whitelisting URLs for internet connection
 
-The pre-requisite check is successful if the collector can connect to the internet via the provided settings. For this the machine tries to connect to the following URLs. If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+The pre-requisite check is successful if the collector can connect to the internet via the provided settings. The connectivity check is validated by connecting to a list of URLs as given in the following table. If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
 
 **URL** | **Purpose**  
 --- | ---
 *.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
 
-Additionally, the check also tries to validate connectivity to the following URLs but does not fail the check if not accessible. Configuring whitelist for the following URLs is optional, but you will need to take manual steps to mitigate the pre-requisite check.
+Additionally, the check also tries to validate connectivity to the following URLs but does not fail the check if not accessible. Configuring whitelist for the following URLs is optional, but you need to take manual steps to mitigate the pre-requisite check.
 
 **URL** | **Purpose**  | **What if you don't whitelist**
 --- | --- | ---
@@ -58,7 +58,7 @@ Additionally, the check also tries to validate connectivity to the following URL
 
 ### Time is in sync with the internet server
 
-The collector needs to be in sync with the internet time server to ensure the requests to the service are authenticated. The portal.azure.com url should be reachable from the collector so that the time can be validated. If the machine is out of sync, you need to change the clock time on the collector VM to match the current time, as follows:
+The collector should be in sync with the internet time server to ensure the requests to the service are authenticated. The portal.azure.com url should be reachable from the collector so that the time can be validated. If the machine is out of sync, you need to change the clock time on the collector VM to match the current time, as follows:
 
 1. Open an admin command prompt on the VM.
 1. To check the time zone, run w32tm /tz.
@@ -70,9 +70,9 @@ The Azure Migrate Collector service should be running on the machine. This servi
 
 ### VMware PowerCLI 6.5 
 
-The VMware PowerCLI powershell module needs to be installed so that the collector can communicate with the vCenter server and query for the machine details and their performance data. The powershell module is automatically downloaded and installed as part of the pre-requisite check. This requires a few URLs whitelisted if you are using the 
+The VMware PowerCLI powershell module needs to be installed so that the collector can communicate with the vCenter server and query for the machine details and their performance data. The powershell module is automatically downloaded and installed as part of the pre-requisite check. Automatic download requires a few URLs whitelisted, failing which you need either provide access by whitelisting them, or installing the module manually.
 
-If you have not whitelisted the URLs, the automatic installation will fail. Install the module manually using the following steps.
+Install the module manually using the following steps:
 
 1. To install the PowerCli on collector without internet connection, follow the steps given in [this link](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html) .
 2. Once you have installed the PowerShell module on a different computer, which has internet access, copy the files VMware.* from that machine to the collector machine.
@@ -80,7 +80,7 @@ If you have not whitelisted the URLs, the automatic installation will fail. Inst
 
 ## Connecting to vCenter Server
 
-The collector needs to connect to the vCenter Server and be able to query for the virtual machines, their metadata, and their performance counters. This data is used by the project to calculate an assessment.
+The collector should connect to the vCenter Server and be able to query for the virtual machines, their metadata, and their performance counters. This data is used by the project to calculate an assessment.
 
 1. To connect to the vCenter Server, a read-only account with permissions as given in the following table can be used to run the discovery. 
 
@@ -90,7 +90,8 @@ The collector needs to connect to the vCenter Server and be able to query for th
 
 2. Only those datacenters that are accessible to the vCenter account specified can be accessed for discovery.
 3. You need to specify the vCenter FQDN/IP address to connect to the vCenter server. By default, it will connect over the port 443. If you have configured the vCenter to listen on a different port number, you can specify it as part of the server address in the form  IPAddress:Port_Number or FQDN:Port_Number.
-4. The statistics settings for vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory, and configuration data for disk and network adapters. [Read more](./concepts-collector.md) on what data is collected and how it impacts the assessment.
+4. The statistics settings for vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the discovery will complete, but performance data for storage and network won't be collected. The assessment size recommendations in this case will be based on performance data for CPU and memory, and only configuration data for disk and network adapters. [Read more](./concepts-collector.md) on what data is collected and how it impacts the assessment.
+5. The collector should have a network line of sight to the vCenter server.
 
 > [!NOTE]
 > Only vCenter Server versions 5.5, 6.0 and 6.5 are officially supported.
@@ -100,11 +101,11 @@ The collector needs to connect to the vCenter Server and be able to query for th
 
 ### Selecting the scope for discovery
 
-Once connected to the vCenter, you can select a scope to discover. Selecting a scope will discover all the virtual machines from the specified vCenter inventory path.
+Once connected to the vCenter, you can select a scope to discover. Selecting a scope discovers all the virtual machines from the specified vCenter inventory path.
 
 1. The scope can be either a datacenter, a folder, or a ESXi host. 
 2. You can only select one scope at a time. To select more virtual machines, you can complete one discovery, and restart the discovery process with a new scope.
-3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you will need to split the scope into smaller units by creating folders. Next, you will need to run independent discoveries of the smaller folders.
+3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you need to split the scope into smaller units by creating folders. Next, you need to run independent discoveries of the smaller folders.
 
 ## Specify migration project
 
@@ -114,8 +115,8 @@ Once the on-premises vCenter is connected, and a scope is specified, you can now
 
 Once the discovery starts, the vCenter virtual machines are discovered, and their metadata and performance data is sent to the server. The progress status also informs you of the following IDs:
 
-1. Collector ID: This is a unique ID that is given to your collector machine. This ID does not change for a given machine across different discoveries. You can use this ID in case of failures when reporting the issue to Microsoft Support.
-2. Session ID: This is a unique ID for the running collection job. You can refer to the same session ID in the portal when the discovery job completes. This ID changes for every collection job. In case of failures, you can report this ID to Microsoft Support.
+1. Collector ID: A unique ID that is given to your collector machine. This ID does not change for a given machine across different discoveries. You can use this ID in case of failures when reporting the issue to Microsoft Support.
+2. Session ID: A unique ID for the running collection job. You can refer to the same session ID in the portal when the discovery job completes. This ID changes for every collection job. In case of failures, you can report this ID to Microsoft Support.
 
 ### What data is collected?
 
@@ -127,9 +128,9 @@ The collection job discovers the following static metadata about the selected vi
 4. MAC address
 5. Number of cores, disks, NICs
 6. RAM, Disk sizes
-7. And performance counters of the VM, Disk and Network as listed in the following table.
+7. And performance counters of the VM, Disk and Network as listed in the table below.
 
-The following table lists the performance counters that are collected, and also lists the assessment results that will be affected if a particular counter is not collected.
+The following table lists the performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
 
 |Counter                                  |Level    |Per-device level  |Assessment impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -149,7 +150,7 @@ The following table lists the performance counters that are collected, and also 
 
 The collector only discovers the machine data and sends it to the project. The project might take additional time before the discovered data is displayed on the portal and you can start creating an assessment.
 
-Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the collector, it can take upto 1 hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
+Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
 ## Next steps
 
