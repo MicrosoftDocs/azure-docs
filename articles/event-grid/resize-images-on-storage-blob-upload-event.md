@@ -47,7 +47,7 @@ If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ## Create an Azure Storage account
 
-Azure Functions requires a general storage account. Create a separate general storage account in the resource group by using the [az storage account create](/cli/azure/storage/account#create) command.
+Azure Functions requires a general storage account. Create a separate general storage account in the resource group by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. 
 
@@ -61,7 +61,7 @@ az storage account create --name <general_storage_account> \
 
 ## Create a function app  
 
-You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. 
 
 In the following command, substitute your own unique function app name where you see the `<function_app>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. In this case, `<general_storage_account>` is the name of the general storage account you created.  
 
@@ -74,7 +74,7 @@ Now you must configure the function app to connect to blob storage.
 
 ## Configure the function app
 
-The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created in the previous tutorial. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. The thumbnail image container name must also be set to `thumbs`. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created in the previous tutorial. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) command. The thumbnail image container name must also be set to `thumbs`. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -91,7 +91,7 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-The C# function that performs image resizing is available in this [sample GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+The C# function that performs image resizing is available in this [sample GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) command. 
 
 In the following command, `<function_app>` is the same function app you created in the previous script.
 
@@ -125,8 +125,8 @@ An event subscription indicates which provider-generated events you want sent to
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | imageresizersub | Name that identifies your new event subscription. | 
     | **Topic type** |  Storage accounts | Choose the Storage account event provider. | 
-    | **Subscription** | Your subscription | By default, your current subscription should be selected.   |
-    | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this topic.  |
+    | **Subscription** | Your Azure subscription | By default, your current Azure subscription should be selected.   |
+    | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this tutorial.  |
     | **Instance** |  `<blob_storage_account>` |  Choose the Blob storage account you created. |
     | **Event types** | Blob created | Uncheck all types other than **Blob created**. Only event types of `Microsoft.Storage.BlobCreated` are passed to the function.| 
     | **Subscriber endpoint** | autogenerated | Use the endpoint URL that is generated for you. | 

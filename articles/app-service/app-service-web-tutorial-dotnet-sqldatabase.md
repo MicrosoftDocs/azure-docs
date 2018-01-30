@@ -34,6 +34,8 @@ In this tutorial, you learn how to:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -43,8 +45,6 @@ To complete this tutorial:
   - **Azure development**
 
   ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
