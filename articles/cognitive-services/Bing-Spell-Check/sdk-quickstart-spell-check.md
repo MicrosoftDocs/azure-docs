@@ -30,9 +30,113 @@ Then, instantiate the client:
 ```
 var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
+```
+Use the client to check spelling:
+```
+var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof").Result;
+Console.WriteLine("Correction for Query# \"bill gatas\"");
 
 ```
 
+Parse the results:
+```
+// SpellCheck Results
+if (result?.Body.FlaggedTokens?.Count > 0)
+{
+    // find the first spellcheck result
+    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
+
+    if (firstspellCheckResult != null)
+    {
+        Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
+        Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
+        Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
+        Console.WriteLine("First SpellCheck Result Suggestion Count: {0} ", firstspellCheckResult.Suggestions.Count);
+
+        var suggestions = firstspellCheckResult.Suggestions;
+        if (suggestions?.Count > 0)
+        {
+            var firstSuggestion = suggestions.FirstOrDefault();
+            Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+            Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+        }
+        }
+        else
+        {
+            Console.WriteLine("Couldn't get any Spell check results!");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Didn't see any SpellCheck results..");
+    }
+
+```
+##Complete console application
+
+The following console application executes the previous code:
+```
+using System;
+using System.Linq;
+using Microsoft.Azure.CognitiveServices.SpellCheck;
+
+namespace SpellCheckSDK
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+
+            try
+            {
+                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof").Result;
+                Console.WriteLine("Correction for Query# \"bill gatas\"");
+
+                // SpellCheck Results
+                if (result?.Body.FlaggedTokens?.Count > 0)
+                {
+                    // find the first spellcheck result
+                    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
+
+                    if (firstspellCheckResult != null)
+                    {
+                        Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
+                        Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
+                        Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
+                        Console.WriteLine("First SpellCheck Result Suggestion Count: {0} ", firstspellCheckResult.Suggestions.Count);
+
+                        var suggestions = firstspellCheckResult.Suggestions;
+                        if (suggestions?.Count > 0)
+                        {
+                            var firstSuggestion = suggestions.FirstOrDefault();
+                            Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+                            Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't get any Spell check results!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Didn't see any SpellCheck results..");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Encountered exception. " + ex.Message);
+            }
+
+            Console.WriteLine("Any key to exit...");
+            Console.ReadKey();
+        }
+    }
+}
+
+```
 
 ##Next steps
 
