@@ -41,6 +41,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
+    - name: Python with PostgreSQL
+      href: app-service-web-tutorial-python-postgresql.md
   - name: 1 - Create RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
