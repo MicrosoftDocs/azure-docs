@@ -24,7 +24,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Error: VM Agent unable to communicate with Azure Backup
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Error: VM Agent unable to communicate with Azure Backup
 
 > [!NOTE]
 > If your Azure Linux VM backups fail with this error beginning January 4, 2018, run the following command in the VM, and then retry the backups:
@@ -38,13 +38,13 @@ After you register and schedule a VM for the Backup service, Backup initiates th
 **Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 
-## Error: Snapshot operation failed due to no network connectivity on the virtual machine
+## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Error: Snapshot operation failed due to no network connectivity on the virtual machine
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:    
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
 **Cause 2: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 3: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 
-## Error: VMSnapshot extension operation failed
+## <a name="vmsnapshot-extension-operation-failed"></a>Error: VMSnapshot extension operation failed
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
