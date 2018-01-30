@@ -3,7 +3,7 @@ title: Using Visual Studio on an Azure Virtual Machine | Microsoft Docs
 description: Using Visual Studio on an Azure Virtual Machine.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: phillee
+author: "PhilLee-MSFT"
 manager: sacalla
 editor: tysonn
 tags: azure-resource-manager
