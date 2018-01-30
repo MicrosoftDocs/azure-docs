@@ -16541,7 +16541,7 @@
     },
     {
     "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
-    "redirect_url": "/azure/virtual-network/quick-create-portal.md",
+    "redirect_url": "/azure/virtual-network/quick-create-portal",
     "redirect_document_id": false
     }
 	
