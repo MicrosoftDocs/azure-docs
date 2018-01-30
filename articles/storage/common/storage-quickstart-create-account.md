@@ -117,7 +117,7 @@ $location = "westus"
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#create) command. 
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
 
 ```azurecli-interactive
 az group create \
@@ -125,7 +125,7 @@ az group create \
     --location westus
 ```
 
-If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#list) command.
+If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list) command.
 
 ```azurecli-interactive
 az account list-locations \
@@ -193,7 +193,7 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
@@ -245,7 +245,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
