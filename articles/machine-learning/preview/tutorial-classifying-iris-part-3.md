@@ -167,7 +167,6 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
 
-    
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
@@ -266,8 +265,9 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 2. To test the service, execute the returned service run command:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2"**, which is the predicted class. (Your result might be different.) 
 
