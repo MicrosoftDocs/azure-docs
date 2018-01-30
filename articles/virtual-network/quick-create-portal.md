@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure portal
 
-In this article, you learn how to create a virtual network. You can deploy many types of Azure resources into a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
+In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -39,7 +39,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
 
-    The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and ranges. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
+    The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default subnet **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and range. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
 
 ## Create virtual machines
 
@@ -61,9 +61,9 @@ A virtual network enables several types of Azure resources to communicate privat
 
     ![Select a virtual network](./media/quick-create-portal/virtual-machine-network-settings.png)
 
-6. On the **Summary** page, click **Create** to start the virtual machine deployment.
+6. On the **Summary** page, click **Create** to start the virtual machine deployment. 
 
-7. After creation, the virtual machine is pinned to the Azure portal dashboard and the virtual machine summary automatically opens. Click **Networking**.
+7. The virtual machine takes a few minutes to create. After creation, the virtual machine is pinned to the Azure portal dashboard and the virtual machine summary automatically opens. Click **Networking**.
 
     ![Virtual machine networking information](./media/quick-create-portal/virtual-machine-networking.png)
 
@@ -72,6 +72,7 @@ A virtual network enables several types of Azure resources to communicate privat
     The **Public IP** address assigned is different than the address assigned to your virtual machine. Azure assigns a public, Internet routable IP address to each virtual machine, by default. The public IP address is assigned to the virtual machine from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
 
 8. Complete steps 1-7 again, but in step 3, name the virtual machine *myVm2*. 
+
 9. After the virtual machine is created, click **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
 ## Connect to a virtual machine
@@ -86,23 +87,25 @@ A virtual network enables several types of Azure resources to communicate privat
 
 ## Validate communication
 
-To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine, provide the credentials you used when you created the virtual machine and complete the connection:
-
-```
-mstsc /v:myVm2
-```
-
-The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. 
-
-If you attempt to ping *myVm2* from *myVm1*, ping fails because ping is not allowed through the Windows firewall, by default.
-
-To allow ping to a Windows virtual machine, enter the following command from the Windows virtual machine you want to allow ping to:
+Attempting to ping a Windows virtual machine fails, because ping is not allowed through the Windows firewall, by default. To allow ping to *myVm1*, enter the following command from a command prompt:
 
 ```
 netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
 ```
 
-To confirm outbound communication to the Internet, enter the following command:
+To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine. Provide the credentials you used when you created the virtual machine, and then complete the connection:
+
+```
+mstsc /v:myVm2
+```
+
+The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a commmand prompt, ping my *myVm1*, from *myVm2*.
+
+```
+ping myvm1
+```
+
+Ping is successful because you allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step. To confirm outbound communication to the Internet, enter the following command:
 
 ```
 ping bing.com

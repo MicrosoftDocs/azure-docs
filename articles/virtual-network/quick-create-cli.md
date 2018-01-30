@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure CLI
 
-In this article, you learn how to create a virtual network. You can deploy many types of Azure resources into a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
+In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -67,34 +67,18 @@ Another portion of the information returned is the **addressPrefix** of *10.0.0.
 
 A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
 
-Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a virtual machine named *myVm1*. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.  
+Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a virtual machine named *myVm1*. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the virtual machine in the background, so you can continue to the next step.
 
 ```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroup \
   --name myVm1 \
   --image UbuntuLTS \
-  --generate-ssh-keys
+  --generate-ssh-keys \
+  --no-wait
 ```
 
-Azure automatically creates the virtual machine in the *default* subnet of the *myVirtualNetwork* virtual network, because the virtual network exists in the resource group, and no virtual network or subnet is specified in the command. If a virtual network didn't exist in the resource group, Azure would create a default virtual network for the virtual machine. The location that a virtual machine is created in must be the same location the virtual network exists in. The virtual machine isn't required to be in the same resource group as the virtual machine, though it is in this article.
-
-After the virtual machine is created, the Azure CLI returns information similar to the following example: 
-
-```azurecli 
-{
-  "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm1",
-  "location": "eastus",
-  "macAddress": "00-0D-3A-23-9A-49",
-  "powerState": "VM running",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myResourceGroup"
-}
-```
-
-In the example, you see that the **privateIpAddress** is *10.0.0.4*. Azure DHCP automatically assigned 10.0.0.4 to the virtual machine because it is the first available address in the *default* subnet. Take note of the **publicIpAddress**. This address is used to access the virtual machine from the Internet in a later step. The public IP address is not assigned from within the virtual network or subnet address prefixes. Public IP addresses are assigned from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
+Azure automatically creates the virtual machine in the *default* subnet of the *myVirtualNetwork* virtual network, because the virtual network exists in the resource group, and no virtual network or subnet is specified in the command. Azure DHCP automatically assigned 10.0.0.4 to the virtual machine during creation, because it is the first available address in the *default* subnet. The location that a virtual machine is created in must be the same location the virtual network exists in. The virtual machine isn't required to be in the same resource group as the virtual machine, though it is in this article.
 
 Create a second virtual machine. By default, Azure also creates this virtual machine in the *default* subnet.
 
@@ -106,11 +90,26 @@ az vm create \
   --generate-ssh-keys
 ```
 
-After the virtual machine is created, notice in the output returned that the private IP address is *10.0.0.5*. Since Azure previously assigned the first usable address of 10.0.0.4 in the subnet to the *myVm1* virtual machine, it assigned 10.0.0.5 to the *myVm2* virtual machine, because it was the next available address in the subnet.
+The virtual machine takes a few minutes to create. After the virtual machine is created, the Azure CLI returns output similar to the following example: 
+
+```azurecli 
+{
+  "fqdns": "",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm1",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.5",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+In the example, you see that the **privateIpAddress** is *10.0.0.5*. Azure DHCP automatically assigned *10.0.0.5* to the virtual machine because it was the next available address in the *default* subnet. Take note of the **publicIpAddress**. This address is used to access the virtual machine from the Internet in a later step. The public IP address is not assigned from within the virtual network or subnet address prefixes. Public IP addresses are assigned from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
 
 ## Connect to a virtual machine
 
-Use the following command to create an SSH session with the *myVm1* virtual machine. Replace `<publicIpAddress>` with the public IP address of your virtual machine. In the example above, the IP address is *40.68.254.142*.
+Use the following command to create an SSH session with the *myVm2* virtual machine. Replace `<publicIpAddress>` with the public IP address of your virtual machine. In the example above, the IP address is *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -118,13 +117,13 @@ ssh <publicIpAddress>
 
 ## Validate communication
 
-Use the following command to confirm communication with *myVm2* from *myVm1*:
+Use the following command to confirm communication with *myVm1* from *myVm2*:
 
 ```bash
-ping myVm2 -c 4
+ping myVm1 -c 4
 ```
 
-You receive four replies from *10.0.0.5*. You can communicate with *myVm2* from *myVm1*, because both virtual machines have private IP addresses assigned from the *default* subnet. You are able to ping by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network.
+You receive four replies from *10.0.0.4*. You can communicate with *myVm1* from *myVm2*, because both virtual machines have private IP addresses assigned from the *default* subnet. You are able to ping by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network.
 
 Use the following command to confirm outbound communication to the Internet:
 
