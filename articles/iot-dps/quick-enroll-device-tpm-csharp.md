@@ -115,15 +115,7 @@ The steps in this section show how to create a .NET Core console app that adds a
 7. Finally, replace the body of the **Main** method with the following lines:
    
    ```csharp
-   try
-   {
-       RunSample().GetAwaiter().GetResult();
-   }
-   catch (Exception ex)
-   {
-       //Console.WriteLine("\nException thrown:\n");
-       Console.WriteLine("\nThe following exception was thrown:\n" + ex.ToString());
-   }
+   RunSample().GetAwaiter().GetResult();
    Console.WriteLine("\nHit <Enter> to exit ...");
    Console.ReadLine();
    ```
