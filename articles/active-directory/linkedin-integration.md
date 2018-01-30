@@ -1,5 +1,5 @@
 ---
-title: Enablr or disable LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
+title: Enabl or disable LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -28,7 +28,7 @@ When users in your organization connect their LinkedIn account to their work or 
 ## Privacy considerations
 Enabling LinkedIn integration in Azure AD enables Microsoft apps and services to access some of your users' LinkedIn information. Read the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement/) to learn more about the privacy considerations when enabling LinkedIn integration in Azure AD. 
 
-## Enable LinkedIn integration
+## Manage LinkedIn integration
 LinkedIn integration for enterprises is enabled by default in Azure AD. Enabling LinkedIn integration allows all users in your organization to use LinkedIn features within Microsoft services, such as viewing LinkedIn profiles in Outlook. Disabling LinkedIn integration  removes LinkedIn features from Microsoft apps and services and stops data sharing between LinkedIn and your organization via Microsoft services.
 
 ### Enable or disable LinkedIn integration for your organization in the Azure portal
