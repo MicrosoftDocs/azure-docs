@@ -147,7 +147,7 @@ Security Center relies on a minimum of two weeks of data in order to create a ba
 
   If you click on the three dots at the end of each line, you are able to delete that specific rule or edit the allowed users.
 
-4. After making changes, click the **Save** button. If you decide to not apply the changes, click **Discard**.
+4. After making changes on the **Adaptive application controls** page, click the **Save** button. If you decide to not apply the changes, click **Discard**.
 
 ### Not recommended list
 
