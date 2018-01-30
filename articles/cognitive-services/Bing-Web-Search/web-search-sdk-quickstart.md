@@ -32,7 +32,6 @@ Then, instantiate the client:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
-WebResults(client);
 
 ```
 Use the client to search with a query text:
