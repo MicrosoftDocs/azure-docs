@@ -32,7 +32,6 @@ Then, instantiate the client:
 ```
 var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
-ImageResults(client);
 
 ```
 Use the client to search with a query text:
