@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -71,7 +71,7 @@ The following steps configure setup of the agent for Log Analytics in Azure and 
 
 ## Configure agent to communicate with a proxy server
 
-Perform the following steps if your Linux computers need to communicate through a proxy server to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.
+Perform the following steps if your Linux computers need to communicate through a proxy server to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.    
 
 1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 

@@ -175,4 +175,3 @@ Your user is now logged into the developer portal for your API Management servic
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-

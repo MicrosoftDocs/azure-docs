@@ -282,8 +282,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
+<!--
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Securing the DMZ subnet**
 

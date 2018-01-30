@@ -3,7 +3,7 @@ title: Managed Service Identity (MSI) for Azure Active Directory
 description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
+ms.author: skwan
 
 ---
 
@@ -60,6 +60,8 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 |                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Use Managed Service Identity with Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../event-hubs/event-hubs-managed-service-identity.md) |
 
 ## Which Azure services support Managed Service Identity?
 

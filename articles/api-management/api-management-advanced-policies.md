@@ -89,7 +89,7 @@ This topic provides a reference for the following API Management policies. For i
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  

@@ -38,13 +38,13 @@ To run the CLI script examples, you have three options:
 
 After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-cli-windows-vm.md): 
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```azurecli-interactive
    az login
    ```
 
-2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#list) to get the service principal for the VM named "myVM", which was created when we enabled MSI on the VM:
+2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#az_resource_list) to get the service principal for the VM named "myVM", which was created when we enabled MSI on the VM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
