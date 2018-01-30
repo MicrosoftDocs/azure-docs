@@ -58,7 +58,7 @@ Start with the [API console](try-image-api.md) or use the [.NET quickstart](imag
 
 ### Text moderation
 
-Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity and personally identifiable information (PII). 
+Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
 
 
 ### Video moderation
