@@ -130,7 +130,7 @@ The steps in this section show how to create a .NET Core console app that adds a
 
     ![Enrollment properties in the command output](media/quick-enroll-device-tpm-csharp/output.png)
 
-3. To Verify that the individual enrollment has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Individual Enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the endorsement key and other properties for the entry.
+3. To verify that the individual enrollment has been created, on the Device Provisioning Service summary blade in the Azure portal, select **Manage enrollments**, then select the **Individual Enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID you used in the sample. Click the entry to verify the endorsement key and other properties for the entry.
 
     ![Enrollment properties in the portal](media/quick-enroll-device-tpm-csharp/verify-enrollment-portal.png)
  
@@ -141,7 +141,7 @@ If you plan to explore the C# service sample, do not clean up the resources crea
 
 1. Close the C# sample output window on your machine.
 2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
-1. If you followed the steps in the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to create a simulated TPM device: 
+3. If you followed the steps in the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) Quickstart to create a simulated TPM device: 
 
     1. Close the TPM simulator window and the sample output window for the simulated device.
     2. In the Azure portal, navigate to the IoT Hub where your device was provisioned. In the left-hand menu under **Explorers**, click **IoT Devices**, select the check box next to your device, and then click **Delete** at the top of the window.
