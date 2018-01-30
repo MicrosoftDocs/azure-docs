@@ -29,10 +29,12 @@ In general, unprovisioning a device involves two steps:
 
 2. Disable or delete the device's entry in the identity registry for the IoT Hub where it was provisioned. To learn more, see [Manage device identities](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) in the Azure IoT Hub documentation. 
 
-The exact steps you take to unprovision a device will depend on the attestation mechanism it uses.
+The exact steps you take to unprovision a device depend on its attestation mechanism and its applicable enrollment entry with your provisioning service.
 
-Devices that use TPM attestation or X.509 attestation with a self-signed leaf certificate (no certificate chain) are provisioned through an individual enrollment entry. For these devices, you can delete the entry to permanently revoke the device's access to the provisioning service or disable the entry to temporarily revoke its access, and then follow-up by either deleting or disabling the device in the identity registry with the IoT hub that it was provisioned to.
+## Individual enrollments
+Devices that use TPM attestation or X.509 attestation with a leaf certificate are provisioned through an individual enrollment entry. For these devices, you can delete the entry to permanently revoke the device's access to the provisioning service or disable the entry to temporarily revoke its access, and then follow-up by either deleting or disabling the device in the identity registry with the IoT hub that it was provisioned to. Be aware that if you delete an individual enrollment for a device that uses X.509 attestation and an enabled enrollment group exists for a signing certificate in that device's certificate chain, the device can re-enroll.
 
+## Enrollment groups
 With X.509 attestation, devices can also be provisioned through an enrollment group. Enrollment groups are configured with a signing certificate, either an intermediate or root CA certificate, and control access to the provisioning service for devices with that certificate in their certificate chain. To learn more about enrollment groups and X.509 certificates with the provisioning service, see [X.509 certificates](concepts-security.md#x509-certificates). 
 
 To see a list of devices that have been provisioned through an enrollment group, you can view the enrollment group's details. This is an easy way to understand which IoT hub each device has been provisioned to. To view the device list: 
