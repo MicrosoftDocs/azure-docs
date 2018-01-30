@@ -13,12 +13,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
 
 ---
 
 # Configure deployment sources
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 
 App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers. This feature lets application developers deploy direct from their source control repositories. If users want to configure App Service to connect to their repositories, a cloud operator must first configure the integration between App Service on Azure Stack and the Source Control Provider.  
 
