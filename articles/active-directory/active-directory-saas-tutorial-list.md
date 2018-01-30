@@ -52,7 +52,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-airwatch-tutorial.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-alcumus-info-tutorial.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-allocadia-tutorial.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/AWS)](active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-anaplan-tutorial.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-answerhub-tutorial.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
 | ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-apexportal-tutorial.png)| [Apex Portal](active-directory-saas-apexportal-tutorial.md)
