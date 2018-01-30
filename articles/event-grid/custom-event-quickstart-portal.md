@@ -3,18 +3,18 @@ title: Custom events for Azure Event Grid with the Azure portal | Microsoft Docs
 description: Use Azure Event Grid and PowerShell to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
 # Create and route custom events with the Azure portal and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open-source, third-party tool called [RequestBin](https://requestb.in/).
 
 >[!NOTE]
->**RequestBin** is an open source tool that is not intended for high throughput usage. The use of the tool here is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+>**RequestBin** is an open-source tool that is not intended for high throughput usage. The use of the tool here is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
 
 When you are finished, you see that the event data has been sent to an endpoint.
 
@@ -46,7 +46,7 @@ A topic provides a user-defined endpoint that you post your events to.
 
    ![Add event grid topic](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Provide a name for the topic. The topic name must be unique because it is represented by a DNS entry. For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Select the resource group you created earlier. Select **Create**.
+1. Provide a name for the topic. The topic name must be unique because it is represented by a DNS entry. Select one of the [supported regions](overview.md). Select the resource group you created earlier. Select **Create**.
 
    ![Provide event grid topic values](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -56,7 +56,7 @@ A topic provides a user-defined endpoint that you post your events to.
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin is an open source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin is an open-source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
 
 ## Subscribe to a topic
 
@@ -113,6 +113,8 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```
