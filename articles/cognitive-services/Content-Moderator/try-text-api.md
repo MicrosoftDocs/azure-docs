@@ -30,7 +30,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **clssify**, select **true**. Leave the **ListId** field empty.
 
-  ![Text - Screen console query parameters](images/text-api-console-inputs.png)
+  ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
  
 4.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
