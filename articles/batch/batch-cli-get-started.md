@@ -66,7 +66,7 @@ There are a few different ways to log into Azure, described in detail in [Log in
 1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Log in interactively when you are running Azure CLI commands yourself from the command line.
 2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
-For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/#login) on the command line:
+For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/#az_login) on the command line:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
