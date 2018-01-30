@@ -1,6 +1,6 @@
 ---
-title: Create a virtual network - Azure portal | Microsoft Docs
-description: Quickly learn to create a virtual network using the Azure portal.
+title: Create a virtual network in Azure - Portal | Microsoft Docs
+description: Quickly learn to create a virtual network using the Azure portal. A virtual network enables many types of Azure resources to communicate privately with each other.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using the Azure portal
 
-In this article, you learn how to create a virtual network. You can deploy several types of Azure resources into a virtual network and allow them to communicate with each other privately, and with the Internet. After creating the virtual network, you deploy two virtual machines into the virtual network so they can communicate privately with each other, and with the Internet.
+In this article, you learn how to create a virtual network. You can deploy many types of Azure resources into a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -69,14 +69,10 @@ A virtual network enables several types of Azure resources to communicate privat
 
     You see that the **Private IP** address is *10.0.0.4*. In step 5, under **Settings**, you selected the *myVirtualNetwork* virtual network and accepted the subnet named *default* for **Subnet**. When you [created the virtual network](#create-a-virtual-network), you accepted the default value of 10.0.0.0/24 for the subnet **Address range**. Azure's DHCP server assigns the first available address for the subnet you select to the virtual machine. Since Azure reserves the first four addresses (0-3) of each subnet, 10.0.0.4 is the first available IP address available for the subnet.
 
-    The **Public IP** address assigned is different than the address assigned to your virtual machine. A virtual machine isn't required to have a public IP address, but Azure assigns a public, Internet routable IP address to each virtual machine, by default. The public IP address is assigned to the virtual machine from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). A virtual machine must have a public IP address assigned to it for you be able to connect to the virtual machine from the Internet. While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
+    The **Public IP** address assigned is different than the address assigned to your virtual machine. A virtual machine isn't required to have a public IP address, but Azure assigns a public, Internet routable IP address to each virtual machine, by default. The public IP address is assigned to the virtual machine from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
 
-8. Complete steps 1-7 again, with the following changes:
-    
-    - In step 3, name the virtual machine *myVm2*.
-    - In step 5, click **Public IP address**, then click **None**, because it isn't necessary to connect to this virtual machine from the Internet. Regardless of whether a public IP address is assigned to a virtual machine, the virtual machine can still communicate outbound to the Internet.
-
-    After the virtual machine is created, click **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
+8. Complete steps 1-7 again, but in step 3, name the virtual machine *myVm2*. 
+9. After the virtual machine is created, click **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
 
 ## Connect to a virtual machine
 
@@ -87,8 +83,6 @@ A virtual network enables several types of Azure resources to communicate privat
 
 2. After clicking the **Connect** button, an .rdp file is downloaded to your computer.  
 3. Open the rdp file. If prompted, click **Connect**. Enter the user name and password you specified when creating the virtual machine, then click **OK**. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
-
-The connection succeeds because a public IP address is assigned to *myVm1*. You cannot connect to *myVm2* from the Internet because *myVm2* does not have a public IP address assigned to it.
 
 ## Validate communication
 
@@ -114,7 +108,7 @@ To confirm outbound communication to the Internet, enter the following command:
 ping bing.com
 ```
 
-You receive four replies from bing.com.
+You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet.
 
 ## Clean up resources
 

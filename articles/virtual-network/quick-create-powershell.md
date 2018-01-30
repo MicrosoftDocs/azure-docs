@@ -1,6 +1,6 @@
 ---
-title: Create a virtual network - Azure PowerShell | Microsoft Docs
-description: Quickly learn to create a virtual network using PowerShell.
+title: Create a virtual network in Azure - PowerShell | Microsoft Docs
+description: Quickly learn to create a virtual network using PowerShell. A virtual network enables many types of Azure resources to communicate privately with each other.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -21,7 +21,7 @@ ms.custom:
 
 # Create a virtual network using PowerShell
 
-In this article, you learn how to create a virtual network. You can deploy several types of Azure resources into a virtual network and allow them to communicate with each other privately, and with the Internet. After creating the virtual network, you deploy two virtual machines into the virtual network so they can communicate privately with each other, and with the Internet.
+In this article, you learn how to create a virtual network. You can deploy many types of Azure resources into a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network and communicate privately between them.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -39,34 +39,40 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a virtual network
 
-Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name default `
-    -AddressPrefix 10.0.0.0/24
-```
-
-All subnets have an address prefix that exists within the virtual network's address prefix. The address prefix is specified in CIDR notation. The address space 10.0.0.0/24 encompasses 10.0.0.0-10.0.0.254, but only the addresses 10.0.0.4-10.0.0.254 are available, because Azure reserves the first four addresses (0-3) and the last address in each subnet.
-
-Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork), and add the subnet configuration to it:
-
-```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/24 `
-  -Subnet $subnetConfig
+  -AddressPrefix 10.0.0.0/24
 ```
 
-All virtual networks have one or more address prefixes assigned to them. The address space is specified in CIDR notation. The address space 10.0.0.0/24 encompasses 10.0.0.0-10.0.0.254. Since the subnet address prefix is the same, only one subnet can exist in the virtual network.
+All virtual networks have one or more address prefixes assigned to them. The address space is specified in CIDR notation. The address space 10.0.0.0/24 encompasses 10.0.0.0-10.0.0.254. Virtual networks have zero or more subnets within them. Resources are deployed into a subnet in a virtual network. 
+
+Create a subnet configuration with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+
+```azurepowershell-interactive
+$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name default `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
+
+All subnets have an address prefix that exists within the virtual network's address prefix. The address prefix is specified in CIDR notation. The subnet address prefix encompasses 10.0.0.0-10.0.0.254, but only the addresses 10.0.0.4-10.0.0.254 are available, because Azure reserves the first four addresses (0-3) and the last address in each subnet. Since the subnet address prefix is the same as the virtual network address prefix, only one subnet can exist in this virtual network.
+
+Write the subnet configuration to the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), which creates the subnet:
+
+```azurepowershell-interactive
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
 
 ## Create virtual machines
 
 A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate and understand how communication between virtual machines in a virtual network works in a later step.
 
-Create a virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
+Create a virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine. The location that a virtual machine is created in must be the same location the virtual network exists in. The virtual machine isn't required to be in the same resource group as the virtual machine, though it is in this article.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -76,7 +82,7 @@ New-AzureRmVm `
     -SubnetName "default" `
     -Name "myVm1"
 ```
-Azure DHCP automatically assigned 10.0.0.4 to the virtual machine because it is the first available address in the *default* subnet. Azure created and assigned a public IP address to the virtual machine. The public IP address is not assigned from within the virtual network or subnet address prefixes. Public IP addresses are assigned from a pool of public, Internet-routable IP addresses that are allocated to each Azure location. While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
+Azure DHCP automatically assigned 10.0.0.4 to the virtual machine because it is the first available address in the *default* subnet. Azure created and assigned a public IP address to the virtual machine. The public IP address is not assigned from within the virtual network or subnet address prefixes. Public IP addresses are assigned from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
 
 Create a second virtual machine. 
 
@@ -86,19 +92,6 @@ New-AzureRmVm `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
   -Name "myVm2"
-```
-
-Azure automatically assigned a public IP address to the virtual machine, but the *myVm2* virtual machine doesn't need one, since it won't be accessed from the Internet. Remove the public IP address with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) and [Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface).
-
-```azurepowershell-interactive
-# Retrieve the network interface Azure created for the myVm2 virtual machine into a variable.
-$nic = Get-AzureRmNetworkInterface -Name myVm2 -ResourceGroup myResourceGroup
-
-# Remove the public IP address association to the network interface by setting it to $null.
-$nic.IpConfigurations.publicipaddress.id = $null
-
-# Set the network interface configuration with the public IP address removed.
-Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
 Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
@@ -119,11 +112,9 @@ Use the following command to create a remote desktop session with the *myVm1* vi
 mstsc /v:<publicIpAddress>
 ```
 
-The connection succeeds because a public IP address is assigned to *myVm1*. You cannot connect to *myVm2* from the Internet because *myVm2* does not have a public IP address assigned to it.
+## Validate communication
 
-## Validate virtual machine communication
-
-To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine, provide the credentials you used when you created the virtual machine and complete the connection:
+To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine. Provide the credentials you used when you created the virtual machine, and then complete the connection:
 
 ```
 mstsc /v:myVm2
@@ -145,7 +136,7 @@ To confirm outbound communication to the Internet, enter the following command:
 ping bing.com
 ```
 
-You receive four replies from bing.com.
+You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet.
 
 
 ## Clean up resources
@@ -158,7 +149,7 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this article, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic management tasks, continue to the tutorial for creating a custom virtual network and managing it.
+In this article, you deployed a default virtual network with one subnet and two virtual machines. To learn how to create a custom virtual network with multiple subnets and perform basic virtual network management tasks, continue to the tutorial for creating a custom virtual network and managing it.
 
 
 > [!div class="nextstepaction"]

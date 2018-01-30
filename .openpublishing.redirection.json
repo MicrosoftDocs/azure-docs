@@ -16528,7 +16528,12 @@
         "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
         "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
         "redirect_document_id": false
-}
+    },
+    {
+    "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+    "redirect_url": "/azure/virtual-network/quick-create-portal.md",
+    "redirect_document_id": false
+    }
 	
 
    ]
