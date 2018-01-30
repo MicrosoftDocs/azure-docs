@@ -184,10 +184,13 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 ## Next steps
 
-You have used VS Code to create a function app with a simple HTTP triggered function. 
+You have used VS Code to create a function app with a simple HTTP triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).   
+Next you may want to learn more about local testing and debugging using the Azure Functions Core Tools.
 
-+ To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md). 
-+ To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
+> [!div class="nextstepaction"]
+> [Code and test locally](functions-run-local.md).
+ 
+
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
