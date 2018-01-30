@@ -105,9 +105,11 @@ and the full script is available in
 
 ## DSC Extension in ARM Templates
 
+Azure Resource Manager (ARM) deployment templates
+are the expected way to work with the DSC Extension for most scenarios.
 For information and examples of including the DSC Extension
 in ARM deployment templates,
-see the documentation page
+see the dedicated documentation page
 [Desired State Configuration Extension with Azure Resource Manager templates](extensions-dsc-template.md).
 
 ## DSC Extension PowerShell Cmdlets
