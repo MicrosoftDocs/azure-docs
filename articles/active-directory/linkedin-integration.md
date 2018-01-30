@@ -1,5 +1,5 @@
 ---
-title: Enabl or disable LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
+title: Enable or disable LinkedIn integration for Office applications in Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
