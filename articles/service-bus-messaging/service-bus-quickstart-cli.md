@@ -45,7 +45,7 @@ If you choose to install and use the CLI locally, this article requires that you
 1. Once CLI is installed, open a command prompt and issue the following command:
 
    ```azurecli-interactive
-   az extension add --source https://prodsbclipackages.blob.core.windows.net/cliextensions/servicebus-0.0.1-py2.py3-none-any.whl
+   az extension add --name servicebus
    ```
 
 2. Run the following command to log in to Azure:
