@@ -4,7 +4,7 @@ description: This article gives a brief overview of how you can manage speed and
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9

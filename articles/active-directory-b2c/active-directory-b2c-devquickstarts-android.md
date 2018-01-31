@@ -4,7 +4,7 @@ description: This article will show you how to create an Android app that uses A
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: d00947c3-dcaa-4cb3-8c2e-d94e0746d8b2
@@ -28,8 +28,6 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
-Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
-
 ## Get an Azure AD B2C directory
 
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
@@ -41,8 +39,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Include a **Native Client** in the application.
 * Copy the **Application ID** that is assigned to your app. You will need this later.
 * Set up a native client **Redirect URI** (e.g. com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You will also need this later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 

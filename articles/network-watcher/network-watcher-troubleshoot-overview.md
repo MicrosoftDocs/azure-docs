@@ -3,7 +3,7 @@ title: Introduction to resource troubleshooting in Azure Network Watcher | Micro
 description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
+ms.date: 06/19/2017
+ms.author: jdial
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+
+![portal][2]
 
 ## Results
 
@@ -53,7 +55,7 @@ The following tables show the different fault types (id under results from the p
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | No Connections are not connected. This is only a warning.| Yes|
+| ConnectionsNotConnected | Connections are not connected. This is only a warning.| Yes|
 | GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection
@@ -74,6 +76,24 @@ The following tables show the different fault types (id under results from the p
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
+## Supported Gateway types
+
+The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+|  |  |
+|---------|---------|
+|**Gateway types**   |         |
+|VPN      | Supported        |
+|ExpressRoute | Not Supported |
+|Hypernet | Not Supported|
+|**VPN types** | |
+|Route Based | Supported|
+|Policy Based | Not Supported|
+|**Connection types**||
+|IPSec| Supported|
+|VNet2Vnet| Supported|
+|ExpressRoute| Not Supported|
+|Hypernet| Not Supported|
+|VPNClient| Not Supported|
 
 ## Log files
 
@@ -84,7 +104,7 @@ The resource troubleshooting log files are stored in a storage account after res
 > [!NOTE]
 > In some cases, only a subset of the logs files is written to storage.
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
 
 ### ConnectionStats.txt
 
@@ -189,7 +209,8 @@ Elapsed Time            330 sec
 
 ## Next steps
 
-Learn how to diagnose VPN Gateways and Connections with PowerShell by visiting [Gateway troubleshooting - PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+Learn how to diagnose VPN Gateways and Connections through the portal by visiting [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png

@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
@@ -15,14 +15,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/09/2017"
+ms.date: "05/02/2017"
 ms.author: mikeray
 
 ---
 
-# Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions
+# Configure an Always On availability group on Azure virtual machines in different regions
 
-This article explains how to configure a SQL Server Always On Availability Group replica on Azure Virtual Machines in a remote Azure location. Use this configuration to support disaster recovery.
+This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
 
 This article applies to Azure Virtual Machines in Resource Manager mode.
 
@@ -77,7 +77,7 @@ To create a replica in a remote data center, do the following steps:
    This load balancer must:
 
    - Be in the same network and subnet as the new virtual machine.
-   - Have a static IP address for the Availability Group listener.
+   - Have a static IP address for the availability group listener.
    - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
@@ -103,7 +103,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
+1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 

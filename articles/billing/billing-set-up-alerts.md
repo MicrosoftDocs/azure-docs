@@ -5,7 +5,7 @@ keywords: credit alert,billing alert
 services: ''
 documentationcenter: ''
 author: vikdesai
-manager: vikdesai
+manager: tonguyen
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 10/9/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
 ---

@@ -44,7 +44,7 @@ See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history.
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
 
 ## Web Apps
-Note that Web Apps do not use Azure Diagnostics. Find the equivalent information at [Web Apps](../app-service-web/web-sites-enable-diagnostic-log.md)
+Note that Web Apps do not use Azure Diagnostics. Find the equivalent information at [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## Cloud Services using Azure Diagnostics
 * If using Visual Studio, see [Use Visual Studio to trace a Cloud Services application](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see

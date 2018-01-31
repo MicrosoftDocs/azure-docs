@@ -4,7 +4,7 @@ description: How to build a .NET MVC Web App that signs users in with both perso
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Add sign-in to an .NET MVC web app
@@ -60,7 +61,7 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
 3. Add an "OWIN Startup Class" to the project called `Startup.cs`  Right click on the project --> **Add** --> **New Item** --> Search for "OWIN".  The OWIN middleware will invoke the `Configuration(...)` method when your app starts.
 4. Change the class declaration to `public partial class Startup` - we've already implemented part of this class for you in another file.  In the `Configuration(...)` method, make a call to ConfigureAuth(...) to set up authentication for your web app  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -77,7 +78,7 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
 
 5. Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -92,7 +93,7 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",
@@ -114,7 +115,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -123,7 +124,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 - You can also use OWIN to directly issue authentication requests from within your code.  Open `Controllers\AccountController.cs`.  In the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests, respectively.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -174,7 +175,7 @@ When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_t
 
 - Open the `Controllers\HomeController.cs` file.  You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {

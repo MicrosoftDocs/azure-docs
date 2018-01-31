@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Create workflow definitions for logic apps using JSON
 
-You can create workflow definitions for [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 
+You can create workflow definitions for [Azure Logic Apps](logic-apps-overview.md) 
 with simple, declarative JSON language. If you haven't already, first review 
-[how to create your first logic app with Logic App Designer](logic-apps-create-a-logic-app.md). 
+[how to create your first logic app with Logic App Designer](quickstart-create-first-logic-app-workflow.md). 
 Also, see the [full reference for the Workflow Definition Language](http://aka.ms/logicappsdocs).
 
 ## Repeat steps over a list
@@ -314,7 +314,7 @@ the first five characters are not used.
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

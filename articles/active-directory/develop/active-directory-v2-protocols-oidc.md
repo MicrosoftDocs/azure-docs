@@ -4,7 +4,7 @@ description: Build web applications by using the Azure AD v2.0 implementation of
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 and the OpenID Connect protocol

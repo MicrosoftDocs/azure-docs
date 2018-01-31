@@ -1,210 +1,170 @@
 ---
-title: Create or update an Azure Application Gateway with web application firewall | Microsoft Docs
-description: Learn how to create an Application Gateway with web application firewall by using the portal
+title: Create an application gateway with a web application firewall - Azure portal | Microsoft Docs
+description: Learn how to create an application gateway with a web application firewall by using the Azure portal.
 services: application-gateway
-documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-ms.author: gwallace
+ms.date: 01/26/2018
+ms.author: davidmu
 
 ---
 
-# Create an application gateway with web application firewall by using the portal
+# Create an application gateway with a web application firewall using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
+You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
 
-The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
+In this article, you learn how to:
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
-Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
-To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
+> [!div class="checklist"]
+> * Create an application gateway with WAF enabled
+> * Create the virtual machines used as backend servers
+> * Create a storage account and configure diagnostics
 
-## Scenarios
+![Web application firewall example](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-In this article there are two scenarios:
+## Log in to Azure
 
-In the first scenario, you learn to [add web application firewall to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway).
+Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
-In the second scenario, you learn to [create an application gateway with web application firewall](#create-an-application-gateway-with-web-application-firewall)
+## Create an application gateway
 
-![Scenario example][scenario]
+A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-> [!NOTE]
-> Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+1. Click **New** found on the upper left-hand corner of the Azure portal.
+2. Select **Networking** and then select **Application Gateway** in the Featured list.
+3. Enter these values for the application gateway:
 
-## Before you begin
+    - *myAppGateway* - for the name of the application gateway.
+    - *myResourceGroupAG* - for the new resource group.
+    - Select *WAF* for the tier of the application gateway.
 
-Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
-only additional application gateways are able to be added to the subnet.
+    ![Create new application gateway](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Add web application firewall to an existing application gateway
+4. Accept the default values for the other settings and then click **OK**.
+5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-This scenario updates an existing application gateway to support web application firewall in prevention mode.
+    - *myVNet* - for the name of the virtual network.
+    - *10.0.0.0/16* - for the virtual network address space.
+    - *myAGSubnet* - for the subnet name.
+    - *10.0.0.0/24* - for the subnet address space.
 
-### Step 1
+    ![Create virtual network](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-Navigate to the Azure portal, select an existing Application Gateway.
+6. Click **OK** to create the virtual network and subnet.
+7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
+9. Review the settings on the summary page, and then click **OK** to create network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
+the deployment finishes successfully before moving on to the next section.
 
-![Creating Application Gateway][1]
+### Add a subnet
 
-### Step 2
+1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
+2. Click **Subnets**, and then click **Subnet**.
 
-Click **Web application firewall** and update the application gateway settings. When complete click **Save**
+    ![Create subnet](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-The settings to update an existing application gateway to support web application firewall are:
+3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
 
-* **Upgrade to WAF Tier** - This setting is required to configure WAF.
-* **Firewall status** - This setting either disables or enables web application firewall.
-* **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
-* **Rule set** - This setting determines the [core rule set](application-gateway-web-application-firewall-overview.md#core-rule-sets) that is used to protect the backend pool members.
-* **Configure disabled rules** - To prevent possible false positives, this setting allows you to disable certain [rules and rule groups](application-gateway-crs-rulegroups-rules.md).
+## Create backend servers
 
->[!NOTE]
-> When upgrading an existing application gateway to the WAF SKU, the SKU size changes to **medium**. This can be reconfigured after configuration is complete.
+In this example, you create two virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
 
-![blade showing basic settings][2]
+### Create a virtual machine
 
-> [!NOTE]
-> To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
+1. Click **New**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
 
-## Create an application gateway with web application firewall
+    - *myVM* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
+    - Select **Use existing**, and then select *myResourceGroupAG*.
 
-This scenario will:
+4. Click **OK**.
+5. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
+7. Click **Disabled** to disable boot diagnostics.
+8. Click **OK**, review the settings on the summary page, and then click **Create**.
 
-* Create a medium web application firewall application gateway with two instances.
-* Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
-* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-* Configure a certificate for SSL offload.
+### Install IIS
 
-### Step 1
+1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
-Navigate to the Azure portal, click **New** > **Networking** > **Application Gateway**
+    ![Install custom extension](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-![Creating Application Gateway][1-1]
+2. Run the following command to install IIS on the virtual machine: 
 
-### Step 2
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-Next fill out the basic information about the application gateway. Be sure to choose **WAF** as the tier. When complete click **OK**
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzureRmVMExtension.
 
-The information needed for the basic settings is:
+### Add backend servers
 
-* **Name** - The name for the application gateway.
-* **Tier** - The tier of the application gateway, available options are ( **Standard** and **WAF** ). Web application firewall is only available in the WAF Tier.
-* **SKU size** - This setting is the size of the application gateway, available options are ( **Medium** and **Large** ).
-* **Instance count** - The number of instances, this value should be a number between **2** and **10**.
-* **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
-* **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
+1. Click **All resources**, and then click **myAppGateway**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+3. Click **Add target** to add each virtual machine that you created to the backend pool.
 
-![blade showing basic settings][2-2]
+    ![Add backend servers](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-> [!NOTE]
-> An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
+4. Click **Save**.
 
-### Step 3
+## Create a storage account and configure diagnostics
 
-Once the basic settings are defined, the next step is to define the virtual network to be used. The virtual network houses the application that the application gateway does load balancing for.
+## Create a storage account
 
-Click **Choose a virtual network** to configure the virtual network.
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data.
 
-![blade showing settings for application gateway][3]
+1. Click **New** found on the upper left-hand corner of the Azure portal.
+2. Select **Storage**, and then select **Storage account - blob, file, table, queue**.
+3. Enter the name of the storage account, select **Use existing** for the resource group, and then select **myResourceGroupAG**. In this example, the storage account name is *myagstore1*. Accept the default values for the other settings and then click **Create**.
 
-### Step 4
+## Configure diagnostics
 
-In the **Choose Virtual Network** blade, click **Create New**
+Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs.
 
-While not explained in this scenario, an existing Virtual Network could be selected at this point.  If an existing virtual network is used, it is important to know that the virtual network needs an empty subnet or a subnet of only application gateway resources to be used.
+1. In the left-hand menu, click **All resources**, and then select *myAppGateway*.
+2. Under Monitoring, click **Diagnostics logs**.
+3. Click **Add diagnostics setting**.
+4. Enter *myDiagnosticsSettings* as the name for the diagnostics settings.
+5. Select **Archive to a storage account**, and then click **Configure** to select the *myagstore1* storage account that you previously created.
+6. Select the application gateway logs to collect and retain.
+7. Click **Save**.
 
-![choose virtual network blade][4]
+    ![Configure diagnostics](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-### Step 5
+## Test the application gateway
 
-Fill out the network information in the **Create Virtual Network** blade as described in the preceding [Scenario](#scenario) description.
+1. Find the public IP address for the application gateway on the Overview screen. Click **All resources** and then click **myAGPublicIPAddress**.
 
-![Create virtual network blade with information entered][5]
+    ![Record application gateway public IP address](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-### Step 6
+2. Copy the public IP address, and then paste it into the address bar of your browser.
 
-Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you can click the **Choose a specific private IP address** checkbox to enter one manually.
-
-Click **Choose a public IP address**. If an existing public IP address is available it can be chosen at this point, in this scenario you create a new public IP address. Click **Create new**
-
-![Choose public IP address blade][6]
-
-### Step 7
-
-Next give the public IP address a friendly name and click **OK**
-
-![Create public IP Address blade][7]
-
-### Step 8
-
-Next, you setup the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
-further configuration is required.
-
-To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
-
-Click **HTTPS**, click the **folder** icon next to the **Upload PFX certificate** textbox.
-Navigate to the .pfx certificate file on your file system. Once it is selected, give the certificate a friendly name and type the password for the .pfx file.
-
-Once complete click **OK** to review the settings for the Application Gateway.
-
-![Listener Configuration section on Settings blade][8]
-
-### Step 9
-
-Configure the **WAF** specific settings.
-
-* **Firewall status** - This setting turns WAF on or off.
-* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized response.
-
-![web application firewall settings][9]
-
-### Step 10
-
-Review the Summary page and click **OK**.  Now the application gateway is queued up and created.
-
-### Step 11
-
-Once the application gateway has been created, navigate to it in the portal to continue configuration of the application gateway.
-
-![Application Gateway resource view][10]
-
-These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
-
-> [!NOTE]
-> Application gateways created with the basic web application firewall configuration are configured with CRS 3.0 for protections.
+    ![Test application gateway](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+In this article, you learned how to:
 
-Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
+> [!div class="checklist"]
+> * Create an application gateway with WAF enabled
+> * Create the virtual machines used as backend servers
+> * Create a storage account and configure diagnostics
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-portal.md)
-
-<!--Image references-->
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[1-1]: ./media/application-gateway-web-application-firewall-portal/figure1-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[4]: ./media/application-gateway-web-application-firewall-portal/figure4.png
-[5]: ./media/application-gateway-web-application-firewall-portal/figure5.png
-[6]: ./media/application-gateway-web-application-firewall-portal/figure6.png
-[7]: ./media/application-gateway-web-application-firewall-portal/figure7.png
-[8]: ./media/application-gateway-web-application-firewall-portal/figure8.png
-[9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
+To learn more about application gateways and their associated resources, continue to the how-to articles.

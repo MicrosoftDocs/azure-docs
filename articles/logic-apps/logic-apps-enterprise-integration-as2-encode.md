@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Encode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -38,7 +38,7 @@ that's already defined in your integration account
 
 ## Encode AS2 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode AS2 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 
@@ -87,6 +87,9 @@ The Encode AS2 connector performs these tasks:
 
 To try deploying a fully operational logic app and sample AS2 scenario, 
 see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## View the swagger
+See the [swagger details](/connectors/as2/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

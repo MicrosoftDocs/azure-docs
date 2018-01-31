@@ -4,7 +4,7 @@ description: Learn how to create an access review for privileged identities with
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 05/04/2017
 ms.author: billmath
-
+ms.custom: pim
 ---
 # How to start an access review in Azure AD Privileged Identity Management
 Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).

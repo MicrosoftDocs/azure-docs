@@ -15,7 +15,7 @@ ms.author: alch
 # Conference Instance Entity
 
 <sub>
-*Below attributes are specific to conference instance entity. (Ty = '4')
+*Following attributes are specific to conference instance entity. (Ty = '4')
 </sub>
 
 Name	|Description							|Type       | Operations
@@ -36,7 +36,7 @@ PCS.CN	|Conference series name of the instance |String 	|Equals
 PCS.CId	|Conference series ID of the instance |Int64 	|Equals
 CC		|Conference instance total citation count			|Int32		|none  
 ECC		|Conference instance total estimated citation count	|Int32		|none
-SSD		|Satori data 							|String		|none
+
 
 ## Extended Metadata Attributes ##
 

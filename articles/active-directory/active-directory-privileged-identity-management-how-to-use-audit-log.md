@@ -4,7 +4,7 @@ description: Learn how to use the audit log in the Azure Privileged Identity Man
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
+ms.custom: pim
 
 ---
 # Using the audit log in PIM
