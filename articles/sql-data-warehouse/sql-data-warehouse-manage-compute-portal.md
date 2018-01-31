@@ -19,15 +19,7 @@ ms.author: elbutter;barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)
-> [!div class="op_single_selector"]
-> * [Overview](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
-
+Scale compute resources in Azure SQL Data Warehouse by using the Azure portal.
 
 ## Scale compute power
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
@@ -44,43 +36,6 @@ To change compute resources:
 
     ![Click Save][3]
 
-<a name="pause-compute-bk"></a>
-
-## Pause compute
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-To pause a database:
-
-1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Online**.
-
-    ![Online status][6]
-2. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
-
-    ![Confirm pause][7]
-3. While SQL Data Warehouse is starting the database, the status is **Pausing**.
-4. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
-
-    ![Pause status][4]
-
-<a name="resume-compute-bk"></a>
-
-## Resume compute
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-To resume a database:
-
-1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Paused**.
-
-    ![Pause database][4]
-2. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
-
-    ![Confirm resume][5]
-3. While SQL Data Warehouse is starting the database, the status is "Resuming".
-4. When the status is **online**, the database is ready.
-
-    ![Online status][6]
-
-<a name="next-steps-bk"></a>
 
 ## Next steps
 For more information, see [Management overview][Management overview].
@@ -89,10 +44,7 @@ For more information, see [Management overview][Management overview].
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
-[4]: ./media/sql-data-warehouse-manage-compute-portal/resume-database.png
-[5]: ./media/sql-data-warehouse-manage-compute-portal/resume-confirm.png
-[6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
-[7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
+
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
