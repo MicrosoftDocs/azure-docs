@@ -1169,6 +1169,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-move-resources.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
@@ -2220,7 +2225,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-move-resources.md",
-            "redirect_url": "/azure/app-service/app-service-move-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
         },
         {

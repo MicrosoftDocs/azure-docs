@@ -164,7 +164,7 @@
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
-      href: app-service-move-resources.md
+      href: ../azure-resource-manager/resource-group-move-resources.md#app-service-limitations?toc=%2fazure%2fapp-service%2ftoc.json
   - name: Run background tasks
     items:
     - name: Create WebJobs
