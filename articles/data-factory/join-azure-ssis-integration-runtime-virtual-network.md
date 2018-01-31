@@ -119,7 +119,9 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
 
 	![Integration runtimes tab](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 4. If your Azure SSIS IR is running, in the integration runtime list, select **Stop** button in the **Actions** column for your Azure SSIS IR. You cannot edit an IR until you stop it. 
-5. In the integration runtime list, select **Edit** button in the **Actions** column for your Azure SSIS IR.
+
+	![Stop IR](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+1. In the integration runtime list, select **Edit** button in the **Actions** column for your Azure SSIS IR.
 
 	![Edit integration runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
 5. On the **General settings** page of the **Integration Runtime Setup** window, select **Next**. 
