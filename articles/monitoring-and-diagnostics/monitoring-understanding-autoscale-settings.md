@@ -296,13 +296,13 @@ After Autoscale determines which profile to run, it evaluates all the scale-out 
 
 If one or more scale-out rules are triggered, Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it scales out to the maximum of those capacities, to ensure service availability.
 
-For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-out rules: one that increases capacity by 10 percent, and one that increases capacity by 30 percent. The first rule would result in a new capacity of 11, and the second rule would result in a capacity of 13. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
+For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-out rules: one that increases capacity by 10 percent, and one that increases capacity by 3 counts. The first rule would result in a new capacity of 11, and the second rule would result in a capacity of 13. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
 
 If no scale-out rules are triggered, Autoscale evaluates all the scale-in rules (rules with **direction = “Decrease”**). Autoscale only takes a scale-in action if all of the scale-in rules are triggered.
 
 Autoscale calculates the new capacity determined by the **scaleAction** of each of those rules. Then it chooses the scale action that results in the maximum of those capacities to ensure service availability.
 
-For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-in rules: one that decreases capacity by 50 percent, and one that decreases capacity by 30 percent. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
+For example, let's say there is a virtual machine scale set with a current capacity of 10. There are two scale-in rules: one that decreases capacity by 50 percent, and one that decreases capacity by 3 counts. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability, Autoscale chooses the action that results in the maximum capacity, so the second rule is chosen.
 
 ## Next steps
 Learn more about Autoscale by referring to the following:
