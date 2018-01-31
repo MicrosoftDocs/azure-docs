@@ -154,7 +154,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-filecloud-tutorial.png)| [FileCloud](active-directory-saas-filecloud-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-filesanywhere-tutorial.png)| [FilesAnywhere](active-directory-saas-filesanywhere-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-firmplay-tutorial.png)| [FirmPlay - Employee Advocacy for Recruiting](active-directory-saas-firmplay-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-five9-tutorial.png)| [Five9 Plus Adapter (CTI, Contact Center Agents)](active-directory-saas-five9-tutorial.md)||
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-five9-tutorial.png)| [Five9 Plus Adapter](active-directory-saas-five9-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-flatter-files-tutorial.png)| [Flatter Files](active-directory-saas-flatter-files-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-fm-systems-tutorial.png)| [FM:Systems](active-directory-saas-fm-systems-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-formcom-tutorial.png)| [Form.com](active-directory-saas-formcom-tutorial.md)||
@@ -225,51 +225,51 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kiteworks-tutorial.png)| [Kiteworks](active-directory-saas-kiteworks-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-klue-tutorial.png)| [Klue](active-directory-saas-klue-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-knowbe4-tutorial.png)| [KnowBe4 Security Awareness Training](active-directory-saas-knowbe4-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kontiki.png)| [Kontiki](active-directory-saas-kontiki-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kontiki-tutorial.png)| [Kontiki](active-directory-saas-kontiki-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kronos-tutorial.png)| [Kronos](active-directory-saas-kronos-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kudos.png)| [Kudos](active-directory-saas-kudos-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LandGorillaClient.png)| [Land Gorilla Client](active-directory-saas-landgorilla-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_lcvista.png)| [LCVista](active-directory-saas-lcvista-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LearningAtWork.png)| [Learning at Work](active-directory-saas-learning-at-work-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-kudos-tutorial.png)| [Kudos](active-directory-saas-kudos-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-landgorilla-tutorial.png)| [Land Gorilla Client](active-directory-saas-landgorilla-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-lcvista-tutorial.png)| [LCVista](active-directory-saas-lcvista-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-learning-at-work-tutorial.png)| [Learning at Work](active-directory-saas-learning-at-work-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-learningpool-tutorial.png)| [Learningpool Act](active-directory-saas-learningpool-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LearnUpon.png)| [LearnUpon](active-directory-saas-learnupon-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_lecorpio.png)| [Lecorpio](active-directory-saas-lecorpio-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-learnupon-tutorial.png)| [LearnUpon](active-directory-saas-learnupon-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-lecorpio-tutorial.png)| [Lecorpio](active-directory-saas-lecorpio-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-lessonly-tutorial.png)| [Lesson.ly](active-directory-saas-lessonly-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LifesizeCloud.png)| [Lifesize Cloud](active-directory-saas-lifesize-cloud-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LinkedInElevate.png)| [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md)| [LinkedIn Elevate - User Provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LinkedInLearning.png)| [LinkedIn Learning](active-directory-saas-linkedinlearning-tutorial.md)| [LinkedIn Learning - User Provisioning](active-directory-saas-linkedinlearning-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_linkedinsalesnavigator.png)| [LinkedIn Sales Navigator](active-directory-saas-linkedinsalesnavigator-tutorial.md)| [LinkedIn Sales Navigator - User Provisioning](active-directory-saas-linkedinsalesnavigator-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](active-directory-saas-lifesize-cloud-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md)| [LinkedIn Elevate - User Provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](active-directory-saas-linkedinlearning-tutorial.md)| [LinkedIn Learning - User Provisioning](active-directory-saas-linkedinlearning-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](active-directory-saas-linkedinsalesnavigator-tutorial.md)| [LinkedIn Sales Navigator - User Provisioning](active-directory-saas-linkedinsalesnavigator-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](active-directory-saas-liquidfiles-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](active-directory-saas-litmos-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LogicMonitor.png)| [LogicMonitor](active-directory-saas-logicmonitor-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Lucidchart.png)| [Lucidchart](active-directory-saas-lucidchart-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-logicmonitor-tutorial.png)| [LogicMonitor](active-directory-saas-logicmonitor-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-lucidchart-tutorial.png)| [Lucidchart](active-directory-saas-lucidchart-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Lynda.com.png)| [Lynda.com](active-directory-saas-lynda-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Marketo.png)| [Marketo](active-directory-saas-marketo-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MaxxPoint.png)| [MaxxPoint](active-directory-saas-maxxpoint-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](active-directory-saas-marketo-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-maxxpoint-tutorial.png)| [MaxxPoint](active-directory-saas-maxxpoint-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mcm-tutorial.png)| [MCM](active-directory-saas-mcm-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_menlosecurity.png)| [Menlo Security](active-directory-saas-menlosecurity-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral (MBC)](active-directory-saas-mercerhrs-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-menlosecurity-tutorial.png)| [Menlo Security](active-directory-saas-menlosecurity-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral](active-directory-saas-mercerhrs-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [Merchlogix](active-directory-saas-merchlogix-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-m-files-tutorial.png)| [M-Files](active-directory-saas-m-files-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Admin Console](active-directory-saas-mimecast-admin-console-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-admin-console-tutorial.png)| [Mimecast Admin Console](active-directory-saas-mimecast-admin-console-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast Personal Portal](active-directory-saas-mimecast-personal-portal-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mindflash-tutorial.png)| [Mindflash](active-directory-saas-mindflash-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mixpanel-tutorial.png)| [Mixpanel](active-directory-saas-mixpanel-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobi-tutorial.png)| [MOBI](active-directory-saas-mobi-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobileiron-tutorial.png)| [MobileIron](active-directory-saas-mobileiron-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_mobilexpense.png)| [Mobile Xpense](active-directory-saas-mobilexpense-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobilexpense-tutorial.png)| [Mobile Xpense](active-directory-saas-mobilexpense-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-moveittransfer-tutorial.png)| [MOVEit Transfer - Azure AD integration](active-directory-saas-moveittransfer-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_moxiengage.png)| [Moxi Engage](active-directory-saas-moxiengage-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-moxiengage-tutorial.png)| [Moxi Engage](active-directory-saas-moxiengage-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-moxtra-tutorial.png)| [Moxtra](active-directory-saas-moxtra-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mozy-enterprise-tutorial.png)| [Mozy Enterprise](active-directory-saas-mozy-enterprise-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-mypolicies-tutorial.png)| [myPolicies](active-directory-saas-mypolicies-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-namely-tutorial.png)| [Namely](active-directory-saas-namely-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_neotalogicstudio.png)| [Neota Logic Studio](active-directory-saas-neotalogicstudio-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](active-directory-saas-neotalogicstudio-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](active-directory-saas-netdocuments-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.png)| [Netsuite](active-directory-saas-netsuite-tutorial.md)| [Netsuite - User Provisioning](active-directory-saas-netsuite-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-netsuite-tutorial.png)| [Netsuite](active-directory-saas-netsuite-tutorial.md)| [Netsuite - User Provisioning](active-directory-saas-netsuite-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-new-relic-tutorial.png)| [New Relic](active-directory-saas-new-relic-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.png)| [Cloud Management Portal for Microsoft Azure](active-directory-saas-newsignature-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nexonia.png)| [Nexonia](active-directory-saas-nexonia-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-newsignature-tutorial.png)| [Cloud Management Portal for Microsoft Azure](active-directory-saas-newsignature-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nexonia-tutorial.png)| [Nexonia](active-directory-saas-nexonia-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadesk-tutorial.png)| [Nomadesk](active-directory-saas-nomadesk-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-nomadic-tutorial.png)| [Nomadic](active-directory-saas-nomadic-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-novatus-tutorial.png)| [Novatus](active-directory-saas-novatus-tutorial.md)|
