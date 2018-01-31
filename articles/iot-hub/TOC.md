@@ -114,6 +114,7 @@
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
+#### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
