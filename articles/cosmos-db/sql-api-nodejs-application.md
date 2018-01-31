@@ -382,13 +382,13 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys tab on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys tab on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys tab of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
