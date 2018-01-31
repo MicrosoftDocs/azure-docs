@@ -117,7 +117,8 @@
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Java back end/Java device](iot-hub-java-java-schedule-jobs.md)
+#### [Python back end/Python device](iot-hub-python-python-schedule-jobs.md)
 
 ## Manage
 ### Create an IoT hub 
