@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
 
 ---
@@ -37,6 +37,10 @@ The agent for Linux and Windows communicates outbound with the Log Analytics ser
 The agent for Linux and Windows isn't only for connecting into Log Analytics, it also supports connecting with Azure Automation to host the Hybrid Runbook worker role and management solutions such as Change Tracking and Update Management.  For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For more information and steps on how to configure your Linux or Windows agent to communicate through an OMS Gateway to the Log Analytics service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md). 
+
+> [!NOTE]
+> The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  If your Windows system has TLS 1.2 enabled and you attempt to install the Windows agent it will fail and the agent installation log will show the following error - **Error:  Failed to connect, exception : System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server cannot communicate, because they do not possess a common algorithm.**
+> 
 
 ## Prerequisites
 Before starting, review the following details to verify you meet the minimum system requirements.
