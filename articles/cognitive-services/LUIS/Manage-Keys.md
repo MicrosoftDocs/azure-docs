@@ -42,7 +42,7 @@ The programmatic key has different limits for authoring and endpoint. The subscr
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
-## Create and use an endpoint key:
+## Create and use an endpoint key
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
@@ -67,7 +67,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 <a name="#publishing-to-europe"></a>
 <a name="#publishing-to-australia"></a>
 
-## Publishing regions</a>
+## Publishing regions
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). 
 
 
