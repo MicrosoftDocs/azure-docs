@@ -2,8 +2,8 @@
 title: Azure Batch Rendering service - cloud-scale rendering | Microsoft Docs
 description: Render jobs on Azure virtual machines directly from Maya and on a pay-per-use basis.
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 
 ms.service: batch
 ms.topic: hero-article

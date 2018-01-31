@@ -286,7 +286,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 #### Using the `func run` command in version 1.x
 
 >[!IMPORTANT]  
-> The `func run` command is not supported in version 2.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](functions-versions.md).
+> The `func run` command is not supported in version 2.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. 
 

@@ -13,7 +13,7 @@ ms.author: tomfitz
 
 # Post to custom topic for Azure Event Grid
 
-This article describes how to post an event to a custom topic. It shows the format of the post and event data. The Service Level Agreement (SLA) only applies to posts that match the expected format.
+This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
 
 ## Endpoint
 

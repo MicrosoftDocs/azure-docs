@@ -332,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrate other services with Azure AD]()
-### [Enable LinkedIn integration](linkedin-integration.md)
+## Integrate other services with Azure AD
+### [Integrate LinkedIn with Azure AD](linkedin-integration.md)
 
 ## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
