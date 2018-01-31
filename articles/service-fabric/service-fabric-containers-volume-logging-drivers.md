@@ -50,8 +50,9 @@ The plug-ins are specified in the application manifest as follows:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -63,7 +64,7 @@ The plug-ins are specified in the application manifest as follows:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -79,6 +80,8 @@ The plug-ins are specified in the application manifest as follows:
 ```
 
 The **Source** tag for the **Volume** element refers to the source folder. The source folder can be a folder in the VM that hosts the containers or a persistent remote store. The **Destination** tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container.
+
+Application parameters are supported for volumes as shown in the above manifest snippet (look for `MyStoreVar` for an example use).
 
 When specifying a volume plug-in, Service Fabric automatically creates the volume by using the specified parameters. The **Source** tag is the name of the volume and the **Driver** tag specifies the volume driver plug-in. Options can be specified by using the **DriverOption** tag as follows:
 
