@@ -388,7 +388,7 @@ That takes care of all the initial setup and configuration, now let’s get down
         config.collectionId = "Items";
    
         module.exports = config;
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys tab of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys page of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
