@@ -204,7 +204,7 @@ A Monitoring Reader can read all monitoring data. The following table shows the 
 |Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
 |Microsoft.Support/*|Create and manage support tickets|
 
-## User Access Administrator
+### User Access Administrator
 
 A User Access Administrator can manage user access to Azure resources. The following table shows the permissions granted for the role:
 
