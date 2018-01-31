@@ -49,19 +49,24 @@ The DSC Extension inherits default extension properties as documented in
                   "autoUpgradeMinorVersion": true,
                   "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
                   "settings": {
-                      "configuration": {
-                          "url": "[concat(parameters('_artifactsLocation'), '/', variables('dscExtensionArchiveFolder'), '/', variables('dscExtensionArchiveFileName'))]",
-                          "script": "dscExtension.ps1",
-                          "function": "Main"
-                      },
-                      "configurationArguments": {
-                          "nodeName": "[variables('vmName')]"
-                      }
-                  },
-                  "protectedSettings": {
-                      "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
-                  }
-              }
+                    "configurationArguments": {
+                        {
+                            "Name": "RegistrationKey",
+                            "Value": {
+                                "UserName": "PLACEHOLDER_DONOTUSE",
+                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                            },
+                        },
+                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+                        }
+                        },
+                        "protectedSettings": {
+                            "Items": {
+                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
+                                    }
+                        }
+                    }
 ```
 
 ## Template example for Windows VMSS
@@ -84,21 +89,26 @@ The DSC Extension inherits default extension properties as documented in
                         "autoUpgradeMinorVersion": true,
                         "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
                         "settings": {
-                            "configuration": {
-                                "url": "[concat(parameters('_artifactsLocation'), '/', variables('DscExtensionArchiveFolder'), '/', variables('DscExtensionArchiveFileName'))]",
-                                "script": "DscExtension.ps1",
-                                "function": "Main"
-                            },
                             "configurationArguments": {
-                                "nodeName": "localhost"
-                            }
+                                {
+                                    "Name": "RegistrationKey",
+                                    "Value": {
+                                        "UserName": "PLACEHOLDER_DONOTUSE",
+                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                    },
+                                },
+                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
+                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
+                        }
                         },
                         "protectedSettings": {
-                            "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
+                            "Items": {
+                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
+                                    }
                         }
                     }
-                }
-            ]
+                ]
+            }
         }
 ```
 
