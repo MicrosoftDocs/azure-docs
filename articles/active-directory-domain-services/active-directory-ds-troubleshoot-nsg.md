@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/31/2018
 ms.author: ergreenl
 
 ---
@@ -34,7 +34,7 @@ The following table depicts a sample NSG that would keep your managed domain sec
 ![sample NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
-> Azure AD Domain Services requires unrestricted outbound access. We recommend to not create any additional outboud rule to your NSGs.
+> Azure AD Domain Services requires unrestricted outbound access from the virtual network. We recommend not to create any additional NSG rule that restricts outbound access for the virtual network.
 
 ## Adding a rule to a Network Security Group using the Azure portal
 If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. Follow these steps to create rules in your Network security group.
@@ -47,11 +47,9 @@ If you do not want to use PowerShell, you can manually add single rules to NSGs 
 
 
 ## Create a default NSG using PowerShell
+Use the following steps to create a new NSG using PowerShell. This NSG is configured to allow inbound traffic to the ports required by Azure AD Domain Services, while denying any other unwanted inbound access.
 
-Preceding are steps you can use to create a new NSG using PowerShell that keeps all of the ports needed to run Azure AD Domain Services open while denying any other unwanted access.
-
-
-This resolution requires installing and running [Azure AD Powershell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0).
+You need to install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0) to complete this resolution.
 
 1. Connect to your Azure AD directory.
 
@@ -66,7 +64,7 @@ This resolution requires installing and running [Azure AD Powershell](https://do
   Login-AzureRmAccount
   ```
 
-3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. You are welcome to add additional rules as you see fit using the same format.
+3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. Use the same format to add additional rules that allow other inbound traffic, if required by workloads deployed in the virtual network.
 
   ```PowerShell
   # Create the rules needed
@@ -145,7 +143,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
 > [!NOTE]
->This default NSG does not lock down access to the port used for Secure LDAP. To find out how to create a rule for this port, visit [this article](active-directory-ds-troubleshoot-ldaps.md).
+> This default NSG does not lock down access to the port used for Secure LDAP. To lock down Secure LDAP access over the internet, see [this article](active-directory-ds-troubleshoot-ldaps.md).
 >
 
 ## Contact us
