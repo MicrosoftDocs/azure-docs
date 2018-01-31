@@ -167,8 +167,8 @@ Follow these guidelines for connections between the target location and the on-p
 Follow these best practices for ExpressRoute configuration:
 
 - You need to create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
-  - The source virtual network and the ExpressRoute circuit.
-  - The target virtual network and the ExpressRoute circuit.
+  - The source virtual network and both ExpressRoute circuits.
+  - The target virtual network and both ExpressRoute circuits.
 
 - As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
