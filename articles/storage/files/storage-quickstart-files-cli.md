@@ -1,6 +1,6 @@
 ---
-title: Quickstart with Files using CLI in Azure | Microsoft Docs
-description: Use the Azure CLI to work with files in Azure.
+title: Managing Azure file shares with the CLI | Microsoft Docs
+description: Use the Azure CLI to manage file shares in Azure.
 services: storage
 documentationcenter: na
 author: cynthn
@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 01/31/2018
 ms.author: cynthn
 ---
 
-# Quickstart with files using CLI for Azure Storage Services
+# Quickstart: Managing Azure file shares with Azure CLI
 
-This quickstart walks you through the basics of working with Azure Files shares. Learn how to create a share, a directory within the share, upload files, and copy files between shares.
+This quickstart walks you through the basics of working with Azure file shares. Learn how to create a share, a directory within the share, upload files, and copy files between shares.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,7 +29,7 @@ If you decide to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-First, create a resource group using the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group using the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-You need to create a storage account, within the resource group that you created, that will be used to host the file share. Create a storage account using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mystorageaccount* using locally redundant storage.
+Create a new storage account, within the resource group that you created, that will be used to host the file share using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mystorageaccount* using locally redundant storage.
 
 ```azurecli-interactive 
 az storage account create --resource-group myResourceGroup \
@@ -48,7 +48,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Standard_LRS
 ```
 
-## Get the storage account keys.
+## Get the storage account key
 
 Storage account keys are used to control access to resources in a storage account. They are automatically created when you create a storage account. View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example displays the storage account keys for *mystorageaccount* in table format.
 
@@ -60,11 +60,11 @@ az storage account keys list --resource-group myResourceGroup \
 
 Copy *key 1* where you can get to it easily to use in next set of steps.
 
-## Create a file share.
+## Create a file share
 
-Now you can create your first file share. An Azure File share is an SMB 3.0 file share in Azure. An Azure storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen.
+Now you can create your first file share. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen.
 
-Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10-GB quota. The quota is in gigabytes (GB). Be sure to enter your own storage account key in the last line.
+Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10 GiB quota. Be sure to enter your own storage account key in the last line.
 
 ```azurecli-interactive
 az storage share create --name myshare \
