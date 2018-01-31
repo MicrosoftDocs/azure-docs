@@ -69,26 +69,24 @@ When you make the request, if the logger is created a status code of `201 Create
 >
 
 ## Configure log-to-eventhubs policies
+
 Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
 
-To configure policies, sign-in to the [Azure portal](https://portal.azure.com), navigate to your API Management service, and click **Publisher portal** to access the publisher portal.
-
-![Publisher portal][publisher-portal]
-
-Click **Policies** in the API Management menu on the left, select the desired product and API, and click **Add policy**. In this example we're adding a policy to the **Echo API** in the **Unlimited** product.
-
-![Add policy][add-policy]
-
-Position your cursor in the `inbound` policy section and click the **Log to EventHub** policy to insert the `log-to-eventhub` policy statement template.
-
-![Policy editor][event-hub-policy]
+1. Browse to your APIM instance.
+2. Select the API tab.
+3. Select the API to which you want to add the policy from your API list. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
+4. Select All operations.
+5. On the top of the screen, select Design tab.
+6. In the Inbound or Outbound processing window, click the triangle (next to the pencil).
+7. Select Code editor. For more information, see [How to set or edit policies](set-edit-policies.md).
+8. Position your cursor in the `inbound` or `outbound` policy section.
+9. In the window on the right select **Advanced policies** -> **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-
 Replace `logger-id` with the name of the API Management logger you configured in the previous step.
 
 You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example a string containing the date and time, service name, request id, request ip address, and operation name is logged.
