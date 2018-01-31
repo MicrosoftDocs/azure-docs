@@ -42,7 +42,7 @@ This article shows you how to enable access to the developer portal for users fr
     The **Add identity provider** pane appears on the right.
 8. Under **Provider type**, select **Azure Active Directory**.
 
-    Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these later in the article.)
+    Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these controls later in the article.)
 9. Make a note of the contents of **Redirect URL**.
     
    ![Steps for adding an identity provider in the Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
@@ -71,7 +71,7 @@ This article shows you how to enable access to the developer portal for users fr
 
     If multiple Azure AD instances will be used for this application, select **Yes** for **Multi-tenanted**. The default is **No**.
 24. Set application permissions by selecting **Required permissions**.
-25. Select the your application, and then select the **Read directory data** and **Sign in and read user profile** check boxes.
+25. Select your application, and then select the **Read directory data** and **Sign in and read user profile** check boxes.
 
     ![Check boxes for permissions](./media/api-management-howto-aad/api-management-with-aad005.png)
 
@@ -96,12 +96,12 @@ This article shows you how to enable access to the developer portal for users fr
     > 
 31. Switch back to your API Management application. 
 
-    In the **Add identity provider** window, paste the key into the **Client secret** text box.
+    In the **Add identity provider** window, paste the key in the **Client secret** text box.
 32. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
     You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
     
-    a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent)
+    a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
     
     b. Type in the domain name of the Azure AD tenant that they want to give access to.
     
