@@ -39,7 +39,7 @@ The agent for Linux and Windows isn't only for connecting into Log Analytics, it
 If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For more information and steps on how to configure your Linux or Windows agent to communicate through an OMS Gateway to the Log Analytics service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md). 
 
 > [!NOTE]
-> The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  If your Windows system has TLS 1.2 enabled and you attempt to install the Windows agent, it will fail.  The agent installation log will show the following error - **Error:  Failed to connect, exception : System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server cannot communicate, because they do not possess a common algorithm.**
+> The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  
 > 
 
 ## Prerequisites
