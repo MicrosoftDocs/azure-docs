@@ -75,12 +75,12 @@ Once your logger is configured in API Management, you can configure your log-to-
 1. Browse to your APIM instance.
 2. Select the API tab.
 3. Select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
-4. Select All operations.
-5. On the top of the screen, select Design tab.
+4. Select **All operations**.
+5. On the top of the screen, select the Design tab.
 6. In the Inbound or Outbound processing window, click the triangle (next to the pencil).
-7. Select Code editor. For more information, see [How to set or edit policies](set-edit-policies.md).
+7. Select the Code editor. For more information, see [How to set or edit policies](set-edit-policies.md).
 8. Position your cursor in the `inbound` or `outbound` policy section.
-9. In the window on the right select **Advanced policies** -> **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
+9. In the window on the right, select **Advanced policies** > **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
