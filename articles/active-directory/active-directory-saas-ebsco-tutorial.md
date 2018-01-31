@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: jeedes
 
 ---
@@ -124,6 +124,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 5. EBSCO application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+
+    > [!Note]
+    > The **name** attribute is mandatory and it is mapped with **User Identifier** in EBSCO application. This is added by default so you don't need to add this manually.
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
@@ -235,8 +238,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the EBSCO tile in the Access Panel, you should get automatically signed-on to your EBSCO application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+1. When you click the EBSCO tile in the Access Panel, you should get automatically signed-on to your EBSCO application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
+2. Once you login to the application, click on the **sign in** button in the top right corner.
+
+	![The EBSCO signin in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_signin.png)
+ 
+3. You will receive a one-time prompt to pair the institutional/SAML login with an **Link your existing MyEBSCOhost account to your institution account now** OR **Create a new MyEBSCOhost account and link it to your institution account**. The account is used for personalization on the EBSCOhost application. Select the option **Create a new account** and  you will see that the form for personalization is pre-completed with the values from the saml response as shown in the screenshot below. Click **‘Continue’** to save this selection.
+	
+	 ![The EBSCO user in the Applications list](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_user.png)
+
+4. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered
 
 ## Additional resources
 
