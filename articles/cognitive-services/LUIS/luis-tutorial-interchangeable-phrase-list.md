@@ -140,10 +140,10 @@ The endpoint response is:
 
 The untrained utterance intent score is lower than that of the labeled utterance because LUIS knows that the sentence is grammatically the same. But LUIS doesn't know that the utterances have the same meaning. Also, without the phrase list, the **Hardware** entity is not found.
 
-You must teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
+You must teach LUIS that *want* and *require* mean the same thing in this app domain because a word can have more than one meaning. 
 
 ## Improve the score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named *want* with the value of `want`, and then select **Enter**.
+1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`, and then select **Enter**.
 
     > [!TIP]
     > After each word or phrase, select the **Enter** key. The word or phrase is added to the **Phrase list values** box while the cursor stays in the **Value** box. You can enter many values quickly with this feature.
