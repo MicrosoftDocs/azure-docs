@@ -90,7 +90,7 @@
     items:
     - name: User interface (UI)
       href: tutorial-control-flow-portal.md    
-    - name: Azure PowerShell
+    - name: .NET
       href: tutorial-control-flow.md    
 - name: Samples
   items:
