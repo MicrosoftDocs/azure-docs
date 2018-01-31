@@ -43,7 +43,7 @@ The following tables describe the specific permissions given to each role. This 
 
 ### Owner
 
-Can manage everything, including access. The following table shows the permissions granted for the role:
+An Owner can manage everything, including access. The following table shows the permissions granted for the role:
 
 |Actions|Description|
 |---|---|
@@ -51,7 +51,7 @@ Can manage everything, including access. The following table shows the permissio
 
 ### Contributor
 
-A Contributor can manage everything except access. The following table shows the permissions granted or denied for the role:
+A Contributor can manage everything except access. The following table shows the permissions granted and denied for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -213,7 +213,7 @@ A User Access Administrator can manage user access to Azure resources. The follo
 
 ## Onboarding
 
-The following tables show the minimum required permissions needed for onboarding virtual machines with Azure Automation.
+The following tables show the minimum required permissions needed for onboarding virtual machines for the change tracking or update management solutions.
 
 ### Onboarding from a virtual machine
 
@@ -258,7 +258,7 @@ The following tables show the minimum required permissions needed for onboarding
 
 ## Update management
 
-Update management reaches across multiple services to provide its service. The following table shows the permissions needed to management update management deployments:
+Update management reaches across multiple services to provide its service. The following table shows the permissions needed to manage update management deployments:
 
 |**Resource**  |**Role**  |**Scope**  |
 |---------|---------|---------|
@@ -324,13 +324,13 @@ Role-based access can also be configured to an Automation Account using the foll
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
 
-```
+```powershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
 ```
 
 The following is the example output:
 
-```powershell-interactive
+```powershell
 Name             : Automation Operator
 Id               : d3881f73-407a-4167-8283-e981cbba0404
 IsCustom         : False
@@ -345,7 +345,7 @@ AssignableScopes : {/}
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
 ```powershell-interactive
-    Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
 ```
 
 The following is the example output:
@@ -366,7 +366,7 @@ ObjectType         : User
     **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation Account scope.
 
 ```powershell-interactive
-    New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
 ```
 
 The following is the example output:
@@ -387,7 +387,7 @@ ObjectType         : User
     **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation Account scope.
 
 ```powershell-interactive
-    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
 ```
 
 In the preceding examples, replace **sign in Id**, **subscription Id**, **resource group name**, and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
