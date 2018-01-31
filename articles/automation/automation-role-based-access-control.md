@@ -62,7 +62,7 @@ A Contributor can manage everything except access. The following table shows the
 |**Not Actions**||
 |Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
 |Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
-|Microsoft.Authorization/elevateAccess/Action    |         |
+|Microsoft.Authorization/elevateAccess/Action    | Denies the ability to create a User Access Administrator        |
 
 ### Reader
 
