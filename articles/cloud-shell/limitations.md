@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/30/2018
 ms.author: juluk
 ---
 
@@ -38,7 +38,7 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 
 ### Copy and paste
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### For a given user, only one shell can be active
 

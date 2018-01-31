@@ -31,7 +31,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 Yes. As of September 2016, you can create 25 Recovery Services vaults per subscription. You can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault? <br/>
-Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, the limit is 200 VMs per vault. If you need to register more machines, create another vault.
+You can register upto 200 Azure Virtual machines per vault. If you are using MAB Agent you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
@@ -159,6 +159,9 @@ There is no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure? <br/>
 No. Your recoveries are free and you are not charged for the egress traffic.
+
+### What happens when I change my backup policy?
+When a new policy is applied, schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 ## Azure Backup encryption
 ### Is the data sent to Azure encrypted? <br/>
