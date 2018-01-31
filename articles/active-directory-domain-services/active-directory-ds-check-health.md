@@ -23,8 +23,10 @@ ms.author: ergreenl
 
 Using the [Health page]() on your Azure portal, you are able to keep up-to-date on what is happening on your managed domain. This article steps through all of the elements of the Health page and teach you how to make sure your domain is in tip-top shape.
 
+![Example health page](.\media\active-directory-domain-services-alerts\health-page.png)
+
 >[!NOTE]
-> Your domain's health is evaluated around every hour. After making changes to your managed domain, you must wait until the next evaluation cycle to view your domain's updated health. You can check when your domain was last evaluated by using the "Last evaluated" timestamp located to the right of your domain name.
+> Your domain's health is evaluated around every hour. After making changes to your managed domain, you must wait until the next evaluation cycle to view your domain's updated health. You can check when your domain was last evaluated by using the "Last evaluated" timestamp located to in the top right corner.
 >
 
 ### Status of your managed domain
@@ -38,7 +40,7 @@ Statuses of a managed domain:
 | Running | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
 | Needs attention (Warning) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
 | Needs attention (Critical) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
-| Deploying | | Your domain is in the process of being deployed.  |
+| Deploying | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Your domain is in the process of being deployed.  |
 
 ## Monitors
 Monitors detail certain aspects about your managed domain that Azure AD Domain Services supervises.
