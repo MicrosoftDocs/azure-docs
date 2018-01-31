@@ -847,7 +847,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 8. For **Type**, select type that appropriately corresponds to your attribute (**String** is most common).
 
-9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: ~*wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date`
+9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date`
 
 10. Select **Add Attribute**.
 
