@@ -31,7 +31,7 @@ This example has been developed for the Python.
 - Install the Preview Python SDK for the Custom Vision API as follows from github:
 
 ```
-pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subDirectory=azure-cognitiveservices-vision-customvision"
+pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"
 ```
 
 If you encounter a Filename too long error, make sure you have long path support in git enabled.
@@ -122,7 +122,11 @@ iteration = trainer.train_project(project.id)
 while (iteration.status == "Training"):
     iteration = trainer.get_iteration(project.id, iteration.id)
     print ("Training status: " + iteration.status)
-    time.sleep(1)            
+    time.sleep(1)
+
+# The iteration is now trained. Make it the default project endpoint
+trainer.update_iteration(project.id, iteration.id, is_default=True)
+print("Done!")
 ```
 
 ## Step 6: Get and use the default prediction endpoint
