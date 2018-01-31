@@ -117,6 +117,8 @@
     href: migration-v1-to-v2.md
 - name: Reference
   items: 
+  - name: Regions
+    href: luis-reference-regions.md
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
   - name: Prebuilt domain reference
