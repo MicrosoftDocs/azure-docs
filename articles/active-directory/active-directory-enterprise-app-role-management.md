@@ -29,7 +29,7 @@ This feature allows users to customize the claim type for ‘roles’ claim in t
 
 ## When to use this feature
 
-If your application expects custom roles to be passed in SAML response, you need to use this feature. This feature will allow you to create as many roles as you need to be passed back from Azure AD to your application.
+If your application expects custom roles to be passed in SAML response, you need to use this feature. This feature allows you to create as many roles as you need to be passed back from Azure AD to your application.
 
 ## Steps to use this feature
 
@@ -55,17 +55,18 @@ If your application expects custom roles to be passed in SAML response, you need
 
 6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
 
-	a. Sign-in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
+	a. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
 	b. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
 		
 	- `https://graph.microsoft.com/beta/servicePrincipals`
 
-	- If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+	- If you are using multiple directories, then you should follow this pattern
+	`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+		![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 
-	c. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id** which you have copied from Properties page and use following query to get to the respective Service Principal.
+	c. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 
 	- `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
@@ -77,7 +78,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	f. Open the Azure AD Generator and perform following steps -
 
-	![Azure AD Generetor](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
+	![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
 
 	- Enter **Role Name**, **Role Description** and **Role Value**. Click **Add** to add the role
 
@@ -128,7 +129,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	a. To assign a role to any user, just select the particular user/group and click on **Assign** button in the bottom part of the page.
 
-	b. Clicking that will bring a pop-up to select a role from different roles that are defined for the respective service principal.
+	b. Clicking that brings a pop-up to select a role from different roles that are defined for the respective service principal.
 
 	c. Choose the required role and click on submit.
 
@@ -144,7 +145,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On Addattb](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+	![Configure Single Sign-On Attribute](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -160,22 +161,31 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
 
-- Open Graph Explorer and find the Service Principal
-- Select **PATCH**.
-- Update the value of role.
-- Click **Run Query**. 
+	- Open Graph Explorer and find the Service Principal.
+
+	- Select **PATCH**.
+	
+	- Update the value of role.
+	
+	- Click **Run Query**. 
 
 12. To delete an  existing role, perform following steps -
 
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
 
-- Open Graph Explorer and find the Service Principal.
-- Select **PATCH**.
-- Find the role which you need to delete.
-- Set the **IsEnabled** property to **false**.
-- Click **Run Query**.
-- Update the appRoles section by removing the specific role.
-- Click **Run Query**.
+	- Open Graph Explorer and find the Service Principal.
+	
+	- Select **PATCH**.
+	
+	- Find the role which you need to delete.
+	
+	- Set the **IsEnabled** property to **false**.
+	
+	- Click **Run Query**.
+	
+	- Update the appRoles section by removing the specific role.
+	
+	- Click **Run Query**.
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
