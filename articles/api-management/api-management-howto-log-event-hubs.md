@@ -24,27 +24,27 @@ This article is a companion to the [Integrate Azure API Management with Event Hu
 
 ## Create an Azure Event Hub
 
-For detailed steps on how create an event hub and get connection strings you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in your API Management service so that it can log events to the Event Hub.
 
 API Management loggers are configured using the [API Management REST API](http://aka.ms/smapi). Before using the REST API for the first time, review the [prerequisites](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) and ensure that you have [enabled access to the REST API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-To create a logger, make an HTTP PUT request using the following URL template.
+To create a logger, make an HTTP PUT request using the following URL template:
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Replace `{your service}` with the name of your API Management service instance.
-* Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
 
-Add the following headers to the request.
+Add the following headers to the request:
 
 * Content-Type : application/json
 * Authorization : SharedAccessSignature 58...
   * For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Specify the request body using the following template.
+Specify the request body using the following template:
 
 ```json
 {
@@ -64,7 +64,7 @@ Specify the request body using the following template.
 When you make the request, if the logger is created a status code of `201 Created` is returned.
 
 > [!NOTE]
-> For other possible return codes and their reasons, see [Create a Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity documentation.
+> For other possible return codes and their reasons, see [Create a Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). To see how to perform other operations such as list, update, and delete, see the [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity documentation.
 >
 >
 
@@ -74,7 +74,7 @@ Once your logger is configured in API Management, you can configure your log-to-
 
 1. Browse to your APIM instance.
 2. Select the API tab.
-3. Select the API to which you want to add the policy from your API list. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
+3. Select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
 4. Select All operations.
 5. On the top of the screen, select Design tab.
 6. In the Inbound or Outbound processing window, click the triangle (next to the pencil).
@@ -89,7 +89,7 @@ Once your logger is configured in API Management, you can configure your log-to-
 ```
 Replace `logger-id` with the name of the API Management logger you configured in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example a string containing the date and time, service name, request id, request ip address, and operation name is logged.
+You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string containing the date and time, service name, request id, request ip address, and operation name is logged.
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
 
@@ -101,12 +101,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)    
-
-## Watch a video walkthrough
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
->
->
+  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)    
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
