@@ -11,7 +11,7 @@ ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-#Entity Search SDK quickstart
+#Entity Search SDK C# quickstart
 
 The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results. 
 
@@ -189,7 +189,7 @@ The following code handles disambiguation of results for an ambiguous query "Har
 
 ```
 
-##EntityData Places
+##EntityData places
 The following code looks up a single restaurant "John Howie Bellevue" and prints out its phone number.
 ```
         public static void RestaurantLookup(EntitySearchAPI client)
