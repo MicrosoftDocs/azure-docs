@@ -66,7 +66,7 @@ In addition, you can work with storage accounts in global and national Azure:
     ![Selected Azure subscriptions][4]
 
 ## Work with local development storage
-With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you to simulate working with Azure Storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
+With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
 
 > [!NOTE]
 > The Azure Storage Emulator is currently supported only for Windows.
@@ -86,7 +86,7 @@ With Storage Explorer (Preview), you can work against local storage by using the
 
     ![Download Azure Storage Emulator prompt][6]
 
-3. After the emulator is installed, you can create and work with local blobs, queues, and tables. To learn how to work with each storage account type, see one of the following:
+3. After the emulator is installed, you can create and work with local blobs, queues, and tables. To learn how to work with each storage account type, refer to the following guides:
 
     * [Manage Azure blob storage resources](vs-azure-tools-storage-explorer-blobs.md)
     * Manage Azure file share storage resources: *Coming soon*
@@ -97,7 +97,7 @@ With Storage Explorer (Preview), you can work against local storage by using the
 With Storage Explorer (Preview), you can attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
 ### Get the storage account credentials
-To share an external storage account, the owner of that account must first get the credentials (account name and key) for the account and then share that information with the person who wants to attach to that (external) account. You can obtain the storage account credentials via the Azure portal by doing the following:
+To share an external storage account, the owner of that account must first get the credentials (account name and key) for the account and then share that information with the person who wants to attach to said account. You can obtain the storage account credentials via the Azure portal by doing the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -105,13 +105,13 @@ To share an external storage account, the owner of that account must first get t
 
 3. Select **Storage Accounts**.
 
-4. On the **Storage Accounts** blade, select the desired storage account.
+4. In the list of **Storage Accounts**, select the desired storage account.
 
-5. On the **Settings** blade for the selected storage account, select **Access keys**.
+5. Under**Settings**, select **Access keys**.
 
     ![Access Keys option][7]
 
-6. On the **Access keys** blade, copy the **Storage account name** and **key1** values for use when attaching to the storage account.
+6. Copy the **Storage account name** and **key1**.
 
     ![Access keys][8]
 
@@ -139,7 +139,7 @@ To attach to an external storage account, you need the account's name and key. T
 
 5. Select **Connect**.
 
-6. After the storage account has successfully been attached, the storage account is displayed with **(External)** appended to the its name.
+6. After the storage account has successfully been attached, the storage account is displayed with **(External)** appended to its name.
 
     ![Result of connecting to an external storage account][12]
 
@@ -157,7 +157,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 1. UserA generates a SAS connection string for a specific time period and with the desired permissions.
 
-2. UserA shares the SAS with the person (UserB, in our example) who wants access to the storage account.  
+2. UserA shares the SAS with the person (UserB, in this example) who wants access to the storage account.  
 
 3. UserB uses Storage Explorer (Preview) to attach to the account that belongs to UserA by using the supplied SAS.
 
@@ -189,7 +189,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 5. Select **Connect**.
 
-6. After the storage account has successfully been attached, the storage account is displayed with **(SAS)** appended to the its name.
+6. After the storage account has successfully been attached, the storage account is displayed with **(SAS)** appended to its name.
 
     ![Result of attached to an account by using SAS][18]
 
@@ -239,12 +239,12 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 ## Search for storage accounts
 If you need to find a storage resource and do not know where it is, you can use the search box at the top of the left pane to search for the resource.
 
-As you type in the search box, the left pane will display all resources that match the search value you've entered up to that point. For example, a search for **endpoints** is shown in the following screenshot:
+As you type in the search box, the left pane displays all resources that match the search value you've entered up to that point. For example, a search for **endpoints** is shown in the following screenshot:
 
 ![Storage account search][23]
 
 > [!NOTE]
-> Use the the **Account Management Panel** to deslect any subscriptions that do not contain the item you are searching for to improve the execution time of your search. You can also right click on a node and choose **Search From Here** to start searching from a specific node.
+> Use the **Account Management Panel** to deselect any subscriptions that do not contain the item you are searching for to improve the execution time of your search. You can also right-click on a node and choose **Search From Here** to start searching from a specific node.
 >
 >
 
