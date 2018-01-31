@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: wamota
 ---
 
-## Network connectivity
+# Network connectivity
 This article provides Azure Stack network infrastructure information to help you decide how to best integrate Azure Stack into your existing networking environment. 
 
 > [!NOTE]
