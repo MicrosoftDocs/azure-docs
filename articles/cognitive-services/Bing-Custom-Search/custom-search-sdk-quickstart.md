@@ -23,10 +23,22 @@ Installing the [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Az
 * Newtonsoft.Json
 
 ##Entity Search client
+
+To create an instance of the CustomSearchAPI client, add using directives:
+```
+using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
+
+```
+
 Instantiate the custom serch client:
 Replace `YOUR-CUSTOM-SEARCH-KEY` and `YOUR-CUSTOM-CONFIG-ID` with your access key and the API endpoint configuration ID assigned at [My Instances](https://www.customsearch.ai/).
 ```
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
+
+```
+Use the client to search with a query text:
+```
+var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 
 ```
 ##Parse the results
