@@ -15,9 +15,10 @@ ms.author: v-gedod
 The Bing Custom Search SDK contains the functionality of the REST API for entity search and parsing the results.
 
 ##Application dependencies
+
 To set up a console application using the Bing Custom Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package.
 
-Installing the [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.1.0-preview) package will also install dependencies, including the following assemblies:
+Installing the [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.1.0-preview) package also installs dependencies, including the following assemblies:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
@@ -30,7 +31,7 @@ using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 
 ```
 
-Instantiate the custom serch client:
+Instantiate the custom search client:
 Replace `YOUR-CUSTOM-SEARCH-KEY` and `YOUR-CUSTOM-CONFIG-ID` with your access key and the API endpoint configuration ID assigned at [My Instances](https://www.customsearch.ai/).
 ```
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
