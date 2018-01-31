@@ -513,7 +513,7 @@ This should be all that we need for our application to work.
    
     ![Screenshot of the application with a new item in the ToDo list](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 4. To complete a task, simply check the checkbox in the Complete column,
-   and then click **Update tasks**. This updates the document you already created.
+   and then click **Update tasks**. This updates the document you already created and removes it from the view.
 
 5. To stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
 
