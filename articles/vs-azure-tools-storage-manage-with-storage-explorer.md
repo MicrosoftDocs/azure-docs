@@ -19,7 +19,7 @@ ms.author: cawa
 ---
 # Get started with Storage Explorer (Preview)
 ## Overview
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. In this article, you learn the various ways of connecting to and managing your Azure storage accounts.
+Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. In this article, you learn several ways of connecting to and managing your Azure storage accounts.
 
 ![Microsoft Azure Storage Explorer (Preview)][0]
 
@@ -82,7 +82,7 @@ With Storage Explorer (Preview), you can work against local storage by using the
 
     ![Local development node][5]
 
-2. If you have not yet installed the Azure Storage Emulator, you are prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and then install the emulator.
+2. If you have not yet installed the Azure Storage Emulator, you are prompted to do so via an info bar. If the infobar is displayed, select **Download the latest version**, and then install the emulator.
 
     ![Download Azure Storage Emulator prompt][6]
 
@@ -116,7 +116,7 @@ To share an external storage account, the owner of that account must first get t
     ![Access keys][8]
 
 ### Attach to an external storage account
-To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**. So where Storage Explorer (Preview) asks for an account key, you enter the **key1** value.
+To attach to an external storage account, you need the account's name and key. The "Get the storage account credentials" section explains how to obtain these values from the Azure portal. However, in the portal, the account key is called **key1**. So, when Storage Explorer (Preview) asks for an account key, you enter the **key1** value.
 
 1. In Storage Explorer (Preview), open the **Connect Dialog**.
 
@@ -237,9 +237,9 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
     ![connection-string][22]
 
 ## Search for storage accounts
-If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane.
+If you need to find a storage resource and do not know where it is, you can use the search box at the top of the left pane to search for the resource.
 
-As you type in the search box, the left pane displays the storage accounts that match the search value you've entered up to that point. For example, a search for all storage accounts whose name contains **endpoints** is shown in the following screenshot:
+As you type in the search box, the left pane will display all resources that match the search value you've entered up to that point. For example, a search for **endpoints** is shown in the following screenshot:
 
 ![Storage account search][23]
 
@@ -254,7 +254,7 @@ As you type in the search box, the left pane displays the storage accounts that 
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-SignInSelected.PNG
+[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-SignInSelected.png
 [3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AccountPanel.png
 [4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SubscriptionNode.png
 [5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/DevelopmentNode.png
@@ -268,11 +268,11 @@ As you type in the search box, the left pane displays the storage accounts that 
 [13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AttachedWithKeyAccount-Detach.png
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/GetSharedAccessSignature.png
 [15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SharedAccessSignatureDialog.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-WithConnStringOrSASSelected.PNG
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-1.PNG
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-WithConnStringOrSASSelected.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-1.png
 [18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AttachedWithSASAccount.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-2.PNG
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-2.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ServiceAttachedWithSAS.png
-[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG
-[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.png
+[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Search.png
