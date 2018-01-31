@@ -29,11 +29,11 @@ To delete the vault, follow the recommended steps for your scenario.
 
 1. Delete all protected VMs by following the steps in [Disable protection for a VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. Delete all replication policies by following the steps in [Delete a replication policy](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Delete all replication policies by following the steps in [Delete a replication policy](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy).
 
-3. Delete references to vCenter by following the steps in [Delete a vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+3. Delete references to vCenter by following the steps in [Delete a vCenter](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery).
 
-4. Delete the configuration server by following the steps in [Decommission a configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server).
+4. Delete the configuration server by following the steps in [Decommission a configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 5. Delete the vault.
 
@@ -43,7 +43,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For System Center VMM** -> **Replication Policies**
 
-3.	Delete references to Virtual Machine Manager servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.	Delete references to Virtual Machine Manager servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server).
 
 4.	Delete the vault.
 
@@ -52,7 +52,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For Hyper-V Sites** -> **Replication Policies**
 
-3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](./site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Delete the Hyper-V site.
 
