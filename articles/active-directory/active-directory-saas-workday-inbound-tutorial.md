@@ -765,7 +765,7 @@ The Workday provisioning apps for Active Directory and Azure AD both include a d
 
 The Azure AD provisioning service supports the ability to customize your list or Workday attribute to include any attributes exposed in the [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) operation of the Human Resources API.
 
-To do this, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to you provisioning configuration using the advanced attribute editor in the Azure portal.
+To do this, you must use [Workday Studio](https://community.workday.com/studio-download) to extract the XPath expressions that represent the attributes you wish to use, and then add them to your provisioning configuration using the advanced attribute editor in the Azure portal.
 
 **To retrieve an XPath expression for a Workday user attribute:**
 
@@ -785,7 +785,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 7. Set **Operation** to **Get_Workers**
 
-8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the usern ame as name@tenant, and leave the **WS-Security UsernameToken** option selected.
+8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
 
     ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
 
@@ -793,20 +793,20 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 10.	The **Request** pane, paste in the XML below and set **Employee_ID** to the employee ID of a real user in your Workday tenant. Select a user that has the attribute populated that you wish to extract.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <env:Body>
-    <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
-      <wd:Request_References wd:Skip_Non_Existing_Instances="true">
-        <wd:Worker_Reference>
-          <wd:ID wd:type="Employee_ID">21008</wd:ID>
-        </wd:Worker_Reference>
-      </wd:Request_References>
-    </wd:Get_Workers_Request>
-  </env:Body>
-</env:Envelope>
- ```
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
  
 11. Click the **Send Request** (green arrow) to execute the command. If successful, the response should appear in the **Response** pane. Check the response to ensure it has the data of the user ID you entered, and not an error.
 
@@ -820,7 +820,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 15. Under **wd:Worker**, find the attribute that you wish to add, and select it.
 
-16. Copy the XPath expression for your selected attribute out of the Document Path field.
+16. Copy the XPath expression for your selected attribute out of the **Document Path** field.
 
 17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied path. 
 
