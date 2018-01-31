@@ -41,7 +41,7 @@ If you cannot use fewer intents, divide your intents into multiple LUIS apps, an
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
 * Create a top-level LUIS app to determine the category of utterance, and then use the result to send the utterance to the LUIS app for that category.
-* Do some preprocessing on the utterance, such as matching on [regular expressions](#Where-is-the-Pattern-feature-that-provides-regular-expression-matching), to determine which LUIS app or set of apps receives it.
+* Do some preprocessing on the utterance, such as matching on [regular expressions](#where-is-the-pattern-feature-that-provides-regular-expression-matching), to determine which LUIS app or set of apps receives it.
 
 When you're deciding which approach to use with multiple LUIS apps, consider the following trade-offs:
 * **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
