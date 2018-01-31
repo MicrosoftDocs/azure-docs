@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Remove Azure Automation Hybrid Runbook Workers
 
-You can 
+The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. This article takes you through the steps to remove a Hybrid worker from an on-premises computer.
 
 ## Removing Hybrid Runbook Worker
 
