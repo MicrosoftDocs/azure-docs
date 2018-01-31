@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/15/2018
 ms.author: billmath
 ---
 
@@ -20,18 +20,18 @@ ms.author: billmath
 
 This article helps you find troubleshooting information about common problems regarding Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO).
 
-## Known problems
+## Known issues
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
 - If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
 - Edge browser support is not available.
-- Starting Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users. Users must enter their usernames frequently, but not their passwords.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, SharePoint and OneDrive mapping scenarios don't work.
 - Seamless SSO doesn't work in private browsing mode on Firefox.
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protected mode is turned on.
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
 - If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
 - Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
+- Disabling the use of the **RC4_HMAC_MD5** encryption type for Kerberos in your Active Directory settings will break Seamless SSO. In your Group Policy Management Editor tool ensure that the policy value for **RC4_HMAC_MD5** under **Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options -> "Network Security: Configure encryption types allowed for Kerberos"** is "Enabled".
 
 ## Check the status of the feature
 
