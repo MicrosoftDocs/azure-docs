@@ -8,7 +8,7 @@
       href: web-search-endpoints.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -26,7 +26,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Web search SDK quickstart (preview)
+  - name: Web search SDK C# quickstart (preview)
     href: web-search-sdk-quickstart.md  
 - name: How To Guides
   items:

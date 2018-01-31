@@ -1,6 +1,6 @@
 ---
-title: Web search SDK quickstart | Microsoft Docs
-description: Setup for Web search SDK in console application.
+title: Web search SDK C# quickstart | Microsoft Docs
+description: Setup for Web search SDK console application.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,7 +11,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Web Search SDK quickstart
+#Web Search SDK C# quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
@@ -19,7 +19,10 @@ The Bing Web Search SDK contains the functionality of the REST API for web reque
 
 To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.WebSearch` package.
 
-[NuGet Web Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.1.0-preview)
+Installing the [NuGet Web Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.1.0-preview) also installs dependencies, including:
+* Microsoft.Rest.ClientRuntime
+* Microsoft.Rest.ClientRuntime.Azure
+* Newtonsoft.Json
 
 ##Web Search client
 To create an instance of the `WebSearchAPI` client, add using directives:
