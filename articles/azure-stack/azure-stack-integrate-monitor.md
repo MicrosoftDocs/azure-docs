@@ -520,4 +520,4 @@ For information about built-in health monitoring, see [Monitor health and alerts
 
 ## Next steps
 
-[Security integration](azure-stack-integrate-security)
+[Security integration](azure-stack-integrate-security.md)
