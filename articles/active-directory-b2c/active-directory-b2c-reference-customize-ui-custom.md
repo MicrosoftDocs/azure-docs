@@ -117,7 +117,7 @@ If you followed the steps above, the HTML5 and CSS files of the *UI-Customizatio
 
 ## Ensure the storage account has CORS enabled
 
-CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C Premium to load your content. This is because your content is hosted on a different domain than the domain Azure AD B2C Premium will be serving the page from.
+CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C to load your content. This is because your content is hosted on a different domain than the domain Azure AD B2C will be serving the page from.
 
 To verify that the storage you are hosting your content on has CORS enabled, proceed with the following steps:
 
