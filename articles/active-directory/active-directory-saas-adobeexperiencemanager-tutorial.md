@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
-6. In the Adobe Experience Manager Configuration section, to open the Configure sign-on window, select **Configure Adobe Experience Manager**. Copy the **SAML Sign-On Service URL**, **SAML Entity ID** and **Sign-Out ID** from the Quick Reference section.
+6. In the Adobe Experience Manager Configuration section, to open the configuration sign-on window, select **Configure Adobe Experience Manager**. Copy the **SAML Sign-On Service URL**, **SAML Entity ID** and **Sign-Out ID** from the Quick Reference section.
 
 	![Configuration section link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. under **Add Certificate from CER file** button, click **Select Certificate File** . Browse to and select the certificate file, which you already downloaded from the Azure portal.
+12. Under **Add Certificate from CER file** button, click **Select Certificate File** . Browse to and select the certificate file, which you already downloaded from the Azure portal.
 
 	![Configure single sign-on save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
@@ -234,7 +234,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create an Adobe Experience Manager test user
 
-In this section, you create a user called Britta Simon in Adobe Experience Manager. If you selected the **Autocreate CRX Users** option, then users are created automatically after successful authentication. 
+In this section, you create a user called Britta Simon in Adobe Experience Manager. If you selected the **Autocreate CRX Users** option, users are created automatically after successful authentication. 
 
 If you want to create users manually, work with the [Adobe Experience Manager support team](https://helpx.adobe.com/support/experience-manager.html) to add the users in the Adobe Experience Manager platform. 
 
