@@ -30,19 +30,19 @@ The edge node of a cluster provides a convenient place to connect to the cluster
 ## Compute contexts for an edge node
 In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a ScaleR function. The ScaleR calls run in a compute environment that is determined by how you set the ScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:
 
-- local sequential (*‘local’*)
-- local parallel (*‘localpar’*)
+- local sequential (*local*)
+- local parallel (*localpar*)
 - Map Reduce
 - Spark
 
-The *‘local’* and *‘localpar’* options differ only in how **rxExec** calls are executed. They both execute other rx-function calls in a parallel manner across all available cores unless specified otherwise through use of the ScaleR **numCoresToUse** option, for example `rxOptions(numCoresToUse=6)`. Parallel execution options offer optimal performance.
+The *local* and *localpar* options differ only in how **rxExec** calls are executed. They both execute other rx-function calls in a parallel manner across all available cores unless specified otherwise through use of the ScaleR **numCoresToUse** option, for example `rxOptions(numCoresToUse=6)`. Parallel execution options offer optimal performance.
 
 The following table summarizes the various compute context options to set how calls are executed:
 
 | Compute context  | How to set                      | Execution context                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Local sequential | rxSetComputeContext(‘local’)    | Parallelized execution across the cores of the edge node server, except for rxExec calls, which are executed serially |
-| Local parallel   | rxSetComputeContext(‘localpar’) | Parallelized execution across the cores of the edge node server |
+| Local sequential | rxSetComputeContext('local')    | Parallelized execution across the cores of the edge node server, except for rxExec calls, which are executed serially |
+| Local parallel   | rxSetComputeContext('localpar') | Parallelized execution across the cores of the edge node server |
 | Spark            | RxSpark()                       | Parallelized distributed execution via Spark across the nodes of the HDI cluster |
 | Map Reduce       | RxHadoopMR()                    | Parallelized distributed execution via Map Reduce across the nodes of the HDI cluster |
 
@@ -59,8 +59,8 @@ Which of the three options you choose that provide parallelized execution depend
 Given these principles, the following sections offer some general rules of thumb for selecting a compute context.
 
 ### Local
-* If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine using *'local'* or *'localpar'*.
-* If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via *'local'* or *'localpar'*.
+* If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine using *local* or *localpar*.
+* If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via *local* or *localpar*.
 
 ### Hadoop Spark
 * If the amount of data to analyze is large, then import it to a Spark DataFrame using **RxHiveData** or **RxParquetData**, or to XDF in HDFS (unless storage is an issue), and analyze it using the Spark compute context.
@@ -73,7 +73,7 @@ For more information and examples of ScaleR compute contexts, see the inline hel
 
     > ?rxSetComputeContext
 
-You can also refer to the “[ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)” that's available from the [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server on MSDN") library.
+You can also refer to the [ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) that's available from the [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) library.
 
 ## Next steps
 In this article, you learned about the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster. To learn more about how to use R Server with HDInsight clusters, see the following topics:

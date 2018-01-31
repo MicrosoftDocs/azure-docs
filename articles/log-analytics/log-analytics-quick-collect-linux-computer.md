@@ -12,14 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/13/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
 
 # Collect data from Linux computers hosted in your environment
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computers and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
- 
+
+To understand the network and system requirements to deploy the Linux agent, review [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure portal
@@ -52,6 +54,9 @@ Before installing the OMS agent for Linux, you need the workspace ID and key for
 ## Install the agent for Linux
 The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud.  
 
+>[!NOTE]
+>The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace.  
+
 1. To configure the Linux computer to connect to Log Analytics, run the following command providing the workspace ID and primary key copied earlier.  This command downloads the agent, validates its checksum, and installs it. 
     
     ```
@@ -66,7 +71,7 @@ The following steps configure setup of the agent for Log Analytics in Azure and 
 
 ## Configure agent to communicate with a proxy server
 
-Perform the following steps if your Linux computers need to communicate through a proxy server to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.
+Perform the following steps if your Linux computers need to communicate through a proxy server to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.    
 
 1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 

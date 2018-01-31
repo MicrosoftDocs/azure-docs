@@ -4,7 +4,7 @@ description: Explains how Azure AD enforces strong passwords and protects users 
 services: active-directory
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory

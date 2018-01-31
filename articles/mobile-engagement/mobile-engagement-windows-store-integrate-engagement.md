@@ -86,7 +86,7 @@ If you want to specify it at runtime instead, you can call the following method 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Classic Portal.
+The connection string for your application is displayed on the Azure Portal.
 
 ### Engagement initialization
 When you create a new project, a `App.xaml.cs` file is generated. This class inherits from `Application` and contains many important methods. It will also be used to initialize the Engagement SDK.

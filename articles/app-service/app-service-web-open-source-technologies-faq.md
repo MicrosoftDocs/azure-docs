@@ -32,14 +32,6 @@ For database-related issues, contact [ClearDB support](https://www.cleardb.com/d
 
 For answers to common questions about ClearDB, see [ClearDB FAQs](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
-## Why isn't my ClearDB database listed in the portal?
-
-If you create a ClearDB database in the [Azure portal](http://portal.azure.com/), the database doesn't appear in the [Azure classic portal](http://manage.windowsazure.com/). To work around this, you can manually link your database to the web app.
-
-Similarly, if you create a ClearDB database in the [Azure classic portal](http://manage.windowsazure.com/),  you won't see your database in the [Azure portal](http://portal.azure.com/). In this case, no workaround is available. 
-
-For more information, see [FAQs for ClearDB MySQL databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
 ## Why wasn't my ClearDB database migrated during my subscription migration?
 
 When you perform resource migration across subscriptions, some limitations apply. A ClearDB MySQL database is a third-party service and is not migrated during an Azure subscription migration.

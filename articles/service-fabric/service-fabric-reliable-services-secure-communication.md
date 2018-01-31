@@ -89,7 +89,7 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
            return x509Credentials;
        }
        ```
-   2. Provide them by using a [config package](service-fabric-application-model.md):
+   2. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 
        Add a `TransportSettings` section in the settings.xml file.
 

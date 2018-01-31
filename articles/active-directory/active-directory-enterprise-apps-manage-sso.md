@@ -5,7 +5,7 @@ description: Manage single sign-on settings for enterprise apps within your orga
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899

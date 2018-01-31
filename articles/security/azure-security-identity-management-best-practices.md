@@ -112,7 +112,7 @@ Leverage [Azure Resource Manager](../azure-resource-manager/resource-group-overv
 
 Organizations that are not controlling how resources are created are more susceptible to users that may abuse the service by creating more resources than they need. Hardening the resource creation process is an important step to secure a multi-tenant scenario.
 
-You can learn more about creating policies with Azure Resource Manager by reading the article [Use Policy to manage resources and control access](../azure-resource-manager/resource-manager-policy.md).
+You can learn more about creating policies with Azure Resource Manager by reading the article [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 
 ## Guide developers to leverage identity capabilities for SaaS apps
 User identity will be leveraged in many scenarios when users access [SaaS apps](https://azure.microsoft.com/marketplace/active-directory/all/) that can be integrated with on-premises or cloud directory. First and foremost, we recommend that developers use a secure methodology to develop these apps, such as [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), as well as open source libraries for different platforms.

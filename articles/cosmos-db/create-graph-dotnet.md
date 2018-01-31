@@ -3,7 +3,7 @@ title: Build an Azure Cosmos DB .NET Framework or Core application using the Gra
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: ''
 
@@ -14,15 +14,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
+ms.date: 01/08/2018
+ms.author: lbosq
 
 ---
 # Azure Cosmos DB: Build a .NET Framework or Core application using the Graph API
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You then build and run a console app built on the [Graph API](graph-sdk-dotnet.md) (preview).  
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ This sample project is using .NET Core project format and has been configured to
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized. In the preview, we added a graph extension API on the Azure Cosmos DB client. We are working on a standalone graph client decoupled from the Azure Cosmos DB client and resources.
+* The DocumentClient is initialized. 
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -105,19 +105,25 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In Visual Studio 2017, open the appsettings.json file. 
+1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
 
-2. In the Azure portal, in your Azure Cosmos DB account, click **Keys** in the left navigation. 
+    Copy the first portion of the URI value.
 
-    ![View and copy an primary key in the Azure portal, on the Keys page](./media/create-graph-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-dotnet/keys.png)
 
-3. Copy your **URI** value from the portal and make it the value of the Endpoint key in appsettings.json. You can use the copy button as shown in the preceding screenshot to copy the value.
+2. In Visual Studio 2017, open the appsettings.json file and paste the value over `FILLME` in the `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
-4. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
+    The endpoint value should now look like this:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
     `"authkey": "FILLME"`
+
+4. Save the appsettings.json file. 
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 

@@ -76,16 +76,6 @@ Data Sync is not appropriate for the following scenarios:
 
 ## <a name="sync-req-lim"></a> Requirements and limitations
 
-### General requirements
-
--   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
-
--   A table cannot have an identity column that is not the primary key.
-
--   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-
--   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### General considerations
 
 #### Eventual consistency
@@ -94,7 +84,19 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
+### General requirements
+
+-   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
+
+-   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### General limitations
+
+-   A table cannot have an identity column that is not the primary key.
+
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+
+-   Azure Active Directory authentication is not supported.
 
 #### Unsupported data types
 

@@ -69,8 +69,8 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 | --- | --- |
 | VIP availability | Load Balancer Standard continuously exercises the data path from within a region to the Load Balancer front-end all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that is used by your customers is also validated. The measurement is invisible to your application and does not interfere with other operations.|
 | DIP availability | Load Balancer Standard uses a distributed health probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per endpoint filtered-view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
-| SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received. The metric might also reflect clients that attempt to establish a connection to your service.|
-| SNAT connections | Load Balancer Standard reports the number of outbound connections that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated connections.|
+| SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.|
+| SNAT connections | Load Balancer Standard reports the number of outbound flows that are masqueraded to the Public IP address front-end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows.  Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.|
 | Byte counters | Load Balancer Standard reports the data processed per front-end.|
 | Packet counters | Load Balancer Standard reports the packets processed per front-end.|
 
@@ -214,7 +214,7 @@ When outbound connections are used with a zone-redundant front-end, the connecti
 
 The new algorithm in Load Balancer Standard preallocates SNAT ports to the NIC of each VM. When a NIC is added to the pool, the SNAT ports are preallocated based on the pool size. The following table shows the port preallocations for six tiers of back-end pool sizes:
 
-| Pool size (VM instances) | Preallocated SNAT port |
+| Pool size (VM instances) | Preallocated number of SNAT ports |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -332,7 +332,7 @@ Load Balancer Standard is currently available in these regions:
 
 ## SKU service limits and abilities
 
-Azure [Service Limits for Networking](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
+Azure [Service Limits for Networking](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
 
 The following table compares the limits and abilities of the Load Balancer Basic and Standard SKUs:
 

@@ -4,7 +4,7 @@ description: Learn how to manage privileged identities with the Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071

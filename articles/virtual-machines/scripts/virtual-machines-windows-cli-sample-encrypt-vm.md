@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Encrypt a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/02/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ---
 

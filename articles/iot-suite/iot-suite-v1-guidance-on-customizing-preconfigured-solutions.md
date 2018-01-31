@@ -225,55 +225,6 @@ The default is 200. You can change this number in [TelemetryApiController.cs][ln
 
 The default is 10 minutes. You can change this value in [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## Manually set up application roles
-
-The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.com site already include the **Admin** and **ReadOnly** roles.
-
-Members of the **ReadOnly** role can see the dashboard and the device list, but are not allowed to add devices, change device attributes, or send commands.  Members of the **Admin** role have full access to all the functionality in the solution.
-
-1. Go to the [Azure classic portal][lnk-classic-portal].
-2. Select **Active Directory**.
-3. Click the name of the AAD tenant you used when you provisioned your solution.
-4. Click **Applications**.
-5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, select **Applications my company owns** in the **Show** dropdown and click the check mark.
-6. At the bottom of the page, click **Manage Manifest** and then **Download Manifest**.
-7. This procedure downloads a .json file to your local machine. Open this file for editing in a text editor of your choice.
-8. On the third line of the .json file, you can see:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Replace this line with the following code:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Save the updated .json file (you can overwrite the existing file).
-10. In the Azure classic portal, at the bottom of the page, select **Manage Manifest** then **Upload Manifest** to upload the .json file you saved in the previous step.
-11. You have now added the **Admin** and **ReadOnly** roles to your application.
-12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.com site][lnk-permissions].
-
 ## Feedback
 
 Do you have a customization you'd like to see covered in this document? Add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article. 
@@ -297,6 +248,5 @@ To learn more about the options for customizing the preconfigured solutions, see
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

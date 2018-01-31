@@ -4,7 +4,7 @@ description: This article describes how applications are added to an instance of
 services: active-directory
 documentationcenter: ''
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: ''
 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576

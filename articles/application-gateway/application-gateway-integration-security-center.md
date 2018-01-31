@@ -79,7 +79,7 @@ Clicking an rule will provide a list of alerts for that specific WAF rule. Each 
 
 ## Next steps
 
-To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

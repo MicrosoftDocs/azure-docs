@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 12/13/2017
 ms.author: cahann
 ---
 # Utterances in LUIS
@@ -44,4 +44,4 @@ The core term here, "computer", is not varied. They could say desktop compute
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
 [add-example-utterances]: Add-example-utterances.md
-[BingSpellCheck]: https://docs.microsoft.com/en-us/azure/cognitive-services/bing-spell-check/proof-text
+[BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

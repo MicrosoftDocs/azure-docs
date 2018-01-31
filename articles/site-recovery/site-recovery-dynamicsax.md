@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/24/2017
+ms.date: 12/11/2017
 ms.author: asgang
 
 ---
@@ -28,7 +28,6 @@ Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabili
 
 This article explains how you can create a disaster recovery solution for your Dynamics AX application by using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned test failovers by using a one-click recovery plan, supported configurations, and prerequisites.
 
-A Site Recovery-based disaster recovery solution is fully tested, certified, and recommended by Dynamics AX.
 
 
 ## Prerequisites

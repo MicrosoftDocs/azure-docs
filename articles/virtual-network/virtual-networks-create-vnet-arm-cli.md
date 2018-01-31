@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a virtual network using the Azure CLI 2.0.
+title: Create a virtual network - Azure CLI | Microsoft Docs
+description: Learn how to create a virtual network using the Azure CLI.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,19 +19,13 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a virtual network using the Azure CLI 2.0
+# Create a virtual network using the Azure CLI
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
-## CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](#create-a-virtual-network) - our next generation CLI for the resource management deployment model (this article)`
- 
-    You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
+You can also create a virtual network through Resource Manager using other tools, or create a virtual network through the classic deployment model, by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -44,10 +38,9 @@ You can complete the task using one of the following CLI versions:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## Create a virtual network
 
-To create a virtual network using the Azure CLI 2.0, complete the following steps:
+To create a virtual network using the Azure CLI, complete the following steps:
 
 1. Install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 

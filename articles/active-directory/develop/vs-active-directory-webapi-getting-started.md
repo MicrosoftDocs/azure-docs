@@ -4,7 +4,7 @@ description: How to get started using Azure Active Directory in WebApi projects 
 services: active-directory
 documentationcenter: ''
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: ''
 
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa

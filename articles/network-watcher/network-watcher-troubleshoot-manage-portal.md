@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Virtual Network Gateway and Connections - PowerShell | Microsoft Docs
-description: This page explains how to use the Azure Network Watcher troubleshoot PowerShell cmdlet
+title: Troubleshoot Azure Virtual Network Gateway and Connections - Portal | Microsoft Docs
+description: This page explains how to use the Azure Network Watcher troubleshoot Portal
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.author: jdial
 
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher PowerShell
+# Troubleshoot Virtual Network Gateway and Connections using Network Watcher from Azure Portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)

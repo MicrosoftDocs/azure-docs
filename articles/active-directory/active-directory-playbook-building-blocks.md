@@ -6,7 +6,7 @@ services: active-directory
 keywords: azure active directory, playbook, Proof of Concept, PoC
 documentationcenter: ''
 author: dstefanMSFT
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
