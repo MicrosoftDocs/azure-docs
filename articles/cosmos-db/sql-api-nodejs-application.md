@@ -89,29 +89,6 @@ The **package.json** file is one of the files created in the root of the project
 2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
    
         npm install documentdb --save
-3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    This tells Node (and Azure later) that your application depends on these additional modules.
 
 ## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a node application
 That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure Cosmos DB.
