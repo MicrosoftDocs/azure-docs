@@ -1,5 +1,5 @@
 ---
-title: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs
+title: 'Tutorial: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs'
 description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.reviewer: barbkess
 
 ---
 
-# Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
+# Tutorial: Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
 PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 

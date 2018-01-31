@@ -33,7 +33,7 @@ This article explains how to create, change, and delete virtual networks by usin
 
 Before you begin the tasks that are described in this article, complete the following prerequisites:
 
-- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](virtual-network-get-started-vnet-subnet.md). This exercise can help you become more familiar with virtual networks.
+- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](quick-create-portal.md). This exercise can help you become more familiar with virtual networks.
 - To learn about limits for virtual networks, review [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Sign in to the Azure portal, the Azure command-line tool (Azure CLI), or Azure PowerShell by using your Azure account. If you don't have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If you plan to use PowerShell commands to complete the tasks described in this article, you must first [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands in the examples, enter `get-help <command> -full`.
@@ -191,7 +191,7 @@ You can delete a virtual network only if there are no resources connected to it.
 
 ## <a name="next-steps"></a>Next steps
 
-- To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
+- To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](quick-create-portal.md#create-virtual-machines).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
 - To peer a virtual network to another virtual network, see [Create a virtual network peering](virtual-network-create-peering.md#portal).
 - To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
