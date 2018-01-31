@@ -209,6 +209,6 @@ $registrationToken = "*Your copied registration token*"
 UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 ```
 
-# Next steps
+## Next steps
 
 [External monitoring integration](azure-stack-integrate-monitor.md)

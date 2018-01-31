@@ -89,7 +89,7 @@ The following table describes the endpoints and certificates required for the SQ
 <sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Appservice explicitly requires the use of separate certificates for these endpoints. 
 
 ## Learn more
-Learn how to [generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md) 
+Learn how to [generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md). 
 
 ## Next steps
 [Identity integration](azure-stack-integrate-identity.md)

@@ -57,7 +57,7 @@ In an enterprise intranet or perimeter deployment, Azure Stack is deployed on a 
 ![Azure Stack perimeter network example](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
 ## Learn more
-Learn more about [ports and protocols used by Azure Stack endpoints](azure-stack-integrate-endpoints.md)
+Learn more about [ports and protocols used by Azure Stack endpoints](azure-stack-integrate-endpoints.md).
 
 ## Next steps
 [Azure Stack PKI requirements](azure-stack-pki-certs.md)
