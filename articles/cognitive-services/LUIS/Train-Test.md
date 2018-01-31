@@ -229,12 +229,12 @@ Select **Test** next to the dataset you've just imported. This displays the test
 
 ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
-    In the preceding screenshot:
+In the preceding screenshot:
  
-    - **State** of the dataset shows whether or not the dataset result contains errors. In the preceding example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign displays instead. 
-    - **Size** is the total number of utterances included in the dataset file.
-    - **Last Run** is the date of the latest test run for this dataset. 
-    - **Last Result** displays the percentage of correct predictions resulting from the test.
+ - **State** of the dataset shows whether or not the dataset result contains errors. In the preceding example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign displays instead. 
+ - **Size** is the total number of utterances included in the dataset file.
+ - **Last Run** is the date of the latest test run for this dataset. 
+ - **Last Result** displays the percentage of correct predictions resulting from the test.
 
 ### Access test result details in a visualized view
  
