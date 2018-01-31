@@ -46,19 +46,19 @@ az group create --name myResourceGroupAG --location eastus
 The virtual network and subnets are used to provide network connectivity to the application gateway and its associated resources. Create the virtual network named *myVNet* and subnet named *myAGSubnet* with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) and [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create a public IP address named *myAGPublicIPAddress* with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
-az network vnet create 
+az network vnet create \
   --name myVNet \
   --resource-group myResourceGroupAG \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name myBackendSubnet \
   --subnet-prefix 10.0.1.0/24
-az network vnet subnet create 
+az network vnet subnet create \
   --name myAGSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet \
-  --address-prefix 10.0.2.0/24 
-az network public-ip create 
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress
 ```
@@ -81,10 +81,12 @@ az network application-gateway create \
   --http-settings-port 80 \
   --http-settings-protocol Http \
   --public-ip-address myAGPublicIPAddress
-az network application-gateway waf-config set --enabled true \
+az network application-gateway waf-config set \
+  --enabled true \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
-  --firewall-mode Detection
+  --firewall-mode Detection \
+  --rule-set-version 3.0
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -117,15 +119,6 @@ az vmss create \
 
 ### Install NGINX
 
-You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -133,7 +126,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Create a storage account and configure diagnostics
@@ -158,9 +151,11 @@ az storage account create \
 Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs. Substitute `<subscriptionId>` with your subscription identifier and then configure diagnostics with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --resource-id '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' \
+appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
+storeid=$(az storage account show --name myagstore1 --resource-group myResourceGroupAG --query id -o tsv)
+az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
   --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
-  --storage-account '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1'
+  --storage-account $storeid
 ```
 
 ## Test the application gateway

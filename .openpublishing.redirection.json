@@ -1499,6 +1499,61 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-what-are-logic-apps.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-azure-active-directory-authentication.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-api-postman-collection.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/define-postman-collection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-openapi-extensions.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-custom-connector-register.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-soap-connector-create-register.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-submit-certification.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/submit-certification",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/custom-connector-faq.md",
+            "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/faq",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
             "redirect_url": "/azure/app-service-mobile",
             "redirect_document_id": false
@@ -7176,21 +7231,6 @@
         {
             "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/logic-apps/logic-apps-what-are-logic-apps.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
             "redirect_document_id": false
         },
         {
@@ -16528,17 +16568,27 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
             "redirect_document_id": false
-	},
-	{
+    },
+    {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-bcp.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/batch/scripts/batch-cli-sample-manage-pool.md",
+            "redirect_url": "/azure/batch/scripts/batch-cli-sample-manage-windows-pool",
             "redirect_document_id": false
     },
 	{
         "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
         "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
         "redirect_document_id": false
-}
+    },
+    {
+    "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+    "redirect_url": "/azure/virtual-network/quick-create-portal",
+    "redirect_document_id": false
+    }
 	
 
    ]
