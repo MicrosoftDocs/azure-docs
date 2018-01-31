@@ -14,9 +14,9 @@ ms.author: v-demak
 
 # Train and test your LUIS app
 
-Training is the process of teaching your LUIS app by example to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
+Training is the process of teaching your LUIS app to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
 
-Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If not, make updates to the LUIS app, train, and test again. 
+Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 Typically, before retraining, you should [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel by using the following procedures:
  
@@ -48,7 +48,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 ## Test your app
 [LUIS.ai](http://www.luis.ai) provides two types of testing: interactive testing and batch testing.
 
-## Access the Test page
+## Access the test page
 
 1. Access your app  by selecting its name on the **My Apps** page. 
 2. Click **Test** in your application's top panel to access the **Test** slide-out page.
@@ -58,16 +58,16 @@ To start the iterative process of training, you first need to train your LUIS ap
 ## Interactive testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
  
-The **Test** slide-out page displays a single test section by default. The second panel is the inspection panel.
+The **Test** slide-out page displays a single test section by default. The second panel is the Inspection panel.
 
 ![Train & Test App page](./media/luis-how-to-train-test/test-3-panel.png)
 
-* In the **Test panel**, you type the test utterance in the text box and press Enter to submit it to your LUIS app, and then view the LUIS model results. 
+* In the **Test panel**, you type the test utterance in the text box, press Enter to submit it to your LUIS app, and then view the LUIS model results. 
 
-* In the **Inspection panel**, you  inspect the LUIS results, change the top scoring intent, and compare to the published model. The top identified entity is also shown.
+* In the **Inspection panel**, you  inspect the LUIS results, change the top scoring intent, and then compare to the published model. The top identified entity is also shown.
 
 >[!NOTE]
->You can compare the trained but not yet published model against the published model. Be aware that any testing against the published model is deducted from your Azure subscription quota balance. 
+>You can compare the trained but unpublished model against the published model. Be aware that any testing against the published model is deducted from your Azure subscription quota balance. 
 
 In an interactive test, you submit individual test utterances and view the LUIS score for each utterance separately. 
 
@@ -83,49 +83,49 @@ When you perform interactive testing, you might find that LUIS doesn't detect th
     * Weather.GetForecast
     * None 
 
-2. Click on the **Train** button in the top bar to train the new app.
+2. Click the **Train** button in the top bar to train the new app.
 
 3. On the **Test** panel, type in `buy a plane ticket to bangor me` and press Enter. Instead of the `BookFlight` intent, the test results show `Weather.GetForecast`.
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
-4. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent. 
+4. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent: 
 
-    a. Go to the **Intents** page and select the **BookFlight** intent.
+      a. Go to the **Intents** page and select the **BookFlight** intent.
 
-    b. Type "buy a plane ticket to bangor me" into the text box, and then press Enter. 
+      b. Type "buy a plane ticket to bangor me" into the text box, and then press Enter. 
 
-5. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
+5. Click the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
 
-6. Go back to the **Test** panel, type `book a flight to bangor` in the text box, and select Enter. 
+6. Go back to the **Test** panel, type `book a flight to bangor` in the text box, and press Enter. 
 
     ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
 
    > [!NOTE]
-   > In this step, you choose an utterance that's similar to the one you labeled, but **not** exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+   > In this step, you choose an utterance that's similar to the one you labeled, but *not* exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
 7. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
 
-8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. 
+8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine: 
 
-    a. Go to the **Intents** page, select the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
+      a. Go to the **Intents** page, select the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
 
-    b. Select the words `bangor me` and choose the **Location** entity from the entity list.
+      b. Select the words `bangor me` and choose the **Location** entity from the entity list.
 
-    c. Select the **Location::ToLocation** hierarchical entity from the drop-down list.
+      c. Select the **Location::ToLocation** hierarchical entity from the drop-down list.
  
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
 
-9. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
+9. Click the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
 
-10. After training succeeds, select **Test**, type `buy a plane ticket to paris` in the text box, and select Enter. Now the location entity is correctly detected.
+10. After training succeeds, select **Test**, type `buy a plane ticket to paris` in the text box, and press Enter. Now the location entity is correctly detected.
 
     ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
 
 > [!NOTE]
-> In this step, you choose an utterance that's similar to the one you labeled, but not exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+> In this step, you choose an utterance that's similar to the one you labeled, but *not* exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
 ### Perform interactive testing on current and published models
 In this section, you publish the existing model, change the model, and then test an utterance to compare the published versus non-published model results.
@@ -147,7 +147,7 @@ If you are interactive testing on both trained and published models together, an
  >- You can type as many test utterances as you want in the test panel, but only one utterance at a time.
  >- The inspection panel shows the result of the latest utterance. 
  >- To review the result of a previous utterance, just select it in the test panel and its result displays on the right. 
- >- To clear all the entered test utterances and their results from the test console, select **Start over** on the top left corner of the test panel. 
+ >- To clear all the entered test utterances and their results from the test console, select **Start over** at the top left corner of the test panel. 
 
 
 ## Batch testing
@@ -227,7 +227,7 @@ The following procedures guide you on how to import a dataset file, run a batch 
 
 Select **Test** next to the dataset you've just imported. This displays the test result of the dataset.
 
-    ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
+![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
     In the preceding screenshot:
  
