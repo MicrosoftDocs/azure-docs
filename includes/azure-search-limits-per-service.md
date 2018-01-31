@@ -16,8 +16,8 @@ Storage is constrained by disk space or by a hard limit on the *maximum number* 
 
 <sup>2</sup> S3 HD has a hard limit of 3 partitions, which is lower than the partition limit for S3. The lower partition limit is imposed because the index count for S3 HD is substantially higher. Given that service limits exist for both computing resources (storage and processing) and content (indexes and documents), the content limit is reached first.
 
-> [!IMPORTANT]
-> <sup>3</sup>Beginning in late 2017, newly created Azure Search services were provisioned using more powerful underlying hardware configurations which allow for some limits to be changed in certain regions (Brazil South, Canada Central, Central India, East US, North Central US, North Europe, South Central US, Southeast Asia, UK South, West Europe, and West US):
+>[!Important]
+> **<sup>3</sup>** Beginning in late 2017, newly created Azure Search services were provisioned using more powerful underlying hardware configurations which allow for some limits to be changed in certain regions (Brazil South, Canada Central, Central India, East US, North Central US, North Europe, South Central US, Southeast Asia, UK South, West Europe, and West US):
 >
 >* Basic and Standard tier Search Services created after late 2017 do not have any limits on document counts; only storage limits are enforced on these services. 
 >* For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
