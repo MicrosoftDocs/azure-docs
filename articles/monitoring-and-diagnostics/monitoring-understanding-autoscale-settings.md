@@ -1,6 +1,6 @@
 ---
-title: Understanding autoscale settings in Azure | Microsoft Docs
-description: A detailed breakdown of autoscale settings and how they work.
+title: Understanding Autoscale settings in Azure | Microsoft Docs
+description: A detailed breakdown of Autoscale settings and how they work.
 author: anirudhcavale
 manager: orenr
 editor: ''
@@ -17,13 +17,13 @@ ms.date: 12/18/2017
 ms.author: ancav
 
 ---
-# Understand autoscale settings
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how autoscale evaluates which profile to execute at any given time.
+# Understand Autoscale settings
+Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure Autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an Autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how the Autoscale feature in Azure evaluates which profile to execute at any given time.
 
 ## Autoscale setting schema
-To illustrate the autoscale setting schema, the following autoscale setting is used. It is important to note that this autoscale setting has:
+To illustrate the Autoscale setting schema, the following Autoscale setting is used. It is important to note that this Autoscale setting has:
 - One profile. 
-- Two metric rules in this profile: one for scale-out, and one for scale-in.
+- Two metric rules in this profile: one for scale out, and one for scale in.
   - The scale-out rule is triggered when the virtual machine scale set's average percentage CPU metric is greater than 85 percent for the past 10 minutes.
   - The scale-in rule is triggered when the virtual machine scale set's average is less than 60 percent for the past minute.
 
@@ -99,8 +99,8 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 | properties | targetResourceUri | The resource ID of the resource being scaled. You can only have one Autoscale setting per resource. |
 | properties | profiles | An Autoscale setting is composed of one or more profiles. Each time the Autoscale engine runs, it executes one profile. |
 | profile | name | The name of the profile. You can choose any name that helps you identify the profile. |
-| profile | Capacity.maximum | The maximum capacity allowed. It ensures that autoscale, when executing this profile, does not scale your resource above this number. |
-| profile | Capacity.minimum | The minimum capacity allowed. It ensures that autoscale, when executing this profile, does not scale your resource below this number. |
+| profile | Capacity.maximum | The maximum capacity allowed. It ensures that Autoscale, when executing this profile, does not scale your resource above this number. |
+| profile | Capacity.minimum | The minimum capacity allowed. It ensures that Autoscale, when executing this profile, does not scale your resource below this number. |
 | profile | Capacity.default | If there is a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, Autoscale scales out to the default. This is to ensure the availability of the resource. If the current capacity is already higher than the default capacity, Autoscale does not scale in. |
 | profile | rules | Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
 | rule | metricTrigger | Defines the metric condition of the rule. |
@@ -119,7 +119,7 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 
 There are three types of Autoscale profiles:
 
-- **Regular profile:** Most common profile. If you don’t need to scale your resource based on the day of the week, or on a particular day, you can use a regular profile. This profile can then be configured with metric rules that dictate when to scale out and when to scale in. You should only have one regular profile defined.
+- **Regular profile:** The most common profile. If you don’t need to scale your resource based on the day of the week, or on a particular day, you can use a regular profile. This profile can then be configured with metric rules that dictate when to scale out and when to scale in. You should only have one regular profile defined.
 
 	The example profile used earlier in this article is an example of a regular profile. Note that it is also possible to set a profile to scale to a static instance count for your resource.
 
@@ -278,10 +278,10 @@ There are three types of Autoscale profiles:
     The preceding setting shows that “businessHoursProfile” begins running on Monday at 9:00 AM, and continues to 5:00 PM. That’s when “nonBusinessHoursProfile” starts running. The “nonBusinessHoursProfile” runs until 9:00 AM Tuesday, and then the “businessHoursProfile” takes over again. This repeats until Friday at 5:00 PM. At that point, “nonBusinessHoursProfile” runs all the way to Monday at 9:00 AM.
 	
 > [!Note]
-> The Autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the autoscale setting's default profile in between recurrence profiles.
+> The Autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the Autoscale setting's default profile in between recurrence profiles.
 	
 ## Autoscale evaluation
-Given that autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
+Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
 
 ### Which profile will Autoscale pick?
 
