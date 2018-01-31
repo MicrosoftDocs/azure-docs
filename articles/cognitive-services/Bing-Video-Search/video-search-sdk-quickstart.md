@@ -1,5 +1,5 @@
 ---
-title: Video search SDK quickstart | Microsoft Docs
+title: Video search SDK C# quickstart | Microsoft Docs
 description: Setup for Video search SDK console application.
 services: cognitive-services
 author: mikedodaro
@@ -11,7 +11,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Video Search SDK quickstart
+#Video Search SDK C# quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
@@ -19,7 +19,11 @@ The Bing Video Search SDK contains the functionality of the REST API for web req
 
 To set up a console application using the Bing Video Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
 
-[[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
+Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview) also installs dependencies, including:
+* Microsoft.Rest.ClientRuntime
+* Microsoft.Rest.ClientRuntime.Azure
+* Newtonsoft.Json
+
 
 ##Video Search client
 To create an instance of the `VideoSearchAPI` client, add using directives:
