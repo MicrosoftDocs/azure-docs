@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: ppacent
 ---
 
 # Azure Stack Public Key Infrastructure certificate requirements

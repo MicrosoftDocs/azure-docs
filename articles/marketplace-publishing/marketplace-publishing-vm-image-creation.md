@@ -116,6 +116,9 @@ From the Microsoft Azure portal, you can create your VM based on an approved bas
 We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
 
 > [!IMPORTANT]
+> **Do not use discs managed.** The virtual machine used to develop the VHD to the cloud must not be based on disks managed as it currently does not support the creation of an image from them.
+> Creating the virtual machine in the optional feature change the default for disks managed.
+
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
 >
 >
