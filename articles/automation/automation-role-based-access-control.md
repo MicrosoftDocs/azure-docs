@@ -44,6 +44,34 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 
 The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
 
+### Owner
+
+Can manage everything, including access. The following table shows the permissions granted for the role:
+
+|Actions|Description|
+|---|---|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
+
+### Contributor
+
+A Contributor can manage everything except access. The following table shows the permissions granted or denied for the role:
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*|Create and manage resources of all types|
+|**Not Actions**||
+|Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
+|Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
+|Microsoft.Authorization/elevateAccess/Action    |         |
+
+### Reader
+
+A Reader can view all the resources in an Automation account but cannot make any changes.
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|*/read|View all resources in an Automation Account |
+
 ### Automation Job Operator
 
 An Automation Job Operator is defined at the Automation account level. This allows the operator permissions to manage jobs in the account.
@@ -68,32 +96,12 @@ An Automation Runbook Operator can see the runbook name. This also gives permi
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/\<runbookInstance\>/read     | List the runbooks        |
+|Microsoft.Automation/automationAccounts/runbooks/read     | List the runbooks        |
 |Microsoft.Authorization/*/read      | Read authorization        |
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
 |Microsoft.Resources/deployments/*      | Create and manage resource group deployments         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
 |Microsoft.Support/*      | Create and manage support tickets        |
-
-### Owner
-
-Can manage everything, including access. The following table shows the permissions granted for the role:
-
-|Actions|Description|
-|---|---|
-|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
-
-### Contributor
-
-A Contributor can manage everything except access. The following table shows the permissions granted or denied for the role:
-
-|**Actions**  |**Description**  |
-|---------|---------|
-|*|Create and manage resources of all types|
-|**Not Actions**||
-|Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
-|Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
-|Microsoft.Authorization/elevateAccess/Action    |         |
 
 ### Automation Operator
 
@@ -218,7 +226,7 @@ The following tables show the minimum required permissions needed for onboarding
 |Write new resource group      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Create new default Workspace      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Create new Account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
-|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read </br>Automation Account|Workspace</br>Automation Account
+|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Automation Account
 |Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |Create MMA extension      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
 |Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
