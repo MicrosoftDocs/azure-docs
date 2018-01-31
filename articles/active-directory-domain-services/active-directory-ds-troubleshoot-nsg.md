@@ -99,29 +99,34 @@ Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azur
 ### Full script
 
 ```PowerShell
-#Change the following values to match your deployment
+# Change the following values to match your deployment
 $resourceGroup = "ResourceGroupName"
+$location = "westus"
 $vnetName = "exampleVnet"
 $subnetName = "exampleSubnet"
 
+# IP addresses used by Azure AD Domain Services to manage your domain.
 $serviceIPs = "52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161"
 
-# Create the rules needed
-$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name https-rule -Description "Allow HTTP" `
+# Allow inbound HTTPS traffic to enable synchronization to your managed domain.
+$SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 443
 
-$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 -Description "Manage domain through port 3389" `
+# Allow management of your domain over port 5986 (PowerShell Remoting)
+$PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 `
+-Description "Allow management of domain through port 5986" `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+-SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 5986
+
+# Allow management of your domain over port 3389 (remote desktop).
+$RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name manage-3389 `
+-Description "Allow management of domain through port 3389" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389
-
-$rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Manage domain through port 5986" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
--SourceAddressPrefix $serviceIPs -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389
-
 
 # Connect to your Azure AD directory.
 Connect-AzureAD
@@ -130,8 +135,8 @@ Connect-AzureAD
 Login-AzureRmAccount
 
 # Create the NSG with the 3 rules above
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location westus `
--Name "NSG-Default" -SecurityRules $rule1,$rule2,$rule3
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+-Name "NSG-Default" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
 
 # Find vnet and subnet
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
