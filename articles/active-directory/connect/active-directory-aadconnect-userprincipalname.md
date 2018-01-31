@@ -28,7 +28,7 @@ The following terminology is used in this article:
 |Alternate Login ID|This allows configuring source of Azure AD username to an on-premises attribute other than UserPrincipalName, such as mail attribute.|
 
 ## What is UserPrincipalName?
-UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). The UPN is shorter than the distinguished name and easier to remember. By convention, this should map to the user email name. The value set for this attribute is equal to the length of the user's ID and the domain name. 
+UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
 ### UPN Format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "@" symbol. For example, "someone@ example.com". A UPN must be unique among all security principal objects within a directory forest. This means the prefix of a UPN can be reused, just not with the same suffix.
@@ -51,7 +51,7 @@ The attribute is synchronized by Azure AD Connect.  During installation you can 
    ![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
 
 ## Non-verified UPN Suffix
-If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then Azure AD UserPrincipalName attribute value is set to MOERA. This means that Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as <MailNickName>@<initial domain>.
+If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then Azure AD UserPrincipalName attribute value is set to MOERA. This means that Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;@&lt;initial domain&gt;.
 
 ## Verified UPN Suffix
 If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is verified with the Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is going to be the same as the on-premises UserPrincipalName attribute/Alternate Login ID value.
@@ -86,7 +86,7 @@ On-Premises user object:
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to on-premises mail attribute prefix.
-- Set MOERA to <MailNickName>@<initial domain>.
+- Set MOERA to  &lt;MailNickName&gt;@&lt;initial domain&gt;.
 - Set Azure AD UserPrincipalName attribute to MOERA.
 
 Azure AD Tenant user object:
@@ -120,7 +120,7 @@ On-Premises user object:
 
 Synchronize update on on-premises userPrincipalName attribute to Azure AD Tenant
 - Update on on-premises userPrincipalName attribute triggers recalculation of MOERA and Azure AD UserPrincipalName attribute.
-- Set MOERA to <MailNickName>@<initial domain>.
+- Set MOERA to &lt;MailNickName&gt;@&lt;initial domain&gt;.
 - Set Azure AD UserPrincipalName attribute to MOERA.
 
 Azure AD Tenant user object:
