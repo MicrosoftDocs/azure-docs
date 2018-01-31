@@ -21,6 +21,7 @@ ms.author: brenduns
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
+
 As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure to check back for new content.
 
 ## Download marketplace items in a connected scenario (with internet connectivity)
