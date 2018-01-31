@@ -50,32 +50,11 @@ If you need to implement Network Security Group (NSG) in a VNet joined by your A
 | 443 | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in VNet use this port to access Azure services, for example, Azure Storage, Event Hub, etc. | INTERNET | 
 | 1433<br/>11000-11999<br/>14000-14999  | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in VNet use these ports to access SSISDB hosted by your Azure SQL Database server (not applicable to SSISDB hosted by Azure SQL Managed Instance). | Internet | 
 
-## Configure VNet
-You first need to configure VNet using one of the following ways (script vs. Azure portal) before you can join an Azure-SSIS IR to the VNet. 
-
-### Script to configure VNet 
-Add the following script to automatically configure VNet permissions/settings for your Azure-SSIS integration runtime to join the VNet.
-
-```powershell
-# Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
-{
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-    {
-    Start-Sleep -s 10
-    }
-    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
-    {
-        # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-    }
-}
-```
+## Azure portal (Data Factory UI)
+This section shows you how to join an existing Azure SSIS runtime to a VNet (Classic or Azure Resource Manager) by using the Azure portal and Data Factory UI. First, you need to configure the VNet appropriately before joining your Azure SSIS IR to the VNet. Go through one of the next two sections based on the type of your VNet (Classic or Azure Resource Manager). Then, continue with the third section to join your Azure SSIS IR to the VNet. 
 
 ### Use portal to configure a Classic VNet
-Running the script is the easiest way to configure VNet. If you do not have access to configure that VNet/the automatic configuration fails, the owner of that VNet/you can try to configure them manually in the following steps:
+You first need to configure VNet before you can join an Azure-SSIS IR to the VNet.
 
 1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **More services**. Filter for and select **Virtual networks (classic)**.
@@ -110,7 +89,7 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 	If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
 
 ### Use portal to configure an Azure Resource Manager VNet
-Running the script is the easiest way to configure VNet. If you do not have access to configure that VNet/the automatic configuration fails, the owner of that VNet/you can try to configure them manually in the following steps:
+You first need to configure VNet before you can join an Azure-SSIS IR to the VNet.
 
 1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **More services**. Filter for and select **Virtual networks**.
@@ -127,17 +106,74 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 
 	If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later.
 
-## Create an Azure-SSIS IR and join it to a VNet
-You can create an Azure-SSIS IR and join it to VNet at the same time. For the complete script and instructions to create an Azure-SSIS IR and join it to a VNet at the same time, see [Create Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
+### Join the Azure SSIS IR to a VNet
 
-## Join an existing Azure-SSIS IR to a VNet
+
+1. In the [Azure portal](https://portal.azure.com), select **Data factories** on the left menu. If you do not see **Data factories** on the menu, select **More services**,  select **Data factories** in the **INTELLIGENCE + ANALYTICS** section. 
+    
+	![Data factories list](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+2. Select your data factory with Azure SSIS integration runtime in the list. You see the home page for your data factory. Select **Author & Deploy** tile. You see the Data Factory user interface (UI) in a separate tab. 
+
+	![Data factory home page](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+3. In the Data Factory UI, switch to the **Edit** tab, select **Connections**, and switch to the **Integration Runtimes** tab. 
+
+	![Integration runtimes tab](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+4. If your Azure SSIS IR is running, in the integration runtime list, select **Stop** button in the **Actions** column for your Azure SSIS IR. You cannot edit an IR until you stop it. 
+5. In the integration runtime list, select **Edit** button in the **Actions** column for your Azure SSIS IR.
+
+	![Edit integration runtime](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+5. On the **General settings** page of the **Integration Runtime Setup** window, select **Next**. 
+
+	![IR setup - general settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
+6. On the **SQL Settings** page, enter administrator **password**, and select **Next**.
+
+	![IR setup - SQL settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+7. On the **Advanced Settings** page, do the following actions: 
+
+    1. Select the checkbox for the **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings**. 
+    2. For **Type**, specify whether the VNet is a classic VNet or an Azure Resource Manager VNet. 
+    3. For **VNet Name**, select your VNet.
+    4. For **Subnet Name**, select your subnet in the VNet. 
+    5. Select **Update**. 
+
+	    ![IR setup - Advanced settings](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
+8. Now, you can start the IR by using the **Start** button in the **Actions** column for your Azure SSIS IR. It takes approximately 20 minutes to start an Azure SSIS IR. 
+
+
+## Azure PowerShell
+
+### Configure VNet
+You first need to configure VNet before you can join an Azure-SSIS IR to the VNet. Add the following script to automatically configure VNet permissions/settings for your Azure-SSIS integration runtime to join the VNet.
+
+```powershell
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+    Start-Sleep -s 10
+    }
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
+}
+```
+
+### Create an Azure-SSIS IR and join it to a VNet
+You can create an Azure-SSIS IR and join it to VNet at the same time. For the complete script and instructions to create an Azure-SSIS IR and join it to a VNet at the same time, see [Create Azure-SSIS IR](create-azure-ssis-integration-runtime.md#azure-powershell).
+
+### Join an existing Azure-SSIS IR to a VNet
 The script in the [Create Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) article shows you how to create an Azure-SSIS IR and join it to a VNet in the same script. If you have an existing Azure-SSIS, perform the following steps to join it to the VNet. 
 
 1. Stop the Azure-SSIS IR.
 2. Configure the Azure-SSIS IR to join the VNet. 
 3. Start the Azure-SSIS IR. 
 
-## Define the variables
+### Define the variables
 
 ```powershell
 $ResourceGroupName = "<Azure resource group name>"
@@ -190,7 +226,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-## Start the Azure-SSIS IR
+### Start the Azure-SSIS IR
 Run the following command to start the Azure-SSIS integration runtime: 
 
 ```powershell
