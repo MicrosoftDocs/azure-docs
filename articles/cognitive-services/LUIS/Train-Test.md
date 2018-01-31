@@ -16,7 +16,7 @@ ms.author: v-demak
 
 Training is the process of teaching your LUIS app to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
 
-Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
+Training and testing an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 Typically, before retraining, you should [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel by using the following procedures:
  
