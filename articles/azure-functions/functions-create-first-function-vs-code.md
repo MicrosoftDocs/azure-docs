@@ -162,7 +162,7 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
     The output panel shows the Azure resources that you created in a resource group in your subscription. 
 
-    ![Function app create output](./media/functions-create-first-function-vs-code/function-create-output.png)
+    ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-output.png)
 
 7. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
 
@@ -186,9 +186,17 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 ## Update the runtime version in Azure
 
-In this article, your function app was developed and testing using version 2.x of the Azure Functions runtime. However, by default the function app you created in Azure runs version 1.x. You can optionally use VS COde to update the runtime version of the remote app to match the major version you used during development. To learn more about runtime versions, see the [Azure Functions rumtime versions overview](functions-versions.md). 
+In this article, your function app was developed and testing using version 2.x of the Azure Functions runtime. However, by default the function app you created in Azure runs version 1.x. You can use VS Code to update the runtime version of the remote app to match the major version you used during development. To learn more about runtime versions, see the [Azure Functions runtime versions overview](functions-versions.md). 
 
-1. In the **Azure Functions** area of the **Explorer**, expand your subscription > function app > **Application Settings**, Ctrl + select the and choose **Edit setting**.
+1. In the **Azure Functions** area of the **Explorer**, expand your subscription > function app > **Application Settings**.
+
+2. Press Ctrl when choosing the `FUNCTIONS_EXTENSION_VERSION` setting and select **Edit setting**.
+
+    ![Function response in the browser](./media/functions-create-first-function-vs-code/function-app-runtime-update.png)
+
+2. Update the value of the `FUNCTIONS_EXTENSION_VERSION` setting to a value of `beta`.
+
+Updating the setting causes the function app to restart. After the restart, it uses the version 2.x runtime.
 
 ## Next steps
 
