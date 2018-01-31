@@ -9,7 +9,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/30/2018
 ms.author: v-demak;v-geberr;
 ---
 # Language Understanding FAQ
@@ -36,7 +36,7 @@ Limits on entities depend on the entity type, as shown in the following table:
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a best-practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
@@ -108,10 +108,10 @@ The errors indicate that there is some discrepancy between your labels and the p
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
 ## Why don't I see my endpoint hits in my app's Dashboard?
-The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure Portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure Portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure Portal shows the aggregate number of calls from all LUIS apps that use it.
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
 ## How do I transfer ownership of a LUIS app?
-To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. The LUIS app's ID will need to be updated in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. The LUIS app's ID needs to be updated in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
 
 ## I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
 1. Export your app.
@@ -138,6 +138,9 @@ To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/l
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+
+## Why did I get an email saying I'm almost out of quota?
+Your programmatic/starter key is only allowed 1000 endpoint queries a month. You create LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Next steps
 
