@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 01/31/2018
 ms.author: jeedes
 
 ---
@@ -162,7 +162,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/servicesagreement/). Manually upload the plugin provided by Microsoft using **Upload add-on** menu
+8. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/). 
 	
 	![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 
