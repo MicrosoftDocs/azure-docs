@@ -1,6 +1,6 @@
 ---
-title: 'Provision an Azure-SSIS integration runtime by using the portal | Microsoft Docs'
-description: 'This article explains how to create an Azure-SSIS integration runtime by using the Azure portal.'
+title: 'Provision an SSIS integration runtime by using Azure Data Factory | Microsoft Docs'
+description: 'This article explains how to create an Azure-SSIS integration runtime by using Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: spelluru
@@ -12,10 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 01/29/2018
 ms.author: spelluru
 ---
-# Provision an Azure-SSIS integration runtime by using the Data Factory UI
+
+# Provision an Azure-SSIS integration runtime by using the Azure Data Factory UI
 This tutorial provides steps for using the Azure portal to provision an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools or SQL Server Management Studio to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. For conceptual information on Azure-SSIS IRs, see [Azure-SSIS integration runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 In this tutorial, you complete the following steps:
@@ -48,24 +49,24 @@ In this tutorial, you complete the following steps:
    The name of the Azure data factory must be *globally unique*. If you receive the following error, change the name of the data factory (for example, **&lt;yourname&gt;MyAzureSsisDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    `Data factory name “MyAzureSsisDataFactory” is not available`
-3. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
-4. For **Resource Group**, do one of the following steps:
+4. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
+5. For **Resource Group**, do one of the following steps:
      
    - Select **Use existing**, and select an existing resource group from the list. 
    - Select **Create new**, and enter the name of a resource group.   
          
    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. For **Version**, select **V2 (Preview)**.
-5. For **Location**, select the location for the data factory. The list shows only locations that are supported for the creation of data factories.
-6. Select **Pin to dashboard**.     
-7. Select **Create**.
-8. On the dashboard, you see the following tile with the status **Deploying data factory**: 
+6. For **Version**, select **V2 (Preview)**.
+7. For **Location**, select the location for the data factory. The list shows only locations that are supported for the creation of data factories.
+8. Select **Pin to dashboard**.     
+9. Select **Create**.
+10. On the dashboard, you see the following tile with the status **Deploying data factory**: 
 
    !["Deploying Data Factory" tile](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. After the creation is complete, you see the **Data factory** page.
+11. After the creation is complete, you see the **Data factory** page.
    
    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Select **Monitor & Manage** to open the Data Factory user interface (UI) on a separate tab. 
+12. Select **Monitor & Manage** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 
@@ -83,9 +84,9 @@ In this tutorial, you complete the following steps:
    c. For **Node Size**, select the size of the node that will be configured with the SSIS runtime.
 
    d. For **Node Number**, specify the number of nodes in the cluster.
-
+   
    e. Select **Next**. 
-1. On the **SQL Settings** page, complete the following steps: 
+3. On the **SQL Settings** page, complete the following steps: 
 
    ![SQL settings](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
@@ -100,19 +101,19 @@ In this tutorial, you complete the following steps:
    e. For **Catalog Database Server Tier**, select the service tier for the SSISDB database. The default value is **Basic**.
 
    f. Select **Next**. 
-1. On the **Advanced Settings** page, select a value for **Maximum Parallel Executions Per Node**.   
+4. On the **Advanced Settings** page, select a value for **Maximum Parallel Executions Per Node**.   
 
    ![Advanced settings](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. This step is *optional*. If you have a classic virtual network that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** check box. Then complete the following steps: 
+5. This step is *optional*. If you have a virtual network (created through the classic deployment model created through Azure Resource Manager) that you want the integration runtime to join, select the **Select a VNet for your Azure-SSIS integration runtime to join and allow Azure services to configure VNet permissions/settings** check box. Then complete the following steps: 
 
    ![Advanced settings with a virtual network](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
-   a. For **Subscription**, specify the subscription that has the classic virtual network.
+   a. For **Subscription**, specify the subscription that has the virtual network.
 
-   b. For **VNet Name**, select the virtual network.
+   b. For **VNet Name**, select the name of the virtual network.
 
-   c. For **Subnet Name**, select the subnet. 
-1. Select **Finish** to start the creation of the Azure-SSIS integration runtime. 
+   c. For **Subnet Name**, select the name of the subnet in the virtual network. 
+6. Select **Finish** to start the creation of the Azure-SSIS integration runtime. 
 
    > [!IMPORTANT]
    > This process takes approximately 20 to minutes to complete.
@@ -124,14 +125,9 @@ In this tutorial, you complete the following steps:
 7. On the **Connections** tab, switch to **Integration Runtimes** if needed. Select **Refresh** to refresh the status. 
 
    ![Creation status, with "Refresh" button](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
-8. Use the links in the **Actions** column to monitor, stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
+8. Use the links in the **Actions** column to stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
 
    ![Links in the "Actions" column](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
-9. Select the **Monitor** link under **Actions** to view monitoring details.  
-
-   ![Monitoring details](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
-10. If an error was associated with the Azure-SSIS IR, you see the number of errors on this tab and the link to view details about the error. For example, if the SSIS Catalog already exists on the database server, you see an error that indicates the existence of the SSISDB database.  
-11. To see all integration runtimes associated with the data factory, select **Integration Runtimes** at the top to go to the previous page.  
 
 ## Create an Azure-SSIS integration runtime
 
@@ -166,4 +162,4 @@ In this tutorial, you learned how to:
 To learn about copying data from on-premises to the cloud, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
->[Copy data in the cloud](tutorial-copy-data-portal.md)
+> [Copy data in the cloud](tutorial-copy-data-portal.md)
