@@ -49,7 +49,7 @@ If you do not want to use PowerShell, you can manually add single rules to NSGs 
 ## Create a default NSG using PowerShell
 Use the following steps to create a new NSG using PowerShell. This NSG is configured to allow inbound traffic to the ports required by Azure AD Domain Services, while denying any other unwanted inbound access.
 
-You need to install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0) to complete this resolution.
+Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0) to complete this resolution.
 
 1. Connect to your Azure AD directory.
 
@@ -146,5 +146,5 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 > This default NSG does not lock down access to the port used for Secure LDAP. To lock down Secure LDAP access over the internet, see [this article](active-directory-ds-troubleshoot-ldaps.md).
 >
 
-## Contact us
+## Need help?
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
