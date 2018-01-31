@@ -81,7 +81,7 @@ In this section of the tutorial, you'll create the basic application that reads 
 
 ### Add the Entity Framework NuGet package
 
-1. Click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+1. In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.
 2. Run the following command from the **Package Manager Console** window.
     
     ```
@@ -182,15 +182,15 @@ For more information about this package, see the [EntityFramework](https://www.n
 1. In **Solution Explorer**, double-click **web.config** to open it.
    
     ![Web.config][cache-web-config]
-2. Add the following `connectionStrings` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
+2. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
 	```xml
 	<connectionStrings>
-	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+	    <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
 	</connectionStrings>
 	```
 
-    You can add the new `connectionStrings` section so that it follows `configSections`, as shown in the following example.
+    The following example shows the new `connectionStrings` section following `configSections` inside the `configuration` section.
 
     ```xml
 	<configuration>
@@ -280,7 +280,7 @@ In this section of the tutorial, you'll configure the sample application to stor
 * [Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### Configure the application to use StackExchange.Redis
-1. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, click **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu.
+1. To configure a client application in Visual Studio using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package, click **Tools > NuGet Package Manager > Package Manager Console**.
 2. Run the following command from the `Package Manager Console` window.
     
     ```
@@ -319,14 +319,15 @@ In this section of the tutorial, you'll configure the sample application to stor
 
 6. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
-    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. If you run the application locally this information is used to connect to your Azure Redis Cache instance. Later in the tutorial you'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file, because when you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App and not from this file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
+    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents. 
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    If you run the application locally this information is used to connect to your Azure Redis Cache instance. Later in the tutorial you'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file, because when you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App and not from this file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
 
 1. In **Solution Explorer**, double-click **web.config** to open it.
    
@@ -335,7 +336,7 @@ In this section of the tutorial, you'll configure the sample application to stor
    
    * Before: `<appSettings>`
    * After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### Update the TeamsController class to return results from the cache or the database
@@ -801,11 +802,11 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
-2. Edit the `value` attribute and replace `MyCache.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
+2. Edit the `value` attribute and replace `YourCacheName.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and replace `YourAccessKey` with either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
