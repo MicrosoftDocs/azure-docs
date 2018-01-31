@@ -48,7 +48,7 @@ that you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] version v0.10.29 or higher.
+* [Node.js][Node.js] version v0.10.29 or higher. We recommend Node.js 6.10 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
 
