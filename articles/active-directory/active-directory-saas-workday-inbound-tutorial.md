@@ -816,9 +816,11 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 16. Copy the XPath expression for your selected attribute out of the **Document Path** field.
 
-17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied path. 
+17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
 
-18. The result should be something like **wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date**. This is what you will copy into the Azure portal.
+18. If the last item in the copied expression is a node (example: "/wd:Birth_Date"), then append **/text()** at the end of the expression. This is not necessary if the last item is an attribute (example: "/@wd:type").
+
+19. The result should be something like `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. This is what you will copy into the Azure portal.
 
 
 **To add your custom Workday user attribute to your provisioning configuration:**
@@ -841,15 +843,15 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 8. For **Type**, select type that appropriately corresponds to your attribute (**String** is most common).
 
-9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date`
+9. For **API Expression**, enter the XPath expression you copied from Workday Studio. Example: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Select **Add Attribute**.
 
     ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
 
-11. Select **Save** above, and then **Yes** to the dialog.
+11. Select **Save** above, and then **Yes** to the dialog. Close the Attribute Mapping screen if it is still open.
 
-12. Back on the main **Provisioning** tab, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**).
+12. Back on the main **Provisioning** tab, select **Synchronize Workers to OnPremises** (or **Synchronize Workers to Azure AD**) again.
 
 13. Select **Add new mapping**.
 
