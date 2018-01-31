@@ -41,7 +41,7 @@ To complete this tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
@@ -130,7 +130,7 @@ An event subscription indicates which provider-generated events you want sent to
     | **Name** | imageresizersub | Name that identifies your new event subscription. | 
     | **Topic type** |  Storage accounts | Choose the Storage account event provider. | 
     | **Subscription** | Your Azure subscription | By default, your current Azure subscription is selected.   |
-    | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this topic.  |
+    | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this tutorial.  |
     | **Instance** |  Your Blob storage account |  Choose the Blob storage account you created. |
     | **Event types** | Blob created | Uncheck all types other than **Blob created**. Only event types of `Microsoft.Storage.BlobCreated` are passed to the function.| 
     | **Subscriber type** |  Web Hook |  Choices are Web Hook or Event Hubs. |
