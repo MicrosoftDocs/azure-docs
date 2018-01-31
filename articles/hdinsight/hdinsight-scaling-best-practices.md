@@ -1,14 +1,25 @@
 ---
-title: Scaling - Best Practices - Azure HDInsight | Microsoft Docs
-description: ''
+title: Scale cluster sizes - Azure HDInsight | Microsoft Docs
+description: Scale an HDInsight cluster to your workload.
 services: hdinsight
 documentationcenter: ''
-
+author: ashishthaps
+manager: jhubbard
+editor: cgronlun
 tags: azure-portal
-keywords: scaling
+
+ms.assetid: 
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/10/2018
+ms.author: ashish
 
 ---
-# Scaling - Best Practices
+# Scale HDInsight clusters
 
 HDInsight offers elasticity by giving administrators the option to scale up and scale down the number of Worker Nodes in the clusters. This allows you to shrink a cluster during after hours or on weekends, and grow it during peak business demands.
 
