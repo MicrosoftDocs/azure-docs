@@ -15,20 +15,17 @@ manager: mtillman
 This article describes how the UserPrincipalName attribute is populated in Azure Active Directory (Azure AD).
 The UserPrincipalName attribute value is the Azure AD username for the user accounts.
 
-## More Information
+## UPN terminology
 The following terminology is used in this article:
 
-•	**Initial domain**: This is the default domain (onmicrosoft.com) in the Azure AD Tenant. For example, contoso.onmicrosoft.com.
-
-•	**Microsoft Online Email Routing Address (MOERA)**: Azure AD calculates the MOERA from Azure AD MailNickName attribute and Azure AD initial domain as <MailNickName>@<initial domain>.
-
-•	**On-premises mailNickName attribute**: This is an attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.
-
-•	**On-premises mail attribute**: This is an attribute in Active Directory, the value of which represents the email address of a user.
-
-•	**Primary SMTP Address**: This is the primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.
-
-•	**Alternate Login ID**: This allows configuring source of Azure AD username to an on-premises attribute other than UserPrincipalName, such as mail attribute.
+|Term|Description|
+|-----|-----|
+|Initial domain|This is the default domain (onmicrosoft.com) in the Azure AD Tenant. For example, contoso.onmicrosoft.com.|
+|Microsoft Online Email Routing Address (MOERA)|Azure AD calculates the MOERA from Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;@&lt;initial domain&gt;.|
+|On-premises mailNickName attribute|This is an attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.|
+|On-premises mail attribute|This is an attribute in Active Directory, the value of which represents the email address of a user|
+|Primary SMTP Address|This is the primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.|
+|Alternate Login ID|This allows configuring source of Azure AD username to an on-premises attribute other than UserPrincipalName, such as mail attribute.|
 
 ## What is UserPrincipalName?
 UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). The UPN is shorter than the distinguished name and easier to remember. By convention, this should map to the user email name. The value set for this attribute is equal to the length of the user's ID and the domain name. 
