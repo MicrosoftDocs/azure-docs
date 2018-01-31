@@ -19,25 +19,38 @@ ms.author: mandia; ladocs
 
 ---
 # Get started with the Azure Service Bus connector
-Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Connect to Azure Service Bus so that you can send and receive messages. 
+You can perform actions such as send to queue, send to topic, 
+receive from queue, and receive from subscription.
+
+> [!NOTE]
+> The Service Bus trigger uses *long polling* behavior where 
+> the trigger waits at least 30 seconds for events or messages 
+> to arrive before reading them. This behavior might affect 
+> the time intervals over when actions are metered and charged, 
+> but not the total processing cost. For more details, see 
+> [metering for Logic Apps triggers](../logic-apps/logic-apps-pricing.md#triggers).
+
+## Requirements
+
+To use [any connector](apis-list.md), you first need to create a logic app. 
+You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Service Bus
+
 Before your logic app can access any service, you first need to create a connection to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
 
 > [!INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
-> 
-> 
 
 ## Use a Service Bus trigger
+
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
-> 
-> 
 
 ## Use a Service Bus action
+
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]

@@ -299,7 +299,15 @@ Here are the outputs for an API Connection trigger:
 | headers | Object | The headers of the HTTP response | 
 | body | Object | The body of the HTTP response | 
 |||| 
-  
+
+> [!NOTE]
+> Some polling triggers, such as Azure Service Bus and Azure Event Hub, 
+> use *long polling* behavior where a trigger waits at least 30 seconds 
+> for events or messages to arrive before reading them. This behavior 
+> might affect the time intervals over when actions are metered and charged, 
+> but not the total processing cost. For more details, see 
+> [metering for Logic Apps triggers](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## HTTPWebhook trigger  
 
 The HTTPWebhook trigger provides an endpoint, similar to the Request trigger, 

@@ -25,6 +25,14 @@ To set up an event monitor so that your logic app can detect events, receive eve
 connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
 from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
+> [!NOTE]
+> The Event Hubs trigger uses *long polling* behavior where 
+> the trigger waits at least 30 seconds for events or messages 
+> to arrive before reading them. This behavior might affect 
+> the time intervals over when actions are metered and charged, 
+> but not the total processing cost. For more details, see 
+> [metering for Logic Apps triggers](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## Requirements
 
 * You have to have an [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
@@ -36,6 +44,7 @@ in your logic app, you have to create a logic app first. Learn
 [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
+
 ## Check Event Hubs namespace permissions and find the connection string
 
 For your logic app to access any service, 
