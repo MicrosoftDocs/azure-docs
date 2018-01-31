@@ -6,7 +6,7 @@
       href: search-the-web.md
     - name: News Search endpoints
       href: endpoint-news.md
-- name: Quickstarts
+- name: API Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -27,7 +27,7 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: News search SDK quickstart (preview)
+  - name: News search SDK C# quickstart (preview)
     href: news-search-sdk-quickstart.md  
 - name: How to
   items:

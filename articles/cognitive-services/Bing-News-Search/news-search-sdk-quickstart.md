@@ -1,5 +1,5 @@
 ---
-title: News search SDK quickstart | Microsoft Docs
+title: News search SDK C# quickstart | Microsoft Docs
 description: Setup for News search SDK console application.
 services: cognitive-services
 author: mikedodaro
@@ -11,7 +11,7 @@ ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-#News Search SDK quickstart
+#News Search SDK C# quickstart
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
@@ -19,7 +19,10 @@ The Bing News Search SDK contains the functionality of the REST API for news que
 
 To set up a console application using the Bing News Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
 
-[NuGet News Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.1.0-preview)
+Installing the [NuGet News Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.1.0-preview) also installs dependencies, including:
+* Microsoft.Rest.ClientRuntime
+* Microsoft.Rest.ClientRuntime.Azure
+* Newtonsoft.Json
 
 ##News Search client
 To create an instance of the `NewsSearchAPI` client, add using directive:
