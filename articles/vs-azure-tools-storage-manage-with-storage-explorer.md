@@ -107,7 +107,7 @@ To share an external storage account, the owner of that account must first get t
 
 4. In the list of **Storage Accounts**, select the desired storage account.
 
-5. Under**Settings**, select **Access keys**.
+5. Under **Settings**, select **Access keys**.
 
     ![Access Keys option][7]
 
@@ -211,7 +211,7 @@ In this context, a service can be a blob container, queue, table, or file share.
 
 2. In the **Connect Dialog** dialog box, choose **Use a connection string or shared access signature URI** and then click **Next**.
 
-    ![Connect to Azure storage dialog box][10]
+    ![Connect to Azure storage dialog box][16]
 
 3. Choose **Use a SAS URI** and paste your URI into the **URI:** field. Click the **Next** button.
 
