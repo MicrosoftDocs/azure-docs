@@ -226,7 +226,7 @@ The following code looks up a single restaurant "John Howie Bellevue" and prints
         }
 
 ```
-##List property of EntityScenario
+##EntityScenario list
 The following code looks up a list of "Seattle restaurants" and prints their names and phone numbers.
 ```
        public static void MultipleRestaurantLookup(EntitySearchAPI client)
