@@ -41,6 +41,11 @@ If you use the default settings in Azure AD Connect, the following mappings are 
 | telephoneNumber | Office phone | Alternate phone |
 | mobile | Mobile phone | Phone |
 
+These fields may appear empty until a user confirms their authentication data.
+
+A Global Administrator can manually set the Authentication contact info for the user as displayed in the following screenshot.
+
+![Contact][Contact]
 
 ## Security questions and answers
 
@@ -151,3 +156,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"
