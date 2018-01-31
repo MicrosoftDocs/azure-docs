@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshooting VPN Gateway | Microsoft Docs'
-description: This article helps you troubleshoot your VPN Gateway configuration
+title: 'Troubleshoot VPN Gateway configurations and connections | Microsoft Docs'
+description: This article helps link you to articles to troubleshoot your VPN Gateway configuration, connection, and to validate throughput.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -18,7 +18,7 @@ ms.date: 01/31/2018
 ms.author: cherylmc
 
 ---
-# Troubleshooting VPN Gateway
+# Troubleshoot VPN Gateway
 
 VPN Gateway connections can fail for a variety of reasons. This article contains links to get you started with troubleshooting. For a full list, see the articles contained in the table of contents under **Troubleshoot**, to the left of this page.
 
