@@ -33,7 +33,7 @@ This quickstart assumes you already have a SQL data warehouse that you can pause
 Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 To see which subscription you are using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).

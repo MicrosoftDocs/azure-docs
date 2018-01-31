@@ -52,6 +52,7 @@ To change data warehouse units:
     ![Click Save](media/quickstart-scale-compute-portal/confirm-change.png)
 
 
+
 ## Next steps
 You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
