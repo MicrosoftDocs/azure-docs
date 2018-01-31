@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -87,4 +87,4 @@ For more information, see:
 
 
 ## Next steps
-[Azure Stack border connectivity](azure-stack-border-connectivity.md)
+[Border connectivity](azure-stack-border-connectivity.md)
