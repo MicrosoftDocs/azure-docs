@@ -78,7 +78,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
+    Then, to stop the application, press CTRL+C in the terminal window and then, on Windows machines only, click **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
