@@ -20,8 +20,7 @@ ms.author: cherylmc
 ---
 # Troubleshooting VPN Gateway
 
-VPN Gateway connections can fail for a variety of reasons. This article contains links to get you started with troubleshooting. For a full list, see the articles contained in the table of contents (to the left of this page).
-
+VPN Gateway connections can fail for a variety of reasons. This article contains links to get you started with troubleshooting. For a full list, see the articles contained in the table of contents under **Troubleshoot**, to the left of this page.
 
 * [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)<br>A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure. This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM). It also provides troubleshooting guidance.
 
@@ -33,12 +32,4 @@ VPN Gateway connections can fail for a variety of reasons. This article contains
 
 ## Next Steps
 
-You can also use these steps to [Validate VNet and VPN connections](configuring-and-validating-vnet-or-vpn-connections.md).
-
-
-
-
-
-
-
-
+You can also use these steps to [Validate VNet and VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
