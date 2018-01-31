@@ -22,6 +22,8 @@ ms.custom: mvc
 
 [Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom Docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
+In this tutorial, you learn how to:
+
 > [!div class="checklist"]
 > * Deploy a custom Docker image to Azure
 > * Configure environment variables to run the container
@@ -137,7 +139,7 @@ Docker Hub is a registry for Docker images that allows you to host your own repo
 <docker-id>/image-name:tag
 ```
 
-Before you can push an image, you must sign in to Docker Hub using the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command. Replace _<docker-id>_ with your account name and type in your password into the console at the prompt.
+Before you can push an image, you must sign in to Docker Hub using the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command. Replace _\<docker-id>_ with your account name and type in your password into the console at the prompt.
 
 ```bash
 docker login --username <docker-id>
