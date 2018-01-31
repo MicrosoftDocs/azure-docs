@@ -37,9 +37,6 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Monitoring Reader | The Montioring Reader role allows you to read all monitoring data. |
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
-> [!NOTE]
-> You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.
-
 ## Role permissions
 
 The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
