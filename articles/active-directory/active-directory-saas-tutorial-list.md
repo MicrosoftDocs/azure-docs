@@ -29,7 +29,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 ## SaaS tutorials
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
-| :---: | :--- | :--- |
+| :--: | :--- | :--- |
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [&frankly](active-directory-saas-andfrankly-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-10000ftplans-tutorial.png)| [10,000ft Plans](active-directory-saas-10000ftplans-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-123contactform-tutorial.png)| [123ContactForm](active-directory-saas-123contactform-tutorial.md)|
@@ -278,10 +278,10 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-oneteam-tutorial.png)| [Oneteam](active-directory-saas-oneteam-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-onit-tutorial.png)| [Onit](active-directory-saas-onit-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-ontrack-tutorial.png)| [OnTrack](active-directory-saas-ontrack-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-onetrustprivacymanagementsoftware-tutorial.png)| [OneTrust Privacy Management Software](active-directory-saas-onetrust-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-onetrust-tutorial.png)| [OneTrust Privacy Management Software](active-directory-saas-onetrust-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-openathens-tutorial.png)| [OpenAthens](active-directory-saas-openathens-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-opsgenie-tutorial.png)| [OpsGenie](active-directory-saas-opsgenie-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.png)| [Optimizely](active-directory-saas-optimizely-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-optimizely-tutorial.png)| [Optimizely](active-directory-saas-optimizely-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-origami-tutorial.png)| [Origami](active-directory-saas-origami-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-overdrive-books-tutorial.png)| [Overdrive](active-directory-saas-overdrive-books-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pacific-timesheet-tutorial.png)| [Pacific Timesheet](active-directory-saas-pacific-timesheet-tutorial.md)|
@@ -292,26 +292,26 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pegasystems-tutorial.png)| [Pega Systems](active-directory-saas-pegasystems-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-people-tutorial.png)| [People](active-directory-saas-people-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-peoplecart-tutorial.png)| [Peoplecart](active-directory-saas-peoplecart-tutorial.md)||
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-perceptionunitedstates-tutorial.png)| [Perception United States (Non-UltiPro)](active-directory-saas-perceptionunitedstates-tutorial.md)||
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-perceptionunitedstates-tutorial.png)| [Perception United States](active-directory-saas-perceptionunitedstates-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](active-directory-saas-performancecentre-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-picturepark-tutorial.png)| [Picturepark](active-directory-saas-picturepark-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)| [Pingboard - User Provisioning](active-directory-saas-pingboard-provisioning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PlanMyLeave.png)| [PlanMyLeave](active-directory-saas-planmyleave-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pingboard-tutorial.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)| [Pingboard - User Provisioning](active-directory-saas-pingboard-provisioning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-planmyleave-tutorial.png)| [PlanMyLeave](active-directory-saas-planmyleave-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pluralsight-tutorial.png)| [Pluralsight](active-directory-saas-pluralsight-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-policystat-tutorial.png)| [PolicyStat](active-directory-saas-policystat-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-postbeyond-tutorial.png)| [PostBeyond](active-directory-saas-postbeyond-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-predictixassortmentplanning-tutorial.png)| [Predictix Assortment Planning](active-directory-saas-predictix-assortment-planning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-predictix-assortment-planning-tutorial.png)| [Predictix Assortment Planning](active-directory-saas-predictix-assortment-planning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-predictixordering-tutorial.png)| [Predictix Ordering](active-directory-saas-predictixordering-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.png)| [Predictix Price Reporting](active-directory-saas-predictixpricereporting-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-predictixpricereporting-tutorial.png)| [Predictix Price Reporting](active-directory-saas-predictixpricereporting-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-printix-tutorial.png)| [Printix](active-directory-saas-printix-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_procore.png)| [Procore SSO](active-directory-saas-procoresso-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-procoresso-tutorial.png)| [Procore SSO](active-directory-saas-procoresso-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-projectplace-tutorial.png)| [Projectplace](active-directory-saas-projectplace-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-promapp-tutorial.png)| [Promapp](active-directory-saas-promapp-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProofpointOnDemand.png)| [Proofpoint on Demand](active-directory-saas-proofpoint-ondemand-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/saasapp_purelyhr.png)| [PurelyHR](active-directory-saas-purelyhr-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-proofpoint-ondemand-tutorial.png)| [Proofpoint on Demand](active-directory-saas-proofpoint-ondemand-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](active-directory-saas-purelyhr-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-qliksense-enterprise-tutorial.png)| [Qlik Sense Enterprise](active-directory-saas-qliksense-enterprise-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-qprism-tutorial.png)| [QPrism](active-directory-saas-qprism-tutorial.md)||
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.png)| [Qualtrics](active-directory-saas-qualtrics-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-qualtrics-tutorial.png)| [Qualtrics](active-directory-saas-qualtrics-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-questetra-bpm-suite-tutorial.png)| [Questetra BPM Suite](active-directory-saas-questetra-bpm-suite-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-quickhelp-tutorial.png)| [QuickHelp](active-directory-saas-quickhelp-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-rally-software-tutorial.png)| [Rally Software](active-directory-saas-rally-software-tutorial.md)|
@@ -376,7 +376,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-sugarcrm-tutorial.png)| [Sugar CRM](active-directory-saas-sugarcrm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-sumologic-tutorial.png)| [SumoLogic](active-directory-saas-sumologic-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-sumtotalcentral-tutorial.png)| [SumTotalCentral](active-directory-saas-sumtotalcentral-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/WSS)](active-directory-saas-symantec-tutorial.png)| [Symantec Web Security Service (WSS)](WSS)](active-directory-saas-symantec-tutorial.md)||
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-symantec-tutorial.png)| [Symantec Web Security Service](active-directory-saas-symantec-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-syncplicity-tutorial.png)| [Syncplicity](active-directory-saas-syncplicity-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-synergi-tutorial.png)| [Synergi](active-directory-saas-synergi-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_tandeexpress.png)| [T&E Express](active-directory-saas-tyeexpress-tutorial.md)|
