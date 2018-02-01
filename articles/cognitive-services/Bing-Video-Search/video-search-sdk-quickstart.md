@@ -1,6 +1,7 @@
 ---
 title: Video search SDK C# quickstart | Microsoft Docs
 description: Setup for Video search SDK console application.
+titleSuffix: Azure cognitive services setup News search SDK C# console application
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -11,7 +12,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Video Search SDK C# quickstart
+#Video Search SDK C# quickstart (Preview)
 
 The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
