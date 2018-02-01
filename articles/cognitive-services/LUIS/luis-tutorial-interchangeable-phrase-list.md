@@ -80,11 +80,11 @@ Use the published endpoint to query an utterance that the app already knows. Bec
     }
     ```
 
-    The intent score of 0.973 and the entity detection of 0.846 are high because the app was trained with this utterance. The utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text, `computer`, is labeled as the **Hardware** entity. 
+    The intent score of 0.973 and the entity detection score of 0.846 are high because the app was trained with this utterance. The utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text, `computer`, is labeled as the **Hardware** entity. 
     
-    |status|word| intent score | entity score |
+    |Status|Word| Intent score | Entity score |
     |--|--|--|--|
-    |trained| want | 0.973 | 0.846 |
+    |Trained| want | 0.973 | 0.846 |
     
     
 ## Test an untrained utterance
@@ -94,7 +94,7 @@ In the browser, use the same published endpoint to query with an utterance that 
 
 This utterance uses a synonym of the previous utterance:
 
-| trained word | untrained synonym |
+| Trained word | Untrained synonym |
 |--|--|
 | want | require |
 
@@ -133,10 +133,10 @@ The endpoint response is:
 }
 ```
 
-| status | word | intent score | entity score |
+| Status | Word | Intent score | Entity score |
 |--|--|--|--|
-| trained| want | 0.973 | 0.846 |
-| untrained| require | 0.840 | - |
+| Trained| want | 0.973 | 0.846 |
+| Untrained| require | 0.840 | - |
 
 The untrained utterance intent score is lower than that of the labeled utterance because LUIS knows that the sentence is grammatically the same. But LUIS doesn't know that the utterances have the same meaning. Also, without the phrase list, the **Hardware** entity is not found.
 
@@ -177,17 +177,17 @@ In this app, the published model is not trained with the synonyms. Only the curr
 
 After you add the phrase list, the increased accuracy of the utterance and the **Hardware** entity is found. 
 
-|status | phrase list| intent score | entity score |
+|Status | Phrase list| Intent score | Entity score |
 |--|--|--|--|
-| published | - | 0.84 | - |
-| currently editing |✔| 0.92 | Hardware entity identified |
+| Published | - | 0.84 | - |
+| Currently editing |✔| 0.92 | Hardware entity identified |
 
 > [!TIP]
 > * By using [Interactive testing](Train-Test.md#interactive-testing), you can compare the published model to any trained changes that are made after you publish. 
 > * By using [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser), you can view the exact LUIS response JSON. 
 
 ## Get the entity score with the endpoint test
-To view the entity score, [publish](PublishApp.md) the model and query the endpoint. 
+To view the entity score, [publish the model](PublishApp.md) and query the endpoint. 
 
 `I require a computer replacement`
 
@@ -234,10 +234,10 @@ To view the entity score, [publish](PublishApp.md) the model and query the endpo
 
 The **Hardware** entity shows a score of 0.595 with the phrase list. Before the phrase list existed, the entity was not detected. 
 
-|status | phrase list| intent score | entity score |
+|Status | Phrase list| Intent score | Entity score |
 |--|--|--|--|
-| published | - | 0.84 | - |
-| currently editing |✔| 0.92 | 0.595 |
+| Published | - | 0.84 | - |
+| Currently editing |✔| 0.92 | 0.595 |
 
   [www.luis.ai]:https://www.luis.ai
   [LuisFeatures]: luis-concept-feature.md
