@@ -20,7 +20,7 @@ ms.author: mabrigg
 
 # Start and stop Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems (version 1712 and later)*
 
 ## Stop Azure Stack 
 
@@ -39,6 +39,15 @@ Shut down Azure Stack with the following steps:
 > [!Note]  
 > You can verify the power status of a physical node by following the instructions from the Original Equipment Manufacturer (OEM) who supplied your Azure Stack hardware. 
 
+## Start Azure Stack 
+
+Start Azure Stack with the following steps. Follow these steps regardless of how Azure Stack stopped.
+
+1. Power on each of the physical nodes in your Azure Stack environment. Verify the power on instructions for the physical nodes by following the instructions from the Original Equipment Manufacturer (OEM) who supplied the hardware for your Azure Stack.
+
+2. Wait until the Azure Stack infrastructure services starts. Azure Stack infrastructure services can require two hours to finishing the start process. You can verify the start status of Azure Stack with the [**Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## Get the startup status for Azure Stack
 
 Get the startup for the Azure Stack startup routine with the following steps:
@@ -51,17 +60,9 @@ Get the startup for the Azure Stack startup routine with the following steps:
       Get-ActionStatus Start-AzureStack
     ```
 
-## Start Azure Stack 
-
-Start Azure Stack with the following steps. Follow these steps regardless of how Azure Stack stopped.
-
-1. Power on each of the physical nodes in your Azure Stack environment. Verify the power on instructions for the physical nodes by following the instructions from the Original Equipment Manufacturer (OEM) who supplied the hardware for your Azure Stack.
-
-2. Wait until the Azure Stack infrastructure services starts. Azure Stack infrastructure services can require two hours to finishing the start process. You can verify the start status of Azure Stack with the [**Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
-
 ## Troubleshoot startup and shutdown of Azure Stack
 
-Perform the following steps if the infrastructure and tenant services don't successfully start after you power on your Azure Stack environment. 
+Perform the following steps if the infrastructure and tenant services don't successfully start 2 hours after you power on your Azure Stack environment. 
 
 1. Open a Privileged Endpoint Session from a machine with network access to the Azure Stack ERCS VMs.
 

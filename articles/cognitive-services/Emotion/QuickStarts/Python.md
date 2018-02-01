@@ -29,7 +29,7 @@ Copy the appropriate section for your version of Python and save it to a file su
 
 ```python
 ########### Python 2.7 #############
-import httplib, urllib, base64
+import httplib, urllib, base64, json
 
 headers = {
     # Request headers. Replace the placeholder key below with your subscription key.
@@ -62,7 +62,7 @@ except Exception as e:
 ####################################
 
 ########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
+import http.client, urllib.request, urllib.parse, urllib.error, base64, sys, json
 
 headers = {
     # Request headers. Replace the placeholder key below with your subscription key.
