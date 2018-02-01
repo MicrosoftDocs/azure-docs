@@ -33,7 +33,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
@@ -50,7 +50,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: Step-by-Step Tutorials

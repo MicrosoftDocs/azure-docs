@@ -8,13 +8,13 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 
 ---
 
-# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
+# Quickstart: Deploy your first IoT Edge module to a Linux or Mac device - preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -22,10 +22,14 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 
 ## Prerequisites
 
-To accomplish this task, use your computer or a virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
+This quickstart uses your computer or virtual machine like an Internet of Things device. To turn your machine into an IoT Edge device, the following services are required:
 
-- [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
-- Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
+* Python pip, to install the IoT Edge runtime.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, to run the IoT Edge modules
+   * [Install Docker for Linux][lnk-docker-ubuntu] and make sure that it's running. 
+   * [Install Docker for Mac][lnk-docker-mac] and make sure that it's running. 
 
 ## Create an IoT hub with Azure CLI
 
@@ -134,6 +138,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

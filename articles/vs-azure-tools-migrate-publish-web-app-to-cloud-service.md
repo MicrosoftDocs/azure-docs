@@ -25,7 +25,7 @@ To take advantage of the hosting services and scaling ability of Azure, you migh
 
 ## Migrate a project to cloud services
 
-1. Right-click the web application project and select **Convert > Convert to Microsoft Azure Cloud Service Project**. (That this command does not appear if you already have a web role project in the solution.)
+1. Right-click the web application project and select **Convert > Convert to Microsoft Azure Cloud Service Project**. (Note that this command does not appear if you already have a web role project in the solution.)
 1. Visual Studio creates a cloud service project in the solution that contains the required web role. The name of this project is the same as your application project with plus the suffix `.Azure`.
 1. Visual Studio also sets the **Copy Local** property to true for any assemblies that are required for MVC 2, MVC 3, MVC 4, and Silverlight Business Applications. This property adds these assemblies to the service package that is used for deployment.
 

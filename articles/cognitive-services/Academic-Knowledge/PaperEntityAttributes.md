@@ -56,6 +56,9 @@ S.U		| Source URL
 VFN		| Venue Full Name - full name of the Journal or Conference
 VSN		| Venue Short Name - short name of the Journal or Conference
 V		| Volume - journal volume
+BV		| Journal Name
+BT		| 
+PB		| Journal Abreviations
 I 		| Issue - journal issue
 FP		| FirstPage - first page of paper
 LP 		| LastPage - last page of paper

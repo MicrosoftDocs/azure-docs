@@ -40,6 +40,9 @@ Review installer.log to determine the cause of the installation failure.
 > [!Note]  
 > The agent installation will fail if your machine is set up to use Microsoft Update and the Windows Update service is not running.
 
+<a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
+This issue can occur if the IIS website default name is changed. To work around this issue, rename the IIS default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
+
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
 1. Log in to the server that you want to register.
@@ -129,6 +132,8 @@ If individual files fail to sync:
 
     > [!NOTE]
     > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
+
+We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
 
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:

@@ -16,12 +16,10 @@
 #### [Variables](resource-manager-templates-variables.md)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [Link to other templates](resource-group-linked-templates.md)
+### [Linked and nested templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
 ### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
-
 
 ## Deploy
 ### Azure PowerShell

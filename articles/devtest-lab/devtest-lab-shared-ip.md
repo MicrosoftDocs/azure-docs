@@ -3,7 +3,7 @@ title: Understand shared IP addresses in Azure DevTest Labs | Microsoft Docs
 description: Learn how Azure DevTest Labs uses shared IP addresses to minimize the public IP addresses required to access your lab VMs.
 services: devtest-lab
 documentationcenter: na
-author: camsoper
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: casoper
+ms.author: v-craic
 ---
 
 # Understand shared IP addresses in Azure DevTest Labs

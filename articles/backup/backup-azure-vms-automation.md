@@ -90,11 +90,13 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. You can verify that the Providers registered successfully, using the following commands:
     ```
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 In the command output, the **RegistrationState** should set to **Registered**. If not, just re-run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet shown above.
 
@@ -279,7 +281,7 @@ There is a key difference between the restoring a VM using the Azure portal and 
 >
 >
 
-To create a virtual machine from disk, see the section, [Create the VM from stored disks](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). The basic steps to restore an Azure VM are:
+To create a virtual machine from disk, see the section, [Create the VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). The basic steps to restore an Azure VM are:
 
 * Select the VM
 * Choose a recovery point

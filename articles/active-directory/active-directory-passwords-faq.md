@@ -1,5 +1,5 @@
 ---
-title: 'FAQ: Azure AD SSPR | Microsoft Docs'
+title: Self-service password reset FAQ - Azure Active Directory
 description: Frequently asked questions about Azure AD self-service password reset
 services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
@@ -14,9 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
+ms.custom: seohack1
 
 ---
 # Password management frequently asked questions
@@ -67,7 +68,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I synchronize or set the authentication phone, authentication email, or alternate authentication phone fields on behalf of my users?**
 
-  > **A:** No, this is not possible today.
+  > **A:** The fields that are able to be set by a Global Administrator are defined in the article [SSPR Data requirements](active-directory-passwords-data.md).
   >
   >
 * **Q:  How does the registration portal determine which options to show my users?**

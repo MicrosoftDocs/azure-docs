@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Azure Virtual Network
 
-The Microsoft Azure Virtual Network service enables Azure resources to securely communicate with other in a virtual network. A virtual network is a representation of your own network in the cloud. A virtual network is a logical isolation of the Azure cloud dedicated to your subscription. You can connect virtual networks to other virtual networks, or to your on-premises network. The following picture shows some of the capabilities of the Azure Virtual Network service:
+The Microsoft Azure Virtual Network service enables Azure resources to securely communicate with each other in a virtual network. A virtual network is a logical isolation of the Azure cloud dedicated to your subscription. You can connect virtual networks to other virtual networks, or to your on-premises network. The following picture shows some of the capabilities of the Azure Virtual Network service:
 
 ![Network diagram](./media/virtual-networks-overview/virtual-network-overview.png)
 
@@ -87,6 +87,6 @@ To review frequently asked questions about Azure Virtual Network, see the [Virtu
 
 ## <a name="next-steps"></a>Next steps
 
-- Create your first virtual network, and deploy a few virtual machines into it, by completing the steps in [Create your first virtual network](virtual-network-get-started-vnet-subnet.md).
+- Create your first virtual network, and deploy a few virtual machines into it, by completing the steps in [Create your first virtual network](quick-create-portal.md).
 - Create a point-to-site connection to a virtual network by completing the steps in [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Learn about some of the other key [network capabilities](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of Azure.
