@@ -131,7 +131,7 @@ In the linked service settings, you specified the Azure storage account that con
 
    c. Specify **OutputDataset** for the name.
 
-   d. Enter **adftutorial/output** for the folder. The copy activity creates the output folder if it doesn't exist.
+   d. Enter **adftutorial/output** for the folder. If the **output** folder does not exist, the copy activity creates it at runtime.
 
    e. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. 
    
@@ -140,7 +140,7 @@ In the linked service settings, you specified the Azure storage account that con
    ![Output dataset settings](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## Create a pipeline 
-In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file specified in the input dataset settings to the file specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
+In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
 
 1. Select the **+** (plus) button, and then select **Pipeline**. 
 
