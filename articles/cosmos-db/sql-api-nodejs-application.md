@@ -121,7 +121,6 @@ That takes care of all the initial setup and configuration, now let’s get down
 2. In the **models** directory, create a new file named **task-model.js**. This file will contain the model for the tasks created by our application.
 3. In the same **models** directory, create another new file named **cosmosdb-manager.js**. This file will contain some useful, reusable, code that we will use throughout our application. 
 4. Copy the following code in to **cosmosdb-manager.js**
-   
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
 
@@ -172,28 +171,27 @@ That takes care of all the initial setup and configuration, now let’s get down
     };
     ```
 5. Save and close the **cosmosdb-manager.js** file.
-6. At the beginning of the **task-model.js** file, add the following code to reference the **DocumentDBClient** and the **cosmosdb-manager.js** we created above:
+6. At the beginning of the **task-model.js** file, add the following code to reference the **DocumentDBClient** and the **cosmosdb-manager.js** we created above: 
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./docdbUtils');
+    ```
+7. Next, you will add code to define and export the Task object. This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.  
+
+    ```nodejs
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+      this.client = documentDBClient;
+      this.databaseId = databaseId;
+      this.collectionId = collectionId;
    
-        ```nodejs
-        let DocumentDBClient = require('documentdb').DocumentClient;
-        let docdbUtils = require('./docdbUtils');
-        ```
-7. Next, you will add code to define and export the Task object. This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.
-    
-        ```nodejs
-        function TaskModel(documentDBClient, databaseId, collectionId) {
-          this.client = documentDBClient;
-          this.databaseId = databaseId;
-          this.collectionId = collectionId;
+      this.database = null;
+      this.collection = null;
+    }
    
-          this.database = null;
-          this.collection = null;
-        }
-   
-        module.exports = TaskModel;
-        ```
+    module.exports = TaskModel;
+    ```
 8. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in Azure Cosmos DB.
-   
+
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
     let docdbUtils = require('./cosmosdb-manager');
@@ -383,52 +381,52 @@ That takes care of all the initial setup and configuration, now let’s get down
 1. In your project directory create a new file named **config.js**.
 2. Add the following to **config.js**. This defines configuration settings and values needed for our application.
    
-        ```nodejs
-        let config = {}
+    ```nodejs
+    let config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.databaseId = "ToDoList";
-        config.collectionId = "Items";
+    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.databaseId = "ToDoList";
+    config.collectionId = "Items";
    
-        module.exports = config;
-        ```
+    module.exports = config;
+    ```
 3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys page of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
 1. In the project directory, open the **app.js** file. This file was created earlier when the Express web application was created.
-2. Add the following code to the top of **app.js**
+2. Add the following code to the top of **app.js**:
    
-        ```nodejs
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var config = require('./config');
-        var TaskList = require('./routes/tasklist');
-        var TaskModel = require('./models/taskModel');
-        ```
+    ```nodejs
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var config = require('./config');
+    var TaskList = require('./routes/tasklist');
+    var TaskModel = require('./models/taskModel');
+    ```
 3. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon.
 4. Replace the following two lines in **app.js** file:
    
-        ```nodejs
-        app.use('/', index);
-        app.use('/users', users); 
-        ```
+    ```nodejs
+    app.use('/', index);
+    app.use('/users', users); 
+    ```
    
-      with the following snippet:
+    with the following snippet:
    
-        ```nodejs
-        let docDbClient = new DocumentDBClient(config.host, {
-            masterKey: config.authKey
-        });
-        let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
-        let taskList = new TaskList(taskModel);
-        taskModel.init();
+    ```nodejs
+    let docDbClient = new DocumentDBClient(config.host, {
+        masterKey: config.authKey
+    });
+    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
+    let taskList = new TaskList(taskModel);
+    taskModel.init();
    
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-        app.set('view engine', 'jade');
-        ```
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    app.set('view engine', 'jade');
+    ```
 5. These lines define a new instance of our **TaskModel** object, with a new connection to Azure Cosmos DB (using the values read from the **config.js**), initialize the task object and then bind form actions to methods on our **TaskList** controller. 
 6. Finally, save and close the **app.js** file, we're just about done.
 
