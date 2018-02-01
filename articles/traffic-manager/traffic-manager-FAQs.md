@@ -320,7 +320,7 @@ Traffic Manager uses host headers in HTTP and HTTPS health checks. The host head
 
 ### What are the IP addresses from which the health checks originate?
 
-Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view json file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the json file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
