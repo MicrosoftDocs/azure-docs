@@ -99,7 +99,7 @@ The city "Paris" can be either a ToLocation or a FromLocation when booking a pla
 
 ## Add list entity and label
 
-A list entity identifies known synonyms of words. Add a list entity for the different seat types: first, business and economy. When labeling an utterance by creating a new list entity, you create the list with one item in the list, such as "business". 
+A list entity identifies known synonyms of words. Add a list entity for the different seat types: first, business, and economy. When labeling an utterance by creating a new list entity, you create the list with one item in the list, such as "business". 
 
 1. In the utterance 
 `book me 2 adult business tickets to Paris tomorrow on Air France`,
@@ -116,7 +116,7 @@ select "business," then create a new entity named "Seat".
 The **Seat** list entity contains one item of business with synonyms: `Bus.`, `bus`, and `biz` . 
 
 ## Add synonyms to the list entity 
-Add a list item tp a the list entity by selecting the word or phrase in the utterance.
+Add a list to the list entity by selecting the word or phrase in the utterance.
 
 1. Add a new utterance to the BookFlight intent `Book an economy class seat to seattle`. This utterance has a new Seat list item, `economy`.
 2. Select the word `economy` in the utterance, then select `Seat` in the pop-up dialog, then select `Create a new synonym`.
@@ -130,7 +130,7 @@ In the following procedure, you create and label a composite entity named `Ticke
 
 The composite entity contains three child entities: number (of tickets), Seat, and Category. The Seat hierarchical category was created in [a previous section](#add-list-entity-and-label). Label the word "business" as a Seat category. 
 
-1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities do not need to be labeled. 
+1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities are labeled by LUIS. 
 
 2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
 
