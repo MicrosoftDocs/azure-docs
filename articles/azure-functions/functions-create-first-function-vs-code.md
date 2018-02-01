@@ -158,7 +158,7 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 6. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
 
-7. Choose **Yes** if you are prompted to overwrite existing deployments since you are publishing to a new function app.
+7. Choose **Yes** if you are prompted to overwrite existing deployments since you are publishing to a new function app. If you are deploying from a Windows computer, choose **Yes** when prompted to upgrade the remote runtime. 
 
     The output panel shows the Azure resources that you created in a resource group in your subscription. 
 
@@ -187,6 +187,8 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 ## Update the runtime version in Azure
 
 In this article, your function app was developed and testing using version 2.x of the Azure Functions runtime. However, by default the function app you created in Azure runs version 1.x. You can use VS Code to update the runtime version of the remote app to match the major version you used during development. To learn more about runtime versions, see the [Azure Functions runtime versions overview](functions-versions.md). 
+
+If you chose to update the runtime version when you published from a Windows computer, you can skip this procedure.
 
 1. In the **Azure Functions** area of the **Explorer**, expand your subscription > function app > **Application Settings**.
 
