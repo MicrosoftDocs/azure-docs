@@ -187,43 +187,29 @@ You cannot move a virtual network to a different subscription if the virtual net
 
 ## App Service limitations
 
-When working with App Service apps, you cannot move only an App Service plan. To move App Service apps, your options are:
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
 
-* Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan.
-* Move the apps to a different resource group, but keep all App Service plans in the original resource group.
+### Moving within the same subscription
 
-The App Service plan does not need to reside in the same resource group as the app for the app to function correctly.
+When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works. 
 
-For example, if your resource group contains:
+If you want to move the SSL certificate with the Web App, follow these steps:
 
-* **web-a** which is associated with **plan-a**
-* **web-b** which is associated with **plan-b**
+1.	Delete the uploaded certificate from the Web App.
+2.	Move the Web App.
+3.	Upload the certificate to the moved Web App.
 
-Your options are:
+### Moving across subscriptions
 
-* Move **web-a**, **plan-a**, **web-b**, and **plan-b**
-* Move **web-a** and **web-b**
-* Move **web-a**
-* Move **web-b**
+When moving a Web App _across subscriptions_, the following limitations apply:
 
-All other combinations involve leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
-
-If your web app resides in a different resource group than its App Service plan but you want to move both to a new resource group, you must perform the move in two steps. For example:
-
-* **web-a** resides in **web-group**
-* **plan-a** resides in **plan-group**
-* You want **web-a** and **plan-a** to reside in **combined-group**
-
-To accomplish this move, perform two separate move operations in the following sequence:
-
-1. Move the **web-a** to **plan-group**
-2. Move **web-a** and **plan-a** to **combined-group**.
-
-You can move an App Service Certificate to a new resource group or subscription without any issues. However, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
-
-1. Delete the uploaded certificate from the web app
-2. Move the web app
-3. Upload the certificate to the web app
+- The destination resource group must not have any existing App Service resources. App Service resources include:
+    - Web Apps
+    - App Service plans
+    - Uploaded or imported SSL certificates
+    - App Service Environments
+- All App Service resources in the resource group must be moved together.
+- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions. 
 
 ## Classic deployment limitations
 
