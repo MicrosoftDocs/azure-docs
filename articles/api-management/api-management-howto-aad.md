@@ -59,7 +59,7 @@ This article shows you how to enable access to the developer portal for users fr
     The **Create** pane appears on the right. That's where you enter the Azure AD app-relevant information.
 17. Enter a name for the application.
 18. For the application type, select **Web app/API**.
-19. For the sign-on URL, enter the sign-on URL of your developer portal. In this example, the sign-on URL is https://apimwithaad.portal.azure-api.net/signin.
+19. For the sign-in URL, enter the sign-in URL of your developer portal. In this example, the sign-in URL is https://apimwithaad.portal.azure-api.net/signin.
 20. Click **Create** to create the application.
 21. To find your app, select **App registrations** and search by name.
 
@@ -145,7 +145,7 @@ Users from the configured Azure AD instance can now sign in to the developer por
 
 To sign in to the developer portal by using an Azure AD account that you configured in the previous sections:
 
-1. Open a new browser window by using the sign-on URL from the Active Directory application configuration, and select **Azure Active Directory**.
+1. Open a new browser window by using the sign-in URL from the Active Directory application configuration, and select **Azure Active Directory**.
 
    ![Sign-in page][api-management-dev-portal-signin]
 
