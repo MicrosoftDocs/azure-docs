@@ -70,7 +70,7 @@ This section guides you through connecting your Azure AD to Zendesk's user accou
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin UserName,Domain&tokenkey** of your Zendesk's account, (you can find the token under your Zendesk account: **Admin/Api/Settings**). 
+5. Under the **Admin Credentials** section, input the **Admin UserName,Domain&tokenkey** of your Zendesk's account (you can find the token under your Zendesk account: **Admin/Api/Settings**). 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
