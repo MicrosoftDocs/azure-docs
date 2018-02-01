@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: ppacent
 ---
 
 # Azure Stack Public Key Infrastructure certificate requirements
@@ -88,8 +88,9 @@ The following table describes the endpoints and certificates required for the SQ
 
 <sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Appservice explicitly requires the use of separate certificates for these endpoints. 
 
+## Learn more
+Learn how to [generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md). 
 
 ## Next steps
-[Generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md) 
-
+[Identity integration](azure-stack-integrate-identity.md)
 

@@ -463,7 +463,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]
->[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
+>[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-portal.md)
 
 
 

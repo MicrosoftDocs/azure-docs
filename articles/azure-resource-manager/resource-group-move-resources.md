@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
 
 ---
@@ -50,7 +50,10 @@ There are some important steps to perform before moving a resource. By verifying
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, you must contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to move the resources to a new tenant.
+  If the tenant IDs for the source and destination subscriptions are not the same, use the following methods to reconcile the tenant IDs: 
+
+  * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
+  * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services do not enable moving resources.
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
@@ -90,7 +93,7 @@ You can move most resources through the self-service operations shown in this ar
 
 Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) when you need to:
 
-* Move your resources to a new Azure account (and Azure Active Directory tenant).
+* Move your resources to a new Azure account (and Azure Active Directory tenant) and you need help with the instructions in the preceding section.
 * Move classic resources but are having trouble with the limitations.
 
 ## Services that enable move
@@ -311,6 +314,13 @@ The operation may run for several minutes.
 Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
+
+To move a VM enrolled in **Azure backup** between resource groups:
+ 1. Temporarily stop backup and retain backup data
+ 2. Move the VM to the target resource group
+ 3. Re-protect it under the same/new vault
+Users can restore from the available restore points created before the move operation.
+If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription. Recovery Services vault does not support cross subscription backups.
 
 ## HDInsight limitations
 
