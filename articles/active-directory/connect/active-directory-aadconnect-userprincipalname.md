@@ -65,7 +65,7 @@ To enable alternate login ID with Azure AD, no additional configurations steps a
 
 ![Unverified domains](./media/active-directory-aadconnect-userprincipalname/altloginid.png)  
 
-For more information see [Configure Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](active-directory-aadconnect-get-started-custom#azure-ad-sign-in-configuration)
+For more information see [Configure Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
 
 ## Non-verified UPN Suffix
 If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then Azure AD UserPrincipalName attribute value is set to MOERA. This means that Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;@&lt;initial domain&gt;.
