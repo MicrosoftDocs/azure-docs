@@ -63,7 +63,7 @@ The sign-in flow on a web browser is as follows:
 
 The following diagram illustrates all the components and the steps involved.
 
-![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso2.png)
+![Seamless Single Sign On - Web app flow](./media/active-directory-aadconnect-sso/sso2.png)
 
 Seamless SSO is opportunistic, which means if it fails, the sign-in experience falls back to its regular behavior - i.e, the user needs to enter their password to sign in.
 
@@ -83,7 +83,7 @@ The sign-in flow on a native client is as follows:
 
 The following diagram illustrates all the components and the steps involved.
 
-![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso14.png)
+![Seamless Single Sign On - Native app flow](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## Next steps
 
