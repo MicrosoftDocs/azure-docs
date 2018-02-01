@@ -15,7 +15,15 @@ metadata:
   ms.author: garye
 
 abstract:
-  description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. **Azure Machine Learning services** (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure. **Azure Machine Learning Studio** is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. **Data Science Virtual Machine** is a customized VM image built specifically for doing data science.
+  description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. 
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - text: Azure Machine Learning services (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure. 
+    - text: Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. 
+    - text: Data Science Virtual Machine is a customized VM image built specifically for doing data science.
 
 sections:
 - title: 5-Minute Quickstarts
