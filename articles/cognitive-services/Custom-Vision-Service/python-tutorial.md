@@ -13,7 +13,7 @@ ms.author: areddish
 ---
 
 # Custom Vision API Python Tutorial
-Explore a basic python script that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app using the Custom Vision API.
+Explore a basic python script that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app using the Custom Vision API.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ prediction_key = "<your prediction key>"
 trainer = training_api.TrainingApi(training_key)
 
 # Create a new project
-print("Creating project...")
+print ("Creating project...")
 project = trainer.create_project("My Project")
 ```
 
@@ -126,7 +126,7 @@ while (iteration.status == "Training"):
 
 # The iteration is now trained. Make it the default project endpoint
 trainer.update_iteration(project.id, iteration.id, is_default=True)
-print("Done!")
+print ("Done!")
 ```
 
 ## Step 6: Get and use the default prediction endpoint
@@ -153,7 +153,7 @@ results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url
 
 # Display the results.
 for prediction in results.predictions:
-    print("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
+    print ("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## Step 7: Run the example

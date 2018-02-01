@@ -13,7 +13,7 @@ ms.author: gitbeams
 ---
 
 # Custom Vision API C&#35; Tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app for Windows using the Custom Vision API.
+Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app for Windows using the Custom Vision API.
 
 ## Prerequisites
 
