@@ -485,7 +485,7 @@ The *function.json* file schema is available at [http://json.schemastore.org/fun
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-For links to all relevant error topics for the various services supported by Functions, see the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) topic.  
+For links to all relevant error topics for the various services supported by Functions, see the [Binding error codes](functions-bindings-error-pages.md#binding-error-codes) section of the [Triggers and bindings](functions-triggers-bindings.md) overview topic.  
 
 ## Next steps
 
