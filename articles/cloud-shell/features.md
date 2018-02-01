@@ -66,7 +66,7 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

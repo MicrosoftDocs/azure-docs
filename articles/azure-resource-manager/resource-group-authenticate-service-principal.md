@@ -59,7 +59,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 
 The following script enables you to specify a scope other than the default subscription, and retries the role assignment if an error occurs:
 
@@ -125,7 +125,7 @@ A few items to note about the script:
 * To grant the identity access to the default subscription, you do not need to provide either ResourceGroup or SubscriptionId parameters.
 * Specify the ResourceGroup parameter only when you want to limit the scope of the role assignment to a resource group.
 *  In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 
@@ -157,7 +157,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 
 The following script enables you to specify a scope other than the default subscription, and retries the role assignment if an error occurs. You must have Azure PowerShell 2.0 on Windows 10 or Windows Server 2016.
 
@@ -220,7 +220,7 @@ A few items to note about the script:
 * To grant the identity access to the default subscription, you do not need to provide either ResourceGroup or SubscriptionId parameters.
 * Specify the ResourceGroup parameter only when you want to limit the scope of the role assignment to a resource group.
 * In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
@@ -318,7 +318,7 @@ A few items to note about the script:
 
 * Access is scoped to the subscription.
 * In this example, you add the service principal to the Contributor role. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you see an error stating: "PrincipalNotFound: Principal {ID} does not exist in the directory."
+* The script sleeps for 15 seconds to allow some time for the new service principal to propagate throughout Azure Active Directory. If your script does not wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}."
 * If you need to grant the service principal access to more subscriptions or resource groups, run the `New-AzureRMRoleAssignment` cmdlet again with different scopes.
 
 ### Provide certificate through automated PowerShell script
