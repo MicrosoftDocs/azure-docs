@@ -38,7 +38,7 @@ In SQL Data Warehouse, you can increase or decrease compute resources by adjusti
 To change data warehouse units:
 
 1. Click **SQL databases** in the left page of the Azure portal.
-2. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse.
+2. Select **mySampleDataWarehouse** from the **SQL databases** page. The data warehouse opens.
 3. Click **Scale**.
 
     ![Click Scale](media/quickstart-scale-compute-portal/click-scale.png)
