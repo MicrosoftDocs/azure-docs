@@ -107,7 +107,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     environment:
       REDIS: azure-vote-back
     ports:
@@ -138,7 +138,7 @@ Once the `CURRENT STATE` of each service is `Running`, the application is ready.
 
 ```bash
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
-tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:redis-v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
+tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 
