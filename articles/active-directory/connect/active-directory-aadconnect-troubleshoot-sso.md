@@ -40,7 +40,7 @@ Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You ca
 
 ![Azure Active Directory admin center: Azure AD Connect pane](./media/active-directory-aadconnect-sso/sso10.png)
 
-Click on **Seamless single sign-on** to see all the AD forests that have been enabled for Seamless SSO on your tenant.
+Click through to see all the AD forests that have been enabled for Seamless SSO.
 
 ![Azure Active Directory admin center: Seamless SSO pane](./media/active-directory-aadconnect-sso/sso13.png)
 
