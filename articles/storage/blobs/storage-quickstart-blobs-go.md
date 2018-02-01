@@ -67,13 +67,13 @@ The following output is an example of the output returned when running the appli
   
 ```
 Azure Blob storage quick start sample
-Creating a container named quickstart-4138666957683782978
+Creating a container named quickstart-5568059279520899415
 Creating a dummy file to test the upload and download
-Uploading the file with blob name: 3410038522975410115
-Blob name: 3410038522975410115
-Read 27 of 27 bytes.
+Uploading the file with blob name: 630910657703031215
+Blob name: 630910657703031215
 Downloaded the blob: hello world
 this is a blob
+Press the enter key to delete the sample files, example container, and exit the application.
 ```
 When you press the key to continue, the sample program deletes the storage container and the files. 
 
@@ -138,7 +138,7 @@ To upload a file to a blob, open the file using **os.Open**. You can then upload
 
 Alternatively, the SDK offers [high-level APIs](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) that are built on top of the low-level REST APIs. As an example, ***UploadFileToBlockBlob*** function uses PutBlock operations to concurrently upload a file in chunks to optimize the throughput. If the file is less than 256 MB, it uses PutBlob instead to complete the transfer in a single transaction.
 
-The following example uploads the file to your container called **quickstartblobs-<random number>**.
+The following example uploads the file to your container called **quickstartblobs-[randomstring]**.
 
 ```go
 // Here's how to upload a blob.
