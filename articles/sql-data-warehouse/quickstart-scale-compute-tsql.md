@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Microsoft Docs
-description: T-SQL commands to scale compute resources by adjusting DWUs."
+title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Microsoft Docs"
+description: T-SQL commands to scale compute resources by adjusting DWUs.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -67,17 +67,18 @@ To view the current data warehouse units for your data warehouse:
 2. Right-click **master** and select **New Query**. A new query window opens.
 3. Run the following query to select from the sys.database_service_objectives dynamic management view. 
 
-```sql
-SELECT
-	db.name [Database]
-,	ds.edition [Edition]
-,	ds.service_objective [Service Objective]
-FROM
- 	sys.database_service_objectives ds
-JOIN
-	sys.databases db ON ds.database_id = db.database_id
-WHERE db.name = 'mySampleDataWarehouse'
-```
+    ```sql
+    SELECT
+	    db.name [Database]
+    ,	ds.edition [Edition]
+    ,	ds.service_objective [Service Objective]
+    FROM
+ 	    sys.database_service_objectives ds
+    JOIN
+	    sys.databases db ON ds.database_id = db.database_id
+    WHERE 
+        db.name = 'mySampleDataWarehouse'
+    ```
 
 4. The following results show **mySampleDataWarehouse** has a service objective of DW400. 
 
