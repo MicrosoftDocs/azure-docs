@@ -46,7 +46,7 @@ Once the set-up is complete, Seamless SSO works the same way as any other sign-i
 
 The sign-in flow on a web browser is as follows:
 
-1. The user tries to access an application (for example, the Outlook Web App - https://outlook.office365.com/owa/) from a domain-joined corporate device inside your corporate network.
+1. The user tries to access a web application (for example, the Outlook Web App - https://outlook.office365.com/owa/) from a domain-joined corporate device inside your corporate network.
 2. If the user is not already signed in, the user is redirected to the Azure AD sign-in page.
 3. The user types in their user name into the Azure AD sign-in page.
 
@@ -71,7 +71,19 @@ Seamless SSO is opportunistic, which means if it fails, the sign-in experience f
 
 The sign-in flow on a native client is as follows:
 
+1. The user tries to access a native application (for example, the Outlook client) from a domain-joined corporate device inside your corporate network.
+2. If the user is not already signed in, the native application retrieves the username of the user from the device's Windows session.
+3. The app sends the username to Azure AD, and retrieves your tenant's WS-Trust MEX endpoint.
+4. The app then queries the WS-Trust MEX endpoint to see if integrated authentication endpoint is available.
+5. If step 4 succeeds, a Kerberos challenge is issued.
+6. If the app is able to retrieve the Kerberos ticket, it forwards it up to Azure AD's integrated authentication endpoint.
+7. Azure AD signs the user in, and issues a SAML token to the app.
+8. The app then submits the SAML token to Azure AD's OAuth2 token endpoint.
+9. Azure AD validates the SAML token, and issues a signed access token, a refresh token, and an unsigned id token for the specified resource.
 
+The following diagram illustrates all the components and the steps involved.
+
+![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## Next steps
 
