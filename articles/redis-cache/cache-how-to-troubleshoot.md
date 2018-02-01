@@ -48,7 +48,7 @@ Memory pressure on the client machine leads to all kinds of performance problems
 2. Monitor the `Page Faults/Sec` performance counter. Most systems have some page faults even during normal operation, so watch for spikes in this page faults performance counter, which correspond with timeouts.
 
 #### Resolution
-Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
+Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consumption.
 
 ### Burst of traffic
 #### Problem
@@ -60,7 +60,7 @@ Monitor how your `ThreadPool` statistics change over time using code [like this]
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-In the preceeding message, there are several issues that are interesting:
+In the preceding message, there are several issues that are interesting:
 
 1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means that your `ThreadPool` settings need adjusting.
 2. You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the kernel socket layer but haven't yet been read by the application (for example, StackExchange.Redis). This difference typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
