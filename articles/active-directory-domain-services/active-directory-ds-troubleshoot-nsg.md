@@ -17,16 +17,15 @@ ms.date: 01/31/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshooting Network Security Group configuration
+# Troubleshoot invalid networking configuration for your managed domain
+This article helps you troubleshoot and resolve network related configuration errors that result in the following alert message:
 
-
-
-## AADDS104: Network error
-
+## Alert AADDS104: Network error
 **Alert message:**
  *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
 
 The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
+
 
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
@@ -77,14 +76,14 @@ Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azur
   # Allow management of your domain over port 5986 (PowerShell Remoting)
   $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
   -Description "Allow management of domain through port 5986" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
   -SourceAddressPrefix $ServiceIPs -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 5986
 
   # Allow management of your domain over port 3389 (remote desktop).
   $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
   -Description "Allow management of domain through port 3389" `
-  -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+  -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389
   
@@ -130,14 +129,14 @@ $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
 # Allow management of your domain over port 5986 (PowerShell Remoting)
 $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
 -Description "Allow management of domain through port 5986" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
 -SourceAddressPrefix $ServiceIPs -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 5986
 
 # Allow management of your domain over port 3389 (remote desktop).
 $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
 -Description "Allow management of domain through port 3389" `
--Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
+-Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389
 
