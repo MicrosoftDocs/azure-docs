@@ -81,6 +81,7 @@ The sign-in flow on a native client is as follows:
 8. Azure AD signs the user in, and issues a SAML token to the app.
 9. The app then submits the SAML token to Azure AD's OAuth2 token endpoint.
 10. Azure AD validates the SAML token, and issues to the app an access token and a refresh token for the specified resource, and an id token.
+11. The user gets access to the app's resource.
 
 The following diagram illustrates all the components and the steps involved.
 
