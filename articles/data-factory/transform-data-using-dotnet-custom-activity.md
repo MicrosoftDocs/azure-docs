@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
 
 ---
@@ -199,7 +199,7 @@ When the activity is executed, referenceObjects and extendedProperties are store
 
 Following sample code demonstrate how the SampleApp.exe can access the required information from JSON files: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

@@ -155,11 +155,13 @@ Azure File Sync is available only in the following regions in preview:
 
 | Region | Datacenter location |
 |--------|---------------------|
-| East US | Virginia, USA |
-| West US | California, USA |
+| Australia East | New South Wales |
+| Canada Central | Toronto |
+| East US | Virginia |
+| Southeast Asia | Singapore |
+| UK South | London |
 | West Europe | Netherlands |
-| South East Asia | Singapore |
-| Australia East | New South Wales, Australia |
+| West US | California |
 
 In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
