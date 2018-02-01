@@ -69,7 +69,7 @@ A Reader can view all the resources in an Automation account but cannot make any
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|*/read|View all resources in an Automation Account |
+|Microsoft.Automation/automationAccounts//read|View all resources in an Automation Account |
 
 ### Automation Job Operator
 
