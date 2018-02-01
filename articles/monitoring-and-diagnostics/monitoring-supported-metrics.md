@@ -664,6 +664,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ObservedCapacity|Observed Capacity|Count|Average|The capacity reported to autoscale when it executed.|No Dimensions|
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
+## Microsoft.KeyVault/vaults
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ServiceApiHit|Total Service Api Hits|Count|Count,Total|Number of total service api hits|ActivityType, ActivityName|
+|ServiceApiLatency|Overall Service Api Latency|Milliseconds|Count,Average,Minimum,Maximum|Overall latency of service api requests|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Total Service Api Results|Count|Count,Total|Number of total service api results|ActivityType, ActivityName, StatusCode|
+
 ## Microsoft.LocationBasedServices/accounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
