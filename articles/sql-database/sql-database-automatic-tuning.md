@@ -76,9 +76,6 @@ Automatic tuning options can be independently turned on or off per database, or 
 
 - To enable automatic tuning in Azure SQL Database to manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 - To manually review and apply Automatic tuning recommendations, see [Find and apply performance recommendations](sql-database-advisor-portal.md).
+- To learn about building email notifications for Automatic tuning recommendations, see [Email notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md)
 - To learn about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - To learn about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
-- To learn about using Automatic tuning through REST API calls, see [SQL Database Recommended Actions URI parameters](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 
-- To learn about using Automatic tuning through T-SQL commands, see [Automatic tuning introduces Automatic plan correction and T-SQL management](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)
-- To learn about using Automatic tuning through PowerShell commands, see [Azure SQL Database Advisor PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction)
-- To learn about building email notifications for Automatic tuning recommendations, see [Email notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md)
