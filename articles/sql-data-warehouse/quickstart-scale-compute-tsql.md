@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Microsoft Docs
-description: T-SQL commands to scale compute resources by adjusting DWUs.
+description: T-SQL commands to scale compute resources by adjusting DWUs."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
