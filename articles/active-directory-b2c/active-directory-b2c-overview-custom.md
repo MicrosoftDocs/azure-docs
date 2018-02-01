@@ -4,7 +4,7 @@ description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6

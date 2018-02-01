@@ -4,7 +4,7 @@ description: Reference information for multi-factor authentication reporting in 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -24,7 +24,7 @@ With [Azure Active Directory (Azure AD) reporting](active-directory-reporting-az
 
 The [sign-in activity reports](active-directory-reporting-activity-sign-ins.md) provide you with information about the usage of managed applications and user sign-in activities, which includes information about the multi-factor authentication (MFA) usage. 
 
-The MFA data gives you insights into how MFA is working in your organization. It enables you to to answer questions like: 
+The MFA data gives you insights into how MFA is working in your organization. It enables you to answer questions like: 
 
 - Was the sign-in challenged with MFA? 
 

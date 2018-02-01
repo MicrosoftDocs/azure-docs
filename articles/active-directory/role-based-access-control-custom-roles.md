@@ -4,7 +4,7 @@ description: Learn how to define custom roles with Azure Role-Based Access Contr
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory

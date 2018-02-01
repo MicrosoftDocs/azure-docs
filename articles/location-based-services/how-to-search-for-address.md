@@ -7,16 +7,16 @@ keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 ---
 # How to find an address using the Azure Location Based Services (preview) Search service
 The Search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The Search Service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the Search service APIs can be used as parameters in other Azure Location Based Services such as the Route and Traffic Flow APIs.
 
 ## Prerequisites
-Install the [Postman app](https://www.getpostman.com/apps).
+* Install the [Postman app](https://www.getpostman.com/apps).
 
-An Azure Location Based Services account and subscription key. For information on creating an account and retrieving a subscription key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
+* Have an Azure Location Based Services account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
 
 ## Using Fuzzy Search
 
@@ -40,7 +40,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -49,7 +49,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | pizza |
 
 4. Click **Send** and review the response body. 
@@ -99,7 +99,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Click **Send** and review the response body. 
@@ -139,7 +139,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 47.59093,-122.33263 |
     
 3. Click **Send** and review the response body. 
@@ -152,7 +152,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
     
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -160,7 +160,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | spatialKeys | true |
 
-    When the [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
+    When the [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
 
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -168,7 +168,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnSpeedLimit | true |
     
-    When the [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -176,7 +176,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnRoadUse | true |
 
-    When the [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
+    When the [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
 8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -184,7 +184,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | roadUse | true |
 
-    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
+    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
     
 ## Search for the cross street using Reverse Address Cross Street Search
 
@@ -205,10 +205,10 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *subscription key* |
+    | subscription-key | \<your Azure Location Based Services key\> |
     | query | 47.59093,-122.33263 |
     
 4. Click **Send** and review the response body. 
 
 ## Next steps
-- Explore the [Azure Location Based Serices Search service](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API documentation 
+- Explore the [Azure Location Based Serices Search service](https://docs.microsoft.com/rest/api/location-based-services/search) API documentation 

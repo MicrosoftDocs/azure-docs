@@ -4,7 +4,7 @@ description: Disable Azure Active Directory Domain Services using the Azure port
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46

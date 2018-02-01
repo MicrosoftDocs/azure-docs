@@ -3,8 +3,8 @@ title: Integrate external monitoring solution with Azure Stack | Microsoft Docs
 description: Learn how to integrate Azure Stack with an external monitoring solution in your datacenter.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: twooley
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 
 ---
 # Integrate external monitoring solution with Azure Stack
@@ -512,8 +513,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI for the resource.   |
 |*alertSummary*     |   Summary of critical and warning alerts, health status.     |
 
+## Learn more
+
+For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
+
 ## Next steps
 
-- For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
-
-
+[Security integration](azure-stack-integrate-security.md)

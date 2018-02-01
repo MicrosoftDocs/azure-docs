@@ -8,13 +8,12 @@ author: eamonoreilly
 manager: 
 editor: 
 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: eamono
 
 ---
@@ -30,24 +29,26 @@ In this tutorial, you learn how to:
 > * Create an Event Grid subscription.
 > * Create a VM that triggers the runbook.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
 To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
 ## Import an Event Grid sample runbook
-1. Select **Automation Accounts**, and select the **Runbooks** page.
+1. Select your Automation account, and select the **Runbooks** page.
+
+   ![Select runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Select the **Browse gallery** button.
 
-    ![Runbook list from UI](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
-
-3. Search for **Event Grid**, and import the runbook into the Automation account.
+3. Search for **Event Grid**, and select **Integrating Azure Automation with Event grid**. 
 
     ![Import gallery runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-4. Select **Edit** to view the runbook source, and select the **Publish** button.
+4. Select **Import** and name it **Watch-VMWrite**.
 
-    ![Publish runbook from UI](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+5. After it has imported, select **Edit** to view the runbook source. Select the **Publish** button.
 
 ## Create an optional Microsoft Teams webhook
 1. In Microsoft Teams, select **More Options** next to the channel name, and then select **Connectors**.
@@ -56,11 +57,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 2. Scroll through the list of connectors to **Incoming Webhook**, and select **Add**.
 
-    ![Microsoft Teams webhook connection](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
-
 3. Enter **AzureAutomationIntegration** for the name, and select **Create**.
-
-    ![Microsoft Teams webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
 
 4. Copy the webhook to the clipboard, and save it. The webhook URL is used to send information to Microsoft Teams.
 
@@ -71,13 +68,11 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 2. Select **Webhooks**, and select the **Add Webhook** button.
 
-    ![Create webhook](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
-
 3. Enter **WatchVMEventGrid** for the name. Copy the URL to the clipboard, and save it.
 
-    ![Configure webhook name](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
+    ![Configure webhook name](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-4. Select **Parameters and run settings**, and enter the Microsoft Teams webhook URL. Leave **WEBHOOKDATA** blank.
+4. Select **Configure parameters and run settings**, and enter the Microsoft Teams webhook URL for **CHANNELURL**. Leave **WEBHOOKDATA** blank.
 
     ![Configure webhook parameters](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
@@ -87,20 +82,19 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 ## Create an Event Grid subscription
 1. On the **Automation Account** overview page, select **Event grid**.
 
-    ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
+    ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Select the **Event Subscription** button.
+2. Select the **+ Event Subscription** button.
 
 3. Configure the subscription with the following information:
 
-    *	Enter **AzureAutomation** for the name. 
+    *	Enter **AzureAutomation** for the name.
     *	In **Topic Type**, select **Azure Subscriptions**.
     *	Clear the **Subscribe to all event types** check box.
     *	In **Event Types**, select **Resource Write Success**.
-    *	In **Full Endpoint URL**, enter the webhook URL for the Watch-VMWrite runbook.
-    *   In **Prefix Filter**, enter the subscription and resource group where you want to look for the new VMs created. It should look like /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
-
-    ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
+    *	In **Subscriber Endpoint**, enter the webhook URL for the Watch-VMWrite runbook.
+    *   In **Prefix Filter**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
+ `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Select **Create** to save the Event Grid subscription.
 

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/5/2018
 ms.author: subramar
 
 ---
@@ -124,6 +124,10 @@ sudo apt-get install servicefabricsdkcommon
   > [!NOTE]
   > Standalone clusters aren't supported in Linux.
   >
+
+
+>   [!TIP]
+    If you have an SSD disk avaiable, it is recommended to pass an SSD folder path using `--clusterdataroot` with devclustersetup.sh for superior performance.
 
 ## Set up the Service Fabric CLI
 

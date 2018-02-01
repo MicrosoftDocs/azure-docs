@@ -11,9 +11,10 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
+ms.custom: mvc
 ---
 
 # Azure PowerShell samples for API Management

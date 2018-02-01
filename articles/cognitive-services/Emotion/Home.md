@@ -32,5 +32,5 @@ For more details about emotion detection, please refer to the API Reference:
   * Basic: If a user has already called the Face API, they can submit the face rectangle as an input and use the basic tier. [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
   * Standard: If a user does not submit a face rectangle, they should use standard mode.  [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
-*Please note, Emotion API for Video was deprecated on October 30, 2017. For a sample on how to interpret streaming video with Emotion API, please see [How to Analyze Videos in Real Time](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).*
+*Please note, Emotion API for Video was deprecated on October 30, 2017. For a sample on how to interpret streaming video with Emotion API, please see [How to Analyze Videos in Real Time](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).*
 

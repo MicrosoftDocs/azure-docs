@@ -4,7 +4,7 @@ description: Learn how to use Packer to create images of Linux virtual machines 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ---
 
@@ -192,6 +192,8 @@ ManagedImageResourceGroupName: myResourceGroup
 ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
+
+It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
 
 
 ## Create VM from Azure Image

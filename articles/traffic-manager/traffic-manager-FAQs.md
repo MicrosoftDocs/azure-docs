@@ -367,7 +367,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How do I configure nested profiles?
 
-Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal.
 
 ### How many layers of nesting does Traffic Manger support?
 

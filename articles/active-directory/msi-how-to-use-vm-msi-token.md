@@ -4,7 +4,7 @@ description: Step by step instructions and examples for using an Azure VM MSI to
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.author: bryanla
 
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Prerequisites

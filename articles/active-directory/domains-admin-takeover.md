@@ -4,7 +4,7 @@ description: How to take over a DNS domain name in an unmanaged directory (shado
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b

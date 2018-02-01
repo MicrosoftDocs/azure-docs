@@ -4,7 +4,7 @@ description: Learn about Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72

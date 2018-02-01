@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-
+ms.custom: mvc
 ---
 
 # Scale a Service Fabric cluster

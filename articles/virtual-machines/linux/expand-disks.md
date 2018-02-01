@@ -4,7 +4,7 @@ description: Learn how to expand virtual hard disks on a Linux VM with the Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ---
 
@@ -23,7 +23,7 @@ The default virtual hard disk size for the operating system (OS) is typically 30
 > [!WARNING]
 > Always make sure that you back up your data before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
 
-## Expand disk
+## Expand Azure Managed Disk
 Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
@@ -37,7 +37,7 @@ In the following samples, replace example parameter names with your own values. 
     ```
 
     > [!NOTE]
-    > `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`. The VM must be deallocated to expand the virtual hard disk.
+    > The VM must be deallocated to expand the virtual hard disk. `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`.
 
 2. View a list of managed disks in a resource group with [az disk list](/cli/azure/disk#list). The following example displays a list of managed disks in the resource group named *myResourceGroup*:
 
@@ -66,13 +66,17 @@ In the following samples, replace example parameter names with your own values. 
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH to your VM with the appropriate credentials. You can obtain the public IP address of your VM with [az vm show](/cli/azure/vm#show):
+
+## Expand disk partition and filesystem
+To use the expanded disk, you need to expand the underlying partition and filesystem.
+
+1. SSH to your VM with the appropriate credentials. You can obtain the public IP address of your VM with [az vm show](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. To use the expanded disk, you need to expand the underlying partition and filesystem.
+2. To use the expanded disk, you need to expand the underlying partition and filesystem.
 
     a. If already mounted, unmount the disk:
 
@@ -113,25 +117,25 @@ In the following samples, replace example parameter names with your own values. 
 
     d. To exit, enter `quit`
 
-5. With the partition resized, verify the partition consistency with `e2fsck`:
+3. With the partition resized, verify the partition consistency with `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Now resize the filesystem with `resize2fs`:
+4. Now resize the filesystem with `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Mount the partition to the desired location, such as `/datadrive`:
+5. Mount the partition to the desired location, such as `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. To verify the OS disk has been resized, use `df -h`. The following example output shows the data drive, */dev/sdc1*, is now 200 GB:
+6. To verify the OS disk has been resized, use `df -h`. The following example output shows the data drive, */dev/sdc1*, is now 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

@@ -136,7 +136,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 2. On the Azure VM after failover, allow incoming connections to the SSH port for the network
    security group rules on the failed over VM, and for the Azure subnet to which it's connected.
-   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)
+   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md)
    for the VM. You can check **Boot diagnostics** to view a screenshot of the VM.
 
 ## Next steps

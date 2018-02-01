@@ -58,7 +58,7 @@ Visual Studio Code provides a local development experience covering all major pl
 
 * Install the [latest version of Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* Follow the instructions under "Install the Azure Functions Core Tools" at [Code and test Azure Functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+* Follow the instructions under "Install the Azure Functions Core Tools" at [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
     >[!IMPORTANT]
     > If you already have the Azure Functions Cross Platform Tools, update them to the latest available version.
@@ -119,7 +119,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
+2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
 
 3. Create a new function by selecting **"create your own custom function."**.
 

@@ -125,7 +125,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 ## Configure OMS agent and Operations Manager management group
 The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the OMS Gateway to communicate with OMS.  
 
-To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
+To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agent.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
 
 ### Configuring the OMS agent and Operations Manager to use the OMS Gateway as a proxy server
 

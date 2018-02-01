@@ -4,7 +4,7 @@ description: Learn about the ways to manage access to Azure resources using diff
 services: active-directory
 documentationcenter: ''
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: f66abf54-3809-436c-92b6-018e1179780e
 ms.service: active-directory

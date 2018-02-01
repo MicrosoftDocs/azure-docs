@@ -167,4 +167,4 @@ The Azure Site Recovery Deployment Planner can generate the cost report with any
 |TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
 
 ## Next steps
-Learn more about protecting [Hyper-V VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
+Learn more about protecting [Hyper-V VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure).

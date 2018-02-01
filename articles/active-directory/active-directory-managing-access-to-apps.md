@@ -4,7 +4,7 @@ description: Describes how Azure Active Directory enables organizations to speci
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
