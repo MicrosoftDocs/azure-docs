@@ -31,6 +31,8 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Contributor |The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader |The Reader role allows you to view all the resources in an Automation account but cannot make any changes. |
 | Automation Operator |The Automation Operator role allows you to perform operational tasks such as start, stop, suspend, resume, and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
+|Automation Job Operator|The Automation Job Operator role allows you to create and manage jobs using Automation runbooks.|
+|Automation Runbook Operator|The Automation Runbook Operator role allows you to read runbook properties. You are also able to create jobs of the runbook.|
 | Log Analytics Contributor | The Log Analytics Contributor role allows you to read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.|
 | Log Analytics Reader | The Log Analytics Reader role allows you to view and search all monitoring data as well as view monitoring settings. This includes viewing the configuration of Azure diagnostics on all Azure resources. |
 | Monitoring Contributor | The Monitoring Contributor role allows you to read all monitoring data and update monitoring settings.|
@@ -47,7 +49,7 @@ An Owner can manage everything, including access. The following table shows the 
 
 |Actions|Description|
 |---|---|
-|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
 
 ### Contributor
 
@@ -55,7 +57,7 @@ A Contributor can manage everything except access. The following table shows the
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|*|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
 |**Not Actions**||
 |Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
 |Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
@@ -71,7 +73,7 @@ A Reader can view all the resources in an Automation account but cannot make any
 
 ### Automation Job Operator
 
-An Automation Job Operator is defined at the Automation account level. This allows the operator permissions to manage jobs in the account.
+An Automation Job Operator is granted at the Automation account scope. This allows the operator permissions to manage jobs in the account.
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -89,7 +91,7 @@ An Automation Job Operator is defined at the Automation account level. This al
 
 ### Automation Runbook Operator
 
-An Automation Runbook Operator can see the runbook name. This also gives permission for the operator to perform the Automation Job Operator actions for a job for the particular runbook. The following table shows the permissions granted for the role:
+An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can see the runbook name. This permission combined with 'Automation Job Operator' at the Automation Account scope, enables the operator to perform the Automation Operator actions for a particular runbook. The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -102,7 +104,7 @@ An Automation Runbook Operator can see the runbook name. This also gives permi
 
 ### Automation Operator
 
-An Automation Operators are able to start, stop, suspend, and resume jobs. The following table shows the permissions granted for the role:
+An Automation Operator is able to start, stop, suspend, and resume jobs. The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -113,19 +115,6 @@ An Automation Operators are able to start, stop, suspend, and resume jobs. The f
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress|
 |Microsoft.Automation/automationAccounts/jobs/write|Create jobs|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
-|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
-|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
-|Microsoft.Support/* |Create and manage support tickets|
-
-### Automation Runbook Operator
-
-An Automation Runbook Operator can read runbook properties. They are also able to create jobs of the runbook. The following table shows the permissions granted for the role:
-
-|**Actions**  |**Description**  |
-|---------|---------|
-|Microsoft.Authorization/*/read|Read authorization|
-|Microsoft.Automation/automationAccounts/runbooks/read|List runbooks|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
@@ -283,7 +272,7 @@ Update management reaches across multiple services to provide its service. The f
    
    ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   Now you should see the user added to the **Users** page with the **Reader** role assigned.  
+   Now you should see the user added to the **Users** page with the selected role assigned.  
    
    ![List users](media/automation-role-based-access-control/automation-05-list-users.png)  
    
@@ -293,7 +282,7 @@ Update management reaches across multiple services to provide its service. The f
     ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
-   > Role-based access control can only be set at the Automation Account level and not at any resource below the Automation Account.
+   > Role-based access control can only be set at the Automation Account scope and not at any resource below the Automation Account.
 
 ### Remove a user
 You can remove the access permission for a user who is not managing the Automation Account, or who no longer works for the organization. Following are the steps to remove a user: 
@@ -306,7 +295,7 @@ You can remove the access permission for a user who is not managing the Automati
 
 ## Role Assigned User
 
-When a user assigned to a role logs in to their Automation account, they can now see the owner’s account listed in the list of **Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.
+When a user assigned to a role logs in to Azure and selects their Automation account, they can now see the owner’s account listed in the list of **Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.
 
 ### User experience for Automation operator role
 When a user, who is assigned to the Automation Operator role views the Automation account they are assigned to, they can only view the list of runbooks, runbook jobs, and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume, or schedule the runbook job. The user does not have access to other Automation resources such as configurations, hybrid worker groups, or DSC nodes.
