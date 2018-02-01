@@ -27,7 +27,7 @@ ms.custom: mvc
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

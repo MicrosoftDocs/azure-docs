@@ -6,7 +6,7 @@ In the following example, replace *\<username>* and *\<password>* (including bra
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-You should get a JSON output, the the password set to `null`. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
+You should get a JSON output, with the password shown as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
 
 You create this deployment user only once; you can use it for all your Azure deployments.
 
