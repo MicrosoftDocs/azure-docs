@@ -88,7 +88,7 @@ You need the execute the following steps one VM instance at a time. This allows 
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md).
 
 ## Behaviors you may observe in Service Fabric Explorer
-When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (Virtual Machine scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) with the appropriate node name.   
+When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (Virtual Machine scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.   
 
 Here is the explanation for this behavior.
 
