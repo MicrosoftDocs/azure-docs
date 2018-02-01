@@ -43,7 +43,7 @@ This preview is currently available for server-side requests, dependencies, and 
 
 ![Performance samples](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-### Transaction diagnostics experience 
+## Transaction diagnostics experience 
 This view has three key parts: a cross-component transaction chart, a time-sequence list of all telemetry from a specific component operation, and the details pane for any selected telemetry item on the left.
 
 ![Key parts](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
