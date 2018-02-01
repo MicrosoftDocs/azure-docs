@@ -134,7 +134,7 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
 2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
 
-3. select on the left-most word of the phrase, "2", labeled as number.
+3. Select on the left-most word of the phrase, "2", labeled as number.
 
     ![select on number](./media/add-example-utterances/composite-wrap-1.png)
 
