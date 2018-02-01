@@ -3,8 +3,8 @@ title: Azure Active Directory for developers | Microsoft Docs
 description: A list of all guides and reference articles in the Azure Active Directory developer guide.
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
-manager: mbaldwin
+author: bryanla
+manager: mtillman
 editor: ''
 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -13,9 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
-ms.author: dastrock
-ms.custom: aaddev
+ms.date: 07/19/2017
+ms.author: bryanla
 ms.custom: aaddev
 ---
 

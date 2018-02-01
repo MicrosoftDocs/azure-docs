@@ -129,16 +129,16 @@ To handle a click on the top slot, the following code should be invoked on the f
 ```javascript
 $.ajax({
     type: "POST",
-    url: '//ds.microsoft.com/<appId>/reward/' + data.eventId,
+    url: '//ds.microsoft.com/api/v2/<appId>/reward/' + data.eventId,
     contentType: "application/json" })
 ```
 
-Here `data` is the argument to the `callback()` function, as described previously. Using `data` in the click handling code requires some care. We provide an example in the [tutorial](custom-decision-service-tutorial.md#use-the-apis).
+Here `data` is the argument to the `callback()` function, as described previously. Using `data` in the click handling code requires some care. We provide an example in the [tutorial](custom-decision-service-tutorial-news.md#use-the-apis).
 
  For testing only, the Reward API can be invoked via [cURL](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
-curl -v https://ds.microsoft.com/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 The expected effect is an HTTP response of 200 (OK). Assuming that an Azure storage account key was supplied on the portal, you can see the reward of 1 for this event in the log.

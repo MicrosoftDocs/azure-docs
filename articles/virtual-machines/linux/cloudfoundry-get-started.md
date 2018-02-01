@@ -21,7 +21,7 @@ ms.author: seanmck
 
 # Cloud Foundry on Azure
 
-Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in a variety of languages and frameworks. This document describes the options you have for running Cloud Foundry on Azure and how you can get started.
+Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks. This document describes the options you have for running Cloud Foundry on Azure and how you can get started.
 
 ## Cloud Foundry offerings
 
@@ -42,7 +42,7 @@ Microsoft provides best-effort support for OSS CF through the following communit
 
 ### Pivotal Cloud Foundry
 
-Pivotal Cloud Foundry includes the same core platform as the OSS distribution, along with a set of proprietary management tools and enterprise support. In order to run PCF on Azure, you must to acquire a license from Pivotal. The PCF offer from the Azure marketplace includes a 90-day trial license.
+Pivotal Cloud Foundry includes the same core platform as the OSS distribution, along with a set of proprietary management tools and enterprise support. To run PCF on Azure, you must acquire a license from Pivotal. The PCF offer from the Azure marketplace includes a 90-day trial license.
 
 The tools include [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), a web application that simplifies deployment and management of a Cloud Foundry foundation, and [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), a web application for managing users and applications.
 
@@ -63,3 +63,4 @@ Cloud Foundry is well suited to agile software development, including the use of
 ## Next steps
 
 - [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md)

@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
 
 ---
@@ -86,7 +86,7 @@ Now you can create the script. Below is an example using the Invoke-AzureADGraph
 You are now ready to export to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
 ## Next steps
-[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

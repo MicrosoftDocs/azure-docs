@@ -4,7 +4,7 @@ description: Learn how to use the iothub-explorer CLI tool to monitor device to 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iothub explorer, cloud device messaging, iot hub cloud to device, cloud to device messaging'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 08/24/2017
 ms.author: xshi
 
 ---
@@ -65,7 +65,7 @@ To send a message from your IoT hub to your device, follow these steps:
 1. Start a session on your IoT hub by running the following command:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Send a message to your device by running the following command:

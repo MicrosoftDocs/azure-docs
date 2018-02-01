@@ -3,7 +3,7 @@ title: Create an Azure Network Watcher instance | Microsoft Docs
 description: This page provides the steps to create an instance of Network Watcher using the portal and Azure REST API
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Create an Azure Network Watcher instance

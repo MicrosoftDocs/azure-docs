@@ -5,11 +5,11 @@ services: cognitive-services
 author: swhite-msft
 manager: ehansen
 
-ms.assetid: 2EF424FE-8B3C-4AEC-AE77-A2A783F00237
+ms.assetid: 809746D4-3AEC-4860-92ED-E44B4B3F8EE5
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.technology: bing-entities-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: scottwhi
 ---
 

@@ -4,7 +4,7 @@ description: Learn about how to licensing the Microsoft® Smooth Streaming Clien
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 08/09/2017
 ms.author: xpouyat
 
 ---
 # Licensing Microsoft® Smooth Streaming Client Porting Kit
 ## Overview
-Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive streaming content in Smooth Streaming format. SSPK is a device and platform independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
+Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive content in Smooth Streaming format. SSPK is a device and platform-independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
 
-Included below is a high level architecture and IIS Smooth Streaming Porting Kit box is the Smooth Streaming Client implementation provided by Microsoft and includes all the core logic for playback of Smooth Streaming content. This is then ported by partners for a specific device or platform by implementing appropriate interfaces. 
+Included below is a high-level architecture and IIS Smooth Streaming Porting Kit box is the Smooth Streaming Client implementation provided by Microsoft and includes all the core logic for playback of Smooth Streaming content. This content is then ported by partners for a specific device or platform by implementing appropriate interfaces. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -67,7 +67,7 @@ The Smooth Streaming Client Final Product is offered under a royalty model as un
 * No royalty for first 10,000 device implementations each year 
 
 ## Licensing Procedure and SSPK access
-Please email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
+Email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
 
 The [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) is accessible to registered Interim licensees.
 
@@ -100,7 +100,8 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -125,7 +126,8 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
-* Homecast Co.,Ltd
+* Hisense International Co., Ltd. 
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
@@ -135,7 +137,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
 * Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co.,Ltd
+* Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
@@ -146,6 +148,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.

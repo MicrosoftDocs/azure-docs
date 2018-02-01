@@ -4,7 +4,7 @@ description: Learn how to analyze diagnostics logs from Stream Analytics jobs in
 keywords:
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
@@ -119,7 +119,7 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 ## Next steps
 
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-get-started.md)
+* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -2,7 +2,7 @@
 title: Azure Billing Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to understand your Azure billing, as well as manage and monitor usage and costs. Tutorials, FAQs, API references, and other documentation.
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

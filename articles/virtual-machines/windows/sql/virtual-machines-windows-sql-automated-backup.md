@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automated Backup for SQL Server 2014 Azure Virtual Machines | Microsoft Docs
 description: Explains the Automated Backup feature for SQL Server 2014 VMs running in Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
+ms.date: 01/05/2018
 ms.author: jroth
 ---
 
@@ -35,6 +35,7 @@ To use Automated Backup, consider the following prerequisites:
 
 - Windows Server 2012
 - Windows Server 2012 R2
+- Windows Server 2016
 
 **SQL Server version/edition**:
 
@@ -125,11 +126,14 @@ If the SQL Server IaaS Agent extension is installed, you should see it listed as
 If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 ```
+
+> [!IMPORTANT]
+> If the extension is not already installed, installing the extension restarts the SQL Server service.
 
 ### <a id="verifysettings"></a> Verify current settings
 

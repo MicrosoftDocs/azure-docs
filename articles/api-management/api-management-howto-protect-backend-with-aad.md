@@ -3,19 +3,19 @@ title: Protect a Web API backend with Azure Active Directory and API Management 
 description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
 ---
+
 # How to protect a Web API backend with Azure Active Directory and API Management
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
@@ -78,13 +78,13 @@ The Web API in this example implements a basic calculator service using a model 
 
 Add the following `using` statement to the top of the `CalcInput.cs` file.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Replace the generated class with the following code.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -101,7 +101,7 @@ Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Contr
 
 Add the following `using` statement to the top of the `CalcController.cs` file.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -109,7 +109,7 @@ using APIMAADDemo.Models;
 
 Replace the generated controller class with the following code. This code implements the `Add`, `Subtract`, `Multiply`, and `Divide` operations of the Basic Calculator API.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -496,7 +496,7 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
             <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
@@ -557,5 +557,5 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

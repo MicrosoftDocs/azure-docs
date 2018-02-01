@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services | Microsoft Docs'
 description: How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service
-services: logic-apps
+services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
 editor: ''
 
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
-ms.service: logic-apps
+ms.service: biztalk-services
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -52,7 +52,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 
 ## Prerequisites
 * You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
-* You must have a BizTalk Services subscription. For instructions, see [Create a BizTalk Service using Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=302280). For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
+* You must have a BizTalk Services subscription. For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 * Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/hh689837.aspx)
 * You must have Visual Studio installed.
 * You must have BizTalk Services SDK installed. You can download the SDK from [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

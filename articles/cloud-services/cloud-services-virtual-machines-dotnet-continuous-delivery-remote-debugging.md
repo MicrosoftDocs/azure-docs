@@ -3,8 +3,8 @@ title: Enable remote debugging with continuous delivery | Microsoft Docs
 description: Learn how to enable remote debugging when using continuous delivery to deploy to Azure
 services: cloud-services
 documentationcenter: .net
-author: TomArcher
-manager: douge
+author: mikejo
+manager: ghogen
 editor: ''
 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: mikejo
 
 ---
 # Enable remote debugging when using continuous delivery to publish to Azure
@@ -24,25 +24,28 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the **Remote Tools for Visual Studio**.
 
-    * [Remote Tools for Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
-    * [Remote Tools for Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Remote Tools for Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
+   * [Remote Tools for Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
+   * [Remote Tools for Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
+   * [Remote Tools for Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
+   As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
 
 3. Create a certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Substitute actual paths to your system and project files for the angle-bracketed items.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
    
-    `VSX64RemoteDebuggerPath` is the path to the folder containing msvsmon.exe in the Remote Tools for Visual Studio.
-    `RemoteDebuggerConnectorVersion` is the Azure SDK version in your cloud service. It should also match the version installed with Visual Studio.
+   `VSX64RemoteDebuggerPath` is the path to the folder containing msvsmon.exe in the Remote Tools for Visual Studio.
+   `RemoteDebuggerConnectorVersion` is the Azure SDK version in your cloud service. It should also match the version installed with Visual Studio.
+
 5. Publish to the target cloud service by using the package and .cscfg file generated in the previous step.
 6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK for .NET installed. Make sure to import to the `CurrentUser\My` certificate store, otherwise attaching to the debugger in Visual Studio will fail.
 
 ## Enabling remote debugging for virtual machines
 1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Create and Manage Azure Virtual Machines in Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. On the [Azure classic portal page](http://go.microsoft.com/fwlink/p/?LinkID=269851), view the virtual machine's dashboard to see the virtual machine’s **RDP CERTIFICATE THUMBPRINT**. This value is used for the `ServerThumbprint` value in the extension configuration.
+2. On the Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=269851), navigate to the virtual machine to the virtual machine’s **RDP CERTIFICATE THUMBPRINT**. This value is used for the `ServerThumbprint` value in the extension configuration.
 3. Create a client certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md) (keep the .pfx and RDP certificate thumbprint).
 4. Install Azure Powershell (version 0.7.4 or later) as outlined in [How to install and configure Azure PowerShell](/powershell/azure/overview).
 5. Run the following script to enable the RemoteDebug extension. Replace the paths and personal data with your own, such as your subscription name, service name, and thumbprint.

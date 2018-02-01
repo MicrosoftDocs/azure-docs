@@ -47,6 +47,15 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Select the **Transform XML** action   
 6. Add the XML **CONTENT** that you transform. You can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
+
+   > [!NOTE]
+   > Make sure that the content for the **Transform XML** is XML. 
+   > If the content is not in XML or is base64-encoded, 
+   > you must specify an expression that processes the content. 
+   > For example, you can use [functions](logic-apps-workflow-definition-language.md#functions), 
+   > like ```@base64ToBinary``` for decoding content or ```@xml``` for processing the content as XML.
+ 
+
 7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Save your work  
@@ -64,6 +73,28 @@ You can now test your transform by making a request to the HTTP endpoint.
 * Use the Test Map feature to add a sample XML message. With a simple click, you can test the map you created, and see the generated output.  
 * Upload existing maps  
 * Includes support for the XML format.
+
+## Adanced features
+The following features can only be accessed from the code view.
+
+### Byte Order Mark
+By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

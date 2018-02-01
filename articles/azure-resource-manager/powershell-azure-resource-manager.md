@@ -13,20 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
 
 ---
 # Manage resources with Azure PowerShell and Resource Manager
-> [!div class="op_single_selector"]
-> * [Portal](resource-group-portal.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [REST API](resource-manager-rest-api.md)
->
->
 
-In this article, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
+In this article, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This article focuses on management tasks. You will:
 
 1. Create a resource group
 2. Add a resource to the resource group
@@ -49,7 +42,7 @@ To check your version of the Azure Resources module, use the following cmdlet:
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/powershell/module/azurerm.resources).
+This article was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this article. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/powershell/module/azurerm.resources).
 
 ## Log in to your Azure account
 Before working on your solution, you must log in to your account.
@@ -106,6 +99,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## Create a resource group
+
 Before deploying any resources to your subscription, you must create a resource group that will contain the resources.
 
 To create a resource group, use the **New-AzureRmResourceGroup** cmdlet. The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location.
@@ -137,9 +131,10 @@ Get-AzureRmResourceGroup
 ```
 
 ## Add resources to a resource group
+
 To add a resource to the resource group, you can use the **New-AzureRmResource** cmdlet or a cmdlet that is specific to the type of resource you are creating (like **New-AzureRmStorageAccount**). You might find it easier to use a cmdlet that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **New-AzureRmResource**, you must know all the properties to set without being prompted for them.
 
-However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
+However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this article, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
 
 The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account. The name must be between 3 and 24 characters in length, and use only numbers and lower-case letters. If you use the name shown in the example, you receive an error because that name is already in use.
 
@@ -155,7 +150,7 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## Add a tag
 
-Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this topic, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
+Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this article, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
 
 The following cmdlet applies two tags to your storage account:
 
@@ -199,6 +194,14 @@ Use the **Find-AzureRmResource** cmdlet to retrieve resources for different sear
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
   ```
 
+## Get resource ID
+
+Many commands take a resource ID as a parameter. To get the ID for a resource and store in a variable, use:
+
+```powershell
+$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
+```
+
 ## Lock a resource
 
 When you need to make sure a critical resource is not accidentally deleted or modified, apply a lock to the resource. You can specify either a **CanNotDelete** or **ReadOnly**.
@@ -238,7 +241,7 @@ For both cmdlets, you are asked to confirm that you wish to remove the resource 
 
 ## Run Resource Manager scripts with Azure Automation
 
-This topic shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions.
+This article shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions.
 
 The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
 
@@ -247,7 +250,7 @@ The following topics show you how to use Azure Automation, Resource Manager, and
 - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
 - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md).
 
-## Next Steps
+## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).

@@ -15,9 +15,6 @@ ms.author: scottwhi
 
 # Image Search API upgrade guide
 
-> [!NOTE]
-> V7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
-
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Image Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
 ## Breaking changes
@@ -74,7 +71,7 @@ Blocked|InvalidRequest.Blocked
 
 - Renamed the `modulesRequested` query parameter to [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules).  
   
-- Ranamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) query parameter to Tags.  
+- Renamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) query parameter to Tags.  
 
 - Changed the list of supported markets of the ShoppingSources filter value to en-US only. See [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).  
  

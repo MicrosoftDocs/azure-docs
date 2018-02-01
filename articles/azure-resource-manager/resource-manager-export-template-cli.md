@@ -41,7 +41,7 @@ az group deployment create \
 
 ## Save template from deployment history
 
-You can retrieve a template from your deployment history by using the [az group deployment export](/cli/azure/group/deployment#export) command. The following example saves the template that you previously deploy:
+You can retrieve a template from your deployment history by using the [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export) command. The following example saves the template that you previously deploy:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -52,7 +52,7 @@ It returns the template. Copy the JSON, and save as a file. Notice that it is th
 
 ## Export resource group as template
 
-Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [az group export](/cli/azure/group#export) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
+Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [az group export](/cli/azure/group#az_group_export) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
 
 ```azurecli
 az group export --name ExampleGroup

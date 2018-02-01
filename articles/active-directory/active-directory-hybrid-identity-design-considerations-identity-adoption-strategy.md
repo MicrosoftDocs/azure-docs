@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Docs
+title: Hybrid identity design - adoption strategy Azure | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Define a hybrid identity adoption strategy
 In this task, you’ll define the hybrid identity adoption strategy for your hybrid identity solution to meet the business requirements that were discussed in :
@@ -176,7 +176,7 @@ In this task you will define the multi-factor authentication strategy to use.  A
 
 Multi-factor design options:
 
-| Asset to secure | MFA in the cloud | MFA on-premise |
+| Asset to secure | MFA in the cloud | MFA on-premises |
 | --- | --- | --- |
 | Microsoft apps |yes |yes |
 | SaaS apps in the app gallery |yes |yes |

@@ -14,4 +14,8 @@
       - name: Android
         href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android
       - name: Windows
-        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Window
+        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

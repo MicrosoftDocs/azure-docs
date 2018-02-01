@@ -3,7 +3,7 @@ title: Azure Key Vault Logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
 documentationcenter: ''
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
-ms.author: cabailey
+ms.date: 10/16/2017
+ms.author: barclayn
 
 ---
 # Azure Key Vault Logging

@@ -6,9 +6,9 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 11/03/2017
 ---
 # Migrate your PostgreSQL database using dump and restore
 You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) to extract a PostgreSQL database into a dump file and [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by pg_dump.
@@ -21,7 +21,7 @@ To step through this how-to guide, you need:
 Follow these steps to dump and restore your PostgreSQL database:
 
 ## Create a dump file using pg_dump that contains the data to be loaded
-To back up an existing PostgreSQL database on-premise or in a VM, run the following command:
+To back up an existing PostgreSQL database on-premises or in a VM, run the following command:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```

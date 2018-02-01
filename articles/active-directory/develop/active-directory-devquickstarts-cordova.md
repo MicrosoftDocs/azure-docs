@@ -4,7 +4,7 @@ description: How to build a Cordova application that integrates with Azure AD fo
 services: active-directory
 documentationcenter: ''
 author: vibronet
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD with an Apache Cordova app
+# Azure AD Cordova getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -142,7 +142,7 @@ The application that you're developing in this tutorial will provide a simple di
 The first thing you need to do in your code is introduce the protocol values that Azure AD uses for identifying your app and the resources that you target. Those values will be used to construct the token requests later on. Insert the following snippet at the top of the index.js file:
 
 ```javascript
-var authority = "https://login.windows.net/common",
+var authority = "https://login.microsoftonline.com/common",
     redirectUri = "http://MyDirectorySearcherApp",
     resourceUri = "https://graph.windows.net",
     clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",

@@ -3,8 +3,8 @@ title: Azure Active Directory v2.0 Node.js web app sign-in | Microsoft Docs
 description: Learn how to build a Node.js web app that signs in a user by using both a personal Microsoft account and a work or school account.
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: ''
 
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 
 ---
