@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
 
 ---
@@ -27,7 +27,7 @@ At the time of this writing, Event Hubs samples are located in several different
 - [MSDN developer code samples](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-For more information about different versions of the .NET Framework, see [Frameworks and Targets](/dotnet/articles/standard/frameworks).
+For more information about the different versions of the .NET Framework, see [Frameworks and Targets](/dotnet/articles/standard/frameworks).
 
 More samples will be added over time, so check back here frequently for updates.
 

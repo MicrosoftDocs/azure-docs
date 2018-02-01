@@ -25,14 +25,14 @@ ms.custom: mvc, devcenter
 
 You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-1. [Install Python](https://www.python.org/downloads/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://www.python.org/downloads/" target="_blank">Install Python</a>
 
 ## Download the sample
 

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 11/2/2017
 ms.author: arijitt
 
 ---
@@ -23,7 +23,7 @@ ms.author: arijitt
 
 Learn about the top issues and their resolutions when working with Apache Spark payloads in Apache Ambari.
 
-## How do I configure a Spark application by using Ambari on clusters
+## How do I configure a Spark application by using Ambari on clusters?
 
 ### Resolution steps
 
@@ -92,7 +92,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application by using a Jupyter notebook on clusters
+## How do I configure a Spark application by using a Jupyter notebook on clusters?
 
 ### Resolution steps
 
@@ -107,7 +107,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application by using Livy on clusters
+## How do I configure a Spark application by using Livy on clusters?
 
 ### Resolution steps
 
@@ -124,7 +124,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application by using spark-submit on clusters
+## How do I configure a Spark application by using spark-submit on clusters?
 
 ### Resolution steps
 
@@ -141,7 +141,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## What causes a Spark application OutofMemoryError exception
+## What causes a Spark application OutofMemoryError exception?
 
 ### Detailed description
 
@@ -224,4 +224,8 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 - [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debug a Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+
+
+### See Also
+[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

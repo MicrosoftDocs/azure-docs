@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -26,7 +26,7 @@ Azure Cost Management by Cloudyn shows you usage and costs so that you can track
 
 ## Open the Cloudyn portal
 
-You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://app.cloudyn.com and log in.
+You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and log in.
 
 ## Track usage and cost trends
 

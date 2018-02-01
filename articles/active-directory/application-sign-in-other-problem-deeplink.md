@@ -4,7 +4,7 @@ description: How to troubleshoot issues accessing an application from a deeplink
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

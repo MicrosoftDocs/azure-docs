@@ -14,7 +14,7 @@ ms.date: 09/06/2017
 # Consuming web services
 Once you deploy a model as a realtime web service, you can send it data and get predictions from a variety of platforms and applications. THe realtime web service exposes a REST API for getting predictions. You can send data to the web service in the single or multi-row format to get one or more predictions at at time.
 
-With the Azure Machine Learning Web service, an external application communicates with a predictive model synchronously by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
+With the [Azure Machine Learning Web service](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), an external application synchronously communicates with a predictive model by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
 
 Note that API keys are only available in the cluster deployment mode. Local web services do not have keys.
 

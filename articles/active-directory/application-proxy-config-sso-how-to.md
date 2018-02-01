@@ -4,7 +4,7 @@ description: How you can configure single sign-on to your application proxy appl
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

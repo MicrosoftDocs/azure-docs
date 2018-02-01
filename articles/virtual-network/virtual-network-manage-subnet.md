@@ -32,7 +32,7 @@ This article explains how to add, change, and delete a subnet for virtual networ
 
 Before you begin the tasks that are described in this article, complete the following prerequisites:
 
-- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](virtual-network-get-started-vnet-subnet.md). This exercise can help you become more familiar with virtual networks.
+- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](quick-create-portal.md). This exercise can help you become more familiar with virtual networks.
 - To learn about limits for virtual networks, review [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Sign in to the Azure portal, the Azure command-line tool (Azure CLI), or Azure PowerShell by using your Azure account. If you don't have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If you plan to use PowerShell commands to complete the tasks described in this article, you must first [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands in the examples, enter `get-help <command> -full`.
@@ -104,4 +104,4 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 ## <a name="next-steps"></a>Next steps
 
-To create a virtual machine in a subnet, see [Create a virtual network and deploy VMs in the subnet](virtual-network-get-started-vnet-subnet.md#create-vms).
+To create a virtual machine in a subnet, see [Create a virtual network and deploy VMs in the subnet](quick-create-portal.md#create-virtual-machines).

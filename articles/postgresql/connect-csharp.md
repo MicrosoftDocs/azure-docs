@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/23/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data
@@ -24,7 +24,7 @@ This quickstart uses the resources created in either of these guides as a starti
 You also need to:
 - Install the [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) or Visual Studio Code to type and edit code.
-- Download and install [Npgsql](https://github.com/npgsql/Npgsql/releases) library.
+- Add a reference to the [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget package.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.

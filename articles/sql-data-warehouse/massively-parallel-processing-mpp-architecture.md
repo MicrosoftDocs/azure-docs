@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: architecture
-ms.date: 10/23//2017
+ms.date: 11/15/2017
 ms.author: jrj;barbkess
 
 ---

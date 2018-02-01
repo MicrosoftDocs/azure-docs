@@ -3,7 +3,7 @@ title: Virtual machine extensions and features for Linux | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
+ms.author: danis
 ---
 
 # Virtual machine extensions and features for Linux
@@ -44,7 +44,7 @@ Each virtual machine extension might have its own set of prerequisites. For inst
 
 The Azure VM agent manages interactions between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed manually on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](../windows/classic/agents-and-extensions.md).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](agent-user-guide.md).
 
 ## Discover VM extensions
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
 ---
 # Azure Data Factory FAQ
@@ -64,7 +64,7 @@ You now have the freedom to model any flow style that's required for data integr
 For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 
 ### Deploy SSIS packages to Azure 
-If you want to move your SSIS workloads, you can create a Data Factory version 2 and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md) tutorial. 
+If you want to move your SSIS workloads, you can create a Data Factory version 2 and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
  
 
 ### SDKs
@@ -148,7 +148,7 @@ For more information about Data Factory concepts, see the following articles:
 For Azure Data Factory pricing details, see [Data Factory pricing details](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## What regions support Azure Data Factory version 2?
-Currently, you can create data factories of version 2 in the East US and East US 2 regions. However, a data factory can use integration runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages. For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
+Currently, you can create data factories of version 2 in the East US, East US 2, and West Europe regions. However, a data factory can use integration runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages. For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
 
 ## How can I stay up to date with information about Data Factory?
 For the most up-to-date information about Azure Data Factory, go to the following sites:

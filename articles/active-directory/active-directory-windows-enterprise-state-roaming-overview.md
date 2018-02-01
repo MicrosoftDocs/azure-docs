@@ -5,7 +5,7 @@ services: active-directory
 keywords: what is Enterprise State Roaming, enterprise sync, windows cloud
 documentationcenter: ''
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0

@@ -42,7 +42,7 @@ If you want to monitor a line of business application, you can use the Network P
 Also, if you already invest in other network monitoring tools, then the solution can complement those tools because most traditional network monitoring solutions do not provide insights into end-to-end network performance metrics like loss and latency.  The Network Performance Monitor solution can help fill that gap.
 
 ## Installing and configuring agents for the solution
-Use the basic processes to install agents at [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > You'll need to install at least 2 agents in order to have enough data to discover and monitor your network resources. Otherwise, the solution will remain in a configuring state until you install and configure additional agents.

@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/03/2017
 ---
 # Design your first Azure Database for PostgreSQL using the Azure portal
 
@@ -66,13 +66,13 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 ## Configure a server-level firewall rule
 
-The Azure Database for PostgreSQL service creates a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
+The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
  
  ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.	In the server blade, select **Connection security**. 
+2.	In the server page, select **Connection security**. 
 3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this tutorial, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a specific firewall rule that covers a smaller IP range to be able to connect from your network.
  
  ![Azure Database for PostgreSQL - Create Firewall Rule](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -80,19 +80,20 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 4.	Click **Save** and then click the **X** to close the **Connections security** page.
 
   > [!NOTE]
-  > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
+  > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
   >
 
 
 ## Get the connection information
 
-When we created our Azure Database for PostgreSQL server, the default **postgres** database also gets created. To connect to your database server, you need to provide host information and access credentials.
+When you created the Azure Database for PostgreSQL server, the default **postgres** database was also created. To connect to your database server, you need to provide host information and access credentials.
 
 1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
 
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Click the server name **mypgserver-20170401**.
+
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
 
  ![Azure Database for PostgreSQL - Server Admin Login](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -120,7 +121,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.htm
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
    ```
 
-## Create a New Database
+## Create a new database
 Once you're connected to the server, create a blank database at the prompt.
 ```bash
 CREATE DATABASE mypgsqldb;
@@ -131,9 +132,9 @@ At the prompt, execute the following command to switch connection to the newly c
 \c mypgsqldb
 ```
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for PostgreSQL, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for PostgreSQL, you can complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that tracks inventory information.
+First, create a table and load it with some data. Let's create a table that tracks inventory information using this SQL code:
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -148,7 +149,7 @@ You can see the newly created table in the list of tables now by typing:
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -186,7 +187,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
 3.	Click **OK** [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
-## Next Steps
+## Next steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server

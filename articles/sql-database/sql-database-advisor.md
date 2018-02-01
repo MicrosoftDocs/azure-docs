@@ -33,7 +33,7 @@ Indexes created using recommendations are always flagged as auto_created indexes
 
 Once the create index recommendation is applied, Azure SQL Database will compare performance of the queries with the baseline performance. If new index brought improvements in the performance, recommendation will be flagged as successful and impact report will be available. In case the index didn’t bring the benefits, it will be automatically reverted. This way Azure SQL Database ensures that using recommendations will only improve the database performance.
 
-Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the database or pool DTU usage was above 80% in last 20 minutes or if the storage is above 90% of usage. In this case, the recommendation will be postponed.
+Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the resource usage of a database or pool is high. Back off policy takes into account CPU, Data IO, Log IO, and available storage. If CPU, Data IO, or Log IO was higher than 80% in last 30 minutes create index will be postponed. If available storage would be below 10% after the index is created, recommendation will go into error state. If after couple of days automatic tuning still believes that index would be beneficial the process will start again. This process will repeat until there is enough available storage to create an index or index is not seen as beneficial anymore.
 
 ## Drop index recommendations
 In addition to detecting a missing index, Azure SQL Database continuously analyzes the performance of existing indexes. If index is not used, Azure SQL Database will recommend dropping it. Dropping an index is recommended in two cases:
@@ -54,7 +54,12 @@ To help you estimate the impact of this recommendation, you are provided with a 
 
 Once you apply this recommendation, it will enable forced parameterization within minutes on your database and it starts the monitoring process which approximately lasts for 24 hours. After this period, you will be able to see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation in case a performance regression has been detected.
 
-## Fix schema issues recommendations
+## Fix schema issues recommendations (preview)
+
+> [!IMPORTANT]
+> Microsoft is in the process of deprecating "Fix schema issue" recommendations. You should start using [Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance issues, which include schema issues that previously "Fix schema issue" recommendations covered.
+> 
+
 **Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, etc.) within an hour.
 
 “Schema issues” are a class of syntax errors in SQL Server that happen when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns expected by the query may be missing in the target table, or vice versa. 

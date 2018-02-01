@@ -4,7 +4,7 @@ description: Learn how to manage Role-Based Access Control (RBAC) with the Azure
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
 ---
@@ -23,9 +23,14 @@ ms.reviewer: rqureshi
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope. 
 
-Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
+> [!NOTE] 
+> The latest role documentation is now available for [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++> The latest role documentation for [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
 
 * Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 * Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
@@ -146,7 +151,7 @@ The example then removes the role assignment from a group on the subscription.
 ## Create a custom role
 To create a custom role, use:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
@@ -155,9 +160,9 @@ The following example creates a custom role called *Virtual Machine Operator*. T
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modify a custom role
-To modify a custom role, first use the `azure role definition list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role definition update` to save the modified role definition.
+To modify a custom role, first use the `azure role list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to the **Actions**, and an Azure subscription to the **AssignableScopes** of the Virtual Machine Operator custom role.
 
@@ -166,7 +171,7 @@ The following example adds the *Microsoft.Insights/diagnosticSettings/* operatio
 ![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## Delete a custom role
-To delete a custom role, first use the `azure role definition list` command to determine the **ID** of the role. Then, use the `azure role definition delete` command to delete the role by specifying the **ID**.
+To delete a custom role, first use the `azure role list` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
 
 The following example removes the *Virtual Machine Operator* custom role.
 
@@ -178,7 +183,7 @@ To list the roles that are available for assignment at a scope, use the `azure r
 The following command lists all roles that are available for assignment in the selected subscription.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -186,7 +191,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 In the following example, the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

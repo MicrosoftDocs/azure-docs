@@ -6,7 +6,7 @@ author: ErikjeMS
 manager: byronr
 
 ms.service: azure-stack
-ms.topic: azure-stack
+ms.topic: quickstart
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc

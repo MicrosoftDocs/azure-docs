@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
 ---
@@ -71,7 +71,7 @@ Resource group|Leave Create new selected, and then enter a name.
 Location|Any supported region, say, Australia East
 Subscription|Select your subscription.
 __ServiceEndpoints__|Enabled
-__Services__ | Select one or all of the available services. At the time of preview, supported services: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Services__ | Select one or all of the available services. Supported services: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Select services for endpoints: 
 ![Select Service Endpoint Services](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
@@ -383,9 +383,9 @@ Service endpoints can be configured on virtual networks independently, by a user
 
 To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/JoinServicetoaSubnet" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
-Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-VNets and Azure service resources can be in the same or different subscriptions. If these are in different subscriptions, the resources should be under the same Active Directory (AD) tenant, at the time of this preview.
+VNets and Azure service resources can be in the same or different subscriptions. If these are in different subscriptions, the resources should be under the same Active Directory (AD) tenant.
 
 ## Next Steps
 
