@@ -18,20 +18,20 @@ ms.author: phillee
 keywords: visualstudio 
 ---
 
-# <a id="top"> </a> Visual Studio Images on Azure
+# <a id="top"> </a> Visual Studio images on Azure
 Using Visual Studio running in a preconfigured Azure virtual machine (VM) is the easiest and fastest way to go from nothing to an up-and-running development environment.  System images with different Visual Studio configurations are available in the [Azure Marketplace](https://portal.azure.com/). Just boot a VM and off you go.
 
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
 ## What configurations and versions are available?
-In the Azure Marketplace you find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.
+In the Azure Marketplace you find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.  We update these images at least every month to include the latest Visual Studio and Windows updates.  While the names of the images will remain the same, we include the version and the 'as of' date in each image's description.
 
-|               Release version              |          Editions            |    Product Version    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - Latest (version 15.5) |    Enterprise, Community     |     Version 15.5.3    |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |     Version 15.0.7    |
-|   Visual Studio 2015 - Latest (Update 3)   |    Enterprise, Community     | Version 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | None (Expired for servicing) |          ---          |
+|               Release version              |          Editions            |     Product Version     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - Latest (version 15.5) |    Enterprise, Community     |      Version 15.5.3     |
+|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      Version 15.0.7     |
+|   Visual Studio 2015 - Latest (Update 3)   |    Enterprise, Community     |  Version 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              None            | (Expired for servicing) |
 
 > [!NOTE]
 > In accordance with Microsoft servicing policy, the originally released (aka ‘RTW’) version of Visual Studio 2015 has expired for servicing.  Therefore, Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.
@@ -49,20 +49,32 @@ Each image contains the recommended feature set for that Visual Studio edition. 
 
 This is the command line that we use to install Visual Studio when building the images:
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 If the images don't include a Visual Studio feature you require, provide that feedback through the feedback tool (top-right corner of the page).
 
 ## What size VM should I choose?
-Provisioning a new virtual machine is easy, and Azure offers a full range of virtual machine sizes.  As with any hardware acquisition, you want to balance performance versus cost.  Since Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least two processors and 7 GB of memory.  For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Provisioning a new virtual machine is easy, and Azure offers a full range of virtual machine sizes.  As with any hardware acquisition, you want to balance performance versus cost.  Since Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least two processors and 7 GB of memory.  These are the recommended VM sizes for the Visual Studio images:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 With Azure, you’re not stuck with your first pick – you can rebalance your initial choice by resizing the VM.  You can either provision a new VM with a more appropriate size, or you can resize your existing VM to different underlying hardware.  For more information, see [Resizing a Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
