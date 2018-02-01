@@ -66,9 +66,7 @@ For a 48-node cluster we recommend 4 to 8 storage accounts. Although there may a
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run, such as Hadoop, Storm, Kafka, or Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run, such as Hadoop, Storm, Kafka, or Spark. For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 
@@ -95,9 +93,7 @@ You can scale out your cluster to meet peak load demands, then scale it back dow
 
 ### Cluster lifecycle
 
-You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can create on-demand clusters using Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
+You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or Oozie.
