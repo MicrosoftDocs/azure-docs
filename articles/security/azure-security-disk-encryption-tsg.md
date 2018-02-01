@@ -27,7 +27,7 @@ Linux operating system (OS) disk encryption must unmount the OS drive before run
 
 This error is most likely to happen when OS disk encryption is attempted on a target VM environment that has been modified or changed from its supported stock gallery image. Examples of deviations from the supported image that can interfere with the extension’s ability to unmount the OS drive include the following:
 - Customized images no longer match a supported file system or partitioning scheme.
-- Large applications such as SAP, MongoDB, or Apache Cassandra are installed and running in the OS prior to encryption. The extension cannot properly shut down these applications. If the applications maintain open file handles to the OS drive, the drive cannot be unmounted, causing failure.
+- Large applications such as SAP, MongoDB, Apache Cassandra, and Docker are not supported when they are installed and running in the OS prior to encryption.  Azure Disk Encryption is unable to safely shut down these processes as required in preparation of the OS drive for disk encryption.  If there are still active processes holding open file handles to the OS drive, the OS drive cannot be unmounted, resulting in a failure to encrypt the OS drive. 
 - Custom scripts that run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process. This conflict can happen when an Azure Resource Manager template defines multiple extensions to execute simultaneously, or when a custom script extension or other action runs simultaneously to disk encryption. Serializing and isolating such steps might resolve the issue.
 - Security Enhanced Linux (SELinux) has not been disabled before enabling encryption, so the unmount step fails. SELinux can be reenabled after encryption is complete.
 - The OS disk uses a Logical Volume Manager (LVM) scheme. Although limited LVM data disk support is available, an LVM OS disk is not.
@@ -113,6 +113,11 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## Troubleshooting Encryption Status
+
+If the expected encryption state does not match what is being reported in the portal, please see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## Next steps
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:

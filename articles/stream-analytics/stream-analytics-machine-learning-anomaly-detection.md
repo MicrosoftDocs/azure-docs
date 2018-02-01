@@ -123,8 +123,7 @@ scenarios where the gap between events is always smaller than the aggregation
 window, a tumbling window is sufficient to make the time series uniform. When
 the gap can be larger, the gaps can be filled by repeating the last value using
 a hopping window. Both these scenarios can be handled by the example that
-follows. Currently, the `FillInMissingValuesStep` step cannot be skipped. Not
-having this step will result in a compilation error.
+follows.
 
 ## Performance Guidance
 
@@ -148,8 +147,6 @@ result, the assumption of uniformity will be broken when the next event does
 arrive. In such situations, we need a way of filling in the gaps in the time
 series. One possible approach is to take the last event in every hop window, as
 shown below.
-
-As noted before, do not skip the `FillInMissingValuesStep` step for now. Omitting that step will result in a compilation error.
 
     WITH AggregationStep AS 
     (

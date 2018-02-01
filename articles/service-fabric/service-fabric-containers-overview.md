@@ -19,8 +19,12 @@ ms.author: msfussell
 ---
 # Service Fabric and containers
 > [!NOTE]
-> Deploying containers to a Service Fabric cluster in Windows 10 isn't supported yet. 
+> Deploying containers to a Service Fabric cluster in Windows 10 or with Docker CE isn't supported. 
 >   
+
+> [!NOTE]
+> Service Fabric version 6.1 has preview support for Windows Server version 1709. Open networking and Service Fabric DNS Service do not work with Windows Server version 1709. 
+> 
 
 ## Introduction
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   

@@ -69,6 +69,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 > [!Important]  
 > If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
 
+
 The Azure File Sync agent installation package should install relatively quickly, and without too many additional prompts. We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
 - Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
@@ -115,6 +116,36 @@ To add the server endpoint, select **Create**. Your files are now kept in sync a
 
 > [!Important]  
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
+
+## Onboarding with Azure File Sync
+The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
+ 
+1.	Deploy a Storage Sync Service.
+2.	Create a sync group.
+3.	Install Azure File Sync agent on the server with the full data set.
+4.	Register that server and create a server endpoint on the share. 
+5.	Let sync do the full upload to the Azure file share (cloud endpoint).  
+6.	After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
+7.	Create new file shares on each of the remaining servers.
+8.	Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
+9.	Let Azure File Sync agent to do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
+10.	Ensure sync completes and test your topology as desired. 
+11.	Redirect users and applications to this new share.
+12.	You can optionally delete any duplicate shares on the servers.
+ 
+If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
+ 
+1.	Ensure that data on any of the server can't change during the onboarding process.
+2.	Pre-seed Azure file shares with the server data using any data transfer tool over the SMB e.g. Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can’t be used for pre-seeding.
+3.	Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
+4.	Let sync finish reconciliation process on all endpoints. 
+5.	Once reconciliation is complete, you can open shares for changes.
+ 
+Please be aware that currently, pre-seeding approach has a few limitations - 
+- Full fidelity on files is not preserved. For example, files lose ACLs and timestamps.
+- Data changes on the server before sync topology is fully up and running can cause conflicts on the server endpoints.  
+- After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
+
 
 ## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
 To migrate a DFS-R deployment to Azure File Sync:

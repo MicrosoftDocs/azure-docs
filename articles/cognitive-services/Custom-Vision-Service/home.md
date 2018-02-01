@@ -6,7 +6,7 @@ author: v-royhar
 manager: juliakuz
 
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.technology: custom-vision-service
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: v-royhar

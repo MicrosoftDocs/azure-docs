@@ -1,0 +1,28 @@
+## Create a service principal
+
+To create a service principal with access to your container registry, you can use the following script. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to grant different permissions. You must have the [Azure CLI](/cli/azure/install-azure-cli) installed to use this script.
+
+After you run the script, take note of the service principal's **ID** and **password**. Once you have its credentials, you can configure your applications and services to authenticate to your container registry as the service principal.
+
+[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
+
+## Use an existing service principal
+
+To grant registry access to an existing service principal, you must assign a new role to the service principal. As with creating a new service principal, you can grant pull, push and pull, and owner access.
+
+The following script uses the [az role assignment create][az-role-assignment-create] command to grant *pull* permissions to a service principal you specify in the `SERVICE_PRINCIPAL_ID` variable. Adjust the `--role` value if you'd like to grant a different level of access.
+
+[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
+
+You can find both of these scripts on GitHub, as well as versions for PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
+<!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
+
+<!-- LINKS - Internal -->
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

@@ -130,37 +130,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location **c:\temp\myIris>**.
 
-2. Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in your subscription. You must register this resource provider before you can create an environment in step 3. You can check to see if it's already registered by using the following command:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   You should see output like this: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   If **Microsoft.ContainerRegistry** is not registered, you can register it by using the following command:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registration can take a few minutes. You can check on its status by using the previous **az provider list** command or the following command:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
-
-   >[!NOTE] 
-   If you are deploying to an ACS cluster, you need register the **Microsoft.ContainerService** resource provider as well using the exact same approach.
-
-3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+2. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
    Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
@@ -172,25 +142,36 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    
    The cluster name is a way for you to identify the environment. The location should be the same as the location of the Model Management account you created from the Azure portal.
 
-4. Create a Model Management account. (This is a one-time setup.)  
+   In order to make sure that environment is setup successfully use the following command to check the status:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Please make sure "Provisioning State" has value as "Succeeded" (as shown below) before you set the environment in step 5.
+
+   ![Provisioning State](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
+3. Create a Model Management account. (This is a one-time setup.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Set the Model Management account.  
+4. Set the Model Management account.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Set the environment.
+5. Set the environment.
 
-   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 4. Use the same resource group name that was output in the command window when the setup process finished.
+   After the setup finishes, use the following command to set the environment variables required to operationalize the environment. Use the same environment name that you used previously in step 2. Use the same resource group name that was output in the command window when the setup process finished.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
+6. To verify that you have properly configured your operationalized environment for local web service deployment, enter the following command:
 
    ```azurecli
    az ml env show
@@ -205,7 +186,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    This command generates a web service ID you can use later.
 
@@ -284,8 +265,9 @@ To test the **irisapp** web service that's running, use a JSON-encoded record co
 
 2. To test the service, execute the returned service run command:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2"**, which is the predicted class. (Your result might be different.) 
 

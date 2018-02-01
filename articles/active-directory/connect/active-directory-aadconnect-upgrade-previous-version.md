@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Upgrade from a previous version | Microsoft Docs'
 description: Explains the different methods to upgrade to the latest release of Azure Active Directory Connect, including an in-place upgrade and a swing migration.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 

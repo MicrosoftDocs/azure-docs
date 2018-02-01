@@ -43,7 +43,7 @@ Event Hubs Capture enables you to set up a window to control capturing. This win
 Note that the date values are padded with zeroes; an example filename might be:
 
 ```
-https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### Scaling to throughput units
