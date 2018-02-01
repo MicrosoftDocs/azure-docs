@@ -126,7 +126,7 @@ Providing a Trial experience increases the engagement level offered to customers
  
 All Trial options are deployed into your Trial environment and/or Azure Subscription, rather than into the customer's environment or Azure Subscription. Trials should be customer-led without any additional purchases and minimal, if any, additional configuration to complete a simple use case. Trials must include free support at least for the duration of the trial period. Trial users should be nurtured and monitored along a deliberate evaluation path for best results. Publishers are encouraged to use both Marketplace leads and the publisher's own in-app intelligence to monitor and manage trial users.
 
-There are 3 typical Trial scenarios:
+There are 4 typical Trial scenarios:
 
 
 |**Trial Option**  |**Key Benefits**  |**Choose this Option if...**  |
@@ -134,7 +134,7 @@ There are 3 typical Trial scenarios:
 |**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as 'guest users'|
 **Test Drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer |
 |**Interactive Demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period     |
-| **Request for Trial** | You have a SaaS app and you direct your customer from your Marketplace listing to a sign up page. If you do not have AAD enabled, you will have to choose this option as potential customers will not be automatically validated into your trial experience and will have to request the trial directly from you |
+| **Request for Trial** | Helps alert a customer they will have to create a login to access the trial experience for your SaaS app |You have a SaaS app and you direct your customer from your Marketplace listing to a sign up page. If you do not have AAD enabled, you will have to choose this option as potential customers will not be automatically validated into your trial experience and will have to request the trial directly from you |
 
 #### Free Trial
 
