@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Google Apps for automatic user provisioning in Azure | Microsoft Docs'
+title: 'Tutorial: Configure Google Apps for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Google Apps.
 services: active-directory
 documentationCenter: na
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---

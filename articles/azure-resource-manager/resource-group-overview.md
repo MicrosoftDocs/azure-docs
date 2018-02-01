@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
 
 ---
@@ -56,8 +56,6 @@ The following suggestions help you take full advantage of Resource Manager when 
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
-
-For recommendations about templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
 For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
@@ -134,7 +132,7 @@ If you envision your tiers having separate lifecycles, you can deploy your three
 
 ![tier template](./media/resource-group-overview/tier-templates.png)
 
-For more suggestions about designing your templates, see [Patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md). For information about nested templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+For information about nested templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 
