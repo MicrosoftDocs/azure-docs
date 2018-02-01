@@ -148,7 +148,7 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-### Check if there is ingestion latency
+## Check if there is ingestion latency
 With Log Analytics there is an anticipated latency with the ingestion of collected data.  The absolute time between indexing data and when it is available to search can be unpredictable. Previously we included a performance chart on the dashboard that showed the time taken to collect and index data, and with the introduction of the new query language, we have temporarily removed this chart.  As an interim solution until we release updated data ingestion latency metrics, the following query can be used to approximate the latency for each data type.  
 
     search *
