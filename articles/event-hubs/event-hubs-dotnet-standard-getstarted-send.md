@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
