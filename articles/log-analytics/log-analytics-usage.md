@@ -42,12 +42,9 @@ The **Log Analytics usage** dashboard displays the following information:
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. In your list of Log Analytics workspaces, select a workspace.
 4. Select **Log Analytics usage** from the list in the left pane.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
-    ![time interval](./media/log-analytics-usage/time.png)
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
-    ![example data usage blade](./media/log-analytics-usage/blade.png)
-7. On the Log Search dashboard, review the results that are returned from the search.  
-    ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.<br><br> ![time interval](./media/log-analytics-usage/time.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage blade](./media/log-analytics-usage/blade.png)<br><br>
+7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:
@@ -109,15 +106,11 @@ These two charts show all data. Some data is billable, and other data is free. T
 
 Look at the *Data volume over time* chart. To see the solutions and data types that are sending the most data for a specific computer, click on the name of the computer. Click on the name of the first computer in the list.
 
-In the following screenshot, the *Log Management / Perf* data type is sending the most data for the computer. 
-
-![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+In the following screenshot, the *Log Management / Perf* data type is sending the most data for the computer.<br><br> ![data volume for a computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Next, go back to the *Usage* dashboard and look at the *Data volume by solution* chart. To see the computers sending the most data for a solution, click on the name of the solution in the list. Click on the name of the first solution in the list. 
 
-In the following screenshot, it confirms that the *acmetomcat* computer is sending the most data for the Log Management solution.
-
-![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+In the following screenshot, it confirms that the *acmetomcat* computer is sending the most data for the Log Management solution.<br><br> ![data volume for a solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 If needed, perform additional analysis to identify large volumes within a solution or data type. Example queries include:
 
@@ -149,9 +142,7 @@ Use the following steps to reduce the volume of logs collected:
 | Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Check if there are more nodes than expected
-If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.
-
-![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Click on **See all...** to view the full list of computers sending data for the selected offer.
 
