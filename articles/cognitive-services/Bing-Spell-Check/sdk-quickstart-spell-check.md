@@ -1,6 +1,7 @@
 ---
 title: Spell Check SDK C# quickstart | Microsoft Docs
 description: Setup for Spell Check SDK console application.
+titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
 manager: rosh
