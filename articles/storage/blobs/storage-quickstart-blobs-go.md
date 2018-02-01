@@ -13,13 +13,13 @@ ms.date: 01/29/2018
 ms.author: seguler
 ---
 
-#  Transfer objects to/from Azure Blob storage using Python
-In this quickstart, you learn how to use Go language to upload, download, and list block blobs in a container in Azure Blob storage. 
+#  Transfer objects to/from Azure Blob storage using Go
+In this quickstart, you learn how to use Go programming language to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
 
 To complete this quickstart: 
-* Install [Go 1.8 or above](https://golang.org/)
+* Install [Go 1.8 or above](https://golang.org/dl/)
 * Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -35,10 +35,10 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
 ```
 
-This command clones the repository to your local git folder. To open the Go program, look for storage-quickstart.go file.  
+This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for storage-quickstart.go file.  
 
 ## Configure your storage connection string
-This solution requires Storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your Operating System to create the environment variable.
+This solution requires your storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variable.
 
 # [Linux](#tab/Linux)
 
@@ -50,7 +50,7 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 # [Windows](#tab/Windows)
 
 ```
-setx AZURE_STORAGE_ACCOUNT "<yourconnectionstring>"
+setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
 
@@ -88,36 +88,37 @@ Next, we walk through the sample code so that you can understand how it works.
 ### Create ContainerURL and BlobURL objects
 The first thing to do is to create the references to the ContainerURL and BlobURL objects used to access and manage Blob storage. These objects offer low-level APIs such as Create, PutBlob, and GetBlob to issue REST APIs.
 
-* Create a **SharedKeyCredential** struct with your credentials. 
+* Use **SharedKeyCredential** struct to store your credentials. 
 
 * Create a **Pipeline** using the credentials and options. The pipeline specifies things like retry policies, logging, deserialization of HTTP response payloads, and more.  
 
 * Instantiate a new ContainerURL, and a new BlobURL object to run operations on container (Create) and blobs (PutBlob and GetBlob).
 
 
-Once you have the ContainerURL, you can instantiate the **BlobURL** object that points to the specific blob in which you are interested, and perform operations such as upload, download, and copy.
+Once you have the ContainerURL, you can instantiate the **BlobURL** object that points to a blob, and perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
 > Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
-In this section, you create a new container. The container is called **quickstartblobs-<random number>**. 
+In this section, you create a new container. The container is called **quickstartblobs-[random string]**. 
 
 ```go 
+// From the Azure portal, get your storage account name and key and set environment variables.
 accountName, accountKey := os.Getenv("AZURE_STORAGE_ACCOUNT"), os.Getenv("AZURE_STORAGE_ACCESS_KEY")
 if len(accountName) == 0 || len(accountKey) == 0 {
-	log.Fatal("AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY environment variables are not set")
+	log.Fatal("Either the AZURE_STORAGE_ACCOUNT or AZURE_STORAGE_ACCESS_KEY environment variable is not set")
 }
 
-// Create a request pipeline using your Storage account's name and account key.
+// Create a default request pipeline using your storage account name and account key.
 credential := azblob.NewSharedKeyCredential(accountName, accountKey)
 p := azblob.NewPipeline(credential, azblob.PipelineOptions{})
 
 // Create a random string for the quick start container
-containerName := fmt.Sprintf("%s%s", "quickstart-", randomString())
+containerName := fmt.Sprintf("quickstart-%s", randomString())
 
-// From the Azure portal, get your Storage account blob service URL endpoint.
+// From the Azure portal, get your storage account blob service URL endpoint.
 URL, _ := url.Parse(
-fmt.Sprintf("https://%s.blob.core.windows.net/%s", accountName, containerName))
+	fmt.Sprintf("https://%s.blob.core.windows.net/%s", accountName, containerName))
 
 // Create a ContainerURL object that wraps the container URL and a request
 // pipeline to make requests.
@@ -145,15 +146,15 @@ blobURL := containerURL.NewBlockBlobURL(fileName)
 file, err := os.Open(fileName)
 handleErrors(err)
 
-// Use the PutBlob API to upload the file
+// You can use the low-level PutBlob API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
 // Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
-fmt.Printf("Uploading the file with blob name: %s\n", fileName)
-_, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
-handleErrors(err)
+// Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
+// _, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
+// handleErrors(err)
 
-// Alternatively you can use the high level API UploadFileToBlockBlob function to upload blocks in parallel.
-// This function calls PutBlock/PutBlockLlist for files larger 256 MBs, and calls PutBlob for any file smaller
-// Note this will overwrite the file uploaded by PutBlob in the previous line
+// The high-level API UploadFileToBlockBlob function uploads blocks in parallel for optimal performance, and can handle large files as well.
+// This function calls PutBlock/PutBlockList for files larger 256 MBs, and calls PutBlob for any file smaller
+fmt.Printf("Uploading the file with blob name: %s\n", fileName)
 _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBlobOptions{
 	BlockSize:   4 * 1024 * 1024,
 	Parallelism: 16})
@@ -166,8 +167,7 @@ Get a list of files in the container using the **ListBlobs** method on a **Conta
 
 ```go
 // List the blobs in the container
-marker := azblob.Marker{}
-for marker.NotDone() {
+for marker := (azblob.Marker{}); marker.NotDone(); {
 	// Get a result segment starting with the blob indicated by the current Marker.
 	listBlob, err := containerURL.ListBlobs(ctx, marker, azblob.ListBlobsOptions{})
 	handleErrors(err)
@@ -183,26 +183,18 @@ for marker.NotDone() {
 }
 ```
 
-### Download the blobs with progress report
+### Download the blob
 
-Download blobs using the **GetBlob** low-level method on a BlobURL. Alternatively you can create a Stream and read ranges from it using **NewDownloadStream** high-level API provided in [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go).
-The following code downloads the blob uploaded in a previous section and shows progress of downloaded bytes. The contents of the blob is written into a buffer and shown on the console.
+Download blobs using the **GetBlob** low-level method on a BlobURL. Alternatively you can create a Stream and read ranges from it using **NewDownloadStream** high-level API provided in [highlevel.go](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go). NewDownloadStream function retries in the event of a connection failure, whereas Get Blob API only retries on HTTP status codes such as 503 (Server Busy). 
+The following code downloads the blob using the **NewDownloadStream** function. The contents of the blob is written into a buffer and shown on the console.
 
 ```go
-// Here's how to download the blob
-get, err := blobURL.GetBlob(ctx, azblob.BlobRange{}, azblob.BlobAccessConditions{}, false)
-handleErrors(err)
-
-// Wrap the response body in a ResponseBodyProgress and pass a callback function
-// for progress reporting.
-responseBody := pipeline.NewResponseBodyProgress(get.Body(),
-	func(bytesTransferred int64) {
-		fmt.Printf("Read %d of %d bytes.\n", bytesTransferred, get.ContentLength())
-	})
+// Here's how to download the blob. NOTE: This method automatically retries if the connection fails
+// during download (the low-level GetBlob function does NOT retry errors when reading from its stream).
+stream := azblob.NewDownloadStream(ctx, blobURL.GetBlob, azblob.DownloadStreamOptions{})
 downloadedData := &bytes.Buffer{}
-downloadedData.ReadFrom(responseBody)
-// The downloaded blob data is in downloadData's buffer. :Let's print it
-fmt.Printf("Downloaded the blob: " + downloadedData.String())
+_, err = downloadedData.ReadFrom(stream)
+handleErrors(err)
 ```
 
 ### Clean up resources
@@ -210,7 +202,7 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally
-fmt.Printf("Press a key to delete the sample files, example container, and exit the application.\n")
+fmt.Printf("Press enter key to delete the sample files, example container, and exit the application.\n")
 bufio.NewReader(os.Stdin).ReadBytes('\n')
 fmt.Printf("Cleaning up.\n")
 containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
