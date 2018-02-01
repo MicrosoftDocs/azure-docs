@@ -24,7 +24,7 @@ Using Visual Studio running in a preconfigured Azure virtual machine (VM) is the
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
 ## What configurations and versions are available?
-In the Azure Marketplace you find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.  We update these images at least every month to include the latest Visual Studio and Windows updates.  While the names of the images will remain the same, we include the version and the 'as of' date in each image's description.
+In the Azure Marketplace, you find images for the most recent major versions:  Visual Studio 2017 and Visual Studio 2015.  For each major version, you see the originally released (aka ‘RTW’) version, and the “latest” updated versions.  For each of these different versions, you find the Visual Studio Enterprise and Visual Studio Community editions.  We update these images at least every month to include the latest Visual Studio and Windows updates.  While the names of the images remain the same, each image's desription includes the installed product version and the image's 'as of' date.
 
 |               Release version              |          Editions            |     Product Version     |
 |:------------------------------------------:|:----------------------------:|:-----------------------:|
@@ -64,7 +64,7 @@ This is the command line that we use to install Visual Studio when building the 
 If the images don't include a Visual Studio feature you require, provide that feedback through the feedback tool (top-right corner of the page).
 
 ## What size VM should I choose?
-Provisioning a new virtual machine is easy, and Azure offers a full range of virtual machine sizes.  As with any hardware acquisition, you want to balance performance versus cost.  Since Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least two processors and 7 GB of memory.  These are the recommended VM sizes for the Visual Studio images:
+Provisioning a new virtual machine is easy, and Azure offers a full range of virtual machine sizes.  As with any hardware acquisition, you want to balance performance versus cost.  Since Visual Studio is a powerful, multi-threaded application, you want a VM size that includes at least 2 processors and 7 GB of memory.  These are the recommended VM sizes for the Visual Studio images:
 
    * Standard_D2_v3
    * Standard_D2s_v3
@@ -85,7 +85,7 @@ Visual Studio follows the “bring you own license” model in Azure.  So, simil
 
 The spectrum of development environments is huge, and there’s real cost associated with building out the more complex environments.  However, regardless of your environment’s configuration, Azure makes preserving that investment easy by saving/capturing your perfectly configured VM as a ‘base image’ for future use – for yourself and/or for other members of your team.  Then, when booting a new VM, provision it from the base image rather than the Marketplace image.
 
-As a quick summary, you’ll need to sysprep and shutdown the running VM, then *capture (Figure 1)* the VM as an image through the Azure portal’s UI.  Azure will save the `.vhd` file that contains the image in the storage account of your choosing.  Then, the new image shows up as an Image resource in your subscription’s list of resources.
+As a quick summary, you’ll need to sysprep and shutdown the running VM, then *capture (Figure 1)* the VM as an image through the Azure portal’s UI.  Azure saves the `.vhd` file that contains the image in the storage account of your choosing.  Then, the new image shows up as an Image resource in your subscription’s list of resources.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal’s UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figure 1) Capture an image through the Azure portal’s UI.*</center>
 
