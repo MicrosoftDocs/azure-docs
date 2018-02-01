@@ -126,7 +126,7 @@ The following example creates this additional private key specifically for PuTTY
 1. Use **Git Bash** to convert your private key into an RSA private key that PuTTYgen can understand. The following example creates a key named `myPrivateKey_rsa` from the existing key named `myPrivateKey`:
 
     ```bash
-    openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+    openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa.ppk
     ```
 
     As a security measure, you should set the permissions on your private key so that only you can access it:
