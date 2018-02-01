@@ -14,7 +14,7 @@ ms.author: seguler
 ---
 
 #  Transfer objects to/from Azure Blob storage using Go
-In this quickstart, you learn how to use Go programming language to upload, download, and list block blobs in a container in Azure Blob storage. 
+In this quickstart, you learn how to use the Go programming language to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for storage-quickstart.go file.  
 
 ## Configure your storage connection string
-This solution requires your storage account name and key to be stored in an environment variable securely on the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variable.
+This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
 
 # [Linux](#tab/Linux)
 
@@ -75,7 +75,7 @@ Read 27 of 27 bytes.
 Downloaded the blob: hello world
 this is a blob
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. 
+When you press the key to continue, the sample program deletes the storage container and the files. 
 
 > [!TIP]
 > You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
@@ -202,7 +202,7 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally
-fmt.Printf("Press enter key to delete the sample files, example container, and exit the application.\n")
+fmt.Printf("Press the enter key to delete the sample files, example container, and exit the application.\n")
 bufio.NewReader(os.Stdin).ReadBytes('\n')
 fmt.Printf("Cleaning up.\n")
 containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
