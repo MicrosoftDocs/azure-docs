@@ -1,6 +1,7 @@
 ---
 title: Web search SDK C# quickstart | Microsoft Docs
-description: Setup for Web search SDK console application.
+description: Setup for Web search SDK C# console application.
+titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
