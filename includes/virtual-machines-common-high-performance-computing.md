@@ -103,7 +103,7 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 
 Learn how to:
 
-* [Get started developing with Batch](../articles/batch/batch-dotnet-quickstart.md)
+* [Get started developing with Batch](../articles/batch/quick-run-dotnet.md)
 * [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 * [Use low-priority VMs with Batch](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
