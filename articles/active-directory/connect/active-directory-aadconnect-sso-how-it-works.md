@@ -77,9 +77,10 @@ The sign-in flow on a native client is as follows:
 4. The app then queries the WS-Trust MEX endpoint to see if integrated authentication endpoint is available.
 5. If step 4 succeeds, a Kerberos challenge is issued.
 6. If the app is able to retrieve the Kerberos ticket, it forwards it up to Azure AD's integrated authentication endpoint.
-7. Azure AD signs the user in, and issues a SAML token to the app.
-8. The app then submits the SAML token to Azure AD's OAuth2 token endpoint.
-9. Azure AD validates the SAML token, and issues a signed access token, a refresh token, and an unsigned id token for the specified resource.
+7. Azure AD decrypts the Kerberos ticket and validates it.
+8. Azure AD signs the user in, and issues a SAML token to the app.
+9. The app then submits the SAML token to Azure AD's OAuth2 token endpoint.
+10. Azure AD validates the SAML token, and issues to the app an access token and a refresh token for the specified resource, and an id token.
 
 The following diagram illustrates all the components and the steps involved.
 
