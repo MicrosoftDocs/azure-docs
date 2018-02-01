@@ -1,6 +1,7 @@
 ---
 title: Entity search API C# quickstart | Microsoft Docs
 description: Setup for Entity search SDK console application.
+titleSuffix: Azure cognitive services entity search API C# quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
