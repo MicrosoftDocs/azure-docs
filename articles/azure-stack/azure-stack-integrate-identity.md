@@ -5,15 +5,13 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords:
 ---
 
 # Azure Stack datacenter integration - Identity
-
-*Applies to: Azure Stack integrated systems*
-
 You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity providers. You must make the choice before you deploy Azure Stack. Deployment using AD FS is also referred to as deploying Azure Stack in disconnected mode.
 
 The following table shows the differences between the two identity choices:
@@ -331,4 +329,4 @@ If any of the cmdlets fail, you can collect additional logs by using the `Get-Az
 
 ## Next steps
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
+[Register Azure Stack](azure-stack-registration.md)
