@@ -15,7 +15,7 @@ ms.author: nepeters
 
 This article addresses frequent questions about Azure Container Service (AKS).
 
-## Which Azure regions will have Azure Container Service (AKS) once the service has reached general availability?? 
+## Which Azure regions will have Azure Container Service (AKS)? 
 
 - Canada Central 
 - Canada East 
