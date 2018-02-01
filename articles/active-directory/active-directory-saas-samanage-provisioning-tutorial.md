@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory to automatically prov
 services: active-directory
 documentationcenter: ''
 author: zhchia-msft
-writer: asmalser-msft
+writer: zhchia-msft
 manager: beatrizd-msft
 
 ms.assetid: na
