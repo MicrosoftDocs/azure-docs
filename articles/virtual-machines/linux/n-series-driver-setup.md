@@ -53,7 +53,7 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 Then run installation commands specific for your distribution.
 
-### Ubuntu
+### Ubuntu 16.04 LTS
 
 1. Download and install the CUDA drivers.
   ```bash
@@ -99,7 +99,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS or Red Hat Enterprise Linux
+### CentOS or Red Hat Enterprise Linux 7.3 or 7.4
 
 1. Update the kernel.
 
@@ -109,10 +109,6 @@ sudo reboot
   sudo reboot
 
 2. Install the latest Linux Integration Services for Hyper-V.
-
-  > [!IMPORTANT]
-  > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the HPC image, LIS should not be upgraded, and kernel updates are disabled by default.
-  >
 
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
@@ -171,13 +167,16 @@ RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC
 
 ### Distributions
 
-Deploy RDMA-capable N-series VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
+Deploy RDMA-capable N-series VMs from an image in the Azure Marketplace that supports RDMA connectivity on N-series VMs:
   
-* **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
+* **Ubuntu 16.04 LTS** - Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS-based HPC** - CentOS-based 7.3 HPC. RDMA drivers and Intel MPI 5.1 are installed on the VM. 
+> [!NOTE]
+> CentOS-based HPC images are not currently recommended for RDMA connectivity on N-series VMs. RDMA is not supported on the latest CentOS 7.4 kernel that supports NVIDIA GPUs.
+> 
+
 
 ## Install GRID drivers for NV VMs
 
