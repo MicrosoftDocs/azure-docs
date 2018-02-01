@@ -1,6 +1,6 @@
 ---
-title: How to use Azure RBAC to Restrict Extension Installation | Microsoft Docs
-description: Example to show using Azure RBAC
+title: Use RBAC to Restrict Installation | Microsoft Docs
+description: Example to show using Azure RBAC to restrict installing extensions on Azure.
 services: virtual-machines-linux 
 documentationcenter: ''
 author: danielsollondon 
