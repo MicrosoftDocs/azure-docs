@@ -212,7 +212,7 @@ You can now browse to the external IP address to see the Azure Vote App.
 The Azure CLI can also be used to set up a connection with the Kubernetes dashboard. To do so, use the [az aks browse][az-aks-browse] command.
 
 ```azurecli-interactive
-az aks browse --resource-group myResourceGrouo --name myAKSCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Once run, a browser opens to the Kubernetes dashboard.
