@@ -20,11 +20,11 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Configuring single sign-on to applications that are not in the Azure Active Directory application gallery
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18th, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](active-directory-editions.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](active-directory-appssoaccess-whatis.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by follow the step-by-step instructions presented in the Azure portal to enable single sign-on.
+The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](active-directory-appssoaccess-whatis.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
-Customers with [Azure Active Directory Premium](active-directory-editions.md) licenses also get these additional capabilities:
+Customers with [Azure Active Directory Premium](active-directory-editions.md) license also get these additional capabilities:
 
 * Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 * Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -42,11 +42,11 @@ To connect an application using an app integration template, sign into the Azure
 
 In the app gallery, you can add an unlisted app by selecting the **Non-gallery application** tile that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior. 
 
-**Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions "single sign on", then the application is already supported for federated single sign-on.
+**Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions "single sign-on", then the application is already supported for federated single sign-on.
 
   ![][2]
 
-Adding an application this way provides a very similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On**. The next screen presents the following three options for configuring single sign on, which are described in the following sections.
+Adding an application this way provides a very similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On**. The next screen presents the following three options for configuring single sign-on, which are described in the following sections.
 
   ![][3]
 
@@ -57,8 +57,8 @@ Select this option to configure SAML-based authentication for the application. T
 
 These are:
 
-* **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (copyable from the Dashboard tab).
-* **Issuer URL** - The issuer URL should uniquely identify the application for which single sign on is being configured. This is the value that Azure AD sends back to application as the **Audience** parameter of the SAML token, and the application is expected to validate it. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what it's Entity ID or Audience value is. Below is an example of how the Audience URL appears in the SAML token returned to the application:
+* **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign-on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (copyable from the Dashboard tab).
+* **Issuer URL** - The issuer URL should uniquely identify the application for which single sign-on is being configured. This is the value that Azure AD sends back to application as the **Audience** parameter of the SAML token, and the application is expected to validate it. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its Entity ID or Audience value is. Below is an example of how the Audience URL appears in the SAML token returned to the application:
   
   ```
   <Subject>
