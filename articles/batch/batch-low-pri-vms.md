@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
 
 ---
@@ -116,10 +116,13 @@ benefit from low-priority VMs:
 -   When tasks are interrupted, Batch detects and automatically
     requeues tasks to run again.
 
--   Low-priority VMs have a separate vCPU quota, differs from the one for dedicated VMs. 
+-   Low-priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. 
     The quota for low-priority VMs is higher than the quota for dedicated VMs, because 
     low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Low-priority VMs are not currently supported for Batch accounts created in [user subscription mode](batch-api-basics.md#account).
+>
 
 ## Create and update pools
 
@@ -156,7 +159,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

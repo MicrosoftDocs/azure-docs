@@ -44,12 +44,12 @@
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
-### [Mitigating speculative execution](mitigate-se.md}
 ### [Common management tasks](cloud-services-how-to-manage-portal.md)
 ### [Configure Cloud Service](cloud-services-how-to-configure-portal.md)
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
 ### [Configure automatic scaling](cloud-services-how-to-scale-portal.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
+### [Mitigating speculative execution](mitigate-se.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ### Guest OS retirement

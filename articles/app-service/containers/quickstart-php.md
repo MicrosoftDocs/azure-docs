@@ -29,14 +29,14 @@ ms.custom: mvc
 
 You can follow the steps below using a Mac, Windows, or Linux machine.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://php.net" target="_blank">Install PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 

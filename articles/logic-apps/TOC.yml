@@ -62,25 +62,7 @@
     - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Develop custom connectors
-      items: 
-      - name: Custom connectors overview
-        href: custom-connector-overview.md
-      - name: Create connectors from Web APIs
-        href: custom-connector-build-web-api-app-tutorial.md
-      - name: Secure connectors with Azure AD
-        href: custom-connector-azure-active-directory-authentication.md
-      - name: Describe APIs with Postman
-        href: custom-connector-api-postman-collection.md
-      - name: Extend OpenAPI for custom connectors
-        href: custom-connector-openapi-extensions.md
-      - name: Create and register OpenAPI connector
-        href: logic-apps-custom-connector-register.md
-      - name: Create and register SOAP connector
-        href: logic-apps-soap-connector-create-register.md
-      - name: Certify your connector
-        href: custom-connector-submit-certification.md
-      - name: FAQ for custom connectors
-        href: custom-connector-faq.md
+      href: custom-connector-overview.md
     - name: Develop custom APIs
       items: 
       - name: Create custom APIs for logic apps
@@ -140,6 +122,8 @@
         href: logic-apps-enterprise-integration-transform.md
       - name: Add maps for XML transform
         href: logic-apps-enterprise-integration-maps.md
+      - name: Transform JSON
+        href: logic-apps-enterprise-integration-liquid-transform.md
       - name: Add security certificates
         href: logic-apps-enterprise-integration-certificates.md
       - name: Troubleshoot B2B errors
