@@ -21,6 +21,8 @@ ms.author: cfowler
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
+This topic describes error information specific to the various bindings and also links to the error code documentation for the supported services. You will find this same information in the reference topics for the individual triggers and bindings. 
+
 ## Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-errors](../../includes/functions-bindings-cosmos-db-errors.md)]
