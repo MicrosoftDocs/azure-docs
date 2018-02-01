@@ -39,7 +39,7 @@ In Visual Studio, the **Azure Functions** project template creates a C# class li
 * [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally.
 
 > [!IMPORTANT]
-> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To disable a function, use the `Disable` attribute. For example, add a Boolean app setting MY_TIMER_DISABLED, and apply `[Disable("MY_TIMER_DISABLED")]` to your function. You can then enable and disable it by changing the app setting.
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To disable a function, use the [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute. For example, add a Boolean app setting MY_TIMER_DISABLED, and apply `[Disable("MY_TIMER_DISABLED")]` to your function. You can then enable and disable it by changing the app setting.
 
 ### FunctionName and trigger attributes
 
