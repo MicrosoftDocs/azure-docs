@@ -222,7 +222,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
 5. Review the warning message, and select **Finish**.
 
    ![Warning and "Finish" button](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Select **Publish** to publish changes to Data Factory. 
+6. Select **Publish All** to publish changes to Data Factory. 
 
    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Switch to the **Monitor** tab on the left. Select **Refresh** to refresh the list. You see that the pipeline runs once every minute from the publish time to the end time. 
