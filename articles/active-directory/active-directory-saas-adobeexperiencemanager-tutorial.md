@@ -83,8 +83,8 @@ In Adobe Experience Manager, assign the value of the **user name** in Azure AD a
 To configure and test Azure AD single sign-on with Adobe Experience Manager, complete the following building blocks:
 
 1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
-2. [Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-3. [Create an Adobe Experience Manager test user](#create-an-adobe-experience-manager-test-user)** to have a counterpart of Britta Simon in Adobe Experience Manager that is linked to the Azure AD representation of user.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create an Adobe Experience Manager test user](#create-an-adobe-experience-manager-test-user) to have a counterpart of Britta Simon in Adobe Experience Manager that is linked to the Azure AD representation of user.
 4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
 5. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
 
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
-6. In the Adobe Experience Manager Configuration section, to open the configuration sign-on window, select **Configure Adobe Experience Manager**. Copy the **SAML Sign-On Service URL**, **SAML Entity ID** and **Sign-Out ID** from the Quick Reference section.
+6. To open the configuration sign-on window in the Adobe Experience Manager Configuration section,  select **Configure Adobe Experience Manager**. Copy the **SAML Sign-On Service URL**, **SAML Entity ID**, and **Sign-Out ID** from the Quick Reference section.
 
 	![Configuration section link](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
@@ -179,21 +179,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Path** box, enter **/**.
 
-	b. In **IDP URL** box, enter the **SAML Sign-On Service URL**,value, which you copied from the Azure portal.
+	b. In **IDP URL** box, enter the **SAML Sign-On Service URL**,value that you copied from the Azure portal.
 
-	c. In the **IDP Certificate Alias** box, enter the **Certificate Alias** value, which you added in TrustStore.
+	c. In the **IDP Certificate Alias** box, enter the **Certificate Alias** value that you added in TrustStore.
 
-	d. In **Security Provided Entity ID** box, enter the unique **SAML Entity ID** value, which you configured in the Azure portal.
+	d. In **Security Provided Entity ID** box, enter the unique **SAML Entity ID** value that you configured in the Azure portal.
 
-	e. In **Assertion Consumer Service URL** box, enter the **Reply URL** value, which you configured in the Azure Portal.
+	e. In **Assertion Consumer Service URL** box, enter the **Reply URL** value that you configured in the Azure portal.
 
-	f. In the **Password of Key Store** box, enter the **Password**, which you set in KeyStore.
+	f. In the **Password of Key Store** box, enter the **Password** that you set in KeyStore.
 
-	g. In the **User Attribute ID** box, enter **Name ID** or another user ID that's relevant in your case.
+	g. In the **User Attribute ID** box, enter the **Name ID** or another user ID that's relevant in your case.
 
 	h. Select **Autocreate CRX Users.**
 
-	i. In the **Logout URL** box, enter the unique **Sign-Out URL** value, which you got from the Azure Portal.
+	i. In the **Logout URL** box, enter the unique **Sign-Out URL** value that you got from the Azure portal.
 
 	j. Select **Save**
 
