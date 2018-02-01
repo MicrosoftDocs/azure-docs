@@ -21,11 +21,11 @@ ms.author: genemi
 ---
 # DNS alias for Azure SQL Database
 
-Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your Sql Database server name.
+Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your SQL Database server name.
 
 A *DNS alias* can be used in place of the Azure SQL Database server name. Client programs can use the alias in their connection strings. The DNS alias provides a translation layer that can redirect your client programs to different servers. This layer spares you the difficulties of having to find and edit all the clients and their connection strings.
 
-Common uses for a DNS alias include the folowing cases:
+Common uses for a DNS alias include the following cases:
 
 - Create an easy to remember name for an Azure SQL Server.
 - During initial development, your alias can refer to a test SQL Database server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the database server.
@@ -49,7 +49,7 @@ Later when the new system goes live in production, you can update the properties
 
 #### Cross-region support
 
-A disaster recovery might shifts your SQL Database server to a different geographic region. For a system than was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
+A disaster recovery might shift your SQL Database server to a different geographic region. For a system than was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
 
 
 
@@ -88,7 +88,7 @@ Comment as of:  2018-01-26
 The documentation for the REST APIs is available near the following web location:
 - [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)
 
-Also, the REST APIs can be seen in Github at:
+Also, the REST APIs can be seen in GitHub at:
 - [Azure SQL Database server, DNS alias REST APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
 <a name="anchor-powershell-code-62x"/>
