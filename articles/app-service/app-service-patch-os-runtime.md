@@ -44,7 +44,7 @@ Stay current with critical security announcements in Azure by visiting [Azure Se
 
 When a supported language runtime has a new stable version (major, minor, or patch), the App Service team does extensive testing prior to pushing the version updates to App Service. 
 
-Stay current with the runtime updates or deprecations by visiting:
+Runtime updates and deprecations are announced here:
 
 - https://azure.microsoft.com/updates/?product=app-service 
 - https://github.com/Azure/app-service-announcements/issues
