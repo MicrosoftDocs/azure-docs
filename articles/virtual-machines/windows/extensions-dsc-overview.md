@@ -159,6 +159,43 @@ Important information regarding the AzureRM DSC Extension cmdlets:
 * ArchiveResourceGroupName is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the virtual machine is created.
 * The AutoUpdate switch enables automatic updating of the extension handler to the latest version as and when it is available. Note this parameter has the potential to cause reboots on the VM when a new version of the WMF is released.
 
+### Getting Started with Cmdlets
+
+The Azure DSC extension is capable of using DSC configuration documents
+directly to configure Azure VMs during deployment
+although this will not register the node to Azure Automation so the node
+will **NOT** be centrally managed.
+
+A simple example of a configuration follows.
+Save it locally as "IisInstall.ps1":
+
+```powershell
+configuration IISInstall
+{
+    node "localhost"
+    {
+        WindowsFeature IIS
+        {
+            Ensure = "Present"
+            Name = "Web-Server"
+        }
+    }
+}
+```
+
+The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
+
+```powershell
+$resourceGroup = "dscVmDemo"
+$location = "westus"
+$vmName = "myVM"
+$storageName = "demostorage"
+#Publish the configuration script into user storage
+Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+#Set the VM to run the DSC configuration
+Set-AzureRmVmDscExtension -Version 2.72 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+```
+
 ## Azure Portal Functionality
 
 Browse to a VM. Under Settings -> General click "Extensions."
@@ -197,43 +234,6 @@ If the configuration function takes arguments,
 enter them in here in the format `argumentName1=value1,argumentName2=value2`.
 Note this format is a different format than how configuration arguments
 are accepted through PowerShell cmdlets or Resource Manager templates.
-
-## Getting Started
-
-The Azure DSC extension is capable of using DSC configuration documents
-directly to configure Azure VMs during deployment
-although this will not register the node to Azure Automation so the node
-will **NOT** be centrally managed.
-
-A simple example of a configuration follows.
-Save it locally as "IisInstall.ps1":
-
-```powershell
-configuration IISInstall
-{
-    node "localhost"
-    {
-        WindowsFeature IIS
-        {
-            Ensure = "Present"
-            Name = "Web-Server"
-        }
-    }
-}
-```
-
-The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
-
-```powershell
-$resourceGroup = "dscVmDemo"
-$location = "westus"
-$vmName = "myVM"
-$storageName = "demostorage"
-#Publish the configuration script into user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
-#Set the VM to run the DSC configuration
-Set-AzureRmVmDscExtension -Version 2.72 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
-```
 
 ## Logging
 Logs are placed in:
