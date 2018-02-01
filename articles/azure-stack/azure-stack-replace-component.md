@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
 
 ---
@@ -42,19 +42,23 @@ The following flow diagram shows the general FRU process to replace a non hot-sw
 
 *This action may not be required based on the physical condition of the hardware.
 
-**Whether your OEM hardware vendor performs the component replacement and updates the firmware could vary based on you support contract.
+**Whether your OEM hardware vendor performs the component replacement and updates the firmware could vary based on your support contract.
 
 ## Review alert information
 
-The Azure Stack health and monitoring system track the health of network adapters and data drives controlled by Storage Spaces Direct. It does not track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.
+The Azure Stack health and monitoring system track the health of network adapters and data drives controlled by Storage Spaces Direct. It does not track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.  
 
 ## Component replacement process
 
 The following steps provide a high-level overview of the component replacement process. Do not follow these steps without referring to your OEM-provided FRU documentation.
 
 1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]
+   > In any case, only one node can be drained and powered off at the same time without breaking the S2D (Storage Spaces Direct).
+
 2. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
- 
+
    > [!NOTE]
    > In the unlikely case that the power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
 
@@ -68,4 +72,3 @@ The following steps provide a high-level overview of the component replacement p
 
 - For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md).
 - For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md).
-- 

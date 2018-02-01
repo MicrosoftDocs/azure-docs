@@ -66,7 +66,7 @@ You can use the sample Powershell and Bash scripts described in [Managing CA Cer
 >This sample is meant only for test purposes. For production scenarios, refer to [Secure your IoT deployment][lnk-iothub-secure-deployment] for the Azure IoT guidelines on how to secure your IoT solution, and provision your certificate accordingly.
 
 
-1. Clone the [Microsoft Azure IoT SDKs and libraries for C] from GitHub:
+1. Clone the Microsoft Azure IoT SDKs and libraries for C from GitHub:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
