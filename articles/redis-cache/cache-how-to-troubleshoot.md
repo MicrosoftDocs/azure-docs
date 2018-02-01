@@ -60,17 +60,17 @@ Monitor how your `ThreadPool` statistics change over time using code [like this]
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-In the above message, there are several issues that are interesting:
+In the preceeding message, there are several issues that are interesting:
 
-1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This means that your `ThreadPool` settings need adjusting.
-2. You can also see `in: 64221`. This indicates that 64,211 bytes have been received at the kernel socket layer but haven't yet been read by the application (for example, StackExchange.Redis). This difference typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
+1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means that your `ThreadPool` settings need adjusting.
+2. You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the kernel socket layer but haven't yet been read by the application (for example, StackExchange.Redis). This difference typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
 
 #### Resolution
 Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ### High client CPU usage
 #### Problem
-High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response quickly.
+High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This situation means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response quickly.
 
 #### Measurement
 Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
@@ -85,7 +85,7 @@ Upgrade to a larger VM size with more CPU capacity or investigate what is causin
 
 ### Client-side bandwidth exceeded
 #### Problem
-Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data will not be processed on the client side as quickly as the server is sending it. This can lead to timeouts.
+Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data is not processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
 
 #### Measurement
 Monitor how your Bandwidth usage change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code may not run successfully in some environments with restricted permissions (like Azure web sites).
@@ -95,7 +95,7 @@ Increase Client VM size or reduce network bandwidth consumption.
 
 ### Large Request/Response Size
 #### Problem
-A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server sends the responses back in the same order. If response 'A' is large enough it can eat up most of the timeout for subsequent requests. 
+A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server sends the responses back in the same order. If response 'A' is large enough, it can eat up most of the timeout for subsequent requests. 
 
 The following example demonstrates this scenario. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
 
@@ -135,7 +135,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory, which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
 
 1. You have filled the cache to full capacity with data. 
-2. Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
+2. Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
 
 #### Measurement
 Redis exposes two metrics that can help you identify this issue. The first is `used_memory` and the other is `used_memory_rss`. [These metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) are available in the Azure Portal or through the [Redis INFO](http://redis.io/commands/info) command.
@@ -143,11 +143,11 @@ Redis exposes two metrics that can help you identify this issue. The first is `u
 #### Resolution
 There are several possible changes that you can make to help keep memory usage healthy:
 
-1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This may not be sufficient if you have fragmentation.
+1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This configuration may not be sufficient if you have fragmentation.
 2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
 3. Break up your large cached objects into smaller related objects.
 4. [Scale](cache-how-to-scale.md) to a larger cache size.
-5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md) you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md), you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
 ### High CPU usage / Server Load
 #### Problem
@@ -164,7 +164,7 @@ Monitor the System Wide CPU usage through the Azure Portal or through the associ
 
 ### Server Side Bandwidth Exceeded
 #### Problem
-Depending on the size of the cache instances, they may have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data is not sent to the client as quickly. This can lead to timeouts.
+Depending on the size of the cache instances, they may have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data is not sent to the client as quickly. This situation can lead to timeouts.
 
 #### Measurement
 You can monitor the `Cache Read` metric, which is the amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, you can create them using this `Cache Read` counter. Compare your readings with the values in [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
@@ -221,14 +221,14 @@ This error message contains metrics that can help point you to the cause and pos
 3. If there are requests that are getting bound by bandwidth limitations on the server or client, it takes longer for them to complete and thereby cause timeouts. To see if your timeout is due to network bandwidth on the server, see [Server side bandwidth exceeded](#server-side-bandwidth-exceeded). To see if your timeout is due to client network bandwidth, see [Client-side bandwidth exceeded](#client-side-bandwidth-exceeded).
 4. Are you getting CPU bound on the server or on the client?
    
-   * Check if you are getting bound by CPU on your client, which could cause the request to not be processed within the `synctimeout` interval, thus causing a timeout. Moving to a larger client size or distributing the load can help to control this. 
-   * Check if you are getting CPU bound on the server by monitoring the `CPU` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to timeout. To address this you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded).
+   * Check if you are getting bound by CPU on your client, which could cause the request to not be processed within the `synctimeout` interval, thus causing a timeout. Moving to a larger client size or distributing the load can help to control this problem. 
+   * Check if you are getting CPU bound on the server by monitoring the `CPU` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to timeout. To address this condition, you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded).
 5. Are there commands taking long time to process on the server? Long running commands that are taking long time to process on the redis-server can cause timeouts. Some examples of long running commands are `mget` with large numbers of keys, `keys *` or poorly written lua scripts. You can connect to your Azure Redis Cache instance using the redis-cli client or use the [Redis Console](cache-configure.md#redis-console) and run the [SlowLog](http://redis.io/commands/slowlog) command to see if there are requests taking longer than expected. Redis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests. Splitting your data into smaller chunks may improve things here. 
    
     For information on connecting to the Azure Redis Cache SSL endpoint using redis-cli and stunnel, see the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post. For more information, see [SlowLog](http://redis.io/commands/slowlog).
 6. High Redis server load can cause timeouts. You can monitor the server load by monitoring the `Redis Server Load` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). A server load of 100 (maximum value) signifies that the redis server has been busy, with no idle time, processing requests. To see if certain requests are taking up all of the server capability, run the SlowLog command, as described in the previous paragraph. For more information, see [High CPU usage / Server Load](#high-cpu-usage-server-load).
-7. Was there any other event on the client side that could have caused a network blip? Check on the client (web, worker role, or an Iaas VM) if there was an event like scaling the number of client instances up or down, or deploying a new version of the client or auto-scale is enabled?In our testing, we have found that autoscale or scaling up/down can cause outbound network connectivity can be lost for several seconds. StackExchange.Redis code is resilient to such events and reconnects. During this time of re-connection any requests in the queue can time out.
-8. Was there a big request preceding several small requests to the Redis Cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but have not yet processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it does not stop the data being sent to/from the server, and other requests are blocked until this is finished, causing time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. This should prevent a single timeout from causing other requests to also timeout.
+7. Was there any other event on the client side that could have caused a network blip? Check on the client (web, worker role, or an Iaas VM) if there was an event like scaling the number of client instances up or down, or deploying a new version of the client or auto-scale is enabled?In our testing, we have found that autoscale or scaling up/down can cause outbound network connectivity can be lost for several seconds. StackExchange.Redis code is resilient to such events and reconnects. During this time of reconnecting, any requests in the queue can time out.
+8. Was there a big request preceding several small requests to the Redis Cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but have not yet processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it does not stop the data being sent to/from the server, and other requests are blocked until the large request is finished, causing time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. This should prevent a single timeout from causing other requests to also timeout.
 9. If you are using `RedisSessionStateprovider`, ensure you have set the retry timeout correctly. `retrytimeoutInMilliseconds` should be higher than `operationTimeoutinMilliseonds`, otherwise no retries occur. In the following example `retrytimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
@@ -245,7 +245,7 @@ This error message contains metrics that can help point you to the cause and pos
       retryTimeoutInMilliseconds="3000" />
 
 
-1. Check memory usage on the Azure Redis Cache server by [monitoring](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` and `Used Memory`. If an eviction policy is in place, Redis starts evicting keys when `Used_Memory` reaches the cache size. Ideally, `Used Memory RSS` should be only slightly higher than `Used memory`. A large difference means there is memory fragmentation (internal or external. When `Used Memory RSS` is less than `Used Memory`, it means part of the cache memory has been swapped  by the operating system. If this occurs, you can expect some significant latencies. Because Redis does not have control over how its allocations are mapped to memory pages, high `Used Memory RSS` is often the result of a spike in memory usage. When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the `Used Memory` value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. To help mitigate memory issues, you can perform the following steps.
+1. Check memory usage on the Azure Redis Cache server by [monitoring](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` and `Used Memory`. If an eviction policy is in place, Redis starts evicting keys when `Used_Memory` reaches the cache size. Ideally, `Used Memory RSS` should be only slightly higher than `Used memory`. A large difference means there is memory fragmentation (internal or external. When `Used Memory RSS` is less than `Used Memory`, it means part of the cache memory has been swapped by the operating system. If this swapping occurs, you can expect some significant latencies. Because Redis does not have control over how its allocations are mapped to memory pages, high `Used Memory RSS` is often the result of a spike in memory usage. When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the `Used Memory` value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. To help mitigate memory issues, you can perform the following steps:
    
    * Upgrade the cache to a larger size so that you are not running up against memory limitations on the system.
    * Set expiration times on the keys so that older values are evicted proactively.
