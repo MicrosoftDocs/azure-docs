@@ -24,7 +24,7 @@ App Service is a Platform-as-a-Service, which means that the OS and application 
 
 -	How and when are OS updates applied?
 -	How is App Service patched against significant vulnerabilities (such as zero-day)?
--	What are the OS and runtime versions in your App Service instances?
+-	Which OS and runtime versions are running your apps?
 
 For security reasons, certain specifics of security information are not published. However, the article aims to alleviate concerns by maximizing transparency on the process, and how you can stay up-to-date on security-related announcements or runtime updates.
 
