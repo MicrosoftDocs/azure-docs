@@ -29,6 +29,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_virtualmachine                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_extension           | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_scaleset            | Yes          | Yes                         | Yes                                 | 
+| azure_rm_image                              |              | Yes                         | Yes                                 | 
 | **Networking**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualnetwork_facts               | Yes          | Yes                         | Yes                                 | 
@@ -41,13 +42,16 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_dnsrecordset_facts                 | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone                            | Yes          | Yes                         | Yes                                 | 
 | azure_rm_dnszone_facts                      | Yes          | Yes                         | Yes                                 | 
-| **Storage**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Yes          | Yes                         | Yes                                 | 
 | azure_rm_loadbalancer_facts                 | Yes          | Yes                         | Yes                                 | 
-| azure_rm_applicationgateway                 | -            | Yes                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Yes                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Yes                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Yes                                 | 
+| azure_rm_appgw                              | -            | -                           | Yes                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Yes                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Yes                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Yes                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Yes                                 |
+| azure_rm_securitygroup                      | Yes          | Yes                         | Yes                                 | 
+| azure_rm_appgwroutetable_facts              | Yes          | Yes                         | Yes                                 | 
+| **Storage**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageaccount_facts               | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageblob                        | Yes          | Yes                         | Yes                                 | 
@@ -55,7 +59,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_managed_disk_facts                 | Yes          | Yes                         | Yes                                 | 
 | **Containers**                    |           |                          |                                  | 
 | azure_rm_acs                                | Yes          | Yes                         | Yes                                 | 
-| azure_rm_containerinstance                  | -            | Yes                        |                                     | 
+| azure_rm_containerinstance                  | -            | Yes                         | Yes                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Yes                                 | 
 | azure_rm_containerregistry                  | -            | Yes                         | Yes                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Yes                                 | 
@@ -69,7 +73,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | **Databases**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Yes                         | Yes                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Yes                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Yes                                 | 
+| azure_rm_sqldatabase                        | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Yes                                 | 
@@ -77,7 +81,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Yes                                 | 
 | azure_rm_mysqlserver                        | -            | Yes                         | Yes                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Yes                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Yes                                 | 
+| azure_rm_mysqldatabase                      | -            | Yes                         | Yes                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Yes                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Yes                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Yes                                 | 
@@ -85,12 +89,17 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlserver                   | -            | Yes                         | Yes                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Yes                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Yes                                 | 
+| azure_rm_postgresqldatabase                 | -            | Yes                         | Yes                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
+| **Key Vault**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Yes                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Yes                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Yes                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Yes                                 |
 
 ## Introduction to azure_module
 The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of the Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing the azure_module role is a good choice.
