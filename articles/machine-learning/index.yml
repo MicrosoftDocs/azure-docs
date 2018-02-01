@@ -18,15 +18,23 @@ abstract:
   description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. 
 
 sections:
-- title:
+- title: 
   items:
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: icon48
     items:
-    - text: Azure Machine Learning services (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure. 
-    - text: Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. 
-    - text: Data Science Virtual Machine is a customized VM image built specifically for doing data science.
+    - image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      text: Azure Machine Learning services (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure
+      href: /azure/machine-learning/preview/
+    - image:
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      html: <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a> is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data
+    - image:
+        src: /azure/machine-learning/media/index/virtualmachine.svg
+      text: Data Science Virtual Machine is a customized VM image built specifically for doing data science
+      href: /azure/machine-learning/data-science-virtual-machine/overview
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -87,7 +95,7 @@ sections:
     text: 'Microsoft has a wide array of technologies available to help you develop and operationalize machine learning models.'
   - type: list
     style: unordered
-    className: spaced noBullet
+    className: spaced Bullet
     items:
     - html: <a href="/azure/machine-learning/team-data-science-process">Team Data Science Process</a> is a team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
     - html: <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">SQL Server Machine Learning Services</a> provides in-database analytics with support for both R and Python.
