@@ -108,6 +108,7 @@ Learn how to:
 * [Use low-priority VMs with Batch](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
+* [Run the Azure Distributed Data Engineering Toolkit on Batch](https://github.com/Azure/aztk)
 
 ## Workload managers
 
@@ -140,11 +141,14 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 * [File storage](../articles/storage/storage-files-introduction.md)
 
 ### Data and analytics
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) for Hadoop clusters on Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### AI and cognitive services
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### Networking
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
