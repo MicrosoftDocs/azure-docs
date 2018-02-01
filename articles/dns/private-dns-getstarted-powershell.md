@@ -28,6 +28,9 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 As this feature is currently a managed preview, a preview PowerShell module is provided when you email [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
 
+## Get the Preview PowerShell module
+
+In order to create a Private DNS Zone using PowerShell, send email to [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) to get the Preview PowerShell module.
 
 ## Create the resource group
 
