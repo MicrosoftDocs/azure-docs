@@ -42,7 +42,7 @@ that satisfy the criteria for creating a logic app instance and starting the wor
 Each polling request counts as an execution and is metered, even when no logic app instance is created. 
 To specify the polling interval, set up the trigger through the Logic App Designer.
 
-  [!INCLUDE [polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
+  [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
 * **Webhook trigger** – This trigger waits for a client to send a request to a specific endpoint. 
 Each request sent to the webhook endpoint counts as an action execution. 
