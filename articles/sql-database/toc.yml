@@ -239,7 +239,7 @@
       href: sql-database-connectivity-issues.md
     - name: DNS alias overview
       href: dns-alias-overview.md
-    - name: DNS alias powershell
+    - name: DNS alias PowerShell
       href: dns-alias-powershell.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
