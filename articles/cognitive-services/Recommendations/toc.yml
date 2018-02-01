@@ -14,6 +14,8 @@
     href: cognitive-services-recommendations-buildtypes.md
   - name: Batch scoring
     href: cognitive-services-recommendations-batch-scoring.md
+  - name: Migrate from DataMarket Recommendations API
+    href: cognitive-services-migration-from-dm.md
 - name: Reference
   items: 
   - name: API Reference
