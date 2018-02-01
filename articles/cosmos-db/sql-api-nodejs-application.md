@@ -172,6 +172,7 @@ That takes care of all the initial setup and configuration, now let’s get down
     ```
 5. Save and close the **cosmosdb-manager.js** file.
 6. At the beginning of the **task-model.js** file, add the following code to reference the **DocumentDBClient** and the **cosmosdb-manager.js** we created above: 
+
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
     let docdbUtils = require('./docdbUtils');
