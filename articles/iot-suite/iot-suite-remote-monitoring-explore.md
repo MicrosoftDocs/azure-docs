@@ -28,6 +28,10 @@ In this tutorial, you learn how to:
 > * Update the firmware in your devices
 > * Organize your assets
 
+The following video shows a walkthrough of the remote monitoring solution:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
 ## Prerequisites
 
 To complete this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.

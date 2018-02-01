@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
@@ -28,17 +28,25 @@ You can now manage the lifecycle of Office 365 groups by setting expiration feat
 -	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
 
 > [!NOTE]
-> Setting expiration for Office 365 groups requires an Azure AD Premium license or an Azure AD Basic EDU license for all members of the groups to which expiration settings are applied.
-> 
-> For Azure AD Basic EDU licensed customers: to configure this policy for the first time, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a User Account Administrator or Global Administrator in your Azure AD tenant.
+> Setting expiration for Office 365 groups requires an Azure AD Premium license for all members of the groups to which expiration settings are applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## Roles and permissions
+These are the roles that can configure and use expiration for Office 365 groups in Azure AD.
+
+Role | Permissions
+-------- | --------
+Global Administrator<br>User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings
+User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own
+
+For more information on permissions to restore a deleted groups, see [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md).
 
 ## Set group expiration
 
 1. Open the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
-2. Open Azure AD, select **Users and groups**.
+2. Select **Users and groups**.
 
 3. Select **Group settings** and then select **Expiration** to open the expiration settings.
   
@@ -48,7 +56,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
   * Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more). 
   * Specify an email address where the renewal and expiration notifications should be sent when a group has no owner. 
-  * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
+  * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can choose to enable only **Selected** Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
 

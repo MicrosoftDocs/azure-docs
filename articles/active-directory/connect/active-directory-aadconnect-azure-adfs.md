@@ -282,8 +282,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
+<!--
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Securing the DMZ subnet**
 
@@ -294,8 +296,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
+<!--
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
 [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.

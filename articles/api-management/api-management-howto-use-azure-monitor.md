@@ -55,7 +55,8 @@ You can access activity logs in your API Management service, or access logs of a
 
 To view activity logs:
 
-1. From your **API Management** instance, click **Activity log**.
+1. Select your APIM service instance.
+2. Click **Activity log**.
 
 ## View diagnostic Logs
 
@@ -63,7 +64,8 @@ Diagnostic logs provide rich information about operations and errors that are im
 
 To access diagnostic logs:
 
-1. From your **API Management** instance, click **Diagnostic log**.
+1. Select your APIM service instance.
+2. Click **Diagnostic log**.
 
 ## View metrics of your APIs
 

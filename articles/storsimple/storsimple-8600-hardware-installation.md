@@ -4,7 +4,7 @@ description: Describes how to unpack, rack mount, and cable your StorSimple 8600
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Before you unpack your device, review the following information.
 Next, complete the following steps to unpack your device.
 
 #### To unpack your device
-1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to help you assess whether the device is in good working order.
+1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) to help you assess whether the device is in good working order.
 2. Open the outer box and then take out the two boxes corresponding to primary and EBOD enclosures. You can now unpack the primary and EBOD enclosures. The following figure shows the unpacked view of one of the enclosures.
    
     ![Unpack your storage device](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -63,7 +63,7 @@ Next, complete the following steps to unpack your device.
    * 2 rack mount kits (4 side rails with mounting hardware, 2 each for the primary enclosure and EBOD enclosure), 1 in each box
    * Getting started documentation
      
-     If you did not receive any of the items listed above, [contact Microsoft Support](storsimple-contact-microsoft-support.md).  
+     If you did not receive any of the items listed above, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 The next step is to rack-mount your device.
 
@@ -231,7 +231,7 @@ When cabling the device, the minimum configuration requires:
 Keep in mind for high availability and performance:
 
 * When possible, configure a pair of network interface for cloud access (1 GbE) and another pair for iSCSI (10 GbE recommended) on each controller.
-* When possible, connect network interfaces from each controller to two different switches to ensure availability against a switch failure. The figure illustrates the two 10 GbE network interfaces, DATA 2 and DATA 3, from each controller connected to two different switches. For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* When possible, connect network interfaces from each controller to two different switches to ensure availability against a switch failure. The figure illustrates the two 10 GbE network interfaces, DATA 2 and DATA 3, from each controller connected to two different switches. For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > If using SFP+ transceivers with your 10 GbE network interfaces, use the provided QSFP-SFP+ adapters. For more information, go to [Supported hardware for the 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -263,5 +263,5 @@ Perform the following steps to cable your serial port.
 You have completed cabling your device for power, network access, and serial connection.The next step is to configure the software on your device.
 
 ## Next steps
-You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
 

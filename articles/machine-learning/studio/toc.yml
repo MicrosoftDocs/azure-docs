@@ -195,7 +195,7 @@
     href: web-service-error-codes.md
 - name: Related
   items:
-  - name: Cortana Intelligence Gallery
+  - name: Azure AI Gallery
     items:
     - name: Overview
       href: gallery-how-to-use-contribute-publish.md

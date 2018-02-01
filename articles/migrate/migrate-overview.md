@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
 ---
 
@@ -39,7 +39,7 @@ Azure Migrate helps you to:
 
 ## What do I need to pay for?
 
-Azure Migrate is available at no additional charge. However, during public preview, additional charges will apply for use of dependency visualization capabilities. To support [dependency visualization](concepts-dependency-visualization.md), Azure Migrate creates a Log Analytics workspace by default. If you use dependency visualization, or use the workspace outside Azure Migrate, you're charged for the workspace usage. [Learn more](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) about the charges. When the service becomes generally available, there will be no charge for use of dependency visualization capabilities.
+Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## What's in an assessment?
@@ -63,7 +63,7 @@ An assessment helps you identify the Azure suitability of on-premises VMs, get r
 3.	You connect to the VM using console connection in vCenter Server, specify a new password for the VM while connecting and then run the collector application in the VM to initiate discovery.
 4.	The collector collects VM metadata using VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information (cores, memory, disks, disk sizes, and network adapters). It also collects performance data for VMs, including CPU and memory usage, disk IOPS, disk throughput (MBps), and network output (MBps).
 5.	The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
-6.	For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. You can group VMs in the Azure Migrate portal, or use tagging in vCenter Server. Additionally, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
+6.	For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. For more precise grouping, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
 7.	Once your group is formed, you create an assessment for the group. 
 8.	After the assessment finishes, you can view it in the portal, or download it in Excel format.
 

@@ -76,6 +76,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
    ![Open Program.cs][1]
 
+6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
+
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp

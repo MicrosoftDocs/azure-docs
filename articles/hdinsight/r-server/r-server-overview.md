@@ -43,7 +43,7 @@ You have the option of adding access to additional Blob and Data lake stores dur
 You can also use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about these data storage options for R Server on HDInsight cluster, see [Azure Storage options for R Server on HDInsight clusters](r-server-storage.md).
 
 ## Access R Server on the cluster
-You can connect to R Server on the edge node using a browser. It is installed by default during cluster creation. For more information, see [Get stared with R Server on HDInsight](r-server-get-started.md).
+You can connect to R Server on the edge node using a browser. It is installed by default during cluster creation. For more information, see [Get started with R Server on HDInsight](r-server-get-started.md).
 
 You can also connect to the R Server from the commandline by using SSH/PuTTY to access the R console. 
 

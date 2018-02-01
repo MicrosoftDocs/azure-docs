@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 01/11/2018
 ---
 # Limitations in Azure Database for MySQL
 The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -84,7 +84,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
-## Current Known Issues:
+## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
 
 ## Next steps

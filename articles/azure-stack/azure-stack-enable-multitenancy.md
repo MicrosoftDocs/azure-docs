@@ -79,7 +79,7 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## Direct users to sign in
