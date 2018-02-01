@@ -1,13 +1,13 @@
 # Overview
-## [About Azure CDN?](cdn-overview.md)
+## [About Azure CDN](cdn-overview.md)
 
 # Quickstarts
 ## [Enable Azure CDN](cdn-create-new-endpoint.md)
 
 # How-to guides
 ## Integrate
-### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Cloud Services](cdn-cloud-service-with-cdn.md)
+### [Web apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Cloud services](cdn-cloud-service-with-cdn.md)
 ### Storage
 #### [Integrate a storage account](cdn-create-a-storage-account-with-cdn.md)
 #### [SAS storage support](cdn-sas-storage-support.md)
@@ -77,7 +77,7 @@
 
 # Resources
 ## [Azure CDN POP locations](cdn-pop-locations.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
