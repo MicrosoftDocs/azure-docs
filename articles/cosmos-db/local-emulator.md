@@ -356,9 +356,16 @@ Starting interactive shell
 
 Now use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
-```
+From the command line:
+```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
+```
+
+From PowerShell:
+```powershell
+cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+.\importcert.ps1
 ```
 
 Closing the interactive shell once the Emulator has been started will shutdown the Emulator’s container.
