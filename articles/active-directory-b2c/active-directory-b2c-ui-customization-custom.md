@@ -114,7 +114,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 Validate that you're ready by doing the following:
 
-1. Go to the [test-cors.org](http://test-cors.org/) website, and then paste the URL in the **Remote URL** box.
+1. Go to the [www.test-cors.org](http://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
 2. Click **Send Request**.  
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
