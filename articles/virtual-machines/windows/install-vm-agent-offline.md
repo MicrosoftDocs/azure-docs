@@ -86,7 +86,7 @@ If a virtual machine (VM) that does not have the VM agent installed is down or u
 
 13.  If you access the VM you will now see the RDAgent running and the logs getting created.
 
-14. If this is a VM created using the classic deployment model, you are done. However, if this is a VM created using the resource manager deployment model, you must also use Azure PowerShell to update the ProvisionGuestAgent property so that Azure knows that the VM has the agent installed. To accomplish this, run the following commands in Azure PowerShell:
+14. If this is a VM created using the classic deployment model, you are done. However, if this is a VM created using the Resource Manager deployment model, you must also use Azure PowerShell to update the ProvisionGuestAgent property so that Azure knows that the VM has the agent installed. To accomplish this, run the following commands in Azure PowerShell:
 
         $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
         $vm.VM.ProvisionGuestAgent = $true
