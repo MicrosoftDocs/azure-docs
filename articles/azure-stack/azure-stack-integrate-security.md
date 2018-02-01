@@ -2,11 +2,12 @@
 title: Azure Stack datacenter integration - Security
 description: Learn how to integrate Azure Stack security with your datacenter security
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords:
 ---
 
@@ -89,4 +90,4 @@ The Syslog destination address is an optional parameter collected for deployment
 
 ## Next steps
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
+[Servicing policy](azure-stack-servicing-policy.md)

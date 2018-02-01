@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 01/23/2018
+ms.date: 01/31/2018
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -24,9 +24,6 @@ ms.author: genemi
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 
-
-> [!NOTE]
-> For Azure SQL Database, this feature is available in Preview in all regions of Azure public cloud.
 
 #### How to create a virtual network rule
 
