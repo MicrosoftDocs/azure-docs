@@ -26,12 +26,12 @@ The order of steps to evaluate a model are as follows:
 *   Press 'Create'
 
 > [!NOTE]
-> The baseline model must be the same as the baseline of the adapted model being evaluated. Upon selection, the portal will present the available models for evaluation.
+> The baseline model must be the same as the baseline of the adapted model being evaluated. Upon selection, the portal presents the available models for evaluation.
 >
 
 ## Evaluation Results
 
-The results of each evaluation test are presented in a table along with previously done evaluation results. Each row in that table includes timing information, test name, locale, the word error rate (WER) and a link called 'Details'. WER is provides an overview of the overall accuracy. The 'Details' link shows the difference between the ground truth of the audio utterance and the decoder output 
+The results of each evaluation test are presented in a table along with previously done evaluation results. Each row in that table includes timing information, test name, locale, the word error rate (WER), and a link called 'Details'. WER provides an overview of the overall accuracy. The 'Details' link shows the difference between the ground truth of the audio utterance and the decoder output 
 
 Users can run as many evaluation tests as they wish
 
