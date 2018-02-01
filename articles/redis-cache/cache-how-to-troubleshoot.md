@@ -157,7 +157,7 @@ High CPU usage can mean that the client side can fail to process a response from
 Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
 
 #### Resolution
-[Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or investigate what is causing CPU spikes. 
+[Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or review the [Best Practices for Azure Redis](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f) to see if an approach can be used to optimize your cache or its use. 
 
 ### Server Side Bandwidth Exceeded
 #### Problem
