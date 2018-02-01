@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Scale out compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs
-description: Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
+title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs
+description: Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
