@@ -275,7 +275,12 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-design-templates.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-design-templates",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-design-templates.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
         },
         {
@@ -1166,6 +1171,11 @@
         {
             "source_path": "articles/active-directory-b2c/active-directory-b2c-limitations.md",
             "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-move-resources.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
         },
         {
@@ -2220,7 +2230,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-move-resources.md",
-            "redirect_url": "/azure/app-service/app-service-move-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
         },
         {
@@ -16580,21 +16590,29 @@
             "redirect_document_id": false
     },
 	{
-        "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
-        "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
-        "redirect_document_id": false
+		    "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
+			"redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
+			"redirect_document_id": false
     },
-  {
-      "source_path": "articles/azure-stack/azure-stack-app-service-enable-ftp.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-app-service-overview",
-      "redirect_document_id": false
-   },
-
     {
-    "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
-    "redirect_url": "/azure/virtual-network/quick-create-portal",
-    "redirect_document_id": false
-    }
-	
+			"source_path": "articles/azure-stack/azure-stack-app-service-enable-ftp.md",
+			"redirect_url": "/azure/azure-stack/azure-stack-app-service-overview",
+			"redirect_document_id": false
+    },
+    {
+			"source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+			"redirect_url": "/azure/virtual-network/quick-create-portal",
+			"redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-saas-salesforcesandbox-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-saas-adpfederatedsso-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+    }	
    ]
 }

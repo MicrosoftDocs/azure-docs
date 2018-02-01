@@ -37,7 +37,7 @@
       href: tutorial-copy-data-tool.md
     - name: User interface (UI)
       href: tutorial-copy-data-portal.md    
-    - name: Azure PowerShell
+    - name: .NET
       href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
     items:
@@ -90,7 +90,7 @@
     items:
     - name: User interface (UI)
       href: tutorial-control-flow-portal.md    
-    - name: Azure PowerShell
+    - name: .NET
       href: tutorial-control-flow.md    
 - name: Samples
   items:
