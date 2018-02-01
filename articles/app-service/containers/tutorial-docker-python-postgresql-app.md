@@ -83,7 +83,7 @@ This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 ### Run the application
 
 > [!NOTE] 
-> In a later step you simplify this process by building a Docker container to use with the production database.
+> In a later step, you simplify this process by building a Docker container to use with the production database.
 
 Install the required packages and start the application.
 
@@ -338,7 +338,7 @@ You see two passwords. Make note of the user name and the first password.
 
 ### Upload your Docker container to Azure Container Registry
 
-Log in to your registry. When prompted, supply the password you just retrieved.
+Log in to your registry. When prompted, supply the password you retrieved.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>
