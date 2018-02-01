@@ -1,4 +1,4 @@
-In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
+Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

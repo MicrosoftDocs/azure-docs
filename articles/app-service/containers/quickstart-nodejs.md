@@ -88,6 +88,8 @@ Browse to your newly created web app. Replace _&lt;app name>_ with your web app 
 http://<app name>.azurewebsites.net
 ```
 
+Here is what your new web app should look like:
+
 ![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]

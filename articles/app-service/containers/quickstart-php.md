@@ -81,6 +81,8 @@ Browse to the site to see your newly created web app with built-in image. Replac
 http://<app_name>.azurewebsites.net
 ```
 
+Here is what your new web app should look like:
+
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 

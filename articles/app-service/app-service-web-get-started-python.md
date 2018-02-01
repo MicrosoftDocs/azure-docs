@@ -84,9 +84,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-```bash
+```
 http://<app name>.azurewebsites.net
 ```
+
+Here is what your new web app should look like:
 
 ![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 

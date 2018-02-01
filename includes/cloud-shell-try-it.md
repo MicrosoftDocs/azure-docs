@@ -6,7 +6,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 |  |   |
 |-----------------------------------------------|---|
 | Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](./media/cloud-shell-try-it/cli-try-it.png) |
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). |	![Cloud Shell in the portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Open Cloud Shell in your browser. | <a href="https://shell.azure.com/bash" target="_blank"><img src="./media/cloud-shell-try-it/launchcloudshell.png"></a>  |
+| Click the **Cloud Shell** button on the menu in the upper right of the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. |	![Cloud Shell in the portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 |  |  |
 
