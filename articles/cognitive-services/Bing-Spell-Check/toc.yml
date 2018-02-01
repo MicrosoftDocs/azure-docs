@@ -24,11 +24,8 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-<<<<<<< HEAD
-=======
   - name: Spell Check SDK C# quickstart (preview)
     href: sdk-quickstart-spell-check.md  
->>>>>>> 9293ba3c9b7d5ad08150880152f91c2c972d555a
 - name: How-to guides
   items:
   - name: Use and display requirements
