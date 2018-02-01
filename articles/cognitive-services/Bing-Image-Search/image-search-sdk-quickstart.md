@@ -1,6 +1,7 @@
 ---
 title: Image search SDK C# quickstart | Microsoft Docs
 description: Setup Image search SDK in C# console application.
+titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
 manager: rosh
