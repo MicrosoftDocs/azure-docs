@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
 
 ---
@@ -178,7 +178,7 @@ In this step, you test run the pipeline before deploying it to Data Factory.
 ## Trigger the pipeline manually
 In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. You can also publish entities to your own Visual Studio Team Services Git repository, which is covered in [another tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish** in the left pane. 
+1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish All** in the left pane. 
 
    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. To trigger the pipeline manually, select **Trigger** on the toolbar, and then select **Trigger Now**. 
@@ -224,7 +224,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
    ![Warning and "Finish" button](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
 6. Select **Publish** to publish changes to Data Factory. 
 
-   ![Publish button](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Switch to the **Monitor** tab on the left. Select **Refresh** to refresh the list. You see that the pipeline runs once every minute from the publish time to the end time. 
 
    Notice the values in the **Triggered By** column. The manual trigger run was from the step (**Trigger Now**) that you did earlier. 
