@@ -118,12 +118,9 @@ If you have recommendations that you want to ignore, you can create a text file 
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 
     Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
@@ -143,12 +140,8 @@ After the next scheduled health check runs, by default every seven days, the spe
 1. You can use the following Log Search queries to list all the ignored recommendations.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
