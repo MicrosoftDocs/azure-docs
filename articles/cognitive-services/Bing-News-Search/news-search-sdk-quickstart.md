@@ -1,6 +1,7 @@
 ---
 title: News search SDK C# quickstart | Microsoft Docs
 description: Setup for News search SDK console application.
+titleSuffix: Azure cognitive services News search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
