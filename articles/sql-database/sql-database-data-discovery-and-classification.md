@@ -91,6 +91,8 @@ The classification includes two metadata attributes:
 
 [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classification (labels) of the actual data that was returned by the query.
 
+![Navigation pane][11]
+
 ## <a id="subheading-4"></a>Next steps
 Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
 
@@ -111,3 +113,4 @@ Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/en
 [8]: ./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png
 [9]: ./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png
 [10]: ./media/sql-data-discovery-and-classification/10_data_classification_save.png
+[11]: ./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png
