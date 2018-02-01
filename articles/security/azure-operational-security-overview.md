@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure operational security overview| Microsoft Docs
 description: This article provides an overview of the Azure operational security.
@@ -55,7 +55,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Recovery Services vault in Azure. See the [Azure Backup components table](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### Site recovery
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. intelligent and effective threat detection.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. Use Azure Security Center to perform more intelligent and effective threat detection.
 
 ## Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) is Microsoft’s comprehensive Identity as a Service (IDaaS) solution that:

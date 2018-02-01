@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -24,9 +24,7 @@ If you’re interested in an Azure Stack integrated system, you should understan
 > [!NOTE]
 > Azure Stack multi-node systems can only be purchased from authorized hardware vendors. 
 
-To deploy Azure Stack there are a set of decisions that you need to make to properly integrate Azure Stack with your environment. You need to provide this information to your solution provider during the planning process and be ready for the hardware vendor before deployment starts to help the process go quickly and smoothly.
-
-The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
+To deploy Azure Stack, you need to provide planning information to your solution provider before deployment starts to help the process go quickly and smoothly. The information required ranges across networking, security, and identity information with many important decisions that may require knowledge from many different areas and decision makers. Therefore, you might have to pull in people from multiple teams in your organization to ensure that you have all required information ready before deployment begins. It can help to talk to your hardware vendor while collecting this information, as they might have advice helpful to making your decisions.
 
 While researching and collecting the required information, you might need to make some pre-deployment configuration changes to your network environment. This could include reserving IP address spaces for the Azure Stack solution, configuring your routers, switches and firewalls to prepare for the connectivity to the new Azure Stack solution switches. Make sure to have the subject area expert lined up to help you with your planning.
 
@@ -35,7 +33,7 @@ Azure Stack is a sealed system, where the infrastructure is locked down both fro
 
 For daily management and operations, there is no unrestricted administrator access to the infrastructure. Azure Stack operators must manage the system through the administrator portal or through Azure Resource Manager (via PowerShell or the REST API). There is no access to the system by other management tools such as Hyper-V Manager or Failover Cluster Manager. To help protect the system, third-party software (for example, agents) can't be installed inside the components of the Azure Stack infrastructure. Interoperability with external management and security software occurs via PowerShell or the REST API.
 
-When a higher level of access is needed for troubleshooting issues that aren’t resolved through alert mediation steps, you must work with Support. Through Support, there is a method to provide temporary full administrator access to the system to perform more advanced operations. 
+When a higher level of access is needed for troubleshooting issues that aren’t resolved through alert mediation steps, you must work with Microsoft Support. Through support, there is a method to provide temporary full administrator access to the system to perform more advanced operations. 
 
 ## Identity considerations
 
@@ -176,7 +174,10 @@ To replicate data to a secondary location and orchestrate application failover i
 > [!IMPORTANT]
 > At the initial release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
 
-## Next steps
+## Learn more
 
 - For information about use cases, purchasing, partners, and OEM hardware vendors, see the [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) product page.
 - For information about the roadmap and geo-availability for Azure Stack integrated systems, see the white paper: [Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## Next steps
+[Azure Stack deployment connection models](azure-stack-connection-models.md)
