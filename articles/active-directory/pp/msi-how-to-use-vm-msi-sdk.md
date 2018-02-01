@@ -27,7 +27,7 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using PowerShell, Azure Portal, a template, or an Azure SDK). 
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using PowerShell, Azure portal, a template, or an Azure SDK). 
 
 ## SDK code samples
 
