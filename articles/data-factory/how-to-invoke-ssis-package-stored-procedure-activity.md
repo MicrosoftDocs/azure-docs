@@ -131,7 +131,9 @@ In this section, you trigger a pipeline run and then monitor it.
 
     ![Verify package executions](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (houly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (houly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## Azure PowerShell
 In this section you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package. 
