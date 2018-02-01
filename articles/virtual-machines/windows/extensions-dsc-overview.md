@@ -154,17 +154,17 @@ It only removes the extension handler.
 
 Important information regarding the AzureRM DSC Extension cmdlets:
 
-* Azure Resource Manager cmdlets are synchronous.
-* ResourceGroupName, VMName, ArchiveStorageAccountName, Version, and Location are all required parameters.
-* ArchiveResourceGroupName is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the virtual machine is created.
-* The AutoUpdate switch enables automatic updating of the extension handler to the latest version as and when it is available. Note this parameter has the potential to cause reboots on the VM when a new version of the WMF is released.
+- Azure Resource Manager cmdlets are synchronous.
+- ResourceGroupName, VMName, ArchiveStorageAccountName, Version, and Location are all required parameters.
+- ArchiveResourceGroupName is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the virtual machine is created.
+- The AutoUpdate switch enables automatic updating of the extension handler to the latest version as and when it is available. Note this parameter has the potential to cause reboots on the VM when a new version of the WMF is released.
 
 ### Getting Started with Cmdlets
 
 The Azure DSC extension is capable of using DSC configuration documents
 directly to configure Azure VMs during deployment
 although this will not register the node to Azure Automation so the node
-will **NOT** be centrally managed.
+will **NOT*- be centrally managed.
 
 A simple example of a configuration follows.
 Save it locally as "IisInstall.ps1":

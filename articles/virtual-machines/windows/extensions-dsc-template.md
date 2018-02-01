@@ -399,8 +399,8 @@ Problem: A defined property needs another property that is missing.
 
 Solutions:
 
-* Provide the missing property.
-* Remove the property that needs the missing property.
+- Provide the missing property.
+- Remove the property that needs the missing property.
 
 ## Next Steps
 
