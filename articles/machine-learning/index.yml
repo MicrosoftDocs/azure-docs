@@ -15,13 +15,13 @@ metadata:
   ms.author: garye
 
 abstract:
-  description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. Learn how to build and deploy models for any of your applications with our quickstarts, tutorials, documents, and samples. 
+  description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. **Azure Machine Learning services** (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure. **Azure Machine Learning Studio** is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. **Data Science Virtual Machine** is a customized VM image built specifically for doing data science.
 
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning:'
+    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
   - type: table
     style: dataMatrix
     columns:
@@ -46,7 +46,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning:'
+    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
   - type: table
     style: dataMatrix
     columns:
@@ -71,6 +71,21 @@ sections:
         values:
         - href: /azure/machine-learning/preview/model-management-consumption
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+
+- title: More Microsoft Machine Learning Technologies
+  items:
+  - type: paragraph
+    text: 'Microsoft has a wide array of technologies available to help you develop and operationalize machine learning models.'
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/machine-learning/team-data-science-process">Team Data Science Process</a> is a team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+    - html: <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">SQL Server Machine Learning Services</a> provides in-database analytics with support for both R and Python.
+    - html: <a href="machine-learning-server/index">Microsoft Machine Learning Server</a> supports R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
+    - html: <a href="https://aka.ms/batchaitraining">Batch AI Training</a> helps you experiment in parallel with your AI models using any framework and then trains them at scale across clustered GPUs.
+    - html: <a href="https://azure.microsoft.com/services/cognitive-services/">Cognitive Services</a> supplies intelligent algorithms for your apps, websites, and bots.
+    - html: <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> is a free, open-source toolkit to train deep learning algorithms.
 
 - title: Reference
   items:
