@@ -30,7 +30,7 @@ For security reasons, certain specifics of security information are not publishe
 
 ## How and when are OS updates applied?
 
-Azure manages OS patching on two levels, the physical servers and the guest virtual machiens (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied in a manner that’s transparent to App Service customers and that guarantees the high-availability SLA of Azure services. 
+Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
 
 Usually, physical servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release. For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
 
@@ -56,7 +56,7 @@ Runtime updates and deprecations are announced here:
 
 ### New patch updates
 
-Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. For Python (through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)) and Node.js, all patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section).
+Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. Node.js patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section). New Python patch versions can be installed manually through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)), side by side with the built-in Python installations.
 
 ### New major and minor versions
 
