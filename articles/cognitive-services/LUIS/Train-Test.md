@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Train and test your LUIS app
 
-Training is the process of teaching your LUIS app to improve its language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
+Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
 
 Training and testing an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
@@ -51,18 +51,18 @@ To start the iterative process of training, you first need to train your LUIS ap
 ## Access the test page
 
 1. Access your app  by selecting its name on the **My Apps** page. 
-2. Click **Test** in your application's top panel to access the **Test** slide-out page.
+2. Select **Test** in your application's top panel to access the **Test** slide-out page.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 
 ## Interactive testing
-Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
+With interactive testing, you can test both the current and published versions of your app and compare their results in one screen. 
  
-The **Test** slide-out page displays a single test section by default. The second panel is the Inspection panel.
+The **Test** slide-out page displays a single test section by default. The second panel is the **Inspection panel**.
 
 ![Train & Test App page](./media/luis-how-to-train-test/test-3-panel.png)
 
-* In the **Test panel**, you type the test utterance in the text box, press Enter to submit it to your LUIS app, and then view the LUIS model results. 
+* In the **Test panel**, you type the test utterance in the text box, select Enter to submit it to your LUIS app, and then view the LUIS model results. 
 
 * In the **Inspection panel**, you  inspect the LUIS results, change the top scoring intent, and then compare to the published model. The top identified entity is also shown.
 
@@ -83,44 +83,44 @@ When you perform interactive testing, you might find that LUIS doesn't detect th
     * Weather.GetForecast
     * None 
 
-2. Click the **Train** button in the top bar to train the new app.
+2. Select the **Train** button in the top bar to train the new app.
 
-3. On the **Test** panel, type in `buy a plane ticket to bangor me` and press Enter. Instead of the `BookFlight` intent, the test results show `Weather.GetForecast`.
+3. On the **Test** panel, type in **buy a plane ticket to bangor me** and select Enter. Instead of the **BookFlight** intent, the test results show **Weather.GetForecast**.
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
-4. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent: 
+4. You need to teach LUIS that **buy a plane ticket to bangor me** should be mapped to the **BookFlight** intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent: 
 
       a. Go to the **Intents** page and select the **BookFlight** intent.
 
-      b. Type "buy a plane ticket to bangor me" into the text box, and then press Enter. 
+      b. Type **buy a plane ticket to bangor me** into the text box, and then select Enter. 
 
-5. Click the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
+5. Select the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
 
-6. Go back to the **Test** panel, type `book a flight to bangor` in the text box, and press Enter. 
+6. Go back to the **Test** panel, type **book a flight to bangor** in the text box, and select Enter. 
 
     ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
 
    > [!NOTE]
    > In this step, you choose an utterance that's similar to the one you labeled, but *not* exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
-7. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
+7. Now the intent should be correctly detected as **BookFlight**. However, **bangor** isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
 
-8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine: 
+8. You need to teach LUIS that **bangor me** in the utterance **buy a plane ticket to bangor me** should be mapped to the **Location** entity for Bangor, Maine: 
 
-      a. Go to the **Intents** page, select the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
+      a. Go to the **Intents** page, select the **BookFlight** intent, and find **buy a plane ticket to bangor me** in the list of utterances. 
 
-      b. Select the words `bangor me` and choose the **Location** entity from the entity list.
+      b. Select the words **bangor me** and choose the **Location** entity from the entity list.
 
       c. Select the **Location::ToLocation** hierarchical entity from the drop-down list.
  
-    ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
+    ![label the words bangor me as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
 
-9. Click the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
+9. Select the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
 
-10. After training succeeds, select **Test**, type `buy a plane ticket to paris` in the text box, and press Enter. Now the location entity is correctly detected.
+10. After training succeeds, select **Test**, type **buy a plane ticket to paris** in the text box, and select Enter. Now the location entity is correctly detected.
 
     ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
 
@@ -134,9 +134,9 @@ In this section, you publish the existing model, change the model, and then test
 
 2. On the **Publish** page, publish your model. 
 
-3. Click the **Test** button to reopen the test panel.
+3. Select the **Test** button to reopen the **Test panel**.
 
-4. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The LUIS results of the test utterance in both the current and published models are shown in the following image: 
+4. Type **book me a flight to Boston tomorrow** as your test utterance and select Enter. The LUIS results of the test utterance in both the current and published models are shown in the following image: 
 
     ![Interactive testing of both current & published models](./media/luis-how-to-train-test/comparison.png)
 
@@ -144,18 +144,18 @@ If you are interactive testing on both trained and published models together, an
 
 >[!NOTE]
 >About the interactive testing console:
- >- You can type as many test utterances as you want in the test panel, but only one utterance at a time.
- >- The inspection panel shows the result of the latest utterance. 
- >- To review the result of a previous utterance, just select it in the test panel and its result displays on the right. 
- >- To clear all the entered test utterances and their results from the test console, select **Start over** at the top left corner of the test panel. 
+ >- You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
+ >- The **Inspection panel** shows the result of the latest utterance. 
+ >- To review the result of a previous utterance, just select it in the **Test panel** and its result displays on the right. 
+ >- To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
 
 
 ## Batch testing
-Batch testing enables you to run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contain a maximum of 1,000 utterances. All you need to do is import this file to your app and run it to perform the test. Your LUIS app returns the result, enabling you to access detailed analysis of all utterances included in the batch.
+With batch testing, you can run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contain a maximum of 1,000 utterances. All you need to do is import this file to your app and run it to perform the test. Your LUIS app returns the result: detailed analysis of all utterances included in the batch.
 
 You can import up to 10 dataset files to a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
-The following procedures guide you on how to import a dataset file, run a batch test on your current trained app by using the imported dataset, and finally to access the test results in a detailed visualized view.
+The following procedures guide you on how to import a dataset file, run a batch test on your current trained app by using the imported dataset, and access the test results in a detailed visualized view.
 
 ### Import a dataset file
 
@@ -163,7 +163,7 @@ The following procedures guide you on how to import a dataset file, run a batch 
 
     ![Batch Testing Link](./media/luis-how-to-train-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Click **Choose File** and locate the JSON file containing the utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the JSON file that contains the utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-train-test/batchtest-importset.png)
 
@@ -217,9 +217,9 @@ The following procedures guide you on how to import a dataset file, run a batch 
 ]
     ```
 
-4. Click **Done**. The dataset file is added.
+4. Select **Done**. The dataset file is added.
 
-5. To export, rename, delete, or download the imported dataset, use the three dots (...) at the end of the dataset row. 
+5. To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row. 
 
     ![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
 
@@ -231,14 +231,14 @@ Select **Test** next to the dataset you've just imported. This displays the test
 
 In the preceding screenshot:
  
- - **State** of the dataset shows whether or not the dataset result contains errors. In the preceding example, an error sign is displayed indicating that there are errors in one or more utterances. If the test result contains no errors, a green sign displays instead. 
+ - **State** of the dataset shows whether or not the dataset result contains errors. In the preceding example, an error sign is displayed, which indicates that there are errors in one or more utterances. If the test result contains no errors, a green sign displays instead. 
  - **Size** is the total number of utterances included in the dataset file.
  - **Last Run** is the date of the latest test run for this dataset. 
- - **Last Result** displays the percentage of correct predictions resulting from the test.
+ - **Last Result** displays the percentage of correct predictions that result from the test.
 
 ### Access test result details in a visualized view
  
-1. Select the **See results** link that appears after running the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. 
+1. Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. 
 
     ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
@@ -250,7 +250,7 @@ In the preceding screenshot:
     ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
     >[!NOTE]
-    >Hovering over a data point shows the certainty score of its prediction.
+    >Hover over a data point to see the certainty score of its prediction.
  
     The graph contains four sections that represent the possible cases of your application's prediction:
 
@@ -261,7 +261,7 @@ In the preceding screenshot:
 
     This means that data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. On the other hand, if all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
  
-3. Click a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. To display all utterances in a section, select the section title.
+3. Select a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. To display all utterances in a section, select the section title.
   
 A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
 
