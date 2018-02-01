@@ -45,6 +45,9 @@ Certificates with the appropriate DNS names for each Azure Stack public infrastr
 
 For your deployment, the [region] and [externalfqdn] values must match the region and external domain names that you chose for your Azure Stack system. As an example, if the region name was *Redmond* and the external domain name was *contoso.com*, the DNS names would have the format *&lt;prefix>.redmond.contoso.com*. The *&lt;prefix>* values are predesignated by Microsoft to describe the endpoint secured by the certificate. In addition, the *&lt;prefix>* values of the external infrastructure endpoints depend on the Azure Stack service that uses the specific endpoint. 
 
+> [!NOTE] 
+> During Deployment you MUST copy the certificates to each folder in the folder structure that matches the identity provider you are deploying against, AAD or ADFS. If you are using a single certificate for all endpoints, you must copy that certificate file into each deployment folder outlined in the tables below.  The folder structure is pre-built in the DVM and can be found at: C:\CloudDeployment\Setup\Certificates.  
+
 |Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
 |Public Portal|portal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
