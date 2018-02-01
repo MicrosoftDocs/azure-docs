@@ -28,6 +28,8 @@
     href: storage-quickstart-blobs-nodejs.md
   - name: Work with blobs - Storage Explorer
     href: storage-quickstart-blobs-storage-explorer.md
+  - name: Work with blobs - PHP
+    href: storage-quickstart-blobs-php.md
 - name: Tutorials
   items:
   - name: Upload and process an image

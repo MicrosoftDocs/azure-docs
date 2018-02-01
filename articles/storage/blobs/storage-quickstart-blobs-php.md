@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 1/10/2018
-ms.author: v-rogara
+ms.author: rogarana
 ---
 
 #  Transfer objects to/from Azure Blob storage using PHP
@@ -140,7 +140,7 @@ The sample code creates a local file to be used for the upload and download, sto
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-To perform a partial update of the content of a block blob, use the **create\_block\_list()** method. Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Append blob should be used in a single writer model. Most objects stored in Blob storage are block blobs.
+To perform a partial update of the content of a block blob, use the **createblocklist()** method. Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Append blob should be used in a single writer model. Most objects stored in Blob storage are block blobs.
 
 ### List the blobs in a container
 
