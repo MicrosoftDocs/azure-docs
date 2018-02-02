@@ -6,7 +6,7 @@ documentationcenter: ''
 author: zjalexander,mgreenegit
 manager: timlt
 editor: ''
-tags: azure-resource-manager,dsc,psdsc
+tags: azure-resource-manager
 keywords: 'powershell','dsc','psdsc'
 
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9

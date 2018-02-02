@@ -6,7 +6,7 @@ documentationcenter: ''
 author: zjalexander,mgreenegit
 manager: timlt
 editor: ''
-tags: azure-resource-manager,powershell,dsc,psdsc
+tags: azure-resource-manager
 keywords: 'powershell','dsc','psdsc'
 
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -30,9 +30,9 @@ and simplify various VM management operations.
 
 The primary use case for the Desired State Configuration Extension is
 to bootstrap a VM to the
-[Azure Automation DSC service](../../automation/automation-dsc-overview)
+[Azure Automation DSC service](../../automation/automation-dsc-overview.md)
 that provides
-[benefits](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service)
+[benefits](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig.md#pull-service)
 including ongoing management of the VM configuration
 and integration with other operational tools such as Azure Monitoring.
 
