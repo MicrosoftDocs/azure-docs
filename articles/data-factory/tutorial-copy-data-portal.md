@@ -140,10 +140,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 9. In the **General** tab in the **Properties** window at the bottom, specify **SourceBlobDataset** for the **name**.
 
     ![Dataset name](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Switch to the **Connection** tab in the properties window.   
-
-    ![Connection tab](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Click **+ New** next to the **Linked service** text box. A linked service links a data store or a compute to the data factory. In this case, you create an Azure Storage linked service to link your Azure Storage account to the data store. The linked service has the connection information that the Data Factory services uses to connect to the blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
+10. Switch to the **Connection** tab in the properties window. Click **+ New** next to the **Linked service** text box. A linked service links a data store or a compute to the data factory. In this case, you create an Azure Storage linked service to link your Azure Storage account to the data store. The linked service has the connection information that the Data Factory services uses to connect to the blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
 
     ![New linked service button](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. In the **New Linked Service** window, do the following steps: 
@@ -279,7 +276,7 @@ You can test run a pipeline before publishing artifacts (linked services, datase
 2. Verify that the data from the source file is inserted into the destination SQL database. 
 
     ![Verify SQL output](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Click **Publish** in the left pane. This action publishes entities (linked services, datasets, and pipelines) you created to Azure Data Factory.
+3. Click **Publish All** in the left pane. This action publishes entities (linked services, datasets, and pipelines) you created to Azure Data Factory.
 
     ![Publish button](./media/tutorial-copy-data-portal/publish-button.png)
 4. Wait until you see the **Successfully published** message. To see notification messages, click **Show Notifications** tab on the left sidebar. Close the notifications window by clicking **X**.
@@ -339,7 +336,7 @@ If you don't want to work with the VSTS code repository, you can skip this step,
 ## Trigger the pipeline manually
 In this step, you manually trigger the pipeline you published in the previous step. 
 
-1. Click **Trigger** on the toolbar, and click **Trigger Now**. 
+1. Click **Trigger** on the toolbar, and click **Trigger Now**. On the **Pipeline Run** page, click **Finish**.  
 
     ![Trigger now menu](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Switch to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the Actions column to view activity details and to rerun the pipeline.
@@ -382,10 +379,10 @@ In this schedule, you create a scheduler trigger for the pipeline. The trigger r
 6. In the **Trigger Run Parameters** page, review the warning, and click **Finish**. The pipeline in this example does not take any parameters. 
 
     ![Pipeline parameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Click **Publish** to publish the changes to the repository. The trigger is not actually activated until the publishing succeeds. 
+7. Click **Sync** to sync changes in your branch with the master branch. By default, the **Publish changes after sync** is selected. Therefore, when you select **Sync**, it also publishes the updated entities to the Azure Data Factory service from the master branch. The trigger is not actually activated until the publishing succeeds.
 
-    ![Publish trigger](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Switch to the **Monitor** tab on the left to see the triggered pipeline runs. 
+    ![Publish trigger](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Switch to the **Monitor** tab on the left to see the triggered pipeline runs. 
 
     ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. To switch from the pipeline runs view to the trigger runs view, click Pipeline Runs and select Trigger Runs.
