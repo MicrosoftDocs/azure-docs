@@ -1,5 +1,5 @@
 ---
-title: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App
+title: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial
 description: Tutorial on how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app.
 services: active-directory-b2c
 author: PatAltimore
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App
+# Tutorial: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App
 
 This tutorial shows you how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to:
 
@@ -80,7 +80,9 @@ The key is displayed once in the portal. It's important to copy and save the key
 
 ## Create a sign-up or sign-in policy
 
-An Azure AD B2C policy defines user workflows. For example, signing in, signing up, or changing passwords are common workflows. To sign up users to access then sign in to the web app, create a **sign-up or sign-in** policy.
+An Azure AD B2C policy defines user workflows. For example, signing in, signing up, changing passwords, and editing profiles are common workflows.
+
+To sign up users to access then sign in to the web app, create a **sign-up or sign-in** policy.
 
 1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
 

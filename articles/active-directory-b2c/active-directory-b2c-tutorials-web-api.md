@@ -1,5 +1,5 @@
 ---
-title: Use Azure Active Directory B2C to protect a ASP.NET Web API
+title: Use Azure Active Directory B2C to protect a ASP.NET Web API tutorial
 description: Tutorial on hout to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
 services: active-directory-b2c
 author: patricka
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Use Azure Active Directory B2C to protect an ASP.NET web API
+# Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API
 
 This tutorial shows you through how to call a Azure Active Directory (AD) B2C protected web API resource from an ASP.NET web app.
 
@@ -45,7 +45,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
     To register the sample web API in your tenant, use the following settings.
     
-    ![Add a new API](media/active-directory-b2c-tutorials-web-app/web-api-registration.png)
+    ![Add a new API](media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
     
     | Setting      | Sample value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
@@ -70,11 +70,9 @@ Registered APIs are displayed in the applications list for the Azure AD B2C tena
 
 Click **Published scopes (Preview)**.
 
-![app general published scopes](media/active-directory-b2c-tutorials-web-app/app-general-published-scopes.png)
-
 To configure scopes for the API, add the following entries. 
 
-![scopes defined in web api](media/active-directory-b2c-tutorials-web-app/scopes-defined-in-web-api.png)
+![scopes defined in web api](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
 
 | Setting      | Sample value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
@@ -85,27 +83,25 @@ The published scopes can be used to grant a client app permissions to the web AP
 
 ### Grant app permissions to web API
 
-In these steps, you define the API scopes for the Web App.
+If you want to call a protected web API from an app, you need to grant your app permissions to the API. 
 
-Switch over to your web app `My Sample Web App` in the Portal and click API access (Preview)
+1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 
-![app general api access](media/active-directory-b2c-tutorials-web-app/app-general-api-access.png)
+2. Select `My Sample Web App` from the app list and click **API access (Preview)** then **+ Add**.
 
-Click Add at the top. A window appears on the far right hand side.
+3. In the **Select API** dropdown, select your registered web API `My Sample Web API`.
 
-Select your Web API by its portal name and select the scopes you created in the Web API registration.
+4. In the **Select Scopes** dropdown, select the scopes you defined in the web API registration.
 
-![selecting scopes for app](media/active-directory-b2c-tutorials-web-app/selecting-scopes-for-app.png)
+![selecting scopes for app](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
-Click **OK** button at the bottom of screen.
+5. Click **OK**.
 
-![ok button at bottom](media/active-directory-b2c-tutorials-web-app/ok-button-at-bottom.png)
-
-Now your Web App and Web API are registered with B2C.
+Your `My Sample Web App` is registered to call the protected `My Sample Web API`. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update web API code
 
-Now that the Web App and Web API are registered with B2C and you have a policy, it is time to configure the sample applications to talk to your B2C tenant.
+Now that the web app and web API are registered and you have a policy, you need to configure your apps to use your B2C tenant.
 
 Open the B2C-WebAPI-DotNet solution in Visual Studio.
 
