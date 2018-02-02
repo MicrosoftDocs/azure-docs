@@ -36,7 +36,7 @@ When the provisioning process for the remote monitoring solution finishes, click
 ### Provision your device in the remote monitoring solution
 
 > [!NOTE]
-> If you have already provisioned a device in your solution, you can skip this step. You need the device coonection string, which you can retrieve from the Azure portal, when you create the client application.
+> If you have already provisioned a device in your solution, you can skip this step. You need the device connection string, which you can retrieve from the Azure portal, when you create the client application.
 
 For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains the credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
 
@@ -52,7 +52,7 @@ To add a device to your remote monitoring solution, complete the following steps
 
 1. Choose **Apply**. Then make a note of the **Device ID**, **Primary Key**, and **Connection string primary key** values:
 
-    ![Retrive crentials](media/iot-suite-selector-connecting/credentials.png)
+    ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
 
 To locate the credentials your device must use to connect to the preconfigured solution, navigate to the Azure portal in your browser. Sign in to your subscription.
 

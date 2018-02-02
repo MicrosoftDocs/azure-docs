@@ -30,7 +30,7 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 
     ![Schedule the firmware update](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. A sequence of messages display in the console running your device code while the simulated device handles the method.
+1. A sequence of messages displays in the console running your device code while the simulated device handles the method.
 
 1. When the update is complete, the new firmware version displays on the **Devices** page:
 
