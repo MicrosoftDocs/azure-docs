@@ -67,6 +67,7 @@ The following section provides you with a complete overview of all possible erro
 | 50058| No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
 | 50074| User did not pass the MFA challenge.|
 | 50079| User needs to enroll for second factor authentication.|
+| 50089| Flow token validation failed due to flow token expiry.|
 | 50126| Invalid username or password or Invalid on-premise username or password.|
 | 50131| Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 | 50133| Session is invalid due to expiration or recent password change.|
