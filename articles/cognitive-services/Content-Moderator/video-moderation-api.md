@@ -416,8 +416,6 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 
 ## Next steps
 
-## Next steps
-
 Learn how to generate [video reviews](video-review-tutorial-dotnet.md) from your moderation output.
 
 Add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to your video reviews.
