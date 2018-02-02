@@ -24,6 +24,8 @@ Azure Stack has a public infrastructure network using externally accessible publ
 - What certificates are required to deploy Azure Stack
 - The process of obtaining certificates matching those specifications
 - How to prepare, validate, and use those certificates during deployment
+> [!NOTE]
+> During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
 
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
