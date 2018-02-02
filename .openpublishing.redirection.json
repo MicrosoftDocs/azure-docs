@@ -45,6 +45,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/fundamentals-introduction-to-azure.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/overview/what-is-azure/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-portal-overview.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/features/azure-portal/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
             "redirect_url": "/azure/media-services/media-services-content-protection-overview",
             "redirect_document_id": false
