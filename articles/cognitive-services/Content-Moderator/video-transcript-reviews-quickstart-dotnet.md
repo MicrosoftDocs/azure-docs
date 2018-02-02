@@ -370,7 +370,7 @@ You see the following features:
 
 ## Next steps
 
-Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) to the video review. 
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) in the review tool.
 
 Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
 
