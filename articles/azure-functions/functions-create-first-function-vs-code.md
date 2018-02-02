@@ -80,11 +80,15 @@ The Azure Functions project template in Visual Studio creates a project that can
 
     ![Create a function app project](./media/functions-create-first-function-vs-code/create-function-app-project.png)
 
-2. Choose a location for your project workspace and choose **Select**, then select a language for your function app project.
+2. Choose a location for your project workspace and choose **Select**.
 
+    >[!NOTE]
+    >This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace. 
+
+3. Select the language for your function app project.
     ![Choose project language](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
 
-Visual Studio creates a workspace and function app project. This project contains [host.json](functions-host-json.md) and a [local.settings.json](functions-run-local.md#local-settings-file) configuration files.
+Visual Studio creates the function app project. This project contains [host.json](functions-host-json.md) and a [local.settings.json](functions-run-local.md#local-settings-file) configuration files.
 
 ## Create the function
 
@@ -114,7 +118,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 2. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function. 
 
-    ![Azure local runtime](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
+    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
 3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request: 
 
@@ -158,7 +162,9 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
 6. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
 
-7. Choose **Yes** if you are prompted to overwrite existing deployments since you are publishing to a new function app. If you are deploying from a Windows computer, choose **Yes** when prompted to upgrade the remote runtime. 
+    Function app creation starts after you choose your Storage account.
+
+7. Choose **Yes** when prompted about overwriting existing deployments. There are not deployments in the newly created function app. 
 
     The output panel shows the Azure resources that you created in a resource group in your subscription. 
 
@@ -184,26 +190,10 @@ VS Code lets you publish your Azure Functions project directly to Azure. In the 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)   
 
-## Update the runtime version in Azure
-
-In this article, your function app was developed and testing using version 2.x of the Azure Functions runtime. However, by default the function app you created in Azure runs version 1.x. You can use VS Code to update the runtime version of the remote app to match the major version you used during development. To learn more about runtime versions, see the [Azure Functions runtime versions overview](functions-versions.md). 
-
-If you chose to update the runtime version when you published from a Windows computer, you can skip this procedure.
-
-1. In the **Azure Functions** area of the **Explorer**, expand your subscription > function app > **Application Settings**.
-
-2. Press Ctrl when choosing the `FUNCTIONS_EXTENSION_VERSION` setting and select **Edit setting**.
-
-    ![Function response in the browser](./media/functions-create-first-function-vs-code/function-app-runtime-update.png)
-
-2. Update the value of the `FUNCTIONS_EXTENSION_VERSION` setting to a value of `beta`.
-
-Updating the setting causes the function app to restart. After the restart, it uses the version 2.x runtime.
-
 ## Next steps
 
 You have used VS Code to create a function app with a simple HTTP triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).   
-Next you may want to learn more about local testing and debugging using the Azure Functions Core Tools.
+Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
 > [Code and test locally](functions-run-local.md).
