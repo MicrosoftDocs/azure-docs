@@ -3,7 +3,7 @@ title: Getting started with Azure CDN | Microsoft Docs
 description: This topic shows how to enable the Azure Content Delivery Network (CDN). The tutorial walks through the creation of a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
+author: zhangmanling dksimpson
 manager: erikre
 editor: ''
 
@@ -12,20 +12,15 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/25/2018
+ms.topic: quickstart
+ms.date: 02/01/2018
 ms.author: mazha
+ms.custom: mvc
 
 ---
 # Getting started with Azure CDN
-This article describes how to enable Azure Azure Content Delivery Network (CDN) by creating a new CDN profile and endpoint.
+This article describes how to enable Azure [Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint. 
 
-> [!IMPORTANT]
-> For an introduction to CDN and a list of features, see [CDN Overview](cdn-overview.md).
-> 
-> 
-
-## Create a new CDN profile
 A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
 
 > [!NOTE]
@@ -37,13 +32,12 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
 > For information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
 > CDN pricing is applied at the CDN profile level. Therefore, to use a mix of Azure CDN pricing tiers, you must create multiple CDN profiles.
-> 
-> 
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Create a new CDN endpoint
-**To create a new CDN endpoint**
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your CDN profile. You may have pinned it to the dashboard in the previous step. If not, you can find it by selecting **All services**, then selecting **CDN profiles**. In the **CDN profiles** pane, select the profile to which you plan to add your endpoint. 
    
@@ -99,6 +93,15 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
     > If you attempt to use the CDN domain name before the endpoint configuration has propagated to the POPs, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
     > 
     > 
+
+## Clean up resources
+To delete a profile or endpoint when it is no longer needed, select it, then select **Delete**. 
+
+## Next steps
+In this quick start, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
+
+> [!div class="nextstepaction"]
+> [Add a custom domain](cdn-map-content-to-custom-domain)
 
 ## See Also
 * [Controlling caching behavior of requests with query strings](cdn-query-string.md)
