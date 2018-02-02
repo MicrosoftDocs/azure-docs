@@ -9,6 +9,10 @@
 ## Pause and resume compute
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Scale compute
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Tutorials
@@ -113,8 +117,6 @@
 ### [Analyze your workload](analyze-your-workload.md)
 
 ## Scale out
-### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Manage compute - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
 
