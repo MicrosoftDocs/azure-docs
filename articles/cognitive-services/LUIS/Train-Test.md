@@ -42,6 +42,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
+<a name="interactive-testing"></a>
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
@@ -63,6 +64,13 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
 
+>[!NOTE]
+>About the interactive testing console:
+ >- You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
+ >- The **Inspection panel** shows the result of the latest utterance. 
+ >- To review the result of a previous utterance, just select it in the **Test panel** and its result displays on the right. 
+ >- To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
+
 ## Compare with published version
 You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
@@ -76,6 +84,7 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 >[!TIP]
 >To close the **Test** panel, select the **Test** button again.
 
+<!--
 ## Relabel utterances and retrain
 When you perform interactive testing, you might find that LUIS doesn't detect the intent or entities the way you expect for some utterances. The following steps walk you through relabeling an utterance and retraining.
 
@@ -144,22 +153,18 @@ In this section, you publish the existing model, change the model, and then test
 
 If you are interactive testing on both trained and published models together, an entity might have a different prediction in each model.
 
->[!NOTE]
->About the interactive testing console:
- >- You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
- >- The **Inspection panel** shows the result of the latest utterance. 
- >- To review the result of a previous utterance, just select it in the **Test panel** and its result displays on the right. 
- >- To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
+-->
 
-
+<!-->
 ## Batch testing
 With batch testing, you can run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contain a maximum of 1,000 utterances. All you need to do is import this file to your app and run it to perform the test. Your LUIS app returns the result: detailed analysis of all utterances included in the batch.
 
 You can import up to 10 dataset files to a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
 The following procedures guide you on how to import a dataset file, run a batch test on your current trained app by using the imported dataset, and access the test results in a detailed visualized view.
-
-### Import a dataset file
+-->
+<a name="batch-testing"></a>
+## Import a dataset file for batch testing
 
 1. Select **Test** in the top bar, and then select **Batch testing panel**.
 
@@ -221,9 +226,10 @@ The following procedures guide you on how to import a dataset file, run a batch 
 
 4. Select **Done**. The dataset file is added.
 
-5. To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row. 
+## Export, rename, delete, or download dataset
+To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row.
 
-    ![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
+![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
 
 ### Run a batch test on your trained app
 
@@ -238,7 +244,7 @@ In the preceding screenshot:
  - **Last Run** is the date of the latest test run for this dataset. 
  - **Last Result** displays the percentage of correct predictions that result from the test.
 
-### Access test result details in a visualized view
+## Access batch test result details in a visualized view
  
 1. Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. 
 
