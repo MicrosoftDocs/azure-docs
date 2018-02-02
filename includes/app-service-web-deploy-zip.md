@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: "include"
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: "include file"
+---
+
 ## Deploy ZIP file
 
 In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
