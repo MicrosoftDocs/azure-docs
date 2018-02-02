@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Latest [Node.js](https://nodejs.org)
 > * [HomeAutomation LUIS app](luis-get-started-create-app.md). If you do not have the Home Automation app created, create a new app, and add the Prebuilt Domain **HomeAutomation**. Train and publish the app. 
-> * [ProgrammaticKey](manage-keys.md##programmatic-key), [EndpointKey](manage-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](manage-keys.md#regions-and-keys) for the LUIS app.
+> * [ProgrammaticKey](manage-keys.md##programmatic-key), [EndpointKey](manage-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](luis-reference-regions.md) for the LUIS app.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
