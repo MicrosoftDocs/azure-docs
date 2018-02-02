@@ -169,6 +169,17 @@ You need to add following section into your ServiceDefinition.csdef
 </Endpoints> 
 ```
 
+## Firewall requirements
+Testing ntttcp on a network where there's a firewall or if you're running guest OS firewalls like Windows Firewall or iptables might require you to open some ports.
+
+Ntttcp uses by default port 5000/TCP as a control port and a port range starting at 5001/TCP as data port. The port range length is defined by **2\*num\_cores** number as used below:
+
+```
+ntttcp -r -m <2 x num_cores>,*,<Server IP>
+```
+
+These ports have to be opened inbound to the receiver / server.
+
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
 * Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
