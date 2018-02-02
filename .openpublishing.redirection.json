@@ -12031,6 +12031,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md",
+            "redirect_url": "/azure/cloud-services/diagnostics-performance-counters",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
             "redirect_document_id": false
