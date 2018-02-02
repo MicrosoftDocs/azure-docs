@@ -20,9 +20,9 @@ ms.author: luisca
 # Collecting Data to Train your Model
 The Recommendations API learns from your past transactions to find what items should be recommended to a particular user.
 
-After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
+After you have created a model, provide two piece of information before you can do any training: a catalog file, and usage data.
 
-> If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+> If you have not done so already, we encourage you to complete the [Quickstart](cognitive-services-recommendations-quick-start.md).
 > 
 > 
 
@@ -61,7 +61,7 @@ Look at the [API reference](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 Note that the content of the catalog file should be passed as the request body.
 
-If you upload several catalog files to the same model with several calls, we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data by using this method.
+If you upload several catalog files to the same model with several calls, we insert only the new catalog items. Existing items remain with the original values. You cannot update catalog data by using this method.
 
 > Note: 
 > The maximum file size is 200MB.
@@ -83,20 +83,20 @@ This means that you should create features that resemble a category. For instanc
 Ultimately the Recommendations build supports building a model with up to 20 features. You could assign more than 20 features to the items in your catalog, but you are expected to do a ranking build and pick only the features that rank high. (A feature with a rank of 2.0 or more is a really good feature to use!). 
 
 ### When are features actually used?
-Features are used by the model when there is not enough transaction data to provide recommendations on transaction information alone. So features will have the greatest impact on “cold items” – items with few transactions. If all your items have sufficient transaction information you may not need to enrich your model with features.
+Features are used by the model when there is not enough transaction data to provide recommendations on transaction information alone. Features have the greatest impact on “cold items” – items with few transactions. If all your items have sufficient transaction information you may not need to enrich your model with features.
 
 ### Using product features
 To use features as part of your build you need to:
 
 1. Make sure your catalog has features when you upload it.
-2. Trigger a ranking build. This will do the analysis on the importance/rank of the features.
-3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
+2. Trigger a ranking build. This does the analysis on the importance/rank of the features.
+3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma-separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
 
 ## Usage Data
 A usage file contains information about how those items are used, or the transactions from your business.
 
 #### Usage Format details
-A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
+A usage file is a CSV (comma-separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
 `<User Id>,<Item Id>,<Time>,[<Event>]`
 
 | Name | Mandatory | Type | Description |
@@ -122,7 +122,7 @@ Note that you need to pass the content of the usage file as the body of the HTTP
 > 
 > Maximum file size: 200MB. You may upload several usage files.
 > 
-> You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file will be used during the training phase. All other items will be ignored.
+> You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file are used during the training phase. All other items areignored.
 > 
 > 
 
@@ -130,7 +130,7 @@ Note that you need to pass the content of the usage file as the body of the HTTP
 The quality of your model is heavily dependent on the quality and quantity of your data.
 The system learns when users buy different items (We call this co-occurrences). For FBT builds, it is also important to know which items are purchased in the same transactions. 
 
-A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions. Once again, this is a rule of thumb. You will need to experiment with your data.
+A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions. Once again, this is a rule of thumb. You need to experiment with your data.
 
 Once you have created a model, you can perform an [offline evaluation](cognitive-services-recommendations-buildtypes.md) to check how well your model is likely to perform.
 
