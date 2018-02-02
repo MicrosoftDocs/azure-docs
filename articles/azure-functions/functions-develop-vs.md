@@ -73,7 +73,7 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 
-1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
+1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Project**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
 
 2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
 
