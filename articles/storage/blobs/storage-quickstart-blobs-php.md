@@ -119,7 +119,7 @@ $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.  
 
-To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **create\_block\_blob()** method. 
+To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob as **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
 
@@ -144,7 +144,7 @@ To perform a partial update of the content of a block blob, use the **createbloc
 
 ### List the blobs in a container
 
-You can get a list of files in the container using the **list\_blobs()** method. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
+You can get a list of files in the container using the **listBlobs()** method. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
 
 ```PHP
 $blob_list = $blobClient->listBlobs($containerName);
