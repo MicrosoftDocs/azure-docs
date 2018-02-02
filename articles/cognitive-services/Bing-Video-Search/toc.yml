@@ -6,7 +6,7 @@
       href: search-the-web.md
     - name: Video Search endpoints
       href: video-search-endpoints.md
-- name: Quickstarts
+- name: API Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -24,7 +24,11 @@
   - name: Ruby
     href: ruby.md
 - name: SDK (preview)
-  href: sdk.md
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Video search SDK C# quickstart (preview)
+    href: video-search-sdk-quickstart.md  
 - name: How to
   items:
   - name: Use and display requirements
