@@ -8,7 +8,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
 > 
 > 
-> [!WARNIG]
+> [!WARNING]
 > Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
 >
 
