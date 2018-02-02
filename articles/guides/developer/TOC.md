@@ -1,7 +1,5 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-## [Overview of Azure services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Portal overview](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
