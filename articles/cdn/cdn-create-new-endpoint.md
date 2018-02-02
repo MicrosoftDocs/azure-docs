@@ -95,7 +95,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     > 
 
 ## Clean up resources
-To delete a profile or endpoint when it is no longer needed, select it, then select **Delete**. 
+To delete a profile or endpoint when it is no longer needed, select it and then select **Delete**. 
 
 ## Next steps
 In this quick start, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
