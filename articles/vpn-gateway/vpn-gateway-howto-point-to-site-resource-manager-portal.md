@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
 
 ---
@@ -110,12 +110,12 @@ Certificates are used by Azure to authenticate clients connecting to a VNet over
 
 ## <a name="addresspool"></a>6. Add the client address pool
 
-The client address pool is a range of private IP addresses that you specify. The clients that connect over a Point-to-Site VPN receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to.
+The client address pool is a range of private IP addresses that you specify. The clients that connect over a Point-to-Site VPN dynamically receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to.
 
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In the **Settings** section, click **Point-to-site configuration** to open the **Point-to-Site-Configuration** page.
 
   ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. On the **Point-to-Site-Configuration** page, you can delete the auto-filled range, then add the private IP address range that you want to use. Click **Save** to validate and save the setting.
+2. On the **Point-to-Site-Configuration** page, you can delete the auto-filled range, then add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
