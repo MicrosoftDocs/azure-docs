@@ -24,7 +24,7 @@ sections:
     style: unordered
     className: noBullet
     items:
-    - html: <img height="32" width="32" src="/azure/machine-learning/media/index/i_machine-learning.svg"> <a href="/azure/machine-learning/preview/">Azure Machine Learning services</a> (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure
+    - html: <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg"> <a href="/azure/machine-learning/preview/">Azure Machine Learning services</a> (preview) empowers professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure
     - html: <img height="32" width="32" src="/azure/machine-learning/media/index/machine-learning-studio.svg"> <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a> is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data
     - html: <img height="32" width="32" src="/azure/machine-learning/media/index/virtualmachine.svg"><a href="/azure/machine-learning/data-science-virtual-machine/overview">Data Science Virtual Machine</a> is a customized VM image built specifically for doing data science
 
