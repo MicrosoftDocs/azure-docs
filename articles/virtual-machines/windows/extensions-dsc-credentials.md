@@ -3,11 +3,11 @@ title: Passing credentials to Azure using DSC | Microsoft Docs
 description: Overview on securely passing credentials to Azure virtual machines using PowerShell Desired State Configuration
 services: virtual-machines-windows
 documentationcenter: ''
-author: zjalexander,mgreenegit
+author: zjalexander
 manager: timlt
 editor: ''
 tags: azure-resource-manager
-keywords: 'powershell','dsc','psdsc'
+keywords: 'dsc'
 
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows

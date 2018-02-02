@@ -3,11 +3,11 @@ title: Desired State Configuration Extension with Azure Resource Manager templat
 description: Resource Manager Template definition for Desired State Configuration Extension in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: zjalexander,mgreenegit
+author: mgreenegit
 manager: timlt
 editor: ''
 tags: azure-resource-manager
-keywords: 'powershell','dsc','psdsc'
+keywords: 'dsc'
 
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 01/17/2017
-ms.author: zachal,migreene
+ms.date: 02/02/2018
+ms.author: migreene
 ---
 # Desired State Configuration Extension with Azure Resource Manager templates
 
