@@ -34,8 +34,6 @@ This exercise takes about 30 minutes.
    sign up process are provided in *Task 1* of the [Getting Started Guide](cognitive-services-recommendations-quick-start.md) 
 2. Once you have obtained a **Key** for your Recommendations API subscription, go to [Recommendations UI](https://recommendations-portal.azurewebsites.net/). 
 3. Log in to the portal by entering your key in the **Account Key** field, and then click the **Login** button.
-   
-    ![Recommendations UI: Sign-in dialog.][reco_signin]
 
 <a name="Step2"></a>
 
@@ -64,12 +62,10 @@ You can create several *builds* inside the project. We will walk you through the
 
 1. To create a new project, type the name on the text box (Something like “MyFirstModel” would work) and click **Add Project**.
    
-    ![Recommendations UI: Projects Page.][reco_projects]
-2. Once the project gets created, click the **Browse for File** button on the **Add a Catalog File** section. 
+1. Once the project gets created, click the **Browse for File** button on the **Add a Catalog File** section. 
    Upload the catalog you got in step 2. If you saved it at *c:\data*, you need to navigate to that folder.
    
-     ![Recommendations UI: Adding Data to a Project.][reco_firstmodel]
-3. After the catalog is uploaded, click the **Browse for File** button on the **Add Usage Files** section. Add the usage_large.txt file.
+1. After the catalog is uploaded, click the **Browse for File** button on the **Add Usage Files** section. Add the usage_large.txt file.
 
 > **What if I have a large file of usage data?**
 > 
@@ -88,8 +84,6 @@ Now that you have uploaded both the catalog and the usage data, we are ready to 
 1. Click the **New Build** button.
 2. Select **Recommendations** as the build type. Notice that we support a Ranking Build and an FBT
      (Frequently Bought Together) build types as well.
-   
-   ![Recommendations UI: Build Dialog.][reco_build_dialog.png]
 
     An FBT build allows you to identify patterns for products that are usually purchased/consumed in the same transaction.
     A ranking build is used to identify features of interest. 
@@ -105,8 +99,7 @@ Once your build is completed, you will notice a new build in the builds list. Th
 
 1. Once your build is completed, click **Score**. This allows you to play with the model and see what items are recommended.
    
-    ![Recommendations UI: Score button][reco_score_button]
-2. Select an item to see which items are returned as recommendations for that item. Notice that if there are not enough transactions to predict a recommendation for a particular item, the system 
+1. Select an item to see which items are returned as recommendations for that item. Notice that if there are not enough transactions to predict a recommendation for a particular item, the system 
    will not return any recommendations for that item.  If for some reason you have an item that returns no recommendations, try scoring other items.
 
 <a name="Step6"></a>
@@ -119,8 +112,3 @@ Now that you have a model, you may want to learn how to do all the steps above p
 we invite you to check the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) and 
 download the [Recommendations Sample Application](http://go.microsoft.com/fwlink/?LinkID=759344).
 
-[reco_signin]:../media/cognitive-services/reco_signin.PNG
-[reco_projects]:../media/cognitive-services/reco_projects.PNG
-[reco_firstmodel]:../media/cognitive-services/reco_firstmodel.png
-[reco_build_dialog.png]:../media/cognitive-services/reco_build_dialog.png
-[reco_score_button]:../media/cognitive-services/reco_score_button.png
