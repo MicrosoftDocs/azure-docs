@@ -122,13 +122,13 @@ The client address pool is a range of private IP addresses that you specify. The
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-## <a name="tunneltype"></a>7. Tunnel type
+## <a name="tunneltype"></a>7. Configure tunnel type
 
-You can select the tunnel type. The two tunnel options are SSTP and IKEv2. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. Select the checkboxes that your solution requires.
+You can select the tunnel type. The two tunnel options are SSTP and IKEv2. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can choose to enable one of them or both. Select the checkboxes that your solution requires.
 
 ![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
-## <a name="authenticationtype"></a>8. Authentication type
+## <a name="authenticationtype"></a>8. Configure authentication type
 
 Select **Azure certificate**.
 
