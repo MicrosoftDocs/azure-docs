@@ -112,6 +112,9 @@ Each tenant database is a 50 DTU *standalone* database.
 
 - To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
+## Delete resource groups to stop billing ##
+
+When you have finished using the sample, delete all the resource groups you created to stop the associated billing.
 
 ## Next steps
 
@@ -122,8 +125,5 @@ In this tutorial you learned:
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
 
-Next, try the Provision and Catalog **LINK** tutorial.
-
-## Delete resource groups to stop billing ##
-
-When you have finished using the sample, delete all the resource groups you created to stop the associated billing. 
+Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial.
+ 
