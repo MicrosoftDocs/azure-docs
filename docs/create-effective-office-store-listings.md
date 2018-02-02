@@ -35,7 +35,7 @@ In your title:
 
 *Figure 1. An AppSource listing with an effective title and description next to one that is less effective*
 
-![Screenshot of an AppSource listing with an effective title and description next to one that is less effective](images/title-do-dont.png)
+![Screenshot of an AppSource listing with an effective title and description next to one that is less effective](images/appsource-titles-dos-donts.png)
 
 ### Use a consistent add-in name
 
