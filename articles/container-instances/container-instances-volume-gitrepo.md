@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: marsma
 ---
 
@@ -22,51 +22,18 @@ Learn how to mount a gitRepo volume to clone a git repository into your containe
 
 To mount a gitRepo volume in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
 
-First, provide the share details and define the volumes by populating the `volumes` array in the `properties` section of the template. For example, if you've created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array would appear similar to the following:
+First, populate the `volumes` array in the `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *emptyDir* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
-```json
-"volumes": [{
-  "name": "myvolume1",
-  "azureFile": {
-    "shareName": "share1",
-    "storageAccountName": "myStorageAccount",
-    "storageAccountKey": "<storage-account-key>"
-  }
-},
-{
-  "name": "myvolume2",
-  "azureFile": {
-    "shareName": "share2",
-    "storageAccountName": "myStorageAccount",
-    "storageAccountKey": "<storage-account-key>"
-  }
-}]
-```
+For example, following Resource Manager template creates container group consisting of a single container. The container clones the GitHub repository specified by the *gitRepo* volume.
 
-Next, for each container in the container group in which you'd like to mount the volumes, populate the `volumeMounts` array in the `properties` section of the container definition. For example, this mounts the two volumes, *myvolume1* and *myvolume2*, previously defined:
-
-```json
-"volumeMounts": [{
-  "name": "myvolume1",
-  "mountPath": "/mnt/share1/"
-},
-{
-  "name": "myvolume2",
-  "mountPath": "/mnt/share2/"
-}]
-```
+[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 To see an example of container instance deployment with an Azure Resource Manager template, see [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md).
 
 ## Next steps
 
-Learn about the relationship between [Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md).
+Learn how to mount other volume types in Azure Container Instances:
 
-<!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
-[portal]: https://portal.azure.com
-[storage-explorer]: https://storageexplorer.com
-
-<!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
+* [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md)
+* [Mount an emptyDir volume Azure Container Instances](container-instances-volume-emptydir.md)
+* [Mount a secret volume Azure Container Instances](container-instances-volume-secret.md)
