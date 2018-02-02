@@ -107,7 +107,7 @@ To upload a file,  use [Set-AzureStorageFileContent](/powershell/module/Azure.St
 Set-AzureStorageFileContent `
    -Context myContext `
    -Share myShare `
-   -Source C:\files\files.txt `
+   -Source C:\files\file.txt `
    -Path myShare
 ```
 
@@ -126,29 +126,28 @@ Get-AzureStorageFile -Share myShare -Path myDirectory | Get-AzureStorageFile
 
 Now, create a new share and copy the file you uploaded over to this new share. To copy files, use [az storage file copy](/cli/azure/storage/file/copy). You can copy a file to another file, a file to a blob, or a blob to a file.  This example creates a second share named *myshare2* and copies *samplefile.txt* to the root of the new share. 
 
-```azurecli
-az storage share create --name myshare2 \
-    --quota 10 \
-    --account-name mystorageaccount \
-    --account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q==
-	
-az storage file copy start \
-    --account-name mystorageaccount \
-    --account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
-    --source-share myshare \
-	--source-path myDirectory/samplefile.txt \
-    --destination-share myshare2 \
-	--destination-path samplefile.txt
+```azurepowershell-interactive
+
+New-AzureStorageShare `
+   -Name myShare2 `
+   -Context $myContext
+
+
+Start-AzureStorageFileCopy 
+   -SrcShareName myShare `
+   -SrcFilePath myShare/file.txt `
+   -DestShareName myShare2 `
+   -DestFilePath myShare2/file.txt `
+   -Context $myContext `
+   -DestContext $myContext
+
 ```
+
 
 Now, if you list the files in the new share, you should see your file.
 
 ```azurecli-interactive
-az storage file list \
-    --account-name mystorageaccount \
-	--account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
-	--share-name myshare2 \
-	--output table
+Get-AzureStorageFile -Share myShare2 -Path myShare2 | Get-AzureStorageFile
 ```
 
 
@@ -156,8 +155,8 @@ az storage file list \
 
 When you are done, you can use [az group delete](/cli/azure/group#delete) to remove the resource group and all related resources. 
 
-```azurecli-interactive 
-az group delete --name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 
