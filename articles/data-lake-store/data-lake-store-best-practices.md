@@ -140,7 +140,7 @@ If Data Lake Store log shipping is not turned on, Azure HDInsight also provides 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Once this is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics]((data-lake-store-diagnostic-logs.md)) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
+Once this is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
 
 ### Run synthetic transactions 
 
