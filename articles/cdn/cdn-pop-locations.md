@@ -34,8 +34,9 @@ This article lists current point-of-presence (POP) locations for **Azure CDN fro
 | Northern and Eastern Europe | Copenhagen, Denmark<br />Helsinki, Finland<br />Warsaw, Poland<br />Stockholm, Sweden | Denmark<br />Poland<br />Sweden<br /> |
 | Western Europe | Vienna, Austria<br />Paris, France<br />Frankfurt, Germany<br />Amsterdam, Netherlands<br />London, UK | Austria<br />France<br />Germany<br />Ireland<br />Netherlands<br />Switzerland<br />United Kingdom |
 | Southern Europe | Milan, Italy<br />Madrid, Spain | Italy<br />Spain |
-| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
+| Africa | Johannesburg, South Africa | |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar |
+| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## See Also
