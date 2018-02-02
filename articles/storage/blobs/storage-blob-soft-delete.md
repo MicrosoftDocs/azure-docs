@@ -29,8 +29,7 @@ data if Azure Storage already stores multiple replicas? The answer is yes.
 Replication of data in Azure Storage will not protect against logical errors,
 which will be committed on the replicas that Azure Storage maintains. Currently,
 many application developers implement their own backup strategies to keep data
-safe. With the introduction of object-level soft delete, backing up blob data is
-a little easier.
+safe. With the introduction of object-level soft delete, your blob data is a little safer.
 
 ## How does it work?
 
