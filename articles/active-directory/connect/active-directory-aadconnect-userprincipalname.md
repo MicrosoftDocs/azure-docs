@@ -20,12 +20,12 @@ The following terminology is used in this article:
 
 |Term|Description|
 |-----|-----|
-|Initial domain|This is the default domain (onmicrosoft.com) in the Azure AD Tenant. For example, contoso.onmicrosoft.com.|
+|Initial domain|The default domain (onmicrosoft.com) in the Azure AD Tenant. For example, contoso.onmicrosoft.com.|
 |Microsoft Online Email Routing Address (MOERA)|Azure AD calculates the MOERA from Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.|
-|On-premises mailNickName attribute|This is an attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.|
-|On-premises mail attribute|This is an attribute in Active Directory, the value of which represents the email address of a user|
-|Primary SMTP Address|This is the primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.|
-|Alternate Login ID|This allows configuring source of Azure AD username to an on-premises attribute other than UserPrincipalName, such as mail attribute.|
+|On-premises mailNickName attribute|An attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.|
+|On-premises mail attribute|An attribute in Active Directory, the value of which represents the email address of a user|
+|Primary SMTP Address|The primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.|
+|Alternate Login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
 
 ## What is UserPrincipalName?
 UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
@@ -43,7 +43,7 @@ The attribute is synchronized by Azure AD Connect.  During installation you can 
 ## Alternate Login ID
 In some environments, due to corporate policy or on-premises line-of-business application dependencies, end users may only be aware of their email address and not their UPN.
 
-Alternate login ID allows you to configure a sign in experience where users can sign in with an attribute other than their UPN, such as mail.
+Alternate login ID allows you to configure a sign-in experience where users can sign in with an attribute other than their UPN, such as mail.
 
 To enable Alternate Login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate Login id.
 
@@ -52,7 +52,7 @@ To enable Alternate Login ID with Azure AD, no additional configurations steps a
 For more information see [Configure Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
 
 ## Non-verified UPN Suffix
-If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then Azure AD UserPrincipalName attribute value is set to MOERA. This means that Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
+If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is set to MOERA. Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
 
 ## Verified UPN Suffix
 If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is verified with the Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is going to be the same as the on-premises UserPrincipalName attribute/Alternate Login ID value.
@@ -72,7 +72,7 @@ When the updates to a user object are synchronized to the Azure AD Tenant, Azure
 >[!IMPORTANT]
 >Azure AD recalculates the UserPrincipalName attribute value only in case an update to the on-premises UserPrincipalName attribute/Alternate Login ID value is synchronized to the Azure AD Tenant. 
 >
->In addition to this, whenever Azure AD recalculates the UserPrincipalName attribute, it also recalculates the MOERA. 
+>Whenever Azure AD recalculates the UserPrincipalName attribute, it also recalculates the MOERA. 
 
 ## UPN scenarios
 The following are example scenarios of how the UPN is calculated based on the given scenario.
@@ -105,7 +105,7 @@ On-Premises user object:
 
 Synchronize update on on-premises mailNickName attribute to Azure AD Tenant
 - Update Azure AD MailNickName attribute with on-premises mailNickName attribute.
-- As there is no update on on-premises userPrincipalName attribute, there will be no change to Azure AD UserPrincipalName attribute.
+- Because there is no update to the on-premises userPrincipalName attribute, there is no change to the Azure AD UserPrincipalName attribute.
 
 Azure AD Tenant user object:
 - MailNickName		: us4
@@ -137,7 +137,7 @@ On-Premises user object:
 - userPrincipalName	: us5@contoso.com
 
 Synchronize update on on-premises mail attribute and primary SMTP address to Azure AD Tenant
-- After the initial synchronization of the user object, updates to on-premises mail attribute and primary SMTP address does not affect neither Azure AD MailNickName nor UserPrincipalName attribute.
+- After the initial synchronization of the user object, updates to the on-premises mail attribute and primary SMTP address will not affect either the Azure AD MailNickName nor UserPrincipalName attribute.
 
 Azure AD Tenant user object:
 - MailNickName		: us4
