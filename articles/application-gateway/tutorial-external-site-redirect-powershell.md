@@ -7,9 +7,7 @@ manager: timlt
 editor: tysonn
 
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
@@ -163,3 +161,6 @@ In this article, you learned how to:
 > * Set up the network
 > * Create a listener and redirection rule
 > * Create an application gateway
+
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with application gateway](./application-gateway-introduction.md)

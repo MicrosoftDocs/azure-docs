@@ -138,3 +138,6 @@ In this tutorial, you learned how to:
 > * Set up the network
 > * Create a listener and redirection rule
 > * Create an application gateway
+
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with application gateway](./application-gateway-introduction.md)
