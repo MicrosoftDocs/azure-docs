@@ -28,14 +28,6 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
-### Request access to Content Moderator private preview
-
-[Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
-
-   - Your Azure subscription ID
-   - Your Azure Media Services account name
-   - Your region
-
 ### Get Azure Active Directory credentials
 
    1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
@@ -369,8 +361,8 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 - **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
  
 > [!NOTE]
-> Location of a keyframe in seconds = timestamp/timescale
 
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -424,4 +416,10 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
+
+Add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to your video reviews.
+
+Check out the detailed tutorial on how to build a [complete video and transcript moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
