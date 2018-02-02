@@ -1,6 +1,7 @@
 1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. To install Mobility Service, run the following command:
