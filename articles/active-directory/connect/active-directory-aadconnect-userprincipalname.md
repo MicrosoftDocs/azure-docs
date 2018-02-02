@@ -3,7 +3,7 @@ title: Azure AD UserPrincipalName population
 description: 
 author: billmath
 ms.author: billmath
-ms.date: 01//2018
+ms.date: 02/02/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
