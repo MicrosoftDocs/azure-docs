@@ -112,25 +112,43 @@ Certificates are used by Azure to authenticate clients connecting to a VNet over
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a Point-to-Site VPN dynamically receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to.
 
-1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In the **Settings** section, click **Point-to-site configuration** to open the **Point-to-Site-Configuration** page.
+1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In the **Settings** section, click **Point-to-site configuration**.
 
-  ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. On the **Point-to-Site-Configuration** page, you can delete the auto-filled range, then add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
+  ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+2. Click **Configure now** to open the configuration page.
 
-  ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
+  ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
+
+  ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+## <a name="tunneltype"></a>8. Tunnel type
+
+You can select the tunnel type. The two tunnel options are SSTP and IKEv2. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The Strongswan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. Select the checkboxes that your solution requires.
+
+![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
+
+## <a name="authenticationtype"></a>9. Authentication type
+
+Select **Azure certificate**.
+
+  ![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authenticationtype.png)
 
 ## <a name="uploadfile"></a>7. Upload the root certificate public certificate data
 
-After the gateway has been created, you upload the public key information for the root certificate to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificates up to a total of 20.
+You can upload additional trusted root certificates up to a total of 20. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. Upload the public key information for the root certificate to Azure.
 
-1. Certificates are added on the **Point-to-site configuration** page in the **Root certificate** section.  
+1. Certificates are added on the **Point-to-site configuration** page in the **Root certificate** section.
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.
 3. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
-  ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
+  ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Paste the certificate data into the **Public Certificate Data** field. **Name** the certificate, and then click **Save**. You can add up to 20 trusted root certificates.
 
-  ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
+  ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+5. Click **Save** at the top of the page to save all of the configuration settings.
+
+  ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>8. Install an exported client certificate
 
