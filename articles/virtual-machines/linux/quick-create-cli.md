@@ -74,10 +74,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace *<publicIpAddress>* with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
+Use the following command to create an SSH session with the virtual machine. Make sure to replace **publicIpAddress** with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## Install NGINX
