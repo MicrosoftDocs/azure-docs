@@ -25,7 +25,7 @@ Configuring a large number of applications can quickly become unmanageable and i
 
 -	Simplify your administrative overhead
 -	Reduce the number of configuration errors
--	Enable your users to (securely?) access more resources (apps / applications?)
+-	Enable your users to securely access more resources
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
@@ -33,17 +33,28 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Prerequisites
 
-To use wildcards, you need to ensure the following: 
+To use wildcards, you need the following: 
 
-- You have configured [custom domains](active-directory-application-proxy-custom-domains.md). Creating custom domains requires you to create a verified domain within Azure and to upload an SSL certificate in a PFX formation to Application Proxy.
+- Custom domains
+- CNAME entry 
 
-    - You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications.
+### Custom domains
 
-    - For security reasons, this is a hard requirement and we will not support wildcards for applications that cannot use a custom domain for the external URL.
+You need to configure [custom domains](active-directory-application-proxy-custom-domains.md). Creating custom domains requires you to:
 
-- You have the correct CNAME entry in your DNS. When using custom domains, you need to create a DNS entry with a CNAME record pointing the external URL of the Application Proxy endpoint. For wildcard applications, the CNAME record needs to point the relevant external URLs to `<yourAADTenantId>.tenant.runtime.msappproxy.net`.
+1. Create a verified domain within Azure 
+2. Upload an SSL certificate in the PFX format to your application proxy.
 
-    - To confirm that this has been configured correctly, you can try using nslookup on one of the target endpoints, for example, `expenses.adventure-works.com` and you should see a response that includes the alias mentioned previously (`<Id.tenant>.runtime.msappproxy.net`).
+You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications.
+
+For security reasons, this is a hard requirement and we will not support wildcards for applications that cannot use a custom domain for the external URL.
+
+
+### CNAME entry
+
+You need to have the correct CNAME entry in your DNS. When using custom domains, you need to create a DNS entry with a CNAME record pointing the external URL of the Application Proxy endpoint. For wildcard applications, the CNAME record needs to point the relevant external URLs to `<yourAADTenantId>.tenant.runtime.msappproxy.net`.
+
+To confirm that this has been configured correctly, you can try using nslookup on one of the target endpoints, for example, `expenses.adventure-works.com` and you should see a response that includes the alias mentioned previously (`<Id.tenant>.runtime.msappproxy.net`).
 
 
 ## Publishing the Application 
