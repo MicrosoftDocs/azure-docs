@@ -1,6 +1,6 @@
 ---
 title: OS and runtime patching in Azure App Service | Microsoft Docs
-description: Describes the how Azure App Service updates OS and runtimes and how you can get update announcements
+description: Describes how Azure App Service updates the OS and runtimes, and how you can get update announcements.
 services: app-service
 documentationcenter: ''
 author: cephalin
