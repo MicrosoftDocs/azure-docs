@@ -37,7 +37,7 @@ For example, if you have some batch processing that happens once a day or once a
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
     
-* To scale your cluster through the [Azure Portal](https://portal.azure.com), open your HDInsight cluster blade, select **Scale cluster** on the left-hand menu, then on the Scale cluster blade, type in the number of worker nodes, and select Save.
+* To scale your cluster through the [Azure portal](https://portal.azure.com), open your HDInsight cluster pane, select **Scale cluster** on the left-hand menu, then on the Scale cluster pane, type in the number of worker nodes, and select Save.
 
     ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -45,11 +45,11 @@ Using any of these methods, you can scale your HDInsight cluster up or down with
 
 ## Scaling impacts on running jobs
 
-When you **add** nodes to your running HDInsight cluster, any pending or running jobs will not be impacted. In addition, new jobs can be safely submitted while the scaling process is running. If the scaling operations fails for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
+When you **add** nodes to your running HDInsight cluster, any pending or running jobs will not be impacted. In addition, new jobs can be safely submitted while the scaling process is running. If the scaling operations fail for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
 
-However, if you are scaling down your cluster by **removing** nodes, any pending or running jobs will fail when the scaling operation completes. This is due to some of the services restarting during the process.
+However, if you are scaling down your cluster by **removing** nodes, any pending or running jobs will fail when the scaling operation completes. This failure is due to some of the services restarting during the process.
 
-To address this, you can wait for the jobs to complete before scaling down your cluster, manually terminate the jobs, or simply resubmit the jobs after the scaling operation has concluded.
+To address this issue, you can wait for the jobs to complete before scaling down your cluster, manually terminate the jobs, or  resubmit the jobs after the scaling operation has concluded.
 
 To see a list of pending and running jobs, you can use the YARN ResourceManager UI, following these steps:
 
@@ -62,7 +62,7 @@ To see a list of pending and running jobs, you can use the YARN ResourceManager 
 
 You may directly access the ResourceManager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
-You  see a list of jobs, along with their current state. In the screenshot below, there is  one job currently running:
+You  see a list of jobs, along with their current state. In the screenshot, there is  one job currently running:
 
 ![ResourceManager UI applications](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
@@ -94,19 +94,19 @@ Region servers are automatically balanced within a few minutes after completion 
 
 ## Scale down implications
 
-As mentioned previously, any pending or running jobs will be terminated at the completion of a scaling down operation. However, there are other potential implications to scaling down that may occur.
+As mentioned previously, any pending or running jobs are terminated at the completion of a scaling down operation. However, there are other potential implications to scaling down that may occur.
 
 ## HDInsight name node stays in safe mode after scaling down
 
 ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-If you shrink your cluster down to the minimum of 1 worker node, as shown in the previous image, it is possible for HDFS to become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
+If you shrink your cluster down to the minimum of one worker node, as shown in the previous image,  HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
 
-The primary cause of this is that Hive uses a few `scratchdir` files, and by default expects 3 replicas of each block, but there is only 1 replica possible if you scale down to the minimum 1 worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
+The primary cause of this is that Hive uses a few `scratchdir` files, and by default expects three replicas of each block, but there is only one replica possible if you scale down to the minimum one worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
 
 When a scale down attempt happens, HDInsight relies upon the Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicates their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
 
-HDFS is configured with a `dfs.replication` setting of 3. Thus, the blocks of the scratch files are under-replicated whenever there are fewer than 3 worker nodes online, because there are not the expected 3 copies of each file block available.
+HDFS is configured with a `dfs.replication` setting of 3. Thus, the blocks of the scratch files are under-replicated whenever there are fewer than three worker nodes online, because there are not the expected three copies of each file block available.
 
 You can execute a command  to bring HDFS out of safe mode. For example, if you know that the only reason safe mode is on is because the temporary files are under-replicated, then you can safely leave safe mode. This is  because the under-replicated files are Hive temporary scratch files.
 
@@ -122,7 +122,7 @@ After leaving safe mode, you can manually remove the  temporary files, or wait f
 
 * H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
 
-* H020 Could not establish connecton to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001:
+* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001:
 org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
 
@@ -135,7 +135,7 @@ org.apache.thrift.transport.TTransportException: Could not create http connectio
 
 You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
-The root cause of the previous errors is that Hive depends on temporary files in HDFS while running queries. When HDFS enters safe mode, Hive cannot run queries because it cannot write to HDFS. The temp files in HDFS are located in the local drive mounted to the individual worker node VMs, and replicated amongst other worker nodes at 3 replicas, minumum.
+The root cause of the previous errors is that Hive depends on temporary files in HDFS while running queries. When HDFS enters safe mode, Hive cannot run queries because it cannot write to HDFS. The temp files in HDFS are located in the local drive mounted to the individual worker node VMs, and replicated amongst other worker nodes at three replicas, minimum.
 
 The `hive.exec.scratchdir` parameter in Hive is configured within `/etc/hive/conf/hive-site.xml`:
 
@@ -165,7 +165,7 @@ Next, you can view a report that shows the details of the HDFS state:
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -report
 ```
 
-This command will result in the following on a healthy cluster where all blocks are replicated to the expected degree:
+This command results in the following on a healthy cluster where all blocks are replicated to the expected degree:
 
 ![Safe mode off](./media/hdinsight-scaling-best-practices/report.png)
 
@@ -175,7 +175,7 @@ HDFS supports the `fsck` command to check for  inconsistencies with various file
 hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
 ```
 
-When executed on a healthy HDFS file system with no under-replicated blocks, you will see an output similar to the following:
+When executed on a healthy HDFS file system with no under-replicated blocks, you see an output similar to the following:
 
 ```
 Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
@@ -202,7 +202,7 @@ FSCK ended at Thu Jul 06 20:07:01 UTC 2017 in 3 milliseconds
 The filesystem under path '/tmp/hive/hive' is HEALTHY
 ```
 
-In contrast, when the `fsck` command is executed on an HDFS file system with some under-replicated blocks, the output will be similar to the following:
+In contrast, when the `fsck` command is executed on an HDFS file system with some under-replicated blocks, the output is similar to the following:
 
 ```
 Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
@@ -246,7 +246,7 @@ You can also view the HDFS status in Ambari UI by selecting the **HDFS** service
 
 ![Ambari HDFS status](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
 
-You may also see one or more critical errors on the active or standby NameNodes. Select the NameNode link next to the alert to view the NameNode Blocks Health.
+You may also see one or more critical errors on the active or standby NameNodes. To view the NameNode Blocks Health, select the NameNode link next to the alert.
 
 ![NameNode Blocks Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
@@ -263,18 +263,18 @@ hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 
 There are several ways to prevent HDInsight from being left in safe mode:
 
-* Stop all Hive jobs before scaling HDInsight down. Alternately, schedule the scale down process to avoid conflicting with running Hive jobs.
-* Manually clean up Hive's scratch Tmp directory files in HDFS before scaling down.
-* Only scale down HDInsight to 3 worker nodes, minimum. Avoid going as low as 1 worker node.
+* Stop all Hive jobs before scaling down HDInsight. Alternately, schedule the scale down process to avoid conflicting with running Hive jobs.
+* Manually clean up Hive's scratch `tmp` directory files in HDFS before scaling down.
+* Only scale down HDInsight to three worker nodes, minimum. Avoid going as low as one worker node.
 * Run the command to leave safe mode, if needed.
 
 The following sections describe these options.
 
 #### Stop all Hive jobs
 
-Stop all Hive jobs before scaling down to 1 worker node. If  your workload is scheduled, then execute your scale-down after Hive work is done.
+Stop all Hive jobs before scaling down to one worker node. If  your workload is scheduled, then execute your scale-down after Hive work is done.
 
-This will help minimize the number of scratch files in the tmp folder (if any).
+This helps minimize the number of scratch files in the tmp folder (if any).
 
 #### Manually clean up Hive's scratch files
 
@@ -310,7 +310,7 @@ If Hive has left behind temporary files, then you can manually clean up those fi
     
 #### Scale  HDInsight to three worker nodes
 
-If getting stuck in safe mode is a persistent problem, and the previous steps are not options, then you may want to avoid the problem by only scaling down to three worker nodes. This may not be optimal, due to cost constraints, compared to scaling down to one node. However, with only one worker node, HDFS cannot guarantee three replicas of the data will be made available to the cluster.
+If getting stuck in safe mode is a persistent problem, and the previous steps are not options, then you may want to avoid the problem by only scaling down to three worker nodes. This may not be optimal, due to cost constraints, compared to scaling down to one node. However, with only one worker node, HDFS cannot guarantee three replicas of the data are available to the cluster.
 
 #### Run the command to leave safe mode
 
