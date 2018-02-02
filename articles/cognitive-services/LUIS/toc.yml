@@ -71,6 +71,8 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
+  - name: Testing
+    href: luis-concept-test.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -117,6 +119,8 @@
     href: migration-v1-to-v2.md
 - name: Reference
   items: 
+  - name: Regions
+    href: luis-reference-regions.md
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
   - name: Prebuilt domain reference
