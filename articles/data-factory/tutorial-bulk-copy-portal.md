@@ -191,7 +191,7 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 5. Switch to the **Parameters** tab, and click **+ New**
 
     ![Source dataset connection page](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Enter **DWTableName** for the parameter name. 
+6. Enter **DWTableName** for the parameter name. If you copy/paste this name from the page, ensure that there is no **trailing space character** at the end of **DWTableName**. 
 7. In the **Parameterized properties** section, enter `@{dataset().DWTableName}` for **tableName** property. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
    
     ![Parameter name](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
