@@ -36,7 +36,7 @@ refer to the technical documentation for the [add utterance](https://westus.dev.
    [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/authoring-api-samples/python/add-utterances-3-6.py)]
 
 ## Specify utterances to add
-Create and edit the file `utterances.json` to specify the *array* of entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Create and edit the file `utterances.json` to specify the **array of utterances** you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
 > The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.
