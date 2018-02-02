@@ -93,17 +93,41 @@ I will now create the CNAME entry in my DNS to point *.adventure-works.com to 00
 
 Next, I will create a new Application Proxy application in my tenant, following the same steps outlined in the documentation. Note the wildcards in the Internal URL, External URL, and Internal Application SPN fields.
 
+![AppId](./media/active-directory-application-proxy-wildcard\02.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\03.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\04.png)
+
+
 By publishing this one wildcard application, I can now access any of my three applications by going to the URLs I’m used to (ex: travel.adventure-works.com).
 
 My application structure now looks like the following, where blue boxes are the applications explicitly published and visible in the Azure Portal, and gray applications are accessible through the parent application.
+
+![AppId](./media/active-directory-application-proxy-wildcard\05.png)
+
+
+
+
 
 ### Phase 2
 
 I have another application, finance.adventure-works.com, which should only be accessible by my Finance division. With the current application structure, my finance application would be accessible through the wildcard application, and thus by all employees. To prevent this, I will publish Finance as a separate application with more restrictive permissions.
 
+![AppId](./media/active-directory-application-proxy-wildcard\06.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\07.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\08.png)
+
+
+
 I also need to make sure my DNS is pointing finance.adventure-works.com to the application specific endpoint, specified in the Application Proxy blade of the application. In this case, I will be pointing finance.adventure-works.com to https://finance-awcycles.msappproxy.net/.
 
 Now my application structure looks like the following:
+
+![AppId](./media/active-directory-application-proxy-wildcard\09.png)
+
 
 Because finance.adventure-works.com is a more specific URL than *.adventure-works.com, it will take precedence. Any user reaching finance.adventure-works.com will thus have the experience specified in the Finance Resources application. In this case, only finance employees will be able to access finance.adventure-works.com.
 
@@ -113,7 +137,17 @@ If I had multiple applications published for finance and also had finance.advent
 
 In addition to these applications, I have several that don’t follow the *.adventure-works.com format, have different SSO methods, and/or don’t match a verified domain on my tenant. These can still be published separately using the same flow. In this case, I want to publish my website awcycleshome.com.
 
+![AppId](./media/active-directory-application-proxy-wildcard\10.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\11.png)
+
+![AppId](./media/active-directory-application-proxy-wildcard\12.png)
+
+
 Now my application structure is the following:
+
+
+![AppId](./media/active-directory-application-proxy-wildcard\13.png)
 
 ## Other Considerations
 
