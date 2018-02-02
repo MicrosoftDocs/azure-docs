@@ -58,61 +58,67 @@ Get-AzureRmStorageAccountKey `
    -AccountName "mystorageaccount" | Format-table
 ```
 
-Copy *key 1* where you can get to it easily to use in next set of steps.
+Copy *key 1* where you can get to it easily to use in next step.
+
+## Create a context
+
+Create the storage account context. The context encapsulates the storage account name and account key. 
+
+Replace `<storage-account-key>` with the key you copied in the previous step.
+
+```powershell
+
+$myContext = New-AzureStorageContext mystorageaccount <storage-account-key>
+```
 
 ## Create a file share
 
-Now you can create your first file share. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen.
+Now you can create your first file share. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 Create file shares using [az storage share create](/cli/azure/storage/share#create). This example creates a share named *myshare* with a 10 GiB quota. Be sure to enter your own storage account key in the last line.
 
-```azurecli-interactive
-az storage share create --name myshare \
-    --quota 10 \
-    --account-name mystorageaccount \
-    --account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q==
+```azurepowershell-interactive
+New-AzureStorageShare `
+   -Name myShare `
+   -Context $myContext
 ```
 
-## Create directory
+## Create a directory
 
-Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path myDirectory/mySubDirectory, you must first create directory myDirectory, then create mySubDirectory.
+Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path *myDirectory/mySubDirectory*, you must first create directory *myDirectory*, then create *mySubDirectory*.
 
-This example creates a directory named *myDirectory* in the file share called *myshare*.
+This example use the [New-AzureStorageDirectory]() to create a directory named *myDirectory* in the file share called *myshare*.
 
-```azurecli-interactive
-az storage directory create \
-   --account-name mystorageaccount \
-   --account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
-   --name myDirectory \
-   --share-name myshare
+
+```azurepowershell-interactive
+New-AzureStorageDirectory `
+   -Context myContext `
+   -Share myshare `
+   -Path myDirectory
 ```
 
 ## Upload a file
 
 You can upload a file from your local machine to your Azure file share. Because you will be working with local files, you cannot use Cloud Shell for this example.
 
-To upload a file,  use [az storage file upload](/cli/azure/storage/file#az_storage_file_upload). This example uploads a file from ~/temp/myfile.txt to *myDirectory* directory in the *myshare* file share. The **--source** argument specifies the existing local file to upload.
+To upload a file,  use [Set-AzureStorageFileContent](/powershell/module/Azure.Storage/Set-AzureStorageFileContent). This example uploads a file from C:\files\file.txt to *myDirectory* directory in the *myshare* file share. The **-source** parameter specifies the existing local file to upload.
 
-```azurecli
-az storage file upload     \
-    --account-name mystorageaccount \
-    --account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
-	--share-name myshare/myDirectory \
-	--source ~/temp/samplefile.txt
+```azurepowershell-interactive
+Set-AzureStorageFileContent `
+   -Context myContext `
+   -Share myShare `
+   -Source C:\files\files.txt `
+   -Path myShare
 ```
 
 
 ## List files
 
-To list the files and directories in a share, use [az storage file list](/cli/azure/storage/file#az_storage_file_list). This example lists the files in *myshare/myDirectory* and returns the name of the file that you uploaded.
+To list the files and directories in a share, use [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile). This example lists the files in *myshare/myDirectory* and returns the name of the file that you uploaded.
 
 
-```azurecli-interactive
-az storage file list \
-    --account-name mystorageaccount \
-	--account-key WaAD6NOz/BYR< snip - put your own key here >Wv1pWjGOG1Q== \
-	--share-name myshare/myDirectory \
-	--output table
+```azurepowershell-interactive
+Get-AzureStorageFile -Share myShare -Path myDirectory | Get-AzureStorageFile
 ```
 
 
