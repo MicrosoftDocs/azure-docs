@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
 
 ---
@@ -45,11 +45,11 @@ When you click **Compute** tile, you see three tabs:
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
 
 #### Monitoring recommendations
-This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. When you click this entry, the **Monitoring agent health issues** opens.
+This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. In this example there is one recommendation, **Monitoring agent health issues**.  Select this recommendation.
 
 ![Monitoring agent health issues](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. The **MONITORING STATE** defines the problem.
+**Monitoring agent health issues** opens. VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
 #### Recommendations
 This section has a set of [recommendations for each virtual machine and computer](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines and computers that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:

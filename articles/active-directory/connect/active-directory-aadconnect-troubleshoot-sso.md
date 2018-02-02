@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
 ---
 
@@ -23,6 +23,7 @@ This article helps you find troubleshooting information about common problems re
 ## Known problems
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
+- If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
 - Edge browser support is not available.
 - Starting Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users. Users must enter their usernames frequently, but not their passwords.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, SharePoint and OneDrive mapping scenarios don't work.
@@ -64,13 +65,15 @@ Browse to **Azure Active Directory** > **Sign-ins** in the [Azure Active Directo
 Use the following checklist to troubleshoot Seamless SSO problems:
 
 - Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
+- If you have enabled both [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
 - Ensure that both of these Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are part of the user's Intranet zone settings.
 - Ensure that the corporate device is joined to the Active Directory domain.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
 - Ensure that the device's time is synchronized with the time in both Active Directory and the domain controllers, and that they are within five minutes of each other.
-- List the existing Kerberos tickets on the device by using the `klist` command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You might have different settings in Active Directory.
+- List the existing Kerberos tickets on the device by using the `klist` command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 10 hours. You might have different settings in Active Directory.
+- If you disabled and re-enabled Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets have expired.
 - Purge existing Kerberos tickets from the device by using the `klist purge` command, and try again.
 - To determine if there are JavaScript-related problems, review the console logs of the browser (under **Developer Tools**).
 - Review the [domain controller logs](#domain-controller-logs).

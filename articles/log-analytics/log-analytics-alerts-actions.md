@@ -1,6 +1,6 @@
 ---
-title: Responses to alerts in OMS Log Analytics | Microsoft Docs
-description: Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes how to create an alert rule and details the different actions they can take.
+title: Responses to alerts in Azure Log Analytics | Microsoft Docs
+description: Alerts in Log Analytics identify important information in your Azure workspace and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes how to create an alert rule and details the different actions they can take.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -70,7 +70,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Start time for the query in UTC format. |
 | SearchQuery |#searchquery |Log search query used by the alert rule. |
 | SearchResults |See below |Records returned by the query in JSON format.  Limited to the first 5,000 records. |
-| WorkspaceID |#workspaceid |ID of your OMS workspace. |
+| WorkspaceID |#workspaceid |ID of your Log Analytics workspace. |
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
@@ -96,11 +96,11 @@ For example, to create a custom payload that includes just the alert name and th
     }
 
 
-You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in OMS Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
+You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
 
 
 ## Runbook actions
-Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your OMS workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
+Runbook actions start a runbook in Azure Automation.  In order to use this type of action, you must have the [Automation solution](log-analytics-add-solutions.md) installed and configured in your Log Analytics workspace.  You can select from the runbooks in the automation account that you configured in the Automation solution.
 
 Runbook actions require the properties in the following table.
 

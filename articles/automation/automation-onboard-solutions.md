@@ -10,11 +10,12 @@ editor:
 ms.assetid: edae1156-2dc7-4dab-9e5c-bf253d3971d0
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: eamono
+ms.custom: mvc
 
 ---
 

@@ -31,6 +31,9 @@ This example container group:
 * Consists of two containers. One container listens on port 80, while the other listens on port 5000.
 * Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
 
+> [!NOTE]
+> Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+
 ### Networking
 
 Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping is not supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports are not exposed externally on the group's IP address.
