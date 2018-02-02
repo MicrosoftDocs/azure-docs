@@ -138,7 +138,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 **Q**: How do I takeover a gateway? <br/>
-**A**: In order to takeover a gateway (by running Setup/Change in Control Panel > Programs) you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
+**A**: To takeover a gateway (by running Setup/Change in Control Panel > Programs), you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
 
@@ -152,7 +152,7 @@ When you install the gateway, specify the recovery key.
 ## <a name="troubleshooting"> </a>Troubleshooting
 
 **Q**: Why don't I see my gateway in the list of gateway instances when trying to create the gateway resource in Azure? <br/>
-**A**: There are two possible reasons. First is a resource is already created for the gateway in the current or some other subscription. To eliminate that possibility, enumerate resources of the type **On-premises Data Gateways** from the portal. Make sure to select all the subscriptions when enumerating all the resources. Note that once the resource is created, the gateway will not appear in the list of gateway instances in the Create Gateway Resource portal experience. The second possibility is that the Azure AD identity of the user who installed the gateway is different from the user signed in to Azure Portal. To resolve this, sign in to the portal using the same  account as the user who installed the gateway.
+**A**: There are two possible reasons. First is a resource is already created for the gateway in the current or some other subscription. To eliminate that possibility, enumerate resources of the type **On-premises Data Gateways** from the portal. Make sure to select all the subscriptions when enumerating all the resources. Once the resource is created, the gateway does not appear in the list of gateway instances in the Create Gateway Resource portal experience. The second possibility is that the Azure AD identity of the user who installed the gateway is different from the user signed in to Azure portal. To resolve, sign in to the portal using the same  account as the user who installed the gateway.
 
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
