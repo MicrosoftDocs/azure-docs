@@ -1,6 +1,6 @@
 ---
 title: StorSimple Support terms | Microsoft Docs
-description: Describes support options for StorSimple enterprise storage customers. 
+description: Describes support options for StorSimple 8000 series enterprise storage customers. 
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -21,13 +21,13 @@ ms.author: alkohli
 
 ## **StorSimple support**
 
-Microsoft offers flexible support options for our StorSimple enterprise storage customers. We are deeply committed to delivering a high-quality support experience that allows you to maximize the impact of your investment in the StorSimple solution and Microsoft Azure. As a StorSimple customer, you receive:
+Microsoft offers flexible support options for StorSimple enterprise storage customers. We are deeply committed to delivering a high-quality support experience that allows you to maximize the impact of your investment in the StorSimple solution and Microsoft Azure. As a StorSimple customer, you receive:
 
 * 24x7 ability to submit support tickets through the Azure portal.
 * Help desk access for general support queries and deep technical assistance.
 * Local language support where available.
 * Alert provisioning and management for health and performance insights.
-* Access to software updates covering major, minor and maintenance fixes.
+* Access to software updates covering major, minor, and maintenance fixes.
 * Support for StorSimple 8000 Series Storage Arrays and StorSimple Virtual Arrays in a single package.
 
 ## **StorSimple support plans**
@@ -85,7 +85,7 @@ To expedite hardware warranty claims, replacement parts will be shipped to the c
 ## **Local language support**
 In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
 ## **Support scope** 
-Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure related issues that are not directly related to StorSimple, customer will need to be enrolled in an appropriate Azure support plan. Please refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team will refer non-StorSimple support cases to the Azure team for follow-up based on customer entitlements for Azure support. 
+Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer will need to be enrolled in an appropriate Azure support plan. Please refer [here](https://azure.microsoft.com/en-us/support/plans/) for details. The support team will refer non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 
 
 ##
 | **SEVERITY** |**CUSTOMER'S SITUATION**                                                                                                                                | EXPECTED MICROSOFT RESPONSE <sup>2                                                                                       | EXPECTED CUSTOMER RESPONSE                                                                                                                                                       |
@@ -99,12 +99,12 @@ Support for billing and subscription management-related issues is available at a
 <sup>2</sup> Expected response times are based on 24x7 support in English for Severity A and local business hours for Severity B and C, and local business hours support in the remaining local languages: Japanese, Taiwanese, Traditional Chinese, and Korean.
 
 ## **Cancellation policy**
-In order to receive StorSimple support, customer must purchase Standard or Premium support plans for the duration of the subscription term. Cancellation will not result in a prorated refund. StorSimple support plans are reduction eligible at EA anniversary. However, Microsoft will be unable to provide support to StorSimple customers without valid support contracts.
+In order to receive StorSimple support, customer must purchase Standard or Premium support plans for the duration of the subscription term. Cancellation does not result in a prorated refund. StorSimple support plans are reduction eligible at EA anniversary. However, Microsoft will be unable to provide support to StorSimple customers without valid support contracts.
 
 ## **Renewal policy**
 
 
-Upon the purchase of StorSimple 8000 Series Storage Arrays, support is provided through the next EA anniversary. Customer must renew StorSimple support at EA anniversary. StorSimple support plan orders are co-terminous. Customers will be notified via e-mail about impending support expiry for StorSimple 8000 Series Storage Arrays and are expected to follow-up with the Microsoft account/sales teams or their Microsoft Licensing Solution Partner (LSP) to renew StorSimple support.
+Upon the purchase of StorSimple 8000 Series Storage Arrays, support is provided through the next EA anniversary. Customer must renew StorSimple support at EA anniversary. StorSimple support plan orders are co-terminous. Customers will be notified via e-mail about impending support expiry for StorSimple 8000 Series Storage Arrays and are expected to follow up with the Microsoft account/sales teams or their Microsoft Licensing Solution Partner (LSP) to renew StorSimple support.
 
 ##
 
