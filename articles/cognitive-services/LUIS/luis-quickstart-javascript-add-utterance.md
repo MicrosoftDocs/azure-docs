@@ -36,7 +36,7 @@ Create `add-utterances.html` and add the following code:
 
 2. Add your LUIS programmatic ID, your LUIS application ID, and change the version if it is not `0.1`
 
-3. Modify the utterances to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
+3. Modify the *array* of utterances to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
     ```json
     // example batch utterances

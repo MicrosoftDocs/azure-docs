@@ -60,7 +60,7 @@ To manage arguments, add the main code.
    [!code-ruby[Main code](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=77-93 "Main code")]
 
 ## Specify utterances to add
-Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Create and edit the file `utterances.json` to specify the *array* of entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
 > The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.rb`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.

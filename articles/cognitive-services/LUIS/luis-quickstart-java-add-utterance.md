@@ -71,7 +71,7 @@ Add the main function.
 
 
 ## Specify utterances to add
-Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Create and edit the file `utterances.json` to specify the *array* of entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
 > The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `AddUtterances.java`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities.
