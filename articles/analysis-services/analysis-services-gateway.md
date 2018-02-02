@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
 
 ---
@@ -25,11 +25,11 @@ Getting setup with the gateway the first time is a four-part process:
 
 - **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource **must be registered in the same region** as your Analysis Services servers. 
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources to it, provided they're in the region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources to it.
 
 To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
