@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/02/2018
 ms.author: ergreenl
 
 ---
@@ -40,17 +40,30 @@ Statuses of a managed domain:
 | Running | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
 | Needs attention (Warning) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
 | Needs attention (Critical) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
-| Deploying | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Your domain is in the process of being deployed.  |
+| Deploying | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
 
 ## Monitors
-Monitors detail certain aspects about your managed domain that Azure AD Domain Services supervises.
 
-Currently, we monitor how often your managed domain is backed up. In the details column. you can see the time your managed domain was last backed up.
+Monitors detail certain aspects about your managed domain that Azure AD Domain Services supervises. The best way to keep your monitors in a healthy state is to resolve any alerts on your managed domain.
 
-> [!NOTE]
-> If you have recently created your domain, the details column for your Backup monitor will read "Never backed up". This is normal for new domains and should be updated as soon as backups are created.
->
+The monitors available are:
+ - Backup
+ - Synchronization with AAD
 
+### Backup
+
+This monitors how often we take backups of your managed domain. Following is a table that explains the details column of the backup monitor and what values should be expected.
+
+| Detail value | Explanation |
+| --- | --- |
+|"Never backed up" | This is normal for a newly created domain. The first backup is usually created after 24 hours. If your managed domain is not newly created or you are in this state for an abnormal amount of time, please [contact support](active-directory-ds-contact-us.md). |
+| Last backup was taken 1 to 14 days ago | In general, this is the expected value of the backup monitor. |
+| Last backup was taken more than 14 days ago. | This is an unusually long time since your last backup. First, resolve any alerts that appear on your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
+
+
+### Synchronization with AAD
+
+Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than 3 days since your last synchronization,
 
 ## Alerts
 
