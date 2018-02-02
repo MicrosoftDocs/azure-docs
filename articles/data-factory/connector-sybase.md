@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 
 ---
@@ -32,7 +32,7 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- Sybase **version 16 and above**.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
 - Copying data using **Basic** or **Windows** authentication.
 
 ## Prerequisites
