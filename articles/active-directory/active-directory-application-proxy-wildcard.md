@@ -52,28 +52,45 @@ For security reasons, this is a hard requirement and we will not support wildcar
 
 ### CNAME entry
 
-You need to have the correct CNAME entry in your DNS. When using custom domains, you need to create a DNS entry with a CNAME record pointing the external URL of the Application Proxy endpoint. For wildcard applications, the CNAME record needs to point the relevant external URLs to `<yourAADTenantId>.tenant.runtime.msappproxy.net`.
+When using custom domains, you need to create a DNS entry with a CNAME record pointing the external URL of the application proxy endpoint. For wildcard applications, the CNAME record needs to point to the relevant external URLs:
 
-To confirm that this has been configured correctly, you can try using nslookup on one of the target endpoints, for example, `expenses.adventure-works.com` and you should see a response that includes the alias mentioned previously (`<Id.tenant>.runtime.msappproxy.net`).
+> `<yourAADTenantId>.tenant.runtime.msappproxy.net`
+
+To confirm that you have configured your CNAME correctly, you can use [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<Id.tenant>.runtime.msappproxy.net`).
 
 
 ## Publishing the Application 
 
-Creating a wildcard application uses the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only difference is in the URLs and potentially SSO configurations.
+Creating a wildcard application is based on the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only difference is in the URLs and potentially in the SSO configuration.
 
-You can publish applications with wildcards if both the internal and external URLs are in the format *http(s)://*.domain*, for example, `http(s)://*.adventure-works.com`. The internal and external URLs must both have a wildcard, otherwise you see an error.
+You can publish applications with wildcards if both, the internal and external URLs are in the following format:
 
-Please note that:
+> http(s)://*.\<domain\>
 
-- All wildcard applications must have the same configurations – including users and the SSO method. Any exceptions must be published as separate applications to override the defaults set for the wildcard.
+For example: `http(s)://*.adventure-works.com`. 
 
-- For applications using a KCD as the SSO method, the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: HTTP/*.adventure-works.com. You will still need to have the individual SPNs configured on your backend servers (ex: HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com)
+The internal and external URLs must both have a wildcard, otherwise you see an error.
 
-## Other Considerations
+**Remarks**:
+
+- All wildcard applications must have the same configurations – including users and the SSO method. You must publish exceptions as separate applications to overwrite the defaults set for the wildcard.
+
+- For applications using a [KCD as the SSO method](active-directory-application-proxy-sso-using-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+
+## Considerations
 
 ### Accepted formats
 
-The only acceptable external URL format is to have a wildcard (*) in the empty text box, and a custom domain. The internal URL must similarly be formatted as `http(s)://*.domain`. Other positions for the wildcard, multiple wildcards, or other regexs are not supported and are causing errors.
+Your **Internal URL** must be formatted as `http(s)://*.<domain>`. 
+
+![AppId](./media/active-directory-application-proxy-wildcard\22.png)
+
+
+When you configure an **External URL**, you must use the following format: `https://<wildcard>.<custom domain>` 
+
+![AppId](./media/active-directory-application-proxy-wildcard\21.png)
+
+Other positions of the wildcard, multiple wildcards, or other regex strings are not supported and are causing errors.
 
 ### Setting the homepage URL for the MyApps panel
 
@@ -84,11 +101,11 @@ The wildcard application is represented with just one tile in the [MyApps panel]
 
 ### Excluding applications from the wildcard
 
-You can exclude applications from the wildcard application is to publish them as a separate application, as explained in phase #2 above. It is best practice to publish the exceptions before the wildcard application, to ensure that your exceptions are enforced from the beginning.
+To exclude applications from the wildcard application, you need to to publish them as a separate application. As a best practice, you should publish the excluded applications before the wildcard application to ensure that your exceptions are enforced from the beginning.
 
-You can also limit the wildcard to only work for specific applications through your DNS management. We recommend creating a CNAME entry that includes a wildcard and matches the format of the external URL you have configured. However, you can instead point specific application URLs to the wildcards. For example, instead of *.adventure-works.com, point hr.adventure-works.com, expenses.adventure-works.com and travel.adventure-works.com individually to 000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net. 
+You can also limit the wildcard to only work for specific applications through your DNS management. As a best practice, you should create a CNAME entry that includes a wildcard and matches the format of the external URL you have configured. However, you can also point specific application URLs to the wildcards. For example, instead of `*.adventure-works.com`, point `hr.adventure-works.com`, `expenses.adventure-works.com` and `travel.adventure-works.com individually` to `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
 
-If you use this option, you also need another CNAME entry for the value AppId.domain, for example, 00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com, also pointing to the same location. You can find the AppId on the application properties page:
+If you use this option, you also need another CNAME entry for the value `AppId.domain`, for example, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, also pointing to the same location. You can find the **AppId** on the application properties page:
 
 ![AppId](./media/active-directory-application-proxy-wildcard\01.png)
 
