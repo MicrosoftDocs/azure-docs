@@ -9,7 +9,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > 
 > 
 > [!WARNIG]
-> Resizing Azure Machine will cause the machine to restart
+> Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
 >
 
 ## Resize the OS drive
