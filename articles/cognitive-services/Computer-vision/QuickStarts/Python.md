@@ -7,7 +7,7 @@ manager: ytkuo
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 02/02/2018
 ms.author: juliakuz
 ---
 
@@ -15,7 +15,7 @@ ms.author: juliakuz
 
 This article provides information and code samples to help you quickly get started using the Computer Vision API with Python to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage)
-* [Use a Domain-Specific Model](#DomainSpecificModel)
+* [Use a domain-specific Model](#DomainSpecificModel)
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract printed text from an image](#OCR)
 * [Detect and extract handwritten text from an image](#RecognizeText)
@@ -28,7 +28,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 
-## Analyze an Image With Computer Vision API Using Python 
+## Analyze an image with Computer Vision API using Python 
 <a name="AnalyzeImage"> </a>
 
 With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
@@ -40,7 +40,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * Does the image contain adult or sexually suggestive content?
 
-### Analyze an Image Python Example Request
+### Analyze an image 
 To begin analyzing images, replace `subscription_key` with a valid API key that you obtained earlier.
 
 
@@ -111,9 +111,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+## Use a domain-specific model <a name="DomainSpecificModel"> </a>
 
-The [Domain-Specific Model](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd)  is a model trained to identify a specific set of objects in an image.  The two domain-specific models that are currently available are _celebrities_ and _landmarks_. 
+A [domain-specific model](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd)  is a model trained to identify a specific set of objects in an image.  The two domain-specific models that are currently available are _celebrities_ and _landmarks_. 
 
 To view the list of domain-specific models supported, you can make the following request against the service.
 
@@ -242,7 +242,7 @@ plt.text(origin[0], origin[1], celebrity_name, fontsize=20, weight="bold", va="b
 _ = plt.axis("off")
 ```
 
-## Get a Thumbnail with Computer Vision API
+## Get a thumbnail with Computer Vision API
 <a name="GetThumbnail"> </a>
 
 Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
@@ -285,7 +285,7 @@ print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 thumbnail
 ```
 
-## Optical Character Recognition (OCR) with Computer Vision API <a name="OCR"> </a>
+## Optical character recognition (OCR) with Computer Vision API <a name="OCR"> </a>
 
 Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -453,7 +453,7 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## Analyze an Image Stored on Disk
+## Analyze an image stored on disk
 The Computer Vision REST APIs don't just accept URLs to publically accessible images. They can also be provided the image to be analyzed as part of the HTTP body. For mode details of this feature, see the documentation [here](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa). 
 
 The code in this section uses this feature to analyze a sample image on disk. The primary difference between passing in an image URL vs. image data is that the header to the request must contain an entry of the form:
@@ -462,7 +462,7 @@ The code in this section uses this feature to analyze a sample image on disk. Th
 ```
 and the binary image data must be passed in via the `data` parameter to `requests.post` as opposed to the `json` parameter.
 
-First, download a sample image from the [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) page to the local file system and make `image_path` point to it.
+First, download a sample image from the [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) page to the local file system and make `image_path` point to it.
 
 
 ```bash
