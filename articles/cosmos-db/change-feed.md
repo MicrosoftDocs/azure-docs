@@ -176,6 +176,7 @@ The left client was started first and it started monitoring all the partitions, 
 
 Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
+<a id="understand-cf"></a>
 ### Understanding the Change Feed Processor library
 
 There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
