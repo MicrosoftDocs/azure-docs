@@ -1,6 +1,6 @@
 ---
 title: Azure AD UserPrincipalName population
-description: 
+description: The following document describes how the UserPrincipalName attribute is populated.  
 author: billmath
 ms.author: billmath
 ms.date: 02/02/2018
@@ -25,12 +25,12 @@ The following terminology is used in this article:
 |On-premises mailNickName attribute|An attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.|
 |On-premises mail attribute|An attribute in Active Directory, the value of which represents the email address of a user|
 |Primary SMTP Address|The primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.|
-|Alternate Login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
+|Alternate login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
 
 ## What is UserPrincipalName?
 UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
-### UPN Format
+### UPN format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "@" symbol. For example, "someone@example.com". A UPN must be unique among all security principal objects within a directory forest. 
 
 ## UPN in Azure AD 
@@ -40,24 +40,24 @@ The attribute is synchronized by Azure AD Connect.  During installation you can 
 
    ![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
 
-## Alternate Login ID
+## Alternate login ID
 In some environments, due to corporate policy or on-premises line-of-business application dependencies, end users may only be aware of their email address and not their UPN.
 
 Alternate login ID allows you to configure a sign-in experience where users can sign in with an attribute other than their UPN, such as mail.
 
-To enable Alternate Login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate Login id.
+To enable Alternate login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate login ID.
 
 ![Unverified domains](./media/active-directory-aadconnect-userprincipalname/altloginid.png)  
 
-For more information see [Configure Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
+For more information see [Configure Alternate login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)
 
 ## Non-verified UPN Suffix
-If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is not verified with Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is set to MOERA. Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
+If the on-premises UserPrincipalName attribute/Alternate login ID suffix is not verified with Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is set to MOERA. Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
 
-## Verified UPN Suffix
-If the on-premises UserPrincipalName attribute/Alternate Login ID suffix is verified with the Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is going to be the same as the on-premises UserPrincipalName attribute/Alternate Login ID value.
+## Verified UPN suffix
+If the on-premises UserPrincipalName attribute/Alternate login ID suffix is verified with the Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is going to be the same as the on-premises UserPrincipalName attribute/Alternate login ID value.
 
-## Azure AD MailNickName Attribute Value Calculation
+## Azure AD MailNickName attribute value calculation
 Because the Azure AD UserPrincipalName attribute value could be set to MOERA, it is important to understand how the Azure AD MailNickName attribute value, which is the MOERA prefix, is calculated.
 
 When a user object is synchronized to an Azure AD Tenant for the first time, Azure AD checks the following in the given order and sets the MailNickName attribute value to the first existing one:
@@ -65,19 +65,19 @@ When a user object is synchronized to an Azure AD Tenant for the first time, Azu
 - On-premises mailNickName attribute
 - Prefix of on-premises mail attribute
 - Prefix of primary SMTP address
-- Prefix of on-premises userPrincipalName attribute/Alternate Login ID
+- Prefix of on-premises userPrincipalName attribute/Alternate login ID
 
 When the updates to a user object are synchronized to the Azure AD Tenant, Azure AD updates the MailNickName attribute value only in case there is an update to the on-premises mailNickName attribute value.
 
 >[!IMPORTANT]
->Azure AD recalculates the UserPrincipalName attribute value only in case an update to the on-premises UserPrincipalName attribute/Alternate Login ID value is synchronized to the Azure AD Tenant. 
+>Azure AD recalculates the UserPrincipalName attribute value only in case an update to the on-premises UserPrincipalName attribute/Alternate login ID value is synchronized to the Azure AD Tenant. 
 >
 >Whenever Azure AD recalculates the UserPrincipalName attribute, it also recalculates the MOERA. 
 
 ## UPN scenarios
 The following are example scenarios of how the UPN is calculated based on the given scenario.
 
-### Scenario 1: Non-Verified UPN Suffix – Initial Synchronization
+### Scenario 1: Non-verified UPN suffix – initial synchronization
 
 On-Premises user object:
 - mailNickName		: &lt;not set&gt;
@@ -95,7 +95,7 @@ Azure AD Tenant user object:
 - UserPrincipalName	: us1@contoso.onmicrosoft.com
 
 
-### Scenario 2: Non-Verified UPN Suffix – Set On-Premises mailNickName Attribute
+### Scenario 2: Non-verified UPN suffix – set on-premises mailNickName attribute
 
 On-Premises user object:
 - mailNickName		: us4
@@ -111,7 +111,7 @@ Azure AD Tenant user object:
 - MailNickName		: us4
 - UserPrincipalName	: us1@contoso.onmicrosoft.com
 
-### Scenario 3: Non-Verified UPN Suffix – Update On-Premises userPrincipalName Attribute
+### Scenario 3: Non-verified UPN suffix – update on-premises userPrincipalName attribute
 
 On-Premises user object:
 - mailNickName		: us4
@@ -128,7 +128,7 @@ Azure AD Tenant user object:
 - MailNickName		: us4
 - UserPrincipalName	: us4@contoso.onmicrosoft.com
 
-### Scenario 4: Non-verified UPN Suffix – Update On-Premises mail attribute and Primary SMTP Address
+### Scenario 4: Non-verified UPN suffix – update on-premises mail attribute and primary SMTP address
 
 On-Premises user object:
 - mailNickName		: us4
@@ -143,7 +143,7 @@ Azure AD Tenant user object:
 - MailNickName		: us4
 - UserPrincipalName	: us4@contoso.onmicrosoft.com
 
-### Scenario 5: Verified UPN Suffix – Update On-Premises userPrincipalName Attribute Suffix
+### Scenario 5: Verified UPN suffix – update on-premises userPrincipalName attribute suffix
 
 On-Premises user object:
 - mailNickName		: us4
@@ -158,3 +158,7 @@ Synchronize update on on-premises userPrincipalName attribute to the Azure AD Te
 Azure AD Tenant user object:
 - MailNickName		: us4	  
 - UserPrincipalName	: us5@verified.contoso.com
+
+## Next Steps
+- [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md)
+- [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
