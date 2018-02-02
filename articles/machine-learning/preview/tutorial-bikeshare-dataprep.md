@@ -34,7 +34,7 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 * An [HDInsights Spark cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) needs to be created in Azure.
 * An Azure Storage Account.
 * Familiarity with creating a new project in the Workbench.
-* Although it is not required, it is helpful to have [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) installed so you can upload, download, and view the blobs in your storage account. 
+* Although it is not required, it is helpful to have [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed so you can upload, download, and view the blobs in your storage account. 
 
 ## Data acquisition
 This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) and Boston weather data from [NOAA](http://www.noaa.gov/).
