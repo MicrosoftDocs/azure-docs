@@ -1,5 +1,5 @@
 ---
-title: Train and test your LUIS app | Microsoft Docs
+title: Train and test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: DeniseMak
@@ -8,24 +8,18 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: v-demak
+ms.date: 02/02/2017
+ms.author: v-demak;v-geberr;
 ---
 
 # Train and test your LUIS app
 
-Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. 
+Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. You train your LUIS app after you make updates by adding, editing, labeling, or deleting entities, intents, or utterances. 
 
-Training and testing an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
+<!--
+When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
 
-Typically, before retraining, you should [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel by using the following procedures:
- 
-  * **Use interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
-  * **Review endpoint utterances in LUIS.ai**: LUIS identifies the [utterances](./Label-Suggested-Utterances.md) to relabel for you.
-  * **Review endpoint utterances from log**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
-  
-
-In addition to relabeling utterances, you can also add new utterances, edit the intent or entity types, and [add features](./Add-Features.md) to your LUIS app to improve performance. 
+Training and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 ## Train your app
 To start the iterative process of training, you first need to train your LUIS app at least once. 
@@ -45,31 +39,39 @@ To start the iterative process of training, you first need to train your LUIS ap
 >[!NOTE]
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
 
-## Test your app
-[LUIS.ai](http://www.luis.ai) provides two types of testing: interactive testing and batch testing.
+<!-- anchors for H2 name changes -->
+<a name="test-your-app"></a>
+<a name="access-the-test-page"></a>
+## Test an utterance
 
-## Access the test page
-
-1. Access your app  by selecting its name on the **My Apps** page. 
-2. Select **Test** in your application's top panel to access the **Test** slide-out page.
+1. Access your app by selecting its name on the **My Apps** page. 
+2. Select **Test** in your application's top panel to access the **Test** slide-out panel.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
+3. Enter an utterance in the text box and select **Enter**.
+4. The utterance and its top intent and score are added to the list of utterances under the text box. 
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
-## Interactive testing
-With interactive testing, you can test both the current and published versions of your app and compare their results in one screen. 
+## Inspect score
+You inspect details of the test result in the **Inspect** panel. 
  
-The **Test** slide-out page displays a single test section by default. The second panel is the **Inspection panel**.
+1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-![Train & Test App page](./media/luis-how-to-train-test/test-3-panel.png)
+    ![Inspect button](./media/luis-how-to-train-test/inspect.png)
 
-* In the **Test panel**, you type the test utterance in the text box, select Enter to submit it to your LUIS app, and then view the LUIS model results. 
+2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. 
 
-* In the **Inspection panel**, you  inspect the LUIS results, change the top scoring intent, and then compare to the published model. The top identified entity is also shown.
+    ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
 
->[!NOTE]
->You can compare the trained but unpublished model against the published model. Be aware that any testing against the published model is deducted from your Azure subscription quota balance. 
+## Compare with published version
+You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
-In an interactive test, you submit individual test utterances and view the LUIS score for each utterance separately. 
+![Compare with published](./media/luis-how-to-train-test/inspect-panel-compare.png)
+
+## View endpoint JSON in test panel
+You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view**.
+
+![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
 >[!TIP]
 >To close the **Test** panel, select the **Test** button again.
