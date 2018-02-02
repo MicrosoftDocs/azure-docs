@@ -41,6 +41,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
+    - name: Python with PostgreSQL
+      href: app-service-web-tutorial-python-postgresql.md
   - name: 1 - Create RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
@@ -73,6 +75,8 @@
     href: app-service-local-cache-overview.md
   - name: Diagnostics
     href: app-service-diagnostics.md
+  - name: OS and runtime patching in Azure App Service
+    href: app-service-patch-os-runtime.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -162,7 +166,7 @@
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
-      href: app-service-move-resources.md
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
   - name: Run background tasks
     items:
     - name: Create WebJobs

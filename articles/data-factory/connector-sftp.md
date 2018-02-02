@@ -68,7 +68,9 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -109,7 +111,9 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -136,7 +140,9 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -181,7 +187,9 @@ To copy data from SFTP, set the type property of the dataset to **FileShare**. T
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SFTPDataset",
+    "type": "Datasets",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{

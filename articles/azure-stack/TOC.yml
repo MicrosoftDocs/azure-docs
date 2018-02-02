@@ -67,8 +67,6 @@
       href: azure-stack-integrate-monitor.md
     - name : Security integration
       href: azure-stack-integrate-security.md
-    - name: Datacenter integration checklist
-      href: azure-stack-integration-checklist.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts

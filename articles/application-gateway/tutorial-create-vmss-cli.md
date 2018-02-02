@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create). 
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#az_group_create). 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -64,7 +64,7 @@ az network public-ip create \
 
 ## Create an application gateway
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
+You can use [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -112,17 +112,6 @@ az vmss create \
 
 ### Install NGINX
 
-You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Run this command in the shell window:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -130,7 +119,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Test the application gateway

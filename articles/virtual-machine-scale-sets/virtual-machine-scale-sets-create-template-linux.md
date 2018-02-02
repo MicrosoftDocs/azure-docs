@@ -133,7 +133,7 @@ You can deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-
 
 [![Deploy template to Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-You can also use the Azure CLI 2.0 to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment#create) as follows:
+You can also use the Azure CLI 2.0 to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) as follows:
 
 ```azurecli-interactive
 # Create a resource group
@@ -149,7 +149,7 @@ Answer the prompts to provide a scale set name, instance count, and admin creden
 
 
 ## Test your sample application
-To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
+To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -163,7 +163,7 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#delete) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
