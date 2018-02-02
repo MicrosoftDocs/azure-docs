@@ -1,6 +1,6 @@
 ---
-title: Soft delete for Azure Storage blobs | Microsoft Docs
-description: Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
+title: Soft delete for Azure Storage blobs (public preview) | Microsoft Docs
+description: Azure Storage now offers soft delete (public preview) for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
 documentationcenter: ''
 author: MichaelHauss
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/02/2018
 ms.author: mihauss
 ---
-# Soft delete for Azure Storage blobs
+# Soft delete for Azure Storage blobs (public preview)
 
 ## Overview
 
-Azure Storage now offers soft delete for blob objects so that you can more
+Azure Storage now offers soft delete (public preview) for blob objects so that you can more
 easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
 
@@ -50,7 +50,7 @@ applications to take advantage of the protections this feature affords. However,
 [data recovery](#recovery) requires you to learn a few new tricks.
 
 > [!NOTE]
-> Calling Set Blob Tier on a blob with snapshots is currently disallowed.
+> During Public Preview, calling Set Blob Tier on a blob with snapshots is disallowed.
 Soft delete generates snapshots to protect your data when it is overwritten. We
 are actively working on a solution to enable tiering of blobs with snapshots.
 
@@ -224,6 +224,8 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
+See the [Next steps](#Next steps) section for a pointer to the application that produced this output.
+
 ## Pricing and billing
 
 All soft deleted data is billed at the same rate as active data. You will not be
@@ -244,33 +246,6 @@ When you initially turn on soft delete, we recommend using a small retention
 period to better understand how the feature will affect your bill.
 
 ## Quick Start
-
-### PowerShell
-
-To enable soft delete, set the storage service delete retention policy:
-
-```bash
-# Specify account information
-$StorageAccountName = “<enter your storage account name>”
-$StorageAccountKey = “<enter your storage account access key>”
-
-# Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-# Turn on soft delete
-Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7 -context $ctx
-```
-
-To recover blobs that were accidentally deleted, call Undelete on those blobs.
-Remember that calling Undelete Blob, both on active and soft deleted blobs, will
-restore all associated soft deleted snapshots as active. The following example
-calls Undelete on all soft deleted and active blobs in a container:
-
-```bash
-# Get a reference to and undelete all blobs in a container
-$b = Get-AzureStorageBlob -Container “<enter your container name>” -Context $ctx -IncludeDeleted
-$b.ICloudBlob.Undelete()
-```
 
 ### Python Client Library
 
@@ -417,6 +392,8 @@ or greater. In general, we always recommend using the latest version
 regardless of whether you are using this feature.
 
 ## Next steps
+
+[.NET Sample Code](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 
 [Blob Service REST
 API](/rest/api/storageservices/fileservices/blob-service-rest-api)
