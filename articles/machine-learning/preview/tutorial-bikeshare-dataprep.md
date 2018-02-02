@@ -62,7 +62,7 @@ You can use blob storage to host your data files.
 
 2. Create a new container named '**data-files**' to store the BikeShare data files.
 
-4. Upload the data files. Upload the `BostonWeather.csv` to a folder named `weather`, and the trip data files to a folder named `tripdata`.
+3. Upload the data files. Upload the `BostonWeather.csv` to a folder named `weather`, and the trip data files to a folder named `tripdata`.
 
 ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
