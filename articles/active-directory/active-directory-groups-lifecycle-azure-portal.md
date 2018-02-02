@@ -1,6 +1,6 @@
 ﻿---
 title: Expiration for Office 365 groups in Azure Active Directory | Microsoft Docs
-description: How to set up expiration for Office 365 groups in Azure Active Directory (preview)
+description: How to set up expiration for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 02/02/2018
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 
 ---
 
-# Configure expiration for Office 365 groups (preview)
+# Configure expiration for Office 365 groups
 
 You can now manage the lifecycle of Office 365 groups by setting expiration features for them. You can set expiration for only Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
 -	Owners of the group are notified to renew the group as the expiration nears
