@@ -71,6 +71,8 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
+  - name: Testing
+    href: luis-concept-test.md
 - name: How-to guides
   items: 
   - name: Plan your app
