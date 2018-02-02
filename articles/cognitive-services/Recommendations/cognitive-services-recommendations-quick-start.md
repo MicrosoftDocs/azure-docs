@@ -63,7 +63,7 @@ In this task, sign up for the Recommendations API service, and create a recommen
    the resource provider today is only supported from United States data centers.
 10. Once you are done with any selections, click **Create**.
 11. Wait a few minutes for the resource to be deployed.
-    Once it is deployed, you can go to the **Keys** section in the **Settings** blade where you are provided a primary and secondary key to use the API.  Copy the primary key; it's required when creating your first model.
+    Once it is deployed, you can go to the **Keys** section in the **Settings** page where you are provided a primary and secondary key to use the API.  Copy the primary key; it's required when creating your first model.
 
 <a name="Ex1Task2"></a>
 
@@ -86,7 +86,7 @@ The Recommendations API learns from your catalog and your transactions in order 
    Open the catalog file in **notepad**.
    
    Notice that the catalog file is pretty simple. It has the following format
-   `<itemid>,<item name>,<product category>`
+   `<item ID>,<item name>,<product category>`
    
    > AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br>
    > AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office  <br>
@@ -96,7 +96,7 @@ The Recommendations API learns from your catalog and your transactions in order 
    
    We should point out that a catalog file can be much richer, for instance you can add  metadata about the products (We call these *item features*). You should see the [catalog format](http://go.microsoft.com/fwlink/?LinkID=760716) section in the API Reference for more details on the catalog format.
 3. Let's do the same with the usage data. Notice that the usage date is of the format
-   `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
+   `<User ID>,<Item ID>,<Time Stamp>,<Event>`.
    
    > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
    > 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
@@ -107,7 +107,7 @@ The Recommendations API learns from your catalog and your transactions in order 
    > 
    > 
 
-Notice that the first three elements are mandatory. The event type is optional. You can check out the [usage format](http://go.microsoft.com/fwlink/?LinkID=760712) for more information on this topic.
+Notice that the first three elements are mandatory. The event type is optional. You can check out the [usage format](http://go.microsoft.com/fwlink/?LinkID=760712) for more information.
 
 > **How much data do you need?**
 > 

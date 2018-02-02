@@ -31,8 +31,8 @@ After you have created a model, provide two piece of information before you can 
 The catalog file contains information about the items you are offering to your customer.
 The catalog data should follow the following format:
 
-* Without features - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
-* With features - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
+* Without features - `<Item ID>,<Item Name>,<Item Category>[,<Description>]`
+* With features - `<Item ID>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
 #### Sample Rows in a Catalog File
 Without features:
@@ -50,7 +50,7 @@ With features:
 #### Format details
 | Name | Mandatory | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Item Id |Yes |[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 |Unique identifier of an item. |
+| Item ID |Yes |[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 |Unique identifier of an item. |
 | Item Name |Yes |Any alphanumeric characters<br> Max length: 255 |Item name. |
 | Item Category |Yes |Any alphanumeric characters <br> Max length: 255 |Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
 | Description |No, unless features are present (but can be empty) |Any alphanumeric characters <br> Max length: 4000 |Description of this item. |
@@ -97,12 +97,12 @@ A usage file contains information about how those items are used, or the transac
 
 #### Usage Format details
 A usage file is a CSV (comma-separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
-`<User Id>,<Item Id>,<Time>,[<Event>]`
+`<User ID>,<Item ID>,<Time>,[<Event>]`
 
 | Name | Mandatory | Type | Description |
 | --- | --- | --- | --- |
-| User Id |Yes |[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 255 |Unique identifier of a user. |
-| Item Id |Yes |[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 |Unique identifier of an item. |
+| User ID |Yes |[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 255 |Unique identifier of a user. |
+| Item ID |Yes |[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 |Unique identifier of an item. |
 | Time |Yes |Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00) |Time of data. |
 | Event |No |One of the following:<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Purchase |The type of transaction. |
 
@@ -122,7 +122,7 @@ Note that you need to pass the content of the usage file as the body of the HTTP
 > 
 > Maximum file size: 200MB. You may upload several usage files.
 > 
-> You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file are used during the training phase. All other items areignored.
+> You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file are used during the training phase. All other items are ignored.
 > 
 > 
 
