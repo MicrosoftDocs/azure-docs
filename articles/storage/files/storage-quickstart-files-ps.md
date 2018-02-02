@@ -39,9 +39,11 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, that will be used to host the file share using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorageaccount* using locally redundant storage.
+Create a new storage account, within the resource group that you created, that will be used to host the file share using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named *mystorage<10 random digits>* using locally redundant storage. Storage account names must be unique, so we use **Get-Random** to append 10 random digit to the end to make it unique.
 
 ```azurecli-interactive 
+$storageName = "mystorage$(Get-Random)"
+
 New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
   -Name "mystorageaccount" `
   -Location eastus `
@@ -55,7 +57,7 @@ Storage account keys are used to control access to resources in a storage accoun
 ```azurecli-interactive 
 Get-AzureRmStorageAccountKey `
    -ResourceGroupName myResourceGroup `
-   -AccountName "mystorageaccount" | Format-table
+   -AccountName $storageName | Format-table
 ```
 
 Copy *key 1* where you can get to it easily to use in next step.
@@ -66,9 +68,9 @@ Create the storage account context. The context encapsulates the storage account
 
 Replace `<storage-account-key>` with the key you copied in the previous step.
 
-```powershell
+```azurepowershell-interactive
 
-$myContext = New-AzureStorageContext mystorageaccount <storage-account-key>
+$myContext = New-AzureStorageContext $storageName <storage-account-key>
 ```
 
 ## Create a file share
@@ -127,11 +129,9 @@ Get-AzureStorageFile -Share myShare -Path myDirectory | Get-AzureStorageFile
 Now, create a new share and copy the file you uploaded over to this new share. To copy files, use [az storage file copy](/cli/azure/storage/file/copy). You can copy a file to another file, a file to a blob, or a blob to a file.  This example creates a second share named *myshare2* and copies *samplefile.txt* to the root of the new share. 
 
 ```azurepowershell-interactive
-
 New-AzureStorageShare `
    -Name myShare2 `
    -Context $myContext
-
 
 Start-AzureStorageFileCopy 
    -SrcShareName myShare `
@@ -140,7 +140,6 @@ Start-AzureStorageFileCopy
    -DestFilePath myShare2/file.txt `
    -Context $myContext `
    -DestContext $myContext
-
 ```
 
 
