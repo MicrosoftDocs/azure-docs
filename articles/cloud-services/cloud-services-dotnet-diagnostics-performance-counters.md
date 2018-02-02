@@ -3,7 +3,7 @@ title: Use Performance Counters in Azure Diagnostics | Microsoft Docs
 description: Use performance counters in Azure cloud services or virtual machine to find bottlenecks and tune performance.
 services: cloud-services
 documentationcenter: .net
-author: rboucher
+author: thraka
 manager: jwhit
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
-ms.author: robb
+ms.author: adegeo
 
 ---
 # Create and use performance counters in an Azure application
