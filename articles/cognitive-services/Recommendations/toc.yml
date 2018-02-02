@@ -4,6 +4,14 @@
   items: 
   - name: Learn about Recommendations
     href: overview.md
+- name: Reference
+  items: 
+  - name: API Reference
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Quickstart
     href: cognitive-services-recommendations-quick-start.md
   - name: Build a model (UI)
@@ -16,12 +24,3 @@
     href: cognitive-services-recommendations-batch-scoring.md
   - name: Migrate from DataMarket Recommendations API
     href: cognitive-services-migration-from-dm.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db
-    
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
