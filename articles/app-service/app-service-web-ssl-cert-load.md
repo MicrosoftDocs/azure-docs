@@ -85,7 +85,7 @@ certStore.Close();
 <a name="file"></a>
 ## Alternative: load certificate as a file
 
-This section shows how to and load a certificate file that is in your application directory. 
+This section shows how to and load a certificate file that is in your application directory. Adding the app setting `WEBSITE_LOAD_CERTIFICATES` is still required, and can be set to any value.
 
 The following C# example loads a certificate called `mycert.pfx` from the `certs` directory of your app's repository.
 
