@@ -122,19 +122,19 @@ The client address pool is a range of private IP addresses that you specify. The
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-## <a name="tunneltype"></a>8. Tunnel type
+## <a name="tunneltype"></a>7. Tunnel type
 
-You can select the tunnel type. The two tunnel options are SSTP and IKEv2. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The Strongswan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. Select the checkboxes that your solution requires.
+You can select the tunnel type. The two tunnel options are SSTP and IKEv2. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. Select the checkboxes that your solution requires.
 
 ![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
-## <a name="authenticationtype"></a>9. Authentication type
+## <a name="authenticationtype"></a>8. Authentication type
 
 Select **Azure certificate**.
 
   ![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authenticationtype.png)
 
-## <a name="uploadfile"></a>7. Upload the root certificate public certificate data
+## <a name="uploadfile"></a>9. Upload the root certificate public certificate data
 
 You can upload additional trusted root certificates up to a total of 20. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. Upload the public key information for the root certificate to Azure.
 
@@ -150,7 +150,7 @@ You can upload additional trusted root certificates up to a total of 20. Once th
 
   ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
-## <a name="installclientcert"></a>8. Install an exported client certificate
+## <a name="installclientcert"></a>10. Install an exported client certificate
 
 If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
 
@@ -158,11 +158,11 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 For install steps, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="clientconfig"></a>9. Generate and install the VPN client configuration package
+## <a name="clientconfig"></a>11. Generate and install the VPN client configuration package
 
 The VPN client configuration files contain settings to configure devices to connect to a VNet over a P2S connection. For instructions to generate and install VPN client configuration files, see [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
 
-## <a name="connect"></a>10. Connect to Azure
+## <a name="connect"></a>12. Connect to Azure
 
 ### To connect from a Windows VPN client
 
