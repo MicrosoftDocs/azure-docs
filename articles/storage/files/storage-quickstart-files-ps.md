@@ -43,11 +43,10 @@ Create a new storage account, within the resource group that you created, that w
 
 ```azurecli-interactive 
 $storageName = "mystorage$(Get-Random)"
-
 New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
-  -Name "mystorageaccount" `
+  -Name $storageName `
   -Location eastus `
-  -SkuName Standard_LRS `
+  -SkuName Standard_LRS 
 ```
 
 ## Get the storage account key
@@ -69,7 +68,6 @@ Create the storage account context. The context encapsulates the storage account
 Replace `<storage-account-key>` with the key you copied in the previous step.
 
 ```azurepowershell-interactive
-
 $myContext = New-AzureStorageContext $storageName <storage-account-key>
 ```
 
@@ -81,7 +79,7 @@ Create file shares using [az storage share create](/cli/azure/storage/share#crea
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
-   -Name myShare `
+   -Name myshare `
    -Context $myContext
 ```
 
@@ -108,9 +106,9 @@ To upload a file,  use [Set-AzureStorageFileContent](/powershell/module/Azure.St
 ```azurepowershell-interactive
 Set-AzureStorageFileContent `
    -Context myContext `
-   -Share myShare `
+   -Share myshare `
    -Source C:\files\file.txt `
-   -Path myShare
+   -Path myshare
 ```
 
 
@@ -120,7 +118,7 @@ To list the files and directories in a share, use [Get-AzureStorageFile](/powers
 
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Share myShare -Path myDirectory | Get-AzureStorageFile
+Get-AzureStorageFile -Share myshare -Path myDirectory | Get-AzureStorageFile
 ```
 
 
@@ -130,14 +128,14 @@ Now, create a new share and copy the file you uploaded over to this new share. T
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
-   -Name myShare2 `
+   -Name myshare2 `
    -Context $myContext
 
 Start-AzureStorageFileCopy 
-   -SrcShareName myShare `
-   -SrcFilePath myShare/file.txt `
-   -DestShareName myShare2 `
-   -DestFilePath myShare2/file.txt `
+   -SrcShareName myshare `
+   -SrcFilePath myshare/file.txt `
+   -DestShareName myshare2 `
+   -DestFilePath myshare2/file.txt `
    -Context $myContext `
    -DestContext $myContext
 ```
@@ -146,7 +144,7 @@ Start-AzureStorageFileCopy
 Now, if you list the files in the new share, you should see your file.
 
 ```azurecli-interactive
-Get-AzureStorageFile -Share myShare2 -Path myShare2 | Get-AzureStorageFile
+Get-AzureStorageFile -Share myshare2 -Path myshare2 | Get-AzureStorageFile
 ```
 
 
