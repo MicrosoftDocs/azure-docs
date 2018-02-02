@@ -61,9 +61,9 @@ The distribution algorithm used is a 5-tuple (source IP, source port, destinatio
 
 ## How can I redirect incoming traffic to the default URL of my cloud service to a custom URL? 
 
-The URL rewrite module of IIS can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages. For more information, see:
+The URL Rewrite module of IIS can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL Rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages. For more information, see:
 
-- [Create rewrite rules for the URL rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## How can I block/disable incoming traffic to the default URL of my cloud service? 

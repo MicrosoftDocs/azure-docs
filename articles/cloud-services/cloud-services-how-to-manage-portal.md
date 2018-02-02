@@ -1,6 +1,6 @@
 ﻿---
 title: Common cloud service management tasks | Microsoft Docs
-description: Learn how to manage cloud services in the Azure portal. These examples use the Azure portal.
+description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
 services: cloud-services
 documentationcenter: ''
 author: Thraka
@@ -17,7 +17,7 @@ ms.date: 07/05/2017
 ms.author: adegeo
 
 ---
-# Manage cloud services
+# Manage Cloud Services in the Azure portal
 In the **Cloud Services** area of the Azure portal, you can:
 
 * Update a service role or a deployment.
@@ -32,7 +32,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
 
-2. In the blade, select **Update**.
+2. On the blade, select **Update**.
 
     ![Update button](./media/cloud-services-how-to-manage-portal/update-button.png)
 
@@ -57,7 +57,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
 
-2. In the blade, select **Swap**.
+2. On the blade, select **Swap**.
 
     ![Cloud Services Swap button](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
@@ -79,7 +79,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you want to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap fails.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
 
 Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -96,7 +96,7 @@ Use the following procedure to delete a deployment or your cloud service.
 
 1. In the [Azure portal][Azure portal], select the cloud service you want to delete. This step opens the cloud service instance blade.
 
-2. In the blade, select **Delete**.
+2. On the blade, select **Delete**.
 
     ![Cloud Services Delete button](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
