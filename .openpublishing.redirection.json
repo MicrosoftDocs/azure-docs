@@ -16613,6 +16613,21 @@
             "source_path": "articles/active-directory/active-directory-saas-adpfederatedsso-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
-    }	
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-portal.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-portal",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-powershell.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-powershell",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-tsql.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-tsql",
+            "redirect_document_id": false
+    }
    ]
 }
