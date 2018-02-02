@@ -3,7 +3,7 @@ title: How to assign an MSI access to an Azure resource, using Azure CLI
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Assign a Managed Service Identity (MSI) access to a resource using Azure CLI
@@ -38,13 +38,13 @@ To run the CLI script examples, you have three options:
 
 After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-cli-windows-vm.md): 
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```azurecli-interactive
    az login
    ```
 
-2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#list) to get the service principal for the VM named "myVM", which was created when we enabled MSI on the VM:
+2. In this example, we are giving an Azure VM access to a storage account. First we use [az resource list](/cli/azure/resource/#az_resource_list) to get the service principal for the VM named "myVM", which was created when we enabled MSI on the VM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)

@@ -44,7 +44,7 @@ Here is the basic structure of a workflow definition:
   
 |Element name|Required|Description|  
 |------------------|--------------|-----------------|  
-|$schema|No|Specifies the location for the JSON schema file that describes the version of the definition language. This location is required when you reference a definition externally. For this document, the location is: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|No|Specifies the location for the JSON schema file that describes the version of the definition language. This location is required when you reference a definition externally. Here is the location for this document: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|No|Specifies the definition version. When you deploy a workflow using the definition, you can use this value to make sure that the right definition is used.|  
 |parameters|No|Specifies parameters used to input data into the definition. A maximum of 50 parameters can be defined.|  
 |triggers|No|Specifies information for the triggers that initiate the workflow. A maximum of 10 triggers can be defined.|  
