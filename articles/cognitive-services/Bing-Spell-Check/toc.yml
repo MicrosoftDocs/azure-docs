@@ -6,7 +6,7 @@
     href: proof-text.md
   - name: Supported languages
     href: bing-spell-check-supported-languages.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: C#
     href: quickstarts/csharp.md
