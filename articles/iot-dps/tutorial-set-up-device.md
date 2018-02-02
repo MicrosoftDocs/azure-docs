@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 01/23/2018
+ms.date: 02/03/2018
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -21,7 +21,7 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 
 > [!div class="checklist"]
 > * Choose a Hardware Security Module
-> * Build platform-specific Device Provisioning Client SDK components for the selected HSM
+> * Build a platform-specific version of the Device Provisioning Client SDK for the selected HSM
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
 
@@ -42,19 +42,34 @@ See [IoT Hub Device Provisioning Service security concepts](concepts-security.md
 >[!NOTE]
 > This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), used with a Windows client. See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional languages.
 
-## Build platform-specific SDK components for the selected HSM
+## Build a platform-specific version of the SDK for the selected HSM
 
-The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK to build additional components for the selected HSM chip:
+The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. The following steps show how to build a version of the SDK, specific to your and selected HSM chip:
 
-1. If you followed one of the Quickstarts to [create a simulated TPM device](./quick-create-simulated-device.md) or [create a simulated X.509 device](./quick-create-simulated-device-x509.md), you are ready to build the SDK components and can jump to step #2. 
+1. If you followed one of the Quickstarts to [create a simulated TPM device](./quick-create-simulated-device.md) or [create a simulated X.509 device](./quick-create-simulated-device-x509.md), you are ready to build the SDK and can jump to step #2. 
 
-   If not, follow the **first four** steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps walk you through installation of required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK. When finished, open a command prompt and change into the repositories "cmake" subdirectory:
+If not, complete the following steps to install the required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK.
+
+   - Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
+
+   - Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
+
+   - Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+
+   - Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+    
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+
+
+2. Open a command prompt and change into the repository's "cmake" subdirectory:
 
    ```cmd/sh
    cd azure-iot-sdk-c/cmake
    ```
 
-2. Build the SDK components for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
+3. Build a platform-specific SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
