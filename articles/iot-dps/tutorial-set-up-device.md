@@ -25,43 +25,42 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
 
+>[!NOTE]
+> This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), used with Visual Studio 2017 on a Windows client. See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional platforms/languages.
+
 ## Prerequisites
 
 Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions mentioned in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
 ### Choose a Hardware Security Module
 
-As a device manufacturer, you need to select Hardware Security Modules (or HSMs) that are based on one of the following types. Currently, the [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following HSMs: 
+As a device manufacturer, you'll also need to choose Hardware Security Modules (or HSMs) that are based on one of the following types. Currently, the [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following HSMs: 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
 See [IoT Hub Device Provisioning Service security concepts](concepts-security.md) for more details on HSM types.  
 
->[!NOTE]
-> This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), used with a Windows client. See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional languages.
-
 ## Build a platform-specific version of the SDK for the selected HSM
 
-The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. The following steps show how to build a version of the SDK, specific to your and selected HSM chip:
+The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. But before you can use it, you'll need to build a version of the SDK specific to your development client and HSM. The following steps show how to build a version for a Windows Visual Studio 2017 development client, and selected HSM chip:
 
 1. If you followed one of the Quickstarts to [create a simulated TPM device](./quick-create-simulated-device.md) or [create a simulated X.509 device](./quick-create-simulated-device-x509.md), you are ready to build the SDK and can jump to step #2. 
 
-If not, complete the following steps to install the required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK.
+   If not, complete the following steps to install the required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK.
 
-   - Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
+   a. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-   - Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
+   b. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
 
-   - Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+   c. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-   - Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+   d. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-
 
 2. Open a command prompt and change into the repository's "cmake" subdirectory:
 
@@ -86,7 +85,7 @@ If not, complete the following steps to install the required tools, and clone th
         ```
 
 > [!IMPORTANT]
-> The Device Provisioning System Client SDK provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. For guidance on these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity). 
+> The Device Provisioning Service Client SDK provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. For guidance on these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity). 
 >
 > For all other devices, you'll need to write custom code for your particular HSM chip. The following [Support for custom TPM and X.509 devices](#customhsm) section provides guidance on porting the SDK for your specific platform needs.
 
