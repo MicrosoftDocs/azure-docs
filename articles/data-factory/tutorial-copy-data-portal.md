@@ -35,8 +35,8 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* **Azure storage account**. You use Blob storage as a **source** data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one.
-* **SQL database**. You use the database as a **sink** data store. If you don't have a SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one.
+* **SQL database**. You use the database as a *sink* data store. If you don't have a SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
 ### Create a blob and a SQL table
 
@@ -69,7 +69,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL Server. Ensure that the **Allow access to Azure services** setting is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, do the following steps:
+2. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, take the following steps:
 
     a. On the left, select **More services** > **SQL servers**.
 
@@ -89,9 +89,9 @@ In this step, you create a data factory and launch the Data Factory UI to create
  
    The name of the Azure data factory must be *globally unique*. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
   
-   ![New data factory page](./media/tutorial-copy-data-portal/name-not-available-error.png)
+   ![Error message](./media/tutorial-copy-data-portal/name-not-available-error.png)
 3. Select the Azure **subscription** in which you want to create the data factory. 
-4. For **Resource Group**, do one of the following steps:
+4. For **Resource Group**, take one of the following steps:
      
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
 
@@ -122,13 +122,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. On the **Let's get started** page, select **Create pipeline**. 
 
    ![Create pipeline tile](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. In the properties window for the pipeline, in **Name**, enter **CopyPipeline** for the name of the pipeline.
+2. In the **Properties** window for the pipeline, under **Name**, enter **CopyPipeline** for the name of the pipeline.
 
     ![Pipeline name](./media/tutorial-copy-data-portal/pipeline-name.png)
 3. In the **Activities** tool box, expand the **DataFlow** category, and drag and drop the **Copy** activity from the tool box to the pipeline designer surface. 
 
     ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
-4. On the **General** tab of the properties window, specify **CopyFromBlobToSql** as the name of the activity.
+4. On the **General** tab of the **Properties** window, enter **CopyFromBlobToSql** as the name of the activity.
 
     ![Activity name](./media/tutorial-copy-data-portal/activity-name.png)
 5. Go to the **Source** tab. Select **New** to create a source dataset. 
@@ -140,19 +140,21 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 7. You see a new tab opened in the application with the title **AzureBlob1**.
 
     ![Azure Blob1 tab ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
-8. On the **General** tab at the bottom of the properties window, in **Name**, enter **SourceBlobDataset**.
+8. On the **General** tab at the bottom of the **Properties** window, in **Name**, enter **SourceBlobDataset**.
 
     ![Dataset name](./media/tutorial-copy-data-portal/dataset-name.png)
-9. Go to the **Connection** tab in the properties window. Next to the **Linked service** text box, select **New**. A linked service links a data store or a compute to the data factory. In this case, you create a  Storage linked service to link your storage account to the data store. The linked service has the connection information that Data Factory uses to connect to Blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
+9. Go to the **Connection** tab of the **Properties** window. Next to the **Linked service** text box, select **New**. 
+
+    A linked service links a data store or a compute to the data factory. In this case, you create a Storage linked service to link your storage account to the data store. The linked service has the connection information that Data Factory uses to connect to Blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
 
     ![New linked service button](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
-10. In the **New Linked Service** window, do the following steps: 
+10. In the **New Linked Service** window, take the following steps: 
 
     a. Under **Name**, enter **AzureStorageLinkedService**. 
 
-    b. Under **Storage account name**, select your Azure storage account.
+    b. Under **Storage account name**, select your storage account.
 
-    c. Select **Test connection** to test the connection to the Azure storage account.
+    c. Select **Test connection** to test the connection to the storage account.
 
     d. Select **Save** to save the linked service.
 
@@ -166,13 +168,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 13. Confirm that **File format** is set to **Text format** and that **Column delimiter** is set to **Comma (`,`)**. If the source file uses different row and column delimiters, you can select **Detect Text Format** for **File format**. The Copy Data tool detects the file format and delimiters automatically for you. You can still override these values. To preview data on this page, select **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
-14. Go to the **Schema** tab in the properties window, and select **Import Schema**. Notice that the application detected two columns in the source file. You import the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you can skip this step. For this tutorial, import the schema.
+14. Go to the **Schema** tab of the **Properties** window, and select **Import Schema**. Notice that the application detected two columns in the source file. You import the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you can skip this step. For this tutorial, import the schema.
 
     ![Detect source schema](./media/tutorial-copy-data-portal/detect-source-schema.png)  
 15. Now, go to the tab with the pipeline, or select the pipeline on the left.
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab.png)
-16. In **Source Dataset** in the properties window, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
+16. In **Source Dataset** in the **Properties** window, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
     
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 17. Go to the **Sink** tab, and select **New** to create a sink dataset. 
@@ -181,17 +183,17 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 18. In the **New Dataset** window, select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
 
     ![Select Azure SQL Database](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
-19. On the **General** tab of the properties window, in **Name**, enter **OutputSqlDataset**. 
+19. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
     
     ![Output dataset name](./media/tutorial-copy-data-portal/output-dataset-name.png)
 20. Go to the **Connection** tab, and next to **Linked service**, select **New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied. 
     
     ![New linked service button](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-21. In the **New Linked Service** window, do the following steps: 
+21. In the **New Linked Service** window, take the following steps: 
 
     a. Under **Name**, enter **AzureSqlDatabaseLinkedService**.
 
-    b. Under **Server name**, select your SQL Server.
+    b. Under **Server name**, select your SQL Server instance.
 
     c. Under **Database name**, select your SQL database.
 
@@ -217,7 +219,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 25. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-26. Go to the **Mapping** tab at the bottom of the properties window, and select **Import Schemas**. Notice that the first and second columns in the source file are mapped to **FirstName** and **LastName** in the SQL database.
+26. Go to the **Mapping** tab at the bottom of the **Properties** window, and select **Import Schemas**. Notice that the first and second columns in the source file are mapped to **FirstName** and **LastName** in the SQL database.
 
     ![Map schemas](./media/tutorial-copy-data-portal/map-schemas.png)
 27. To validate the pipeline, select **Validate**. In the upper-right corner, select the right arrow to close the validation window.
@@ -303,7 +305,7 @@ If you don't want to work with the Visual Studio Team Services code repository, 
 1. In the upper-left corner, select **Data Factory**, or use the down arrow next to it, and select **Configure Code Repository**. 
 
     ![Code button](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
-2. On the **Repository Settings** page, do the following steps:
+2. On the **Repository Settings** page, take the following steps:
 
     a. Under **Repository Type**, select **Visual Studio Team Services Git**.
 
@@ -339,7 +341,7 @@ If you don't want to work with the Visual Studio Team Services code repository, 
 9. Move the mouse over the **Sync** button (don't select it yet), select the **Commit Changes** check box, and select **Sync** to sync your changes with the master branch. 
 
     ![Commit and sync your changes](./media/tutorial-copy-data-portal/commit-and-sync.png)
-10. In the **Sync your changes** window, do the following actions: 
+10. In the **Sync your changes** window, take the following actions: 
 
     a. Confirm that **CopyPipeline** is shown in the updated **Pipelines** list.
 
@@ -379,7 +381,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 3. In the **Add Triggers** window, select **Choose trigger**, and then select **New**. 
 
     ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
-4. In the **New Trigger** window, do the following steps: 
+4. In the **New Trigger** window, take the following steps: 
 
     a. Under **Name**, enter **RunEveryMinute**.
 
