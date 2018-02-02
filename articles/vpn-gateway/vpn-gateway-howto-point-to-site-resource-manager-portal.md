@@ -225,7 +225,7 @@ You can add up to 20 trusted root certificate .cer files to Azure. For instructi
 2. In the **Root certificate** section of the page, locate the certificate that you want to remove.
 3. Click the ellipsis next to the certificate, and then click 'Remove'.
 
-## <a name="revokeclient"></a>To Revoke a client certificate
+## <a name="revokeclient"></a>To revoke a client certificate
 
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This is different than removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication.
 
