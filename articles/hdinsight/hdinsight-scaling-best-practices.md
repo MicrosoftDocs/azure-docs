@@ -23,15 +23,15 @@ ms.author: ashish
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
-For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power. You can automate scaling with the PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](../hdinsight-administer-use-powershell.md#scale-clusters).  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power. You can automate scaling with the PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
 
-* To scale your cluster through [PowerShell](../hdinsight-administer-use-powershell.md):
+* To scale your cluster through [PowerShell](hdinsight-administer-use-powershell.md):
 
     ```powershell
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* To scale your cluster through the [Azure CLI](../hdinsight-administer-use-command-line.md):
+* To scale your cluster through the [Azure CLI](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
