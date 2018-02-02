@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/02/2018
 ms.author: cephalin
 ---
 
@@ -32,7 +32,7 @@ For security reasons, certain specifics of security information are not publishe
 
 Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
 
-Usually, physical servers and the guest VMs are updated within 30 days of each [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) update release. For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
 
 ## How does Azure deal with significant vulnerabilities?
 
@@ -42,7 +42,7 @@ Stay current with critical security announcements in Azure by visiting [Azure Se
 
 ## When are supported language runtimes updated, added, or deprecated?
 
-When a supported language runtime has a new stable version (major, minor, or patch), the App Service team does extensive testing prior to pushing the version updates to App Service. 
+New stable versions of supported language runtimes (major, minor, or patch) are periodically added to App Service instances. Some updates overwrite the existing installation, while others are installed side by side with existing versions. An overwrite installation means that your app automatically runs on the updated runtime. A side-by-side installation means you must manually migrate your app to take advantage of a new runtime version. For more information, see one of the subsections.
 
 Runtime updates and deprecations are announced here:
 
