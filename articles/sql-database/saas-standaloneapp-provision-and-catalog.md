@@ -82,12 +82,12 @@ In this task, you learn how to provision the catalog used to register all the te
 1.	Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
     *	For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
-Once the script completes, the catalog will exist and be populated with a shard map that maps tenant keys to their corresponding database locations. 
+Once the script completes, the catalog will exist and all the sample tenants will be registered. 
 
 Now take a look at the resources you created.
 
 1. Open the [Azure portal](https://portal.azure.com/) and browse the resource groups.  Open the **wingtip-sa-catalog-\<user\>** resource group and note the catalog server and database.
-1. Open the database blade in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password, 'P@ssword1'.
+1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password, 'P@ssword1'.
 
 
 1. Explore the schema of the *tenantcatalog* database.  
