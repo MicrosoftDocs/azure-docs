@@ -41,8 +41,8 @@
 ## Configure redirection
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Configure external redirection
-### [Azure PowerShell](tutorial-external-site-redirection-cli.md)
-### [Azure CLI](tutorial-external-site-redirection-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
