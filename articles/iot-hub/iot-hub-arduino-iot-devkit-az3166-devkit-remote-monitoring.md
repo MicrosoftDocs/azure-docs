@@ -33,7 +33,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 * Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html)
 * Claim your [Azure credit](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
-## Step 1. Create an Azure IoT Suite
+## Create an Azure IoT Suite
 
 1. Go to [Azure IoT Suite site](https://www.azureiotsuite.com/) and click **Create a new solution**.
 
@@ -66,7 +66,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 8. Make a note of **IoT Hub Hostname**, and click **Done**.
 
-## Step 2. Open the RemoteMonitoring sample
+## Open the RemoteMonitoring sample
 
 1. Disconnect the DevKit from your computer, if it is connected.
 
@@ -82,7 +82,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
-## Step 3. Provision required Azure services
+## Provision required Azure services
 
 In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by entering `task cloud-provision` in the provided text box:
 
@@ -90,7 +90,7 @@ In the VS Code terminal, an interactive command line guides you through provisio
 
 ![remote-monitoring-provision](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
 
-## Step 4. Build and upload the device code
+## Build and upload the device code
 
 ### Windows
 
@@ -129,7 +129,7 @@ When the sample app runs, DevKit sends sensor data over Wi-Fi to your Azure IoT 
 
 2. On the Azure IoT Suite solution console, you will see your DevKit sensor status.
 
-{% include gallery id="layouts_gallery" caption="View sensor information within Azure IoT Suite." %}
+![Sensor data in Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## Change device ID
 
