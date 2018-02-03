@@ -18,6 +18,8 @@ ms.author: nisoneji
 
 ---
 
+# Plan capacity for protecting Hyper-V VMs with Site Recovery
+
 A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning. 
 The tool provides the following guidelines:
 
@@ -28,7 +30,6 @@ The tool provides the following guidelines:
 * Initial replication batching guidance
 * Estimated total disaster recovery cost to Azure
 
-# Plan capacity for protecting Hyper-V VMs with Site Recovery
 
 Azure Site Recovery Capacity Planner helps you determine your capacity requirements when you replicate Hyper-V VMs with Azure Site Recovery.
 
