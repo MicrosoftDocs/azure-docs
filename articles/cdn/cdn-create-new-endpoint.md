@@ -1,6 +1,6 @@
 ---
 title: Getting started with Azure CDN | Microsoft Docs
-description: This topic shows how to enable the Azure Content Delivery Network (CDN). The tutorial walks through the creation of a new CDN profile and endpoint.
+description: This article shows how to enable the Azure Content Delivery Network (CDN) by creating a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
 author: zhangmanling dksimpson
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 # Getting started with Azure CDN
-This article describes how to enable Azure [Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint. 
+In this article, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint. 
 
 A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
 
@@ -34,6 +34,9 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
 > CDN pricing is applied at the CDN profile level. Therefore, to use a mix of Azure CDN pricing tiers, you must create multiple CDN profiles.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+## Log in to the Azure portal
+Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
@@ -76,7 +79,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    > 
    > Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
    > 
-   > When you access CDN content by using HTTPS, there are the following constraints:
+   > When you access CDN content by using HTTPS, Azure CDN has the following constraints:
    > 
    > * Use the SSL certificate provided by the CDN. Third-party certificates are not supported.
    > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
@@ -98,7 +101,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To delete a profile or endpoint when it is no longer needed, select it and then select **Delete**. 
 
 ## Next steps
-In this quick start, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
+In this quickstart, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
 
 > [!div class="nextstepaction"]
 > [Add a custom domain](cdn-map-content-to-custom-domain)

@@ -1,12 +1,16 @@
-**To create a new CDN profile**
+## Create a new CDN profile
 
 1. In the [Azure portal](https://portal.azure.com), in the upper left, select **Create a resource**.
     
-2. In the **New** blade, select **Web + Mobile**, then **CDN**.
+    The **New** pane appears.
    
-    The **CDN profile** blade appears.
+2. In the **New** pane, select **Web + Mobile**, then **CDN**.
    
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
+    ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+
+    The **CDN profile** pane appears.
+   
+    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
 3. For **Name**, enter a unique name for your CDN profile.
     
 4. For **Subscription**, select the subscription to use for this CDN profile.
