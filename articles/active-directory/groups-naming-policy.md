@@ -31,7 +31,7 @@ When creating or editing an Office 365 group, naming policy can be applied to gr
 ## Naming policy features
 You can enforce naming policy for Office 365 groups in two different ways:
 
--   **Prefix-suffix naming policy** You can define prefixes or suffixes that are then added automatically to enforce a naming convention on your groups (for example, “GRP\_US\_My Group\_Engineering”). 
+-   **Prefix-suffix naming policy** You can define prefixes or suffixes that are then added automatically to enforce a naming convention on your groups (for example, in the group name “GRP\_JAPAN\_My Group\_Engineering”, GRP\_JAPAN\_ is the prefix, and \_ is the suffix). 
 
 -   **Custom blocked words** You can upload a set of blocked words specific to your organization to be blocked in groups created by users (for example, “CEO, Payroll, HR”).
 
@@ -105,13 +105,13 @@ In the **Sign in to your Account** screen that opens, enter your Office 365 admi
 1. Fetch the current naming policy to view the current settings.
   
   ````
-  \$Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+  $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ````
   
 2. Display the current group settings.
   
   ````
-  \$Setting.Values
+  $Setting.Values
   ````
   
 ### Set the naming policy and custom blocked words
@@ -119,19 +119,19 @@ In the **Sign in to your Account** screen that opens, enter your Office 365 admi
 1. Set the group name prefixes and suffixes in Azure AD PowerShell.
   
   ````
-  \$Setting\["PrefixSuffixNamingRequirement"\] =“Grp\_\[Department\]\_\[GroupName\]\_\[CountryCode\]"
+  $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
   ````
   
 2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
   ````
-  \$Setting\["CustomBlockedWordsList"\]=“Payroll,CEO,HR"
+  $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
   ````
   
 3. Save the settings for the new policy to be effective, such as in the following example.
   
   ````
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting \$Setting
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
   
 That's it. You've set your naming policy and added your blocked words.
