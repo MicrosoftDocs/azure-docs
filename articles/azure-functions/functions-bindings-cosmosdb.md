@@ -747,7 +747,7 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Exceptions and return codes
 
-| Binding | | Reference |
+| Binding | Reference |
 |---|---|
 | DocumentDB | [DocumentDB Error Codes](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 

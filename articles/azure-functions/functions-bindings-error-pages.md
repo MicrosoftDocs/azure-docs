@@ -27,7 +27,7 @@ This topic provides general guidance for handling errors that occur when your fu
  
 ## Binding error codes
 
-When integrating with Azure services, you may have errors raised that originate from the APIs of the underlying services. Links to the error code documentation for these services can be found in the **Known errors** section of the following trigger and binding reference topics:
+When integrating with Azure services, you may have errors raised that originate from the APIs of the underlying services. Links to the error code documentation for these services can be found in the **Exceptions and return codes** section of the following trigger and binding reference topics:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

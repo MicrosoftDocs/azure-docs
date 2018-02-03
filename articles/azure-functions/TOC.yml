@@ -134,7 +134,7 @@
      - name: Visual Studio development
        href: functions-develop-vs.md
      - name: Error handling
-       href: functions-bindings-error-pages.md#binding-error-codes 
+       href: functions-bindings-error-pages.md 
   - name: Deploy
     items:
     - name: Continuous deployment
