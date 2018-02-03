@@ -63,9 +63,9 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
-<a name="#regions-and-keys"></a>
-<a name="#publishing-to-europe"></a>
-<a name="#publishing-to-australia"></a>
+<a name="regions-and-keys"></a>
+<a name="publishing-to-europe"></a>
+<a name="publishing-to-australia"></a>
 
 ## Publishing regions
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). 
