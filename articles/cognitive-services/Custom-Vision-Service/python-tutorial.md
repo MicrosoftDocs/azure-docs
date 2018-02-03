@@ -13,7 +13,7 @@ ms.author: areddish
 ---
 
 # Custom Vision API Python Tutorial
-Explore a basic python script that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app using the Custom Vision API.
+Explore a basic python script that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app using the Custom Vision API.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This example has been developed for the Python.
 - Install the Preview Python SDK for the Custom Vision API as follows from github:
 
 ```
-pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subDirectory=azure-cognitiveservices-vision-customvision"
+pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"
 ```
 
 If you encounter a Filename too long error, make sure you have long path support in git enabled.
@@ -64,7 +64,7 @@ prediction_key = "<your prediction key>"
 trainer = training_api.TrainingApi(training_key)
 
 # Create a new project
-print("Creating project...")
+print ("Creating project...")
 project = trainer.create_project("My Project")
 ```
 
@@ -122,7 +122,11 @@ iteration = trainer.train_project(project.id)
 while (iteration.status == "Training"):
     iteration = trainer.get_iteration(project.id, iteration.id)
     print ("Training status: " + iteration.status)
-    time.sleep(1)            
+    time.sleep(1)
+
+# The iteration is now trained. Make it the default project endpoint
+trainer.update_iteration(project.id, iteration.id, is_default=True)
+print ("Done!")
 ```
 
 ## Step 6: Get and use the default prediction endpoint
@@ -149,7 +153,7 @@ results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url
 
 # Display the results.
 for prediction in results.predictions:
-    print("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
+    print ("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## Step 7: Run the example

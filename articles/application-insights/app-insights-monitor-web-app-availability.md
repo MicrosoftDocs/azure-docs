@@ -112,6 +112,11 @@ From an availability test result, you can:
 *Looks OK but reported as a failure?* 
 See [FAQ](#qna) for ways to reduce noise.
 
+
+> [!TIP]
+> We recommend testing from at least 2 locations for reliable monitoring.
+>
+
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 02/01/2018
 ---
 
 # Data Preparations Python extensions
@@ -121,7 +121,7 @@ or
 `./pip install <libraryname>`
 
 ## Use custom modules
-In Transform Dataflow (Script), write python code like this:
+In Transform Dataflow (Script), write the following Python code
 
 ```python
 import sys
@@ -131,7 +131,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-In Add Column (Script), set Code Block Type = Module, and write python code following:
+In Add Column (Script), set Code Block Type = Module, and write the following Python code
 
 ```python 
 import sys
@@ -142,7 +142,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-For different execution contexts (local, docker spark), point absolute path to the right place. You may want to use “os.getcwd() + relativePath” to locate it.
+For different execution contexts (local, Docker, Spark), point absolute path to the right place. You may want to use “os.getcwd() + relativePath” to locate it.
 
 
 ## Column data 

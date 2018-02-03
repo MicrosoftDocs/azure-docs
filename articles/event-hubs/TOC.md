@@ -2,18 +2,19 @@
 ## [Event Hubs Overview](event-hubs-about.md)
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
 
-# Quickstarts
-## [Use the Azure portal to send and receive events](event-hubs-quickstart-portal.md)
-## [Use PowerShell to send and receive events](event-hubs-quickstart-powershell.md)
-## [Use Azure CLI to send and receive events](event-hubs-quickstart-cli.md)
-
-# Tutorials
-
-# Samples
-## [Azure code gallery samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
-## [Code samples overview](event-hubs-samples.md)
-
-# Concepts
+# Get Started
+## [Create an event hub](event-hubs-create.md)
+## Send events
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Receive events
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## Capture events
+### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programming guide](event-hubs-programming-guide.md)
 ## [Event Hubs features](event-hubs-features.md)
 ## Plan and design
@@ -25,6 +26,8 @@
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ## Develop
+### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
