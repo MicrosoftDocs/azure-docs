@@ -78,7 +78,7 @@ These individual counter paths can be added to the diagnostics framework your cl
 
 A performance counter can be added to your cloud service for either Azure Diagnostics or Application Insights.
 
-# [Application Insights](#tab/azure-ai)
+### Application Insights
 
 Azure Application Insights for Cloud Services allows you specify what performance counters you want to collect. After you [add Application Insights to your project](../application-insights/app-insights-cloudservices.md#sdk), a config file named **ApplicationInsights.config** is added to your Visual Studio project. This config file defines what type of information Application Insights collects and sends to Azure.
 
@@ -114,7 +114,7 @@ Application Insights automatically collects the following performance counters:
 
 For more information, see [System performance counters in Application Insights](../application-insights/app-insights-performance-counters.md) and [Application Insights for Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters).
 
-# [Azure Diagnostics](#tab/azure-diag)
+### Azure Diagnostics
 
 > [!IMPORTANT]
 > While all this data is aggregated into the storage account, the portal does **not** provide a native way to chart the data. It is highly recommended that you integrate another diagnostics service, like Application Insights, into your application.
@@ -160,8 +160,6 @@ For more information about how the `sampleRate` and `scheduledTransferPeriod` ar
   </PublicConfig>
 </DiagnosticsConfiguration>
 ```
-
----
 
 ## Create a new perf counter
 
@@ -238,7 +236,7 @@ counterServiceUsed.Increment();
 Now that your application uses your custom counter, you need to configure Azure Diagnostics or Application Insights to track the counter.
 
 
-# [Application Insights](#tab/azure-ai)
+### Application Insights
 
 As previously stated, the performance counters for Application Insights are defined in the **ApplicationInsights.config** file. Open **ApplicationInsights.config** and find the **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** element. Create an `<Add>` child element and set the `PerformanceCounter` attribute to the category and name of the performance counter you created in your code. Set the `ReportAs` attribute to a friendly name you want to see in the portal.
 
@@ -261,7 +259,7 @@ As previously stated, the performance counters for Application Insights are defi
 <!-- ... cut to save space ... -->
 ```
 
-# [Azure Diagnostics](#tab/azure-diag)
+### Azure Diagnostics
 
 As previously stated, the performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file (it is defined per role) in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. Set the `counterSpecifier` attribute to the category and name of the performance counter you created in your code. 
 
@@ -290,15 +288,9 @@ As previously stated, the performance counters you want to collect are defined i
 </DiagnosticsConfiguration>
 ```
 
----
-
-
-
 ## More information
 
 - [Application Insights for Azure Cloud Services](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [System performance counters in Application Insights](../application-insights/app-insights-performance-counters.md)
 - [Specifying a Counter Path](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373193(v=vs.85))
 - [Azure Diagnostics Schema - Performance Counters](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
-
-
