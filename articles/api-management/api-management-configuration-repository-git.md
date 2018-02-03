@@ -133,6 +133,7 @@ git push
 ```
 
 ## To deploy any service configuration changes to the API Management service instance
+
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
 For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
@@ -170,7 +171,6 @@ These files can be created, deleted, edited, and managed on your local file syst
 > * Properties
 > * Developer portal entities other than styles
 > 
-> 
 
 ### Root api-management folder
 The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
@@ -200,8 +200,6 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
 
-![Identity settings][api-management-identity-settings]
-
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 
 | Delegation setting | Maps to |
@@ -210,8 +208,6 @@ The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscrip
 | DelegationUrl |**Delegation endpoint URL** textbox |
 | DelegatedSubscriptionEnabled |**Delegate product subscription** checkbox |
 | DelegationValidationKey |**Delegate Validation Key** textbox |
-
-![Delegation settings][api-management-delegation-settings]
 
 The final setting, `$ref-policy`, maps to the global policy statements file for the service instance.
 
