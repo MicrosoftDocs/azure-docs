@@ -8,16 +8,12 @@ author: chrissie926
 manager: timlt
 
 ms.author: menchi
-ms.date: 01/11/2018
-ms.topic: tutorial
+ms.date: 02/05/2018
+ms.topic: article
 ms.service: iot-edge
 
-# Optional fields. Don't forget to remove # if you need a field.
 ms.custom: mvc
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.reviewer: kgremban
 ---
 
 # Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
@@ -34,7 +30,7 @@ In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the I
 
 * [Python 2.7x or Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 * [The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
    1. Run `az extension add --name azure-cli-iot-ext`. 
@@ -45,15 +41,13 @@ In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the I
 ## Create an IoT Edge device
 This article gives instructions to create an IoT Edge deployment. The example shows you how to sign in to your Azure account, create an Azure Resource Group (a container that holds related resources for an Azure solution), create an IoT Hub, create three IoT Edge devices identity, set tags and then create an IoT Edge deployment that targets those devices. 
 
-Log in to your Azure account:
+Log in to your Azure account. After you enter the following login command, you're prompted to use a web browser to sign in using a one-time code: 
 
    ```cli
    az login
    ```
 
-   ![login][1]
-
-Create a resource group called **IoTHubBlogDemo** in the East US region: 
+Create a new resource group called **IoTHubBlogDemo** in the East US region: 
 
    ```cli
    az group create -l eastus -n IoTHubBlogDemo
@@ -169,7 +163,6 @@ Create an IoT Edge device:
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[1]: ./media/tutorial-create-deployment-with-cli-iot-extension/login.jpg
 [2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
 [3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
