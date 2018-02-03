@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 2/1/2018
 ---
 # Deploy an Azure Machine Learning model to an Azure IoT Edge device
 
