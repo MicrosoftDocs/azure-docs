@@ -15,7 +15,7 @@ metadata:
   ms.author: garye
 
 abstract:
-  description: Azure Machine Learning provides fully managed services for building, deploying, and managing machine learning and AI models in the cloud. 
+  description: Learn how to use Azure Machine Learning, with its fully managed services for building, deploying, and managing machine learning and AI models in the cloud. Tutorials, quickstarts, references, and examples show you how to build and deploy models for any of your applications.
 
 sections:
 - title: 
