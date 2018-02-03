@@ -3,7 +3,7 @@ title: Connect to Azure Data Lake Store from VNETs | Microsoft Docs
 description: Connect to Azure Data Lake Store from Azure VNETs
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
+author: esung22
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
-ms.author: nitinme
+ms.author: elsung
 
 ---
 # Access Azure Data Lake Store from VMs within an Azure VNET

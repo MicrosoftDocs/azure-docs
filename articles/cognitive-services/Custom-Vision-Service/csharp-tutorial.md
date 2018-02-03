@@ -13,7 +13,7 @@ ms.author: gitbeams
 ---
 
 # Custom Vision API C&#35; Tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app for Windows using the Custom Vision API.
+Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open-source example as a template for building your own app for Windows using the Custom Vision API.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To build this example, you need the Custom Vision API, which you can find at [SD
 
 ## Step 1: Create a console application and prepare the training key and the images needed for the example
 
-Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The method called **GetTrainingKey** prepares the training key. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
+Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
 
 ```
 using Microsoft.Cognitive.CustomVision.Prediction;
@@ -49,8 +49,8 @@ namespace SmokeTester
 
         static void Main(string[] args)
         {
-            // You can either add your training key here, pass it on the command line, or type it in when the program runs
-            string trainingKey = GetTrainingKey("<your key here>", args);
+            // Add your training key from the settings page of the portal
+            string trainingKey = "<your key here>";
 
             // Create the Api, passing in the training key
             TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
@@ -58,27 +58,7 @@ namespace SmokeTester
             // Upload the images we need for training and the test image
             Console.WriteLine("\tUploading images");
             LoadImagesFromDisk();
-        }
-
-        private static string GetTrainingKey(string trainingKey, string[] args)
-        {
-            if (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Equals("<your key here>"))
-            {
-                if (args.Length >= 1)
-                {
-                    trainingKey = args[0];
-                }
-
-                while (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Length != 32)
-                {
-                    Console.Write("Enter your training key: ");
-                    trainingKey = Console.ReadLine();
-                }
-                Console.WriteLine();
-            }
-
-            return trainingKey;
-        }
+        }        
 
         private static void LoadImagesFromDisk()
         {
@@ -161,9 +141,9 @@ namespace SmokeTester
 ```
             // Now there is a trained endpoint, it can be used to make a prediction
 
-            // Get the prediction key, which is used in place of the training key when making predictions
-            var account = trainingApi.GetAccountInfo();
-            var predictionKey = account.Keys.PredictionKeys.PrimaryKey;
+            // Add your prediction key from the settings page of the portal
+            // The prediction key is used in place of the training key when making predictions
+            string predictionKey = "<your key here>";
 
             // Create a prediction endpoint, passing in the obtained prediction key
             PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };

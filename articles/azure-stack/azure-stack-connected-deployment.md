@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -38,7 +38,7 @@ When you use Azure AD for your identity store requires two Azure AD accounts: a 
     - As the Service Administrator account. This is the owner of the default provider subscription (which you can later change). You can log into the Azure Stack admin portal with this account, and can use it to create offers and plans, set quotas, and perform other administrative functions in Azure Stack.
 2. **Billing account** (required for both connected and disconnected deployments). This Azure account is used to establish the billing relationship between your Azure Stack integrated system and the Azure commerce backend. This is the account that will be billed for Azure Stack fees. This account will also be used for marketplace syndication and other hybrid scenarios. 
 
-### AD FS IDENTITY STORE
+### AD FS identity store
 Choose this option if you want to use your own identity store, such as your corporate Active Directory, for your Service Administrator accounts.  
 
 ## Choose a billing model
@@ -54,9 +54,8 @@ If you are going to use a CSP subscription, review the table below to identify w
 
 |Scenario|Domain and subscription options|
 |-----|-----|
-|You are a Direct or Indirect CSP Partner, and you will operate the Azure Stack|Use a CSL (Common Service Layer) subscription.|
-|You are a Direct or Indirect CSP Partner, and you will operate the Azure Stack|In Partner Center, create an Azure AD tenant with a descriptive name, for example <your organization>CSPAdmin, and an Azure CSP subscription associated with it.|
-|You are an Indirect CSP Reseller, and you will operate the Azure Stack|Ask your Indirect CSP Provider to create, using Partner Center, an Azure AD tenant for your organization, and an Azure CSP subscription associated with it.|
+|You are a **Direct CSP Partner** or an **Indirect CSP Provider**, and you will operate the Azure Stack|Use a CSL (Common Service Layer) subscription.<br>     or<br>Create an Azure AD tenant with a descriptive name in Partner Center. For example &lt;your organization>CSPAdmin with an Azure CSP subscription associated with it.|
+|You are an **Indirect CSP Reseller**, and you will operate the Azure Stack|Ask your Indirect CSP Provider to create an Azure AD tenant for your organization with an Azure CSP subscription associated with it using Partner Center.|
 
 ### Capacity based billing
 If you decide to use the capacity billing model, you must purchase an Azure Stack Capacity Plan SKU based on the capacity of your system. You will need to know the number of physical cores in your Azure Stack to purchase the correct quantity. 
@@ -67,3 +66,6 @@ Capacity billing requires an Enterprise Agreement (EA) Azure subscription for re
 - For information about use cases, purchasing, partners, and OEM hardware vendors, see the [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) product page.
 - For information about the roadmap and geo-availability for Azure Stack integrated systems, see the white paper: [Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - To learn more about Microsoft Azure Stack packaging and pricing [download the .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## Next steps
+[Datacenter network integration](azure-stack-network.md)

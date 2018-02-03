@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
+ms.date: 01/30/2018
+ms.author: sethm
 
 ---
 # What is Event Hubs?
@@ -41,7 +41,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 ## Event Hubs features
 
-Event Hubs contains the following key elements:
+Event Hubs features the following key elements:
 
 - [**Event producers/publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
 - [**Capture**](event-hubs-features.md#capture): Enables you to capture Event Hubs streaming data and store it in an Azure Blob storage account.
