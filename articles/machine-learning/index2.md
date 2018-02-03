@@ -98,9 +98,9 @@ Learn how to quickly set up and use Azure Machine Learning services (preview), S
 </th>
 <tr>
     <td>Setup</td>
-    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/create-workspace"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/data-science-virtual-machine/provision-vm"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/studio/create-workspace"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/data-science-virtual-machine/provision-vm"><img src="media/index/link.png"></a></td>
 </tr>
 <tr>
     <td>Build a model</td>
