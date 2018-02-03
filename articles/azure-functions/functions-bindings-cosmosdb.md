@@ -745,9 +745,11 @@ By default, when you write to the output parameter in your function, a document 
 > [!Note]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document. 
 
-## Known Errors
+## Exceptions and return codes
 
-[!INCLUDE [cosmos-db-errors](../../includes/functions-bindings-cosmos-db-errors.md)]
+| Binding | | Reference |
+|---|---|
+| DocumentDB | [DocumentDB Error Codes](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## Next steps
 

@@ -722,9 +722,13 @@ If you are reading text blobs, you can bind to a `string` type. This type is onl
 
 In JavaScript, access the blob data using `context.bindings.<name>`.
 
-## Known Errors
+## Exceptions and return codes
 
-[!INCLUDE [Functions Binding Blob Storage Errors](../../includes/functions-bindings-blob-storage-errors.md)]
+| Binding |  Reference |
+|---|---|
+| Blob | [Blob Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, Table, Queue |  [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
 

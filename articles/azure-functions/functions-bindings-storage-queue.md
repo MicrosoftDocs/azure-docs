@@ -457,9 +457,13 @@ In C# and C# script, write multiple queue messages by using one of the following
 In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
 
 
-## Known Errors
+## Exceptions and return codes
 
-[!INCLUDE [Functions Binding Queue Storage Errors](../../includes/functions-bindings-queue-storage-errors.md)]
+| Binding |  Reference |
+|---|---|
+| Queue | [Queue Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
 

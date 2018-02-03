@@ -19,7 +19,7 @@ ms.author: glenga; cfowler
 
 # Azure Functions error handling
 
-This topic provides general guidance for handling errors that occur when your functions execute. It also provides links to the topics that describes binding-specific errors that may occur. 
+This topic provides general guidance for handling errors that occur when your functions execute. It also provides links to the topics that describe binding-specific errors that may occur. 
 
 ## Handing errors in functions
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
@@ -27,25 +27,18 @@ This topic provides general guidance for handling errors that occur when your fu
  
 ## Binding error codes
 
-This section describes error information specific to the various bindings and also links to the error code documentation for the supported services. You will find this same information in the reference topics for the individual triggers and bindings.
+When integrating with Azure services, you may have errors raised that originate from the APIs of the underlying services. Links to the error code documentation for these services can be found in the **Known errors** section of the following trigger and binding reference topics:
 
-### Azure Cosmos DB
++ [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-[!INCLUDE [cosmos-db-errors](../../includes/functions-bindings-cosmos-db-errors.md)]
++ [Blob storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
 
-### Azure Storage
++ [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 
-[!INCLUDE [storage-binding-errors](../../includes/functions-bindings-storage-errors.md)]
++ [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-### Event Hubs
++ [Queue storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
 
-[!INCLUDE [event-hub-errors](../../includes/functions-bindings-event-hub-errors.md)]
++ [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
-### Notification Hubs
-
-[!INCLUDE [notification-hub-errors](../../includes/functions-bindings-notification-hub-errors.md)]
-
-### Service Bus
-
-[!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
-
++ [Table storage](functions-bindings-storage-table.md#exceptions-and-return-codes)
