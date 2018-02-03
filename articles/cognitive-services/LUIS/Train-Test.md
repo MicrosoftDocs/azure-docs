@@ -46,12 +46,18 @@ To start the iterative process of training, you first need to train your LUIS ap
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
-2. Select **Test** in your application's top panel to access the **Test** slide-out panel.
+2. Select **Test panel** in your application's top panel to access the **Test panel** slide-out panel.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
-3. Enter an utterance in the text box and select **Enter**.
+3. Enter an utterance in the text box and select **Enter**. You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
 4. The utterance and its top intent and score are added to the list of utterances under the text box. 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
+
+## Clear test panel
+To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
+
+## Close test panel
+To close the **Test** panel, select the **Test** button again.
 
 ## Inspect score
 You inspect details of the test result in the **Inspect** panel. 
@@ -60,17 +66,10 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect.png)
 
-2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. 
+2. The **Inspection panel** appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
     ![Inspect button](./media/luis-how-to-train-test/inspect-panel.png)
-
->[!NOTE]
->About the interactive testing console:
- >- You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
- >- The **Inspection panel** shows the result of the latest utterance. 
- >- To review the result of a previous utterance, just select it in the **Test panel** and its result displays on the right. 
- >- To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
-
+ 
 ## Compare with published version
 You can test the active version of your app with the published endpoint version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
@@ -82,7 +81,7 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
 >[!TIP]
->To close the **Test** panel, select the **Test** button again.
+>
 
 <!--
 ## Relabel utterances and retrain
