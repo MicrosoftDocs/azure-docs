@@ -92,23 +92,56 @@ Learn how to quickly set up and use Azure Machine Learning services (preview), S
 <table>
 <th>
     <td> </td>
-    <td><img src="media/index/i_machine-learning.svg"></td>
-    <td><img src="media/index/machine-learning-studio.svg"></td>
-    <td><img src="media/index/virtualmachine.svg"></td>
+    <td><img height="32" width="32" src="media/index/i_machine-learning.svg"></td>
+    <td><img height="32" width="32" src="media/index/machine-learning-studio.svg"></td>
+    <td><img height="32" width="32" src="media/index/virtualmachine.svg"></td>
 </th>
 <tr>
     <td>Setup</td>
-    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img src="media/index/link.svg></a></td>
-    <td><a href="/azure/machine-learning/studio/create-workspace"><img src="media/index/link.svg></a></td>
-    <td><a href="/azure/machine-learning/data-science-virtual-machine/provision-vm"><img src="media/index/link.svg></a></td>
+    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/create-workspace"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/data-science-virtual-machine/provision-vm"><img height="16" width="16" src="media/index/link.svg"></a></td>
 </tr>
 <tr>
     <td>Build a model</td>
-    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img src="media/index/link.svg></a></td>
-    <td><a href="/azure/machine-learning/studio/create-experiment"><img src="media/index/link.svg></a></td>
+    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/create-experiment"><img height="16" width="16" src="media/index/link.svg"></a></td>
     <td> </td>
 </tr>
 </table>
+
+<h2>Step-by-Step Tutorials</h2>
+
+Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:
+
+<table>
+<th>
+    <td> </td>
+    <td><img height="32" width="32" src="media/index/i_machine-learning.svg"></td>
+    <td><img height="32" width="32" src="media/index/machine-learning-studio.svg"></td>
+</th>
+<tr>
+    <td>Prepare data</td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-1"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-2-upload-data"><img height="16" width="16" src="media/index/link.svg"></a></td>
+</tr>
+<tr>
+    <td>Build a model</td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-2"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment"><img height="16" width="16" src="media/index/link.svg"></a></td>
+</tr>
+<tr>
+    <td>Deploy a model</td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-3"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service"><img height="16" width="16" src="media/index/link.svg"></a></td>
+</tr>
+<tr>
+    <td>Consume a model</td>
+    <td><a href="/azure/machine-learning/preview/model-management-consumption"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-6-access-web-service"><img height="16" width="16" src="media/index/link.svg"></a></td>
+</tr>
+</table>
+
 
 <h2>More Machine Learning Technologies</h2>
 
@@ -128,70 +161,118 @@ Microsoft has a wide array of technologies available to help you develop and ope
                     </div>
                     <div class="cardText">
                         <a href="/azure/machine-learning/team-data-science-process">
-                        <h3><b>Team Data Science Process</b></h3>
+                        <p><b>Team Data Science Process</b></p>
                         </a>
-                        <br>A team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+                        A team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/sql/advanced-analytics/r/r-services">
                         <div class="cardImage">
                             <img src="media/index/logo_sql.svg" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
-                        <h3><b>Machine Learning Services in SQL Server</b></h3>
-                        Machine learning in-database, or in a standalone on-premises server
+                        <a href="/sql/advanced-analytics/r/r-services">
+                        <p><b>SQL Server Machine Learning Services</b></p>
+                        </a>
+                        In-database analytics with support for both R and Python.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/services/cognitive-services/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/machine-learning-server/">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_R.svg" alt="" />
+                        </div>
+                        </a>
+                    </div>
+                    <div class="cardText">
+                        <a href="/machine-learning-server/">
+                        <p><b>Microsoft Machine Learning Server</b></p>
+                        </a>
+                        Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <a href="/azure/batch-ai/">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_azure.svg" alt="" />
+                        </div>
+                        </a>
+                    </div>
+                    <div class="cardText">
+                        <a href="/azure/batch-ai/">
+                        <p><b>Batch AI Training</b></p>
+                        </a>
+                        Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <a href="/azure/#pivot=products&panel=cognitive">
                         <div class="cardImage">
                             <img src="media/index/cognitive-services.png" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
-                        <h3><b>Cognitive Services</b></h3>
-                        Intelligent algorithms for your apps, websites, and bots
+                        <a href="/azure/#pivot=products&panel=cognitive">
+                        <p><b>Cognitive Services</b></p>
+                        </a>
+                        APIs that supply intelligent algorithms for your apps, websites, and bots.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
+                        <a href="/cognitive-toolkit/">
                         <div class="cardImage">
                             <img src="media/index/cntk.png" alt="" />
                         </div>
+                        </a>
                     </div>
                     <div class="cardText">
-                        <h3><b>Microsoft Cognitive Toolkit</b></h3>
-                        Free, open-source toolkit to train deep learning algorithms
+                        <a href="/cognitive-toolkit/">
+                        <p><b>Microsoft Cognitive Toolkit</b></p>
+                        </a>
+                        A free, open-source toolkit to train deep learning algorithms.
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
