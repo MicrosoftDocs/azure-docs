@@ -88,7 +88,7 @@ Uninstall any older module version the Graph version of the Azure Active Directo
   ````
 If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
-## How to set up naming policy in Azure AD PowerShell
+## How to set up naming policy using Azure AD PowerShell
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 

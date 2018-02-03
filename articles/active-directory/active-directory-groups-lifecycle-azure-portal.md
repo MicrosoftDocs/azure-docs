@@ -132,7 +132,7 @@ The following cmdlets can be used to configure the policy in more detail. There'
 *	Reset-AzureADMSLifeCycleGroup   
 *	Get-AzureADMSLifecyclePolicyGroup
  
-## How does expiry works with a retention policy
+## How Office 365 group expiration works with a retention policy
 <!--Please use the below text as a placeholder. I will get this validated with office-->
 If you have set up a retention policy in the Security and Compliance center for Office 365 groups, expiration policy works seamlessly with retention policy. When a group expires, the group’s conversations in mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration.
 
