@@ -3,9 +3,9 @@ title: Use a Linux VM user-assigned MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a User-Assigned Managed Service Identity (MSI) on a Linux VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: bryanLa
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

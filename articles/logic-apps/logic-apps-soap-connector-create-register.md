@@ -1,7 +1,7 @@
 ---
 title: Create and register SOAP connectors - Azure Logic Apps | Microsoft Docs
 description: Set up SOAP connectors for use in Azure Logic Apps
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
+ms.author: LADocs; estfan
 ---
 
 # Create and register SOAP connectors in Azure Logic Apps
