@@ -89,12 +89,12 @@ Learn how to use Azure Machine Learning, with its fully managed services for bui
 
 Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:
 
-<table>
+<table width="50%">
 <th>
-    <td> </td>
     <td><img height="32" width="32" src="media/index/i_machine-learning.svg"></td>
     <td><img height="32" width="32" src="media/index/machine-learning-studio.svg"></td>
     <td><img height="32" width="32" src="media/index/virtualmachine.svg"></td>
+    <td> </td>
 </th>
 <tr>
     <td>Setup</td>
