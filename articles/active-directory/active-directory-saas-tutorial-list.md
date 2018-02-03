@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2018
+ms.date: 02/05/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -47,7 +47,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-creative-cloud-tutorial.png)| [Adobe Creative Cloud](active-directory-saas-adobe-creative-cloud-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe Experience Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-echosign-tutorial.png)| [Adobe Sign](active-directory-saas-adobe-echosign-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adpetime-tutorial.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adpfederatedsso-tutorial.png)| [ADP Federated SSO](active-directory-saas-adpfederatedsso-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-adglobalview-tutorial.png)| [ADP Globalview](active-directory-saas-adglobalview-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-agiloft-tutorial.png)| [Agiloft](active-directory-saas-agiloft-tutorial.md)|
