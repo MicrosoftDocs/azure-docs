@@ -51,6 +51,18 @@ In the **Request body** box, enter some text. The following example shows an int
 	Also, 544-56-7788 looks like a social security number (SSN).
 ```
 
+### Text classification feature (preview)
+
+In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+
+#### Explanation
+
+- `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
+- `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
+- `Category3` represents the potential presence of language that may be considered offensive in certain situations.
+- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the preceding example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
+
 ### Analyze the response
 The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
 
@@ -135,7 +147,7 @@ The following response shows the various insights from the API. It contains pote
 }
 ```
 
-For an explanation of the sections in the JSON response, refer to the [text moderation API overview](text-moderation-api.md).
+For a detailed explanation of all sections in the JSON response, refer to the [text moderation API overview](text-moderation-api.md).
 
 ## Next steps
 
