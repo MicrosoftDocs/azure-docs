@@ -102,14 +102,16 @@ New-AzureStorageDirectory `
 New-Item c:\fso\AnEmptyFile.txt -ItemType file
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -ShareName myshare -Path myDirectory | Get-AzureStorageFile | Out-File C:\Users\ContainerAdministrator\clouddrive\output.txt
+Get-AzureStorageFile -ShareName myshare -Path myDirectory | Out-File C:\Users\ContainerAdministrator\clouddrive\output.txt
 ```
 
-You can use Vim to check the contents of the file.
+You can use Vim to check the contents of the file. 
 
 ```azurepowershell-interactive
 vim C:\Users\ContainerAdministrator\clouddrive\output.txt
 ```
+
+You may have to scroll the Cloud Shell windows to see the contents.
 
 To close out of Vim, hit the **Esc** key and type `:x`.
 
