@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: apimpm
 ---
 # How to configure notifications and email templates in Azure API Management
