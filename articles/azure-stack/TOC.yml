@@ -250,14 +250,28 @@
       items:
       - name: Overview
         href: azure-stack-billing-and-chargeback.md
-      - name: Usage data reporting
-        href: azure-stack-usage-reporting.md
-      - name: Provider usage API
-        href: azure-stack-provider-resource-api.md
-      - name: Tenant usage API
-        href: azure-stack-tenant-resource-usage-api.md
-      - name: Usage FAQ
-        href: azure-stack-usage-related-faq.md
+      - name: Register to track billing usage
+        href: azure-stack-csp-register-azure-stack.md
+      - name: Add tenants for usage and billing 
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Add tenants for usage and billing 
+        href: azure-stack-csp-ref-operations.md
+      - name: Usage and billing reference
+        items:
+        - name: Usage report infrastructure 
+          href: azure-stack-csp-ref-infrastructure.md
+        - name: Usage and billing glossary 
+          href: azure-stack-csp-ref-glossary.md
+        - name: Usage data reporting
+          href: azure-stack-usage-reporting.md
+        - name: Usage and billing error codes 
+          href: azure-stack-csp-ref-error-codes.md
+        - name: Provider usage API
+          href: azure-stack-provider-resource-api.md
+        - name: Tenant usage API
+          href: azure-stack-tenant-resource-usage-api.md
+        - name: Usage FAQ
+          href: azure-stack-usage-related-faq.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN
