@@ -42,7 +42,7 @@ Azure currently provides three different methods to achieve outbound connectivit
 | --- | --- | --- |
 | [1. VM  with Instance Level Public IP address (with or without load balancer)](#ilpip) | SNAT, port masquerading not used |Azure uses the public IP assigned to the IP configuration of the instance's NIC.  The instance has all ephemeral ports available. |
 | [2. public Load Balancer associated with VM (no Instance Level Public IP address on instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontend(s) |Azure shares the public IP address of the public Load Balancer frontend(s) with multiple private IP addresses and uses ephemeral ports of the frontend(s) to PAT. |
-| [3. Standalone VM (no load balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the Availability Set and uses ephemeral ports of this public IP address.  This is a fallback scenario for the preceeding scenarios 1 & 2 and not recommended if you need visibility and control. |
+| [3. Standalone VM (no load balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the Availability Set and uses ephemeral ports of this public IP address.  This scenario is a fallback scenario for the preceeding scenarios 1 & 2 and not recommended if you need visibility and control. |
 
 If you do not want a VM to communicate with endpoints outside of Azure in public IP address space, you can use Network Security Groups (NSG) to block access.  Using NSGs is discussed in more detail in [preventing outbound connectivity](#preventoutbound).  Design guidance and implementation detail for how to design and manage a Virtual Network without any outbound access is outside of the scope of this article.
 
@@ -60,17 +60,17 @@ In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it.
 
 Port masquerading (PAT) is not used and the VM has all ephemeral ports available for use.
 
-If your application initiates many outbound flows and you experience SNAT port exhaustion, you can consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Please review [Managing SNAT exhaustion](#snatexhaust) it its entirety.
+If your application initiates many outbound flows and you experience SNAT port exhaustion, you can consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) it its entirety.
 
 ## <a name="lb"></a>Scenario 2: Load-balanced VM without Instance Level Public IP address
 
 In this scenario, the VM is part of a public Load Balancer backend pool.  The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Instance Level Public IP](#defaultsnat).  It is not necessary for the rule to have a working listener in the backend pool or the health probe to succeed.
 
-When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses Source Network Address Translation (SNAT) to perform this function and will use [port address translation (PAT)](#pat) to masquerade multiple private IP addresses behind a public IP address. Ephemeral ports of the Load Balancer's public IP address frontend are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are referred to as SNAT ports.
+When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses Source Network Address Translation (SNAT) to perform this function as well as [port address translation (PAT)](#pat) to masquerade multiple private IP addresses behind a public IP address. Ephemeral ports of the Load Balancer's public IP address frontend are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. In this context, the ephemeral ports used for SNAT are referred to as SNAT ports.
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section and are a finite resource that can be exhausted. It is important to understand how they are [consumed](#pat). Review [Managing SNAT exhaustion](#snatexhaust) to understand how to design for and mitigate as necessary.
 
-When [multiple (public) IP addresses are associated with a Load Balancer Basic](load-balancer-multivip-overview.md), any of these public IP addresses are a [candidate for outbound flows and one will be selected](#multivipsnat).  
+When [multiple (public) IP addresses are associated with a Load Balancer Basic](load-balancer-multivip-overview.md), any of these public IP addresses are a [candidate for outbound flows and one is selected](#multivipsnat).  
 
 You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections with Load Balancer Basic.
 
@@ -84,7 +84,7 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence [scenario 2](#lb) and [3](#defaultsnat) (ARM only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (ARM & Classic).
 
-An example is an ARM deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Please also review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
+An example is an ARM deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
 
 ## <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
