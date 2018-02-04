@@ -30,23 +30,23 @@ Azure uses source address network address translation (SNAT) to perform this fun
 
 There are multiple [outbound scenarios](#scenarios). These scenarios can be combined as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario.  Review guidance for [managing these scenarios](#snatexhaust).
 
-# <a name="scenarios"></a>Scenario Overview
+## <a name="scenarios"></a>Scenario overview
 
 Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
 
-## <a name="arm"></a>Azure Resource Manager
+### <a name="arm"></a>Azure Resource Manager
 
 Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources.  [Classic](#classic) deployments have a subset of these scenarios.
 
 | Scenario | Method | Description |
 | --- | --- | --- |
 | [1. VM  with Instance Level Public IP address (with or without load balancer)](#ilpip) | SNAT, port masquerading not used |Azure uses the public IP assigned to the IP configuration of the instance's NIC.  The instance has all ephemeral ports available. |
-| [2. public Load Balancer associated with VM (no Instance Level Public IP address on instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontend(s) |Azure shares the public IP address of the public Load Balancer frontend(s) with multiple private IP addresses and uses ephemeral ports of the frontend(s) to PAT. |
+| [2. Public Load Balancer associated with VM (no Instance Level Public IP address on instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontend(s) |Azure shares the public IP address of the public Load Balancer frontend(s) with multiple private IP addresses and uses ephemeral ports of the frontend(s) to PAT. |
 | [3. Standalone VM (no load balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the Availability Set and uses ephemeral ports of this public IP address.  This scenario is a fallback scenario for the preceeding scenarios 1 & 2 and not recommended if you need visibility and control. |
 
 If you do not want a VM to communicate with endpoints outside of Azure in public IP address space, you can use Network Security Groups (NSG) to block access as needed.  Using NSGs is discussed in more detail in [preventing outbound connectivity](#preventoutbound).  Design guidance and implementation detail for how to design and manage a Virtual Network without any outbound access is outside of the scope of this article.
 
-## <a name="classic"></a>Classic (cloud services)
+### <a name="classic"></a>Classic (cloud services)
 
 The scenarios available for Classic deployments are a subset of scenarios available for [Azure Resource Manager](#arm) deployments and Load Balancer Basic.
 
@@ -54,7 +54,7 @@ A Classic Virtual Machine has the same three fundamental scenarios as described 
 
 The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT for Classic deployments is the same as for Azure Resource Manager resource deployments.  
 
-## <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
+### <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
 
 In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it. As far as outbound connections are concerned, it does not matter whether the VM is load balanced or not.  This scenario takes precedence over the others. When an ILPIP is used, the VM uses the ILPIP for all outbound flows.  
 
@@ -62,7 +62,7 @@ Port masquerading (PAT) is not used and the VM has all ephemeral ports available
 
 If your application initiates many outbound flows and you experience SNAT port exhaustion, you can consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) it its entirety.
 
-## <a name="lb"></a>Scenario 2: Load-balanced VM without Instance Level Public IP address
+### <a name="lb"></a>Scenario 2: Load-balanced VM without Instance Level Public IP address
 
 In this scenario, the VM is part of a public Load Balancer backend pool.  The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a load balancer rule to create a link between the public IP frontend with the backend pool. If you do not complete this rule configuration, the behavior is as described in the scenario for [Standalone VM with no Instance Level Public IP](#defaultsnat).  It is not necessary for the rule to have a working listener in the backend pool or the health probe to succeed.
 
@@ -74,25 +74,25 @@ When [multiple (public) IP addresses are associated with a Load Balancer Basic](
 
 You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) to monitor health of outbound connections with Load Balancer Basic.
 
-## <a name="defaultsnat"></a>Scenario 3: Standalone VM without Instance Level Public IP address
+### <a name="defaultsnat"></a>Scenario 3: Standalone VM without Instance Level Public IP address
 
 The VM is not part of an Azure Load Balancer pool and does not have an Instance Level Public IP (ILPIP) address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit. Azure uses Source Network Address Translation (SNAT) with port masquerading ([PAT](#pat)) to perform this function. This scenario is similar to [scenario 2](#lb), except there is no control over the IP address used.  This is a fallback scenario for when scenarios 1 and scenario 2 do not exist.  This scenario is not recommended if control over the outbound address is desired.
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section and are a finite resource that can be exhausted. It is important to understand how they are [consumed](#pat). Review [Managing SNAT exhaustion](#snatexhaust) to understand how to design for and mitigate as necessary.
 
-## <a name="combinations"></a>Multiple, combined scenarios
+### <a name="combinations"></a>Multiple, combined scenarios
 
 The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager & Classic).
 
 An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
 
-## <a name="multivipsnat"></a> Multiple frontends for outbound flows
+### <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
 Load Balancer Basic will choose a single frontend to be used outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows.  This selection is not configurable and the selection algorithm should be considered to be random.  You can designate a specific IP address for outbound as described in [combined scenarios](#combinations).
 
-# <a name="snat"></a>Understanding SNAT and PAT
+## <a name="snat"></a>Understanding SNAT and PAT
 
-## <a name="pat"></a>Port masquerading SNAT (PAT)
+### <a name="pat"></a>Port masquerading SNAT (PAT)
 
 When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the front-end Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  Ephemeral ports are used to achieve this after rewriting the private source IP address since multiple flows originate from a single public IP address.  These ephemeral ports are called SNAT ports. 
 
@@ -104,7 +104,7 @@ When SNAT port resources are exhausted, outbound flows fail until SNAT ports are
 
 Review the [Managing SNAT](#snatexhaust) section for patterns to mitigate conditions which commonly lead to SNAT port exhaustion.
 
-## <a name="preallocatedports"></a>Ephemeral port preallocation for port masquerading SNAT (PAT)
+### <a name="preallocatedports"></a>Ephemeral port preallocation for port masquerading SNAT (PAT)
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)).  SNAT ports are ephemeral ports available for a given public IP source address.
 
@@ -127,11 +127,9 @@ Changing the size of your backend pool may impact some of your established flows
 
 If the back-end pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
-# Design and operational considerations
+## <a name="snatexhaust"></a>Managing SNAT (PAT) port exhaustion
 
 [Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource as described in [Standalone VM without Instance Level Public IP address](#defaultsnat) and [Load-balanced VM without Instance Level Public IP address](#lb).
-
-## <a name="snatexhaust"></a>Managing SNAT (PAT) port exhaustion
 
 If you know you are initiating many outbound TCP or UDP connections to the same destination IP address and port, and observe failing outbound connections or are advised by support you are exhausting SNAT ports (preallocated [ephemeral ports](#preallocatedports) used by [PAT](#pat)), you have several general mitigation options.  Review these options and decide what is available and best for your scenario.  It is possible one or more can help manage this scenario.
 
@@ -146,10 +144,10 @@ You can employ a connection pooling scheme in your application, where requests a
 ### <a name="retry logic"></a>Modify application to use less aggressive retry logic
 When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are exhausted or application failures occur, aggressive or brute force retries without decay and backoff logic cause exhaustion to occur or persist. You can reduce demand for ephemeral ports by using a less aggressive retry logic.   Ephemeral ports have a 4-minute idle timeout (not adjustable) and if the retries are too aggressive, the exhaustion has no opportunity to clear up on its own.  Therefore, considering how and how often your application retries transactions is a critical consideration of the design.
 
-### <a name="assignilpip"></a>Assign an Instance-Level Public IP to each VM<sup>1</sup>
+### <a name="assignilpip"></a>Assign an Instance-Level Public IP to each VM
 This changes your scenario to [Instance-Level Public IP to a VM](#ilpip).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).  There are trade-offs to consider, such as additional cost of public IP addresses and potential impact of whitelisting a large number of individual IP addresses.
 
-<sup>1</sup> not available for Web Worker Roles
+>[!NOTE] not available for Web Worker Roles
 
 ### <a name="idletimeout"></a>Use keepalives to reset outbound idle timeout
 
@@ -164,3 +162,9 @@ There are many ways to determine the public source IP address of an outbound con
 Sometimes it is undesirable for a VM to be allowed to create an outbound flow or there may be a requirement to manage which destinations can be reached with outbound flows or which destinations may begin inbound flows. In this case, you use [Network Security Groups (NSG)](../virtual-network/virtual-networks-nsg.md) to manage the destinations that the VM can reach as well as which public destination can initiate inbound flows. When you apply an NSG to a load-balanced VM, you need to pay attention to the [default tags](../virtual-network/virtual-networks-nsg.md#default-tags) and [default rules](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 You must ensure that the VM can receive health probe requests from Azure Load Balancer. If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
+
+## Next steps
+
+- Learn more about [Load Balancer Basic](load-balancer-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
