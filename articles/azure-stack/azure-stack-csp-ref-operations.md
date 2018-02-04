@@ -1,5 +1,5 @@
 ---
-title: Register tenants for utilization tracking in Azure Stack | Microsoft Docs
+title: Register tenants for usage tracking in Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -7,20 +7,22 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 2A35D8ED-0059-424C-BA23-586F488569DF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/05/2018
 ms.author: mabrigg
+ms.reviewer: alfredo
 
 ---
 
-# Register tenants for utilization tracking in Azure Stack
+# Register tenants for usage tracking in Azure Stack
 
 *Applies to: Azure Stack integrated systems*
+
+You can use PowerShell or the Billing API endpoints to manage your use tracking. 
 
 ## Add tenant to registration
 
@@ -111,10 +113,10 @@ You can remove a tenant that has been added to a registration
 
 | Parameter                  | Description          |
 |---                         | ---                  |
-| registrationSubscriptionId | Yadda yadda yadda.   |
-| resourceGroup              | Yadda yadda yadda.   |
-| registrationName           | Yadda yadda yadda.   |
-| customerSubscriptionId     | Yadda yadda yadda.   |
+| registrationSubscriptionId | Yadda yadda.   |
+| resourceGroup              | Yadda yadda.   |
+| registrationName           | Yadda yadda.   |
+| customerSubscriptionId     | Yadda yadda.   |
 
 ### PowerShell
 

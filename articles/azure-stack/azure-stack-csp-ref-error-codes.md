@@ -7,14 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: D727BB41-9AF0-4C2D-982E-72C77150F730
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/05/2018
 ms.author: mabrigg
+ms.reviewer: alfredo
 
 ---
 
