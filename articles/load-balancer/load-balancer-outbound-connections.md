@@ -32,11 +32,11 @@ There are multiple [outbound scenarios](#scenarios). These scenarios can be comb
 
 # <a name="scenarios"></a>Scenario Overview
 
-Azure has two major deployment models (Azure Resource Manager (ARM) and Classic). Load Balancer and related resources are explicitly defined when using [ARM resources](#arm).  Classic deployments abstract the concept of a Load Balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
+Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a Load Balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
 
 ## <a name="arm"></a>Azure Resource Manager
 
-Azure currently provides three different methods to achieve outbound connectivity for ARM resources.  [Classic](#classic) deployments have a subset of these scenarios.
+Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources.  [Classic](#classic) deployments have a subset of these scenarios.
 
 | Scenario | Method | Description |
 | --- | --- | --- |
@@ -48,11 +48,11 @@ If you do not want a VM to communicate with endpoints outside of Azure in public
 
 ## <a name="classic"></a>Classic (cloud services)
 
-The scenarios available for Classic deployments are a subset of scenarios available for [ARM](#arm) deployments and Load Balancer Basic.
+The scenarios available for Classic deployments are a subset of scenarios available for [Azure Resource Manager](#arm) deployments and Load Balancer Basic.
 
-A Classic Virtual Machine has the same three fundamental scenarios as described for ARM resources ([1](#ilpip), [2](#lb), [3](#defaultsnat)). A Classic Web Worker Role only has two scenarios ([2](#lb), [3](#defaultsnat)).  [Mitigation strategies](#snatexhaust) mirror these differences.
+A Classic Virtual Machine has the same three fundamental scenarios as described for Azure Resource Manager resources ([1](#ilpip), [2](#lb), [3](#defaultsnat)). A Classic Web Worker Role only has two scenarios ([2](#lb), [3](#defaultsnat)).  [Mitigation strategies](#snatexhaust) mirror these differences.
 
-The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT is the same as for ARM resources.  
+The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT is the same as for Azure Resource Manager resources.  
 
 ## <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
 
@@ -82,9 +82,9 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 ## <a name="combinations"></a>Multiple, combined scenarios
 
-The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence [scenario 2](#lb) and [3](#defaultsnat) (ARM only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (ARM & Classic).
+The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager & Classic).
 
-An example is an ARM deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
+An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
 
 ## <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
