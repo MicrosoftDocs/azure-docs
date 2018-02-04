@@ -58,7 +58,7 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
-$ResourceGroupName  = "system.local"
+$ResourceGroupName = "system.local"
 
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
