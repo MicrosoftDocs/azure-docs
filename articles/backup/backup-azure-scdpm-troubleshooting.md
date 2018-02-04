@@ -26,7 +26,7 @@ This article describes solutions for issues that you might encounter while using
 For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in this [matrix](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
-## Inconsistent replica
+## Error: Replica is inconsistent
 
 A replica can be inconsistent for the following reasons:
 - The replica creation job fails.
@@ -46,7 +46,7 @@ To resolve this issue, perform the following actions:
 - Ensure that the disk is healthy and that there's enough space for the replica.
 - Ensure that there are no duplicate backup jobs that are running concurrently.
 
-## Failure to create online recovery point
+## Error: Online recovery point creation failed
 
 To resolve this issue, perform the following actions:
 - Ensure that you're using the latest version of the Azure Backup agent.
@@ -57,7 +57,7 @@ To resolve this issue, perform the following actions:
 - Ensure that the replica is present and not missing.
 - Ensure that the replica has sufficient space to create the update sequence number (USN) journal.
 
-## Unable to configure protection
+## Error: Unable to configure protection
 
 This error occurs when the Data Protection Manager server can't contact the protected server. 
 
@@ -66,7 +66,7 @@ To resolve this issue, perform the following actions:
 - Ensure that there's connectivity (network/firewall/proxy) between your Data Protection Manager server and the protected server.
 - If you're protecting a SQL server, ensure that the **Login Properties** > **NT AUTHORITY\SYSTEM** property shows the **sysadmin** setting enabled.
 
-## Server not registered in vault credential file
+## Error: Server not registered as specified in vault credential file
 
 This error occurs during the recovery process for Data Protection Manager / Azure Backup server data. The vault credential file that's used in the recovery process doesn't belong to the Recovery Services vault for the Data Protection Manager / Azure Backup server.
 
@@ -74,7 +74,7 @@ To resolve this issue, perform these steps:
 1. Download the vault credential file from the Recovery Services vault to which the Data Protection Manager / Azure Backup server is registered.
 2. Try to register the server with the vault by using the most recently downloaded vault credential file.
 
-## No recoverable data, not a Data Protection Manager server
+## Error: No recoverable data or selected server not a Data Protection Manager server
 
 This error occurs for the following reasons:
 - No other Data Protection Manager / Azure Backup servers are registered to the Recovery Services vault.
@@ -85,7 +85,7 @@ When other Data Protection Manager / Azure Backup servers are registered to the 
 1. Ensure that the latest Azure Backup agent is installed.
 2. After you ensure that the latest agent is installed, wait one day before you start the recovery process. The nightly backup job uploads the metadata for all of the protected backups to the cloud. The backup data is then available for recovery.
 
-## Encryption passphrases don't match
+## Error: Provided encryption passphrase doesn't match passphrase for server
 
 This error occurs during the encryption process when recovering Data Protection Manager / Azure Backup server data. The encryption passphrase that's used in the recovery process doesn't match the server's encryption passphrase. As a result, the agent can't decrypt the data and the recovery fails.
 
