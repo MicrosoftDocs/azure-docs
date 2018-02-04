@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/05/2018
 ms.author: mabrigg
 
 ---
@@ -55,7 +55,7 @@ In your PowerShell session, run:
 ```powershell
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
-
+v
 | parameter | Description |
 | --- | --- | 
 |registrationSubscriptionID | The Azure subscription that was used for the initial registration. |
@@ -70,5 +70,4 @@ In your PowerShell session, run:
 
 ## Next steps
 
- - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](azure-stack-partner-billing-register-error-messages.md).
- 
+ - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](/azure-stack-csp-ref-error-codes.md).
