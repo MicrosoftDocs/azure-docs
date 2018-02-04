@@ -147,7 +147,8 @@ When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are
 ### <a name="assignilpip"></a>Assign an Instance-Level Public IP to each VM
 This changes your scenario to [Instance-Level Public IP to a VM](#ilpip).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).  There are trade-offs to consider, such as additional cost of public IP addresses and potential impact of whitelisting a large number of individual IP addresses.
 
->[!NOTE] not available for Web Worker Roles
+>[!NOTE] 
+>not available for Web Worker Roles
 
 ### <a name="idletimeout"></a>Use keepalives to reset outbound idle timeout
 
@@ -166,5 +167,5 @@ You must ensure that the VM can receive health probe requests from Azure Load Ba
 ## Next steps
 
 - Learn more about [Load Balancer Basic](load-balancer-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+- Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
