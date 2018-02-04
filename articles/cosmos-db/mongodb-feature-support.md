@@ -237,6 +237,33 @@ For example, given the following original query: ```find({x:{$regex: /^abc$/})``
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
 The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents whin which field 'x' has value that begins with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### Update operators
+
+#### Field update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### Array update operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull  (Note: $pull with condition is not supported)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### Bitwise update operator
+- $bit
 
 ### Geospatial operators
 
@@ -254,7 +281,7 @@ $centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ 
 $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Yes
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
 
-## Additional operators
+### Additional operators
 
 Operator | Example | Notes 
 --- | --- | --- |
