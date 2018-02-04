@@ -1,6 +1,6 @@
 ---
-title: Respond to alerts by running an Azure Automation runbook | Microsoft Docs
-description: Learn how to trigger a runbook to run when Azure alerts are raised.
+title: Use an alert to trigger an Azure Automation runbook | Microsoft Docs
+description: Learn how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 keywords: 
 author: georgewallace
@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Use an alert to trigger an Azure Automation runbook
 
-You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) for base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or by using classic alerts to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
+You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or by using classic alerts to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
 
 ## Alert types
 
@@ -24,9 +24,9 @@ When an alert calls a runbook, the actual call is an HTTP POST request to the we
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|
-|[Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification when any platform-level metric meets a specific condition. For example, when the value for **CPU %** on a VM is greater than **90** for the past 5 minutes.| [Class metric alert payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Activity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification when any new event in Azure Activity Log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an **Active** status appears.| [Activity log alert payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Near real-time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than **90**, and the value for **Network In** is greater than **500 MB** for the past 5 minutes.| [Near real-time metric alert payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Sends a notification when any platform-level metric meets a specific condition. For example, when the value for **CPU %** on a VM is greater than **90** for the past 5 minutes.| [Class metric alert payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[Activity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Sends a notification when any new event in the Azure activity log matches specific conditions. For example, when a `Delete VM` operation occurs in **myProductionResourceGroup** or when a new Azure Service Health event with an **Active** status appears.| [Activity log alert payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
+|[Near real-time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Sends a notification faster than metric alerts when one or more platform-level metrics meet specified conditions. For example, when the value for **CPU %** on a VM is greater than **90**, and the value for **Network In** is greater than **500 MB** for the past 5 minutes.| [Near real-time metric alert payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Because the data that's provided by each type of alert is different, each alert type is handled differently. In the next section, you learn how to create a runbook to handle different types of alerts.
 
@@ -36,18 +36,18 @@ To use Automation with alerts, you need a runbook that has logic that manages th
 
 As described in the preceding section, each type of alert has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert. Then, the script evaluates the JSON payload to determine which alert type was used. 
 
-The following example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run.
+This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run.
 
 The runbook uses the **AzureRunAsConnection** [Run As account](automation-create-runas-account.md) to authenticate with Azure to perform the management action against the VM.
 
-Use the following example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script and use it with many different resources.
+Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
 1. Go to your Azure Automation account.
 1. Under **PROCESS AUTOMATION**, select **Runbooks**.
-1. At the top of the list of runbooks, select the **Add a runbook** button. 
+1. At the top of the list of runbooks, select **Add a runbook**. 
 1. On the **Add Runbook** page, select **Quick Create**.
-1. For the runbook name, enter **Stop-AzureVmInResponsetoVMAlert**. For the runbook type, select **PowerShell**. Then, select **Create**.
-1. Copy the following PowerShell example into the **Edit** pane. Then, select **Publish** to save and publish the runbook.
+1. For the runbook name, enter **Stop-AzureVmInResponsetoVMAlert**. For the runbook type, select **PowerShell**. Then, select **Create**.  
+1. Copy the following PowerShell example into the **Edit** pane. 
 
     ```powershell-interactive
     <#
@@ -166,13 +166,14 @@ Use the following example to create a runbook called **Stop-AzureVmInResponsetoV
         Write-Error "This runbook is meant to be started from an Azure alert webhook only."
     }
     ```
+1. Select **Publish** to save and publish the runbook.
 
 ## Create an action group
 
 An action group is a collection of actions that are triggered by an alert. Runbooks are just one of the many actions that you can use with action groups.
 
 1. In the Azure portal, select **Monitor** > **SETTINGS** > **Action groups**.
-1. Select **Add action group**, and then enter the required information:
+1. Select **Add action group**, and then enter the required information:  
     1. In the **Action group name** box, enter a name.
     1. In the **Short name** box, enter a name. The short name is used in place of a full action group name when notifications are sent by using this action group.
     1. The **Subscription** box is automatically filled with your current subscription. This is the subscription in which the action group is saved.
@@ -185,18 +186,18 @@ For this example, you create two actions: a runbook action and a notification ac
 To create a runbook action in the action group:
 
 1. Under **Actions**, for **ACTION NAME**, enter a name for the action. For **ACTION TYPE**, select **Automation Runbook**.
-1. Under **DETAILS**, select **Edit Details**.
-1. On the **Configure Runbook** page, under **Runbook source**, select **User**.
-1. Select your **Subscription** and **Automation account**, and then select the **Stop-AzureVmInResponsetoVMAlert** runbook.
+1. Under **DETAILS**, select **Edit Details**.  
+1. On the **Configure Runbook** page, under **Runbook source**, select **User**.  
+1. Select your **Subscription** and **Automation account**, and then select the **Stop-AzureVmInResponsetoVMAlert** runbook.  
 1. When you are finished, select **OK**.
 
 ### Notification action
 
 To create a notification action in the action group:
 
-1. Under **Actions**, for **ACTION NAME**, enter a name for the action. For **ACTION TYPE**, select **Email**.
-1. Under **DETAILS** select, **Edit Details**.
-1. On the **Email** page, enter the email address to use for notification, and then select **OK**. Adding an email address in addition to the runbook as an action is helpful. You are notified when the runbook is started. 
+1. Under **Actions**, for **ACTION NAME**, enter a name for the action. For **ACTION TYPE**, select **Email**.  
+1. Under **DETAILS** select, **Edit Details**.  
+1. On the **Email** page, enter the email address to use for notification, and then select **OK**. Adding an email address in addition to the runbook as an action is helpful. You are notified when the runbook is started.  
 
     Your action group should look like the following image:
 
@@ -207,7 +208,7 @@ You can use this action group in the [activity log alerts](../monitoring-and-dia
 
 ## Classic alert
 
-Classic alerts are based on metrics, and do not use action groups. But, you can set up a runbook action based on a classic alert. 
+Classic alerts are based on metrics, and do not use action groups. However, you can set up a runbook action based on a classic alert. 
 
 To create a classic alert:
 
