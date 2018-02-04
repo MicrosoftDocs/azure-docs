@@ -270,7 +270,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the access panel.
+In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
 When you select the Adobe Experience Manager tile in the access panel, you should get automatically signed-in to your Adobe Experience Manager application.
 
