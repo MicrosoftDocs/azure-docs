@@ -69,17 +69,15 @@ If the application is crashing, you may also want to enable coredumps. Execute `
 
 The steps below will walk through how to redirect your application logs from the default ```/var/log/syslog``` location to a custom location. 
 
-1. Create a file named logging.properties in the following location ``Voting/VotingApplication/VotingWebPkg/Code/logging.properties`` and add the following 
+1. Create a file named logging.properties in the following location ``Voting/VotingApplication/VotingWebPkg/Code/logging.properties`` and add the following. Currently, applications running in Service Fabric Linux clusters in Azure support picking up a single log file for processing by a health & monitoring solution. As a result, we will ensure our logs always go to 
 ```
 handlers = java.util.logging.FileHandler
 
 java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
-java.util.logging.FileHandler.limit = 1024000
-java.util.logging.FileHandler.count = 10
 
 # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
-java.util.logging.FileHandler.pattern = /root/tmp/mysfapp%u.%g.log
+java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
 ```
 
 2. Add the following parameter in the ```Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh``` for the Java execution command: 

@@ -116,7 +116,7 @@ Please provide string value for 'sendAuthorizationRuleName' (? for help): sender
 Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
 ```
 
-Under the **output** field in the JSON output of the above command, copy the entire contents and make note of it as it used to set up the Service Fabric cluster. It will resemble the following
+Under the **output** field in the JSON output of the above command, copy the entire contents and make note of it as it used to set up the Service Fabric cluster. It will resemble the following. The sender information will be used when you create the Service Fabric cluster. The receiver name and key should be saved for use in the next tutorial when we set up our Logstash service to receive messages from the Event Hub. 
 
 ```json
 "outputs": {
@@ -145,11 +145,14 @@ Under the **output** field in the JSON output of the above command, copy the ent
 python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
 ```
 
-Copy the value of the **sr** field in the JSON returned. It will resemble the below. This is your SAS URL for EventHubs. 
+Copy the value of the **sr** field in the JSON returned. It will resemble the below. This is your SAS token for EventHubs. 
 
 ```json
 https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
 ```
+
+Your SAS URL for the EventHubs will follow the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example, 
+https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 11. Open the ```sfdeploy.parameters.json``` file and replace the following contents from the steps above 
 ```
