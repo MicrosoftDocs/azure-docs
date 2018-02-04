@@ -29,37 +29,37 @@ To test-drive the API by using the online console, you need a few values to ente
 
 - `teamName`: Use the `Id` field from your review tool's credentiuals screen. 
 - `ContentId`: This string is passed to the API and returned through the callback. **ContentId** is useful for associating internal identifiers or metadata with the results of a moderation job.
-- `Workflowname`: The name of the [workflow that you created]((Review-Tool-User-Guide/Workflows.md) in the previous section.
+- `Workflowname`: The name of the [workflow that you created](Review-Tool-User-Guide/Workflows.md) in the previous section.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 Access the API console is from the **Credentials** window.
 
-1.	In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
+1. In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
   The `Job.Create` page opens.
 
-2.	For **Open API testing console**, select the region that most closely describes your location.
+1. For **Open API testing console**, select the region that most closely describes your location.
 
   ![Job - Create page region selection](images/test-drive-job-1.png)
 
   The `Job.Create` API console opens. 
   
-3.	Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan. For this example, let's use this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
+1. Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan. For this example, let's use this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
 
   ![Job - Create console query parameters, headers, and Request body box](images/job-api-console-inputs.PNG)
   
-4.	Select **Send**. A job ID is created. Copy this to use in the next steps.
+1. Select **Send**. A job ID is created. Copy this to use in the next steps.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
   
-5.	Select **Get**, and then open the API by selecting the button that matches your region.
+1. Select **Get**, and then open the API by selecting the button that matches your region.
 
   ![Job - Create console Get results](images/test-drive-job-4.png)
   
-6.	Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
+1. Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
 `
-  {
+{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
 		"TeamName": "some team name",
 		"Status": "InProgress",
@@ -68,9 +68,10 @@ Access the API console is from the **Credentials** window.
 		"CallBackEndpoint": "",
 		"ReviewId": "",
 		"ResultMetaData": [],
-		"JobExecutionReport": [
-    	{
-      		"Ts": "2018-01-07T00:38:26.7714671",
+		"JobExecutionReport": 
+		[
+    		{
+		"Ts": "2018-01-07T00:38:26.7714671",
       		"Msg": "Successfully got hasText response from Moderator"
     	},
     	{
@@ -83,9 +84,9 @@ Access the API console is from the **Credentials** window.
     	}
 		]
 	}
-`
+  `
   
-7.	On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
+1. On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
 
   ![Review tool image of three cyclists](images/ocr-sample-image.PNG)
 
