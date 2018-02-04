@@ -22,7 +22,7 @@ ms.author: kumud
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 
-Azure provides outbound connectivity for customer deployments through several different mechanisms.  This article describes [what the scenarios are](#scenarios), [when they apply](#scenarios), [how they work](), and[how to manage them](#snatexhaust).
+Azure provides outbound connectivity for customer deployments through several different mechanisms.  This article describes what the scenarios are, when they apply, how they work, and how to manage them.
 
 A deployment in Azure can communicate with endpoints outside of Azure in public IP address space. When an instance initiates an outbound flow to a destination in public IP address space, Azure dynamically maps the private IP address to a public IP address.  Once this mapping has been created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
@@ -32,7 +32,7 @@ There are multiple [outbound scenarios](#scenarios). These scenarios can be comb
 
 # <a name="scenarios"></a>Scenario Overview
 
-Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a Load Balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
+Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
 
 ## <a name="arm"></a>Azure Resource Manager
 
@@ -44,19 +44,19 @@ Azure currently provides three different methods to achieve outbound connectivit
 | [2. public Load Balancer associated with VM (no Instance Level Public IP address on instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontend(s) |Azure shares the public IP address of the public Load Balancer frontend(s) with multiple private IP addresses and uses ephemeral ports of the frontend(s) to PAT. |
 | [3. Standalone VM (no load balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the Availability Set and uses ephemeral ports of this public IP address.  This scenario is a fallback scenario for the preceeding scenarios 1 & 2 and not recommended if you need visibility and control. |
 
-If you do not want a VM to communicate with endpoints outside of Azure in public IP address space, you can use Network Security Groups (NSG) to block access.  Using NSGs is discussed in more detail in [preventing outbound connectivity](#preventoutbound).  Design guidance and implementation detail for how to design and manage a Virtual Network without any outbound access is outside of the scope of this article.
+If you do not want a VM to communicate with endpoints outside of Azure in public IP address space, you can use Network Security Groups (NSG) to block access as needed.  Using NSGs is discussed in more detail in [preventing outbound connectivity](#preventoutbound).  Design guidance and implementation detail for how to design and manage a Virtual Network without any outbound access is outside of the scope of this article.
 
 ## <a name="classic"></a>Classic (cloud services)
 
 The scenarios available for Classic deployments are a subset of scenarios available for [Azure Resource Manager](#arm) deployments and Load Balancer Basic.
 
-A Classic Virtual Machine has the same three fundamental scenarios as described for Azure Resource Manager resources ([1](#ilpip), [2](#lb), [3](#defaultsnat)). A Classic Web Worker Role only has two scenarios ([2](#lb), [3](#defaultsnat)).  [Mitigation strategies](#snatexhaust) mirror these differences.
+A Classic Virtual Machine has the same three fundamental scenarios as described for Azure Resource Manager resources ([1](#ilpip), [2](#lb), [3](#defaultsnat)). A Classic Web Worker Role only has two scenarios ([2](#lb), [3](#defaultsnat)).  [Mitigation strategies](#snatexhaust) also have the same differences.
 
-The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT is the same as for Azure Resource Manager resources.  
+The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT for Classic deployments is the same as for Azure Resource Manager resource deployments.  
 
 ## <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
 
-In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it. As far as outbound connections are concerned, it does not matter whether the VM is load balanced or not.  This scenario takes prescedence over the others. When an ILPIP is used, the VM uses the ILPIP for all outbound flows.  
+In this scenario, the VM has an Instance Level Public IP (ILPIP) assigned to it. As far as outbound connections are concerned, it does not matter whether the VM is load balanced or not.  This scenario takes precedence over the others. When an ILPIP is used, the VM uses the ILPIP for all outbound flows.  
 
 Port masquerading (PAT) is not used and the VM has all ephemeral ports available for use.
 
