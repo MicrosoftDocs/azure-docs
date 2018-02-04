@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Adobe Experience Manager with Azure
 Integrating Adobe Experience Manager with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Adobe Experience Manager.
-- You can enable your users to automatically get signed-in to Adobe Experience Manager with their Azure AD accounts.
+- You can enable your users to automatically get signed in to Adobe Experience Manager with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -78,7 +78,7 @@ In this section, you configure and test Azure AD single sign-on with Adobe Exper
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Adobe Experience Manager is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and the related user in Adobe Experience Manager.
 
-In Adobe Experience Manager, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Adobe Experience Manager, give the value **Username** the same value of the **user name** in Azure AD. Now you have established the link between the two users. 
 
 To configure and test Azure AD single sign-on with Adobe Experience Manager, complete the following building blocks:
 
@@ -141,11 +141,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-11. Select **Account Settings** > **Create/Manage TrustStore**.
+11. Select **Account settings** > **Manage TrustStore**.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. Under **Add Certificate from CER file** button, click **Select Certificate File** . Browse to and select the certificate file, which you already downloaded from the Azure portal.
+12. Under **Add Certificate from CER file**, click **Select Certificate File**. Browse to and select the certificate file, which you already downloaded from the Azure portal.
 
 	![Configure single sign-on save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
@@ -165,7 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
-	This opens the Configuration page.
+	This opens the configuration page.
 
 	![Configure the single sign-on save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
@@ -179,13 +179,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Path** box, enter **/**.
 
-	b. In **IDP URL** box, enter the **SAML Sign-On Service URL**,value that you copied from the Azure portal.
+	b. In the **IDP URL** box, enter the **SAML Sign-On Service URL** value that you copied from the Azure portal.
 
 	c. In the **IDP Certificate Alias** box, enter the **Certificate Alias** value that you added in TrustStore.
 
-	d. In **Security Provided Entity ID** box, enter the unique **SAML Entity ID** value that you configured in the Azure portal.
+	d. In the **Security Provided Entity ID** box, enter the unique **SAML Entity ID** value that you configured in the Azure portal.
 
-	e. In **Assertion Consumer Service URL** box, enter the **Reply URL** value that you configured in the Azure portal.
+	e. In the **Assertion Consumer Service URL** box, enter the **Reply URL** value that you configured in the Azure portal.
 
 	f. In the **Password of Key Store** box, enter the **Password** that you set in KeyStore.
 
@@ -216,7 +216,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The "Users and groups" and "All users" links](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, at the top of the **All Users** dialog box, select **Add** .
+3. To open the **User** dialog box, at the top of the **All Users** dialog box, select **Add**.
 
     ![The Add button](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_03.png)
 
@@ -262,7 +262,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the ssers list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list.
 
 6. In the **Users and groups** dialog box, click the **Select** button.
 
