@@ -22,7 +22,7 @@ ms.reviewer: alfredo
 
 *Applies to: Azure Stack integrated systems*
 
-You can use PowerShell or the Billing API endpoints to manage your use tracking. 
+You can use PowerShell or the Billing API endpoints to manage your use tracking. This article contains details about operations you can use to manage your usage tracking. You can find details about how to add, list, or remove tenant mappings.
 
 ## Add tenant to registration
 
@@ -137,4 +137,4 @@ You can remove a tenant that has been added to a registration
 
 ## Next steps
 
-To learn about X, see [X]().
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).

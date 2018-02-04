@@ -3,7 +3,7 @@ title: Usage report infrastructure in Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: mabrigg
+ms.author: brenduns
 ms.reviewer: alfredo
 
 ---
@@ -34,8 +34,8 @@ There are some differences between how services are priced in Azure Stack and Az
 
 You can find out about the Azure Stack meters used in Commerce and their prices in Partner Center, in the same way as you would do for Azure services:
 
-1. In Partner Center, go to the Dashboard menu > **Pricing and offers**.
-2. Under Usage-based services, select **Current**.
+1. In Partner Center, go to the **Dashboard menu** > **Pricing and offers**.
+2. Under **Usage-based services**, select **Current**.
 3. Open the **Azure in Global CSP price list** spreadsheet.
 4. Filter on **Region = Azure Stack**.
 
@@ -57,4 +57,5 @@ Since tenant subscriptions are CSP subscriptions, their bill is sent to the CSP 
 
 ## Next steps
 
-To learn about X, see [X]().
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn how to [Register to track billing usage in Azure Stack](azure-stack-csp-register-azure-stack.md). 

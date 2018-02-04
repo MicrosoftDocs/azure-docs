@@ -30,7 +30,7 @@ Add the customer in Partner Center and creates an Azure subscription. For instru
 
 ## Enable new customer tenant in Azure Stack
 
-1. Update the registration with the new customer’s subscription. This will ensure usage is reported against the correct customer in Partner Center. 
+1. Update the registration with the new customer’s subscription. This ensures usage is reported against the correct customer in Partner Center. 
 
 2. Add the new customer tenant to Azure Stack.
 
@@ -40,14 +40,11 @@ Add the customer in Partner Center and creates an Azure subscription. For instru
 Add tenants to your registration. 
 
 1. Open Windows PowerShell with an elevated prompt, and run:
-
-```PowerShell
-    Login-AzureRmAccount
-```
-
+    ```PowerShell
+        Login-AzureRmAccount
+    ```
 2. Type your Azure credentials.
-
-
+    
 ## Add new tenant to registration
 
 In your PowerShell session, run:
@@ -55,7 +52,6 @@ In your PowerShell session, run:
 ```powershell
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
-v
 | parameter | Description |
 | --- | --- | 
 |registrationSubscriptionID | The Azure subscription that was used for the initial registration. |
@@ -71,3 +67,4 @@ v
 ## Next steps
 
  - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](/azure-stack-csp-ref-error-codes.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).

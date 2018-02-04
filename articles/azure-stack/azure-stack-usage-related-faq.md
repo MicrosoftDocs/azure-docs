@@ -3,18 +3,18 @@ title: Usage API related FAQs | Microsoft Docs
 description: List of Azure Stack meters, comparison to Azure usage API, Usage Time and Reported Time, error codes.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
-ms.author: alfredop
+ms.date: 02/05/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 # Frequently asked questions in Azure Stack usage API

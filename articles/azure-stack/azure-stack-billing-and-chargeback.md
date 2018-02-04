@@ -3,18 +3,18 @@ title: Customer Billing And Chargeback In Azure Stack | Microsoft Docs
 description: Learn how to retrieve resource usage information from Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid: a9afc7b6-43da-437b-a853-aab73ff14113
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: alfredop
+ms.date: 02/05/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 # Usage and billing in Azure Stack
@@ -29,7 +29,7 @@ Azure Stack contains the infrastructure to collect and aggregate usage data for 
 
 Each resource provider in Azure Stack emits usage data as per resource utilization. The Usage Service periodically(hourly or daily) aggregates this usage data and stores it in the usage database. The stored usage data can be accessed by Azure Stack operators and users locally by using usage APIs. 
 
-If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Usage Bridge is configured to send the usage data to Azure commerce. After the data is available in Azure, you can access it through the billing portal or by using Azure usage API's. Refer to the [Usage data reporting](azure-stack-usage-reporting.md) topic to learn more about what usage data is reported to Azure. 
+If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Usage Bridge is configured to send the usage data to Azure commerce. After the data is available in Azure, you can access it through the billing portal or by using Azure usage APIs. Refer to the [Usage data reporting](azure-stack-usage-reporting.md) topic to learn more about what usage data is reported to Azure. 
 
 The following image shows the key components in the usage pipeline:
 
@@ -48,7 +48,7 @@ The Azure billing portal shows the usage data only for the chargeable resources.
 
 ## Retrieve usage information
 
-To generate the usage data, you should have resources that are running and actively using the system, For example, an active virtual machine or a storage account containing some data etc. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
+To generate the usage data, you should have resources that are running and actively using the system, For example, an active virtual machine, or a storage account containing some data etc. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
 
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 2. [Configure the Azure Stack user's](user/azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 

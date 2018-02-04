@@ -3,18 +3,18 @@ title: Provider resource usage API | Microsoft Docs
 description: Reference for the resource usage API, which retrieves Azure Stack usage information
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
+ms.date: 02/05/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 # Provider resource usage API

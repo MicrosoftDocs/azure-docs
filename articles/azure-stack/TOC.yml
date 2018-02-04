@@ -258,12 +258,12 @@
         href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:
+        - name: Usage data reporting
+          href: azure-stack-usage-reporting.md
         - name: Usage report infrastructure 
           href: azure-stack-csp-ref-infrastructure.md
         - name: Usage and billing glossary 
           href: azure-stack-csp-ref-glossary.md
-        - name: Usage data reporting
-          href: azure-stack-usage-reporting.md
         - name: Usage and billing error codes 
           href: azure-stack-csp-ref-error-codes.md
         - name: Provider usage API

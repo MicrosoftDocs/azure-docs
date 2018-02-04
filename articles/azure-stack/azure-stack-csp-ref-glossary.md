@@ -3,7 +3,7 @@ title: Billing glossary for Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,7 +12,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: mabrigg
+ms.author: brenduns
 ms.reviewer: alfredo
 
 ---
@@ -34,5 +34,5 @@ The following terms and concepts are used for utilization billing in Azure Stack
 ## Next steps
 
 To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
-
-
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ 

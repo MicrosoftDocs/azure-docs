@@ -3,8 +3,8 @@ title: Tenant Resource Usage API | Microsoft Docs
 description: Reference for resource usage API, which retrieve Azure Stack usage information.
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
-ms.author: alfredop
+ms.date: 02/05/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 # Tenant Resource Usage API

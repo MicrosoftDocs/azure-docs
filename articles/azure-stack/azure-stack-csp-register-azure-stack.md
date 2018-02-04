@@ -3,7 +3,7 @@ title: Register to track billing usage in Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: mabrigg
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: mabrigg
+ms.author: mattbriggs
 ms.reviewer: alfredo
 
 ---
@@ -24,7 +24,7 @@ ms.reviewer: alfredo
 
 Determine the type of shared services tenant you use for the Azure Stack registration. Then register Azure Stack with the Azure shared services tenant.
 
-Once your register Azure Stack with your shared services tenant, you may require operators and users using resources to register with Azure with their own tenant. Although there is no charge to deploy Azure Stack, charges accrue in proportion to actual usage. Microsoft sells Azure Stack on a pay-per-use basis. The services that Microsoft charges for include virtual machines (VMs), storage, and a platform-as-a service (PaaS) such as AppService.
+Once you register Azure Stack with your shared services tenant, you may require operators and users using resources to register with Azure with their own tenant. Although there is no charge to deploy Azure Stack, charges accrue in proportion to actual usage. Microsoft sells Azure Stack on a pay-per-use basis. The services that Microsoft charges for include virtual machines (VMs), storage, and a platform-as-a service (PaaS) such as AppService.
 
 ## Choose an Azure shared services tenant for Azure Stack
 
@@ -48,7 +48,7 @@ Partner Shared Services subscriptions (CSPSS) are the preferred choice for regis
 
 You need an account, credentials, and a subscription in a Shared Services tenant.
 
-How to do I this?
+<!-- How to do I this? -->
 
 <!-- You need the shared services tenant ID for an Azure subscription. For steps on setting up a shared services tenant and to get your ID, see [Add Azure Partner Shared Services](https://msdn.microsoft.com/en-us/partner-center/shared-services). -->
 
@@ -63,5 +63,7 @@ CSPSS subscriptions are associated with a shared services tenant. When you regis
 
 ## Next steps
 
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
  - To learn about The Azure Stack billing infrastructure, see [Usage report infrastructure in Azure Stack](azure-stack-csp-register-azure-stack.md).
  - To learn about registering for multiple tenants in Azure Stack, see  [Enable multitenancy for Azure Stack](azure-stack-csp-register-azure-stack.md).
+ 

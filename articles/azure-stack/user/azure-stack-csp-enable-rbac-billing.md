@@ -36,4 +36,4 @@ You can optionally grant RBAC rights to CSP to manage your Azure Stack subscript
 
 ## Next steps
 
-To learn about X, see [X]().
+  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](../azure-stack-billing-and-chargeback.md).
