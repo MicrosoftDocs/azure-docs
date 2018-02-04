@@ -34,28 +34,35 @@ To test-drive the API by using the online console, you need a few values to ente
 
 Access the API console is from the **Credentials** window.
 
-1. In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
+### Navigate to the API Reference
+In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
   The `Job.Create` page opens.
 
-1. For **Open API testing console**, select the region that most closely describes your location.
+### Select your region
+For **Open API testing console**, select the region that most closely describes your location.
 
   ![Job - Create page region selection](images/test-drive-job-1.png)
 
   The `Job.Create` API console opens. 
-  
-1. Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan. For this example, let's use this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
+
+### Enter parameters
+
+Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan. For this example, let's use this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
 
   ![Job - Create console query parameters, headers, and Request body box](images/job-api-console-inputs.PNG)
-  
-1. Select **Send**. A job ID is created. Copy this to use in the next steps.
+
+### Submit your request
+Select **Send**. A job ID is created. Copy this to use in the next steps.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
-  
-1. Select **Get**, and then open the API by selecting the button that matches your region.
+
+### Opeb the Get Job details page
+Select **Get**, and then open the API by selecting the button that matches your region.
 
   ![Job - Create console Get results](images/test-drive-job-4.png)
-  
+
+### Review the response
 1. Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
 `
@@ -85,8 +92,9 @@ Access the API console is from the **Credentials** window.
 		]
 	}
   `
-  
-1. On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
+
+## Navigate to the review tool
+On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
 
   ![Review tool image of three cyclists](images/ocr-sample-image.PNG)
 
