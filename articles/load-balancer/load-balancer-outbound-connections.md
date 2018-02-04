@@ -26,7 +26,7 @@ Azure provides outbound connectivity for customer deployments through several di
 
 A deployment in Azure can communicate with endpoints outside of Azure in public IP address space. When an instance initiates an outbound flow to a destination in public IP address space, Azure dynamically maps the private IP address to a public IP address.  Once this mapping has been created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
-Azure uses source address network address translation (SNAT) to perform this function.  When multiple private IP addresses are masquerading behind a single public IP address, SNAT uses [port address translation (PAT)](#pat) to masquerade private IP addresses and make the flow unique as necessary.  Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size.
+Azure uses source address network address translation (SNAT) to perform this function.  When multiple private IP addresses are masquerading behind a single public IP address, Azure uses [port address translation (PAT)](#pat) to masquerade private IP addresses.  Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size.
 
 There are multiple [outbound scenarios](#scenarios). These scenarios can be combined as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario.  Review guidance for [managing these scenarios](#snatexhaust).
 
@@ -88,13 +88,13 @@ An example is an ARM deployment where the application relies heavily on outbound
 
 ## <a name="multivipsnat"></a> Multiple frontends for outbound flows
 
-Load Balancer Basic will choose a single frontend to be used outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows.  This is not configurable and the selection algorithm should be considered to be random.  You can designate a specific IP address for outbound as described in [combined scenarios](#combinations).
+Load Balancer Basic will choose a single frontend to be used outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows.  This selection is not configurable and the selection algorithm should be considered to be random.  You can designate a specific IP address for outbound as described in [combined scenarios](#combinations).
 
 # <a name="snat"></a>Understanding SNAT and PAT
 
 ## <a name="pat"></a>Port masquerading SNAT (PAT)
 
-When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the front-end Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address and port, IP transport protocol, destination IP address and port) must be unique.  Ephemeral ports are used to achieve this after rewriting the private source IP address since multiple flows originate from a single public IP address.  These ephemeral ports are called SNAT ports. 
+When a public Load Balancer resource is associated with VM instances, each outbound connection source is rewritten. The source is rewritten from the virtual network private IP address space to the front-end Public IP address of the load balancer. In the public IP address space, the 5-tuple of the flow (source IP address, source port, IP transport protocol, destination IP address, destination port) must be unique.  Ephemeral ports are used to achieve this after rewriting the private source IP address since multiple flows originate from a single public IP address.  These ephemeral ports are called SNAT ports. 
 
 One SNAT port is consumed per flow to a single destination IP address, port, and protocol. For multiple flows to the same destination IP address, port, and protocol, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address, port, and protocol. 
 
