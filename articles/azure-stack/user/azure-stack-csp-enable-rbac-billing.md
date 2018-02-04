@@ -18,7 +18,7 @@ ms.reviewer: alfredop
 
 ---
 
-# Enable RBAC utilization billing for Azure Stack
+# Enable RBAC usage billing for Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 

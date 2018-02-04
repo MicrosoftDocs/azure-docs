@@ -19,7 +19,7 @@ ms.reviewer: alfredop
 
 ---
 
-# Enable tenant billing utilization for Azure Stack
+# Enable tenant usage billing for Azure Stack
 
 *Applies to: Azure Stack integrated systems*
 

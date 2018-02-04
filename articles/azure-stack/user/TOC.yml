@@ -115,6 +115,12 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Billing
+    items:
+    - name: Enable tenant usage billing
+      href: azure-stack-csp-enable-tenant-billing.md
+    - name: Enable RBAC usage billing
+      href: azure-stack-csp-enable-rbac-billing.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
