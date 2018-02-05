@@ -22,7 +22,7 @@ ms.author: magoedte;sngun
 
 Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
-## Roles in Automation Accounts
+## Roles in Automation accounts
 In Azure Automation, access is granted by assigning the appropriate RBAC role to users, groups, and applications at the Automation account scope. Following are the built-in roles supported by an Automation account:
 
 | **Role** | **Description** |
@@ -69,7 +69,7 @@ A Reader can view all the resources in an Automation account but cannot make any
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/read|View all resources in an Automation Account. |
+|Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
 ### Automation Job Operator
 
@@ -91,7 +91,7 @@ An Automation Job Operator is granted at the Automation account scope. This al
 
 ### Automation Runbook Operator
 
-An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can see the runbook name. This permission combined with 'Automation Job Operator' at the Automation Account scope, enables the operator to perform the Automation Operator actions for a particular runbook. The following table shows the permissions granted for the role:
+An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can see the runbook name. This permission combined with 'Automation Job Operator' at the Automation account scope, enables the operator to perform the Automation Operator actions for a particular runbook. The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -212,17 +212,17 @@ The following tables show the minimum required permissions needed for onboarding
 |Write new resource group      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Create new default Workspace      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Create new Account      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
-|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Automation Account
+|Link workspace and account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Automation account
 |Create solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |Create MMA extension      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
 |Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
 |Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
-|Onboarding state check - Read linked workspace property of account     | Microsoft.Automation/automationAccounts/read      | Automation Account        |
+|Onboarding state check - Read linked workspace property of account     | Microsoft.Automation/automationAccounts/read      | Automation account        |
 |Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
-|Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation Account   |
+|Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation account   |
 
 ### Onboarding from Automation account
 
@@ -231,7 +231,7 @@ The following tables show the minimum required permissions needed for onboarding
 |Create new deployment     | Microsoft.Resources/deployments/*        | Subscription         |
 |Create new resource group     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |AutomationOnboarding blade - Create new workspace     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
-|AutomationOnboarding blade - read linked workspace     | Microsoft.Automation/automationAccounts/read        | Automation Account       |
+|AutomationOnboarding blade - read linked workspace     | Microsoft.Automation/automationAccounts/read        | Automation account       |
 |AutomationOnboarding blade - read solution     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solution        |
 |AutomationOnboarding blade - read workspace     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Workspace        |
 |Create link for workspace and Account     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
@@ -257,16 +257,16 @@ Update management reaches across multiple services to provide its service. The f
 |Solution     |Log Analytics Contributor         | Solution|
 |Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
 
-## Configure RBAC for your Automation Account using Azure portal
+## Configure RBAC for your Automation account using Azure portal
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.  
-2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation Account.
+2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation account.
    
    ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)  
 
 ### Add a new user and assign a role
 1. From the **Access control (IAM)** page, click **+ Add** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.  
 
-2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation Account supports or any custom role you may have defined.
+2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
 
 3. Type the username of the user you want to give permissions to in the **Select** field. Select the user from the list and click **Save**.
    
@@ -282,10 +282,10 @@ Update management reaches across multiple services to provide its service. The f
     ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
-   > Role-based access control can only be set at the Automation Account scope and not at any resource below the Automation Account.
+   > Role-based access control can only be set at the Automation account scope and not at any resource below the Automation account.
 
 ### Remove a user
-You can remove the access permission for a user who is not managing the Automation Account, or who no longer works for the organization. Following are the steps to remove a user: 
+You can remove the access permission for a user who is not managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user: 
 
 1. From the **Access control (IAM)** page, select the user wish to remove and click **Remove**.
 2. Click the **Remove** button in the assignment details pane.
@@ -293,7 +293,7 @@ You can remove the access permission for a user who is not managing the Automati
 
    ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-## Role Assigned User
+## Role assigned user
 
 When a user assigned to a role logs in to Azure and selects their Automation account, they can now see the owner’s account listed in the list of **Directories**. In order to view the Automation account that they have been added to, they must switch the default directory to the owner’s default directory.
 
@@ -308,8 +308,8 @@ This user also doesn’t have access to view the webhooks associated with a runb
 
 ![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
-## Configure RBAC for your Automation Account using Azure PowerShell
-Role-based access can also be configured to an Automation Account using the following [Azure PowerShell cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
+## Configure RBAC for your Automation account using Azure PowerShell
+Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
 
@@ -334,7 +334,7 @@ AssignableScopes : {/}
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
 ```powershell-interactive
-Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 The following is the example output:
@@ -352,10 +352,10 @@ ObjectType         : User
 ```
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) to assign access to users, groups, and applications to a particular scope.  
-    **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation Account scope.
+    **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation account scope.
 
 ```powershell-interactive
-New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 The following is the example output:
@@ -373,15 +373,15 @@ ObjectType         : User
 ```
 
 • Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) to remove access of a specified user, group, or application from a particular scope.  
-    **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation Account scope.
+    **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation account scope.
 
 ```powershell-interactive
-Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>'
+Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 In the preceding examples, replace **sign in Id**, **subscription Id**, **resource group name**, and **Automation account name** with your account details. Choose **yes** when prompted to confirm before continuing to remove user role assignment.   
 
-## Next Steps
+## Next steps
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 * For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
 * For information about different runbook types, refer to [Azure Automation runbook types](automation-runbook-types.md)
