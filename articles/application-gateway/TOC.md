@@ -46,6 +46,9 @@
 ## Configure internal redirection
 ### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
 ### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Configure HTTP to HTTPS redirection
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
 ## Configure URL redirection
 ### [Azure PowerShell](tutorial-url-redirect-powershell.md)
 ### [Azure CLI](tutorial-url-redirect-cli.md)
