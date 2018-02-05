@@ -145,7 +145,7 @@ From this table, we can draw the following conclusions:
 | P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
 | P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
+For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
 <a name="cache-region"></a>
 
