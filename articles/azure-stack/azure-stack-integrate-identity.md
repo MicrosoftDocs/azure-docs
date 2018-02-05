@@ -5,7 +5,7 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -16,7 +16,7 @@ You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Dir
 
 The following table shows the differences between the two identity choices:
 
-||Physically disconnected|Physically connected|
+||Disconnected from the internet|Connected to the internet|
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|

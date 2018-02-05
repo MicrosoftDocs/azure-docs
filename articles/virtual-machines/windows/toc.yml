@@ -422,6 +422,8 @@
       href: performance-diagnostics-vm-extension.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
+    - name: Install the VM agent in offline mode
+      href: install-vm-agent-offline.md
 - name: Reference
   items:
   - name: Azure CLI
