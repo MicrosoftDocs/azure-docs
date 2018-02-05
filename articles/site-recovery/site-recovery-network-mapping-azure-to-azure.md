@@ -46,11 +46,11 @@ Repeat the preceding process to create a network mapping from the Southeast Asia
 
 ## Map a network when you enable replication
 
-When you replicate a virtual machine from one Azure region to another region for the first time, if network mapping hasn't already occurred, you can set the target network when you set up replication. Based on this setting, Azure Site Recovery creates network mappings from the source region to the target region, and from the target region to the source region.   
+When you replicate a virtual machine from one Azure region to another region for the first time, if no network mapping exists, you can set the target network when you set up replication. Based on this setting, Azure Site Recovery creates network mappings from the source region to the target region, and from the target region to the source region.   
 
 ![Configure settings pane - Choose the target location](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
-By default, Site Recovery creates a network in the target region that is identical to the source network. Site Recovery creates a network by adding **-asr** as a suffix to the name of the source network. To choose a network that has already been created network, select **Customize**.
+By default, Site Recovery creates a network in the target region that is identical to the source network. Site Recovery creates a network by adding **-asr** as a suffix to the name of the source network. To choose a network that has already been created, select **Customize**.
 
 ![Customize target settings pane - Set target resource group name and target virtual network name](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
 
@@ -96,4 +96,4 @@ To modify the target IP on each network interface, go to the **Compute and Netwo
 
 ## Next steps
 
-* Get [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
+* Review [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
