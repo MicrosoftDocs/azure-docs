@@ -30,19 +30,19 @@ sections:
       image:
         src: media/index/i_machine-learning.svg
         href: /azure/machine-learning/preview/
-      text: 'Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.'
+        text: 'Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.'
     - title: Azure Machine Learning Studio
       href: /azure/machine-learning/studio/
       image:
         src: media/index/machine-learning-studio.svg
         href: /azure/machine-learning/studio/
-      text: 'Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.'
+        text: 'Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.'
     - title: Data Science Virtual Machine
       href: /azure/machine-learning/data-science-virtual-machine/overview
       image:
         src: media/index/virtualmachine.svg
         href: /azure/machine-learning/data-science-virtual-machine/overview
-      text: 'Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.'
+        text: 'Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.'
 
 - title: 
   items:
