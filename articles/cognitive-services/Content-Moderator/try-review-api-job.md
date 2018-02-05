@@ -56,13 +56,14 @@ Select **Send**. A job ID is created. Copy this to use in the next steps.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
 
-### Opeb the Get Job details page
+### Open the Get Job details page
 Select **Get**, and then open the API by selecting the button that matches your region.
 
   ![Job - Create console Get results](images/test-drive-job-4.png)
 
 ### Review the response
-1. Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
+
+Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
 ###
 	{
