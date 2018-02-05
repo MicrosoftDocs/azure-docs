@@ -153,7 +153,7 @@ To filter the view by a specific intent or entity, select the intent or entity i
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
 ## Investigate negative sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][glossary.md#true-positive]** and **[True Negative][glossary.md#true-negative]** sections, then your application's performance is perfect on this dataset.
+Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
 
 ![Four sections of chart](./media/luis-how-to-train-test/chart-sections.png)
 
