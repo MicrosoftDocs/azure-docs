@@ -21,7 +21,7 @@ ms.custom: azlog
 
 # Integrate Azure Active Directory audit logs
 
-Azure Active Directory (Azure AD) audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+Azure Active Directory (Azure AD) audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events).
 
 > [!NOTE]
 > Before you attempt the steps in this article, you must review the [Get started](security-azure-log-integration-get-started.md) article and complete the steps there.

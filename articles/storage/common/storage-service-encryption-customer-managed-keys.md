@@ -84,7 +84,7 @@ A: Yes.
 
 **Q: How much more does Azure Storage cost if SSE with customer managed keys is enabled?**
 
-A: There is a cost associated for using Azure Key Vault. For more details visit [Key Vault Pricing](https://azure.microsoft.com/en-us/pricing/details/key-vault/). There is no additional cost for using SSE.
+A: There is a cost associated for using Azure Key Vault. For more details visit [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). There is no additional cost for using SSE.
 
 **Q: Can I revoke access to the encryption keys?**
 

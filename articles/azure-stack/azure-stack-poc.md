@@ -36,5 +36,5 @@ Azure Stack development kit has the following limitations:
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
 
-[Azure Stack:  An extension of Azure (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack:  An extension of Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
 

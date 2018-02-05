@@ -24,7 +24,7 @@ This topic shows you how to use Azure Mobile Engagement to understand your app u
 In this tutorial, you create a blank Xamarin.iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).
 
 > [!NOTE]
-> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 This tutorial requires the following:
 
@@ -32,7 +32,7 @@ This tutorial requires the following:
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
+> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
 > 
 > 
 

@@ -201,8 +201,8 @@ Name              : testblob
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
 - To learn how to do this same tutorial using a storage SAS credential, see [Use a Windows VM Managed Service Identity to access Azure Storage via a SAS credential](msi-tutorial-windows-vm-access-storage-sas.md)
 - For more information about the Azure Storage account SAS feature, see:
-  - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+  - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+  - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS)
 
 Use the following comments section to provide feedback and help us refine and shape our content
 

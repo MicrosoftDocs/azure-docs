@@ -23,7 +23,7 @@ You can use the Cortana Intelligence solution evaluation tool to assess your adv
 Please [download](https://aka.ms/aa-evaluation-tool-download) and install the Cortana Intelligence solution evaluation tool.
 
 Prerequisites:
-- Windows 10: [Official site for Windows 10](https://www.microsoft.com/en-us/windows)
+- Windows 10: [Official site for Windows 10](https://www.microsoft.com/windows)
 - Azure Powershell:
 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
@@ -130,7 +130,7 @@ In addition to TDE, Azure SQL also supports Always Encrypted, a new data encrypt
 ### Any Virtual Machines must be deployed from the Azure Marketplace
 In order to provide a consistent level of security across AppSource, we require that any virtual machines deployed as part of a Cortana Intelligence solution be certified and published on the Azure Marketplace.
 
-To search the current list of Azure Marketplace images, see [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
+To search the current list of Azure Marketplace images, see [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute).
 
 For information on how to publish a virtual machine image for Azure Marketplace, see [Guide to create a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
@@ -194,7 +194,7 @@ For more information on creating retraining web services in AzureML, see [Retrai
 For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## Existing documentation
-[Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Certified for Cortana Intellignece](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Certified for Cortana Intellignece](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 
