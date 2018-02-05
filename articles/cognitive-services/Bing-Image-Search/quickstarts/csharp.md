@@ -35,7 +35,7 @@ To run this application, follow these steps.
 2. Replace the `accessKey` value with an access key valid for your subscription.
 3. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

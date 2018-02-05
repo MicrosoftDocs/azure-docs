@@ -5,7 +5,7 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
 ---
 
@@ -68,6 +68,22 @@ You can reregister the configuration server in the same vault if you need to. f 
       net stop obengine
       net start obengine
       ```
+## Upgrade the configuration server
+
+You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
+
+- If you're running 9.7, 9.8, 9.9, or 9.10 - you can upgrade directly to 9.11.
+- If you're running 9.6 or earlier, and you want to upgrade to 9.11, you must first upgrade to version 9.7. before  9.11.
+
+Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Upgrade the server as follows:
+
+1. Download the update installer file to the configuration server.
+2. Double-click to run the installer.
+3. The installer detects the current version running on the machine.
+4. Click **OK** to confirm, and run the upgrade. 
+
 
 ## Delete or unregister a configuration server
 

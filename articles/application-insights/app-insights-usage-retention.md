@@ -52,7 +52,7 @@ It's good practice to code custom events that represent key business actions, an
 
 Or in ASP.NET server code:
 
-```C#
+```csharp
    telemetry.TrackEvent("won game");
 ```
 

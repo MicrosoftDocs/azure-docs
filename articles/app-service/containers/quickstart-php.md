@@ -27,7 +27,9 @@ ms.custom: mvc
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps in this article using a Mac, Windows, or Linux machine.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -35,8 +37,6 @@ To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://php.net" target="_blank">Install PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -80,6 +80,8 @@ Browse to the site to see your newly created web app with built-in image. Replac
 ```bash
 http://<app_name>.azurewebsites.net
 ```
+
+Here is what your new web app should look like:
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
