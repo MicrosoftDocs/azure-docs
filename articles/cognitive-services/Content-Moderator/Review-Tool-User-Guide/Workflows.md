@@ -74,7 +74,9 @@ Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samp
 
 ### Review any images flagged for human moderation
 
-  ![Content Moderator - Workflow Test - Review](images/ocr-workflow-step-5-review.PNG)
+Navigate to the **Image** tab under **Review** to see the iamge review.
+
+  ![Content Moderator - Workflow Test - Review](images/ocr-sample-image-workflow1.PNG)
 
 ## Next steps: Invoke the Workflow from code
 
