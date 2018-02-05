@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -42,7 +42,7 @@ When you use Azure AD for your identity store requires two Azure AD accounts: a 
 Choose this option if you want to use your own identity store, such as your corporate Active Directory, for your Service Administrator accounts.  
 
 ## Choose a billing model
-You can choose either **Pay-as-you-use** or the **Capacity** billing model. Pay-as-you-use billing model deployments must be able to report usage through a connection to Azure at least once every 30 days, therefore, if connectivity will not available, the Capacity billing model is the only option. 
+You can choose either **Pay-as-you-use** or the **Capacity** billing model. Pay-as-you-use billing model deployments must be able to report usage through a connection to Azure at least once every 30 days. Therefore, the Pay-as-you-use billing model is only available for connected deployments.  
 
 ### Pay-as-you-use
 With the Pay-as-you-use billing model, usage is charged to an Azure subscription. You only pay when you use the Azure Stack services. If this is the model you decide on, you will need an Azure subscription and the account ID associated with that subscription (for example, serviceadmin@contoso.onmicrosoft.com). EA, CSP, and CSL subscriptions are supported. Usage reporting is configured during [Azure Stack registration](azure-stack-registration.md).
