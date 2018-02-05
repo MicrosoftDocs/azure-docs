@@ -104,9 +104,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Time management service Domain and URLs single sign-on information](./media/active-directory-saas-timemanagementservice-tutorial/tutorial_timemanagementservice_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL: `https://id-dev.obc.jp/abfkadsc5ym7/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://id.obc.jp/<tenant information >/`
 
-	b. In the **Identifier** textbox, type the URL: `https://id-dev.obc.jp/abfkadsc5ym7/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://id.obc.jp/<tenant information >/`
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Time management service Client support team](http://www.obcnet.jp/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
