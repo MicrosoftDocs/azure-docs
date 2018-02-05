@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
 
 ---
@@ -63,7 +63,7 @@ This monitors how often we take backups of your managed domain. Following is a t
 
 ### Synchronization with AAD
 
-Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than 3 days since your last synchronization,
+Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than 3 days since your last synchronization, it is recommended to [contact support](active-directory-ds-contact-us.md).
 
 ## Alerts
 

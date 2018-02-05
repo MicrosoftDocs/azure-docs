@@ -72,6 +72,8 @@ To restore your service, follow these steps:
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+**If you own the IP address range in the internet that is configured in your virtual network, this alert can be ignored. However, Azure AD Domain Services cannot commit to the SLA with this configuration.**
+
 1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your directory.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
