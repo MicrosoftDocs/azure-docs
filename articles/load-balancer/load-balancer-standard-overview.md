@@ -384,9 +384,9 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    az feature show --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature show --name AllowLBPreviewWave3 --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
     Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
@@ -468,3 +468,4 @@ The following limitations apply at the time of preview and are subject to change
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+- Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

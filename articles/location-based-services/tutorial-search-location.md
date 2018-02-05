@@ -15,19 +15,19 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Search nearby point of interest using Azure Location Based Services
+# Search nearby points of interest using Azure Location Based Services
 
 This tutorial shows how to set up an account with Azure Location Based Services, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an account with Azure Location Based Services
 > * Know the primary key for your Azure Location Based Services account
-> * Create new web page using Map Control API
-> * Use Search Service to find nearby point of interest
+> * Create a new web page using the Map Control API
+> * Use Search Service to find a nearby point of interest
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-# Log in to the Azure portal
+## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
