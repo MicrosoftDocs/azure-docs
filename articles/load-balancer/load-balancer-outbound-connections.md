@@ -148,7 +148,7 @@ When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are
 This changes your scenario to [Instance-Level Public IP to a VM](#ilpip).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).  There are trade-offs to consider, such as additional cost of public IP addresses and potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
->This option is not available for Web Worker Roles.
+>not available for Web Worker Roles
 
 ### <a name="idletimeout"></a>Use keepalives to reset outbound idle timeout
 
