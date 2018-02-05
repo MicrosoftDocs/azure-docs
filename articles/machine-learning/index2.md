@@ -89,13 +89,13 @@ Learn how to use Azure Machine Learning, with its fully managed services for bui
 
 Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:
 
-<table width="50%">
-<th>
+<table>
+<tr>
+    <td> </td>
     <td><img height="32" width="32" src="media/index/i_machine-learning.svg"></td>
     <td><img height="32" width="32" src="media/index/machine-learning-studio.svg"></td>
     <td><img height="32" width="32" src="media/index/virtualmachine.svg"></td>
-    <td> </td>
-</th>
+</tr>
 <tr>
     <td>Setup</td>
     <td><a href="/azure/machine-learning/preview/quickstart-installation"><img src="media/index/link.png"></a></td>
@@ -104,8 +104,8 @@ Learn how to quickly set up and use Azure Machine Learning services (preview), S
 </tr>
 <tr>
     <td>Build a model</td>
-    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/create-experiment"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/preview/quickstart-installation"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/studio/create-experiment"><img src="media/index/link.png"></a></td>
     <td> </td>
 </tr>
 </table>
@@ -115,30 +115,31 @@ Learn how to quickly set up and use Azure Machine Learning services (preview), S
 Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:
 
 <table>
-<th>
+<tr>
     <td> </td>
     <td><img height="32" width="32" src="media/index/i_machine-learning.svg"></td>
     <td><img height="32" width="32" src="media/index/machine-learning-studio.svg"></td>
-</th>
+</tr>
 <tr>
     <td>Prepare data</td>
-    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-1"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/walkthrough-2-upload-data"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-1"><img src="media/index/link.png
+"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-2-upload-data"><img src="media/index/link.png"></a></td>
 </tr>
 <tr>
     <td>Build a model</td>
-    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-2"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-2"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-3-create-new-experiment"><img src="media/index/link.png"></a></td>
 </tr>
 <tr>
-    <td>Deploy a model</td>
-    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-3"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td>Operationalize a model</td>
+    <td><a href="/azure/machine-learning/preview/tutorial-classifying-iris-part-3"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-5-publish-web-service"><img src="media/index/link.png"></a></td>
 </tr>
 <tr>
     <td>Consume a model</td>
-    <td><a href="/azure/machine-learning/preview/model-management-consumption"><img height="16" width="16" src="media/index/link.svg"></a></td>
-    <td><a href="/azure/machine-learning/studio/walkthrough-6-access-web-service"><img height="16" width="16" src="media/index/link.svg"></a></td>
+    <td><a href="/azure/machine-learning/preview/model-management-consumption"><img src="media/index/link.png"></a></td>
+    <td><a href="/azure/machine-learning/studio/walkthrough-6-access-web-service"><img src="media/index/link.png"></a></td>
 </tr>
 </table>
 
