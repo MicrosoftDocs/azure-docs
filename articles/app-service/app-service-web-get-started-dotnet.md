@@ -26,7 +26,7 @@ ms.custom: mvc, devcenter
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 > [!NOTE]
-> If you're looking for how to build and deploy an ASP.NET Framework Web App, that article is available [here](app-service-web-get-started-dotnet-framework.md). 
+> If you're looking for steps for an ASP.NET Framework app, see [Create an ASP.NET Framework web app in Azure](app-service-web-get-started-dotnet-framework.md). 
 >
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -87,7 +87,7 @@ In the Home view, click **Settings** > **Repository Settings**.
 
 In the **Remotes** section of the **Repository Settings**, select **Add**. The **Add Remote** dialog box is displayed.
 
-Set the **Name** field to _Azure_, and then set the **Fetch** and **Push** fields to the URL of the Git remote that you saved from [Create a web app](#create). Click **Save**.
+Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL that you saved from [Create a web app](#create). Click **Save**.
 
 ![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
@@ -97,7 +97,7 @@ Set the **Name** field to _Azure_, and then set the **Fetch** and **Push** field
 
 Click the **Home** button at the top.
 
-Select **Settings** > **Global Settings**. Confirm that the name and email address are set. Select **Update** if required.
+Select **Settings** > **Global Settings**. Confirm that the name and email address are set. Select **Update** if necessary.
 
 Your files are Visual Studio has already committed all the files into the Git repository when it created the project. All you need to do now is to push the files to Azure.
 
@@ -181,7 +181,7 @@ From the left menu, select **App Services**, and then select the name of your Az
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![App Service page in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 The left menu provides different pages for configuring your app. 
 
