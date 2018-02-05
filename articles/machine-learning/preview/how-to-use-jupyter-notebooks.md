@@ -45,7 +45,7 @@ Currently, the Workbench supports the following types of kernels.
 This Python kernel supports execution on local machine. It is integrated with Azure Machine Learning's Run History support. The name of the kernel is typically "my_project_name local".
 
 >[!NOTE]
->Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities; so, for example _%azureml_ Jupyter magic functions return will "not found" errors. 
+>Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities. For example, the _%azureml_ Jupyter magic functions return "not found" errors. 
 
 ### Python Kernel in Docker (local or remote)
 This Python kernel runs in a Docker container either on your local machine, or in a remote Linux VM. The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
