@@ -6,15 +6,15 @@ author: PatAltimore
 
 ms.author: patricka
 ms.reviewer: saraford
-ms.date: 1/23/2017
+ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Authenticate Users with Azure Active Directory B2C in an ASP.NET Web App
+# Tutorial: Authenticate users with Azure Active Directory B2C in an ASP.NET web app
 
-This tutorial shows you how to use Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in an ASP.NET web app. Azure AD B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -197,7 +197,7 @@ Now the user can use their email address to sign in and use the web app.
 
 You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
 
