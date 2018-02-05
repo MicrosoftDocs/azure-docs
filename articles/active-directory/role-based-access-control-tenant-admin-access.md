@@ -3,7 +3,7 @@ title: Tenant admin elevate access - Azure AD | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
+ms.author: rolyon
 
 ---
 # Elevate access as a tenant admin with Role-Based Access Control
