@@ -41,11 +41,14 @@
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configure external redirection
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Configure internal redirection
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
 ## Configure URL redirection
 ### [Azure PowerShell](tutorial-url-redirect-powershell.md)
-### [Azure CLI](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
