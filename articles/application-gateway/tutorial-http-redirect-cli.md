@@ -191,15 +191,6 @@ az vmss create \
 
 ### Install NGINX
 
-You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
 Run this command in the shell window:
 
 ```azurecli-interactive
@@ -209,7 +200,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## Test the application gateway
@@ -241,4 +233,5 @@ In this tutorial, you learned how to:
 > * Add a listener and redirection rule
 > * Create a virtual machine scale set with the default backend pool
 
-To learn more about application gateways and their associated resources, continue to the how-to articles.
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with application gateway](application-gateway-introduction.md)

@@ -323,11 +323,11 @@ You can use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Secure warning](./media/application-gateway-configure-redirect-powershell/application-gateway-secure.png)
+![Secure warning](./media/tutorial-http-redirect-powershell/application-gateway-secure.png)
 
 To accept the security warning if you used a self-signed certificate, select **Details** and then **Go on to the webpage**. Your secured IIS website is then displayed as in the following example:
 
-![Test base URL in application gateway](./media/application-gateway-configure-redirect-powershell/application-gateway-iistest.png)
+![Test base URL in application gateway](./media/tutorial-http-redirect-powershell/application-gateway-iistest.png)
 
 ## Next steps
 
@@ -340,4 +340,5 @@ In this tutorial, you learned how to:
 > * Add a listener and redirection rule
 > * Create a virtual machine scale set with the default backend pool
 
-To learn more about application gateways and their associated resources, continue to the how-to articles.
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with application gateway](application-gateway-introduction.md)
