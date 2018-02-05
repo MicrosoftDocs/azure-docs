@@ -214,7 +214,7 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
   "resourceFiles": [
     {
         "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
-        "filePath": "Robo_Dummy_Lo_Res.max"
+        "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
     "outputFiles": [
