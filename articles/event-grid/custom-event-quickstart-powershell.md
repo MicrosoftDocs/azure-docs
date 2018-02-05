@@ -65,23 +65,20 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 ```
 
-To simplify this article, set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example gets the event data:
+To simplify this article, let's set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example uses Hashtable to construct the event's data `htbody` and then coverts it to well-formed JSON payload object `$body`:
 
 ```powershell
 $eventID = Get-Random 99999
+
+#Date format should be SortableDateTimePattern (ISO 8601)
 $eventDate = Get-Date -Format s
 
-$body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
-```
-
-Alternatively, you can construct `$body` in a Hashtable and then convert it to JSON payload object then append square brackets to create well-formed JSON payload, as in the following example. Note that both the previous technique and this technique produce the same JSON payload, the only difference is that this technique is cleaner when creating the Hashtable compared into creating a long String object.
-
-```powershell
+#Construct body using Hashtable
 $htbody = @{
     id= $eventID
     eventType="recordInserted"
     subject="myapp/vehicles/motorcycles"
-    eventTime= $eventDate   #Date format should be SortableDateTimePattern (ISO 8601)
+    eventTime= $eventDate   
     data= @{
         make="Ducati"
         model="Monster"
@@ -90,7 +87,7 @@ $htbody = @{
 }
 
 #Use ConvertTo-Json to convert event body from Hashtable to JSON Object
-#Appending the square brackets to the JSON string because they are expected in the event's JSON payload syntax
+#Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
 $body = "["+(ConvertTo-Json $htbody)+"]"
 ```
 
