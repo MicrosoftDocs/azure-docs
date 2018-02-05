@@ -15,7 +15,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/27/2017
+ms.date: 02/05/2018
 ms.author: jejiang
 
 ---
@@ -123,7 +123,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
         ![pin to quick access](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
      4. After Create the quick access, you can easily get access to the resources.
   *  **Deep Links**
-     1. If you have a URL, you can just enter the URL into the address path in **File Explorer**.
+     1. If you have a URL, you can just enter the URL into the address path in **File Explorer** or browser.
      2. Then **Storage Explorer.exe** is launched automatically to navigate to the location of the URL you just entered.
 
         ![deep link in file explorer](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
