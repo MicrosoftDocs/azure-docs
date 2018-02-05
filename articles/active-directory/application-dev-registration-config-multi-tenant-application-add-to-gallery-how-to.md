@@ -30,14 +30,14 @@ If you have a multi-tenant application you'd like to list in the Azure AD Applic
 
 2. **SAML** – Your application should have a capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Any app that supports SAML 2.0, can be integrated directly with an Azure AD tenant using the [instructions to add a custom application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-custom-apps).
 
-If your application supports one of these single sign-on modes and you'd like to list your multi-tenant application in the Azure AD Application Gallery, you can follow the steps in the document below. To get started quickly send an email to **waadpartners@microsoft.com**.
+If your application supports one of these single sign-on modes and you'd like to list your multi-tenant application in the Azure AD Application Gallery, you can follow the steps in the document below. To get started quickly send an email to [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## If your application does not support SAML or OpenIDConnect
 Even if your application does not support one of these modes, we can still integrate it into our gallery using our Password Single Sign-on technology.
 
 **Password SSO** – Create a web application that has an HTML sign-in page to configure [password-based single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
 
-If you'd like to explore this option, you can send an email to **waadpartners@microsoft.com**.
+If you'd like to explore this option, you can send an email to [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Escalations
 
