@@ -145,8 +145,8 @@ Some pricing tiers have different [databases limits](cache-configure.md#database
 Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ### Will my cache be available during scaling?
-* **Standard** and **Premium** caches remain available during the scaling operation.
-* **Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
+* **Standard** and **Premium** caches remain available during the scaling operation. However, connection blips can occur while scaling Standard and Premium caches, and also while scaling from Basic to Standard caches. These are expected to be small blips and redis clients should be able to re-establish their connection instantly.
+* **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but, may experience a small connection blip. If a connection blip occurs, redis clients should be able to re-establish their connection instantly.
 
 ### Operations that are not supported
 * You can't scale from a higher pricing tier to a lower pricing tier.
