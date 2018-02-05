@@ -37,12 +37,16 @@
       items:
         - name: Java
           href: quick-enroll-device-tpm-java.md
+        - name: C#
+          href: quick-enroll-device-tpm-csharp.md
         - name: Node.js
           href: quick-enroll-device-tpm-node.md
     - name: X.509 
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
+        - name: C#
+          href: quick-enroll-device-x509-csharp.md
         - name: Node.js
           href: quick-enroll-device-x509-node.md
 - name: Tutorials

@@ -45,6 +45,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/fundamentals-introduction-to-azure.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/overview/what-is-azure/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-portal-overview.md",
+            "redirect_url": "https://azure.microsoft.com/en-us/features/azure-portal/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
             "redirect_url": "/azure/media-services/media-services-content-protection-overview",
             "redirect_document_id": false
@@ -52,6 +62,36 @@
         {
             "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-migration-from-dm.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-migration-from-dm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-recommendations-batch-scoring.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-batch-scoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-recommendations-buildtypes.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-buildtypes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-recommendations-collecting-data.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-collecting-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-quick-start",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-recommendations-ui-intro.md",
+            "redirect_url": "/azure/cognitive-services/recommendations/cognitive-services-recommendations-ui-intro",
             "redirect_document_id": false
         },
         {
@@ -275,7 +315,12 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-design-templates.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-design-templates",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-design-templates.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
         },
         {
@@ -1166,6 +1211,11 @@
         {
             "source_path": "articles/active-directory-b2c/active-directory-b2c-limitations.md",
             "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-move-resources.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
         },
         {
@@ -2220,7 +2270,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-move-resources.md",
-            "redirect_url": "/azure/app-service/app-service-move-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
             "redirect_document_id": false
         },
         {
@@ -12081,6 +12131,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md",
+            "redirect_url": "/azure/cloud-services/diagnostics-performance-counters",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
             "redirect_document_id": false
@@ -16563,7 +16618,7 @@
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
             "redirect_url": "/azure/cognitive-services/translator/customization",
             "redirect_document_id": false
-	},     
+	},
 	{
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
@@ -16580,16 +16635,39 @@
             "redirect_document_id": false
     },
 	{
-        "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
-        "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
-        "redirect_document_id": false
+		    "source_path": "articles/azure-stack/azure-stack-integration-checklist.md",
+			"redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
+			"redirect_document_id": false
     },
     {
-    "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
-    "redirect_url": "/azure/virtual-network/quick-create-portal",
-    "redirect_document_id": false
+			"source_path": "articles/azure-stack/azure-stack-app-service-enable-ftp.md",
+			"redirect_url": "/azure/azure-stack/azure-stack-app-service-overview",
+			"redirect_document_id": false
+    },
+    {
+			"source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+			"redirect_url": "/azure/virtual-network/quick-create-portal",
+			"redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-saas-salesforcesandbox-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-portal.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-portal",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-powershell.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-powershell",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-tsql.md",
+            "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-tsql",
+            "redirect_document_id": false
     }
-	
-
    ]
 }

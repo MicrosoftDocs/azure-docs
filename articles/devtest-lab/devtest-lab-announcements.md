@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
 
 ---
@@ -44,6 +44,13 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. To create a message for the users in this lab, set **Enabled** to **Yes**.
 
+1. You can enter an **Expiration date** to specify a date and time after which the announcement is no longer shown to users. If you don't enter an expiration date, the announcement remains until you disable it.
+
+   > [!NOTE]
+   > After the announcement expires, it is no longer shown to users, but still exists in the **Lab announcement** pane. You can make edits to it and re-enable it to make it active again.
+   >
+   >
+
 1. Enter an **Announcement title** and the **Announcement text**.
 
    The title can be up to 100 characters and is shown to the user on the lab's Overview page. If the user selects the title, the announcement text is displayed.
@@ -55,7 +62,7 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. Select **Save** once your announcement is ready to post.
 
-When you no longer want to show this announcement to lab users, return to the **Lab announcement** page and set **Enabled** to **No**.
+When you no longer want to show this announcement to lab users, return to the **Lab announcement** page and set **Enabled** to **No**. If you specified an expiration date, the announcement is disabled automatically at that date and time.
 
 ## Steps for users to view an announcement
 
