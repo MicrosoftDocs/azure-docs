@@ -1,5 +1,5 @@
 ---
-title: What is Spark Streaming in Azure HDInsight | Microsoft Docs
+title: Spark Streaming in Azure HDInsight | Microsoft Docs
 description: 'How to use Spark Streaming applications on HDInsight Spark clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/05/2018
 ms.author: maxluk
 ---
 # Overview of Spark Streaming
@@ -208,6 +208,6 @@ The status of all applications can also be checked with a GET request against a 
 
 ## Next steps
 
-* [Create an Apache Spark Cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
+* [Create an Apache Spark cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
 * [Launch Spark jobs remotely with LIVY](apache-spark-livy-rest-interface.md)
