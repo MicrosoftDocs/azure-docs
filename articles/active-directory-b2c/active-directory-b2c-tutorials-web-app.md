@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 1. Select **Azure AD B2C** from the services list in the Azure portal.
 
-2. In the B2C settings, click **Applications** and then click **+ Add**.
+2. In the B2C settings, click **Applications** and then click **Add**.
 
     To register the sample web app in your tenant, use the following settings.
 
@@ -150,9 +150,9 @@ There are two projects in the sample solution:
 
 You need to change the app to use the app registration in your tenant. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
-1. Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
+1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
-2. In the `TaskWebApp` web app project, open the **Web.config** file and make the following updates:
+2. In the **TaskWebApp** web app project, open the **Web.config** file and make the following updates:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />

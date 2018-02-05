@@ -93,9 +93,9 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 1. In the Azure portal, select **Azure AD B2C** from the services list and click **Applications** to view the registered app list.
 
-2. Select `My Sample Web App` from the app list and click **API access (Preview)** then **Add**.
+2. Select **My Sample Web App** from the app list and click **API access (Preview)** then **Add**.
 
-3. In the **Select API** dropdown, select your registered web API `My Sample Web API`.
+3. In the **Select API** dropdown, select your registered web API **My Sample Web API**.
 
 4. In the **Select Scopes** dropdown, select the scopes you defined in the web API registration.
 
@@ -103,7 +103,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 5. Click **OK**.
 
-Your `My Sample Web App` is registered to call the protected `My Sample Web API`. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My Sample Web App** is registered to call the protected **My Sample Web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the web app. The web app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update web API code
 
@@ -119,7 +119,7 @@ There are two projects in the sample solution:
 
 The sample web app and web API define the configuration values as app settings in each project's Web.config file.
 
-Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
+Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
 ### Configure the web app
 
@@ -170,7 +170,7 @@ Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
 
 ## Run the sample web app and web API
 
-You need to run both the `TaskWebApp` and `TaskService` projects. 
+You need to run both the **TaskWebApp** and **TaskService** projects. 
 
 1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**. 
 2. Select **Multiple startup projects** radio button.
