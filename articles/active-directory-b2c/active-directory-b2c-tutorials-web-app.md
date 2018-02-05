@@ -161,7 +161,7 @@ You need to change the app to use the app registration in your tenant. You also 
     
     <add key="ida:ClientSecret" value="Client password (client secret)" />
     ```
-3. Update the value with the value you used to create your policies.
+3. Update the policy settings with the name generated when you created your policies.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
@@ -199,7 +199,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 
 ## Next Steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create a sign-up or sign-in policy, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
+In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
 > [Use Azure Active Directory B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md)
