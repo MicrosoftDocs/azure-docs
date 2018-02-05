@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/02/2018
+ms.date: 02/05/2018
 ms.author: alkohli
 
 ---
-# **StorSimple Solution Support**
+# **StorSimple solution Support**
 
 ## **StorSimple support**
 
