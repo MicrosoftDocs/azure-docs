@@ -98,7 +98,7 @@ The POST operation contains the following JSON payload and schema for all metric
 | resourceId |Y | |The resource ID of the affected resource. |
 | resourceRegion |Y | |The region or location of the affected resource. |
 | portalLink |Y | |A direct link to the portal resource summary page. |
-| properties |N |Optional |A set of key/value pairs that has details about the event. For example: `Dictionary<String, String>`. The properties field is optional. In a custom UI or logic app-based workflow, users can enter key/value pairs that can be passed via the payload. An alternate way to pass custom properties back to the webhook is via the webhook URI itself (as query parameters). |
+| properties |N |Optional |A set of key/value pairs that has details about the event. For example, `Dictionary<String, String>`. The properties field is optional. In a custom UI or logic app-based workflow, users can enter key/value pairs that can be passed via the payload. An alternate way to pass custom properties back to the webhook is via the webhook URI itself (as query parameters). |
 
 > [!NOTE]
 > You can set the **properties** field only by using [Azure Monitor REST APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx).
