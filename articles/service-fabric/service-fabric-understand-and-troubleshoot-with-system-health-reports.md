@@ -474,12 +474,18 @@ Visual Studio 2015 diagnostic events: RunAsync failure in **fabric:/HelloWorldSt
 
 [1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
 
-
-### Replication queue full
-**System.Replicator** reports a warning if the replication queue is full. On the primary, this usually happens because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
+### Replicator system health reports
+**Replication queue full:**
+**System.Replicator** reports a warning when the replication queue is full. On the primary, the replication queue usually becomes full because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
 
 * **SourceId**: System.Replicator
-* **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role
+* **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. Remote replicator's address is shown in the report's message, making it more convenient to detect if a wrong config has been passed in or there are network issues between the replicators.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
 
 ### Slow Naming operations
 **System.NamingService** reports health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient, for example under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
