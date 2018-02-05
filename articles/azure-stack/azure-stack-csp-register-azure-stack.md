@@ -3,7 +3,7 @@ title: Register to track billing usage in Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mabrigg
+author: mattbriggs
 manager: femila
 editor: ''
 
