@@ -26,24 +26,24 @@ Follow these steps to install and configure `kubectl` on your computer.
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install-cli` Azure CLI 2.0 command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an Azure account (`az login`).
+tool is to use the `az aks install-cli` Azure CLI 2.0 command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an Azure account (`az login`).
 
 ```azurecli
 # Linux or macOS
-az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
+az aks install-cli [--install-location=/some/directory/kubectl]
 
 # Windows
-az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
+az aks install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
 Alternatively, you can download the latest `kubectl` client directly from the [Kubernetes releases page](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). For more information, see [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
-get the credentials is with the `az acs kubernetes get-credentials` command. Pass the name of the resource group and the name of the container service resource:
+get the credentials is with the `az aks get-credentials` command. Pass the name of the resource group and the name of the container service resource:
 
 ```azurecli
-az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
+az aks get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
 This command downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
@@ -93,7 +93,7 @@ The first thing that you do when you create an SSH tunnel on Linux or macOS is t
 
     ![Public DNS name](./media/container-service-connect/pubdns.png)
 
-    Alternatively, run the `az acs show` command on your container service. Look for the **Master Profile:fqdn** property in the command output.
+    Alternatively, run the `az aks show` command on your container service. Look for the **Master Profile:fqdn** property in the command output.
 
 3. Now open a shell and run the `ssh` command by specifying the following values: 
 
