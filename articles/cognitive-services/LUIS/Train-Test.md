@@ -172,7 +172,7 @@ You can test 10 dataset files in a single LUIS app. The utterances included in t
 
     ![Import Dataset File](./media/luis-how-to-train-test/batchtest-importset.png)
 
-    Errors in import are reported in a red notification bar at the top of the browser. No dataset is created for an erroring import.  
+    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. **Common errors** are more than 1,000 utterances or an utterance JSON object that doesn't have an entities property. Every utterance must have an entities property. If the utterance has no entities, the entities property should be an empty array.
 
 3. In the **Dataset Name** field, type a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. An example of the JSON in the batch file follows:
 
@@ -233,19 +233,18 @@ To export, rename, delete, or download the imported dataset, use the three dots 
 
 ## Run a batch test on your trained app
 
-Select **Test** next to the dataset you've just imported. This displays the test result of the dataset.
+Select the dataset name to run the test. When the test completes, this row displays the test result of the dataset.
 
 ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
 **Successful predictions** are utterances where the intent in the batch file is the same intent predicted in the test.
 
-
 In the preceding screenshot:
  
- - **State** shows whether or not the dataset result contains errors. 
+ - **State** includes ready to run, erroring results or successful results. 
  - **Size** is the total number of utterances included in the dataset file.
  - **Last Run** is the date of the latest test run for this dataset. 
- - **Last Result** displays the number of successful predictions.
+ - **Last Result** displays the number of successful predictions in the last test run.
 
 
 |State|Meaning|
@@ -271,7 +270,7 @@ To filter the view by a specific intent or entity, select the intent or entity i
  
     ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
-    The graph contains four sections that represent the possible cases of your application's prediction:
+The graph contains four sections that represent the possible cases of your application's prediction:
 
     - **True Positive (TP)**: The data points in this section represent utterances in which your app correctly predicted the existence of the target intent/entity. 
     - **True Negative (TN)**: The data points in this section represent utterances in which your app correctly predicted the absence of the target intent/entity.
