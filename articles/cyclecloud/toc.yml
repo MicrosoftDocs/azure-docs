@@ -25,12 +25,12 @@
     href: sql-database-powershell-samples.md
 - name: Concepts
   items:
-  - name: Grouping 1
+  - name: Clusters and Nodes
     items:
     - name: Cluster Management
-      href: sql-database-servers-databases.md
+      href: cluster_management.md
     - name: Nodes and Node Arrays
-      href: sql-database-service-tiers.md
+      href: nodes.md
   - name: Jetpack
     href: sql-database-high-availability.md
   - name: Projects
