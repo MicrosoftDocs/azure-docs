@@ -87,7 +87,7 @@ In the Home view, click **Settings** > **Repository Settings**.
 
 In the **Remotes** section of the **Repository Settings**, select **Add**. The **Add Remote** dialog box is displayed.
 
-Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL that you saved from [Create a web app](#create). Click **Save**.
+Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL that you saved from [Create a web app](#create-a-web-app). Click **Save**.
 
 ![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
@@ -138,7 +138,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## Browse to the app
 
-In a browser, go to the Azure web app URL: `http://<app_name>.azurewebsites.net`.
+In a browser, navigate to the Azure web app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
