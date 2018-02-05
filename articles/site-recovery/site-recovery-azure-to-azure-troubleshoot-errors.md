@@ -74,7 +74,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. If the Baltimore root CA cert is not found, download the certificate  
+6. If the Baltimore root CA cert is not found, download the certificate.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
@@ -82,7 +82,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate
+8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
@@ -92,7 +92,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
     ``# c_rehash``
 
-10. Check if the subject hashes as symlinks are created for the certificates
+10. Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
