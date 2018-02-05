@@ -35,3 +35,10 @@ The reservation discount is applied automatically to the number of running virtu
 
 To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+To learn more about Reserved Virtual Machine Instances, see the following articles.
+
+- [Save money on virtual machines with Reserved Virtual Machine Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Understand how the Reserved Virtual Machine Instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Understand Reserved Instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reserved Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)

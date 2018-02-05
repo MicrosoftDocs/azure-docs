@@ -45,3 +45,13 @@ If you don't have Azure Hybrid Use Benefit on your Reserved Instance VM, then yo
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 Core) | All except B Series |
 
 You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004).
+
+## Learn more
+To learn more about Reserved Virtual Machine Instances, see the following articles.
+
+- [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage Reserved Virtual Machine Instances](billing-manage-reserved-vm-instance.md)
+- [Save money on virtual machines with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
+- [Understand how the Reserved Virtual Machine Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
