@@ -80,9 +80,6 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
->[!TIP]
->
-
 <!--
 ## Relabel utterances and retrain
 When you perform interactive testing, you might find that LUIS doesn't detect the intent or entities the way you expect for some utterances. The following steps walk you through relabeling an utterance and retraining.
@@ -154,14 +151,14 @@ If you are interactive testing on both trained and published models together, an
 
 -->
 
-<!-->
+
 ## Batch testing
 With batch testing, you can run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contain a maximum of 1,000 utterances. All you need to do is import this file to your app and run it to perform the test. Your LUIS app returns the result: detailed analysis of all utterances included in the batch.
 
 You can import up to 10 dataset files to a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
 The following procedures guide you on how to import a dataset file, run a batch test on your current trained app by using the imported dataset, and access the test results in a detailed visualized view.
--->
+
 <a name="batch-testing"></a>
 ## Import a dataset file for batch testing
 
