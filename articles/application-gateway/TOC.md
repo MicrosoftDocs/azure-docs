@@ -40,8 +40,6 @@
 ## Configure multiple site hosting
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Configure redirection
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Configure external redirection
 ### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
 ### [Azure CLI](tutorial-external-site-redirect-cli.md)
@@ -51,6 +49,9 @@
 ## Configure HTTP to HTTPS redirection
 ### [Azure PowerShell](tutorial-http-redirect-powershell.md)
 ### [Azure CLI](tutorial-http-redirect-cli.md)
+## Configure URL redirection
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
