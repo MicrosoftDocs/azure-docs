@@ -35,10 +35,10 @@ Sync-VSTSGit | Import runbooks or configurations from VSTS under Git source cont
 
 Variable | Description|
 -----------|------------|
-VSToken | Secure variable asset you create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](vsts/accounts/use-personal-access-tokens-to-authenticate.md). 
+VSToken | Secure variable asset you create that contains the VSTS personal access token. You can learn how to create a VSTS personal access token on the [VSTS authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate.md). 
 ## Installing and configuring this scenario
 
-Create a [personal access token](vsts/accounts/use-personal-access-tokens-to-authenticate.md) in VSTS that you use to sync the runbooks or configurations into your automation account.
+Create a [personal access token](/vsts/accounts/use-personal-access-tokens-to-authenticate.md) in VSTS that you use to sync the runbooks or configurations into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
