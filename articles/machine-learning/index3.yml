@@ -28,7 +28,7 @@ sections:
 
     - html: <a href="/azure/machine-learning/preview/">
             <img height="64" width="64" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services">
-            <br><h3>Azure Machine Learning services</h3></a> (preview)
+            <br>Azure Machine Learning services</a> (preview)
             <p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.</p>
 
     - html: <a href="/azure/machine-learning/studio/">
