@@ -36,12 +36,12 @@ To begin answering questions with the Impact tool, choose an initial page view, 
 ![Impact tool](./media/app-insights-usage-impact/0002-dropdown.png)
 
 1. Select a page view from the **For the page view** dropdown.
-2. Leave the **analyze how this** dropdown on the default selection of **Duration**
-3. For the **impacts the usage of** dropdown select a custom event that corresponds to a UI element on the page view you selected in step 1.
+2. Leave the **analyze how its** dropdown on the default selection of **Duration**
+3. For the **impacts the usage of** dropdown, select a custom event that corresponds to a UI element on the page view you selected in step 1.
 
 ![Screenshot of results](./media/app-insights-usage-impact/0003-results.png)
 
-In this instance as **Product Page** load time increases the conversion rate to **Product Purchased clicked** goes down. Based on the distribution above, an optimal page load duration of 3.5 seconds could be targeted to attempt to achieve a 55% conversion rate. Based on the analysis of the current data set, performance improvements to reduce load time below 3.5 seconds are unlikely to correlate with further conversion benefits.
+In this instance as **Product Page** load time increases the conversion rate to **Product Purchased clicked** goes down. Based on the distribution above, an optimal page load duration of 3.5 seconds could be targeted to achieve a potential 55% conversion rate. Further performance improvements to reduce load time below 3.5 seconds do not currently correlate with further conversion benefits.
 
 
 ## What if I’m tracking page views or load times in custom ways?
@@ -53,24 +53,26 @@ use filters on the primary and secondary events to get more specific.
 
 1. Select a page view from the **For the page view** dropdown.
 2. Choose “Country or region” in **analyze how its** dropdown
-3. For the **impacts the usage of** dropdown select a custom event that corresponds to a UI element on the page view you selected.
+3. For the **impacts the usage of** dropdown, select a custom event that corresponds to a UI element on the page view you chose in step 1.
 
-In this case, our results no longer fit into a continuous x-axis model as they did in the first example so instead we are presented with a visualization similar to a segmented funnel. Sort by **Usage** to view the variation of conversion to your custom event based on country.
+In this case, our results no longer fit into a continuous x-axis model as they did in the first example. Instead, we are presented with a visualization similar to a segmented funnel. Sort by **Usage** to view the variation of conversion to your custom event based on country.
 
 
 ## How does the Impact tool calculate these conversion rates?
 
-Let A = the main page view/custom event/request you select (“For the…”).
+Let **A** = the main page view/custom event/request you select in the first dropdown. (**For the page view**).
 
-Let B = the secondary page view/custom event you select (“impacts the usage of…”).
+Let **B** = the secondary page view/custom event you select (**impacts the usage of**).
 
-Impact looks at a sample of all the sessions from users in the selected time range. For each session, it looks for each occurrence of A.
+Impact looks at a sample of all the sessions from users in the selected time range. For each session, it looks for each occurrence of **A**.
 
-From one A to the next is considered a “sub-session.”
+From one instance of **A** to the next is considered a sub-session.
 
-If B occurs in a sub-session, for example, between one occurrence of A and the next, then that sub-session is counted as a conversion. 
+If **B** occurs during a sub-session, (for example between one occurrence of **A** and the next) then that sub-session is counted as a conversion.
 
-So conversion rates are the fraction of A-to-A or A-to-end-of-session sub-sessions that included at least one B. 
+If **A** occurs followed by **B**, which is in turn followed by an end-of-session this too is counted as a conversion.
+
+So conversion rates are the fraction of A-to-A or A-to-end-of-session sub-sessions that included at least one B.
 
 ## Next steps
 
