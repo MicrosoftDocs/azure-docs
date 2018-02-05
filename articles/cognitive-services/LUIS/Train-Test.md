@@ -270,12 +270,16 @@ To filter the view by a specific intent or entity, select the intent or entity i
  
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
+## Graph prediction result sections
+
+![Four sections of chart](./media/luis-how-to-train-test/chart-sections.png)
+
 The graph contains four sections that represent the possible cases of your application's prediction:
 
-    - **True Positive (TP)**: The data points in this section represent utterances in which your app correctly predicted the existence of the target intent/entity. 
-    - **True Negative (TN)**: The data points in this section represent utterances in which your app correctly predicted the absence of the target intent/entity.
-    - **False Positive (FP)**: The data points in this section represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
-    - **False Negative (FN)**: The data points in this section represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+- **True Positive (TP)**: The data points in this section represent utterances in which your app correctly predicted the existence of the target intent/entity. 
+- **True Negative (TN)**: The data points in this section represent utterances in which your app correctly predicted the absence of the target intent/entity.
+- **False Positive (FP)**: The data points in this section represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
+- **False Negative (FN)**: The data points in this section represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
     This means that data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. On the other hand, if all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
  
