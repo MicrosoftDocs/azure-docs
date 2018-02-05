@@ -89,7 +89,7 @@ In the **Remotes** section of the **Repository Settings**, select **Add**. The *
 
 Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL that you saved from [Create a web app](#create-a-web-app). Click **Save**.
 
-![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer.png)
+![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
 > [!NOTE]
 > This setting is equivalent to the Git command `git remote add Azure <URL>`.
