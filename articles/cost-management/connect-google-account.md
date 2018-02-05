@@ -20,14 +20,14 @@ You can connect your existing Google Cloud Platform account to Azure Cost Manage
 
 You start by gathering information about your project.
 
-1. Sign-in to the Google Cloud Platform console at [https://console.cloud.google.com](https://console.cloud.google.com).
-2. Review the project information that you want to onboard to Cost Management and note the **Project name** and the **Project ID**. You need to use the information in later steps.  
+1. Sign in to the Google Cloud Platform console at [https://console.cloud.google.com](https://console.cloud.google.com).
+2. Review the project information that you want to onboard to Cost Management and note the **Project name** and the **Project ID**. Keep the information handy for later steps.  
     ![Google Cloud Platform console](./media/connect-google-account/gcp-console01.png)
 3. If billing is not enabled and linked to your project, create a billing account. For more information, see [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
 
 ## Enable storage bucket billing export
 
-Cost Management retrieves your Google billing data from a storage bucket. You need to provide the **Bucket name** and **Report prefix** later during Cost Management registration.
+Cost Management retrieves your Google billing data from a storage bucket. Keep the **Bucket name** and **Report prefix** information handy for later use during Cost Management registration.
 
 Using Google Cloud Storage to store usage reports incurs minimal fees. For more information, see [Cloud Storage Pricing](https://cloud.google.com/storage/pricing).
 
@@ -50,7 +50,7 @@ To collect usage and asset information, Cost Management needs the following Goog
 
 1. In the Google Cloud Platform console, select the project that you want to register with Cost Management.
 2. Navigate to **APIs & Services** > **Library**.
-3. Use search to find to find each previously listed API.
+3. Use search to find each previously listed API.
 4. For each API, verify that **API enabled** is shown. Otherwise, click **ENABLE**.
 
 ## Add a Google Cloud account to Cost Management
