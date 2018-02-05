@@ -151,7 +151,8 @@ You are now ready to proceed to the rest of the create cluster process.
 #####Custom Option
 Skip this section, if you have already performed the steps in the **Basic** Option.
 
-![SecurityCustomOption]
+	![SecurityCustomOption]
+
 You need the CertificateThumbprint, SourceVault, and the CertificateURL information to complete the security page. If you do not have it handy, open up another browser window and do the following
 
 
