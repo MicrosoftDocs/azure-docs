@@ -113,7 +113,7 @@ Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. Whe
 The following table shows the port preallocations for tiers of back-end pool sizes:
 
 | Pool size (VM instances) | Preallocated SNAT ports per IP configuration|
-| --- | --- | --- |
+| --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
 | 101 - 200 | 256 |
