@@ -26,11 +26,20 @@ sections:
     className: cardsD
     items:
 
-    - html: <a href="/azure/machine-learning/preview/"><img height="64" width="64" src="/azure/machine-learning/media/index/i_machine-learning.svg"><br>Azure Machine Learning services</a> (preview)<p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.</p>
+    - html: <a href="/azure/machine-learning/preview/">
+            <img height="64" width="64" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services">
+            <br><h3>Azure Machine Learning services</h3></a> (preview)
+            <p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.</p>
 
-    - html: <a href="/azure/machine-learning/studio/"><img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg"><br>Azure Machine Learning Studio</a><p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
+    - html: <a href="/azure/machine-learning/studio/">
+            <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
+            <br>Azure Machine Learning Studio</a>
+            <p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
 
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview"><img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg"><br>Data Science Virtual Machine</a><p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">
+            <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
+            <br>Data Science Virtual Machine</a>
+            <p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
 
 - title: 5-Minute Quickstarts
   items:
