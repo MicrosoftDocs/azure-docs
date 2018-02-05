@@ -46,7 +46,7 @@ After you choose the connector and its output you are interested in, select an O
 
 ## Define the action to be taken
 
-Select the action to be taken along with the condition to be met. The example below creates an image review, assigns a tag, **a**, and highlights it for the condition shown. You can also combine multiple conditions to get the results you want. Optionally, add an alternative (**Else*) path.
+Select the action to be taken along with the condition to be met. The example below creates an image review, assigns a tag **`a`**, and **highlights** it for the condition shown. You can also combine multiple conditions to get the results you want. Optionally, add an alternative (**Else**) path.
 
   ![Content Moderator - Workflow action](images/ocr-workflow-step-3-action.PNG)
 
