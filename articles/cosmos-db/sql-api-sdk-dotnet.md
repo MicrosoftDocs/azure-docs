@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -50,6 +50,16 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.20.0"/>1.20.0
+
+* Cross partition query performance improvements in automatic mode (MaxDegreeOfParallelism = -1)
+* new QueryMetrics ToString() function
+* Add PartitionKey to ChangeFeed
+* Expose partition stats
+* Add PartitionKey to ChangeFeedOptions
+* Large session token bug fix
+* Other minor reliability and bug fixes
+
 ### <a name="1.19.1"/>1.19.1
 
 * Adds the ability to specify unique indexes for the documents by using UniqueKeyPolicy property on the DocumentCollection.
