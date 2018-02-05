@@ -120,7 +120,7 @@ The following table shows the maximum bandwidth values observed while testing va
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
->These numbers might change as we post newer results periodically
+>These numbers might change as we post newer results periodically.
 >
 
 From this table, we can draw the following conclusions:
@@ -132,18 +132,18 @@ From this table, we can draw the following conclusions:
 | Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size (Non-SSL) | 1 KB value size (SSL)
 | --- | --- | --- | --- | --- |
 | **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
-| C0 |250 MB |Shared |100 / 12.5 |15,000 | 7,500
-| C1 |1 GB |1 |500 / 62.5 |38,000 | 20,720
-| C2 |2.5 GB |2 |500 / 62.5 |41,000 | 37,000
-| C3 |6 GB |4 |1000 / 125 |100,000 | 90,000
-| C4 |13 GB |2 |500 / 62.5 |60,000 | 55,000
-| C5 |26 GB |4 |1,000 / 125 |102,000 | 93,000
-| C6 |53 GB |8 |2,000 / 250 |126,000 | 120,000
+| C0 |250 MB |Shared |100 / 12.5 |15,000 |7,500
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720
+| C2 |2.5 GB |2 |500 / 62.5 |41,000 |37,000
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000
 | **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 | 172,000
-| P2 |13 GB |4 |3,000 / 375 |350,000 | 341,000
-| P3 |26 GB |4 |3,000 / 375 |350,000 | 341,000
-| P4 |53 GB |8 |6,000 / 750 |400,000 | 373,000
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
