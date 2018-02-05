@@ -161,7 +161,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|9.1|If your app or add-in is found to violate any of our store policies, it can be removed from the AppSource. If a customer needs to be refunded, the refund will be deducted from any pending payouts to your account.|
+|9.1|If your app or add-in is found to violate any of our store policies, it can be removed from AppSource. If a customer needs to be refunded, the refund will be deducted from any pending payouts to your account.|
 
 <a name="bk_11"> </a>
 ## 10. Apps and add-ins utilize supported capabilities
