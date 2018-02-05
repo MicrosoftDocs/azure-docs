@@ -13,11 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.date: 11/10/2017
-=======
 ms.date: 02/05/2018
->>>>>>> 53c43cba614... RDTask #10625124 : Update Chaos ACOM article with Chaos Target Filter information and add release note
 ms.author: motanv
 
 ---
