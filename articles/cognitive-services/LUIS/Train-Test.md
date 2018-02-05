@@ -262,13 +262,13 @@ Green points indicate correct prediction, and red ones indicate incorrect predic
 
 The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
 
-    ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
+![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
   
 ## Filter test results
 To filter the view by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. All items in the filtered section also display in more detail below the chart. 
  
-    ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
+![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
 The graph contains four sections that represent the possible cases of your application's prediction:
 
