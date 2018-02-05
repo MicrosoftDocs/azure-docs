@@ -631,6 +631,14 @@ The Table storage output binding supports the following scenarios:
 
   In JavaScript functions, access the table output using `context.bindings.<name>`.
 
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| Table | [Table Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue | [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+
 ## Next steps
 
 > [!div class="nextstepaction"]
