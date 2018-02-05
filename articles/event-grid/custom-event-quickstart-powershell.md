@@ -74,6 +74,26 @@ $eventDate = Get-Date -Format s
 $body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"},`"dataVersion`": `"1.0`"}]"
 ```
 
+Alternatively, you can construct `$body` in a Hashtable and then convert it to JSON payload object then append square brackets to create well-formed JSON payload, as in the following example. Note that both the previous technique and this technique produce the same JSON payload, the only difference is that this technique is cleaner when creating the Hashtable compared into creating a long String object.
+
+```powershell
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/motorcycles"
+    eventTime= $eventDate   #Date format should be SortableDateTimePattern (ISO 8601)
+    data= @{
+        make="Ducati"
+        model="Monster"
+    }
+    dataVersion="1.0"
+}
+
+#Use ConvertTo-Json to convert event body from Hashtable to JSON Object
+#Appending the square brackets to the JSON string because they are expected in the event's JSON payload syntax
+$body = "["+(ConvertTo-Json $htbody)+"]"
+```
+
 If you view `$body`, you see the full event. The `data` element of the JSON is the payload of your event. Any well-formed JSON can go in this field. You can also use the subject field for advanced routing and filtering.
 
 Now, send the event to your topic.
