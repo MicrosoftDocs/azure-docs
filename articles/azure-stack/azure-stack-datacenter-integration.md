@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -53,15 +53,22 @@ The following diagram shows integrated AD FS and Graph traffic flow.
 ![Diagram showing AD FS and Graph traffic flow](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
 
 ## Licensing model
+You must decide which licensing model you want to use. The available options depend on whether or not you deploy Azure Stack connected to the internet:
+- For a [connected deployment](azure-stack-connected-deployment.md), you can choose either pay-as-you-use or capacity-based licensing. Pay-as-you-use requires a connection to Azure to report usage, which is then billed through Azure commerce. 
+- Only capacity-based licensing is supported if you [deploy disconnected](azure-stack-disconnected-deployment.md) from the internet. 
 
-You must decide which licensing model you want to use. For a connected deployment, you can choose either pay-as-you-use or capacity-based licensing. Pay-as-you-use requires a connection to Azure to report usage, which is then billed through Azure commerce. Only capacity-based licensing is supported if you deploy disconnected from the internet. For more information about the licensing models, see [Microsoft Azure Stack packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+For more information about the licensing models, see [Microsoft Azure Stack packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## Naming decisions
 
-You’ll need to think about how you want to plan your Azure Stack namespace, especially the region name, and external domain name. The fully qualified domain name (FQDN) of your Azure Stack deployment for public-facing endpoints is the combination of these two names, &lt;*region*&gt;&lt;*external_FQDN*&gt;, for example, *east.cloud.fabrikam.com*. In this example, the Azure Stack portals would be available at the following URLs:
+You’ll need to think about how you want to plan your Azure Stack namespace, especially the region name and external domain name. The external fully qualified domain name (FQDN) of your Azure Stack deployment for public-facing endpoints is the combination of these two names: &lt;*region*&gt;.&lt;*fqdn*&gt;. For example, *east.cloud.fabrikam.com*. In this example, the Azure Stack portals would be available at the following URLs:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> The region name you choose for your Azure Stack deployment must be unique and will appear in the portal addresses. 
 
 The following table summarizes these domain naming decisions.
 
@@ -132,7 +139,7 @@ The following diagram shows ExpressRoute for a multi-tenant scenario.
 ![Diagram showing multi-tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
 
 ## External monitoring
-To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can integrate Azure Stack with external datacenter monitoring solutions.
+To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can [integrate Azure Stack with external datacenter monitoring solutions](azure-stack-integrate-monitor.md).
 
 Included with the Azure Stack solution, the hardware lifecycle host is a computer outside Azure Stack that runs OEM vendor-provided management tools for hardware. You can use these tools or other solutions that directly integrate with existing monitoring solutions in your datacenter.
 
@@ -140,15 +147,15 @@ The following table summarizes the list of currently available options.
 
 | Area | External Monitoring Solution |
 | -- | -- |
-| Azure Stack software | - [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- REST-based API calls | 
-| Physical servers (BMCs via IPMI) | - Operations Manager vendor management pack<br>- OEM hardware vendor-provided solution<br>- Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
-| Network devices (SNMP) | - Operations Manager network device discovery<br>- OEM hardware vendor-provided solution<br>- Nagios switch plug-in |
-| Tenant subscription health monitoring | - [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack software | [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-based API calls | 
+| Physical servers (BMCs via IPMI) | OEM hardware - Operations Manager vendor management pack<br>OEM hardware vendor-provided solution<br>Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
+| Network devices (SNMP) | Operations Manager network device discovery<br>OEM hardware vendor-provided solution<br>Nagios switch plug-in |
+| Tenant subscription health monitoring | [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Note the following requirements:
 - The solution you use must be agentless. You can't install third-party agents inside Azure Stack components. 
-- If you want to use System Center Operations Manager, this requires Operations Manager 2012 R2 or Operations Manager 2016.
+- If you want to use System Center Operations Manager, Operations Manager 2012 R2 or Operations Manager 2016 is required.
 
 ## Backup and disaster recovery
 
@@ -156,7 +163,7 @@ Planning for backup and disaster recovery involves planning for both the underly
 
 ### Protect infrastructure components
 
-Azure Stack backs up infrastructure components to a share that you specify.
+You can [back up Azure Stack](azure-stack-backup-back-up-azure-stack.md) infrastructure components to an SMB share that you specify:
 
 - You’ll need an external SMB file share on an existing Windows-based file server or a third-party device.
 - You should use this same share for the backup of network switches and the hardware lifecycle host. Your OEM hardware vendor will help provide guidance for backup and restore of these components as these are external to Azure Stack. You're responsible for running the backup workflows based on the OEM vendor’s recommendation.
