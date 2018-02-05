@@ -384,9 +384,9 @@ To participate in the preview for Load Balancer Standard SKU and the companion P
 2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
-    az feature show --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature show --name AllowLBPreviewWave3 --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" 
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" 
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" 
     ```
     
     Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
