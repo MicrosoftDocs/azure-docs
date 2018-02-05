@@ -32,7 +32,7 @@ Your first workflow comes bundled with your [review tool team](https://contentmo
 
 Navigate to the [review tool's Workflows](Review-Tool-User-Guide/Workflows.md) screen under the Settings tab. You will see a `default` workflow as shown in the following image.
 
-![Content Moderator workflows](images/2-workflows-1.png)
+![Content Moderator workflows](Review-Tool-User-Guide/images/2-workflows-1.png)
 
 ### Open the default workflow
 
@@ -89,7 +89,7 @@ Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samp
 
 Select the **Designer** tab and the [workflow creation tutorial](Review-Tool-User-Guide/Workflows.md) to define a custom workflow. The following image shows the designer's **Condition** view. Refer to the tutorial to see the rest of the steps.
 
-![Content Moderator - Workflow condition](images/ocr-workflow-step-2-condition.PNG)
+![Content Moderator - Workflow condition](Review-Tool-User-Guide/images/ocr-workflow-step-2-condition.PNG)
 
 ### The JSON view
 
