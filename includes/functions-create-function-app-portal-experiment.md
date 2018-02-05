@@ -18,8 +18,8 @@
 
 3. Select **Create** to provision and deploy the function app. 
 
-4. Choose the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message. 
+4. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message. 
 
     ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-4. Click **Go to resource** to view your new function app.
+4. Select **Go to resource** to view your new function app.
