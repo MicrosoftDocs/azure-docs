@@ -51,7 +51,7 @@ For manual installation of Service Fabric runtime and common SDK, follow the res
 ## Update your APT sources/Yum Repositories
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
 
-Ubuntu
+### Ubuntu
 
 1. Open a terminal.
 2. Add the Service Fabric repo to your sources list.
@@ -93,7 +93,7 @@ Ubuntu
     ```
 
 
-Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 1. Open a terminal.
 2. Download and install Extra Packages for Enterprise Linux(EPEL).
@@ -125,7 +125,7 @@ Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
 
-Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -139,7 +139,7 @@ sudo apt-get install servicefabricsdkcommon
 >   ```
 
 
-Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum install servicefabricsdkcommon
@@ -238,7 +238,7 @@ For more information, see [Service Fabric plug-in for Eclipse Java application d
 
 To update to the latest version of the SDK and runtime, run the following commands:
 
-Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt-get update
@@ -246,7 +246,7 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 ```
 
 
-Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum update servicefabric servicefabricsdkcommon
@@ -260,7 +260,7 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following:
 
-Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
@@ -270,7 +270,7 @@ sudo apt-get install -f
 ```
 
 
-Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum remote servicefabric servicefabicsdkcommon
