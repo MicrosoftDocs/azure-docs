@@ -47,35 +47,36 @@ Log in to your Azure account. After you enter the following login command, you'r
    az login
    ```
 
-Create a new resource group called **IoTHubBlogDemo** in the East US region: 
+Create a new resource group called **IoTHubCLI** in the East US region: 
 
    ```cli
-   az group create -l eastus -n IoTHubBlogDemo
+   az group create -l eastus -n IoTHubCLI
    ```
 
    ![Create resource group][2]
 
-Create an IoT Hub called **blogDemoHub** in the newly created resource group:
+Create an IoT hub called **CLIDemoHub** in the newly created resource group:
 
    ```cli
-   az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+   az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
    ```
 
-   ![Create IoT Hub][3]
+   >[!TIP]
+   >Each subscription is alloted one free IoT hub. To create a free hub with the CLI command, replace the SKU value with `--sku F1`. If you already have a free hub in your subscription, you'll get an error message when you try to create a second one. 
 
 Create an IoT Edge device:
 
    ```cli
-   az iot hub device-identity create -d edge001 -n blogDemoHub --edge-enabled
+   az iot hub device-identity create -d edge001 -n CLIDemoHub --edge-enabled
    ```
 
    ![Create IoT Edge device][4]
 
 ## Configure the IoT Edge device
 
-1. Save your deployment JSON template locally as a txt file. You will need the path to the file when you run the apply-configuration command.
+Create a deployment JSON template, and save it locally as a txt file. You will need the path to the file when you run the apply-configuration command.
 
-   Below is a sample deployment JSON template which contains one tempSensor module:
+Deployment JSON templates should always include the two system modules, edgeAgent and edgeHub. In addition to those two, you can use this file to deploy additional modules to the IoT Edge device. Use the following sample to configure you IoT Edge device with one tempSensor module:
 
    ```json
    {
@@ -138,7 +139,7 @@ Create an IoT Edge device:
    }
    ```
 
-2. Apply the configuration to your IoT Edge device:
+Apply the configuration to your IoT Edge device:
 
    ```cli
    az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<configuration.txt file path>
@@ -163,8 +164,7 @@ Create an IoT Edge device:
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 
 <!-- Images -->
-[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.jpg
-[3]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-hub.jpg
+[2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.png
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
 [5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
 [6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
