@@ -100,3 +100,5 @@ sections:
     - html: <a href="https://aka.ms/batchaitraining">Batch AI Training</a> helps you experiment in parallel with your AI models using any framework and then trains them at scale across clustered GPUs.
     - html: <a href="https://azure.microsoft.com/services/cognitive-services/">Cognitive Services</a> supplies intelligent algorithms for your apps, websites, and bots.
     - html: <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> is a free, open-source toolkit to train deep learning algorithms.
+
+
