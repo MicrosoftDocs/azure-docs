@@ -468,3 +468,4 @@ The following limitations apply at the time of preview and are subject to change
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+- Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
