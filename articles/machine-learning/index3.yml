@@ -1,0 +1,112 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Machine Learning Documentation
+metadata:
+  title: Azure Machine Learning Documentation - Tutorials, API Reference
+  description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
+  services: machine-learning
+  author: garyericson
+  manager: jhubbard
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/01/2018
+  ms.author: garye
+
+abstract:
+  description: Learn how to use Azure Machine Learning, with its fully managed services for building, deploying, and managing machine learning and AI models in the cloud. Tutorials, quickstarts, references, and examples show you how to build and deploy models for any of your applications.
+
+sections:
+
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="/azure/machine-learning/preview/"><img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg">Azure Machine Learning services</a> (preview)<p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries with a wide variety of data and compute services in Azure.</p>
+    - html: <a href="/azure/machine-learning/studio/">Azure Machine Learning Studio</a><img height="32" width="32" src="/azure/machine-learning/media/index/machine-learning-studio.svg"><p>Learn how to use Studio, a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.</p>
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">Data Science Virtual Machine</a><img height="32" width="32" src="/azure/machine-learning/media/index/virtualmachine.svg"><p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/i_machine-learning.svg
+      - image:
+          src: media/index/machine-learning-studio.svg
+      - image:
+          src: media/index/virtualmachine.svg
+    rows:
+      - title: Setup
+        values:
+        - href: /azure/machine-learning/preview/quickstart-installation
+        - href: /azure/machine-learning/studio/create-workspace
+        - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
+      - title: Build a model
+        values:
+        - href: /azure/machine-learning/preview/quickstart-installation
+        - href: /azure/machine-learning/studio/create-experiment
+        - href: 
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/i_machine-learning.svg
+      - image:
+          src: media/index/machine-learning-studio.svg
+    rows:
+      - title: Prepare data
+        values:
+        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
+        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+      - title: Build a model
+        values:
+        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
+        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
+      - title: Operationalize a model
+        values:
+        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
+        - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
+      - title: Consume a model
+        values:
+        - href: /azure/machine-learning/preview/model-management-consumption
+        - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+
+- title: More Microsoft Machine Learning Technologies
+  items:
+  - type: paragraph
+    text: 'In addition to Azure Machine Learning, Microsoft has a number of other machine learning technologies available to help you develop and operationalize models both in the cloud and on-premises.'
+  - type: list
+    style: unordered
+    className: spaced Bullet
+    items:
+    - html: <a href="/azure/machine-learning/team-data-science-process">Team Data Science Process</a> is a team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+    - html: <a href="/sql/advanced-analytics/getting-started-with-machine-learning-services">SQL Server Machine Learning Services</a> provides in-database analytics with support for both R and Python.
+    - html: <a href="machine-learning-server/index">Microsoft Machine Learning Server</a> supports R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
+    - html: <a href="https://aka.ms/batchaitraining">Batch AI Training</a> helps you experiment in parallel with your AI models using any framework and then trains them at scale across clustered GPUs.
+    - html: <a href="https://azure.microsoft.com/services/cognitive-services/">Cognitive Services</a> supplies intelligent algorithms for your apps, websites, and bots.
+    - html: <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> is a free, open-source toolkit to train deep learning algorithms.
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (New)</a></p><p><a href="/azure/machine-learning/studio/powershell-module?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">PowerShell (Classic)</a></p>
+    - title: Languages
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm &amp; Module reference</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/machinelearning">REST API reference</a></p><p><a href="/azure/machine-learning/studio/web-service-error-codes?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json">Web service error codes</a></p>
