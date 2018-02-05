@@ -30,7 +30,7 @@ sections:
     items:
     - html: Do a Thing
     - html: Do a Second Thing
-    - html: Thing 3: The Thingening
+    - html: Thing 3 - The Thingening
     - html: Custom Alerts (an actual thing)
 - title: Templates
   items:
