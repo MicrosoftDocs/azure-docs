@@ -205,3 +205,11 @@ The workflow did not create the review because the primary condition combination
 
 ![Content Moderator - modified workflow output](images/ocr-workflow-2-result.PNG)
 
+
+## Next steps
+
+Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
+
+Check out the [review tool's workflow tutorial](Review-Tool-User-Guide/Workflows.md) to learn how to create custom workflows. 
+
+Finally, use your custom workflows with the `Job` operations as shown in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
