@@ -1,0 +1,201 @@
+- name: CycleCloud Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About CyelcCloud
+    href: cyclecloud-overview.md
+  - name: Prerequisites
+    href: prerequisites.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Quickstart 1
+    href: quickstart1.md
+  - name: Quickstart 2
+    href: quickstart2.md
+  - name: Quickstart 3
+    href: quickstart3.md
+- name: Templates
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=sql-database
+  - name: Azure CLI
+    href: sql-database-cli-samples.md
+  - name: Azure PowerShell
+    href: sql-database-powershell-samples.md
+- name: Concepts
+  items:
+  - name: Grouping 1
+    items:
+    - name: Cluster Management
+      href: sql-database-servers-databases.md
+    - name: Nodes and Node Arrays
+      href: sql-database-service-tiers.md
+  - name: Jetpack
+    href: sql-database-high-availability.md
+  - name: Projects
+    items:
+    - name: Cluster-Init Projects
+      href: sql-database-security-overview.md
+    - name: Firewall rules
+      href: sql-database-firewall-configure.md
+  - name: pogo
+    items:
+    - name: Overview
+      href: sql-database-business-continuity.md
+    - name: pogo Configuration
+      href: sql-database-automated-backups.md
+    - name: Using pogo
+      href: sql-database-long-term-retention.md
+  - name: SubmitOnce
+    items:
+    - name: Overview
+      href: sql-database-cloud-migrate.md
+    - name: User Management
+      href: sql-database-transact-sql-information.md
+    - name: CLI
+      href: sql-database-manage-after-migration.md
+    - name: Available Commands
+      href: sql-database-manage-after-migration.md
+    - name: Appendicies
+      href: sql-database-manage-after-migration.md
+  - name: Disaster Recovery
+    items:
+    - name: Synchronization
+      href: sql-database-copy.md
+    - name: Virtualization
+      href: sql-database-import.md
+  - name: Monitoring
+    items:
+    - name: Monitoring
+      href: sql-database-troubleshoot-performance.md
+    - name: Alerts
+      href: sql-database-troubleshoot-performance.md
+    - name: Custom Alerts
+      href: sql-database-troubleshoot-performance.md
+    - name: Usage
+      href: sql-database-troubleshoot-performance.md
+  - name: Reporting
+    items:
+    - name: Reporting
+      href: sql-database-troubleshoot-performance.md
+    - name: Event Log
+      href: sql-database-single-database-monitor.md
+  - name: Data Management
+    items:
+    - name: Overview
+      href: sql-database-elastic-scale-introduction.md
+    - name: Endpoint Creation
+      href: sql-database-elastic-database-client-library.md
+    - name: Data Encrytion
+      href: sql-database-elastic-query-overview.md
+    - name: Transferring Data
+      href: sql-database-elastic-query-overview.md
+    - name: Enabling Return Nodes
+      href: sql-database-elastic-query-overview.md
+  - name: Storage
+    items:
+    - name: Storage
+      href: saas-tenancy-app-design-patterns.md
+    - name: Blobs
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+  - name: Auto-Scaling
+    items:
+    - name: Overview
+      href: sql-database-develop-overview.md
+    - name: JSON data
+      href: sql-database-json-features.md
+    - name: In-memory
+      href: sql-database-in-memory.md
+    - name: Temporal tables
+      href: sql-database-temporal-tables.md
+    - name: Retention policies
+      href: sql-database-temporal-tables-retention-policy.md
+    - name: Configure In-Memory
+      href: sql-database-in-memory-oltp-migration.md
+  - name: Images
+    items:
+    - name: Images
+      href: sql-database-libraries.md
+    - name: Custom Images
+      href: sql-database-client-id-keys.md
+- name: Reference
+  items:
+  - name: CLI
+    href: /powershell/module/azurerm.sql/#sql
+  - name: Cookbooks
+    href: /powershell/module/elasticdatabasejobs/#elasticdatabasejobs
+  - name: HealthCheck
+    href: /cli/azure/sql
+  - name: Node Configuration
+    href: /dotnet/api/microsoft.azure.management.sql.models
+  - name: Performance Tuning
+    href: /java/api/com.microsoft.azure.management.sql
+  - name: CycleServer Datastore
+    href: /sql/connect/sql-server-drivers
+    items:
+    - name: RESTful Interface
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+    - name: Notifications
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+    - name: Identifiers
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Type Definitions
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Views
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Plugin API
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Informal Syntax
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+  - name: Plugins
+    href: /sql/connect/sql-server-drivers
+    items:
+    - name: Plugin Development
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+    - name: WebContent Plugins
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+    - name: Plugin Configuration
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Debugging
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Formatter Plugins
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: HTML Template Plugins
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Actions
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Task Execution
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Email
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: RESTful Library
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Event Log
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: Java Plugins
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: FAQ
+    href: sql-database-faq.md
+  - name: Public data sets
+    href: sql-database-public-data-sets.md
+  - name: Troubleshoot connectivity
+    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/sql-azure
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
