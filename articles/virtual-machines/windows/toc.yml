@@ -251,6 +251,8 @@
       href: ../workloads/sap/get-started.md
     - name: MATLAB cluster
       href: matlab-mdcs-cluster.md
+    - name: Visual Studio
+      href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
       items:
@@ -347,6 +349,10 @@
       href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
+    - name: Use RBAC to restrict installation
+      href: extensions-rbac-howto.md
+    - name: Use Azure Policy to restrict installation
+      href: extensions-rmpolicy-howto.md      
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
