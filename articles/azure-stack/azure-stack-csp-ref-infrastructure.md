@@ -1,9 +1,9 @@
 ---
-title: Usage report infrastructure in Azure Stack | Microsoft Docs
+title: Usage reporting infrastructure in Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: brenduns
+ms.author: mabrigg
 ms.reviewer: alfredo
 
 ---
@@ -26,11 +26,11 @@ ms.reviewer: alfredo
 
 Azure Stack includes the infrastructure needed to track usage as it occurs and forward it to Azure, where Azure Commerce processes it and charges it against Azure subscriptions, in the same way as usage that takes place in the public Azure cloud.
 
-You should be aware that certain concepts are consistent between Azure and  - Azure Stack has local subscriptions, which fulfill a similar role to Azure subscription, but are only valid locally. Local subscriptions are mapped to Azure subscriptions when usage is forwarded to Azure.
+You should be aware that certain concepts are consistent between Azure and Azure Stack has local subscriptions, which fulfill a similar role to Azure subscription, but are only valid locally. Local subscriptions are mapped to Azure subscriptions when usage is forwarded to Azure.
 
-Azure Stack has local usage meters; local usage is mapped to the meters used in Azure commerce, but the meter IDs are different, and there are more meters available locally than the one Microsoft uses for billing.
+Azure Stack has local usage meters. Local usage is mapped to the meters used in Azure commerce. However, the meter IDs are different. There are more meters available locally than the one Microsoft uses for billing.
 
-There are some differences between how services are priced in Azure Stack and Azure. For example, in Azure Stack, VMs are charged only based on vcore/hours, with the same rate for all VM series, unlike Azure (the reason is that in Azure the different prices reflect different hardware; in Azure Stack, the customer procures the hardware, so there is no reason to charge different rates for different VM classes).
+There are some differences between how services are priced in Azure Stack and Azure. For example, in Azure Stack, VMs are charged only based on vcore/hours, with the same rate for all VM series, unlike Azure. The reason is that in Azure the different prices reflect different hardware. In Azure Stack, the customer provides the hardware, so there is no reason to charge different rates for different VM classes.
 
 You can find out about the Azure Stack meters used in Commerce and their prices in Partner Center, in the same way as you would do for Azure services:
 

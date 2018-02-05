@@ -21,7 +21,7 @@ ms.reviewer: alfredo
 
 *Applies to: Azure Stack integrated systems*
 
-# Glossary
+## Glossary
 
 The following terms and concepts are used for utilization billing in Azure Stack.
 
@@ -33,6 +33,6 @@ The following terms and concepts are used for utilization billing in Azure Stack
 
 ## Next steps
 
-To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
  

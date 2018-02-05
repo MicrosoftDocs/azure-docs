@@ -254,7 +254,7 @@
         href: azure-stack-csp-register-azure-stack.md
       - name: Add tenants for usage and billing 
         href: azure-stack-csp-howto-register-tenants.md
-      - name: Add tenants for usage and billing 
+      - name: Register tenants for usage tracking
         href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:

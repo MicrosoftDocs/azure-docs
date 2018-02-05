@@ -18,9 +18,9 @@ ms.reviewer: alfredo
 
 ---
 
-# Register to track billing utilization in Azure Stack
+# Register to track billing usage in Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems and Cloud Service Provider customers*
 
 Determine the type of shared services tenant you use for the Azure Stack registration. Then register Azure Stack with the Azure shared services tenant.
 
@@ -38,7 +38,7 @@ Determine the type of shared services tenant you use for the Azure Stack registr
 
 ### Cloud Solution Provider subscriptions
 
-Cloud Solution Provider (CSP) subscriptions are the preferred choice for registration when a CSP Reseller or an end user operates the Azure Stack.
+CSP subscriptions are the preferred choice for registration when a CSP Reseller or an end user operates the Azure Stack.
 
 ### Partner Shared Services subscription
 
@@ -54,12 +54,12 @@ You need an account, credentials, and a subscription in a Shared Services tenant
 
 ## Register Azure Stack with an Azure subscription
 
-Associate Azure Stack with the Azure shared services tenant as soon as you have completed the deployment of an Azure Stack in order to configure usage reporting. Azure Stack utilization is charged to the associated subscription. Make a note of the name of the Registration ID, as it will be needed for future updates.
+Associate Azure Stack with the Azure shared services tenant as soon as you have completed the deployment of an Azure Stack in order to configure usage reporting. Azure Stack usage is charged to the associated subscription. Make a note of the name of the Registration ID, as it will be needed for future updates.
 
-To register the Azure subscription with Azure Stack, follow the steps at [Register Azure Stack with your Azure Subscription](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-register).
+To register the Azure subscription with Azure Stack, follow the steps at [Register Azure Stack with your Azure Subscription](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-register). <!-- There is a new article coming up for IS registration so link will need to be updated -->
 
 > [!Note]  
-CSPSS subscriptions are associated with a shared services tenant. When you register Azure Stack, you need to provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment; the two do **not** need to belong to the same domain. In other words, you can use one tenant for deploying and operating Azure Stack and then register utilization for billing with a different tenant, for example IURContosoCSP.onmicrosoft.com. Remember to sign in with ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. And sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
+CSPSS subscriptions are associated with a shared services tenant. When you register Azure Stack, you need to provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment; the two do **not** need to belong to the same domain. In other words, you can use one tenant for deploying and operating Azure Stack and then register usage for billing with a different tenant, for example IURContosoCSP.onmicrosoft.com. Remember to sign in with ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. And sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
 
 ## Next steps
 

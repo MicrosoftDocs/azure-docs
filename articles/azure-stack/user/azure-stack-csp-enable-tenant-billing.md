@@ -30,7 +30,7 @@ You can create local Azure Stack subscriptions for an end user, who is then read
 > [!Note]  
 > If these this step is skipped, CSP cannot manage customer’s Azure Stack subscription on their behalf.
 
-## CSP as owner to Azure Stack user subscription
+## Set CSP as owner to Azure Stack user subscription
 
 ## Next steps
 

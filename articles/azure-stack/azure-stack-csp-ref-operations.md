@@ -40,17 +40,17 @@ You can add or update the registration resource. If you want to change the subsc
 
 ### PowerShell
 
-Use the New-AzureRmResource cmdlet to update the registration resource. Log in to Azure (Login-AzureRMAccount) using the account you used for the initial registration. Here is an example of how to add a tenant:
+Use the New-AzureRmResource cmdlet to update the registration resource. Log in to Azure (`Login-AzureRMAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
 
-    ```powershell
-    Add new tenant mapping
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
-    ```
+```powershell
+  New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```
 
 ### API call
 
 **Operation**: PUT  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
+{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Response**: 201 Created  
 **Response Body**: Empty  
 
@@ -59,7 +59,7 @@ Use the New-AzureRmResource cmdlet to update the registration resource. Log in t
 Get a list of all tenants that have been added to a registration.
 
  > [!Note]  
- > If no tenants have been registered, you will get no response.
+ > If no tenants have been registered, you won't receive a response.
 
 ### Parameters
 
@@ -67,21 +67,24 @@ Get a list of all tenants that have been added to a registration.
 |---                         | ---                  |
 | registrationSubscriptionId | The Azure subscription that was used for the initial registration.   |
 | resourceGroup              | The resource group in Azure in which your registration is stored.    |
-| registrationName           | The name of the registration of your Azure Stack. It is an object stored in Azure. The name is usually in the form azurestack-CloudID, where CloudID is the Cloud ID of your Azure Stack deployment.   |
+| registrationName           | The name of the registration of your Azure Stack. It is an object stored in Azure. The name is usually in the form of **azurestack**-***CloudID***, where ***CloudID*** is the Cloud ID of your Azure Stack deployment.   |
 
 ### PowerShell
 
-<Summary>
+Use the Get-AzureRmResovurce cmdlet to list all registered tenants. Log in to Azure (`Login-AzureRMAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
 
-    Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
-    ```
+```powershell
+  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+```
 
 ### API Call
 
 You can get a list of all tenant mappings using the GET operation
 
 **Operation**: GET  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
+/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
+api-version=2017-06-01 HTTP/1.1`  
 **Response**: 200  
 **Response Body**: 
 
@@ -107,31 +110,33 @@ You can get a list of all tenant mappings using the GET operation
 
 ## Remove a tenant mapping
 
-You can remove a tenant that has been added to a registration
+You can remove a tenant that has been added to a registration.
 
 ### Parameters
 
 | Parameter                  | Description          |
 |---                         | ---                  |
-| registrationSubscriptionId | Yadda yadda.   |
-| resourceGroup              | Yadda yadda.   |
-| registrationName           | Yadda yadda.   |
-| customerSubscriptionId     | Yadda yadda.   |
+| registrationSubscriptionId | Subscription ID for the registration.   |
+| resourceGroup              | The resource group for the registration.   |
+| registrationName           | The name of the registration.  |
+| customerSubscriptionId     | The customer subscription ID.  |
 
 ### PowerShell
 
 <Summary>
 
-    ```powershell
-    Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
-    ```
+```powershell
+  Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
 
 ### API Call
 
-<Summary>
+You can remove tenant mappings using the DELETE operation.
 
 **Operation**: DELETE  
-**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
+/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
+{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Response**: 204 No Content  
 **Response Body**: Empty
 

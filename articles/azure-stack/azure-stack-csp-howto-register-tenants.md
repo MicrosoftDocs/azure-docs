@@ -32,19 +32,20 @@ Add the customer in Partner Center and creates an Azure subscription. For instru
 
 1. Update the registration with the new customer’s subscription. This ensures usage is reported against the correct customer in Partner Center. 
 
-2. Add the new customer tenant to Azure Stack.
+2. Add the new customer tenant to Azure Stack. For instructions, see [Enable multi-tenancy in Azure Stack](/azure-stack-enable-multitenancy.md).
 
 
 ## Log into Azure Stack using the principal tenant
 
-Add tenants to your registration. 
+Add tenants to your registration.  
 
 1. Open Windows PowerShell with an elevated prompt, and run:
+
     ```PowerShell
         Login-AzureRmAccount
-    ```
+    ```  
 2. Type your Azure credentials.
-    
+
 ## Add new tenant to registration
 
 In your PowerShell session, run:

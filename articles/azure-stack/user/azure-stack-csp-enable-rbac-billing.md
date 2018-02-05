@@ -1,5 +1,5 @@
 ---
-title: Enable RBAC utilization billing for Azure Stack | Microsoft Docs
+title: Enable RBAC usage billing for Azure Stack | Microsoft Docs
 description: Type the description in Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -32,7 +32,7 @@ You can optionally grant RBAC rights to CSP to manage your Azure Stack subscript
 > [!Note]  
 > If these this step is skipped, CSP cannot manage customer’s Azure Stack subscription on their behalf.
 
-## Creates resource in Azure Stack user subscriptio
+## Create resource in Azure Stack user subscription
 
 ## Next steps
 
