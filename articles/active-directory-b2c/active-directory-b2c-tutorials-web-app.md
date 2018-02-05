@@ -14,7 +14,7 @@ ms.service: active-directory-b2c
 
 # Tutorial: Authenticate Users with Azure Active Directory B2C in an ASP.NET Web App
 
-This tutorial shows you how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -51,7 +51,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
     | **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
     | **Include web app / web API** | Yes | Select **Yes** for a web app. |
     | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-    | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
+    | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample runs locally (localhost) and listens on port 44316. |
     | **Native client** | No | Since this is a web app and not a native client, select No. |
 
 3. Click **Create** to register your app.
@@ -72,7 +72,7 @@ Azure AD B2C uses OAuth2 authorization for [client applications](../active-direc
 
     ![app general keys page](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
-The key is displayed once in the portal. It's important to copy and save the key value. You need this value for configuring your app. Keep the key secure. You shouldn't share the key publicly.
+The key is displayed once in the portal. It's important to copy and save the key value. You need this value for configuring your app. Keep the key secure. Don't share the key publicly.
 
 ## Create policies
 
@@ -84,14 +84,14 @@ To sign up users to access then sign in to the web app, create a **sign-up or si
 
 1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
 
-    To configure your policy, use the following settings.
+    To configure your policy, use the following settings:
 
     ![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
-    | **Identity provider** | Email signup | This is the identity provider used to uniquely identify the user. |
+    | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
     | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
     | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
 
@@ -103,12 +103,12 @@ To allow users to reset their user profile information on their own, create a **
 
 1. From the Azure AD B2C portal page, select **Profile editing policies** and click **Add**.
 
-    To configure your policy, use the following settings.
+    To configure your policy, use the following settings:
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
-    | **Identity provider** | Local Account Signin | This is the identity provider used to uniquely identify the user. |
+    | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
     | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
     | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
 
@@ -116,7 +116,7 @@ To allow users to reset their user profile information on their own, create a **
 
 ### Create a password reset policy
 
-To enable password reset on your application, you need to create a **password reset policy**. This policy describes the the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
+To enable password reset on your application, you need to create a **password reset policy**. This policy describes the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
 
 1. From the Azure AD B2C portal page, select **Password reset policies** and click **Add**.
 
@@ -140,7 +140,7 @@ Now that you have a web app registered and policies created, you need to configu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating a Azure AD B2C policy, users can use a social account or create an account to use as their identity to access the app. 
+The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating an Azure AD B2C policy, users can use a social account or create an account to use as their identity to access the app. 
 
 There are two projects in the sample solution:
 

@@ -14,7 +14,7 @@ ms.service: active-directory-b2c
 
 # Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API
 
-This tutorial shows you through how to call a Azure Active Directory (AD) B2C protected web API resource from an ASP.NET web app.
+This tutorial shows you through how to call an Azure Active Directory (AD) B2C protected web API resource from an ASP.NET web app.
 
 In this tutorial, you learn how to:
 
@@ -85,7 +85,7 @@ To configure scopes for the API, add the following entries.
 | **Scope** | Hello.Read | Read access to hello |
 | **Scope** | Hello.Write | Write access to hello |
 
-The published scopes can be used to grant a client app permissions to the web API.
+The published scopes can be used to grant a client app permission to the web API.
 
 ### Grant app permissions to web API
 
@@ -107,7 +107,7 @@ Your `My Sample Web App` is registered to call the protected `My Sample Web API`
 
 ## Update web API code
 
-Now that the web API is registered and you have a policies defined, you need to configure the web API to use your Azure AD B2C tenant and policies. In this tutorial, you configure a sample web API. 
+Now that the web API is registered and you have scopes defined, you need to configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample web API. 
 
 The sample web API is included in the project you downloaded in the prerequisite tutorial: [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md). If you haven't completed the prerequisite tutorial, complete it before continuing.
 
@@ -149,7 +149,7 @@ Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. Set the client ID to the  the API to use your tenant.
+3. Set the client ID to the registered Application ID for your API.
 
     ```C#
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
@@ -170,7 +170,7 @@ Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
 
 ## Run the sample web app and web API
 
-You will need to run both the `TaskWebApp` and `TaskService` projects. 
+You need to run both the `TaskWebApp` and `TaskService` projects. 
 
 1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**. 
 2. Select **Multiple startup projects** radio button.
