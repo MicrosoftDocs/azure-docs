@@ -174,9 +174,9 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
 * [Use features to improve your LUIS app's performance](Add-Features.md) 
 
-[true-positive]:glossary.md#true-positive
-[true-negative]:glossary.md#true-negative
-[false-positive]:glossary.md#false-positive
-[false-negative]:glossary.md#false-negative
-[f-measure]:glossary.md#f-measure
-[recall]: glossary.md#recall
+[true-positive]:luis-glossary.md#true-positive
+[true-negative]:luis-glossary.md#true-negative
+[false-positive]:luis-glossary.md#false-positive
+[false-negative]:luis-glossary.md#false-negative
+[f-measure]:luis-glossary.md#f-measure
+[recall]: luis-glossary.md#recall
