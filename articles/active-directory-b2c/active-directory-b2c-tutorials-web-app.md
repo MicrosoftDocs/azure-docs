@@ -12,19 +12,15 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App
+# Tutorial: Authenticate Users with Azure Active Directory B2C in an ASP.NET Web App
 
-This tutorial shows you how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to:
-
-* Social accounts such as Facebook, Google, LinkedIn, and more.
-* Enterprise accounts using open standard protocols such as OpenID Connect or SAML.
-* Azure Active Directory accounts 
+This tutorial shows you how to use Azure Active Directory B2C to sign-in and sign-up users in an ASP.NET web app. Azure Active Directory (AD) B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register the sample ASP.NET web app in your Azure AD B2C tenant.
-> * Create a user sign-up or sign-in policy using an email address and password.
+> * Register a sample ASP.NET web app in your Azure AD B2C tenant.
+> * Create policies for user sign-up, sign-in, editing a profile, and password reset.
 > * Configure the sample web app to use your Azure AD B2C tenant. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -36,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Register web app
 
-Applications need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your [tenant](../active-directory/develop/active-directory-dev-glossary.md#tenant) before they can receive [access tokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) for the app in your tenant. 
+Applications need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your tenant before they can receive [access tokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) for the app in your tenant. 
 
 Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
@@ -50,9 +46,9 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
     ![Add a new app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
-    | Setting      | Sample value  | Description                                        |
+    | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | `My Sample Web App` | Enter a **Name** that describes your app to consumers. | 
+    | **Name** | My Sample Web App | Enter a **Name** that describes your app to consumers. | 
     | **Include web app / web API** | Yes | Select **Yes** for a web app. |
     | **Allow implicit flow** | Yes | Select **Yes** since the app uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
     | **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your app requests. In this tutorial, the sample is runs locally (localhost) and listens on port 44316. |
@@ -68,7 +64,7 @@ Make note of the **Application Client ID**. The ID uniquely identifies the app a
 
 ### Create a client password
 
-Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client id and client secret are used when the web app [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authorization-server) with Azure Active Directory. 
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client secret (password). The application client id and client secret are used when the web app authenticates with Azure Active Directory. 
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
@@ -78,11 +74,13 @@ Azure AD B2C uses OAuth2 authorization for [client applications](../active-direc
 
 The key is displayed once in the portal. It's important to copy and save the key value. You need this value for configuring your app. Keep the key secure. You shouldn't share the key publicly.
 
-## Create a sign-up or sign-in policy
+## Create policies
 
 An Azure AD B2C policy defines user workflows. For example, signing in, signing up, changing passwords, and editing profiles are common workflows.
 
-To sign up users to access then sign in to the web app, create a **sign-up or sign-in** policy.
+### Create a sign-up or sign-in policy
+
+To sign up users to access then sign in to the web app, create a **sign-up or sign-in policy**.
 
 1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
 
@@ -90,18 +88,51 @@ To sign up users to access then sign in to the web app, create a **sign-up or si
 
     ![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
 
-    | Setting      | Sample value  | Description                                        |
+    | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | `SiUpIn` | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name `b2c_1_SiUpIn` in the sample code. | 
-    | **Identity provider** | `email signup` | This is the identity provider used to uniquely identify the user. |
-    | **Sign up attributes** | `Display Name` and `Postal Code` | Select attributes to be collected from the user during signup. |
-    | **Application claims** | `Display Name`, `Postal Code`, `User is new`, `User's Object ID` | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
+    | **Identity provider** | Email signup | This is the identity provider used to uniquely identify the user. |
+    | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
+    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+
+2. Click **Create** to create your policy. 
+
+### Create a profile editing policy
+
+To allow users to reset their user profile information on their own, create a **profile editing policy**.
+
+1. From the Azure AD B2C portal page, select **Profile editing policies** and click **Add**.
+
+    To configure your policy, use the following settings.
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
+    | **Identity provider** | Local Account Signin | This is the identity provider used to uniquely identify the user. |
+    | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
+    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
+
+2. Click **Create** to create your policy. 
+
+### Create a password reset policy
+
+To enable password reset on your application, you need to create a **password reset policy**. This policy describes the the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
+
+1. From the Azure AD B2C portal page, select **Password reset policies** and click **Add**.
+
+    To configure your policy, use the following settings.
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SSPR** in the sample code. | 
+    | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
+    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful password reset. |
 
 2. Click **Create** to create your policy. 
 
 ## Update web app code
 
-Now that you have a web app registered and a policy created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app. 
+Now that you have a web app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app. 
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub.
 
@@ -117,7 +148,7 @@ There are two projects in the sample solution:
 
 **Web API sample app (TaskService):** Web API that supports the create, read,  update, and delete task list functionality. The web API is secured by Azure AD B2C and called by the web app.
 
-The sample is configured to use a demo tenant `fabrikamb2c.onmicrosoft.com`. You need to change the app to use the app registration in your tenant. You also need to configure the policy. The sample web app defines these values as app settings in the Web.config file. To change the app settings:
+You need to change the app to use the app registration in your tenant. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
 1. Open the `B2C-WebAPI-DotNet` solution in Visual Studio.
 
@@ -130,10 +161,12 @@ The sample is configured to use a demo tenant `fabrikamb2c.onmicrosoft.com`. You
     
     <add key="ida:ClientSecret" value="Client password (client secret)" />
     ```
-3. Update the value with the value you used to create your policy. The value for this walkthrough is **b2c_1_SiUpIn**
+3. Update the value with the value you used to create your policies.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
+    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
     ```
 
 ## Run the sample web app
@@ -141,6 +174,8 @@ The sample is configured to use a demo tenant `fabrikamb2c.onmicrosoft.com`. You
 In Solution Explorer, right-click on the **TaskWebApp** project and click **Set as StartUp Project**
 
 Press **F5** to start the web app. The default browser launches to the local web site address `https://localhost:44316/`. 
+
+The sample app supports sign up, sign in, editing a profile, and password reset. The following is how a user signs up to use the app with an email address. You can try the other scenarios on your own.
 
 ### Sign up using an email address
 
