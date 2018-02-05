@@ -28,7 +28,7 @@ On the Content Moderator Dashboard, select **Review** > **Settings** > **Workflo
 
 ### Get the JSON definition of the default workflow
 
-Click the **Edit** option for your workflow, and then select the **JSON** tab. You see the following JSON **expression**.
+Click the **Edit** option for your workflow, and then select the **JSON** tab. You see the following JSON 'Expression`.
 
 	{
 		"Type": "Logic",
@@ -83,8 +83,8 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (
 
 ### Enter the workflow definition
 
-Edit the **Request body** box to enter the JSON request with details for 'Description` and `Type` (Image or Text).
-For the 'Expression`. copy the default workflow expressions from the preceding section as shown here.
+Edit the **Request body** box to enter the JSON request with details for `Description` and `Type` (Image or Text).
+For the `Expression`. copy the default workflow `Expression` from the preceding section as shown here.
 
 	{
 		"Description": "Default workflow from API console",
