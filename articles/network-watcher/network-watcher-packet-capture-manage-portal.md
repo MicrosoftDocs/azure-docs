@@ -77,6 +77,7 @@ The properties that can be defined on a packet capture are:
 
 **Capture configuration**
 
+- **Local file path** - Local path on the virtual machine where packet capture is saved (valid only when **[file]** is selected). You must specify a valid path. If you are using a Linux virtual machine, the path must start with / var / captures.
 - **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)

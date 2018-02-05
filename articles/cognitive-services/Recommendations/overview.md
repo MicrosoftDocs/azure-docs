@@ -29,11 +29,11 @@ The recommendation engine may be trained by uploading data about past customer a
 
 ## Resources ##
 
-[Getting Started Guide](../../../articles/cognitive-services/cognitive-services-recommendations-quick-start.md)
+[Getting Started Guide](cognitive-services-recommendations-quick-start.md)
 
-[Collecting Data to Train your Model](../../../articles/cognitive-services/cognitive-services-recommendations-collecting-data.md)
+[Collecting Data to Train your Model](cognitive-services-recommendations-collecting-data.md)
 
-[Build Types and Model Quality](../../../articles/cognitive-services/cognitive-services-recommendations-buildtypes.md)
+[Build Types and Model Quality](cognitive-services-recommendations-buildtypes.md)
 
 [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0)
 
