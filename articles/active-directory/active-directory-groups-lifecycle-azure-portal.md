@@ -1,5 +1,5 @@
 ﻿---
-title: Expiration for Office 365 groups in Azure Active Directory | Microsoft Docs
+title: Expiration policy for Office 365 groups in Azure Active Directory | Microsoft Docs
 description: How to set up expiration for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/15/2018
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 
 ---
 
-# Configure expiration for Office 365 groups
+# Configure expiration policy for Office 365 groups
 
 You can now set up expiration for only your Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
 -	Owners of the group are notified to renew the group as the expiration nears
@@ -38,8 +38,8 @@ These are the roles that can configure and use expiration for Office 365 groups 
 
 Role | Permissions
 -------- | --------
-Global Administrator<br>User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings
-User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own
+Global Administrator<br>User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
+User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted groups, see [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md).
 
@@ -75,9 +75,7 @@ The group can be restored within 30 days of its deletion by selecting **Restore 
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 
 > [!NOTE]
-> * When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. 
->  For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
-> * Currently only one expiration policy
+> * When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
 > * When a dynamic group is deleted and restored, it is seen as a new group and re-populated according to the rule. This process might take up to 24 hours.
 
 ## Use PowerShell cmdlets to configure expiration
@@ -90,15 +88,15 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
   connect-azuread 
   ````
   
-2. Configure the expiration settings
-  The `New-AzureADMSGroupLifecyclePolicy` cmdlet sets the lifetime for all Office 365 groups in the tenant to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’
+2. Configure the expiration settings.
+  The `New-AzureADMSGroupLifecyclePolicy` cmdlet sets the lifetime for all Office 365 groups in the tenant to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’.
   
   ````
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
   ````
   
-3. Retrieve the existing policy
-  The `Get-AzureADMSGroupLifecyclePolicy' cmdlet retrieves the current Office 365 group expiration settings that have been configured. In this example, you can see 
+3. Retrieve the existing policy.
+  The `Get-AzureADMSGroupLifecyclePolicy' cmdlet retrieves the current Office 365 group expiration settings that have been configured. In this example, you can see:
   -	The policy ID  
   -	The lifetime for all Office 365 groups in the tenant is set to 365 days
   -	Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com.’
@@ -111,22 +109,22 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
   ````
   
-4. Update the existing policy
+4. Update the existing policy.
   The `Set-AzureADMSGroupLifecyclePolicy` cmdlet is used to update an existing policy. In the example below, the group lifetime in the existing policy is changed from 365 days to 180 days. 
   
   ````
   Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
   ````
   
-5. Add specific groups to the policy
+5. Add specific groups to the policy.
   The `Add-AzureADMSLifecyclePolicyGroup` cmdlet adds a group to the lifecycle policy. As an example: 
   
   ````
   Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
   ````
   
-6. Remove the existing Policy
-  The `Remove-AzureADMSGroupLifecyclePolicy` cmdlet deletes the Office 365 group expiration settings but requires the policy ID. This will disable expiration for Office 365 groups. 
+6. Remove the existing Policy.
+  The `Remove-AzureADMSGroupLifecyclePolicy` cmdlet deletes the Office 365 group expiration settings but requires the policy ID. This disables expiration for Office 365 groups. 
 
   ````
   Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
@@ -144,14 +142,16 @@ The following cmdlets can be used to configure the policy in more detail. There'
 *	Reset-AzureADMSLifeCycleGroup   
 *	Get-AzureADMSLifecyclePolicyGroup
  
-## How Office 365 group expiration works with a retention policy
-<!--Please use the below text as a placeholder. I will get this validated with office-->
-If you have set up a retention policy in the Security and Compliance center for Office 365 groups, expiration policy works seamlessly with retention policy. When a group expires, the group’s conversations in mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration.
+## How Office 365 group expiration works with retention policy and with a mailbox on legal hold 
+**Mailbox on Legal Hold**: When a group expires and is deleted, 30 days after deletion, groups app data (from Planner, Sites, Teams, and so on) is permanently deleted, but the group mailbox that is on legal hold is retained and isn't permanently deleted.  The administrator can use Exchange cmdlets to restore the mailbox to fetch the data. 
+
+**Retention policy configured via the Security and Compliance Center**: If you have set up a retention policy for Office 365 groups, when a group expires and is deleted, the group conversations in mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
 
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)
+* [Group name policy settings for Office 365 groups](groups-naming-policy.md)
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
 * [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
