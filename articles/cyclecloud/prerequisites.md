@@ -38,8 +38,3 @@ account. To do this, run the following:
 
 > [!WARNING]
 > Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.
-
-Once you have generated the SSH key pair, you will need to import the
-key to your cloud provider if you are using Google Cloud or Amazon Web
-Services as your cloud service provider. This step is not required for
-Microsoft Azure use.
