@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2018
+ms.date: 02/05/2018
 ms.author: magoedte;sngun
 
 ---
@@ -49,7 +49,7 @@ An Owner can manage everything, including access. The following table shows the 
 
 |Actions|Description|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/|Create and manage resources of all types.|
 
 ### Contributor
 
@@ -59,9 +59,9 @@ A Contributor can manage everything except access. The following table shows the
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
 |**Not Actions**||
-|Microsoft.Authorization/*/Delete| Delete roles and role assignments        |
-|Microsoft.Authorization/*/Write     |  Create roles and role assignments       |
-|Microsoft.Authorization/elevateAccess/Action    | Denies the ability to create a User Access Administrator        |
+|Microsoft.Authorization/*/Delete| Delete roles and role assignments.       |
+|Microsoft.Authorization/*/Write     |  Create roles and role assignments.       |
+|Microsoft.Authorization/elevateAccess/Action    | Denies the ability to create a User Access Administrator.       |
 
 ### Reader
 
@@ -69,7 +69,7 @@ A Reader can view all the resources in an Automation account but cannot make any
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts//read|View all resources in an Automation Account |
+|Microsoft.Automation/automationAccounts/read|View all resources in an Automation Account. |
 
 ### Automation Job Operator
 
@@ -77,17 +77,17 @@ An Automation Job Operator is granted at the Automation account scope. This al
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Read authorization|
-|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress|
-|Microsoft.Automation/automationAccounts/jobs/write|Create jobs|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |  Read roles and role assignments       |
-|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
-|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
-|Microsoft.Support/* |Create and manage support tickets|
+|Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |  Read roles and role assignments.       |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/* |Create and manage support tickets.|
 
 ### Automation Runbook Operator
 
@@ -95,12 +95,12 @@ An Automation Runbook Operator role is granted at the Runbook scope. An Automati
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/runbooks/read     | List the runbooks        |
-|Microsoft.Authorization/*/read      | Read authorization        |
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
-|Microsoft.Resources/deployments/*      | Create and manage resource group deployments         |
-|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
-|Microsoft.Support/*      | Create and manage support tickets        |
+|Microsoft.Automation/automationAccounts/runbooks/read     | List the runbooks.        |
+|Microsoft.Authorization/*/read      | Read authorization.        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
+|Microsoft.Resources/deployments/*      | Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/*      | Create and manage support tickets.        |
 
 ### Automation Operator
 
@@ -108,17 +108,17 @@ An Automation Operator is able to start, stop, suspend, and resume jobs. The fol
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Read authorization|
-|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress|
-|Microsoft.Automation/automationAccounts/jobs/write|Create jobs|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments         |
-|Microsoft.Resources/deployments/*      |Create and manage resource group deployments         |
-|Microsoft.Insights/alertRules/*      | Create and manage alert rules        |
-|Microsoft.Support/* |Create and manage support tickets|
+|Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
+|Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
+|Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
+|Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
+|Microsoft.Support/* |Create and manage support tickets.|
 
 ### Log Analytics Contributor
 
@@ -127,18 +127,18 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.Automation/automationAccounts/*|Manage automation accounts|
-|Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions|
-|Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys|
-|Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions|
+|Microsoft.Automation/automationAccounts/*|Manage automation accounts.|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions.|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys.|
+|Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
 |Microsoft.Insights/alertRules/*|Read/write/delete alert rules.|
 |Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics|
-|Microsoft.OperationsManagement/*|Manage solutions in workspaces|
-|Microsoft.Resources/deployments/*|Create and manage resource group deployments|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments|
-|Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys|
-|Microsoft.Support/*|Create and manage support tickets|
+|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationsManagement/*|Manage solutions in workspaces.|
+|Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
+|Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
+|Microsoft.Support/*|Create and manage support tickets.|
 
 
 ### Log Analytics Reader
@@ -148,11 +148,11 @@ A Log Analytics Reader can view and search all monitoring data as well as and vi
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics|
-|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data|
-|Microsoft.Support/*|Create and manage support tickets|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data.|
+|Microsoft.Support/*|Create and manage support tickets.|
 |**Not Actions**| |
-|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys.|
 
 ### Monitoring Contributor
 
@@ -161,24 +161,24 @@ A Monitoring Contributor can read all monitoring data and update monitoring sett
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.AlertsManagement/alerts/*|**Insert description**|
-|Microsoft.AlertsManagement/alertsSummary/*|**Insert description**|
-|Microsoft.Insights/AlertRules/*|Read/write/delete alert rules.|
-|Microsoft.Insights/components/*|	Read/write/delete Application Insights components.|
-|Microsoft.Insights/DiagnosticSettings/*|Read/write/delete diagnostic settings.|
+|Microsoft.AlertsManagement/alerts/*|Manage Alerts.|
+|Microsoft.AlertsManagement/alertsSummary/*|Manage the Alert dashboard.|
+|Microsoft.Insights/AlertRules/*|Manage alert rules.|
+|Microsoft.Insights/components/*|Manage Application Insights components.|
+|Microsoft.Insights/DiagnosticSettings/*|Manage diagnostic settings.|
 |Microsoft.Insights/eventtypes/*|List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log.|
 |Microsoft.Insights/LogDefinitions/*|This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log.|
 |Microsoft.Insights/MetricDefinitions/*|Read metric definitions (list of available metric types for a resource).|
 |Microsoft.Insights/Metrics/*|Read metrics for a resource.|
 |Microsoft.Insights/Register/Action|Register the Microsoft.Insights provider.|
-|Microsoft.Insights/webtests/*|Read/write/delete Application Insights web tests.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Read/write/delete Log Analytics solution packs.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Read/write/delete Log Analytics saved searches.|
+|Microsoft.Insights/webtests/*|Manage Application Insights web tests.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Log Analytics solution packs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Log Analytics saved searches.|
 |Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Read/write/delete Log Analytics storage insight configurations.|
-|Microsoft.Support/*|Create and manage support tickets|
-|Microsoft.WorkloadMonitor/workloads/*|**Insert description**|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Log Analytics storage insight configurations.|
+|Microsoft.Support/*|Create and manage support tickets.|
+|Microsoft.WorkloadMonitor/workloads/*|Manage Workloads.|
 
 ### Monitoring Reader
 
