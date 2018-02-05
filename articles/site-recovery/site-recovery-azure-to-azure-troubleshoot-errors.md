@@ -62,7 +62,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# cd /etc/ssl/certs``
 
-3. Check if the Symantec root CA cert is present or not
+3. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
@@ -70,7 +70,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Check if the Baltimore root CA cert is present or not
+5. Check if the Baltimore root CA cert is present.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
@@ -78,7 +78,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Check if the DigiCert_Global_Root_CA cert is present or not
+7. Check if the DigiCert_Global_Root_CA cert is present.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
@@ -94,32 +94,39 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 10. Check if the subject hashes as symlinks are created for the certificates
 
-    ``# ls -l | grep Baltimore``
+    - Command
 
-    Output
+      ``# ls -l | grep Baltimore``
 
-    ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-    -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+    - Output
 
-    ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
 
-    Output
+    - Command
 
-    ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Output
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
       lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-    ``# ls -l | grep DigiCert_Global_Root``
+    - Command
 
-    Output
+      ``# ls -l | grep DigiCert_Global_Root``
 
-    ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
-    -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+    - Output
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
 11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
 12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
 13. Create a copy of the file DigiCert_Global_Root_CA.pem with filename 3513523f.0
@@ -129,10 +136,15 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 14. Check if the files are present.  
 
-    ``# ls -l 653b494a.0 b204d74a.0 3513523f.0  
-    -rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
-    -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
-    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
+    - Command
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Output
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
