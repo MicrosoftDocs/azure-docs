@@ -158,13 +158,13 @@ You need the CertificateThumbprint, SourceVault, and the CertificateURL informat
 1. Navigate to your keyvault, select the certificate. 
 2. Select the "properties"tab and Copy the 'RESOURCE ID'  to "Source Key vault" on the other browser window 
 
-![CertInfo0]
+	![CertInfo0]
 
 3. Now, select the "Certificates" tab.
 4. Click on certificate thumbprint, which takes you to the Versions page.
 5. Click on the Guids you see under the current Version.
 
-![CertInfo1]
+	![CertInfo1]
 
 6. You should now be on the screen like below. Copy the 'Thumbprint'  to "Certificate thumbprint" on the other browser window
 7. Copy the 'Secret Identifier' information to the "Certificate URL" on other browser window.
