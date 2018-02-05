@@ -94,16 +94,25 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 10. Check if the subject hashes as symlinks are created for the certificates
 
-    ``# ls -l | grep Baltimore
-    lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+    ``# ls -l | grep Baltimore``
+
+    Output
+
+    ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
     -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
 
-    ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5
-      -rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+    ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    Output
+
+    ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
       lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-    ``# ls -l | grep DigiCert_Global_Root
-    lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+    ``# ls -l | grep DigiCert_Global_Root``
+
+    Output
+
+    ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
     -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
 11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
