@@ -153,12 +153,14 @@ If you are interactive testing on both trained and published models together, an
 
 
 ## Batch testing
-With batch testing, you can run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contain a maximum of 1,000 utterances. All you need to do is import this file to your app and run it to perform the test. Your LUIS app returns the result: detailed analysis of all utterances included in the batch.
+Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
 
-You can import up to 10 dataset files to a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
+You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled utterances. 
+
+You import this file and run the test. The result is a comparison of the dataset labeled intent and the current model's predicted intent. This difference helps you find utterances that LUIS predicts incorrectly based on its current training. 
+
+You can test 10 dataset files in a single LUIS app. The utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
-The following procedures guide you on how to import a dataset file, run a batch test on your current trained app by using the imported dataset, and access the test results in a detailed visualized view.
-
 <a name="batch-testing"></a>
 ## Import a dataset file for batch testing
 
@@ -166,11 +168,13 @@ The following procedures guide you on how to import a dataset file, run a batch 
 
     ![Batch Testing Link](./media/luis-how-to-train-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the JSON file that contains the utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the JSON file that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-train-test/batchtest-importset.png)
 
-3. In the **Dataset Name** field, type a name for your dataset file. An example of the JSON in the batch file follows:
+    Errors in import are reported in a red notification bar at the top of the browser. No dataset is created for an erroring import.  
+
+3. In the **Dataset Name** field, type a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. An example of the JSON in the batch file follows:
 
     ```JSON
 [
@@ -227,35 +231,46 @@ To export, rename, delete, or download the imported dataset, use the three dots 
 
 ![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
 
-### Run a batch test on your trained app
+## Run a batch test on your trained app
 
 Select **Test** next to the dataset you've just imported. This displays the test result of the dataset.
 
 ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
+**Successful predictions** are utterances where the intent in the batch file is the same intent predicted in the test.
+
+
 In the preceding screenshot:
  
- - **State** of the dataset shows whether or not the dataset result contains errors. In the preceding example, an error sign is displayed, which indicates that there are errors in one or more utterances. If the test result contains no errors, a green sign displays instead. 
+ - **State** shows whether or not the dataset result contains errors. 
  - **Size** is the total number of utterances included in the dataset file.
  - **Last Run** is the date of the latest test run for this dataset. 
- - **Last Result** displays the percentage of correct predictions that result from the test.
+ - **Last Result** displays the number of successful predictions.
+
+
+|State|Meaning|
+|--|--|
+|![Successful test green circle icon](./media/luis-how-to-train-test/batch-test-result-green.png)|All utterances are successful.|
+|![Failing test red x icon](./media/luis-how-to-train-test/batch-test-result-red.png)|At least 1 utterance intent did not match the prediction.|
+|![Ready to test icon](./media/luis-how-to-train-test/batch-test-result-blue.png)|Test is ready to run.|
+
+
 
 ## Access batch test result details in a visualized view
- 
-1. Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. 
+ Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
+
+Green points indicate correct prediction, and red ones indicate incorrect prediction.
+
+The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
 
     ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
-    >[!NOTE]
-    >The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances. 
   
-2. To filter the view by a specific intent/entity, select your target intent/entity in the filtering panel. The data points and their distribution update according to your selection. 
+## Filter test results
+To filter the view by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. All items in the filtered section also display in more detail below the chart. 
  
     ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
-    >[!NOTE]
-    >Hover over a data point to see the certainty score of its prediction.
- 
     The graph contains four sections that represent the possible cases of your application's prediction:
 
     - **True Positive (TP)**: The data points in this section represent utterances in which your app correctly predicted the existence of the target intent/entity. 
@@ -265,9 +280,10 @@ In the preceding screenshot:
 
     This means that data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. On the other hand, if all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
  
-3. Select a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. To display all utterances in a section, select the section title.
+## View utterance results
+In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. 
   
-A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
+
 
 ## Next steps
 
