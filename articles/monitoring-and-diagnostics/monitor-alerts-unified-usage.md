@@ -82,9 +82,9 @@ As Azure Alerts (Preview) allows for creation of various types of alerts from a 
  ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
 
- > [!NOTE]
+    > [!NOTE]
 
-   >  Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
+   > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
     For Metric Measurement type of Log Alerts using Application insights, you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
 
     ![aggregate on option](./media/monitor-alerts-unified/aggregate-on.png)

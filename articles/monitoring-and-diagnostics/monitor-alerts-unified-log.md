@@ -24,7 +24,7 @@ Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log
 
 > [!WARNING]
 
-> Azure Alerts (Preview) - Log Alerts, currently doesn't support cross-workspace or cross-app queries.
+> Currently, log alerts in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
 
 ## Log Alert rules
 

@@ -88,7 +88,7 @@
       href: insights-alerts-powershell.md
     - name: Have a metric alert call a webhook
       href: insights-webhooks-alerts.md
-      name: Webhook actions to log alerts
+      name: Webhook actions for log alerts
       href: monitor-alerts-unified-log-webhook.md
     - name: Create a metric alert with a Resource Manager template
       href: monitoring-enable-alerts-using-template.md

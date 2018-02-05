@@ -20,14 +20,11 @@ ms.custom:
 ---
 # Create activity log alerts using the new Alerts (Preview) experience
 
-## Overview
 Activity log alerts are the alerts that get activated when a new activity log event occurs that matches the conditions specified in the alert.
 
 These alerts are for Azure resources, can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events using the new experience in [Azure Alerts (Preview)](monitoring-overview-unified-alerts.md).
 
-Typically, you create activity log alerts to receive notifications when:
-
-Specific changes occur on resources in your Azure subscription, often scoped to particular resource groups or resource. For example, you might want to be notified when any virtual machine in (sample resource group) **myProductionResourceGroup** is deleted, or you might want to get notified if any new roles are assigned to a user in your subscription.
+Typically, you create activity log alerts to receive notifications when specific changes occur on resources in your Azure subscription, often scoped to particular resource groups or resource. For example, you might want to be notified when any virtual machine in (sample resource group) **myProductionResourceGroup** is deleted, or you might want to get notified if any new roles are assigned to a user in your subscription.
 
 You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. However, the portal shows the most common options as detailed in the following sections:
 
