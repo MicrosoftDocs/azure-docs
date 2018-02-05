@@ -41,12 +41,12 @@ To begin answering questions with the Impact tool, choose an initial page view, 
 
 ![Screenshot of results](./media/app-insights-usage-impact/0003-results.png)
 
-In this instance as **Product Page** load time increases the conversion rate to **Product Purchased clicked** goes down. Based on the distribution above, an optimal page load duration of 3.5 seconds could be targeted to achieve a potential 55% conversion rate. Further performance improvements to reduce load time below 3.5 seconds do not currently correlate with further conversion benefits.
+In this instance as **Product Page** load time increases the conversion rate to **Purchase Product clicked** goes down. Based on the distribution above, an optimal page load duration of 3.5 seconds could be targeted to achieve a potential 55% conversion rate. Further performance improvements to reduce load time below 3.5 seconds do not currently correlate with additional conversion benefits.
 
 
 ## What if I’m tracking page views or load times in custom ways?
 
-Impact supports all standard and custom properties and measurements. Use whatever you want. Instead of duration,
+Impact supports both standard and custom properties and measurements. Use whatever you want. Instead of duration,
 use filters on the primary and secondary events to get more specific.
 
 ## Do users from different countries or regions convert at different rates?
@@ -66,13 +66,13 @@ Let **B** = the secondary page view/custom event you select (**impacts the usage
 
 Impact looks at a sample of all the sessions from users in the selected time range. For each session, it looks for each occurrence of **A**.
 
-From one instance of **A** to the next is considered a sub-session.
+From one instance of **A** to the next is considered to be a **sub-session**.
 
-If **B** occurs during a sub-session, (for example between one occurrence of **A** and the next) then that sub-session is counted as a conversion.
+If **B** occurs during a **sub-session**, (for example between one occurrence of **A** and the next) then that **sub-session** is counted as a **conversion**.
 
-If **A** occurs followed by **B**, which is in turn followed by an end-of-session this too is counted as a conversion.
+If **A** occurs followed by **B**, which is in turn followed by an **end-of-session** this too is counted as a **conversion**.
 
-So conversion rates are the fraction of A-to-A or A-to-end-of-session sub-sessions that included at least one B.
+So conversion rates are the fraction of **A-to-A** or **A-to-end-of-session sub-sessions** that included at least one **B**.
 
 ## Next steps
 
