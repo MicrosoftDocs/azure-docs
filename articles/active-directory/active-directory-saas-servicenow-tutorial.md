@@ -252,6 +252,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	 e. Under **x509 Certificate**, lists the certificate you have created in the previous step.
 
+	 > [!NOTE]
+	 > ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same please follow the below steps.
+
 21. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694992.png "Configure single sign-on")
@@ -291,6 +294,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. Click **Submit**.
 
 27. After doing above step, now you will be able to activate your new identity provider and your SSO should work
+
+> [!NOTE]
+> also please note that you have to try your new Idp in a new incognito window
 
 ### Configure Azure AD Single Sign-On for ServiceNow Express
 
@@ -375,11 +381,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Name** textbox, type a name for your configuration (for example: **SAML 2.0**).
 
-	b. In the **Identity Provider URL** field, paste the value of **Identity Provider ID** which you have copied from Azure portal.
+	b. In the **Identity Provider URL** field, paste the value of **Identity Provider ID**, which you have copied from Azure portal.
 	
-	c. In the **Identity Provider's AuthnRequest** field, paste the value of **Authentication Request URL** which you have copied from Azure portal.
+	c. In the **Identity Provider's AuthnRequest** field, paste the value of **Authentication Request URL**, which you have copied from Azure portal.
 
-	d. In the **Identity Provider's SingleLogoutRequest** field, paste the value of **Single Sign-Out Service URL** which you have copied from Azure portal
+	d. In the **Identity Provider's SingleLogoutRequest** field, paste the value of **Single Sign-Out Service URL**, which you have copied from Azure portal
 
 	e. As **Identity Provider Certificate**, select the certificate you have created in the previous step.
 
@@ -418,7 +424,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	f. Click **Save**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app! After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### Create an Azure AD test user
