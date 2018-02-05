@@ -251,6 +251,8 @@
       href: ../workloads/sap/get-started.md
     - name: MATLAB cluster
       href: matlab-mdcs-cluster.md
+    - name: Visual Studio
+      href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
       items:
@@ -420,6 +422,8 @@
       href: performance-diagnostics-vm-extension.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
+    - name: Install the VM agent in offline mode
+      href: install-vm-agent-offline.md
 - name: Reference
   items:
   - name: Azure CLI
