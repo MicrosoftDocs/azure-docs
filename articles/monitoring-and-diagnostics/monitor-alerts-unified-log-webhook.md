@@ -7,13 +7,13 @@ editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
-ms.assetid: 
+ms.assetid: 49905638-f9f2-427b-8489-a0bcc7d8b9fe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 02/05/2018
 ms.author: vinagara
 
 ---
@@ -24,7 +24,7 @@ When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), 
 
 ## Webhook actions
 
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](../log-analytics/log-analytics-alerts-webhooks.md).
 
 Webhook actions require the properties in the following table.
 
@@ -66,18 +66,18 @@ This example payload would resolve to something like the following when sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top level property in the json payload. 
+To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top level property in the json payload.
 
 
-You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in Log Analytics to send message to Slack](log-analytics-alerts-webhooks.md).
+You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in Log Analytics to send message to Slack](../log-analytics/log-analytics-alerts-webhooks.md).
 
 ## Sample payload
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
 
 > [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../log-analytics/log-analytics-alert-management.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema 
+> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../log-analytics/log-analytics-solution-alert-management.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema
 
-### Standard Webhook for Log Alerts 
+### Standard Webhook for Log Alerts
 Both of these examples we have stated an dummy payload with only two columns and two rows.
 
 #### Log Alert for Azure Log-Analytics
@@ -113,16 +113,16 @@ Following is a sample payload for a standard webhook action without custom Json 
     "Description": null,
     "Severity": "Low"
     }
-    
+
 
 
 #### Log Alert for Azure Application Insights
 Following is a sample payload for a standard webhook action without custom Json when used for application insights based log-alerts.
-    
+
 
     {
     "schemaId":"LogAlert","data":
-    { 
+    {
 	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
 	"AlertRuleName":"AcmeRule","SearchQuery":"search *",
 	"SearchResult":
@@ -156,7 +156,7 @@ Following is a sample payload for a standard webhook action without custom Json 
 
 
 #### Log Alert with custom JSON Payload
-For example, to create a custom payload that includes just the alert name and the search results, you could use the following. 
+For example, to create a custom payload that includes just the alert name and the search results, you could use the following.
 
     {
        "alertname":"#alertrulename",
@@ -164,7 +164,7 @@ For example, to create a custom payload that includes just the alert name and th
     }
 
 Following is a sample payload for a custom webhook action for any log alert.
-    
+
 
     {
     "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
