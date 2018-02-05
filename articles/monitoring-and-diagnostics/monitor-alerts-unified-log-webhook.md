@@ -1,4 +1,4 @@
----
+definition---
 title: Webhook actions to log alerts in Azure Alerts (Preview) | Microsoft Docs
 description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
@@ -19,7 +19,7 @@ ms.author: vinagara
 ---
 
 # Webhook actions to log alert rules
-When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON based webhook.
+When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
 
 ## Webhook actions
@@ -50,7 +50,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | SearchIntervalInSeconds |#searchinterval |Time window for the alert rule. |
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Start time for the query in UTC format. |
 | SearchQuery |#searchquery |Log search query used by the alert rule. |
-| SearchResults |"IncludeSearchResults":true|Records returned by the query as a JSON Table, limited to the first 1,000 records/rows; if "IncludeSearchResults":true is added in custom JSON webhook defination as a top level property |
+| SearchResults |"IncludeSearchResults":true|Records returned by the query as a JSON Table, limited to the first 1,000 records/rows; if "IncludeSearchResults":true is added in custom JSON webhook definition as a top-level property |
 | WorkspaceID |#workspaceid |ID of your Log Analytics workspace. |
 | Severity |#severity |Severity set for the fired log alert. |
 
@@ -66,7 +66,7 @@ This example payload would resolve to something like the following when sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top level property in the json payload.
+To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top-level property in the json payload.
 
 
 You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Create an alert webhook action in Log Analytics to send message to Slack](../log-analytics/log-analytics-alerts-webhooks.md).
@@ -78,10 +78,10 @@ This section shows sample payload for webhook for Log Alerts, including when pay
 > To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../log-analytics/log-analytics-solution-alert-management.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema
 
 ### Standard Webhook for Log Alerts
-Both of these examples we have stated an dummy payload with only two columns and two rows.
+Both of these examples we have stated a dummy payload with only two columns and two rows.
 
 #### Log Alert for Azure Log-Analytics
-Following is a sample payload for a standard webhook action without custom Json when used for log analytics based log-alerts.
+Following is a sample payload for a standard webhook action without custom Json when used for log analytics-based log-alerts.
 
     {
 	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
@@ -117,7 +117,7 @@ Following is a sample payload for a standard webhook action without custom Json 
 
 
 #### Log Alert for Azure Application Insights
-Following is a sample payload for a standard webhook action without custom Json when used for application insights based log-alerts.
+Following is a sample payload for a standard webhook action without custom Json when used for application insights-based log-alerts.
 
 
     {

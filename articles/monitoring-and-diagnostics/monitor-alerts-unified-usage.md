@@ -7,7 +7,7 @@ editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
-ms.assetid:
+ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -81,15 +81,13 @@ As Azure Alerts (Preview) allows for creation of various types of alerts from a 
 
  ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
+ > [!NOTE]
 
-> [!NOTE]
+    > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
 
-> Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
+    >  For Metric Measurement type of Log Alerts using Application insights, you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
 
- >  For Metric Measurement type of Log Alerts using Application insights, you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
-
-
-![aggregate on option](./media/monitor-alerts-unified/aggregate-on.png)
+    ![aggregate on option](./media/monitor-alerts-unified/aggregate-on.png)
 
 10.  *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
 For **Log Alerts** alerts can be based on:
