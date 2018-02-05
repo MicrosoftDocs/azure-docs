@@ -46,7 +46,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
-2. To access the **Test panel** slide-out panel, select **Test panel** in your application's top panel.
+2. Select **Test panel** in your application's top panel to access the **Test panel** slide-out panel.
 
     ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 3. Enter an utterance in the text box and select **Enter**. You can type as many test utterances as you want in the **Test panel**, but only one utterance at a time.
@@ -80,6 +80,78 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
+<!--
+## Relabel utterances and retrain
+When you perform interactive testing, you might find that LUIS doesn't detect the intent or entities the way you expect for some utterances. The following steps walk you through relabeling an utterance and retraining.
+
+### Relabel an utterance to retrain intents and entities
+1. Import the sample LUIS app <a href="https://aka.ms/luis-travel-agent-01" target="_blank">Travel Agent - Sample 1</a>. This LUIS app has only a few sample utterances and provides a starting point for training. It has the following intents:
+     * BookFlight
+    * Weather.GetForecast
+    * None 
+
+2. Select the **Train** button in the top bar to train the new app.
+
+3. On the **Test** panel, type in **buy a plane ticket to bangor me** and select Enter. Instead of the **BookFlight** intent, the test results show **Weather.GetForecast**.
+
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
+
+4. You need to teach LUIS that **buy a plane ticket to bangor me** should be mapped to the **BookFlight** intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent: 
+
+      a. Go to the **Intents** page and select the **BookFlight** intent.
+
+      b. Type **buy a plane ticket to bangor me** into the text box, and then select Enter. 
+
+5. Select the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
+
+6. Go back to the **Test** panel, type **book a flight to bangor** in the text box, and select Enter. 
+
+    ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
+
+   > [!NOTE]
+   > In this step, you choose an utterance that's similar to the one you labeled, but *not* exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+
+7. Now the intent should be correctly detected as **BookFlight**. However, **bangor** isn't detected as a location yet.
+
+    ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
+
+8. You need to teach LUIS that **bangor me** in the utterance **buy a plane ticket to bangor me** should be mapped to the **Location** entity for Bangor, Maine: 
+
+      a. Go to the **Intents** page, select the **BookFlight** intent, and find **buy a plane ticket to bangor me** in the list of utterances. 
+
+      b. Select the words **bangor me** and choose the **Location** entity from the entity list.
+
+      c. Select the **Location::ToLocation** hierarchical entity from the drop-down list.
+ 
+    ![label the words bangor me as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
+
+9. Select the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
+
+10. After training succeeds, select **Test**, type **buy a plane ticket to paris** in the text box, and select Enter. Now the location entity is correctly detected.
+
+    ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
+
+> [!NOTE]
+> In this step, you choose an utterance that's similar to the one you labeled, but *not* exactly the same. This similarity helps to test your LUIS app's ability to generalize.
+
+### Perform interactive testing on current and published models
+In this section, you publish the existing model, change the model, and then test an utterance to compare the published versus non-published model results.
+
+1. Close the **Test** panel by selecting the **Test** button in the top bar. 
+
+2. On the **Publish** page, publish your model. 
+
+3. Select the **Test** button to reopen the **Test panel**.
+
+4. Type **book me a flight to Boston tomorrow** as your test utterance and select Enter. The LUIS results of the test utterance in both the current and published models are shown in the following image: 
+
+    ![Interactive testing of both current & published models](./media/luis-how-to-train-test/comparison.png)
+
+If you are interactive testing on both trained and published models together, an entity might have a different prediction in each model.
+
+-->
+
+
 ## Batch testing
 Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
 
@@ -104,7 +176,53 @@ You can test 10 dataset files in a single LUIS app. The utterances included in t
 
 3. In the **Dataset Name** field, type a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. An example of the JSON in the batch file follows:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+    ```JSON
+[
+    {
+        "text": "go to paris",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entityName": "location",
+                "startPos": 6,
+                "endPos": 10
+            }
+        ]
+    },
+    {
+        "text": "drive me home",
+        "intent": "None",
+        "entities": []
+    },
+    {
+        "text": "book me a flight to paris",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "Location::ToLocation",
+                "startPos": 20,
+                "endPos": 24
+            }
+        ]
+    },
+    {
+        "text": "book a flight from seattle to hong kong",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "Location::FromLocation",
+                "startPos": 19,
+                "endPos": 25
+            },
+            {
+                "entity": "Location::ToLocation",
+                "startPos": 30,
+                "endPos": 38
+            }
+        ]
+    }
+]
+    ```
 
 4. Select **Done**. The dataset file is added.
 
@@ -115,7 +233,7 @@ To export, rename, delete, or download the imported dataset, use the three dots 
 
 ## Run a batch test on your trained app
 
-To run the test, select the dataset name. When the test completes, this row displays the test result of the dataset.
+Select the dataset name to run the test. When the test completes, this row displays the test result of the dataset.
 
 ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
@@ -123,7 +241,7 @@ To run the test, select the dataset name. When the test completes, this row disp
 
 In the preceding screenshot:
  
- - **State** includes ready to run, erroring results, or successful results. 
+ - **State** includes ready to run, erroring results or successful results. 
  - **Size** is the total number of utterances included in the dataset file.
  - **Last Run** is the date of the latest test run for this dataset. 
  - **Last Result** displays the number of successful predictions in the last test run.
@@ -132,7 +250,7 @@ In the preceding screenshot:
 |State|Meaning|
 |--|--|
 |![Successful test green circle icon](./media/luis-how-to-train-test/batch-test-result-green.png)|All utterances are successful.|
-|![Failing test red x icon](./media/luis-how-to-train-test/batch-test-result-red.png)|At least one utterance intent did not match the prediction.|
+|![Failing test red x icon](./media/luis-how-to-train-test/batch-test-result-red.png)|At least 1 utterance intent did not match the prediction.|
 |![Ready to test icon](./media/luis-how-to-train-test/batch-test-result-blue.png)|Test is ready to run.|
 
 
@@ -153,11 +271,11 @@ To filter the view by a specific intent or entity, select the intent or entity i
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
 ## Investigate negative sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][glossary.md#true-positive]** and **[True Negative][glossary.md#true-negative]** sections, then your application's performance is perfect on this dataset.
+Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. On the other hand, if all data points are on the **[True Positive][glossary.md#true-positive]** and **[True Negative][glossary.md#true-negative]** sections, then your application's performance is perfect on this dataset.
 
 ![Four sections of chart](./media/luis-how-to-train-test/chart-sections.png)
 
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
+The graph indicates [f-measure][f-measure], [recall][recall], and [precision][precision].  
 
 ## View utterance prediction data
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. 

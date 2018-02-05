@@ -46,6 +46,18 @@ The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) is where you submit LUIS 
 
 ## F
 
+#### <a name="f-measure"></a>F-measure
+
+In [batch texting][batch-testing], a measure of the test's accuracy.
+
+#### <a name="false-negative"></a>False negative (TN)
+
+In [batch texting][batch-testing], The data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+
+#### <a name="false-positive"></a>False positive (TP)
+
+In [batch texting][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity..
+
 #### <a name="features"></a>Features
 
 In machine learning, a [feature](luis-concept-feature.md) is a distinguishing trait or attribute of data that your system observes.
@@ -94,6 +106,9 @@ A [prebuilt domain](luis-how-to-use-prebuilt-domains.md) is a LUIS app configure
 
 A [prebuilt entity](pre-builtentities.md) is an entity LUIS provides for common types of information. You can choose to add a prebuilt entity to your application. 
 
+#### <a name="precision"></a>Precision
+In [batch texting][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
+
 #### <a name="programmatic-key"></a>Programmatic key
 
 The programmatic key is a [free tier (F0) key](https://aka.ms/luis-price-tier). 
@@ -109,6 +124,9 @@ Publishing means making a LUIS [active version](#active-version) available on ei
 LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/luis-price-tier). The LUIS quota is limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403). 
 
 ## R
+
+#### <a name="recall"></a>Recall
+In [batch texting][batch-testing], recall (also known as sensitivity), is the fraction of relevant utterances that have been retrieved over the total number of relevant utterances.
 
 ## S
 
@@ -130,6 +148,15 @@ The subscription key is the key associated with the LUIS service [you created in
 
 Training is the process of teaching LUIS about any changes to the [active version](#active-version) since the last training.
 
+#### <a name="true-negative"></a>True negative (TN)
+
+In [batch texting][batch-testing], the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
+
+#### <a name="true-positive"></a>True positive (TP)
+
+In [batch texting][batch-testing], the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
+
+
 ## U
 
 #### <a name="utterance"></a>Utterance
@@ -149,3 +176,5 @@ A LUIS [version](luis-how-to-manage-versions.md) is a specific data model associ
 ## Y
 
 ## Z
+
+[batch-testing]: train-test.md#batch-testing
