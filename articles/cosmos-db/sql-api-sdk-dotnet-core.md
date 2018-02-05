@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -55,6 +55,16 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.8.0"/>1.8.0
+
+*	Cross partition query performance improvements in automatic mode (MaxDegreeOfParallelism = -1)
+*	new QueryMetrics ToString() function
+*	Add PartitionKey to ChangeFeed
+*	Expose partition stats
+*	Add PartitionKey to ChangeFeedOptions
+*	Large session token bug fix
+*	Other minor reliability and bug fixes
 
 ### <a name="1.7.1"/>1.7.1
  
