@@ -13,12 +13,14 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
-## Create an Application Gateway
-### [Azure portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-### [Azure CLI](application-gateway-create-gateway-cli.md)
+## [Azure portal](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
+## Create application gateway with VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Use a template](application-gateway-create-gateway-arm-template.md)
 ## Configure web application firewall
 ### [Azure portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
@@ -31,7 +33,7 @@
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
-## Configure URL path based routing
+## Configure URL path-based routing
 ### [Azure portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
@@ -40,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configure redirection
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configure external redirection
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes

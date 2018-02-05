@@ -45,6 +45,13 @@ The following sample *host.json* file has all possible options specified.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -156,6 +163,30 @@ Indicates the timeout duration for all functions. In Consumption plans, the vali
     "functionTimeout": "00:05:00"
 }
 ```
+
+## healthMonitor
+
+Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|enabled|true|Whether the feature is enabled. | 
+|healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
+|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
+|counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
 
 ## http
 

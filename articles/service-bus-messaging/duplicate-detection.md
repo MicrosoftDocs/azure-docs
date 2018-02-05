@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
 
 ---
 
 # Duplicate detection
 
-If an application encounters a fatal error immediately after it sends a message, and the restarted application instance therefore erroneously believes that the prior message delivery did not occur, a subsequent send causes the same message to appear in the system twice.
+If an application encounters a fatal error immediately after it sends a message, and the restarted application instance erroneously believes that the prior message delivery did not occur, a subsequent send causes the same message to appear in the system twice.
 
-It is also possible for an error at the client or network level to occur a moment earlier, and for a sent message to be committed into the queue, with the acknowledgment not making it back to the client successfully. This scenario leaves the client in doubt about the outcome of the send operation.
+It is also possible for an error at the client or network level to occur a moment earlier, and for a sent message to be committed into the queue, with the acknowledgment not successfully returned to the client. This scenario leaves the client in doubt about the outcome of the send operation.
 
 Duplicate detection takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
 

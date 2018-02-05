@@ -92,6 +92,8 @@
       href: deployment-setup-configuration.md
     - name: Scale clusters and services
       href: how-to-scale-clusters.md
+    - name: Enable SSL on an MLC cluster
+      href: how-to-setup-ssl-on-mlc.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Deploy to an IoT Edge device 
@@ -138,6 +140,8 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
+    - name: Load Azure Cosmos DB as data source 
+      href: data-prep-load-azure-cosmos-db.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
@@ -182,6 +186,8 @@
       href: release-notes-sprint-2.md
     - name: Sprint 2 QFE - December 2017
       href: release-notes-sprint-2.1.md
+    - name: Sprint 3 - January 2018
+      href: release-notes-sprint-3.md
 - name: Resources
   items:  
   - name: Frequently asked questions
