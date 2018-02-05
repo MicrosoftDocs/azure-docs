@@ -28,7 +28,7 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -95,6 +95,8 @@ Browse to your newly created web app. Replace _&lt;app name>_ with your web app 
 http://<app name>.azurewebsites.net
 ```
 
+Here is what your new web app should look like:
+
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
@@ -136,7 +138,7 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The .NET Core sample code is running in an web app with built-in image.
+The .NET Core sample code is running in a web app with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
