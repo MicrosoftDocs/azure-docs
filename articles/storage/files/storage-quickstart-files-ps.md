@@ -99,10 +99,10 @@ New-AzureStorageDirectory `
 
 ## Create a file
 
-New-Item c:\fso\AnEmptyFile.txt -ItemType file
+Create a file in your Cloud Shell session by piping the output of Get-AzureFileStorage to a .txt file.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -ShareName myshare -Path myDirectory | Out-File C:\Users\ContainerAdministrator\clouddrive\output.txt
+Get-AzureStorageFile -Context $myContext -ShareName myshare -Path myDirectory | Out-File C:\Users\ContainerAdministrator\clouddrive\output.txt
 ```
 
 You can use Vim to check the contents of the file. 
@@ -115,31 +115,23 @@ You may have to scroll the Cloud Shell windows to see the contents.
 
 To close out of Vim, hit the **Esc** key and type `:x`.
 
-### Optional: Upload a file from your local machine
+## Upload the file to Azure
 
-If you are using a PowerShell prompt or the ISE on your local machine, you can upload a file....
-
-
- from your local machine to your Azure file share. Because you will be working with local files, you cannot use Cloud Shell for this example.
-
-To upload a file,  use [Set-AzureStorageFileContent](/powershell/module/Azure.Storage/Set-AzureStorageFileContent). This example uploads a file from C:\files\file.txt to *myDirectory* directory in the *myshare* file share. The **-source** parameter specifies the existing local file to upload.
+Upload the file from your Cloud Shell session to your new Azure file share using [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent)
 
 ```azurepowershell-interactive
 Set-AzureStorageFileContent `
    -Context $myContext `
    -ShareName myshare `
-   -Source C:\files\file.txt `
-   -Path myshare
-```
+   -Source C:\Users\ContainerAdministrator\clouddrive\output.txt `
+   -Path myDirectory/output.txt
+```   
 
-
-## List files
-
-To list the files and directories in a share, use [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile). This example lists the files in *myshare/myDirectory* and returns the name of the file that you uploaded.
+Check to make sure the file was uploaded by using [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile) to list the contents of the file share. This example lists the files in *myshare/myDirectory* and returns the name of the file that you uploaded.
 
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -ShareName myshare -Path myDirectory | Get-AzureStorageFile 
+Get-AzureStorageFile -Context myContext -ShareName myshare -Path myDirectory 
 ```
 
 
