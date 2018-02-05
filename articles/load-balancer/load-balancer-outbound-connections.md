@@ -110,7 +110,7 @@ Azure uses an algorithm to determine the number of preallocated SNAT ports avail
 
 Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. For Classic Web Worker Roles, the allocation is per role instance.  When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout).
 
-The following table shows the port preallocations for tiers of back-end pool sizes:
+The following table shows the SNAT port preallocations for tiers of back-end pool sizes:
 
 | Pool size (VM instances) | Preallocated SNAT ports per IP configuration|
 | --- | --- |
