@@ -27,9 +27,9 @@ Each TSI environment has an additional setting **Data retention mode**. This set
 
 For information on switching retention modes, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-Compare the retention modes:
+Compare the data retention modes:
 
-## **Continue ingress and purge old data**
+## Continue ingress and purge old data
 - This mode is the default mode for TSI environments and exhibits the same behavior TSI environments did in public preview.
 - This mode is preferred when users want to always see their *most recent data* in their TSI environment. 
 - Ensure the end users are comfortable with data loss once the limits are reached.
