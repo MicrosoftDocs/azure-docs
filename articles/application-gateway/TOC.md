@@ -48,6 +48,9 @@
 ## Configure internal redirection
 ### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
 ### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Configure HTTP to HTTPS redirection
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
