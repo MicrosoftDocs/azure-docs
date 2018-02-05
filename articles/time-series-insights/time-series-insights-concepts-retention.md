@@ -1,6 +1,6 @@
 ---
-title: How to configure retention in your Azure Time Series Insights environment | Microsoft Docs
-description: This article describes how to configure retention in your Azure Time Series Insights environment. 
+title: Understand data retention in your Azure Time Series Insights environment | Microsoft Docs
+description: This article describes two settings that control data retention in your Azure Time Series Insights environment.
 services: time-series-insights
 ms.service: time-series-insights
 author: anshan
@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 02/05/2018
 ---
 
-# Configuring retention in Time Series Insights
-This article describes two settings that impact data retention in Time Series Insights (TSI).
+# Understand data retention in Time Series Insights
+This article describes two settings that impact data retention in your Time Series Insights (TSI) environment.
 
 Each TSI environment has a setting that controls **Data retention time**. The values span between 1 and 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
