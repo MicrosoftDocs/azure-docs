@@ -41,7 +41,7 @@ sections:
     className: spaced noBullet
     items:
     - html: Template
-    - html: Template 2: Electric Boogaloo
+    - html: Template 2 - Electric Boogaloo
 - title: Reference
   items:
   - type: list
