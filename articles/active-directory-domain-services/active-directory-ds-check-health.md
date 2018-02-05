@@ -56,14 +56,14 @@ This monitors how often we take backups of your managed domain. Following is a t
 
 | Detail value | Explanation |
 | --- | --- |
-|"Never backed up" | This is normal for a newly created domain. The first backup is usually created after 24 hours. If your managed domain is not newly created or you are in this state for an abnormal amount of time, please [contact support](active-directory-ds-contact-us.md). |
+|"Never backed up" | This state is normal for a newly created domain. The first backup is usually created after 24 hours. If your managed domain is not newly created or you are in this state for an abnormal amount of time, [contact support](active-directory-ds-contact-us.md). |
 | Last backup was taken 1 to 14 days ago | In general, this is the expected value of the backup monitor. |
-| Last backup was taken more than 14 days ago. | This is an unusually long time since your last backup. First, resolve any alerts that appear on your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
+| Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. First, resolve any alerts that appear on your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
 
 
 ### Synchronization with AAD
 
-Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than 3 days since your last synchronization, it is recommended to [contact support](active-directory-ds-contact-us.md).
+Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than three days since your last synchronization, it is recommended to [contact support](active-directory-ds-contact-us.md).
 
 ## Alerts
 
@@ -73,7 +73,7 @@ Alerts are issues on your managed domain that need to be addressed in order for 
 Alerts are categorized into three different levels of severity: critical, warning, and informational.
 
  * **Critical alerts** are issues that severely impact your managed domain. These alerts should be addressed immediately, as Microsoft cannot monitor, manage, patch, and synchronize your managed domain.
- * **Warning alerts** can be issues that may impact your domain in the future, but are not necessarily "breaking" your service. These alerts usually outline best practices and give suggestions to protect your managed domain.
+ * **Warning alerts** can be issues that may impact your domain in the future, but are not necessarily "breaking" your service. These alerts outline best practices and give suggestions to protect your managed domain.
  * **Informational alerts** are notifications that are not negatively impacting your domain. Informational alerts are designed to keep you knowledgeable about what is happening in your domain and Azure AD Domain Services.
 
 ## Next steps
