@@ -24,7 +24,7 @@ The Review API offers the following ways to include human oversight in your cont
 
 The `Job` and `Review` operations accept your callback endpoints for receiving status and results.
 
-In this article, we cover the `Job` and `Review` operations. Read the `Workflow` overview for information on how to create, edit, and get workflow definitions.
+In this article, we cover the `Job` and `Review` operations. Read the [Workflows overview](workflow-api.md) for information on how to create, edit, and get workflow definitions.
 
 ## Job operations
 
