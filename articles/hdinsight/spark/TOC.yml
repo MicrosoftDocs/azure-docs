@@ -51,6 +51,9 @@
         - name: Create non-interactive authentication .NET HDInsight applications
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
+        - name: Implementa  alambda architecture using Spark and Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Use HDInsight tools
       items:
         - name: Tools for Visual Studio
