@@ -46,7 +46,7 @@ You see the **Designer** tab for the workflow. The designer view shows the follo
 1. The **condition** for the workflow to be evaluated. In this case, the workflow calls the Content Moderator's image API and checks whether the `isAdult` output equals `true`.
 1. The **action** to be performed if the condition is met. In this case, the workflow creates a review in the review tool if the `isAdult` output is `true`.
 
-![Content Moderator default workflow - designer](images/default-workflow-designer.PNG)
+![Content Moderator default workflow - designer](images/default-workflow-designer.png)
 
 ### The JSON view
 
