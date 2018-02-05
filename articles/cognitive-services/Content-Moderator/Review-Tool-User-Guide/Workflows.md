@@ -62,7 +62,9 @@ Now that you defined a custom workflow, test it with sample content.
 
   ![Content Moderator - Workflow Test](images/ocr-workflow-step-6-list.PNG)
 
-### Upload a file (or several).
+### Upload a file.
+
+Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) to your local drive. Select **Choose Files** and upload the image to test the workflow.
 
   ![Content Moderator - Workflow Test - Add File](images/ocr-workflow-step-7-upload.PNG)
 
