@@ -34,6 +34,8 @@ You can optionally grant RBAC rights to CSP to manage your Azure Stack subscript
 
 ## Create resource in Azure Stack user subscription
 
+
+
 ## Next steps
 
   - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](../azure-stack-billing-and-chargeback.md).
