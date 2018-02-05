@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2017
+ms.date: 02/05/2017
 ms.author: jeedes
 
 ---
@@ -253,7 +253,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	 e. Under **x509 Certificate**, lists the certificate you have created in the previous step.
 
 	 > [!NOTE]
-	 > ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same please follow the below steps.
+	 > ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
 
 21. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
@@ -296,7 +296,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 27. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
 > [!NOTE]
-> also please note that you have to try your new Idp in a new incognito window
+> Also please note that, you have to try your new Idp in a new incognito window
 
 ### Configure Azure AD Single Sign-On for ServiceNow Express
 
