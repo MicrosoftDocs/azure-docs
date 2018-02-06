@@ -18,19 +18,19 @@ Content Moderator includes tools and APIs to manage workflows. You use workflows
 
 The Review API offers the following ways to include human oversight in your content moderation process:
 
-1. The `Job` operations for starting machine-assisted moderation and human review creation as one step.
-1. The `Review` operations for human review creation, outside of the moderation step.
-1. The `Workflow` operations for managing workflows that automate scanning with thresholds for review creation.
+1. The **Job** operations for starting machine-assisted moderation and human review creation as one step.
+1. The **Review** operations for human review creation, outside of the moderation step.
+1. The **Workflow** operations for managing workflows that automate scanning with thresholds for review creation.
 
 This article covers the `Workflow` operations. Read the [Jobs and Reviews](review-api.md) overview to learn about content moderation jobs and reviews.
 
-Checking out the **default* workflow is the best way to get started on understanding workflows in Content Moderator.
+Checking out the **default** workflow is the best way to get started on understanding workflows in Content Moderator.
 
 ## Your first workflow
 
 Your first workflow comes bundled with your [review tool team](https://contentmoderator.cognitive.microsoft.com/). Sign up if you have not done so already.
 
-Navigate to the [review tool's Workflows](Review-Tool-User-Guide/Workflows.md) screen under the Settings tab. You see a `default` workflow as shown in the following image:
+Navigate to the [review tool's Workflows](Review-Tool-User-Guide/Workflows.md) screen under the Settings tab. You see a **default** workflow as shown in the following image:
 
 ![Content Moderator workflows](Review-Tool-User-Guide/images/2-workflows-1.png)
 
@@ -212,11 +212,11 @@ The [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/servic
 
 ### Get [All] workflow details
 
-The `Workflow-Get` operation accepts the following inputs:
+The **Workflow-Get** operation accepts the following inputs:
 
-- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- `workflowname`: The name of your workflow. Use `default` to begin with.
-- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: The name of your workflow. Use `default` to begin with.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in the JSON format.
 To learn more, read the [Workflow API console quickstart](try-review-api-job.md).
@@ -227,9 +227,9 @@ The creation and update operation allows creating workflow from the API.
 
 The `Workflow-Create or Update` operation accepts the following inputs:
 
-- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- `workflowname`: The name of your workflow. Use `default` to begin with.
-- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: The name of your workflow. Use `default` to begin with.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`. 
 To learn more, [test drive the `Create` operation](try-review-api-job.md).
@@ -240,4 +240,4 @@ To learn how to create custom workflows, check out the [review tool's workflow t
 
 Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
 
-Finally, use your custom workflows with the `Job` operations as shon in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
+Finally, use your custom workflows with the *Job* operations as shon in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
