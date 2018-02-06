@@ -32,7 +32,7 @@ There are multiple [outbound scenarios](#scenarios). These scenarios can be comb
 
 ## <a name="scenarios"></a>Scenario overview
 
-Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
+Azure has two major deployment models: Azure Resource Manager and Classic. Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
 
 ### <a name="arm"></a>Azure Resource Manager
 

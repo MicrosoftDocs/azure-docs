@@ -170,7 +170,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
