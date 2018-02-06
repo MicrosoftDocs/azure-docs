@@ -43,12 +43,11 @@ You can publish applications with wildcards if both, the internal and external U
 > http(s)://*.\<domain\>
 
 For example: `http(s)://*.adventure-works.com`. 
-
-You see an error if one of the URLs doesn't have a wildcard.
+While the internal and external URLs can use different domains, as a best practice, they should be same. When publishing the application, you see an error if one of the URLs doesn't have a wildcard.
 
 If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. Applications without a wildcard do always take precedence over wildcard applications. From the configuration perspective, these are "just" regular applications.
 
-Creating a wildcard application is based on the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only differences are the URLs and potentially the SSO configuration.
+Creating a wildcard application is based on the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only difference is that you include a wildcard in the URLs and potentially the SSO configuration.
 
 
 ## Prerequisites
@@ -60,13 +59,13 @@ While [custom domains](active-directory-application-proxy-custom-domains.md) are
 1. Create a verified domain within Azure 
 2. Upload an SSL certificate in the PFX format to your application proxy.
 
-You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications.
+You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
 
 For security reasons, this is a hard requirement and we will not support wildcards for applications that cannot use a custom domain for the external URL.
 
 ### DNS updates
 
-When using custom domains, you need to create a DNS entry with a CNAME record pointing the external URL of the application proxy endpoint. For wildcard applications, the CNAME record needs to point to the relevant external URLs:
+When using custom domains, you need to create a DNS entry with a CNAME record for the external URL (for example,  `*.adventure-works.com`) pointing to the external URL of the application proxy endpoint.For wildcard applications, the CNAME record needs to point to the relevant external URLs:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
@@ -94,15 +93,15 @@ Other positions of the wildcard, multiple wildcards, or other regex strings are 
 
 You can exclude an application from the wildcard application by
 
-- Publishing the application as regular application 
+- Publishing the exception application as regular application 
 - Enabling the wildcard only for specific applications through your DNS settings  
 
 
-Publishing an application as regular application is the preferred method to exclude an application from a wildcard. You should publish the excluded applications before the wildcard applications to ensure that your exceptions are enforced from the beginning.
+Publishing an application as regular application is the preferred method to exclude an application from a wildcard. You should publish the excluded applications before the wildcard applications to ensure that your exceptions are enforced from the beginning. The most specific application will always take precedence – an application published as `budgets.finance.adventure-works.com` takes precedence over the application `*.finance.adventure-works.com`, which in turn takes precedence over the application `*.adventure-works.com`. 
 
-You can also limit the wildcard to only work for specific applications through your DNS management. As a best practice, you should create a CNAME entry that includes a wildcard and matches the format of the external URL you have configured. However, you can also point specific application URLs to the wildcards. For example, instead of `*.adventure-works.com`, point `hr.adventure-works.com`, `expenses.adventure-works.com` and `travel.adventure-works.com individually` to `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+You can also limit the wildcard to only work for specific applications through your DNS management. As a best practice, you should create a CNAME entry that includes a wildcard and matches the format of the external URL you have configured. However, you can instead point specific application URLs to the wildcards. For example, instead of `*.adventure-works.com`, point `hr.adventure-works.com`, `expenses.adventure-works.com` and `travel.adventure-works.com individually` to `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
 
-If you use this option, you also need another CNAME entry for the value `AppId.domain`, for example, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, also pointing to the same location. You can find the **AppId** on the application properties page:
+If you use this option, you also need another CNAME entry for the value `AppId.domain`, for example, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, also pointing to the same location. You can find the **AppId** on the application properties page of the wildcard application:
 
 ![AppId](./media/active-directory-application-proxy-wildcard\01.png)
 
