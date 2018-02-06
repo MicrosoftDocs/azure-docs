@@ -54,6 +54,15 @@ To learn more about service health notifications, see [Receive activity log aler
 
 ## Create an alert rule for an activity log
 
+> [!NOTE]
+
+>  While creating the alert rules, ensure the following:
+
+> - Subscription in the scope is not different from the subscription where the alert is created.
+- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+
+
 Use the following procedure:
 
 1. From Azure portal, select **Monitor** > **Alerts (Preview).**
