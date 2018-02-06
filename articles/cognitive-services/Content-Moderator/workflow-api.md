@@ -22,7 +22,7 @@ The Review API offers the following ways to include human oversight in your cont
 1. The **Review** operations for human review creation, outside of the moderation step.
 1. The **Workflow** operations for managing workflows that automate scanning with thresholds for review creation.
 
-This article covers the `Workflow` operations. Read the [Jobs and Reviews](review-api.md) overview to learn about content moderation jobs and reviews.
+This article covers the **Workflow** operations. Read the [Jobs and Reviews](review-api.md) overview to learn about content moderation jobs and reviews.
 
 Checking out the **default** workflow is the best way to get started on understanding workflows in Content Moderator.
 
