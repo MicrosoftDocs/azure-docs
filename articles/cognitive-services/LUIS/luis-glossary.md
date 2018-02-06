@@ -40,7 +40,7 @@ In [batch texting][batch-testing], a measure of the test's accuracy.
 
 ## <a name="false-negative"></a>False negative (TN)
 
-In [batch texting][batch-testing], The data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+In [batch texting][batch-testing], the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
 ## <a name="false-positive"></a>False positive (TP)
 
@@ -90,7 +90,7 @@ Publishing means making a LUIS [active version](#active-version) available on ei
 LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/luis-price-tier). The LUIS quota is limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403). 
 
 ## <a name="recall"></a>Recall
-In [batch texting][batch-testing], recall (also known as sensitivity), is the fraction of relevant utterances that have been retrieved over the total number of relevant utterances.
+In [batch texting][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
 
 ## <a name="starter-key"></a>Starter key
 

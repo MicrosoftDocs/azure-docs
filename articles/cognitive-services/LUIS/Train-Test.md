@@ -82,7 +82,7 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ![Published JSON response](./media/luis-how-to-train-test/inspect-panel-compare-json.png)
 
 ## Batch testing
-Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
+Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. Use utterances LUIS has not seen before in either the model or the endpoint. This testing helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
 
 You submit a batch file of utterances, known as a *dataset*. The dataset is JSON format and contains a maximum of 1,000 labeled utterances. 
 
@@ -153,20 +153,26 @@ To filter the view by a specific intent or entity, select the intent or entity i
  
 ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
-## Investigate negative sections
+## Investigate false sections
 Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
 
 ![Four sections of chart](./media/luis-how-to-train-test/chart-sections.png)
 
 The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
 
-## View utterance prediction data
-In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. 
+## View single-point utterance data
+In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
-## View utterances by intent or entity
-In the chart, select the section name, such as **True Positive** at the top-left of the chart. Below the chart, all utterances in that section display below the chart
+## False test results
+In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list of incorrect predictions. 
 
 ![Selected utterances by section](./media/luis-how-to-train-test/selected-utterances-by-section.png)
+
+In this preceding image, the utterance `switch on` is labeled with the TurnAllOn intent, but received the prediction of None intent. This is an indication that the TurnAllOn intent needs more example utterances in order to make the expected prediction. 
+
+The two section of the chart in red indicate utterances that did not match the expected prediction. These are utterances where LUIS needs more training. 
+
+The two sections of the chart in greed did match the expected prediction.
 
 ## Next steps
 
