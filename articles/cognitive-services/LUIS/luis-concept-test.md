@@ -46,9 +46,11 @@ Test scores can use exponent notation, *appearing* above the 0-1 range, such as 
 Interactive testing is done from the **Test panel** of the website. You can quickly enter utterances to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing pane, copy it to the Intent page as a new utterance. Then label the parts of that utterance, and train LUIS. 
 
 ## Batch testing
-Batch testing allows LUIS to test up to 1,000 utterances and score the batch in a graphical manner so you can see the results as a group. The results can be broken up in to intents, entities, and you can select individual points on the graph to review the utterance information. 
+Batch testing allows LUIS to test up to 10 sets of 1,000 utterances and score the batch in a graphical manner so you can see the results as a group. The results can be broken up in to intents, entities, and you can select individual points on the graph to review the utterance information. 
 
 ![Batch testing](./media/luis-concept-test/batch-testing.png)
+
+It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into 2/3 utterances used to train LUIS, and 1/3 used to batch test LUIS after it is trained. 
 
 ## Endpoint testing
 You can test using the endpoint with a maximum of two versions of your app. With your main or live version of your app set as the production endpoint, add a second version to the staging endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the LUIS website, and the two versions at the two different endpoints. 
