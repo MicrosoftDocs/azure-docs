@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Workflows from the API console
 
-Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's job operations.
+Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's `Job` operations.
 
 ## Prerequisites
 
@@ -75,15 +75,15 @@ For **Open API testing console**, select the region that most closely describes 
 
 Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (your subscription key).
 
-- **team**: The team id that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: The name of your workflow. Use `default`.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `workflowname`: The name of your workflow. Use `default`.
+- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
   ![Workflow - Get query parameters and headers](images/workflow-get-default.PNG)
 
 ### Submit your request
   
-Select **Send**. If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the following JSON workflow.
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the following JSON workflow:
 
 	{
 		"Name": "default",
@@ -135,9 +135,9 @@ For **Open API testing console**, select the region that most closely describes 
 
 Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (your subscription key).
 
-- **team**: The team name that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: The name of your new workflow.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `workflowname`: The name of your new workflow.
+- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
   ![Workflow - Create Or Update console query parameters and headers](images/workflow-console-parameters.PNG)
 
@@ -196,10 +196,10 @@ Select the **Edit** option for your workflow, and then select the **Designer** a
 
   ![Review tool Designer tab for a selected workflow](images/workflow-console-new-workflow-designer.PNG)
 
-To see the JSON view of the workflow, select the **JSON** tab. You notice that it's identical to the `Expression` you had submitted and to the one from the `default` workflow.
+To see the JSON view of the workflow, select the **JSON** tab.
 
 ## Next steps
 
-For more complex workflow examples to practice with, see the [workflows overview](workflow-api.md).
+For more complex workflow examples, see the [workflows overview](workflow-api.md).
 
 Learn how to use workflows with [content moderation jobs](try-review-api-job.md).
