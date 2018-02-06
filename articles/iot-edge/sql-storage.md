@@ -3,22 +3,20 @@ title: Azure IoT Edge SQL module | Microsoft Docs
 description: Store data at the edge with Microsoft SQL modules, with Azure Functions to format the data. 
 services: iot-edge
 keywords: 
-author: kgremban
+author: ebertrams
 manager: timlt
 
-ms.author: kgremban
-ms.date: 01/26/2018
+ms.author: kgremban, ebertrams
+ms.date: 02/07/2018
 ms.topic: article
 ms.service: iot-edge
 ---
 
 # Store data at the edge with SQL Server databases
 
-Use Azure IoT Edge devices to store the data that is generated at the edge. Devices with intermittent internet connections can maintain their own databases and report changes back to the cloud only when connected. 
+Use Azure IoT Edge devices to store the data that is generated at the edge. Devices with intermittent internet connections can maintain their own databases and report changes back to the cloud only when connected. Devices that have been programmed to send only critical data to the cloud can save the rest of the data for regular bulk uploads. Once in the cloud, the structured data can be shared with other Azure services, for instance to build a machine learning model. 
 
-Suppose that you have a device that collects temperature telemetry but only sends the data to IoT Hub if it exceeds a threshold. You still want to preserve the temperature data that wasn't sent to IoT Hub, though. This article walks through a solution to that problem. 
-
-This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like mysql. 
+This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions, running on the IoT Edge device, structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like MySQL or PostgreSQL. 
 
 ## Prerequisites 
 
@@ -43,17 +41,17 @@ After you complete the required tutorials, you should have all the required prer
 * AzureIoTEdgeFunction template (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
 * An active IoT hub with at least an IoT Edge device.
 
-Both Windows and Linux containers on x64 processor architectures work for this tutorial. <!---Commented out because ARM is a blocking acronym, even though I don't think this refers to Azure Resoucre Manager: SQL Server does not support ARM processors. --->
+Both Windows and Linux containers on x64 processor architectures work for this tutorial. SQL Server does not support ARM processors.
 
 ## Deploy a SQL Server container
 
-In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available on [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) and [Linux](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker). 
+In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available on [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) and [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
 
 ### Deploy SQL Server 2017
 
 By default, the code in this section creates a container with the free Developer edition of SQL Server 2017. If you want to run production editions instead, see [Run production container images](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#production) for detailed information. 
 
-In step 3, you add create options to the SQL Server container, which are important for establishing environment variables and persistant storage. The [environment variables](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-environment-variables.md) that we configure are accepting the European terms of use, and defining a password. The [persistant storage](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker.md#persist) is configured using two options called **volumes** and **binds**. These options create the SQL Server 2017 container with a *sqlvolume* volume attached so that your data persists even if the container is deleted. 
+In step 3, you add create options to the SQL Server container, which are important for establishing environment variables and persistant storage. The configured [environment variables](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-environment-variables) accept the End-User License Agreement, and define a password. The [persistant storage](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#persist) is configured using two options called **volumes** and **binds**. These options create the SQL Server 2017 container with a *sqlvolume* volume container attached so that your data persists even if the container is deleted. 
 
 1. Open the `deployment.json` file in Visual Studio Code. 
 2. Replace the **modules** section of the file with the following code: 
@@ -81,7 +79,7 @@ In step 3, you add create options to the SQL Server container, which are importa
             }
           },
           "sql": {
-            "version": "1.1",
+            "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
@@ -100,19 +98,19 @@ In step 3, you add create options to the SQL Server container, which are importa
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n \"Env\": [\r\n \"ACCEPT_EULA=Y\",\r\n \"MSSQL_SA_PASSWORD=Strong!Passw0rd\"\r\n ],\r\n\"Volumes\": {\r\n\"c:/\SQLData\": { }\r\n},\r\n \"HostConfig\":{\r\n\"Binds\": [\r\n\"sqlvolume:SQLData\"\r\n],\r\n\"PortBindings\":{ \"1433\/tcp\":[ { \"HostPort\":\"1401\" } ] } \r\n\r\n }\r\n}\r\n "
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n \"Env\": [\r\n \"ACCEPT_EULA=Y\",\r\n \"MSSQL_SA_PASSWORD=Strong!Passw0rd\"\r\n ],\r\n\"Volumes\": {\r\n\"\/var\/opt\/mssql\": { }\r\n},\r\n \"HostConfig\":{\r\n\"Binds\": [\r\n\"sqlvolume:\/var\/opt\/mssql\"\r\n],\r\n\"PortBindings\":{ \"1433\/tcp\":[ { \"HostPort\":\"1401\" } ] }\r\n }\r\n}\r\n"
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
 4. Save the file. 
 5. In the VS Code Command Palette, select **Edge: Create deployment for Edge device**. 
-6. Select your IoT Edge device ID to create a deployment.
+6. Select your IoT Edge device ID.
 7. Select the `deployment.json` file that you updated. In the output window, you can see corresponding outputs for your deployment. 
 8. To start your Edge runtime, select **Edge: Start Edge** in the Command Palette.
 
@@ -123,26 +121,49 @@ In step 3, you add create options to the SQL Server container, which are importa
 
 This section guides you through setting up the SQL database to store the temperature data received from the sensors connected to the IoT Edge device. If you're using a simulated device, this data comes from the *tempSensor* container. 
 
-In a command line tool, connect to your database: 
-   
+In a command-line tool, connect to your database: 
+
+* Windows
+   ```cmd
+   Docker exec -it sql cmd
+   ```
+
+* Linux    
    ```cmd
    Docker exec -it sql 'bash'
    ```
 
 Open the SQL command tool: 
 
+* Windows
    ```cmd
-   /opt/mssql-tools/bin/sqlcmd -S localhose -U SA -P 'Strong!Passw0rd'
+   sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+   ```
+
+* Linux
+   ```cmd
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Create your database: 
 
+* Windows
    ```sql
    CREATE DATABASE MeasurementsDB
+   ON
+   (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
    GO
    ```
 
-Define your database: 
+* Linux
+   ```sql
+   CREATE DATABASE MeasurementsDB
+   ON
+   (NAME = MeasurementsDB, FILENAME = '/var/opt/mssql/measurementsdb.mdf')
+   GO
+   ```
+
+Define your table: 
 
    ```sql
    CREATE TABLE MeasurementsDB.dbo.TemperatureMeasurements (measurementTime DATETIME2, location NVARCHAR(50), temperature FLOAT)
@@ -277,19 +298,31 @@ To apply the changes that you've made, update your container image, publish it, 
 
 Once your containers restart, the data received from the temperature sensors is stored in a local SQL Server 2017 database on your IoT Edge device. 
 
-In a command line tool, connect to your database: 
-   
+In a command-line tool, connect to your database: 
+
+* Windows
+   ```cmd
+   Docker exec -it sql cmd
+   ```
+
+* Linux    
    ```cmd
    Docker exec -it sql 'bash'
    ```
 
 Open the SQL command tool: 
 
+* Windows
    ```cmd
-   /opt/mssql-tools/bin/sqlcmd -S localhose -U SA -P 'Strong!Passw0rd'
+   sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-View your database: 
+* Linux
+   ```cmd
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+   ```
+
+View your data: 
 
    ```sql
    Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
