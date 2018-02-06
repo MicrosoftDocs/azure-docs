@@ -34,7 +34,7 @@ Webhook actions require the properties in the following table.
 | Custom JSON payload |Custom payload to send with the webhook.  If option is chosen during alert creation. Details available at [Manage alerts using Azure Alerts (Preview)](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
-> Test Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will trigger dummy call to test the webhook URL. It does not contain actual data or representative of JSON schema used for Log Alerts
+> Test Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will trigger dummy call to test the webhook URL. It does not contain actual data or representative of JSON schema used for Log Alerts. While you can test any one webhook with representative custom JSON, all webhooks configured in Action Group will be sent with custom JSON payload.
 
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
