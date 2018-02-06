@@ -206,6 +206,33 @@ The workflow did not create the review because the primary condition combination
 ![Content Moderator - modified workflow output](images/ocr-workflow-2-result.PNG)
 
 
+## The Workflow API
+
+The [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) provide the programming interface to the workflow capabilities. You create workflows, get workflow details, and update workflow definitions using the Workflow API.
+
+### Get [All] workflow details
+
+The `Workflow-Get` operation accepts the following inputs:
+
+- `team`: The team id that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `workflowname`: The name of your workflow. Use `default` to begin with.
+- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+
+If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in the JSON format.
+
+### Create or update workflow
+
+The creation and update operation allows creating workflow from the API. This is useful to automate the built-in workflow designer and possibly go beyond the workflow designer.
+
+The `Workflow-Create or Update` operation accepts the following inputs:
+
+- `team`: The team id that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `workflowname`: The name of your workflow. Use `default` to begin with.
+- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+
+If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`.
+
+
 ## Next steps
 
 Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
