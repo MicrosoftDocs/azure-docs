@@ -57,7 +57,7 @@ The following major changes are introduced in compatibility level 1.1:
   * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
 
   > [!NOTE] 
-  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase. 
+  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 
