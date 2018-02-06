@@ -59,7 +59,8 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[batchmodels.NetworkSecurityGroupRule(
                 priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,                 source_address_prefix='*'
+                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                source_address_prefix='*'
             )
             ]
         )
@@ -100,7 +101,8 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[batchmodels.NetworkSecurityGroupRule(
                 priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.allow,                 source_address_prefix='192.168.1.0/24'
+                access=batchmodels.NetworkSecurityGroupRuleAccess.allow,
+                source_address_prefix='192.168.1.0/24'
             )
             ]
         )
