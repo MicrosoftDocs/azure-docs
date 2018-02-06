@@ -36,33 +36,26 @@ An active Azure subscription. If you do not have one, you can register via one o
 ## Create an Azure IoT Suite
 
 1. Go to [Azure IoT Suite site](https://www.azureiotsuite.com/) and click **Create a new solution**.
-
-![remote-monitoring-azure-iot-suite-solution-types](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-
-> [!NOTE]
-> By default, this sample creates an S2 IoT Hub after it creates one IoT Suite. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Suite so the related IoT Hub can also be deleted, when you no longer need it. 
+  ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+  > [!NOTE]
+  > By default, this sample creates an S2 IoT Hub after it creates one IoT Suite. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Suite so the related IoT Hub can also be deleted, when you no longer need it. 
 
 2. Select **Remote monitoring**.
 
 3. Enter a solution name, select a subscription and a region, and then click **Create solution**. The solution may take a while to be provisioned.
-
-![remote-monitoring-azure-iot-suite-new-solution](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
+  ![Create solution](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
 4. After the provision is completed, click **Launch**. Some simulated devices are created for the solution during the provision process. Click **DEVICES** to check them out.
-
-![remote-monitoring-azure-iot-suite-new-solution-created](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
-
-![remote-monitoring-azure-iot-suite-console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+  ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+  ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Click **ADD A DEVICE**.
 
 6. Click **Add New** for **Custom Device**.
-
-![remote-monitoring-azure-iot-suite-add-new-device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
+  ![Add new device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
 7. Click **Let me define my own Device ID**, enter `AZ3166`, and then click **Create**.
-
-![remote-monitoring-azure-iot-suite-new-device-configuration](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
+  ![Create device with ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
 8. Make a note of **IoT Hub Hostname**, and click **Done**.
 
@@ -77,10 +70,8 @@ An active Azure subscription. If you do not have one, you can register via one o
   * Arduino Examples: Hands-on samples to get started with DevKit.
 
 4. Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **RemoteMonitoring**. It opens a new VS Code window with a project folder in it.
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/vscode_start.png)
-
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+  > [!NOTE]
+  > If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Provision required Azure services
 
@@ -88,36 +79,19 @@ In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by enter
 
 In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services:
 
-![remote-monitoring-provision](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
+![Provision Azure resources](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
 
 ## Build and upload the device code
 
-### Windows
-
-1. Use `Ctrl+P` to run `task config-device-connection`.
+1. Use `Ctrl+P` (macOS: `Cmd + P`) and type **task config-device-connection**.
 
 2. The terminal asks you whether you want to use connection string that retrieves from `task cloud-provision` step. You could also input your own device connection string by clicking 'Create New...'
 
 3. The terminal prompts you to enter configuration mode. To do so, hold down button A, then push and release the reset button. The screen displays the DevKit ID and 'Configuration'.
-  ![Verification and upload of the Arduino sketch](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
+  ![Input connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
 
 4. After `task config-device-connection` finished, click `F1` to load VS Code commands and select `Arduino: Upload`, then VS Code starts verifying and uploading the Arduino sketch:
   ![Verification and upload of the Arduino sketch](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
-
-The DevKit reboots and starts running the code.
-
-### macOS
-
-1. Put DevKit into configuration mode:
-  Hold down button A, then push and release the reset button. The screen displays 'Configuration'.
-
-2. Use `Cmd+P` to run `task config-device-connection`.
-
-3. The terminal asks you whether you want to use connection string that retrieves from `task cloud-provision` step. You could also input your own device connection string by clicking 'Create New...'
-  ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
-
-4. After `task config-device-connection` finished, click `Cmd + shift + p` to load VS Code commands and select `Arduino: Upload`, then VS Code starts verifying and uploading the Arduino sketch:
-  ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
 The DevKit reboots and starts running the code.
 
