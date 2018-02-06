@@ -1,6 +1,6 @@
 ---
 title: Azure Reserve VM Instances Windows software costs | Microsoft Docs
-description: Learn which meters are used for Windows software for Windows VM that qualify for Reserved Instance.
+description: Learn which Windows software meters aren't included in Reserved Virtual Machine Instance costs.
 services: 'billing'
 documentationcenter: ''
 author: manish-shukla01
@@ -19,7 +19,9 @@ ms.author: manshuk
 ---
 # Windows software costs not included with Reserved Instances
 
-If you don't have Azure Hybrid Use Benefit on your Reserved Instance VM, then you are charged for the Windows software meters listed in the following table:
+If you don't have an Azure Hybrid Use Benefit on your Reserved Instance virtual machines, then you are charged for the Windows software meters listed in the following section.
+
+## Windows software meters not included in Reserved Instance cost
 
 | MeterId | MeterName in usage file | Used by VM |
 | ------- | ------------------------| --- |
