@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 # Configure expiration policy for Office 365 groups
 
-You can now set up expiration for only your Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
+You can now set up an expiration policy for Office 365 groups in Azure Active Directory (Azure AD). Once you set the expiration policy in a tenant:
 -	Owners of the group are notified to renew the group as the expiration nears
 -	Any group that is not renewed is deleted
 -	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
@@ -29,7 +29,7 @@ You can now set up expiration for only your Office 365 groups in Azure Active Di
 Currently, only one expiration policy can be configured per tenant.
 
 > [!NOTE]
-> Setting expiration for Office 365 groups requires an Azure AD Premium license for all members of the groups to which expiration settings are applied.
+> Setting expiration for Office 365 groups requires an Azure AD Premium license for every member of the groups to which the expiration policy is applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -142,10 +142,15 @@ The following cmdlets can be used to configure the policy in more detail. There'
 *	Reset-AzureADMSLifeCycleGroup   
 *	Get-AzureADMSLifecyclePolicyGroup
  
-## How Office 365 group expiration works with retention policy and with a mailbox on legal hold 
-**Mailbox on Legal Hold**: When a group expires and is deleted, 30 days after deletion, groups app data (from Planner, Sites, Teams, and so on) is permanently deleted, but the group mailbox that is on legal hold is retained and isn't permanently deleted.  The administrator can use Exchange cmdlets to restore the mailbox to fetch the data. 
+## How Office 365 group expiration works with a mailbox on legal hold 
+When a group that is on legal hold expires and is deleted, 30 days after deletion:
+* Groups app data (from Planner, Sites, Teams, and so on) is permanently deleted
+* The group mailbox that is on legal hold is retained and isn't permanently deleted
 
-**Retention policy configured via the Security and Compliance Center**: If you have set up a retention policy for Office 365 groups, when a group expires and is deleted, the group conversations in mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
+The administrator can use Exchange cmdlets to restore the mailbox to fetch the data. 
+
+## How Office 365 group expiration works with retention policy 
+Retention policy is configured via the Security and Compliance Center. If you set up a retention policy for Office 365 groups, when a group expires and is deleted, the group conversations in mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
 
 ## Next steps
 These articles provide additional information on Azure AD groups.

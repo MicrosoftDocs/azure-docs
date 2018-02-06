@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) provides group naming policy that you can use 
 > [!IMPORTANT]
 > Using the Office 365 Groups Naming Policy requires Azure Active Directory Premium P1 licenses for each unique user that is a member of one or more Office 365 groups.
 
-When creating or editing an Office 365 group, naming policy can be applied to groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. It gets applied when a user creates a group, and also when group name or alias is edited for an existing group. If you set up naming policy In Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is applied.
+The naming policy can be applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy In Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is applied.
 
 ## Naming policy features
 You can enforce naming policy for Office 365 groups in two different ways:
