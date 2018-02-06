@@ -1,7 +1,6 @@
 ---
 title: Azure Content Moderator - Content moderation workflows from the API console | Microsoft Docs
-description: Learn how to use content moderation workflows from the API console.
-services: cognitive-services
+description: Learn how to use content moderation workflows from the API console.services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 
@@ -14,7 +13,7 @@ ms.author: sajagtap
 
 # Workflows from the API console
 
-Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's `Job` operations.
+Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's **Job** operations.
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ On the Content Moderator Dashboard, select **Review** > **Settings** > **Workflo
 
 ### Get the JSON definition of the default workflow
 
-Click the **Edit** option for your workflow, and then select the **JSON** tab. You see the following JSON 'Expression`.
+Click the **Edit** option for your workflow, and then select the **JSON** tab. You see the following JSON **Expression**.
 
 	{
 		"Type": "Logic",
@@ -53,7 +52,7 @@ Click the **Edit** option for your workflow, and then select the **JSON** tab. Y
 
 ## Get workflow details
 
-Start with using the `Workflow - Get` operation to get details of your existing, **default** workflow.
+Start with using the **Workflow - Get** operation to get details of your existing, **default** workflow.
 
 Go to the [review tool's Credentials](Review-Tool-User-Guide/credentials.md#the-review-tool) section in the review tool.
 
@@ -69,15 +68,15 @@ For **Open API testing console**, select the region that most closely describes 
 
   ![Workflow - Get region selection](images/test-drive-region.png)
 
-  The `Workflow - Get` API console opens.
+  The **Workflow - Get** API console opens.
 
 ### Enter parameters
 
 Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (your subscription key).
 
-- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- `workflowname`: The name of your workflow. Use `default`.
-- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: The name of your workflow. Use `default`.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
   ![Workflow - Get query parameters and headers](images/workflow-get-default.PNG)
 
@@ -135,16 +134,16 @@ For **Open API testing console**, select the region that most closely describes 
 
 Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (your subscription key).
 
-- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- `workflowname`: The name of your new workflow.
-- `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: The name of your new workflow.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
   ![Workflow - Create Or Update console query parameters and headers](images/workflow-console-parameters.PNG)
 
 ### Enter the workflow definition
 
-Edit the **Request body** box to enter the JSON request with details for `Description` and `Type` (Image or Text).
-For the `Expression`. copy the default workflow `Expression` from the preceding section as shown here.
+Edit the **Request body** box to enter the JSON request with details for **Description** and **Type** (Image or Text).
+For the **Expression**, copy the default workflow **Expression** from the preceding section as shown here.
 
 	{
 		"Description": "Default workflow from API console",
