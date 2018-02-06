@@ -1,52 +1,192 @@
+---
+title: 'Azure billing documentation '
+description: Find out about Azure billing methods, as well as how to manage and monitor usage and charges. Get courses, FAQ and answers, API references, and other documentation.
+services: billing
+author: 
+manager: 
+layout: LandingPage
+ms.assetid: 
+ms.service: billing
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/05/2018
+ms.author: v-duji
+ms.custom: chiwen (ossa)
+ms.openlocfilehash: 309cb1e2bee640e8bc215dcd7b868dafae41e90f
+ms.sourcegitcommit: ba70aab32c7792c5c4617e9f51577a7510de7a7f
+ms.translationtype: HT
+ms.contentlocale: en-US
+ms.lasthandoff: 01/12/2018
+---
+# <a name="azure-billing-documentation"></a>Azure billing documentation
 
-## Register your application
-You can register your application in either of two ways, as described in the next two sections.
+Find out about Azure billing methods, as well as how to monitor usage and charges. Get courses, FAQ and answers, API references, and other documentation that explains how to manage accounts.
 
-### Option 1: Express mode
-You can quickly register your application by doing the following:
-1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.	In the **Application Name** box, enter a name for your application.
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/billing/billing-sign-up-azure-account-with-1rmb-trial-subscription">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Register for a ¥1 trial subscription</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/billing/billing-how-to-change-azure-account-profile">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Change the subscription name and account contact details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/billing/billing-recharge-an-existing-pia-subscription">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Top-up payments for standard prepaid customers</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/billing/billing-get-invoice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Understand usage reports</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/billing/billing-get-invoice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get an invoice</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/articles/azure-operations-guide/commerce/billing/aog-billing-no-subscription-found">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/billing.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>You don’t appear to have created any subscriptions</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-3. Ensure that the **Guided Setup** check box is selected, and then select **Create**.
+---
 
-4. Follow the instructions for obtaining the application ID, and paste it into your code.
-
-### Option 2: Advanced mode
-To register your application and add your application registration information to your solution, do the following:
-1. If you haven't already registered your application, go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
-2. In the **Application Name** box, enter a name for your application. 
-
-3. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
-
-4. Select **Add Platform**, select **Native Application**, and then select **Save**.
-
-5. Under **app** > **java** > **{host}.{namespace}**, open `MainActivity`. 
-
-6.	Replace *[Enter the application Id here]* in the following line with the application ID that you just registered:
-
-    ```java
-    final static String CLIENT_ID = "[Enter the application Id here]";
-    ```
-<!-- Workaround for Docs conversion bug -->
-7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
-
-8. In the `manifest\application` node, add the following activity. Doing so registers a `BrowserTabActivity` activity that allows the OS to resume your application after it completes the authentication:
-
-    ```xml
-    <!--Intent filter to capture System Browser calling back to our app after sign-in-->
-    <activity
-        android:name="com.microsoft.identity.client.BrowserTabActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            
-            <!--Add in your scheme/host from registered redirect URI-->
-            <!--By default, the scheme should be similar to 'msal[appId]' -->
-            <data android:scheme="msal[Enter the application Id here]"
-                android:host="auth" />
-        </intent-filter>
-    </activity>
-    ```
-<!-- Workaround for Docs conversion bug -->
-9. In the `BrowserTabActivity` node, replace `[Enter the application Id here]` with the application ID.
+<!--h2>引用</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="/powershell/module/azurerm.billing/?view=azurermps-3.8.0">用于下载发票的 PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.billing">用于下载发票的 .NET 参考</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">用量和 RateCard API</a></p>
+                        <p><a href="/rest/api/billing/">发票下载 API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>了解如何使用 API</h3>
+                        <p><a href="/azure/billing-usage-rate-card-overview">API 概述</a></p>
+                        <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudcruiser">合作伙伴解决方案：Cloud Cruiser</a></p>
+                        <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudyn">合作伙伴解决方案：Cloudyn</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul-->
