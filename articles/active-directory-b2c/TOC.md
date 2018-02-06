@@ -19,6 +19,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web apps
 ### [Overview](active-directory-b2c-reference-oidc.md)
+### [Authenticate users in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,6 +28,7 @@
 ### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
+### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
