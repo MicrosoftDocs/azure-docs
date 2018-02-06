@@ -22,7 +22,7 @@ The Review API offers the following ways to include human oversight in your cont
 1. The `Review` operations for human review creation, outside of the moderation step.
 1. The `Workflow` operations for managing workflows that automate scanning with thresholds for review creation.
 
-In this article, we cover the `Workflow` operations. Read the [Jobs and Reviews](review-api.md) overview to learn about content moderation jobs and reviews.
+This article covers the `Workflow` operations. Read the [Jobs and Reviews](review-api.md) overview to learn about content moderation jobs and reviews.
 
 Checking out the **default* workflow is the best way to get started on understanding workflows in Content Moderator.
 
@@ -30,13 +30,13 @@ Checking out the **default* workflow is the best way to get started on understan
 
 Your first workflow comes bundled with your [review tool team](https://contentmoderator.cognitive.microsoft.com/). Sign up if you have not done so already.
 
-Navigate to the [review tool's Workflows](Review-Tool-User-Guide/Workflows.md) screen under the Settings tab. You will see a `default` workflow as shown in the following image.
+Navigate to the [review tool's Workflows](Review-Tool-User-Guide/Workflows.md) screen under the Settings tab. You see a `default` workflow as shown in the following image:
 
 ![Content Moderator workflows](Review-Tool-User-Guide/images/2-workflows-1.png)
 
 ### Open the default workflow
 
-Use the **edit* option shown in the following image to open the workflow editing page.
+Use the **edit** option to open the workflow editing page as shown in the following image:
 ![Content Moderator default workflow](images/default-workflow-listed.PNG)
 
 ### The designer view
@@ -130,7 +130,7 @@ Select the **JSON** tab to see the following JSON definition of your custom work
 ### Workflow result
 
 After you test the workflow from the workflows screen, the following review is created. Navigate to the **Image** tab under **Review** to see your review.
-The workflow created the review because the primary condition tested positive for the presence of text. This resulted in the creation of the review and highlighting of the **`a`** tag in the image review.
+The workflow created the review because the primary condition tested positive for the presence of text. The review also highlighted the **`a`** tag in the image review.
 
 ![Content Moderator - simple workflow output](images/ocr-sample-image-workflow1.PNG)
 
@@ -139,13 +139,13 @@ The workflow created the review because the primary condition tested positive fo
 
 ### The sample image
 
-Now let's use the same [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) that we used in the preceding section for this example.
+Use the same [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) that was used in the preceding section.
 
-However, this time around, you change your primary condition into a combination of two checks. Instead of only checking for the presence of text, you also check whether the text has any profanity in it. The workflow only creates a review if it finds any text within the image **and** detects profanity in it.
+However, this time around, change your primary condition into a combination of two checks. In addition to checking for text, check whether the text has any profanity. The workflow creates a review if it finds text **and** detects profanity in it.
 
 ### The designer view
 
-Modify the workflow you created in the preceding step to change the **Condition** to a **Combination**. The following image shows the new view you see in the designer.
+To change the **Condition** to a **Combination**, modify the workflow. The following image shows the new view you see in the designer.
 
 ![Content Moderator - Modified workflow condition](images/ocr-workflow-2-designer.PNG)
 
@@ -200,8 +200,8 @@ Select the **JSON** tab to see the following JSON definition of your modified cu
 	
 ### Workflow result
 
-After you test the workflow again, you find that no review is created. Navigate to the **Image** tab under **Review** to confirm the absence of any review.
-The workflow did not create the review because the primary condition combination failed to detect any profanity in the extracted text.
+After you test the workflow again, you find that no review is created. To confirm the absence of any review, navigate to the **Image** tab under **Review**.
+The workflow did not create the review because it failed to detect profanity in the extracted text.
 
 ![Content Moderator - modified workflow output](images/ocr-workflow-2-result.PNG)
 
@@ -214,30 +214,30 @@ The [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/servic
 
 The `Workflow-Get` operation accepts the following inputs:
 
-- `team`: The team id that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
 - `workflowname`: The name of your workflow. Use `default` to begin with.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in the JSON format.
-Read the [Workflow API console quickstart](try-review-api-job.md) to learn more.
+To learn more, read the [Workflow API console quickstart](try-review-api-job.md).
 
 ### Create or update workflow
 
-The creation and update operation allows creating workflow from the API. This is useful to automate the built-in workflow designer and possibly go beyond the workflow designer.
+The creation and update operation allows creating workflow from the API.
 
 The `Workflow-Create or Update` operation accepts the following inputs:
 
-- `team`: The team id that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
+- `team`: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
 - `workflowname`: The name of your workflow. Use `default` to begin with.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`. 
-[Test drive the `Create` operation](try-review-api-job.md) to learn more.
+To learn more, [test drive the `Create` operation](try-review-api-job.md).
 
 ## Next steps
 
-Check out the [review tool's workflow tutorial](Review-Tool-User-Guide/Workflows.md) to learn how to create custom workflows. 
+To learn how to create custom workflows, check out the [review tool's workflow tutorial](Review-Tool-User-Guide/Workflows.md). 
 
 Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
 
-Finally, use your custom workflows with the `Job` operations as shown in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
+Finally, use your custom workflows with the `Job` operations as shon in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
