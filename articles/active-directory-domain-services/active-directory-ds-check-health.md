@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/06/2018
 ms.author: ergreenl
 
 ---
@@ -21,7 +21,15 @@ ms.author: ergreenl
 
 ## Your domain's health
 
-Using the [Health page]() on your Azure portal, you are able to keep up-to-date on what is happening on your managed domain. This article steps through all of the elements of the Health page and teach you how to make sure your domain is in tip-top shape.
+Using the health page on your Azure portal, you are able to keep up-to-date on what is happening on your managed domain. This article steps through all of the elements of the health page and teach you how to make sure your domain is in tip-top shape.
+
+### View your health page
+
+1. Navigate to the Azure AD Domain Services page in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)
+2. Click on the domain you want to view the health of.
+3. In the left-hand navigation, click "Health".
+
+The following picture is an example health page.
 
 ![Example health page](.\media\active-directory-domain-services-alerts\health-page.png)
 
@@ -31,7 +39,7 @@ Using the [Health page]() on your Azure portal, you are able to keep up-to-date 
 
 ### Status of your managed domain
 
-The status in the top right of your health page indicates the overall health of your domain. The status factors in all of the existing alerts on your domain. You can also view the status of your domain on the [overview page]() of Azure AD Domain Services.
+The status in the top right of your health page indicates the overall health of your domain. The status factors in all of the existing alerts on your domain. You can also view the status of your domain on the overview page of Azure AD Domain Services.
 
 Statuses of a managed domain:
 
