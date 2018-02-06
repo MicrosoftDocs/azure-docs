@@ -3,7 +3,7 @@ title: Encryption in Azure Data Lake Store | Microsoft Docs
 description: Understand how encryption and key rotation work in Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
-author: yagupta
+author: esung22
 manager:
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
-ms.author: yagupta
+ms.author: elsung
 ---
 
 # Encryption of data in Azure Data Lake Store
