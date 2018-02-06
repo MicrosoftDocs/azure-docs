@@ -626,37 +626,37 @@ To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeSh
 
 2. Update the Python script in the `BikeShare Data Prep.py` file using the following code:
 
-```python
-import pyspark
+    ```python
+    import pyspark
 
-from azureml.dataprep.package import run
-from pyspark.sql.functions import *
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
 
-# start Spark session
-spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
-df.show(n=10)
-row_count_first = df.count()
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
 
-# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
-# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
-blobfolder = 'Your Azure Storage blob path'
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
 
-df.write.csv(blobfolder, mode='overwrite') 
+    df.write.csv(blobfolder, mode='overwrite') 
 
-# retrieve csv file parts into one data frame
-csvfiles = "<Your Azure Storage blob path>/*.csv"
-df = spark.read.option("header", "false").csv(csvfiles)
-row_count_result = df.count()
-print(row_count_result)
-if (row_count_first == row_count_result):
-    print('counts match')
-else:
-    print('counts do not match')
-print('done')
-```
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
 
 3. Replace `Your Azure Storage blob path` with the path to the output file that will be created. Replace for both the `blobfolder` and `csvfiles` variables.
 
@@ -688,14 +688,12 @@ print('done')
    ```
 
 3. Create the HDInsight run config. You will need the name of your cluster and the sshuser password.
-```azurecli
-az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
-
-az ml experiment prepare -c hdinsight
-```
-
- > [!NOTE]
-    > When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the **Azure Machine Learning Workbench** when you run your scripts. 
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the **Azure Machine Learning Workbench** when you run your scripts. 
 
 ## Run in HDInsight Cluster
 
