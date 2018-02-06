@@ -20,7 +20,7 @@ In your environment, you might need to restrict or disable these default externa
 ## About the pool endpoint configuration
 The endpoint configuration consists of one or more [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool) of frontend ports. (Do not confuse a NAT pool with the Batch pool of compute nodes.) You set up each NAT pool to override the default SSH or RDP connection settings on the pool's compute nodes. 
 
-Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You have flexibility to allow or deny all traffic, traffic identified by a [default tag](../virtual-network/virtual-networks-nsg#default-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
+Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You have flexibility to allow or deny all traffic, traffic identified by a [default tag](../virtual-network/virtual-networks-nsg.md#default-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
 
 > [!NOTE]
 > The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pool/add#NetworkConfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
