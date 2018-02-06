@@ -9,7 +9,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 1/10/2018
+ms.date: 02/06/2018
 ms.author: rogarana
 ---
 
@@ -93,17 +93,17 @@ Once you have the Cloud Blob container, you can create the **Block** blob object
 In this section, you set up an instance of Azure storage client, instantiate the blob service object, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
 ```PHP
-# Setup a specific instance of an Azure::Storage::Client
-$connectionString = getenv('storageconnectionstring');
-
-// Create blob client.
-$blobClient = BlobRestProxy::createBlobService($connectionString);
-
-# Create the BlobService that represents the Blob service for the storage account
-$createContainerOptions = new CreateContainerOptions();
-
-$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
+    # Setup a specific instance of an Azure::Storage::Client
+    $connectionString = getenv('storageconnectionstring');
+    
+    // Create blob client.
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
+    
+    # Create the BlobService that represents the Blob service for the storage account
+    $createContainerOptions = new CreateContainerOptions();
+    
+    $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+    
     // Set container metadata.
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
@@ -121,7 +121,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob as **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **myfile** and the name of the blob as **fileToUpload**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");
@@ -147,19 +147,29 @@ To perform a partial update of the content of a block blob, use the **createbloc
 You can get a list of files in the container using the **listBlobs()** method. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
 
 ```PHP
-$blob_list = $blobClient->listBlobs($containerName);
-    $blobs = $blob_list->getBlobs();
+    $listBlobsOptions = new ListBlobsOptions();
+    $listBlobsOptions->setPrefix("HelloWorld");
+    
+    $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+    $blobs = $result->getBlobs();
     echo "These are the blobs present in the container: ";
-    foreach($blobs as $blob)
-    {
+    
+    
+    while ($result->getContinuationToken()) {
+        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        $result = $blobClient->listBlobs("mycontainer", $listBlobsOptions);
+        $blobs = array_merge($blobs, $blob_list->getBlobs());
+    }
+    
+    
+    foreach($blobs as $blob) {
         echo $blob->getName().": ".$blob->getUrl()."<br />";
     }
-    echo "<br />";
 ```
 
-### Download the blobs
+### Get the content of your blobs
 
-Download blobs to your local disk using the **getBlob()** method. The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
+Get the contents of your blobs using the **getBlob()** method. The following code will display the contents of the blob uploaded in a previous section.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
