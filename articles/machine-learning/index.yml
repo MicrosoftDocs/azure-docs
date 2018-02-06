@@ -27,9 +27,9 @@ sections:
     items:
 
     - html: <a href="/azure/machine-learning/preview/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services">
-            <br><b>Azure Machine Learning services</b></a> (preview)
-            <p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.</p>
+            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
+            <br><b>Azure Machine Learning services</b></a>
+            <p>Learn how these services empower data scientists to develop AI solutions using Python tools and libraries with a variety of Azure data and compute services.</p>
 
     - html: <a href="/azure/machine-learning/studio/">
             <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
