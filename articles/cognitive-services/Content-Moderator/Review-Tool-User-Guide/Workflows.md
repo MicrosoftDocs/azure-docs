@@ -14,9 +14,9 @@ ms.author: sajagtap
 
 # Defining, testing, and using workflows
 
-In addition to default workflow used for generating reviews, you can define custom workflows and thresholds based on content policies that are specific to your business.
+Content Moderator's workflow designer and APIs allow you to define custom workflows and thresholds based on your content policies.
 
-Workflows “connect” to the Content Moderator API using connectors. In addition, you can use other APIs, as long as a connector for that API is available. The example here will use the Content Moderator connector, which is included by default.
+Workflows “connect” to the Content Moderator API using **connectors**. In addition, you use other APIs, as long as a connector for that API is available. The example here uses the Content Moderator connector, that is included by default.
 
 ## Navigate to the Workflows section
 
@@ -46,7 +46,7 @@ After you choose the connector and its output you are interested in, select an O
 
 ## Define the action to be taken
 
-Select the action to be taken along with the condition to be met. The example below creates an image review, assigns a tag, **a**, and highlights it for the condition shown. You can also combine multiple conditions to get the results you want. Optionally, add an alternative (**Else*) path.
+Select the action to be taken along with the condition to be met. The following example creates an image review, assigns a tag **`a`**, and **highlights** it for the condition shown. You can also combine multiple conditions to get the results you want. Optionally, add an alternative (**Else**) path.
 
   ![Content Moderator - Workflow action](images/ocr-workflow-step-3-action.PNG)
 
@@ -62,7 +62,9 @@ Now that you defined a custom workflow, test it with sample content.
 
   ![Content Moderator - Workflow Test](images/ocr-workflow-step-6-list.PNG)
 
-### Upload a file (or several).
+### Upload a file.
+
+Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) to your local drive. To test the workflow, select **Choose File(s)** and upload the image.
 
   ![Content Moderator - Workflow Test - Add File](images/ocr-workflow-step-7-upload.PNG)
 
@@ -72,8 +74,10 @@ Now that you defined a custom workflow, test it with sample content.
 
 ### Review any images flagged for human moderation
 
-  ![Content Moderator - Workflow Test - Review](images/ocr-workflow-step-5-review.PNG)
+To see the image review, navigate to the **Image** tab under **Review**.
+
+  ![Content Moderator - Workflow Test - Review](images/ocr-sample-image-workflow1.PNG)
 
 ## Next steps: Invoke the Workflow from code
 
-Use custom workflows with the Review API as shown in the **Job operation** [API Console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).
+Use custom workflows with the [`Job` API console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).

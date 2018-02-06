@@ -200,6 +200,8 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
+##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
+
 
 
 ##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
