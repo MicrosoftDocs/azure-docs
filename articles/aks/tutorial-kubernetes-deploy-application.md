@@ -49,6 +49,69 @@ The manifest file has been pre-created with a login server name of `microsoft`. 
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+ name: azure-vote-back
+spec:
+ replicas: 1
+ template:
+ metadata:
+ labels:
+ app: azure-vote-back
+ spec:
+ containers:
+ - name: azure-vote-back
+ image: redis
+ ports:
+ - containerPort: 6379
+ name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: azure-vote-back
+spec:
+ ports:
+ - port: 6379
+ selector:
+ app: azure-vote-back
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+ name: azure-vote-front
+spec:
+ replicas: 1
+ template:
+ metadata:
+ labels:
+ app: azure-vote-front
+ spec:
+ containers:
+ - name: azure-vote-front
+ image: YOUR_REGISTRY.azurecr.io/microsoft/azure-vote-front:redis-v1
+ ports:
+ - containerPort: 80
+ env:
+ - name: REDIS
+ value: "azure-vote-back"
+ imagePullSecrets:
+ - name: YOUR_SECRET
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: azure-vote-front
+spec:
+ type: LoadBalancer
+ ports:
+ - port: 80
+ selector:
+ app: azure-vote-front
+```
+
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
 
 ```yaml
