@@ -44,8 +44,8 @@ other than locally within the VM.
 
 This article contains information for both scenarios,
 DSC Extension for Azure Automation onboarding
-and how to use the DSC Extension as a singular deployment mechanism
-as part of the Azure PowerShell SDK.
+and how to use the DSC Extension as a tool
+for assigning configurations to virtual machines using the Azure SDK.
 
 ## Prerequisites
 
