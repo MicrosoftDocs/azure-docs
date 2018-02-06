@@ -32,7 +32,7 @@ and [how pricing works for Logic Apps triggers](../logic-apps/logic-apps-pricing
 Before you can use the Service Bus connector, you must have these items, 
 which must exist in the same Azure subscription so that they're visible to each other:
 
-* A [Service Bus namespace and messaging entity, such as a queue](../service-bus-messaging/service-bus-create-namespace-portal)
+* A [Service Bus namespace and messaging entity, such as a queue](../service-bus-messaging/service-bus-create-namespace-portal.md)
 * A [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="permissions-connection-string"></a>
