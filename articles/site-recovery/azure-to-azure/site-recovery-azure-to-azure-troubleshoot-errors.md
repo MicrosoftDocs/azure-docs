@@ -58,34 +58,94 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 1.	Sign in as a root user.
 
-2.	Run this command:
+2.	Run this command to change the directory.
 
       ``# cd /etc/ssl/certs``
 
-3.	To see if the Symantec root CA certificate is present or not, run this command:
+3. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.	If the file isn't found, run these commands:
+4. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Check if the Baltimore root CA cert is present.
 
-5.	To create a symlink with b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem, run this command:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. If the Baltimore root CA cert is not found, download the certificate.  
 
-6.	Check to see if this command has the following output. If not, you have to create a symlink:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Check if the DigiCert_Global_Root_CA cert is present.
 
-7. If symlink 653b494a.0 isn't present, use this command to create a symlink:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
+
+    ``# c_rehash``
+
+10. Check if the subject hashes as symlinks are created for the certificates.
+
+    - Command
+
+      ``# ls -l | grep Baltimore``
+
+    - Output
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Command
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Output
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Command
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Output
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Create a copy of the file DigiCert_Global_Root_CA.pem with filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Check if the files are present.  
+
+    - Command
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Output
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
+
 
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)

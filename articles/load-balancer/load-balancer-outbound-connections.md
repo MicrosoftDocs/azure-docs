@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2018
+ms.date: 02/05/2018
 ms.author: kumud
 ---
 
@@ -110,10 +110,10 @@ Azure uses an algorithm to determine the number of preallocated SNAT ports avail
 
 Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. For Classic Web Worker Roles, the allocation is per role instance.  When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout).
 
-The following table shows the port preallocations for tiers of back-end pool sizes:
+The following table shows the SNAT port preallocations for tiers of back-end pool sizes:
 
 | Pool size (VM instances) | Preallocated SNAT ports per IP configuration|
-| --- | --- | --- |
+| --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
 | 101 - 200 | 256 |
@@ -148,7 +148,7 @@ When [preallocated ephemeral ports](#preallocatedports) used for [PAT](#pat) are
 This changes your scenario to [Instance-Level Public IP to a VM](#ilpip).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).  There are trade-offs to consider, such as additional cost of public IP addresses and potential impact of whitelisting a large number of individual IP addresses.
 
 >[!NOTE] 
->not available for Web Worker Roles
+>This option is not available for Web Worker Roles.
 
 ### <a name="idletimeout"></a>Use keepalives to reset outbound idle timeout
 
