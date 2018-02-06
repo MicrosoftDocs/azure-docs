@@ -58,13 +58,13 @@ You can use blob storage to host your data files.
 
 1. Use the same Azure Storage account that is used for the HDInsight cluster you are using.
 
-![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
 
 2. Create a new container named '**data-files**' to store the BikeShare data files.
 
 3. Upload the data files. Upload the `BostonWeather.csv` to a folder named `weather`, and the trip data files to a folder named `tripdata`.
 
-![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
 > [!TIP]
 > You may also use **Azure Storage Explorer** to upload blobs. This tool can be used when you want to view the contents of any of the files generated in the tutorial as well.
@@ -129,8 +129,6 @@ You can use blob storage to host your data files.
    > * __Skip Lines Mode__: Don't skip
    > * __File Encoding__: utf-8
    > * __Promote Headers Mode__: Use Headers From First File
-   >    
-
 
    The preview of the data should display the following columns:
    * **Path**
@@ -240,7 +238,7 @@ You no longer need the __REPORTTYPE__ column. Right-click on the column header a
 
    To remove the rows that have errors, right-click on the **HOURLYDRYBULBTEMPF** column heading. Select **Filter Column**. Use the default **I Want To** as **Keep Rows**. Change the **Conditions** drop down to select **is not error**. Select **OK** to apply the filter.
 
-![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
 
 4. To eliminate the remaining error rows in the other columns, repeat this filter process for **HOURLYRelativeHumidity** and **HOURLYWindSpeed** columns.
 
@@ -624,7 +622,7 @@ To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeSh
 
 1. Open the project for editing in VSCode.
 
-![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
 2. Update the Python script in the `BikeShare Data Prep.py` file using the following code:
 
@@ -695,6 +693,7 @@ az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdi
 
 az ml experiment prepare -c hdinsight
 ```
+
  > [!NOTE]
     > When a blank project is created, the default run configurations are **local** and **docker**. This step creates a new run configuration that is available in the **Azure Machine Learning Workbench** when you run your scripts. 
 
@@ -706,9 +705,9 @@ Return to the **Azure Machine Learning Workbench** application to run your scrip
 
 2. Select **hdinsight** from the dropdown list to run your script in the HDInsight cluster.
 
-1. Select **Run** from the top of the screen. The script is submitted as a **Job**. Once the job status changes to __Completed__, the file has been written to the specified location in your **Azure Storage Container**.
+3. Select **Run** from the top of the screen. The script is submitted as a **Job**. Once the job status changes to __Completed__, the file has been written to the specified location in your **Azure Storage Container**.
 
-![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
 
 
 ## Substitute data sources
