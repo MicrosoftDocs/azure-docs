@@ -40,7 +40,6 @@ In the **Credentials** window, select [API reference](https://westus.dev.cogniti
 
 ### Select your region
 For **Open API testing console**, select the region that most closely describes your location.
-
   ![Job - Create page region selection](images/test-drive-job-1.png)
 
   The `Job.Create` API console opens. 
@@ -65,8 +64,7 @@ Select **Get**, and then open the API by selecting the button that matches your 
 
 Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
-###
-	{
+```	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
 		"TeamName": "some team name",
 		"Status": "InProgress",
@@ -91,7 +89,7 @@ Enter values for **teamName** and **JobID**. Enter your subscription key, and th
     		}
 		]
 	}
-###
+```
 
 ## Navigate to the review tool
 On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
