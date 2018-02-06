@@ -49,7 +49,6 @@ The output JSON includes the following elements:
 | width |The width of the output video frame, in pixels.|
 | height |The height of the output video frame, in pixels.|
 | totalDuration |The duration of the input video, in "ticks." |
-
 | [fragments](#fragments-json-elements) |The metadata is chunked up into different segments called fragments. Each fragment is an auto-detected shot with a start, duration, interval number, and event(s). |
 
 ### Fragments JSON elements
@@ -85,7 +84,7 @@ When creating a task with **Azure Media Content Moderator**, you must specify a 
 ### .NET code sample
 
 The following .NET code sample uses the Media Services .NET SDK to run a Content Moderator job. It takes a media services Asset as the input that contains the video to be moderated.
-See the [Content Moderator video quickstart](/cognitive-services/Content-Moderator/video-moderation-api.md) for the full source code and the Visual Studio project.
+See the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) for the full source code and the Visual Studio project.
 
 
 	/// <summary>
@@ -153,7 +152,7 @@ See the [Content Moderator video quickstart](/cognitive-services/Content-Moderat
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
 	}
 
-For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](/cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
 ### JSON output
 
