@@ -128,7 +128,7 @@ part of the allowed values
 
 Double check the allowed values in the template, and provide one during deployment.
 
-## Solution 4 - Too many target resource groups
+### Solution 4 - Too many target resource groups
 
 If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
 
