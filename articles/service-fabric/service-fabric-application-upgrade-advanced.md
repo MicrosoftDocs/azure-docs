@@ -39,14 +39,14 @@ Finally, the *UnmonitoredAuto* mode is useful for performing fast upgrade iterat
 ## Upgrade with a diff package
 Instead of provisioning a complete application package, upgrades can also be performed by provisioning diff packages that contain only the updated code/config/data packages along with the complete application manifest and complete service manifests. Complete application packages are only required for the initial installation of an application to the cluster. Subsequent upgrades can either be from complete application packages or diff packages.  
 
-Any reference in the application manifest or service manifest(s) of a diff package that can't be found in the application package is automatically replaced with the currently provisioned version.
+Any reference in the application manifest or service manifests of a diff package that can't be found in the application package is automatically replaced with the currently provisioned version.
 
 Scenarios for using a diff package are:
 
 * When you have a large application package that references several service manifest files and/or several code packages, config packages, or data packages.
 * When you have a deployment system that generates the build layout directly from your application build process. In this case, even though the code hasn't changed, newly built assemblies get a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
 
-When an application is upgraded using Visual Studio, a diff package is published automatically. To create a diff package manually, the application manifest, and the service manifests must be updated, but only the changed packages should be included in the final application package.
+When an application is upgraded using Visual Studio, a diff package is published automatically. To create a diff package manually, the application manifest and the service manifests must be updated, but only the changed packages should be included in the final application package.
 
 For example, let's start with the following application (version numbers provided for ease of understanding):
 
@@ -72,7 +72,7 @@ app1           2.0.0      <-- new version
     config     1.0.0
 ```
 
-In this case, you update the application manifest to 2.0.0, and the service manifest for service1 to reflect the code package update. The folder for your application package would have the following structure:
+In this case, you update the application manifest to 2.0.0 and the service manifest for service1 to reflect the code package update. The folder for your application package would have the following structure:
 
 ```text
 app1/
@@ -84,7 +84,7 @@ In other words, create a complete application package normally, then remove any 
 
 ## Rolling back application upgrades
 
-While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly [resumed](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
+While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
 
 Rollbacks can be triggered automatically when the health policies of an upgrade in *Monitored* mode with a *FailureAction* of *Rollback* are violated (see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md)) or explicitly using [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
