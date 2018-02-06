@@ -163,6 +163,10 @@ The graph indicates [F-measure][f-measure], [recall][recall], and [precision][pr
 ## View single-point utterance data
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
+![Selected utterance](./media/luis-how-to-train-test/selected-utterance.png)
+
+
+<a name="relabel-utterances-and-retrain"></a>
 ## False test results
 In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list of incorrect predictions. 
 
@@ -187,3 +191,4 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 [false-negative]:luis-glossary.md#false-negative
 [f-measure]:luis-glossary.md#f-measure
 [recall]: luis-glossary.md#recall
+[precision]: luis-glossary.md#precision
