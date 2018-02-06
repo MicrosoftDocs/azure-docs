@@ -69,7 +69,7 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 
 **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval.
 
-> [NOTE]
+> [!NOTE]
 
 > Aggregate function in query must be named/called: AggregatedValue and provide a numeric value.
 
