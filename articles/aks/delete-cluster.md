@@ -29,7 +29,7 @@ az aks delete --resource-group myAKSCluster --name myAKSCluster
 The following options are available with the `az aks delete` command.
 
 | Argument | Description | Required |
-|---|---|---|
+|---|---|:---:|
 | --name -n | Resource name for the managed cluster. | yes |
 | --resource-group | Name of the Azure Container Service resource group. | yes |
 | --no-wait | Do not wait for the long-running operation to finish. | no |
