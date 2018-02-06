@@ -1,6 +1,6 @@
 ---
 title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
-description: Leran how to use Wildcard applications in the Azure Active Directory application proxy.
+description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -207,5 +207,13 @@ Because `finance.adventure-works.com` is a more specific URL than `*.adventure-w
 
 If you have multiple applications published for finance and you have `finance.adventure-works.com` as a verified domain, you could publish another wildcard application `*.finance.adventure-works.com`. Because this is more specific than the generic `*.adventure-works.com`, it takes precedence if a user accesses an application in the finance domain.
 
+
+## Next steps
+
+For more information about:
+
+- **Custom domains**, see [Working with custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md).
+
+- **Publishing applications**, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
 
 
