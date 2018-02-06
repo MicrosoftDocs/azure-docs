@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/18/2018
   ms.author: bradsev
 abstract:
-  description: The Data Science Virtual Machine (DSVM) is a customized VM image on Azure built specifically for doing data science. 
+  description: The Data Science and Deep Learning Virtual Machines are customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics. 
 sections:
 
 - title: 5-Minute Quickstarts
