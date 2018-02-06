@@ -226,7 +226,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 |**Requirement**  |**Details**  |**Publishing Option**  |
 |---------|---------|---------|
-|**Participation Policies**    |  Review the Azure Marketplace Publisher Agreement [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Review Azure Marketplace Participation Policies [here] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | List, Trial, Transact        |
+|**Participation Policies**    | Review Azure Marketplace Participation Policies [here] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | List, Trial, Transact        |
 |**Integration with Microsoft**    | Azure Marketplace offers should leverage or extend Microsoft Azure services such as Compute, Networking, or Storage, and align to an existing Azure Marketplace category such as Databases, Security, Networking, etc. Find the full list [here](https://azuremarketplace.microsoft.com/marketplace/apps).        | List, Trial, Transact        |
 |**Audience**    | Azure Marketplace offers must be for IT Pros, Cloud Developers, or other technical customer roles.       |  List, Trial, Transact 
 |**Lead Management**    | To receive leads from Marketplace, you must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data.        |   List, Trial, Transact      |
