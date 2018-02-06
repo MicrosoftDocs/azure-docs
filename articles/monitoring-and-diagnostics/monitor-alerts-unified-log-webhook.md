@@ -1,6 +1,6 @@
-definition---
-title: Webhook actions to log alerts in Azure Alerts (Preview) | Microsoft Docs
-description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
+---
+title: Webhook actions for log alerts in Azure Alerts (Preview) | Microsoft Docs
+description: This article describes how a log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -18,7 +18,7 @@ ms.author: vinagara
 
 ---
 
-# Webhook actions to log alert rules
+# Webhook actions for log alert rules
 When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
 
