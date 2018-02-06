@@ -33,4 +33,4 @@ ms.author: v-geberr;
 [batch-testing]:luis-concept-test.md#batch-testing
 [intents]:luis-concept-intent.md
 [phrase-list]:luis-concept-feature.md
-[utterances]:luis-concept.utterance.md
+[utterances]:luis-concept-utterance.md
