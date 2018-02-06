@@ -39,7 +39,7 @@ sections:
     - html: <a href="/azure/machine-learning/data-science-virtual-machine/index">
             <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
             <br><b>Data Science Virtual Machine</b></a>
-            <p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
+            <p>Learn how to use the Data Science and Deep Learning VMs, customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics.</p>
 
 - title: 5-Minute Quickstarts
   items:
@@ -107,7 +107,7 @@ sections:
             height="32" width="32">
             <p><b>Team Data Science Process</b></p>
             </a>
-            A team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+            A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.
 
     - html: <a href="/sql/advanced-analytics/r/r-services">
             <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services"
