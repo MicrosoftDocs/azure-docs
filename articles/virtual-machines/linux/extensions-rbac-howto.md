@@ -82,6 +82,6 @@ The client 'xxxxxxx' with object id 'b000000-000c-000c-0000-d00000000a' does not
 ## Next steps
 This is just a small example on how to restrict extension provisioning, but you can define the scope and a whole host of more options, please refer to:
 
-[Azure Policy Introduction](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
+[Azure Policy Introduction](/azure/azure-policy/azure-policy-introduction)
 
-[Role Assignment](https://docs.microsoft.com/en-us/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create)
+[Role Assignment](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create)
