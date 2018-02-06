@@ -116,7 +116,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 	![BambooHR configuration](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. In a new window, log on to your BambooHR company site as an administrator.
+7. In a new window, sign in to your BambooHR company site as an administrator.
 
 8. On the home page, do the following:
    
@@ -176,9 +176,9 @@ To create a test user in Azure AD, do the following:
  
 ### Create a BambooHR test user
 
-To enable Azure AD users to log on to BambooHR, set them up manually in BambooHR by doing the following:
+To enable Azure AD users to sign in to BambooHR, set them up manually in BambooHR by doing the following:
 
-1. Log on to your **BambooHR** site as an administrator.
+1. Sign in to your **BambooHR** site as an administrator.
 
 2. In the toolbar at the top, select **Settings**.
    
