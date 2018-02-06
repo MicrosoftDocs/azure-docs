@@ -21,12 +21,13 @@ ms.custom: it-pro
 
 # Enforce a naming policy for Office 365 groups in Azure Active Directory
 
-Azure Active Directory (Azure AD) provides group naming policy that you can use to enforce consistent naming conventions for Office 365 groups created by users in your organization. A naming policy can help you and your users identify the function of the group, membership, geographic region, or who created the group. The naming policy can also help categorize groups in the address book. You can use the policy to block specific words from being used in group names and aliases.
+To enforce consistent naming conventions for Office 365 groups created or edited by 
+your users, set up a group naming policy for your tenant in Azure Active Directory (Azure AD). For example, you could use the naming policy to communicate the function of a group, membership, geographic region, or who created the group. You could also use the naming policy to help categorize groups in the address book. You can use the policy to block specific words from being used in group names and aliases.
 
 > [!IMPORTANT]
 > Using the Office 365 Groups Naming Policy requires Azure Active Directory Premium P1 licenses for each unique user that is a member of one or more Office 365 groups.
 
-The naming policy can be applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy In Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is applied.
+The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy In Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is applied.
 
 ## Naming policy features
 You can enforce naming policy for Office 365 groups in two different ways:
@@ -49,7 +50,7 @@ You can use strings to make it easier to scan and differentiate groups in the gl
 
 You can use attributes that can help identify who created the group, such as \[Department\], or the location of group members, such as \[CountryOrRegion\] or \[Office\]. For example, if you define your naming policy as `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, and `User’s department = Engineering` and the department of the user who is creating the group is ‘Engineering’, then an enforced group name might be “GRP My Group Engineering." Supported Azure AD attributes are \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]. Unsupported user attributes are treated as fixed strings; for example, “\[postalCode\]”. Extension attributes and custom attributes aren't supported.
 
-We recommend that you use attributes that have values filled in for all users in your organization and don't use attributes that have very long values.
+We recommend that you use attributes that have values filled in for all users in your organization and don't use attributes that have long values.
 
 ### Custom blocked words
 
