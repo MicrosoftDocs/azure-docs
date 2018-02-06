@@ -80,27 +80,27 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
     > [!NOTE]
     > Azure Migrate supports only managed disks for assessment.
     
-      - To get the effective disk I/O per second (IOPS) and throughput (MBps), Azure Migrate multiplies the disk IOPS and the throughput with the comfort factor. Based on the effective IOPS and throughput values, Azure Migrate identifies if the disk should be mapped to a standard or premium disk in Azure.
-      - If Azure Migrate can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure. [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
-      - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
-      - If there are multiple eligible disks, it selects the one with the lowest cost.
-      - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
+    - To get the effective disk I/O per second (IOPS) and throughput (MBps), Azure Migrate multiplies the disk IOPS and the throughput with the comfort factor. Based on the effective IOPS and throughput values, Azure Migrate identifies if the disk should be mapped to a standard or premium disk in Azure.
+    - If Azure Migrate can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure. [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
+    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
+    - If there are multiple eligible disks, it selects the one with the lowest cost.
+    - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
 
 - **Network adapters**: Azure Migrate tries to find an Azure VM that can support the number of network adapaters attached to the on-premises machine and the performance required by these network adapters.
-      - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out) across all network adapters, and applies the comfort factor to the aggregated number. This number is used to find an Azure VM that can support the required network performance.
-      - Along with network performance, it also considers if the Azure VM can support the required the number of network adapters.
-      - If no network performance data is available, only the network adapters count is considered for VM sizing.
+    - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out) across all network adapters, and applies the comfort factor to the aggregated number. This number is used to find an Azure VM that can support the required network performance.
+    - Along with network performance, it also considers if the Azure VM can support the required the number of network adapters.
+    - If no network performance data is available, only the network adapters count is considered for VM sizing.
 
 - **VM Size**: After storage and network requirements are calculated, Azure Migrate considers compute requirements:
-      - Azure Migrate looks at the utilized cores and memory, and applies the comfort factor to get the effective cores and memory. Based on that number, it tries to find a suitable VM size in Azure.
-      - If no suitable size is found, the machine is marked as unsuitable for Azure.
-      - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing tier settings, for the final VM size recommendation.
-      - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+    - Azure Migrate looks at the utilized cores and memory, and applies the comfort factor to get the effective cores and memory. Based on that number, it tries to find a suitable VM size in Azure.
+    - If no suitable size is found, the machine is marked as unsuitable for Azure.
+    - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing tier settings, for the final VM size recommendation.
+    - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
 ### As on-premises sizing
 In case of as on-premises sizing, Azure Migrate does not consider the performance history of the VMs and allocates VMs and disks based on the size allocated on-premises.
-- **Storage**: For each disk, a standard disk in Azure is allocated with the same size as the on-premises disk.
-- **Network**: For each network adapater, a network adapter in Azure is allocated.
+- **Storage**: For each disk, a standard disk in Azure is recommended with the same size as the on-premises disk.
+- **Network**: For each network adapater, a network adapter in Azure is recommended.
 - **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and allocates an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
  
 ### Confidence rating
