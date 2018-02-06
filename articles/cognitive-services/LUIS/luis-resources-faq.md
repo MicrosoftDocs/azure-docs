@@ -140,10 +140,13 @@ In Azure, a tenant represents the client or organization that's associated with 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Why did I get an email saying I'm almost out of quota?
-Your programmatic/starter key is only allowed 1000 endpoint queries a month. You create LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your programmatic/starter key is only allowed 1000 endpoint queries a month. You should create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Where is the Pattern feature that provides regular expression matching?
 The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
+
+## Why are there more subscription keys on my app's publish page than I assigned to the app? 
+Each app has the programmatic/starter key. If your app was created before the GA time frame, you will see all LUIS subscription keys, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS apps will not see all LUIS subscription keys. New apps will only see the programmatic/starter key as well as keys you have intentionally assigned to the app. 
 
 ## Next steps
 
