@@ -1,6 +1,6 @@
 ---
-title: How to provide secure remote access to on-premises apps
-description: Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.
+title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
+description: Leran how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -19,9 +19,9 @@ ms.custom: it-pro
 
 ---
 
-# Wildcard application publishing
+# Wildcard applications in the Azure Active Directory application proxy 
 
-Configuring a large number of applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
+In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
 -	Simplify your administrative overhead
 -	Reduce the number of configuration errors
@@ -177,7 +177,7 @@ The configuration implements the following structure:
 
 ## Scenario 2: General wildcard application with exception
 
-In this scenario, you have in addition to the three general applications another application, `finance.adventure-works.com`, which should only be accessible by Finance division. With the current application structure, your finance application would be accessible through the wildcard application and by all employees. To change this, you exclude your application from your wilcard by configuring Finance as a separate application with more restrictive permissions.
+In this scenario, you have in addition to the three general applications another application, `finance.adventure-works.com`, which should only be accessible by Finance division. With the current application structure, your finance application would be accessible through the wildcard application and by all employees. To change this, you exclude your application from your wildcard by configuring Finance as a separate application with more restrictive permissions.
 
 
 
