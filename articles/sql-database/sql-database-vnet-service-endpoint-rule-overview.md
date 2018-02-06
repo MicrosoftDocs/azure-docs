@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 01/31/2018
-ms.author: genemi
+ms.date: 02/05/2018
+ms.reviewer: genemi
+ms.author: dmalik
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
 
