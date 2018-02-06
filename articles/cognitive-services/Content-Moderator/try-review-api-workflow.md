@@ -192,7 +192,7 @@ In the review tool, select **Review** > **Settings** > **Workflows**. Your new w
   
 ### Review your new workflow details
 
-Select the **Edit** option for your workflow, and then select the **Designer** and **JSON** tabS.
+Select the **Edit** option for your workflow, and then select the **Designer** and **JSON** tabs.
 
   ![Review tool Designer tab for a selected workflow](images/workflow-console-new-workflow-designer.PNG)
 
