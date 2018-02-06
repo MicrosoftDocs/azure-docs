@@ -3,8 +3,8 @@ title: Create an offer in Azure Stack | Microsoft Docs
 description: As a cloud administrator, learn how to create an offer for your users in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 02/06/2018
+ms.author: brenduns
 
 ---
 # Create an offer in Azure Stack
@@ -39,7 +39,7 @@ ms.author: erikje
 Offers must be made public for users to get the full view when subscribing. Offers can be:
 
 * **Public**: Visible to users.
-* **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to approve every subscription.
+* **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
 * **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
 Changes to the offer are not immediately visible to the user. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
@@ -50,4 +50,5 @@ Changes to the offer are not immediately visible to the user. To see the changes
 
 
 ### Next steps
-[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
+[Create subscriptions](azure-stack-subscribe-plan-provision-vm.md)
+[Provision a virtual machine](azure-stack-provision-vm.md)
