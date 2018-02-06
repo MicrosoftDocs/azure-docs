@@ -20,7 +20,7 @@ ms.author: LADocs; mandia
 # Triggers and actions for logic app workflows
 
 All logic apps start with a trigger followed by actions. 
-This topic describes the kinds of triggers and actions 
+This article describes the kinds of triggers and actions 
 that you can use for creating system integrations and 
 automating business workflows or processes by building logic apps. 
   
