@@ -31,11 +31,11 @@ You can use the List Management API to do the following tasks:
 
 ## Use the API console
 
-Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+Before you can test-drive the API in the online console, you need your subscription key. This key is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
 ## Refresh Search Index
 
-After you make changes to a term list, you must refresh its index for changes to be included in future scans. This is a similar step to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+After you make changes to a term list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
 1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
 
@@ -82,7 +82,7 @@ After you make changes to a term list, you must refresh its index for changes to
 
   Add list metadata as key-value pairs, and not actual terms.
  
-6.	Select **Send**. Your list is created. Note the **Id** value that is associated with the new list. You need this for other term list management functions.
+6.	Select **Send**. Your list is created. Note the **ID** value that is associated with the new list. You need this ID for other term list management functions.
 
   ![Term Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
@@ -132,7 +132,7 @@ This example deletes a single term.
 
   The **Term - Delete** API console opens.
   
-3.	In the **listId** box, enter the ID of the list that you want to delete a term from. This is the number (in our example, **122**) that is returned in the **Term Lists - Get Details** console for MyList. Enter the term and select a language.
+3.	In the **listId** box, enter the ID of the list that you want to delete a term from. This ID is the number (in our example, **122**) that is returned in the **Term Lists - Get Details** console for MyList. Enter the term and select a language.
  
   ![Term - Delete console query parameters](images/try-terms-list-delete-1.png)
 
