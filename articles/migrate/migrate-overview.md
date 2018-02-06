@@ -11,7 +11,7 @@ ms.author: raynew
 
 # About Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability of on-premises machines to Azure, performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability of on-premises machines to Azure, performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), to migrate the machines to Azure.
 
 ## Why use Azure Migrate?
 
@@ -24,14 +24,13 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+- Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5)
 
 > [!NOTE]
 > Support for Hyper-V is on the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
 
 - You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
-- VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
-- You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
+- You can only create an Azure Migrate project in West Central US or East US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
 - Azure Migrate only supports managed disks for migration assessment.
 
 ## What do I need to pay for?
@@ -46,10 +45,10 @@ An assessment helps you identify the Azure suitability of on-premises VMs, get r
 **Property** | **Details**
 --- | ---
 **Target location** | The Azure location to which you want to migrate. By default, the target location is set to West US 2. 
-**Storage redundancy** | The type of [storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that the Azure VMs will use after migration. Locally Redundant Storage is the default. Note that Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option. 
-**Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on performance history of the on-premises VMs or size the on-premises VMs as is for Azure without considering the performance history. The default value is performance-based sizing.
-**Pricing plans** | For cost calculations, the assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify subscription-specific discounts (%), that you may get on top of the offer. 
-**Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if are planning to migrate a production environment, you would like to consider the Standard tier which provides low latency but may cost more. On the other hand, if you a Dev-Test environment, you may want to consider Basic tier that have VMs with higher latency but low cost. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
+**Storage redundancy** | The type of [storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that the Azure VMs will use after migration. Locally Redundant Storage (LRS) is the default. Note that Azure Migrate only supports managed disks-based assessments and managed disks only support LRS, hence the property currently only has the LRS option. 
+**Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is performance-based sizing.
+**Pricing plans** | For cost calculations, an assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify any subscription-specific discounts (%), that you may get on top of the offer. 
+**Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if are planning to migrate a production environment, you would like to consider the Standard tier which provides low latency but may cost more. On the other hand, if you a Dev-Test environment, you may want to consider the Basic tier that has VMs with higher latency and low cost. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
 **Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using the performance history of the last one day, with a 95% percentile value. You can modify this setting in the Azure Migrate portal. 
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
 
