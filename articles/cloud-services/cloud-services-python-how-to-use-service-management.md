@@ -393,7 +393,7 @@ To finally create the virtual machine by using the captured image, use the **cre
 
 To learn more about how to capture a Linux virtual machine in the classic deployment model, see [Capture a Linux virtual machine](../virtual-machines/linux/classic/capture-image-classic.md).
 
-To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine.](../virtual-machines/windows/classic/capture-image-classic.md).
+To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Next steps
 Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
