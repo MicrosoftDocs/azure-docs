@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -24,7 +24,7 @@ ms.custom: it-pro
 In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
 -	Simplify your administrative overhead
--	Reduce the number of configuration errors
+-	Reduce the number of potential configuration errors
 -	Enable your users to securely access more resources
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
@@ -32,11 +32,11 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Create a wildcard application 
 
-You can create a wildcard (*) application if you have a group of applications with the same configuration. Common configuration settings for wildcard apps are:
+You can create a wildcard (*) application if you have a group of applications with the same configuration. Potential candidates for a wildcard application are applications sharing the following settings:
 
-- Applications that can be accessed by the same group of users
-- Applications using the same SSO method
-- Applications that are accessed using the same protocol (http, https)
+- The group of users having access to them
+- The SSO method
+- The access protocol (http, https)
 
 You can publish applications with wildcards if both, the internal and external URLs are in the following format:
 
@@ -46,7 +46,7 @@ For example: `http(s)://*.adventure-works.com`.
 
 You see an error if one of the URLs doesn't have a wildcard.
 
-If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. From the configuration perspective, these are "just" regular applications.
+If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. Applications without a wildcard do always take precedence over wildcard applications. From the configuration perspective, these are "just" regular applications.
 
 Creating a wildcard application is based on the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only differences are the URLs and potentially the SSO configuration.
 
@@ -148,17 +148,17 @@ Following the [documented steps](application-proxy-publish-azure-portal.md), you
 
 - Internal URL:
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\42.png)
+    ![Internal URL](./media/active-directory-application-proxy-wildcard\42.png)
 
 
 - External URL:
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\43.png)
+    ![External URL](./media/active-directory-application-proxy-wildcard\43.png)
 
  
 - Internal Application SPN: 
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\44.png)
+    ![SPN configuration](./media/active-directory-application-proxy-wildcard\44.png)
 
 
 By publishing the wildcard application, you can now access your three applications by navigating to the URLs you are used to (for example, `travel.adventure-works.com`).
@@ -186,22 +186,22 @@ You need to make sure that a CNAME records exist that points `finance.adventure-
 Following the [documented steps](application-proxy-publish-azure-portal.md), this scenario requires the following settings:
 
 
-- In the **Internal URL**, you set set **finance** instead of a wildcard. 
+- In the **Internal URL**, you set **finance** instead of a wildcard. 
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\52.png)
+    ![Internal URL](./media/active-directory-application-proxy-wildcard\52.png)
 
-- In the **External URL**, you set set **finance** instead of a wildcard. 
+- In the **External URL**, you set **finance** instead of a wildcard. 
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\53.png)
+    ![External URL](./media/active-directory-application-proxy-wildcard\53.png)
 
-- Internal Application SPN you set set **finance** instead of a wildcard.
+- Internal Application SPN you set **finance** instead of a wildcard.
 
-    ![AppId](./media/active-directory-application-proxy-wildcard\54.png)
+    ![SPN configuration](./media/active-directory-application-proxy-wildcard\54.png)
 
 
 This configuration implements the following scenario:
 
-![AppId](./media/active-directory-application-proxy-wildcard\09.png)
+![Scenario](./media/active-directory-application-proxy-wildcard\09.png)
 
 Because `finance.adventure-works.com` is a more specific URL than `*.adventure-works.com`, it takes precedence. Users navigating to `finance.adventure-works.com` have the experience specified in the Finance Resources application. In this case, only finance employees are able to access `finance.adventure-works.com`.
 
