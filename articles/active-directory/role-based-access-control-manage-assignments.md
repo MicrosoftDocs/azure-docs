@@ -4,7 +4,7 @@ title: View Azure resource access assignments | Microsoft Docs
 description: View and manage all the Role-Based Access Control assignments for any user or group in the Azure portal
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: jeffsta
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
-ms.author: andredm
+ms.author: rolyon
 
 ---
 # View access assignments for users and groups in the Azure portal
