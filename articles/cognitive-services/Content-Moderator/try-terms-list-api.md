@@ -33,7 +33,7 @@ You can use the List Management API to do the following tasks:
 
 Before you can test-drive the API in the online console, you need your subscription key. This key is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
-## Refresh Search Index
+## Refresh search index
 
 After you make changes to a term list, you must refresh its index for changes to be included in future scans. This step is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
