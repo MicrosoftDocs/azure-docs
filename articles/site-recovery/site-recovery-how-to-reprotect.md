@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 
 ---
@@ -218,13 +218,7 @@ You can also reprotect at the level of a recovery plan. A replication group can 
 
 After the reprotection succeeds, the virtual machine will enter a protected state.
 
-## Next steps
-
-After the virtual machine has entered a protected state, you can [initiate a failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-The failback will shut down the virtual machine in Azure and boot the on-premises virtual machine. Expect some downtime for the application. Choose a time for failback when the application can tolerate downtime.
-
-## Common problems
+## Common issues
 
 * If you used a template to create your virtual machines, ensure that each virtual machine has its own UUID for the disks. If the on-premises virtual machine's UUID clashes with that of the master target because both were created from the same template, reprotection fails. Deploy another master target that has not been created from the same template.
 
@@ -242,3 +236,9 @@ The failback will shut down the virtual machine in Azure and boot the on-premise
 
 * A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server cannot be failed back from Azure to an on-premises site.
 
+
+## Next steps
+
+After the virtual machine has entered a protected state, you can [initiate a failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
+
+The failback will shut down the virtual machine in Azure and boot the on-premises virtual machine. Expect some downtime for the application. Choose a time for failback when the application can tolerate downtime.

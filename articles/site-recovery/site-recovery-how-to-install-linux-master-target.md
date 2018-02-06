@@ -84,9 +84,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1. Select **No** (the default option), and then select **Enter**.
 
-
      ![Configure the keyboard](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
-
 1. Select **English (US)** as the country of origin for the keyboard, and then select **Enter**.
 
 1. Select **English (US)** as the keyboard layout, and then select **Enter**.
@@ -240,9 +238,9 @@ Use the following steps to create a retention disk:
 
 2. Use the **multipath -ll** command to learn the multipath ID of the retention disk.
 	
-   `multipath -ll`
+  	 `multipath -ll`
 
-	![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+		![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Format the drive, and then create a file system on the new drive.
 
@@ -257,7 +255,6 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-
 	![Mounting the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
@@ -348,11 +345,6 @@ Run the installer. It automatically detects that the agent is installed on the m
 
 You will see that the **Version** field gives the version number of the master target.
 
-## Next steps
-After the installation and registration of the Master Target has finished, you can see the Master Target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
-
-You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
-
 ## Common issues
 
 * Make sure you do not turn on Storage vMotion on any management components such as a master target. If the Master Target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached. In this case, failback fails.
@@ -362,3 +354,10 @@ You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), foll
 * Due to some custom NIC configurations, the network interface is disabled during startup, and the Master Target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
 	* BOOTPROTO=dhcp
 	* ONBOOT=yes
+
+
+## Next steps
+After the installation and registration of the Master Target has finished, you can see the Master Target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
+
+You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
+

@@ -17,11 +17,15 @@ ms.date: 12/19/2017
 ms.author: rajanaki
  
 ---
-# Troubleshoot errors when reprotecting a virtual machine back to on-premises, after failover
+
+# Troubleshoot errors reporte during the process of failback
+Failback essentialy involves two main steps. One is to reprotect virtual machines from Azue to on-premises, second is to actually perform the failback from Azure to on-premises.
+
+## Troubleshoot errors when reprotecting a virtual machine back to on-premises, after failover
 You may receive one of the following errors while performing reprotect of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
 
-## Error code 95226
+### Error code 95226
 
 *Reprotect failed as the Azure virtual machine was not able to reach the on-premises configuration server.*
 
@@ -33,7 +37,7 @@ To resolve this issue
 1. You need to ensure that the network of the Azure virtual machine is configured such that the virtual machine can communicate with the on-premises configuration server. To do this, either set up a Site to Site VPN back to your on-premises datacenter or configure an ExpressRoute connection with private peering on the virtual network of the Azure virtual machine. 
 2. If you already have a network configured such that the Azure virtual machine can communicate with the on-premises configuration server, then log into the virtual machine and check the 'InMage Scout Application Service'. If you observe that the InMage Scout Application Service is not running, then start the service manually and ensure that the service start type is set to Automatic.
 
-## Error code 78052
+### Error code 78052
 Reprotect fails with the error message: *Protection couldn't be completed for the virtual machine.*
 
 This can happen due to two reasons
@@ -42,23 +46,23 @@ This can happen due to two reasons
 
 To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen. If the existing virtual machine is a stray machine, you can just rename it so that the new virtual machine can get created on the same ESXi host.
 
-## Error code 78093
+### Error code 78093
 
 *The VM is not running, in a hung state, or not accessible.*
 
 To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
 
-## Error code 8061
+### Error code 8061
 
 *The datastore is not accessible from ESXi host.*
 
 Refer to the [master target pre-requisites](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [support datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback
 
 
-# Troubleshoot errors when performing a failback of an Azure virtual machine back to on-premises
+## Troubleshoot errors when performing a failback of an Azure virtual machine back to on-premises
 You may receive one of the following errors while performing failback of an Azure virtual machine back to on-premises. To troubleshoot, use the described steps for each error condition.
 
-## Error code 8038
+### Error code 8038
 
 *Failed to bring up the on-premises virtual machine due to the error*
 
