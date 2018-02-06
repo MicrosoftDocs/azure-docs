@@ -225,7 +225,7 @@ To learn more, read the [Workflow API console quickstart](try-review-api-job.md)
 
 The creation and update operation allows creating workflow from the API.
 
-The `Workflow-Create or Update` operation accepts the following inputs:
+The **Workflow-Create or Update** operation accepts the following inputs:
 
 - **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: The name of your workflow. Use `default` to begin with.
@@ -240,4 +240,4 @@ To learn how to create custom workflows, check out the [review tool's workflow t
 
 Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
 
-Finally, use your custom workflows with the *Job* operations as shon in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
+Finally, use your custom workflows with the **Job** operations as shon in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
