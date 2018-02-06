@@ -133,7 +133,7 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 A friendly name that lets you identify the output content. 
 
 ## Azure Media Content Moderator
-This processor helps you detect potential adult and racy content in videos. The processor automatically detects shots and keyframes in the video. It scores the keyframes for possible adult or racy content, and suggests reviews based on default thresholds. For detailed information and examples, see [Use Azure Media Content Moderator to moderate videos](media-services-video-moderation.md)
+This processor helps you detect potential adult and racy content in videos. The processor automatically detects shots and keyframes in the video. It scores the keyframes for possible adult or racy content, and suggests reviews based on default thresholds. For detailed information and examples, see [Use Azure Media Content Moderator to moderate videos](media-services-content-moderation.md)
 
 ![Moderate videos](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
