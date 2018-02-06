@@ -37,7 +37,7 @@ To configure Azure AD integration with BambooHR, you need the following items:
 - A BambooHR SSO-enabled subscription
 
 > [!NOTE]
-> When you test the steps in this tutorial, we do not recommend that you use a production environment.
+> When you test the steps in this tutorial, we recommend that you not use a production environment.
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -79,13 +79,7 @@ For SSO to work, Azure AD needs to know what its counterpart user is in BambooHR
 
 To establish the link relationship in BambooHR, assign the Azure AD **user name** value as the BambooHR **Username** value.
 
-To configure and test Azure AD SSO with BambooHR, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD SSO with Britta Simon.
-3. **[Create a BambooHR test user](#create-a-bamboohr-test-user)** - to have a counterpart of Britta Simon in BambooHR that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD SSO.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+To configure and test Azure AD SSO with BambooHR, complete the building blocks in the next five sections.
 
 ### Configure Azure AD single sign-on
 
