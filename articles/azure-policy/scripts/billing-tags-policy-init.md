@@ -46,6 +46,14 @@ $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -Displa
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
 ```
 
+### Clean up PowerShell deployment
+
+Run the following command to remove the resource group, VM, and all related resources.
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
+
 ## Apply tags to existing resources
 
 After assigning the policies, you can trigger an update to all existing resources to enforce the tag policies you have added. The following script retains any other tags that existed on the resources:
@@ -66,13 +74,6 @@ foreach($r in $resources)
 }
 ```
 
-### Clean up PowerShell deployment
-
-Run the following command to remove the resource group, VM, and all related resources.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 
 ## Next steps
 
