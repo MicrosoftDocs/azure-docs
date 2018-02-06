@@ -105,7 +105,7 @@ When you initiate a test failover, don't include all the domain controllers in t
 >
 >
 
-Beginning with Windows Server 2012, [additional safeguards are built into Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN rollbacks if the underlying hypervisor platform supports **VM-GenerationID**. Azure supports **VM-GenerationID. Because of this, domain controllers that run Windows Server 2012 or later on Azure virtual machines have these additional safeguards.
+Beginning with Windows Server 2012, [additional safeguards are built into Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN rollbacks if the underlying hypervisor platform supports **VM-GenerationID**. Azure supports **VM-GenerationID**. Because of this, domain controllers that run Windows Server 2012 or later on Azure virtual machines have these additional safeguards.
 
 
 When **VM-GenerationID** is reset, the **InvocationID** value of the AD DS database is also reset. In addition, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
@@ -167,7 +167,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 1. Do an authoritative restore of the domain controller. Keep the following information in mind:
 	* Although we don't recommend [FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), if you use FRS replication, follow the steps for an authoritative restore. The process is described in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762). 
     
-        For more information about BurFlags, see the blog post [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)
+        For more information about BurFlags, see the blog post [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
 	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated SYSVOL (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556). 
     
         You can also use the PowerShell functions. For more information, see [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
