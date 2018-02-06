@@ -47,7 +47,7 @@ If the user wishes to retain data longer, they can increase the size of the envi
 ### Example 2:
 Consider an environment also configured retention mode**Continue ingress and purge old data**. In this example, **Data retention time** is set to a lower value of 180 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity. In order to store data for the full 180 days, the daily ingress cannot exceed 0.166 GB (166 MB) per day.  
 
-Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment’s ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This is less than the desired data retention time frame.
+Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment’s ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
 
 ## Pause ingress
 - This mode is designed to ensure data is not purged if the size and count limits are reached prior to their retention period.  
