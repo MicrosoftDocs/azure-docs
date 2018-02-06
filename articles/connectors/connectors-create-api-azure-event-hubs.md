@@ -1,6 +1,6 @@
 ---
-title: Set up event monitor with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
-description: Monitor data streams to receive events and send events for Azure Logic Apps with Azure Event Hubs
+title: Set up event monitoring with Azure Event Hubs for Azure Logic Apps | Microsoft Docs
+description: Monitor data streams to receive events and send events with your logic apps by using Azure Event Hubs
 services: logic-apps
 keywords: data stream, event monitor, event hubs
 author: ecfan
@@ -23,40 +23,28 @@ ms.author: estfan; LADocs
 
 To set up an event monitor so that your logic app can detect events, receive events, and send events, 
 connect to an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) 
-from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
-
-> [!NOTE]
-> The Event Hubs trigger uses *long polling* behavior where 
-> the trigger waits at least 30 seconds for events or messages 
-> to arrive before reading them. This behavior might affect 
-> the time intervals over when actions are metered and charged, 
-> but not the total processing cost. For more details, see 
-> [metering for Logic Apps triggers](../logic-apps/logic-apps-pricing.md#triggers).
+from your logic app. Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
+and [how pricing works for Logic Apps connectors](../logic-apps/logic-apps-pricing.md).
 
 ## Requirements
 
 * You have to have an [Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) 
-in Azure. Learn 
-[how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
+in Azure. Learn [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md). 
 
-* To use [any connector](https://docs.microsoft.com/azure/connectors/apis-list) 
-in your logic app, you have to create a logic app first. Learn 
+* To use [any connector](../connectors/apis-list.md) 
+in your logic app, you have to first create a logic app. Learn 
 [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
-## Check Event Hubs namespace permissions and find the connection string
+## Connect to Azure Event Hubs
 
-For your logic app to access any service, 
+Before your logic app can access any service, 
 you have to create a [*connection*](./connectors-overview.md) 
 between your logic app and the service, if you haven't already. 
 This connection authorizes your logic app to access data.
 For your logic app to access your Event Hub, 
-you have to have **Manage** permissions and the 
-connection string for your Event Hubs namespace.
-
-To check your permissions and get the connection string, 
-follow these steps.
+check your permissions and get the connection string for your Event Hubs namespace.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
@@ -93,7 +81,7 @@ and choose **Create**.
 
     ![Event Hubs namespace connection created](./media/connectors-create-api-azure-event-hubs/event-hubs-connection-created.png)
 
-## Start workflow when your Event Hub receives new events
+## Trigger workflow when your Event Hub gets new events
 
 A [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is an event that starts a workflow in your logic app. To start a workflow
@@ -173,16 +161,14 @@ Enter any other optional details about the event, such as content for that event
 
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/eventhubs/). 
+To learn more about triggers and actions defined by the Swagger file and any limits, 
+review the [connector details](/connectors/eventhubs/).
 
-## Get help
+## Get support
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-To help improve Logic Apps and connectors, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
-*  [Find other connectors for Azure Logic apps](./apis-list.md)
+Learn more about [other connectors for Azure Logic apps](../connectors/apis-list.md)
