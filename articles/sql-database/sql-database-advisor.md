@@ -31,7 +31,7 @@ SQL Database continuously monitors the queries that are running and identifies t
 
  Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low. 
 
-Indexes that are created using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the sys.indexes view. Auto-created indexes don’t block ALTER/RENAME commands. 
+Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the sys.indexes view. Auto-created indexes don’t block ALTER/RENAME commands. 
 
 If you try to drop the column that has an auto-created index over it, the command passes and the auto-created index is dropped with the command as well. Regular indexes block the ALTER/RENAME command on columns that are indexed.
 
@@ -54,7 +54,7 @@ Drop index recommendations also go through the verification after implementation
 ## Parameterize queries recommendations
 *Parameterize queries* recommendations appear when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. This condition creates an opportunity to apply forced parameterization. Forced parameterization, in turn, allows query plans to be cached and reused in the future, thus improving performance and reducing resource usage. 
 
-Every query issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache and subsequent executions of the same query can reuse this plan from the cache, eliminating the need for additional compilation. 
+Every query that's issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache. Subsequent executions of the same query can reuse this plan from the cache, thus eliminating the need for additional compilation. 
 
 Applications that send queries, which include non-parameterized values, can lead to a performance overhead, where for every such query with different parameter values, the execution plan is compiled again. In many cases, the same queries with different parameter values generate the same execution plans. These plans, however, are still separately added to the plan cache. 
 
@@ -62,7 +62,7 @@ When you recompile execution plans, it use database resources, increases the que
 
 To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). In addition to CPU savings, your query duration decreases for the time spent in compilation. There is also be much less overhead on plan cache, allowing the majority of the plans to stay in cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
 
-After you apply this recommendation, it enables forced parameterization within minutes on your database. It starts the monitoring process, which lasts for approximately 24 hours. After this period, you will be able to see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation if performance regression has been detected.
+After you apply this recommendation, it enables forced parameterization within minutes on your database. It starts the monitoring process, which lasts for approximately 24 hours. After this period, you can see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation if performance regression has been detected.
 
 ## Fix schema issues recommendations (preview)
 
