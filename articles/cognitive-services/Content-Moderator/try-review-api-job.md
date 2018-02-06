@@ -26,7 +26,7 @@ Navigate to the [review tool](https://contentmoderator.cognitive.microsoft.com/)
 
 ## Use the API console
 To test-drive the API by using the online console, you need a few values to enter into the console:
-
+	
 - `teamName`: Use the `Id` field from your review tool's credentials screen. 
 - `ContentId`: This string is passed to the API and returned through the callback. **ContentId** is useful for associating internal identifiers or metadata with the results of a moderation job.- `Workflowname`: The name of the [workflow that you created](Review-Tool-User-Guide/Workflows.md) in the previous section.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
@@ -64,7 +64,8 @@ Select **Get**, and then open the API by selecting the button that matches your 
 
 Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The following response shows sample Job status and details.
 
-```	{
+```
+	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
 		"TeamName": "some team name",
 		"Status": "InProgress",
