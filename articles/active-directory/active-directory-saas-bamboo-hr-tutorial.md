@@ -176,9 +176,9 @@ To create a test user in Azure AD, do the following:
  
 ### Create a BambooHR test user
 
-To enable Azure AD users to log in to BambooHR, set them up manually in BambooHR by doing the following:
+To enable Azure AD users to log on to BambooHR, set them up manually in BambooHR by doing the following:
 
-1. Log in to your **BambooHR** site as an administrator.
+1. Log on to your **BambooHR** site as an administrator.
 
 2. In the toolbar at the top, select **Settings**.
    
