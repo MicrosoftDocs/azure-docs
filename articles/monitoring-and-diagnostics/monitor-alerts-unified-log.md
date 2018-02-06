@@ -69,11 +69,16 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 
 **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval.
 
+> [!NOTE]
+
+> Aggregate function in query must be named/called: AggregatedValue and provide a numeric value.
+
+
 **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**   
 
 > [!NOTE]
 
-> For Metric measurement alert rules that are based on Application Insights, you can specify the field for grouping the rules. To do this, use the **Aggregate on** option in the rule definition.   
+> For Metric measurement alert rules that are based on Application Insights, you can specify the field for grouping the data. To do this, use the **Aggregate on** option in the rule definition.   
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
 
