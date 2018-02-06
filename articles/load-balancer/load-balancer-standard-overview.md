@@ -459,6 +459,7 @@ The following limitations apply at the time of preview and are subject to change
 - IPv6 is not supported.
 - In the context of Availability Zones, a front-end is not mutable from zonal to zone-redundant, or vice versa. After a front-end is created as zone-redundant, it remains zone-redundant. After a front-end is created as zonal, it remains zonal.
 - In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
+- [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
 
 
@@ -468,3 +469,4 @@ The following limitations apply at the time of preview and are subject to change
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+- Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
