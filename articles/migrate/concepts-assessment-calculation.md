@@ -25,11 +25,11 @@ Not all machines are suitable for running on cloud as cloud has its own limitati
 - **Conditionally ready for Azure** - The machine may boot in Azure, but may not have full Azure support. For example, a machine with an older version of Windows Server OS is not supported in Azure. You need to be careful before migrating these machines to Azure and follow the remediation guidance suggested in the assessment to fix the readiness issues before you migrate.
 - **Not ready for Azure** - The machine will not boot in Azure. For example, if an on-premises machine has a disk of size more than 4TB attached to it, it cannot be hosted on Azure. You need to follow the remediaion guidance suggested in the assessment to fix the readiness issue before migrating to Azure. Right-sizing and cost estimation is not done for machines that are marked as not ready for Azure.
 - **Readiness unknown** - Azure Migrate could not find the readiness of the machine due to insufficient data available in vCenter Server. 
- 
-Following the is the list of checks done by Azure Migrate to identify the Azure readiness of an on-premises machine.
+
+Azure Migrate reviews the machine properties and guest operating system to identify the Azure readiness of the on-premises machine.
 
 ### Machine properties
-Azure Migrate reviews the properties of the on-premises machine to identify if the machine can run on Azure.  Below is the list of properties that are considered:
+Azure Migrate reviews the following properties of the on-premises VM to identify if the VM can run on Azure.
  
 **Property** | **Details** | **Azure readiness status**
 --- | --- | ---
@@ -43,21 +43,21 @@ Azure Migrate reviews the properties of the on-premises machine to identify if t
 Along with VM properties, Azure Migrate also looks at the guest OS of the on-premises VM to identify if the VM can run on Azure.
 
 > [!NOTE]
-> Azure Migrate considers the OS specified for the VM in the vCenter Server to do the below analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to find out if the actual OS running inside the VM is same as the one specified in vCenter Server.
+> Azure Migrate considers the OS specified in vCenter Server to do the below analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to verify if the OS running inside the VM is same as the one specified in vCenter Server.
 
-The following logic is used by Azure Migrate to identify the Azure readiness of the VM.
+The following logic is used by Azure Migrate to identify the Azure readiness of the VM based on the operating system.
 
 **Operating System** | **Details** | **Azure readiness status**
 --- | --- | ---
 Windows Server 2016 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 R2 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 & all SPs | Azure provides full support. | Ready for Azure
-Windows Server 2008 R2 with all SPs** | Azure provides full support.| Ready for Azure
+Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure
 Windows Server 2003-2008 R2 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is strongly recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with Visual Studio subscription only. | Conditionally ready for Azure
 Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is strongly recommended to upgrade the OS before migrating to Azure.
-Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems may boot in Azure, but it is recommended to upgrade the OS to an endorsed version before migrating to Azure. | Ready for Azure if the version is endorsed, Conditionally ready if the version is not endorsed.
+Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems may boot in Azure, but it is recommended to upgrade the OS to an endorsed version before migrating to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version is not endorsed.
 Other operating systems<br/><br/> e.g. Oracle Solaris, Apple Mac OS etc, FreeBSD, etc. | Azure does not endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
 OS specified as *Other* in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure. 
 32-bit operating systems | The machine may boot in Azure, but Azure may not provide full support. | Conditionally ready for Azure, consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
