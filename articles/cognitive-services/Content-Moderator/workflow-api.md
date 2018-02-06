@@ -219,6 +219,7 @@ The `Workflow-Get` operation accepts the following inputs:
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in the JSON format.
+Read the [Workflow API console quickstart](try-review-api-job.md) to learn more.
 
 ### Create or update workflow
 
@@ -230,13 +231,13 @@ The `Workflow-Create or Update` operation accepts the following inputs:
 - `workflowname`: The name of your workflow. Use `default` to begin with.
 - `Ocp-Apim-Subscription-Key`: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
-If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`.
-
+If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`. 
+[Test drive the `Create` operation](try-review-api-job.md) to learn more.
 
 ## Next steps
 
-Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
-
 Check out the [review tool's workflow tutorial](Review-Tool-User-Guide/Workflows.md) to learn how to create custom workflows. 
+
+Test drive the [Workflow API console](try-review-api-job.md) and use the REST API code samples. 
 
 Finally, use your custom workflows with the `Job` operations as shown in [Job API console](try-review-api-job.md) and the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md).
