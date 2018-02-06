@@ -10,7 +10,7 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/06/2018
 ---
 
 # Understand data retention in Time Series Insights
@@ -62,10 +62,13 @@ Consider an environment with retention mode configured to **pause ingress**. In 
 
 When ingress resumes:
 - Data flows in the order it was received by event source
-- The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source. For more on event source retention configuration, read here. 
+- The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source. For more information on event source retention configuration, [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
 
 > [!IMPORTANT]
-> You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 24 hours for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch modes to **Continue ingress and purge mode** to avoid the data loss potential.
+> You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 1 day for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch modes to **Continue ingress and purge mode** to avoid the data loss potential.
+
+In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
+![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)
 
 If no properties are configured on event source (timeStampPropertyName), TSI defaults to the timestamp of arrival at event hub as the x-axis. If timeStampPropertyName is configured to be something different, the environment looks for the configured timeStampPropertyName in the data packet when events are parsed. 
 
