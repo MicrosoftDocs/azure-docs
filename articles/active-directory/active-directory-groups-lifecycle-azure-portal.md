@@ -64,7 +64,7 @@ Email notifications such as the following are sent to the Office 365 group owner
 
 ![Expiration email notification](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-From the group renewal notification email, group owners can directly access the group details page in the My Apps portal. The group details page contains the group description, when it was last renewed, when it expires, and you can renew the group there. The group details page also contains links to Office 365 group resources so that group owners can view content and activity in their groups.
+From the group renewal notification email, group owners can directly access the group details page in the My Apps portal. You can renew the group on the group details page, which also contains the group description, when it was last renewed, and when it expires. The group details page also contains links to Office 365 group resources so that group owners can view content and activity in their groups.
 
 When a group expires, the group is deleted one day after the expiration date. The following email is an example of what is sent to Office 365 group owners informing them of the deletion of their Office 365 group.
 
