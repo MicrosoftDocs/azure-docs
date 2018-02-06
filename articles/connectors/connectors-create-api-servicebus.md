@@ -49,7 +49,7 @@ check your permissions.
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. Go to your Service Bus *namespace*, not a specific "messaging entity". 
-On the namespace blade, under **Settings**, choose **Shared access policies**. 
+On the namespace page, under **Settings**, choose **Shared access policies**. 
 Under **Claims**, check that you have **Manage** permissions for that namespace.
 
    ![Manage permissions for your Service Bus namespace](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
@@ -95,8 +95,8 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
 
       ![Create Service Bus connection](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
-      Or, to manually enter the connection connection string, 
-      choose **Manually enter connection information** instead. 
+      Or, to manually enter the connection string, 
+      choose **Manually enter connection information**. 
       Learn [how to find your connection string](#permissions-connection-string).
 
    2. Now select the Service Bus policy to use, and choose **Create**.

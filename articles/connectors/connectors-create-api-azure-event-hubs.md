@@ -47,7 +47,7 @@ check your permissions and get the connection string for your Event Hubs namespa
 1.  Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2.  Go to your Event Hubs *namespace*, not a specific Event Hub. 
-On the namespace blade, under **Settings**, choose **Shared access policies**. 
+On the namespace page, under **Settings**, choose **Shared access policies**. 
 Under **Claims**, check that you have **Manage** permissions for that namespace.
 
     ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
@@ -87,8 +87,8 @@ Select this trigger: **When events are available in Event Hub**
 
       ![Create Event Hub connection](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-      Or, to manually enter the connection connection string, 
-      choose **Manually enter connection information** instead. 
+      Or, to manually enter the connection string, 
+      choose **Manually enter connection information**. 
       Learn [how to find your connection string](#permissions-connection-string).
 
    2. Now select the Event Hubs policy to use, and choose **Create**.
