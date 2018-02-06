@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with ADP eTime | Microsoft 
 description: Learn how to configure single sign-on between Azure Active Directory and ADP eTime.
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MarkusVi
 manager: mtillman
 
 ms.assetid: a3e9f0be-19ed-4b99-a180-619e7624fc26
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
-ms.author: jeedes
+ms.date: 02/07/2018
+ms.author: markvi
 
 ---
 # Tutorial: Azure Active Directory integration with ADP eTime
