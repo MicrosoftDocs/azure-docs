@@ -50,5 +50,5 @@ Changes to the offer are not immediately visible to the user. To see the changes
 
 
 ### Next steps
-[Create subscriptions](azure-stack-subscribe-plan-provision-vm.md)
+[Create subscriptions](azure-stack-subscribe-plan-provision-vm.md)      
 [Provision a virtual machine](azure-stack-provision-vm.md)
