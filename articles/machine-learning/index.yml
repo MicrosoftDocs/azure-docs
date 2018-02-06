@@ -99,7 +99,7 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsM
+    className: cardsA
     items:
 
     - html: <a href="/azure/machine-learning/team-data-science-process">
