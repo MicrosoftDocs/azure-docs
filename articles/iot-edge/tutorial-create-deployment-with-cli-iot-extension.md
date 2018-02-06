@@ -67,7 +67,7 @@ Create an IoT hub called **CLIDemoHub** in the newly created resource group:
 Create an IoT Edge device:
 
    ```cli
-   az iot hub device-identity create -d edge001 -n CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
    ```
 
    ![Create IoT Edge device][4]
@@ -142,7 +142,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
 Apply the configuration to your IoT Edge device:
 
    ```cli
-   az iot hub apply-configuration --device-id edge001 --hub-name blogDemoHub --content C:\<configuration.txt file path>
+   az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
    ![Apply configuration][5]
