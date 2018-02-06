@@ -480,12 +480,14 @@ Visual Studio 2015 diagnostic events: RunAsync failure in **fabric:/HelloWorldSt
 
 * **SourceId**: System.Replicator
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
+* **Next steps**: If the report is on the primary, check the connection between the nodes in the cluster. If all connections are healthy, there could be at least one slow secondary with a high disk latency to apply operations. If the report is on the secondary, check the disk usage and performance on the node first and then the outgoing connection from the slow node to the primary.
 
 **RemoteReplicatorConnectionStatus:**
 **System.Replicator** on the primary replica reports a warning when the connection to a secondary (remote) replicator is not healthy. Remote replicator's address is shown in the report's message, making it more convenient to detect if a wrong config has been passed in or there are network issues between the replicators.
 
 * **SourceId**: System.Replicator
 * **Property**: **RemoteReplicatorConnectionStatus**
+* **Next steps**: Check the error message and make sure the remote replicator address is configured correctly (for example, if remote replicator is opened with "localhost" listen address, it is not reachable from the outside). If address looks correct, check the connection between the primary node and the remote address to find any potential network issues.
 
 ### Slow Naming operations
 **System.NamingService** reports health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient, for example under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
