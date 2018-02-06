@@ -40,6 +40,7 @@
 ## Configure multiple site hosting
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## Configure external redirection
 ### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
 ### [Azure CLI](tutorial-external-site-redirect-cli.md)
