@@ -15,14 +15,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # What's new in Azure Active Directory?
-
-
 
 
 > Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -122,7 +120,7 @@ As of January 8, 2018, the Azure AD administration experience in the Azure class
  
 ---
 
-### Azure AD administration experience in Azure classic portal has been retired
+### The PhoneFactor web portal has been retired
 
 **Type:** Deprecated  
 **Service category:** Azure AD  
