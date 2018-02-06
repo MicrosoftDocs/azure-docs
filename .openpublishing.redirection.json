@@ -3225,7 +3225,7 @@
         },
         {
             "source_path": "articles/devtest-lab/devtest-lab-add-vm-with-artifacts.md",
-            "redirect_url": "/articles/devtest-lab/devtest-lab-add-vm",
+            "redirect_url": "/azure/devtest-lab/devtest-lab-add-vm",
             "redirect_document_id": false
         },
         {

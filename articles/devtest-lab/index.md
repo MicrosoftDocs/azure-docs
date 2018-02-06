@@ -73,7 +73,7 @@ Learn how to use Devtest Labs to quickly create application test environments us
         </a>
     </li>
     <li>
-        <a href="/azure/devtest-lab/devtest-lab-add-vm-with-artifacts">
+        <a href="/azure/devtest-lab/devtest-lab-add-vm">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
