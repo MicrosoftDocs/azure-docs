@@ -56,7 +56,7 @@ Filter on additional info and type in your Reservation ID. The following screens
 4. This is the Meter Id for Reservation. Cost of this meter is $0. Any VM that qualifies for Reserved Instance has this MeterId in the csv to account for the cost. 
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge is not applied. 
 
-## Learn more
+## Next steps
 To learn more about Reserved Virtual Machine Instances, see the following articles.
 
 - [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)

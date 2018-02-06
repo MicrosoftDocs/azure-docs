@@ -46,7 +46,7 @@ If you don't have Azure Hybrid Use Benefit on your Reserved Instance VM, then yo
 
 You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004).
 
-## Learn more
+## Next steps
 To learn more about Reserved Virtual Machine Instances, see the following articles.
 
 - [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)

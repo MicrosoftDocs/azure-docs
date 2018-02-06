@@ -55,7 +55,7 @@ Reserved Instance usage also shows up in usage summary section of EA portal:
 1. You are not charged for hardware component of the VM as it is covered by Reserved Instance. 
 2. You are charged for Windows software as Azure Hybrid Benefit is not used. 
 
-## Learn more
+## Next steps
 To learn more about Reserved Virtual Machine Instances, see the following articles.
 
 - [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)

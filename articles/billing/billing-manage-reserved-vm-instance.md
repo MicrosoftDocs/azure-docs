@@ -72,7 +72,7 @@ To delegate access management for a reservation:
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
 
-## Learn more
+## Next steps
 To learn more about Reserved Virtual Machine Instances, see the following articles.
 
 - [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
