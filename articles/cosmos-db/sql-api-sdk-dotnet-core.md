@@ -62,7 +62,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Added a new ToString() function to QueryMetrics.
 * Expose partition statistics on reading collections.
 * Added PartitionKey property to ChangeFeedOptions.
-* Other minor reliability improvements and bug fixes.
+* Minor bug fixes.
 
 ### <a name="1.7.1"/>1.7.1
  
