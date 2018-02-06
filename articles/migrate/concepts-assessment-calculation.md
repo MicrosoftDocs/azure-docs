@@ -15,7 +15,7 @@ ms.author: raynew
 
 ## Overview
 
-An Azure Migrate assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be calculated. 
+An Azure Migrate assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done. 
 
 
 ## Azure suitability analysis
@@ -23,13 +23,13 @@ An Azure Migrate assessment has three stages. Assessment starts with a suitabili
 Not all machines are suitable for running on cloud as cloud has its own limitations and requirements. Azure Migrate assesses each on-premises machine for migration suitability to Azure and categorizes the machines into one of the following categories:
 - **Ready for Azure** - The machine can be migrated as-is to Azure without any changes. It will boot in Azure with full Azure support.
 - **Conditionally ready for Azure** - The machine may boot in Azure, but may not have full Azure support. For example, a machine with an older version of Windows Server OS is not supported in Azure. You need to be careful before migrating these machines to Azure and follow the remediation guidance suggested in the assessment to fix the readiness issues before you migrate.
-- **Not ready for Azure** - The machine will not boot in Azure. For example, if an on-premises machine has a disk of size more than 4TB attached to it, it cannot be hosted on Azure. You need to follow the remediaion guidance suggested in the assessment to fix the readiness issue before migrating to Azure. Right-sizing and cost estimation is not done for machines that are marked as not ready for Azure.
+- **Not ready for Azure** - The machine will not boot in Azure. For example, if an on-premises machine has a disk of size more than 4 TB attached to it, it cannot be hosted on Azure. You need to follow the remediation guidance suggested in the assessment to fix the readiness issue before migrating to Azure. Right-sizing and cost estimation is not done for machines that are marked as not ready for Azure.
 - **Readiness unknown** - Azure Migrate could not find the readiness of the machine due to insufficient data available in vCenter Server. 
 
 Azure Migrate reviews the machine properties and guest operating system to identify the Azure readiness of the on-premises machine.
 
 ### Machine properties
-Azure Migrate reviews the following properties of the on-premises VM to identify if the VM can run on Azure.
+Azure Migrate reviews the following properties of the on-premises VM to identify whether a VM can run on Azure.
  
 **Property** | **Details** | **Azure readiness status**
 --- | --- | ---
@@ -43,7 +43,7 @@ Azure Migrate reviews the following properties of the on-premises VM to identify
 Along with VM properties, Azure Migrate also looks at the guest OS of the on-premises VM to identify if the VM can run on Azure.
 
 > [!NOTE]
-> Azure Migrate considers the OS specified in vCenter Server to do the below analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to verify if the OS running inside the VM is same as the one specified in vCenter Server.
+> Azure Migrate considers the OS specified in vCenter Server to do the following analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to verify if the OS running inside the VM is same as the one specified in vCenter Server.
 
 The following logic is used by Azure Migrate to identify the Azure readiness of the VM based on the operating system.
 
@@ -54,20 +54,20 @@ Windows Server 2012 R2 & all SPs | Azure provides full support. | Ready for Azur
 Windows Server 2012 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure
 Windows Server 2003-2008 R2 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
-Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is strongly recommended to upgrade the OS before migrating to Azure.
+Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with Visual Studio subscription only. | Conditionally ready for Azure
-Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is strongly recommended to upgrade the OS before migrating to Azure.
+Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems may boot in Azure, but it is recommended to upgrade the OS to an endorsed version before migrating to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version is not endorsed.
-Other operating systems<br/><br/> e.g. Oracle Solaris, Apple Mac OS etc, FreeBSD, etc. | Azure does not endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
+Other operating systems<br/><br/> e.g.,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure does not endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
 OS specified as *Other* in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure. 
 32-bit operating systems | The machine may boot in Azure, but Azure may not provide full support. | Conditionally ready for Azure, consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
 
 ## Sizing
 
-After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its disks for Azure. If the sizing criterion specified in the assessment properties is to do performance-based sizing, Azure Migrate considers the performance history of the machine to identify a VM size in Azure. This method is helpful in scenarios where you have over-allocated the on-premises VM but the utilization is very low and you would like to right-size the VMs in Azure to save cost.
+After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its disks for Azure. If the sizing criterion specified in the assessment properties is to do performance-based sizing, Azure Migrate considers the performance history of the machine to identify a VM size in Azure. This method is helpful in scenarios where you have over-allocated the on-premises VM but the utilization is low and you would like to right-size the VMs in Azure to save cost.
 
 > [!NOTE]
-> Azure Migrate collects performance history of on-premises VMs from vCenter Server. To ensure accurate right-sizing, ensure that the statistics settings in vCenter Server is set to level 3 and wait for at least a day before kicking off discovery of the on-premises VMs. If the statistics settings in vCenter Server is below level 3, performance data for disk and network will not be collected. 
+> Azure Migrate collects performance history of on-premises VMs from vCenter Server. To ensure accurate right-sizing, ensure that the statistics setting in vCenter Server is set to level 3 and wait for at least a day before kicking off discovery of the on-premises VMs. If the statistics setting in vCenter Server is below level 3, performance data for disk and network is not collected. 
 
 If you do not want to consider the performance history and want to take the VM as-is to Azure, you can specify the sizing criterion as *as on-premises* and Azure Migrate will then size the VMs based on the on-premises configuration without considering the utilization data.
 
@@ -86,28 +86,28 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
     - If there are multiple eligible disks, it selects the one with the lowest cost.
     - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
 
-- **Network adapters**: Azure Migrate tries to find an Azure VM that can support the number of network adapaters attached to the on-premises machine and the performance required by these network adapters.
-    - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out) across all network adapters, and applies the comfort factor to the aggregated number. This number is used to find an Azure VM that can support the required network performance.
+- **Network adapters**: Azure Migrate tries to find an Azure VM that can support the number of network adapters attached to the on-premises machine and the performance required by these network adapters.
+    - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out), across all network adapters, and applies the comfort factor. This number is used to find an Azure VM that can support the required network performance.
     - Along with network performance, it also considers if the Azure VM can support the required the number of network adapters.
     - If no network performance data is available, only the network adapters count is considered for VM sizing.
 
-- **VM Size**: After storage and network requirements are calculated, Azure Migrate considers compute requirements:
+- **VM Size**: After storage and network requirements are calculated, Azure Migrate considers CPU and memory requirements to find a suitable VM size in Azure.
     - Azure Migrate looks at the utilized cores and memory, and applies the comfort factor to get the effective cores and memory. Based on that number, it tries to find a suitable VM size in Azure.
     - If no suitable size is found, the machine is marked as unsuitable for Azure.
     - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing tier settings, for the final VM size recommendation.
     - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
 ### As on-premises sizing
-In case of as on-premises sizing, Azure Migrate does not consider the performance history of the VMs and allocates VMs and disks based on the size allocated on-premises.
+If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and allocates VMs and disks based on the size allocated on-premises.
 - **Storage**: For each disk, a standard disk in Azure is recommended with the same size as the on-premises disk.
-- **Network**: For each network adapater, a network adapter in Azure is recommended.
-- **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and allocates an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+- **Network**: For each network adapter, a network adapter in Azure is recommended.
+- **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
  
 ### Confidence rating
 
-Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 stars (1 star being lowest and 5 stars being highest). The confidence rating is based on the availability of data points needed to compute an assessment and will help you estimate the reliability of the size recommendations provided by Azure Migrate. 
+Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 stars (1 star being lowest and 5 stars being highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. It helps you estimate the reliability of the size recommendations provided by Azure Migrate. 
 
-Confidence rating is useful when you are doing *performance-based sizing* as not all data points may be available. For *as on-premises sizing*, the confidence rating is always 5-star as Azure Migrate will have all the data it needs to size the VM. 
+Confidence rating is useful when you are doing *performance-based sizing* as not all data points may be available. For *as on-premises sizing*, the confidence rating is always 5-star as Azure Migrate has all the data it needs to size the VM. 
 
 For performance-based sizing, Azure Migrate needs the utilization data for CPU and memory. For each disk attached to the VM, it needs the read/write IOPS and throughput to do performance-based sizing. Similarly for each network adapter attached to the VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided:
 
@@ -120,13 +120,13 @@ For performance-based sizing, Azure Migrate needs the utilization data for CPU a
    81%-100% | 5 Stars
 
 An assessment may not have all the data points available due to one of the following reasons:
-- The statistics settings in vCenter Server is not set to level 3 and the assessment has performance-based sizing as the sizing criterion. If the statistics settings in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network will be only based on what was allocated on-premises. For storage, Azure Migrate will only recommend standard disks as there is no way to identify if the disk has high IOPS/throughput and needs premium disks.
-- The statistics settings in vCenter Server was set to level 3 only for a short duration before kicking off the discovery. For example, you might have changed the statistics settings level to 3 yesterday and kicked off the discovery using the collector appliance tday (after 24 hours). In this case, if you are creating an assessment for 1 day, you will have all the data points. But if you are changing the performance duaration in the assessment properties to 1 month, the confidence rating will go down as the disk and network performance data for the last one month is not available. If you would like to consider the performance data of last one month, it is recommended that you keep the vCenter Server statistics settings to level 3 for one month before you kick off the discovery. 
+- The statistics setting in vCenter Server is not set to level 3 and the assessment has performance-based sizing as the sizing criterion. If the statistics setting in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network is only based on what was allocated on-premises. For storage, Azure Migrate recommends standard disks as there is no way to identify if the disk has high IOPS/throughput and needs premium disks.
+- The statistics setting in vCenter Server was set to level 3 for a short duration, before kicking off the discovery. For example, if you change the statistics setting level to 3 today and kick off the discovery using the collector appliance tomorrow (after 24 hours), if you are creating an assessment for one day, you have all the data points. But if you are changing the performance duration in the assessment properties to one month, the confidence rating goes down as the disk and network performance data for the last one month is not available. If you would like to consider the performance data of last one month, it is recommended that you keep the vCenter Server statistics setting to level 3 for one month before you kick off the discovery. 
 - Few VMs were shut down during the period for which the assessment is calculated. If any VMs were powered off for some duration, vCenter Server will not have the performance data for that period. 
 - Few VMs were created in between the period for which the assessment is calculated. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In such cases, the performance history of the new VMs will not be there for the entire duration.
 
 > [!NOTE]
-> If the confidence rating of any assessment is below 3 Stars, we recommend you to change the vCenter Server statistics settings level to 3, wait for the duration that you want to consider for assessment (1 day/1 week/1 month) and then do discovery and assessment. If the above cannot be done, performance-based sizing may not be reliable and it is recommended to switch to as on-premises sizing in the assessment properties.
+> If the confidence rating of any assessment is below 3 Stars, we recommend you to change the vCenter Server statistics settings level to 3, wait for the duration that you want to consider for assessment (1 day/1 week/1 month) and then do discovery and assessment. If the preceding cannot be done, performance-based sizing may not be reliable and it is recommended to switch to *as on-premises sizing* by changing the assessment properties.
 
 ## Monthly cost estimation
 
