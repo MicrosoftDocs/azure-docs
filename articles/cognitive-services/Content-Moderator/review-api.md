@@ -14,19 +14,22 @@ ms.author: sajagtap
 
 # Moderation Jobs and Reviews
 
-Combine human reviews with machine-assisted moderation by using the Review API [(See API reference)](api-reference.md "Content Moderator API Reference") to get the best results for your business. 
+Combine machine-assisted moderation with human-in-the-loop capabilities by using the [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business. 
 
-The Review API offers the following ways to include human moderation in your content moderation process:
+The Review API offers the following ways to include human oversight in your content moderation process:
 
-1. The **Job** operations for machine-assisted moderation and human review creation.
-1. The **Review** operations for human review creation.
+1. The `Job` operations for starting machine-assisted moderation and human review creation as one step.
+1. The `Review` operations for human review creation, outside of the moderation step.
+1. The `Workflow` operations for managing workflows that automate scanning with thresholds for review creation.
 
-Both operations accept your callback endpoints for receiving detailed status and results after completion.
+The `Job` and `Review` operations accept your callback endpoints for receiving status and results.
+
+In this article, we cover the `Job` and `Review` operations. Read the [Workflows overview](workflow-api.md) for information on how to create, edit, and get workflow definitions.
 
 ## Job operations
 
 ### Start a Job
-Use the **Job.Create** operation to start a moderation job. The Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation tags and post-review decisions to your callback endpoint.
+Use the `Job.Create` operation to start a moderation and human review creation job. The Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation and post-review tags to your callback endpoint.
 
 The inputs include the following information:
 
@@ -43,7 +46,7 @@ The following response shows the identifier of the job that was started. You use
 
 ### Get Job status
 
-Use the **Job.Get** operation and job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The  final results are returned through the callback endpoint.
+Use the `Job.Get` operation and the job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The  final results are returned through the callback endpoint.
 
 Your inputs include the following information:
 
@@ -108,7 +111,7 @@ The response includes the following information:
 
 ### Create Reviews
 
-Use the **Review.Create** operation to create the human reviews. You either moderate them elsewhere or you use custom logic to assign the moderation tags.
+Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or you use custom logic to assign the moderation tags.
 
 Your inputs to this operation include:
 
@@ -123,7 +126,7 @@ The following response shows the review identifier:
 
 
 ### Get Review status
-Use the **Review.Get** operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. The operation returns two sets of tags, the tags assigned by the moderation service, and the tags after the human review was completed.
+Use the `Review.Get` operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. The operation returns two sets of tags, the tags assigned by the moderation service, and the tags after the human review was completed.
 
 Your inputs include at a minimum:
 
