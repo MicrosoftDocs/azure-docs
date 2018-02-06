@@ -30,7 +30,7 @@ You can configure an activity log alert based on any top-level property in the J
 
 >[!NOTE]
 
->You must specify at least two of the preceding criteria in your alert, with one being the category. You may not create an alert that activates every time an event is created in the activity logs.
+> When the category is "administrative", You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 >
 
 When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
