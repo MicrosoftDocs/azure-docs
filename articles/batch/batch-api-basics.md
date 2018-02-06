@@ -477,6 +477,8 @@ You can perform additional debugging and troubleshooting by signing in to a comp
 >
 >
 
+If you need to restrict or disable RDP or SSH access to compute nodes, see [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration).
+
 ### Troubleshooting problematic compute nodes
 In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. After you've identified a problem node, you can take several actions with it:
 
