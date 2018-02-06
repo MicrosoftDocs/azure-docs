@@ -27,7 +27,7 @@ In this tutorial, you learn how to perform various Ansible tasks from Bash in Cl
 ## Use Ansible to connect to a VM
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
-1. Open Bash in Cloud Shell. Shell type is denoted on the left side of Cloud Shell's window.
+1. Open Bash in Cloud Shell. Shell type is denoted on the left side of the Cloud Shell window.
 
 1. If you do not have a virtual machine to use, enter the following commands into the Cloud Shell to create a virtual machine with which to test:
 
