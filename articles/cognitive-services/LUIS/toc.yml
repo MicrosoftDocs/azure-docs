@@ -121,6 +121,8 @@
   items: 
   - name: Regions
     href: luis-reference-regions.md
+  - name: Limits
+    href: luis-limits.md
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
   - name: Prebuilt domain reference
