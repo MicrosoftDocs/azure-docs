@@ -18,7 +18,7 @@ ms.author: rajanki
 ---
 
 # Overview of failback
-After you have failed over to Azure, you can fail back to your on-premises site.There are two different types of failback that are possible with Azure Site Recovery 
+After you have failed over to Azure, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
 
 - Fail back to the original location 
 - Fail back to an alternate location
