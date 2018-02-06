@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/06/2018
 ms.author: jeedes
 
 ---
@@ -193,6 +193,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from JIRA. 
 
 	i. Click **Save** button to save the settings.
+
+	> [!NOTE]
+	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) and there is also FAQ for your assist visit [MS JIRA SSO Connector FAQ](ms-confluence-jira-plugin-faq.md)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
