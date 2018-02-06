@@ -30,7 +30,7 @@ You can configure an activity log alert based on any top-level property in the J
 
 >[!NOTE]
 
->You must specify at least two of the preceding criteria in your alert, with one being the category. You may not create an alert that activates every time an event is created in the activity logs.
+> When the category is "administrative", You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 >
 
 When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
@@ -53,6 +53,15 @@ To learn more about service health notifications, see [Receive activity log aler
 
 
 ## Create an alert rule for an activity log
+
+> [!NOTE]
+
+>  While creating the alert rules, ensure the following:
+
+> - Subscription in the scope is not different from the subscription where the alert is created.
+- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+
 
 Use the following procedure:
 
