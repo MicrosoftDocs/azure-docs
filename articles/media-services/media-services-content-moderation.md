@@ -30,7 +30,7 @@ This article gives details about  **Azure Media Content Moderator** and shows ho
 Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
 
 ## Content Moderator output files
-The moderated output in the JSON format includes auto-detected shots and keyframes. The keyframes are returned with confidence scores for possible adult or racy content. They also include a boolean flag indicating whether a review is recommended. The review recommendation flag is assigned true if the confidence scores are equal or greater than the internal thresholds for adult and racy scores.
+The moderated output in the JSON format includes auto-detected shots and keyframes. The keyframes are returned with confidence scores for possible adult or racy content. They also include a boolean flag indicating whether a review is recommended. The review recommendation flag is assigned values based on the internal thresholds for adult and racy scores.
 
 ## Elements of the output JSON file
 
@@ -42,9 +42,9 @@ The output JSON includes the following elements:
 
 | Element | Description |
 | --- | --- |
-| version |This refers to the version of Content Moderator. |
+| version |The version of Content Moderator. |
 | timescale |"Ticks" per second of the video. |
-| offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
+| offset |The time offset for timestamps. In version 1.0 of Video APIs, this value  will always be 0. This value may change in the future. |
 | framerate |Frames per second of the video. |
 | width |The width of the output video frame, in pixels.|
 | height |The height of the output video frame, in pixels.|
@@ -58,7 +58,7 @@ The output JSON includes the following elements:
 | start |The start time of the first event in "ticks." |
 | duration |The length of the fragment, in “ticks.” |
 | interval |The interval of each event entry within the fragment, in “ticks.” |
-| [events](#events-json-elements) |Each event represent a clip and each clip contains keyframes detected and tracked within that time duration. It is an array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time.|
+| [events](#events-json-elements) |Each event represents a clip and each clip contains keyframes detected and tracked within that time duration. It is an array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time.|
 
 ### Events JSON elements
 
@@ -68,7 +68,7 @@ The output JSON includes the following elements:
 | adultScore | Confidence score for possible adult content, on a scale of 0.00 to 0.99. |
 | racyScore | Confidence score for possible racy content, on a scale of 0.00 to 0.99. |
 | index | index of the frame on a scale from the first frame index to the last frame index. |
-| timestamp | The location of the frame in "ticks.". |
+| timestamp | The location of the frame in "ticks." |
 | shotIndex | The index of the parent shot. |
 
 
