@@ -33,7 +33,7 @@ Apache Ambari is used to monitor the cluster and make configuration changes. For
 
 ## Open the Spark History Server
 
-Spark History Server is the web UI for completed and running Spark applications. It is an extension of Sparkl's Web UI.
+Spark History Server is the web UI for completed and running Spark applications. It is an extension of Spark's Web UI.
 
 **To open the Spark History Server Web UI**
 
