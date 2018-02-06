@@ -14,17 +14,26 @@ ms.custom: mvc
 
 # Delete an Azure Container Service (AKS) cluster
 
-When deleting an Azure Container Service cluster, the resource group in which the cluster was deployed remains, however all AKS related service are deleted and auto-generated resource groups are deleted.
+When deleting an Azure Container Service cluster, the resource group in which the cluster was deployed remains, however all AKS-related resources are deleted. This document shows how to delete an AKS cluster using the Azure CLI and Azure portal. 
 
-This document details how to delete an Azure Container Service cluster using both the Azure CLI and Azure portal. 
+In addition to deleting the cluster, the resource group in which it was deployed can be deleted, which also deletes the AKS cluster.
 
 ## Azure CLI
 
-Use the [az aks delete][az-aks-delete] command to delete the AKS cluster. The following example includes the `--yes` argument which will prevent a deletion confirmation.
+Use the [az aks delete][az-aks-delete] command to delete the AKS cluster.
 
 ```azurecli-interactive
-az aks delete --resource-group myAKSCluster --name myAKSCluster --yes
+az aks delete --resource-group myAKSCluster --name myAKSCluster
 ```
+
+The following options are available with the `az aks delete` command.
+
+| Argument | Description | Required |
+|---|---|---|
+| --name -n | Resource name for the managed cluster. | yes |
+| --resource-group | Name of the Azure Container Service resource group. | yes |
+| --no-wait | Do not wait for the long-running operation to finish. | no |
+| --yes -y | Do not prompt for confirmation. | no |
 
 ## Azure portal
 
