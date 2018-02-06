@@ -114,7 +114,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
         ![copy paste folder or file](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
 
-  *  **Pin to Quick access**
+   * **Pin to Quick access**
 
      1. Select the folder you wish to pin.
      2. On the main pane's toolbar, select **Pin to Quick access**.
@@ -122,7 +122,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
         ![pin to quick access](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
      4. After Create the quick access, you can easily get access to the resources.
-  *  **Deep Links**
+   * **Deep Links**
      1. If you have a URL, you can just enter the URL into the address path in **File Explorer** or browser.
      2. Then **Storage Explorer.exe** is launched automatically to navigate to the location of the URL you just entered.
 
