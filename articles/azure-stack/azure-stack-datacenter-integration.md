@@ -50,7 +50,7 @@ If you choose to deploy Azure Stack using AD FS as the identity provider, you mu
 You can also integrate the Graph service in Azure Stack with the existing Active Directory. This enables you to manage Role-Based Access Control (RBAC) in Azure Stack. When access to a resource is delegated, the Graph component looks up the user account in the existing Active Directory forest using the LDAP protocol.
 
 The following diagram shows integrated AD FS and Graph traffic flow.
-![Diagram showing AD FS and Graph traffic flow](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram showing AD FS and Graph traffic flow](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## Licensing model
 You must decide which licensing model you want to use. The available options depend on whether or not you deploy Azure Stack connected to the internet:
@@ -132,11 +132,11 @@ You can connect Azure Stack to Azure via [ExpressRoute](https://docs.microsoft.c
 
 The following diagram shows ExpressRoute for a single-tenant scenario (where "Customer's connection" is the ExpressRoute circuit).
 
-![Diagram showing single-tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram showing single-tenant ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 The following diagram shows ExpressRoute for a multi-tenant scenario.
 
-![Diagram showing multi-tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram showing multi-tenant ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## External monitoring
 To get a single view of all alerts from your Azure Stack deployment and devices, and to integrate alerts into existing IT service management workflows for ticketing, you can [integrate Azure Stack with external datacenter monitoring solutions](azure-stack-integrate-monitor.md).
