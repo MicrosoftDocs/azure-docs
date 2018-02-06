@@ -12131,6 +12131,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md",
+            "redirect_url": "/azure/cloud-services/diagnostics-performance-counters",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
             "redirect_document_id": false
@@ -16662,6 +16667,11 @@
     {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-tsql.md",
             "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-tsql",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/application-gateway/application-gateway-configure-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-redirect-powershell",
             "redirect_document_id": false
     }
    ]
