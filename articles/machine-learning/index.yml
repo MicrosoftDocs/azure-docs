@@ -36,7 +36,7 @@ sections:
             <br><b>Azure Machine Learning Studio</b></a>
             <p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
 
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">
+    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index">
             <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
             <br><b>Data Science Virtual Machine</b></a>
             <p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
