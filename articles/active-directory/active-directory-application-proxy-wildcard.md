@@ -30,7 +30,7 @@ Configuring a large number of applications can quickly become unmanageable and i
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
 
-# Create a wildcard application 
+## Create a wildcard application 
 
 You can create a wildcard application if you have a group of applications with the same configuration. This includes:
 
