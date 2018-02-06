@@ -25,7 +25,7 @@ This article shows how to use a reverse zone in Azure DNS and create Reverse DNS
 
 ## Symptom
 
-If you host a SMTP server in Azure, you may receive the following error when send or receive message from remote mail services:
+If you host an SMTP server in Azure, you may receive the following error when send or receive message from remote mail services:
 554: No PTR Record 
 
 ## Solution
@@ -34,7 +34,7 @@ For virtual IP address in Azure, the reverse records are created in Microsoft ow
 
 To configure PTR records in Microsoft owned zones, use the -ReverseFqdn property on the PublicIpAddress resource. For more information, see Configure reverse DNS for services hosted in Azure. 
 
-When you configure the PTR records, make sure that the IP address and ReverseFqdn is owned by the subscription. If you try to set ReverseFqdn that does not belong to the subscription, the error message will be received:
+When you configure the PTR records, make sure that the IP address and ReverseFqdn are owned by the subscription. If you try to set ReverseFqdn that does not belong to the subscription, the error message is received:
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
