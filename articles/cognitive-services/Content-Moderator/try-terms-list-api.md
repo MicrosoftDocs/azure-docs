@@ -93,6 +93,24 @@ Before you can test-drive the API in the online console, you need your subscript
  
 13.	Add a few more terms. Now that you have created a custom list of terms, try [scanning some text](try-text-api.md) by using the custom term list. 
 
+## Refresh Search Index
+
+After you make changes to a term list, you must refresh its index for changes to be included in future scans. This is a similar step to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+
+1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
+
+  The **Term Lists - Refresh Search Index** page opens.
+
+2. For **Open API testing console**, select the region that most closely describes your location. 
+
+  ![Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
+
+  The **Term Lists - Refresh Search Index** API console opens.
+
+3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
+
+  ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
+
 ## Delete terms and lists
 
 Deleting a term or a list is straightforward. You use the API to do the following tasks:
@@ -143,23 +161,6 @@ You can edit a list’s name and description, and add metadata items.
 
   ![Term Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
-## Refresh Search Index
-
-After you make changes to a term list, you must refresh its index for changes to be included in future scans. This is a similar step to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
-
-1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
-
-  The **Term Lists - Refresh Search Index** page opens.
-
-2. For **Open API testing console**, select the region that most closely describes your location. 
-
-  ![Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
-
-  The **Term Lists - Refresh Search Index** API console opens.
-
-3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
-
-  ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
 
 ## Next steps
 
