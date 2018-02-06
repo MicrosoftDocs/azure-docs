@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 
-# Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
+# Copy data from an on-premises SQL Server database to Azure Blob storage
 In this tutorial, you use the Azure Data Factory user interface (UI) to create a data factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
 
 > [!NOTE]
@@ -128,7 +128,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
       
      ![New data factory page](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
-   The name of the data factory must be *globally unique*. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+   The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
   
    ![New data factory name](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 3. Select the Azure **subscription** in which you want to create the data factory.

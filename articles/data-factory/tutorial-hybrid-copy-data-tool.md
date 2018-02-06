@@ -122,7 +122,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
       
      ![New data factory](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
  
-   The name of the data factory must be *globally unique*. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+   The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
   
    ![New data factory name](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. Select the Azure **subscription** in which you want to create the data factory. 
