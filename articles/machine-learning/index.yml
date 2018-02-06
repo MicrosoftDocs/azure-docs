@@ -19,51 +19,26 @@ abstract:
 
 sections:
 
-- title:
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Machine Learning services (preview)
-      href: /azure/machine-learning/preview/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/preview/
-        text: 'Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.'
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-        text: 'Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.'
-    - title: Data Science Virtual Machine
-      href: /azure/machine-learning/data-science-virtual-machine/overview
-      image:
-        src: media/index/virtualmachine.svg
-        href: /azure/machine-learning/data-science-virtual-machine/overview
-        text: 'Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.'
-
 - title: 
   items:
   - type: list
     style: cards
-    className: cardsD
+    className: cardsA
     items:
 
     - html: <a href="/azure/machine-learning/preview/">
             <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services">
-            <br>Azure Machine Learning services</a> (preview)
+            <br><b>Azure Machine Learning services</b></a> (preview)
             <p>Learn how these services empower professional data scientists to develop AI solutions using any Python tools and libraries, taking advantage of a wide variety of data and compute services in Azure.</p>
 
     - html: <a href="/azure/machine-learning/studio/">
             <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
-            <br>Azure Machine Learning Studio</a>
+            <br><b>Azure Machine Learning Studio</b></a>
             <p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
 
     - html: <a href="/azure/machine-learning/data-science-virtual-machine/overview">
             <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
-            <br>Data Science Virtual Machine</a>
+            <br><b>Data Science Virtual Machine</b></a>
             <p>Learn how to use DSVM, a customized VM image on Azure built specifically for doing data science.</p>
 
 - title: 5-Minute Quickstarts
@@ -135,4 +110,52 @@ sections:
     - html: <a href="https://azure.microsoft.com/services/cognitive-services/">Cognitive Services</a> supplies intelligent algorithms for your apps, websites, and bots.
     - html: <a href="https://www.microsoft.com/en-us/cognitive-toolkit/">Microsoft Cognitive Toolkit</a> is a free, open-source toolkit to train deep learning algorithms.
 
+- title: More Microsoft Machine Learning Technologies
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+
+    - html: <a href="/azure/machine-learning/team-data-science-process">
+            <img src="media/index/tdsp.png" alt="Team Data Science Process"
+            height="32" width="32">
+            <p><b>Team Data Science Process</b></p>
+            </a>
+            A team-oriented data science methodology to deliver predictive analytics solutions and intelligent applications efficiently.
+
+    - html: <a href="/sql/advanced-analytics/r/r-services">
+            <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services"
+            height="32" width="32">
+            <p><b>SQL Server Machine Learning Services</b></p>
+            </a>
+            In-database analytics with support for both R and Python.
+
+    - html: <a href="/machine-learning-server/">
+            <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server"
+            height="32" width="32">
+            <p><b>Microsoft Machine Learning Server</b></p>
+            </a>
+            Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
+
+    - html: <a href="/azure/batch-ai/">
+            <img src="media/index/batch.png" alt="Batch AI Training"
+            height="32" width="32">
+            <p><b>Batch AI Training</b></p>
+            </a>
+            Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.
+
+    - html: <a href="/azure/#pivot=products&panel=cognitive">
+            <img src="media/index/cognitive-services.png" alt="Cognitive Services"
+            height="32" width="32">
+            <p><b>Cognitive Services</b></p>
+            </a>
+            APIs that supply intelligent algorithms for your apps, websites, and bots.
+
+    - html: <a href="/cognitive-toolkit/">
+            <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit"
+            height="32" width="32">
+            <p><b>Microsoft Cognitive Toolkit</b></p>
+            </a>
+            A free, open-source toolkit to train deep learning algorithms.
 
