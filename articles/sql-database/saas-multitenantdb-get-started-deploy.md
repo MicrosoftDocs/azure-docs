@@ -19,15 +19,15 @@ ms.author: "genemi"
 ---
 # Deploy and explore a sharded multi-tenant application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore a sample SaaS multi-tenant database application that is named Wingtip Tickets. The Wingtip app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
+In this tutorial, you deploy and explore a sample  multi-tenant SaaS application that is named Wingtip Tickets. The Wingtip Tickets app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
 
-This implementation of Wingtips uses a sharded multi-tenant database pattern. The sharding is by tenant identifier. Tenant data is distributed to a particular database according to the tenant identifier values. No matter how many tenants any given database contains, all databases are multi-tenant in the sense that the table schemas include a tenant identifier. 
+This implementation of the Wingtip Tickets app uses a sharded multi-tenant database pattern. The sharding is by tenant identifier. Tenant data is distributed to a particular database according to the tenant identifier values. 
 
 This database pattern allows you to store one or more tenants in each shard or database. You can optimize for lowest cost by having each database be shared by multiple tenants. Or you can optimize for isolation by having each database store only one tenant. Your optimization choice can be made independently for each specific tenant. Your choice can be made when the tenant is first stored, or you can change your mind later. The application is designed to work well either way.
 
 #### App deploys quickly
 
-The deployment section that follows provides the blue **Deploy to Azure** button. When the button is pressed, the Wingtip app is fully deployed a five minutes later. The Wingtip app runs in the Azure cloud and uses Azure SQL Database. Wingtip is deployed to your Azure subscription. You have full access to work with the individual application components.
+The app runs in the Azure cloud and uses Azure SQL Database. The deployment section that follows provides the blue **Deploy to Azure** button. When the button is pressed, the app is fully deployed to your Azure subscription within five minutes. You have full access to work with the individual application components.
 
 The application is deployed with data for three sample tenants. The tenants are stored together in one multi-tenant database.
 
@@ -36,7 +36,7 @@ Anyone can download the C# and PowerShell source code for Wingtip Tickets from [
 #### Learn in this tutorial
 
 > [!div class="checklist"]
-> - How to deploy the Wingtip SaaS application.
+> - How to deploy the Wingtip Tickets SaaS application.
 > - Where to get the application source code, and management scripts.
 > - About the servers and databases that make up the app.
 > - How tenants are mapped to their data with the *catalog*.
