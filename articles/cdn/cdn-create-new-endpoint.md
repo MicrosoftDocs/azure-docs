@@ -3,8 +3,8 @@ title: Getting started with Azure CDN | Microsoft Docs
 description: This article shows how to enable the Azure Content Delivery Network (CDN) by creating a new CDN profile and endpoint.
 services: cdn
 documentationcenter: ''
-author: zhangmanling dksimpson
-manager: erikre
+author: zhangmanling
+manager: akucer
 editor: ''
 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -21,7 +21,7 @@ ms.custom: mvc
 # Getting started with Azure CDN
 In this article, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) by creating a new CDN profile and endpoint. 
 
-A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
+A CDN profile is a collection of CDN endpoints. Each profile can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because CDN pricing is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of Azure CDN pricing tiers.
 
 > [!NOTE]
 > An Azure subscription has default limits for the following resources:
@@ -29,9 +29,8 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
 > - The number of endpoints that can be created in a CDN profile 
 > - The number of custom domains that can be mapped to an endpoint
 >
-> For information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+> For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
-> CDN pricing is applied at the CDN profile level. Therefore, to use a mix of Azure CDN pricing tiers, you must create multiple CDN profiles.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -58,13 +57,17 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
 
-4. For **Origin type**, select an origin type. Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
+4. For **Origin type**, choose one of the following origin types: 
+   - **Storage** for an Azure Storage account
+   - **Cloud service** for an Azure Cloud Service
+   - **Web App** for an Azure Web App
+   - **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere)
    
     ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
 5. For **Origin hostname**, select or enter your origin domain. The drop-down lists all available origins of the type you specified in step 4. If you selected **Custom origin** as your origin type, enter the domain of your custom origin.
     
-6. For **Origin path**, enter the path to the resources you want to cache, or leave it blank to allow caching of any resource at the domain you specified in step 5.
+6. For **Origin path**, enter the path to the resources that you want to cache. To allow caching of any resource at the domain you specified in step 5, leave it blank.
     
 7. For **Origin host header**, enter the host header you want Azure CDN to send with each request, or leave the default.
    

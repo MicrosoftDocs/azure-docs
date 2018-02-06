@@ -68,8 +68,8 @@
 # Reference
 ##  [Azure CDN rules engine reference](cdn-rules-engine-reference.md)
 ### [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
-### [Rules engine features](cdn-rules-engine-reference-features.md)
 ### [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
+### [Rules engine features](cdn-rules-engine-reference-features.md)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
