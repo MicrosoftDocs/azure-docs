@@ -359,6 +359,8 @@
       items:
       - name: Deploy example app
         href: saas-standaloneapp-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-standaloneapp-provision-and-catalog.md
     - name: Database per tenant
       href: saas-dbpertenant-wingtip-app-overview.md
       items:
