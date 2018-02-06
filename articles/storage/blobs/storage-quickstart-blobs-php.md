@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the example file.  
 
 ## Configure your storage connection string
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.  Replace \<yourconnectionstring\> with your actual connection string.
+In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable.  Replace \<yourconnectionstring\> with your actual connection string.
 
 ### Linux
 
@@ -85,12 +85,12 @@ The first thing to do is create the references to the objects used to access and
 * Create the **BlobService** object that points to the Blob service in your storage account. 
 * Create the **Container** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the Cloud Blob container, you can create the **Block** blob object that points to the specific blob in which you are interested, and perform operations such as upload, download, and copy.
+Once you have the Cloud Blob container, you can create the **Block** blob object that points to the specific blob in which you are interested. Then you can perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
 > Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
-In this section, you set up an instance of Azure storage client, instantiate the blob service object, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
+In this section, you set up an instance of Azure storage client, instantiate the blob service object, create a new container, and set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
 ```PHP
     # Setup a specific instance of an Azure::Storage::Client
@@ -169,7 +169,7 @@ You can get a list of files in the container using the **listBlobs()** method. T
 
 ### Get the content of your blobs
 
-Get the contents of your blobs using the **getBlob()** method. The following code will display the contents of the blob uploaded in a previous section.
+Get the contents of your blobs using the **getBlob()** method. The following code displays the contents of the blob uploaded in a previous section.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
