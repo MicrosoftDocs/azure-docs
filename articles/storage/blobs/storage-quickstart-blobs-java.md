@@ -2,13 +2,13 @@
 title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Java | Microsoft Docs
 description: Quickly learn to transfer objects to/from Azure Blob storage using Java
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
 ---
 
