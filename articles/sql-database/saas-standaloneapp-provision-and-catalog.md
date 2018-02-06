@@ -40,7 +40,7 @@ While each tenant’s app and database are fully isolated, various management an
 The tenant catalog holds a mapping between a tenant identifier and a tenant database, allowing an identifier to be resolved to a server and database name.  In the Wingtip SaaS app, the tenant identifier is computed as a hash of the tenant name, although other schemes could be used.  While standalone applications don't need the catalog to manage connections, the catalog can be used to scope other actions to a set of tenant databases. For example, Elastic Query can use the catalog to determine the set of databases across which queries are distributed for cross-tenant reporting.
 
 ## Elastic Database Client Library
-In the Wingtip sample application, the catalog is implemented by the shard management features of the Elastic Database Client Library (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
+In the Wingtip sample application, the catalog is implemented by the shard management features of the [Elastic Database Client Library](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  The library enables an application to create, manage, and use a shard map that is stored in a database. In the Wingtip Tickets sample, the catalog is stored in the *tenant catalog* database.  The shard maps a tenant key to the shard (database) in which that tenant’s data is stored.  EDCL functions manage a *global shard map* stored in tables in the *tenant catalog* database and a *local shard map* stored in each shard.
 
 EDCL functions can be called from applications or PowerShell scripts to create and manage the entries in the shard map. Other EDCL functions can be used to retrieve the set of shards or connect to the correct database for given tenant key. 
     
@@ -66,14 +66,15 @@ To complete this tutorial, make sure the following prerequisites are completed:
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The three sample tenant apps are deployed. To deploy these apps in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
-## Provision the Catalog
+## Provision the catalog
 In this task, you learn how to provision the catalog used to register all the tenant databases. You will: 
 * **Provision the catalog database** using an Azure resource management template. The database is initialized by importing a bacpac file.  
-* **Register the sample tenant apps** that you deployed earlier.  Each tenant is registered using a key constructed from a hash of the tenant name.  The tenant name is also stored in an extension table in the catalog. 
-1. In PowerShell ISE, open *...\Learning Modules\UserConfig.psm* and update the **\<user\>** value on line 10 to the value you used when deploying the three sample applications.  **Save the file.**	
-1. In PowerShell ISE, open *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* and on line 14, set **$Scenario = 1**, Deploy the tenant catalog and register the pre-defined tenants
+* **Register the sample tenant apps** that you deployed earlier.  Each tenant is registered using a key constructed from a hash of the tenant name.  The tenant name is also stored in an extension table in the catalog.
 
-1. Add a breakpoint by putting your cursor anywhere on line 41 that says, `& $PSScriptRoot\New-Catalog.ps1`, and then press **F9**.
+1. In PowerShell ISE, open *...\Learning Modules\UserConfig.psm* and update the **\<user\>** value to the value you used when deploying the three sample applications.  **Save the file**.	
+1. In PowerShell ISE, open *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* and set **$Scenario = 1**. Deploy the tenant catalog and register the pre-defined tenants.
+
+1. Add a breakpoint by putting your cursor anywhere on the line that says, `& $PSScriptRoot\New-Catalog.ps1`, and then press **F9**.
 
     ![setting a breakpoint for tracing](media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
@@ -87,13 +88,13 @@ Once the script completes, the catalog will exist and all the sample tenants wil
 Now take a look at the resources you created.
 
 1. Open the [Azure portal](https://portal.azure.com/) and browse the resource groups.  Open the **wingtip-sa-catalog-\<user\>** resource group and note the catalog server and database.
-1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password, 'P@ssword1'.
+1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password = **P@ssword1**.
 
 
 1. Explore the schema of the *tenantcatalog* database.  
    * The objects in the `__ShardManagement` schema are all provided by the Elastic Database Client Library.
    * The `Tenants` table and `TenantsExtended` view are extensions added in the sample that demonstrate how you can extend the catalog to provide additional value.
-1. Run the query select * from          
+1. Run the query, `SELECT * FROM dbo.TenantsExtended`.          
 
    ![data explorer](media/saas-standaloneapp-provision-and-catalog/data-explorer-tenantsextended.png)
 
@@ -108,14 +109,14 @@ In this task, you learn how to provision a single tenant application. You will:
 * **Initialize the database with basic tenant information**. This action includes specifying the venue type, which determines the photograph used as the background on its events web site. 
 * **Register the database in the catalog database**. 
 
-1. In PowerShell ISE, open *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* and on line 14, set **$Scenario = 2**, Deploy the tenant catalog and register the pre-defined tenants
+1. In PowerShell ISE, open *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* and set **$Scenario = 2**. Deploy the tenant catalog and register the pre-defined tenants
 
 1. Add a breakpoint in the script by putting your cursor anywhere on line 49 that says, `& $PSScriptRoot\New-TenantApp.ps1`, and then press **F9**.
 1. Run the script by pressing **F5**. 
 1.	After script execution stops at the breakpoint, press **F11** to step into the New-Catalog.ps1 script.
 1.	Trace the script's execution using the Debug menu options, F10 and F11, to step over or into called functions.
 
-After the tenant has been provisioned, the new tenant's events web site is opened.
+After the tenant has been provisioned, the new tenant's events website is opened.
 
    ![red maple racing](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
 
