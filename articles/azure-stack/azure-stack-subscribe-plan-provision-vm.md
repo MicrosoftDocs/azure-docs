@@ -28,7 +28,7 @@ After you [create an offer](azure-stack-create-offer.md), users need a subscript
 The following sections provide guidance for cloud operators when creating subscriptions for users, and how to subscribe to an offer as a user.
 
 ## Create a subscription as a cloud operator
-Cloud operators can use the admin portal to create a subscription to an offer for a user.  You can create subscriptions for members of your own directory tenant.  When [multi-tenancy](azure-stack-enable-.md) is enabled you can also create subscriptions for users in additional directory tenants.
+Cloud operators can use the admin portal to create a subscription to an offer for a user.  You can create subscriptions for members of your own directory tenant.  When [multi-tenancy](azure-stack-enable-multitenancy.md) is enabled, you can also create subscriptions for users in additional directory tenants.
 
 You can create subscriptions for both public and private offers.  If do not want your tenants to create their own subscriptions, make all of your offers private, and then create subscriptions on behalf of your tenants. This approach is common when integrating Azure Stack with external billing or service catalog systems.
 
@@ -36,9 +36,9 @@ After you create a subscription for a user, that user can log into the user port
 
 ### To create the subscription for a user
 1.	In the Admin portal, go to **User subscriptions.**
-2.	Select **Add** to open the **New user subscription** blade. Here you specify the following:  
+2.	Select **Add** to open the **New user subscription* pane. Here you specify the following details:  
 
-  a. **Display name** – A friendly name for identifying the subscription.  This appears as the *User subscription name*.
+  a. **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
 
   b. **User** – Specify a user from an available directory tenant for this subscription. The user name appears as *Owner*.  The format of the user name depends on your identity solution. For example:   
 
@@ -48,15 +48,15 @@ After you create a subscription for a user, that user can log into the user port
 
   c.	**Directory tenant** –  Select the directory tenant where the user account belongs. If you have not enabled multi-tenancy, only your local directory tenant is available.
 
-3.	Select **Offer** to open the **Offers** blade, and then choose an **Offer** for this subscription. Because you are creating a subscription for a user, you can select a private or public offer.
+3.	Select **Offer** to open the **Offers** pane, and then choose an **Offer** for this subscription. Because you are creating a subscription for a user, you can select a private or public offer.
 
-4.	Select **Create** to create the subscription. The **User subscriptions** blade now displays the new subscription.  Later, when the user logs into the user portal, they can view details about this subscription.
+4.	Select **Create** to create the subscription. The **User subscriptions** pane now displays the new subscription.  Later, when the user logs into the user portal, they can view details about this subscription.
 
 ### To make an add-on plan available  
 A cloud operator can add an add-on plan to a previously created subscription at any time:   
 1.	In the admin portal go to **More Services** > **User subscriptions**, and then select the subscription you want to change.   
 
-2.	Select **Add-ons** > **Add**  to open the **Add plan** blade.  
+2.	Select **Add-ons** > **Add**  to open the **Add plan** pane.  
 
 3.	Select the plan you want to add as an add-on.  The console then displays the plans associated with the subscription.
 
@@ -64,13 +64,13 @@ A cloud operator can add an add-on plan to a previously created subscription at 
 
 
 ## Create a subscription as a user
-As a user, you can sign in to the user portal to locate and subscribe to public offers and add-on plans from your directory tenant (organization). When the Azure Stack environment supports [multi-tenancy](azure-stack-enable-.md) you can subscribe to offers from a remote directory tenant.
+As a user, you can sign in to the user portal to locate and subscribe to public offers and add-on plans from your directory tenant (organization). When the Azure Stack environment supports [multi-tenancy](azure-stack-enable-multitenancy.md) you can subscribe to offers from a remote directory tenant.
 
 ### To subscribe to an offer
 1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack user portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
 
    ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** pane, and then click **Create**.
 
    ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
