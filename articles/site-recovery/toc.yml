@@ -277,7 +277,7 @@
       href: site-recovery-vmware-to-azure-push-install-error-codes.md
     - name: Failover to Azure issues
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Reprotect & failback issues
+    - name: Reprotect and failback issues
       href: troubleshoot-failback-reprotect.md
     - name: Monitor Azure Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
