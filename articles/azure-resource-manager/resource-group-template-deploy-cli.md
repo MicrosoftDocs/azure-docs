@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
-This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
+This article explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as a [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -184,7 +184,7 @@ az group deployment create \
 
 ## Sample template
 
-The following template is used for the examples in this topic. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
+The following template is used for the examples in this article. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
 
 ```json
 {
