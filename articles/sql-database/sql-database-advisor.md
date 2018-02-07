@@ -60,23 +60,23 @@ Applications that send queries, which include non-parameterized values, can lead
 
 The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
 
-To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you gain CPU savings. It can also help decrease query duration. In addition, it helps decrease overhead for the plan cache, which means that more the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
+To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you gain CPU savings. It can also help decrease query duration. In addition, it helps decrease overhead for the plan cache, which means that more of the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
 
 After you apply this recommendation, it enables forced parameterization within minutes on your database. It starts the monitoring process, which lasts for approximately 24 hours. After this period, you can see the validation report. This report shows the CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation if performance regression has been detected.
 
 ## Fix schema issues recommendations (preview)
 
 > [!IMPORTANT]
-> Microsoft is in the process of deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that "Fix schema issue" recommendations previously covered.
+> Microsoft is in the process of deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 > 
 
 **Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
-“Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns that's expected by the query may be missing in the target table or vice-versa. 
+“Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa. 
 
 The “Fix schema issue” recommendation appears when Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. The following table shows the errors that are related to schema issues:
 
-| SQL Error Code | Message |
+| SQL error code | Message |
 | --- | --- |
 | 201 |Procedure or function '*' expects parameter '*', which was not supplied. |
 | 207 |Invalid column name '*'. |
