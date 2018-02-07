@@ -1,5 +1,5 @@
-*---
-title: Subscribe to an offer in Azure Stack| Microsoft Docs
+---
+title: Subscribe to an offer in Azure Stack | Microsoft Docs
 description: Create subscriptions for offers in Azure Stack
 services: azure-stack
 documentationcenter: ''
