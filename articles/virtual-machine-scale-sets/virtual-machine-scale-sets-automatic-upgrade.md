@@ -37,9 +37,7 @@ Automatic OS upgrade has the following characteristics:
 While in preview, the following limitations and restrictions apply:
 
 - Automatic OS upgrades only support [four OS SKUs](#supported-os-images). There is no SLA or guarantees. We recommend you do not use automatic upgrades on production critical workloads during preview.
-- Support for scale sets in Service Fabric clusters is coming soon.
 - Azure disk encryption (currently in preview) is **not** currently supported with virtual machine scale set automatic OS upgrade.
-- A portal experience is coming soon.
 
 
 ## Register to use Automatic OS Upgrade
@@ -66,6 +64,11 @@ Again, it takes approximately 10 minutes for registration state to report as *Re
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
+
+## Portal experience
+Once you follow the registration steps above, you can go to [the Azure portal](aka.ms/managed-compute) to enable automatic OS upgrades on your scale sets and to see the progress of upgrades:
+
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## Supported OS images
