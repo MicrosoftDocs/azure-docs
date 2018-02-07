@@ -38,3 +38,11 @@ account. To do this, run the following:
 
 > [!WARNING]
 > Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.
+
+## Logging into CycleCloud
+
+Your administrator will provide you with a user name and password for CycleCloud, as well as the URL to access CycleCloud via your web browser. Upon logging in for the first time, you may be prompted to change your password.
+
+### Account Lockout
+
+Your account will be locked out for 5 minutes after five unsuccessful login attempts. Should you be unable to access your account at all, contact your administrator to reset your password.
