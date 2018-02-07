@@ -340,6 +340,8 @@
       href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Access control
+      href: access-control.md
     - name: Azure Storage Explorer
       href: storage-explorer.md
     - name: Security
