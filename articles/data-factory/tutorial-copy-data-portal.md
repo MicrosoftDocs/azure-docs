@@ -1,6 +1,6 @@
 ---
 title: Use the Azure portal to create a data factory pipeline | Microsoft Docs
-description: This tutorial provides step-by-step instructions for using an Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to a SQL database.
+description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to a SQL database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -35,12 +35,12 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* **Azure Storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one.
+* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one.
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
 ### Create a blob and a SQL table
 
-Now, prepare your Blob storage and SQL database for the tutorial by performing the following steps:
+Now, prepare your Blob storage and SQL database for the tutorial by performing the following steps.
 
 #### Create a source blob
 
@@ -99,7 +99,7 @@ In this step, you create a data factory and launch the Data Factory UI to create
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
 5. Under **Version**, select **V2 (Preview)**.
-6. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+6. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 7. Select **Pin to dashboard**. 
 8. Select **Create**. 
 9. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
@@ -113,9 +113,9 @@ In this step, you create a data factory and launch the Data Factory UI to create
 ## Create a pipeline
 In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
 
-* Create the linked service. 
-* Create input and output datasets.
-* Then, create a pipeline.
+1. Create the linked service. 
+2. Create input and output datasets.
+3. Create a pipeline.
 
 In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline. 
 
@@ -134,7 +134,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 5. Go to the **Source** tab. Select **+ New** to create a source dataset. 
 
     ![Source Dataset + New](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
-6. In the **New Dataset** window, select **Azure Blob Storage**, and then select **Finish**. The source data is in Blob storage, so you select Azure Blob Storage for the source dataset. 
+6. In the **New Dataset** window, select **Azure Blob Storage**, and then select **Finish**. The source data is in Blob storage, so you select **Azure Blob Storage** for the source dataset. 
 
     ![Azure Blob Storage](./media/tutorial-copy-data-portal/select-azure-storage.png)
 7. You see a new tab opened in the application with the title **AzureBlob1**.
