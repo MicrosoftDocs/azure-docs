@@ -19,12 +19,15 @@ ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection playbook
+
 This playbook helps you to:
 
 * Populate data in the Identity Protection environment by simulating risk events and vulnerabilities
 * Set up risk-based conditional access policies and test the impact of these policies
 
+
 ## Simulating Risk Events
+
 This section provides you with steps for simulating the following risk event types:
 
 * Sign-ins from anonymous IP addresses (easy)
@@ -70,7 +73,7 @@ Completing the following procedure requires you to use a user account that has:
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
 1. When signing in with your test account, fail the MFA challenge by not passing the MFA challenge.
-2. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of the account you want to simulate the risk event for.
+2. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
    
 
 The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes.
@@ -99,7 +102,13 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-## User risk security policy
+
+## Testing security policies
+
+This section provides you with steps for testing the user risk and the sign-in risk security policy.
+
+
+### User risk security policy
 
 For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
 
@@ -124,7 +133,7 @@ For more information, see [User risk security policy](active-directory-identityp
     
     
 
-## Sign-in risk security policy
+### Sign-in risk security policy
 
 For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
 
