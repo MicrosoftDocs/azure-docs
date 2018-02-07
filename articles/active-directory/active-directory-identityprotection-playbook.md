@@ -39,14 +39,13 @@ For more information about this risk event, see [Sign-ins from anonymous IP addr
 
 Completing the following procedure requires you to use:
 
-- The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). You might need to use a virtual machine if your organization restricts using the Tor browser.
-- A test account that is not yet registered for multi-factor authentication yet.
+- The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) to simulate anonymous IP addresses. You might need to use a virtual machine if your organization restricts using the Tor browser.
+- A test account that is not yet registered for multi-factor authentication.
 
 **To simulate a sign-in from an anonymous IP, perform the following steps**:
 
-1. Download the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2. Using the Tor Browser, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-3. Enter the credentials of the account you want to appear in the **Sign-ins from anonymous IP addresses** report.
+1. Using the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2. Enter the credentials of the account you want to appear in the **Sign-ins from anonymous IP addresses** report.
 
 The sign-in will show up on the Identity Protection dashboard within 5 minutes. 
 
