@@ -60,10 +60,10 @@ Output:
 
 ## Create AKS cluster
 
-The following example creates a cluster named *myK8sCluster* with one node.
+The following example creates a cluster named *myAKSCluster* with one node.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -82,7 +82,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, run the following command. This step downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
@@ -95,7 +95,7 @@ Output:
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
 ## Run the application
@@ -146,7 +146,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:redis-v1
+        image: microsoft/azure-vote-front:v1
         ports:
         - containerPort: 80
         env:
@@ -207,7 +207,20 @@ You can now browse to the external IP address to see the Azure Vote App.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## Open Kubernetes dashboard
+
+The Azure CLI can also be used to set up a connection with the Kubernetes dashboard. To do so, use the [az aks browse][az-aks-browse] command.
+
+```azurecli-interactive
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+```
+
+Once run, a browser opens to the Kubernetes dashboard.
+
+![Kubernetes dashboard](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
+
 ## Delete cluster
+
 When the cluster is no longer needed, you can use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
@@ -238,6 +251,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
