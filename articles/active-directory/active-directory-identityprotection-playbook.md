@@ -125,7 +125,7 @@ For more information, see [User risk security policy](active-directory-identityp
     
     
 
-## Sign-in risk
+## Sign-in risk security policy
 
 For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
 
