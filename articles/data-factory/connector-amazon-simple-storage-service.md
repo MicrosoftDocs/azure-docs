@@ -52,7 +52,7 @@ The following properties are supported for Amazon S3 linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonS3**. | Yes |
 | accessKeyId | ID of the secret access key. |Yes |
-| secretAccessKey | The secret access key itself. Mark this field as a SecureString. |Yes |
+| secretAccessKey | The secret access key itself. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
