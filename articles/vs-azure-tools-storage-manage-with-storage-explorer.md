@@ -236,6 +236,20 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
     ![connection-string][22]
 
+ ## Connect to Azure Data Lake Store by URI
+If you want to get access to the resources, which do not exist in your subscription. But others grant you to get the Uri for the resources. In this case, you can connect to Data Lake Store using the Uri after you have signed in. Refer to following steps.
+1. Open Storage Explorer (Preview).
+2. In the left pane, expand **Local and Attached**.
+3. Right-click **Data Lake Store**, and - from the context menu - select **Connect to Data Lake Store...**.
+
+    ![connect to Data Lake Store context menu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Enter the Uri, then the tool navigates to the location of the URL you just entered.
+
+    ![connect to Data Lake Store context dialog](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![connect to Data Lake Store result](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## Search for storage accounts
 If you need to find a storage resource and do not know where it is, you can use the search box at the top of the left pane to search for the resource.
 
@@ -251,6 +265,7 @@ As you type in the search box, the left pane displays all resources that match t
 ## Next steps
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
 * [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/storage-explorer.md)
+* [Manage Azure Data Lake Store resources with Storage Explorer (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
