@@ -59,8 +59,9 @@ In this section, you use the Azure portal, specifically the Data Factory UI, to 
 
 ### Create a data factory
 
-1. Log in to the [Azure portal](https://portal.azure.com/).    
-2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to the [Azure portal](https://portal.azure.com/).    
+3. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. In the **New data factory** page, enter **MyAzureSsisDataFactory** for the **name**. 

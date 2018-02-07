@@ -125,6 +125,9 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 ## How can I disable the logging of utterances?
 You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of those user utterances from LUIS or use those utterances to improve your app.
 
+## Why don't I want all my endpoint utterances logged?
+You do not want any test utterances captured in your log if you are using your log for prediction analysis. 
+
 ## Can I delete data from LUIS? 
 
 * You can always delete example utterances used for training LUIS. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
@@ -140,10 +143,13 @@ In Azure, a tenant represents the client or organization that's associated with 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Why did I get an email saying I'm almost out of quota?
-Your programmatic/starter key is only allowed 1000 endpoint queries a month. You create LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your programmatic/starter key is only allowed 1000 endpoint queries a month. You should create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Where is the Pattern feature that provides regular expression matching?
 The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
+
+## Why are there more subscription keys on my app's publish page than I assigned to the app? 
+Each LUIS app has the programmatic/starter key. LUIS subscription keys created during the GA time frame will be visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys will not appear on the publish page. 
 
 ## Next steps
 

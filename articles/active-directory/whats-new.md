@@ -244,7 +244,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](htt
 
 **Type:** New feature  
 **Service category:** Enterprise apps  
-**Product capability:** Third-party integration
+**Product capability:** 3rd Party Integration
  
 In December 2017, the following new apps with federation support were added in the app gallery:
 

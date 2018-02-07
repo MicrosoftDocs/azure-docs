@@ -32,7 +32,7 @@ There are multiple [outbound scenarios](#scenarios). These scenarios can be comb
 
 ## <a name="scenarios"></a>Scenario overview
 
-Azure has two major deployment models (Azure Resource Manager) and Classic). Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
+Azure has two major deployment models: Azure Resource Manager and Classic. Load Balancer and related resources are explicitly defined when using [Azure Resource Manager resources](#arm).  Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment dependent on which deployment model is used.
 
 ### <a name="arm"></a>Azure Resource Manager
 
@@ -82,7 +82,7 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 ### <a name="combinations"></a>Multiple, combined scenarios
 
-The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager & Classic).
+The scenarios described in the preceeding sections can be combined to achieve a particular outcome.  When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence over [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only), and [scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager & Classic).
 
 An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you could combine scenarios 1 & 2 for relief.  Review [Managing SNAT exhaustion](#snatexhaust) for additional patterns.
 
