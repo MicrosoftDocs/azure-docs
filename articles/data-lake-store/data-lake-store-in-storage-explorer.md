@@ -73,18 +73,6 @@ If you want to get access to the resources, which do not exist in your subscript
 
       ![connect to Data Lake Store result](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
-## Azure Data Lake Store resources management
-
-You can manage Azure Data Lake Store resources by doing following operations:
-*	Navigate  ADLS resources across multiple ADL accounts.  
-*	Use connection string to connect to and manage ADLS directly. 
-*	View ADLS resources shared by others through ACL under Local & Attached.
-*	Perform File/Folder CRUD Operations: support recursive folder and multi-selected files. 
-*	Drag, drop and add folder to quick access and recent locations, which mirrors desktop file explorer experience. 
-*	Copy and open ADL hyperlink with Storage Explorer with one click. 
-*	Display activity log in the lower right pane to view activity status.
-*	Display folder statistics and file property.
-
 ## View an Azure Data Lake Store account's contents
 An Azure Data Lake Store account's resources contain folders and files.
 
@@ -97,6 +85,18 @@ The following steps illustrate how to view the contents of an ADLS account withi
 5. The main pane displays the ADLS account's contents.
 
      ![main pane](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
+
+## Azure Data Lake Store resources management
+
+You can manage Azure Data Lake Store resources by doing following operations:
+*	Navigate  ADLS resources across multiple ADL accounts.  
+*	Use connection string to connect to and manage ADLS directly. 
+*	View ADLS resources shared by others through ACL under Local & Attached.
+*	Perform File/Folder CRUD Operations: support recursive folder and multi-selected files. 
+*	Drag, drop and add folder to quick access and recent locations, which mirrors desktop file explorer experience. 
+*	Copy and open ADL hyperlink with Storage Explorer with one click. 
+*	Display activity log in the lower right pane to view activity status.
+*	Display folder statistics and file property.
 
 ## Manage resources in Azure Storage Explorer
 Once you've created an Azure Data Lake Store account, you can upload folders and files, download, and open resources on your local computer. And you can pin to quick access, new folder, copy URL, select All. In addition, you are able to copy, paste, rename, delete, folder statistics, refresh.
@@ -180,5 +180,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
 ## Next steps
 * View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
-* Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
-* Learn how to [Manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer)
+* Learn how to [Manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer)
+* Learn more about Storage Explorer[Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* Get Started with Azure Data Lake Store (ADLS)[Azure Data Lake Store Overview](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview)
+* Watch the following video to see[how to use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)
