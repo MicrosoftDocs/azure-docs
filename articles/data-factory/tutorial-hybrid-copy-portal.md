@@ -53,7 +53,6 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 2. Connect to your SQL Server instance by using your credentials. 
 
 3. Create a sample database. In the tree view, right-click **Databases**, and then select **New Database**. 
- 
 4. In the **New Database** window, enter a name for the database, and then select **OK**. 
 
 5. To create the **emp** table and insert some sample data into it, run the following query script against the database:
@@ -74,7 +73,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 
 6. In the tree view, right-click the database that you created, and then select **New Query**.
 
-### Azure Storage account
+### Azure storage account
 In this tutorial, you use a general-purpose Azure storage account (specifically, Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). The pipeline in the data factory that you create in this tutorial copies data from the on-premises SQL Server database (source) to Blob storage (sink). 
 
 #### Get the storage account name and account key
@@ -146,7 +145,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 9. Select **Create**.
 10. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
 
-	![Deploying Data Factory tile](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
+	![Deploying data factory tile](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
 11. After the creation is finished, you see the **Data Factory** page as shown in the image:
    
     ![Data factory home page](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
@@ -175,13 +174,13 @@ In this step, you create a data factory and start the Data Factory UI to create 
    ![Source dataset name](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
 7. Go to the **Connection** tab, and select **+ New**. You create a connection to the source data store (SQL Server database) in this step. 
 
-   ![Source dataset Connection tab](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
+   ![Connection to source dataset](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
 8. In the **New Linked Service** window, select **New Integration Runtime**. In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Blob storage. 
 
-   ![New Integration Runtime](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+   ![New integration runtime](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
 9. In the **Integration Runtime Setup** window, select **Private Network**, and then select **Next**. 
 
-   ![Private Network selection](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+   ![Private network selection](./media/tutorial-hybrid-copy-portal/select-private-network.png)
 10. Enter a name for the integration runtime, and select **Next**.
     
     ![Integration runtime name](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
@@ -190,10 +189,10 @@ In this step, you create a data factory and start the Data Factory UI to create 
     ![Express setup link](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
 12. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**. 
 
-    ![Integration Runtime (Self-hosted) Express Setup](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+    ![Integration runtime (self-hosted) express setup](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 13. In the web browser, in the **Integration Runtime Setup** window, select **Finish**. 
 
-    ![Integration Runtime Setup](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+    ![Integration runtime setup](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 14. In the **New Linked Service** window, take the following steps:
 
     a. Under **Name**, enter **SqlServerLinkedService**.
@@ -212,7 +211,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     h. To save the linked service, select **Save**.
 
-       ![New Linked Service settings](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       ![New linked service settings](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
 15. You should be back in the window with the source dataset opened. On the **Connection** tab of the **Properties** window, take the following steps: 
 
     a. In **Linked service**, confirm that you see **SqlServerLinkedService**.
@@ -228,7 +227,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
     ![Sink tab](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
 18. In the **New Dataset** window, select **Azure Blob Storage**. Then select **Finish**. You see a new tab opened for the dataset. You also see the dataset in the tree view. 
 
-    ![Azure Blob Storage selection](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+    ![Blob storage selection](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
 19. In **Name**, enter **AzureBlobDataset**.
 
     ![Sink dataset name](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
@@ -254,10 +253,10 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
         c. For the **file name** part of **File path**, enter `@CONCAT(pipeline().RunId, '.txt')`.
 
-     ![Sink dataset Connection tab](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+     ![Connection to sink dataset](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
 23. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected. 
 
-    ![Sink Dataset selected ](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+    ![Sink dataset selected](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
 24. To validate the pipeline settings, select **Validate** on the toolbar for the pipeline. To close the **Pipe Validation Report**, select **Close**. 
 
     ![Validate pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
@@ -272,16 +271,16 @@ In this step, you create a data factory and start the Data Factory UI to create 
 ## Trigger a pipeline run
 Select **Trigger** on the toolbar for the pipeline, and then select **Trigger Now**.
 
-![Trigger Now](./media/tutorial-hybrid-copy-portal/trigger-now.png)
+![Trigger pipeline run](./media/tutorial-hybrid-copy-portal/trigger-now.png)
 
 ## Monitor the pipeline run
 
 1. Go to the **Monitor** tab. You see the pipeline that you manually triggered in the previous step. 
 
-    ![Pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+    ![Monitor pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 2. To view activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. You see only activity runs because there is only one activity in the pipeline. To see details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select **Pipelines** at the top.
 
-    ![Activity runs](./media/tutorial-hybrid-copy-portal/activity-runs.png)
+    ![Monitor activity runs](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## Verify the output
 The pipeline automatically creates the output folder named *fromonprem* in the `adftutorial` blob container. Confirm that you see the *dbo.emp.txt* file in the output folder. 
