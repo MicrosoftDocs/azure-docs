@@ -21,7 +21,7 @@ ms.author: jejiang
 ---
 # Manage Azure Data Lake Store resources with Storage Explorer (preview)
 
-[Azure Data Lake Store(ADLS)](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. User can get access to the data from anywhere via HTTP or HTTPS. ADLS in Azure Storage Explorer enables users to access and manage ADLS data and resources along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place.
+[Azure Data Lake Store (ADLS)](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. User can get access to the data from anywhere via HTTP or HTTPS. ADLS in Azure Storage Explorer enables users to access and manage ADLS data and resources along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place.
 
 Another advantage is that users do not need to have subscription permission to manage ADLS data. In Storage Explorer, users can attach the ADLS path to "Local and Attached" node as long as others grant the permission.
 
