@@ -4,7 +4,7 @@
 ## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# Get Started
+# Quick starts
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
