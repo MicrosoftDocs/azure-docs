@@ -51,7 +51,7 @@ sections:
   - type: list
     style: bullet
     items:
-    - html: <a href="tutorial-bing-entities-search-single-page-app">Single-page web app</a> | <a href="tutorial-bing-entities-search-single-page-app-source">Source code</a>
+    - html: <a href="tutorial-bing-entities-search-single-page-app.md">Single-page web app</a> | <a href="tutorial-bing-entities-search-single-page-app-source.md">Source code</a>
 - title: Reference
   items:
   - type: list
