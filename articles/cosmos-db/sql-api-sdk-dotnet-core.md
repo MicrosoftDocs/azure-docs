@@ -60,7 +60,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 * Improved cross partition query performance when the MaxDegreeOfParallelism property is set to -1 in FeedOptions.
 * Added a new ToString() function to QueryMetrics.
-* Expose partition statistics on reading collections.
+* Exposed partition statistics on reading collections.
 * Added PartitionKey property to ChangeFeedOptions.
 * Minor bug fixes.
 
@@ -162,6 +162,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.8.0](#1.1.0) |February 05, 2018 |--- |
 | [1.7.1](#1.7.1) |November 16, 2017 |--- |
 | [1.7.0](#1.7.0) |November 10, 2017 |--- |
 | [1.6.0](#1.6.0) |October 17, 2017 |--- |
