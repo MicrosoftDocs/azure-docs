@@ -78,7 +78,8 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 ## Create a data factory
 In this step, you create a data factory, and launch the Azure Data Factory UI to create a pipeline in the data factory. 
 
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
