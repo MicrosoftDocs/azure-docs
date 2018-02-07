@@ -1,4 +1,4 @@
----
+*---
 title: Subscribe to an offer in Azure Stack| Microsoft Docs
 description: Create subscriptions for offers in Azure Stack
 services: azure-stack
@@ -36,7 +36,7 @@ After you create a subscription for a user, that user can log into the user port
 
 ### To create the subscription for a user
 1.	In the Admin portal, go to **User subscriptions.**
-2.	Select **Add** to open the **New user subscription* pane. Here you specify the following details:  
+2.	Select **Add** to open the **New user subscription** pane. Here you specify the following details:  
 
   a. **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
 
