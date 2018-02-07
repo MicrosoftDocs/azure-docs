@@ -36,12 +36,12 @@ To learn more about each of these capabilities, see:
 
 This tutorial shows you how to:
 
-* Create a device app that implements a direct method called **lockDoor** that can be called by the back-end app. The device app also receives desired property changes from the back-end app.
-* Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
+* Create a device app that implements a direct method called **LockDoor** that can be called by the back-end app.
+* Create a back-end app that creates a job to call the **LockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
 At the end of this tutorial, you have two .NET (C#) console apps:
 
-**SimulateLockDoor** that connects to your IoT hub and implements the **LockDoor** direct method.
+**SimulateDeviceMethods** that connects to your IoT hub and implements the **LockDoor** direct method.
 
 **ScheduleJob** that uses jobs to call the **LockDoor** direct method and update the device twin desired properties on multiple devices.
 
@@ -58,11 +58,11 @@ To complete this tutorial, you need the following:
 ## Create a simulated device app
 In this section, you create a .NET console app that responds to a direct method called by the solution back end.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateLockDoor**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateDeviceMethods**.
    
     ![New Visual C# Windows Classic device app][img-createdeviceapp]
     
-1. In Solution Explorer, right-click the **SimulateLockDoor** project, and then click **Manage NuGet Packages...**.
+1. In Solution Explorer, right-click the **SimulateDeviceMethods** project, and then click **Manage NuGet Packages...**.
 
 1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
@@ -70,51 +70,57 @@ In this section, you create a .NET console app that responds to a direct method 
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
-        using Microsoft.Azure.Devices.Client;
-        using Microsoft.Azure.Devices.Shared;
+    ```csharp
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Shared;
+    ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
-   
-        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
-        static DeviceClient Client = null;
+1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
+
+    ```csharp
+    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static DeviceClient Client = null;
 
 1. Add the following to implement the direct method on the device:
 
-        static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Locking Door!");
-            Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
+    ```csharp
+    static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Locking Door!");
+        Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
             
-            string result = "'Door was locked.'";
-            return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
-        }
+        string result = "'Door was locked.'";
+        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
+    }
 
 1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
-        try
-        {
-            Console.WriteLine("Connecting to hub");
-            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+    ```csharp
+    try
+    {
+        Console.WriteLine("Connecting to hub");
+        Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
-            // setup callback for "LockDoor" method
-            Client.SetMethodHandlerAsync("LockDoor", LockDoor, null).Wait();
-            Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
-            Console.ReadLine();
+        // setup callback for "LockDoor" method
+        Client.SetMethodHandlerAsync("LockDoor", LockDoor, null).Wait();
+        Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
+        Console.ReadLine();
 
-            Console.WriteLine("Exiting...");
+        Console.WriteLine("Exiting...");
 
-            // as a good practice, remove the "LockDoor" handler
-            Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
-            Client.CloseAsync().Wait();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-        }
+        // as a good practice, remove the "LockDoor" handler
+        Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
+        Client.CloseAsync().Wait();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Error in sample: {0}", ex.Message);
+    }
+    ```
         
-1. Save your work. In the Visual Studio Solution Explorer, right-click your solution, and then click **Build**. **Set StartUp Projects...**. Select **Single startup project**, and then select the **SimulateLockDoor** project in the dropdown menu.        
+1. Save your work and build your solution.         
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -145,14 +151,15 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
 1. Add the following `using` statement if not already present in the default statements.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string for the hub that you created in the previous section and the name of your device.
 
     ```csharp
-    static string connString = "{iot hub connection string}";
-    static JobClient jobClient;
+    static string connString = "<yourIotHubConnectionString>";
+    static string deviceId = "<yourDeviceId>";
     ```
 
 1. Add the following method to the **Program** class:
@@ -176,12 +183,12 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     public static async Task StartMethodJob(string jobId)
     {
         CloudToDeviceMethod directMethod = new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
-
+       
         JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
-            "deviceId='myDeviceId'",
+            $"DeviceId IN ['{deviceId}']",
             directMethod,
-            DateTime.Now,
-            10);
+            DateTime.UtcNow,
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -192,16 +199,18 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
     {
-        var twin = new Twin();
-        twin.Properties.Desired["Building"] = "43";
-        twin.Properties.Desired["Floor"] = "3";
+        Twin twin = new Twin(deviceId);
+        twin.Tags = new TwinCollection();
+        twin.Tags["Building"] = "43";
+        twin.Tags["Floor"] = "3";
         twin.ETag = "*";
 
-        JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
-            "deviceId='myDeviceId'",
-            twin,
-            DateTime.Now,
-            10);
+        JobResponse createJobResponse = jobClient.ScheduleTwinUpdateAsync(
+            jobId,
+            $"DeviceId IN ['{deviceId}']", 
+            twin, 
+            DateTime.UtcNow, 
+            (long)TimeSpan.FromMinutes(2).TotalSeconds).Result;
 
         Console.WriteLine("Started Twin Update Job");
     }
@@ -230,20 +239,16 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     Console.ReadLine();
     ```
 
-1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ScheduleJob** project is **Start**. Build the solution.
+1. Save your work and build your solution. 
 
 
 ## Run the apps
 
 You are now ready to run the apps.
 
-1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Build**. **Multiple startup projects**. Make sure `SimulateLockDoor` is at the top of the list followed by `ScheduleJob`. Set both their actions to **Start**. Click **OK**.
+1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Build**. **Multiple startup projects**. Make sure `SimulateDeviceMethods` is at the top of the list followed by `ScheduleJob`. Set both their actions to **Start** and click **OK**.
 
 1. Run the projects by clicking **Start** or go to the **Debug** menu and click **Start Debugging**.
-
-1. Run the C# console app **SimDevice** by right-clicking on the **SimDevice** project, then selecting **Debug** and **Start new instance**.
-
-1. Run the C# console app **ScheduleJob** by right-clicking on the **ScheduleJob** project, then selecting **Debug** and **Start new instance**.
 
 1. You see the output from both device and back-end apps.
 
