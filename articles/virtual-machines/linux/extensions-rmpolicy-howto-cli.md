@@ -29,8 +29,8 @@ This tutorial requires that you are running the Azure CLI version 2.0.26 or late
 
 A policy definition is an object used to store the configuration that you would like to use. Create a policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
 
-To block extensions, create a .json file listing the extensions and save it as **notAllowed.extensions.json. In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM.
-Definition create
+In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM. The extensions to block are listed in .json format in the **--rules** parameter.
+
 
 ```azurecli-interactive
 	az policy definition create \

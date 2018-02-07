@@ -29,6 +29,12 @@ This tutorial requires that you are running the Azure CLI version 2.0.26 or late
 ## Create the policy 
 
 
+## Create the policy
+
+A policy definition is an object used to store the configuration that you would like to use. Create a policy definition using the [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet.
+
+In this example, we are going to block the installation of the VM agent that allows you to reset passwords and the Custom Script Extension that can be used to run scripts and commands on a VM. The extensions to block are listed in .json format in the **--rules** parameter.
+
 ```azurepowershell-interactive
 $definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
    -DisplayName "Not allowed VM Extensions" `
@@ -46,33 +52,40 @@ $definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
 
 ## Assign the policy
 
+This example assigns the policy to a resource group using [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. Use the [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
 
-
-
-```
+```azurepowershell-interactive
 New-AzureRMPolicyAssignment `
    -Name "not-allowed-vmextension" `
    -Scope "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup" `
    -PolicyDefinition $definition 
-
 ```
 
+## Test policy
+
+The fastest way to test, is to try to reset the password on a VM.
+
+```
+$cred=Get-Credential
+Set-AzureRmVMAccessExtension `
+   -ResourceGroupName "myResourceGroup" `
+   -VMName "myVM" -Name "myVMAccess" `
+   -Location EastUS `
+   -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password 
+```
+
+
 ## Removing the assignment
-```powershell
+
+```azurepowershell-interactive
 Remove-AzureRMPolicyAssignment -Name $assignmentName -Scope $scope
 ```
 
 ## Removing the policy
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmPolicyDefinition -Name $policyDefinitionName 
 ```
-
-## Testing
-
-The fastest way to test, is to try to reset the password on a VM or test executing a script with the Windows Custom Script Extension, this should return an error.
-
-
-
+	
 ## Next Steps
 For more information, please refer to [Azure Policy](../../azure-policy/azure-policy-introduction.md).
