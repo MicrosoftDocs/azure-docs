@@ -104,10 +104,10 @@ In this step, you create a data factory and launch the Data Factory UI to create
 8. Select **Create**. 
 9. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
 
-	![Deploying Data Factory](media/tutorial-copy-data-portal/deploying-data-factory.png)
+	![Deploying data factory tile](media/tutorial-copy-data-portal/deploying-data-factory.png)
 10. After the creation is finished, you see the **Data factory** page as shown in the image.
    
-    ![Author & Monitor](./media/tutorial-copy-data-portal/data-factory-home-page.png)
+    ![Data factory home page](./media/tutorial-copy-data-portal/data-factory-home-page.png)
 11. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 ## Create a pipeline
@@ -133,13 +133,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
     ![Activity name](./media/tutorial-copy-data-portal/activity-name.png)
 5. Go to the **Source** tab. Select **+ New** to create a source dataset. 
 
-    ![Source Dataset + New](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
+    ![Source tab](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
 6. In the **New Dataset** window, select **Azure Blob Storage**, and then select **Finish**. The source data is in Blob storage, so you select **Azure Blob Storage** for the source dataset. 
 
-    ![Azure Blob Storage](./media/tutorial-copy-data-portal/select-azure-storage.png)
+    ![Storage selection](./media/tutorial-copy-data-portal/select-azure-storage.png)
 7. You see a new tab opened in the application with the title **AzureBlob1**.
 
-    ![Azure Blob1 tab ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
+    ![AzureBlob1 tab ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
 8. On the **General** tab at the bottom of the **Properties** window, in **Name**, enter **SourceBlobDataset**.
 
     ![Dataset name](./media/tutorial-copy-data-portal/dataset-name.png)
@@ -158,10 +158,10 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     d. Select **Save** to save the linked service.
 
-    ![New Azure Storage linked service](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
+    ![New linked service](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
 11. Next to **File path**, select **Browse**.
 
-    ![File path Browse button](./media/tutorial-copy-data-portal/file-browse-button.png)
+    ![Browse button for file path](./media/tutorial-copy-data-portal/file-browse-button.png)
 12. Go to the **adftutorial/input** folder, select the **emp.txt** file, and then select **Finish**. Alternatively, you can double-click **emp.txt**. 
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
@@ -179,16 +179,16 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 17. Go to the **Sink** tab, and select **+ New** to create a sink dataset. 
 
-    ![Sink Dataset + New](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
+    ![Sink dataset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
 18. In the **New Dataset** window, select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
 
-    ![Azure SQL Database selection](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
+    ![SQL database selection](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
 19. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
     
     ![Output dataset name](./media/tutorial-copy-data-portal/output-dataset-name.png)
 20. Go to the **Connection** tab, and next to **Linked service**, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied. 
     
-    ![Linked service + New](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
+    ![Linked service](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 21. In the **New Linked Service** window, take the following steps: 
 
     a. Under **Name**, enter **AzureSqlDatabaseLinkedService**.
@@ -205,14 +205,14 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     g. Select **Save** to save the linked service. 
     
-    ![New Linked Service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    ![Save new linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
 22. In **Table**, select **[dbo].[emp]**. 
 
     ![Table](./media/tutorial-copy-data-portal/select-emp-table.png)
 23. Go to the **Schema** tab, and select **Import Schema**. 
 
-    ![Import Schema](./media/tutorial-copy-data-portal/import-destination-schema.png)
+    ![Select import schema](./media/tutorial-copy-data-portal/import-destination-schema.png)
 24. Select the **ID** column, and then select **Delete**. The **ID** column is an identity column in the SQL database, so the copy activity doesn't need to insert data into this column.
 
     ![Delete ID column](./media/tutorial-copy-data-portal/delete-id-column.png)
@@ -224,7 +224,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
     ![Map schemas](./media/tutorial-copy-data-portal/map-schemas.png)
 27. To validate the pipeline, select **Validate**. In the upper-right corner, select the right arrow to close the validation window.
 
-    ![Pipeline Validation Output](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
+    ![Pipeline validation output](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
 28. In the upper-right corner, select **Code**. You see the JSON code associated with the pipeline. 
 
     ![Code button](./media/tutorial-copy-data-portal/code-button.png)
@@ -286,13 +286,13 @@ You can test run a pipeline before you publish artifacts (linked services, datas
 
 1. To test run the pipeline, select **Test Run** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 
-    ![Test Run button](./media/tutorial-copy-data-portal/test-run-output.png)
+    ![Test pipeline](./media/tutorial-copy-data-portal/test-run-output.png)
 2. Verify that the data from the source file is inserted into the destination SQL database. 
 
     ![Verify SQL output](./media/tutorial-copy-data-portal/verify-sql-output.png)
 3. In the left pane, select **Publish All**. This action publishes entities (linked services, datasets, and pipelines) you created to Data Factory.
 
-    ![Publish All button](./media/tutorial-copy-data-portal/publish-button.png)
+    ![Publish](./media/tutorial-copy-data-portal/publish-button.png)
 4. Wait until you see the **Successfully published** message. To see notification messages, on the left sidebar, select the **Show Notifications** tab. To close the notifications window, select **Close**.
 
     ![Show notifications](./media/tutorial-copy-data-portal/show-notifications.png)
@@ -304,7 +304,7 @@ If you don't want to work with the Visual Studio Team Services code repository, 
 
 1. In the upper-left corner, select **Data Factory**, or use the down arrow next to it, and select **Configure Code Repository**. 
 
-    ![Configure Code Repository](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
+    ![Configure code repository](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
 2. On the **Repository Settings** page, take the following steps:
 
     a. Under **Repository Type**, select **Visual Studio Team Services Git**.
@@ -319,10 +319,10 @@ If you don't want to work with the Visual Studio Team Services code repository, 
 
     f. Select **Save** to save the settings. 
 
-    ![Repository Settings](./media/tutorial-copy-data-portal/repository-settings.png)
+    ![Repository settings](./media/tutorial-copy-data-portal/repository-settings.png)
 3. Confirm that **VSTS GIT** is selected for the repository.
 
-    ![VSTS GIT](./media/tutorial-copy-data-portal/vsts-git-selected.png)
+    ![Select VSTS GIT](./media/tutorial-copy-data-portal/vsts-git-selected.png)
 4. In a separate tab in the web browser, go to the **Tutorial2** repository. You see two branches: **adf_publish** and **master**.
 
     ![Master and adf_publish branches](./media/tutorial-copy-data-portal/initial-branches-vsts-git.png)
@@ -340,7 +340,7 @@ If you don't want to work with the Visual Studio Team Services code repository, 
     ![Your branch](./media/tutorial-copy-data-portal/your-branch.png)
 9. Move the mouse over the **Sync** button (don't select it yet), select the **Commit Changes** check box, and select **Sync** to sync your changes with the master branch. 
 
-    ![Commit Changes](./media/tutorial-copy-data-portal/commit-and-sync.png)
+    ![Commit and sync changes](./media/tutorial-copy-data-portal/commit-and-sync.png)
 10. In the **Sync your changes** window, take the following actions: 
 
     a. Confirm that **CopyPipeline** is shown in the updated **Pipelines** list.
@@ -360,13 +360,13 @@ In this step, you manually trigger the pipeline you published in the previous st
 
 1. Select **Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **Finish**.  
 
-    ![Trigger Now](./media/tutorial-copy-data-portal/trigger-now-menu.png)
+    ![Trigger pipeline](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions** column to view activity details and to rerun the pipeline.
 
-    ![Monitor Pipeline Runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    ![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
 3. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipelines** at the top to go back to the **Pipeline Runs** view. To refresh the view, select **Refresh**.
 
-    ![Activity Runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    ![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Verify that two more rows are added to the **emp** table in the SQL database. 
 
 ## Trigger the pipeline on a schedule
@@ -377,7 +377,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
     ![Edit tab](./media/tutorial-copy-data-portal/edit-tab.png)
 2. Select **Trigger**, and select **New/Edit**. If the pipeline is not active, go to it. 
 
-    ![Trigger New/Edit](./media/tutorial-copy-data-portal/trigger-new-edit-menu.png)
+    ![Trigger option](./media/tutorial-copy-data-portal/trigger-new-edit-menu.png)
 3. In the **Add Triggers** window, select **Choose trigger**, and then select **+ New**. 
 
     ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
@@ -407,7 +407,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
     > A cost is associated with each pipeline run, so set the end date appropriately. 
 5. On the **Trigger Run Parameters** page, review the warning, and then select **Finish**. The pipeline in this example doesn't take any parameters. 
 
-    ![Trigger Run Parameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
+    ![Trigger run parameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
 6. Select **Sync** to sync changes in your branch with the master branch. By default, **Publish changes after sync** is selected. When you select **Sync**, it also publishes the updated entities to Data Factory from the master branch. The trigger isn't activated until the publishing succeeds.
 
     ![Sync your changes](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
@@ -416,10 +416,10 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
     ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 8. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Pipeline Runs** and then select **Trigger Runs**.
     
-    ![Trigger Runs](./media/tutorial-copy-data-portal/trigger-runs-menu.png)
+    ![Trigger runs](./media/tutorial-copy-data-portal/trigger-runs-menu.png)
 9. You see the trigger runs in a list. 
 
-    ![Trigger Runs list](./media/tutorial-copy-data-portal/trigger-runs-list.png)
+    ![Trigger runs list](./media/tutorial-copy-data-portal/trigger-runs-list.png)
 10. Verify that two rows per minute (for each pipeline run) are inserted into the **emp** table until the specified end time. 
 
 ## Next steps
