@@ -2,7 +2,7 @@
 ## [Event Hubs Overview](event-hubs-about.md)
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
 
-# Get Started
+# Quickstarts
 ## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

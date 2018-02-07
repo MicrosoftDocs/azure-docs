@@ -2,18 +2,11 @@
 title: Fail over and fail back Hyper-V VMs replicated to a secondary data center with Site Recovery | Microsoft Docs
 description: Learn how to fail over Hyper-V VMs to your secondary on-premises site and fail back to primary site, with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
 
 ---
@@ -22,7 +15,7 @@ ms.author: raynew
 
 The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
-This tutorial describes how to fail over a Hyper-V VM managed in a System Center Virtual Machine Manager (VMM) cloud, to a secondary VMM site. After you've failed over, you fail back to your on-premises site when it's available. In this tutorial, you learn how to:
+This article describes how to fail over a Hyper-V VM managed in a System Center Virtual Machine Manager (VMM) cloud, to a secondary VMM site. After you've failed over, you fail back to your on-premises site when it's available. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Fail over a Hyper-V VM from a primary VMM cloud to a secondary VMM cloud
