@@ -34,6 +34,10 @@ The outline for the steps to accomplish this is as below
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
 
+The above steps can be accomplished using PowerShell
+
+5. Setup Vertical Scaling using PowerShell
+
 > [!NOTE]
 > Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0.
 > 
@@ -90,3 +94,45 @@ Make sure you copy the webhook before closing the webhook dialog as you will nee
 
 ![Add Alert to Virtual Machine 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 
+## Setup Vertical Scaling using PowerShell
+Manually setting up and configuring various components (Steps 1-4) to accomplish Vertical Scaling requires time and effort to familiarize and consider proof of concept, plan deployment, and ensure mapping of the components in order.  You can do away with all this and run PowerShell script to configure Vertical Scaling in one minute per Virtual Machine.
+
+* [Vertical Scaling using PowerShell](https://github.com/pavanma/Azure-VM-SKU-Auto-Resize/blob/master/README.md)
+
+The PowerShell script enables to configure/schedule Virtual Machine Auto Resizing based on CPU/Memory usage/Disk count.
+
+### Script Functionality:
+1)	Monitor CPU usage for the specified time interval and resize (downsize/upsize) Virtual Machine SKU automatically.  E.g., CPU <10% for 12Hrs, downsize the SKU by one.
+- By default, resizes only based on CPU usage e.g., from DS14 to DS13… DS1.
+- For memory intensive apps, you can supply optional parameter to downsize/upsize to lower SKUs with same memory e.g, if SKU is DS4 (8cores, 28GB), downsize to only DS13 (4cores, 28GB) where memory is still intact.  For all downsize/upsize requirements, it flips between only these 2 CPUs.  This is still 35% cost effective (from DS4 to DS13).
+
+2)	SKU Resize requires rebooting of Virtual Machine, hence added support for "scheduled reboot feature" where SKU resize of the Virtual Machine happens only at the specified schedule (e.g., every Sat at 1am)
+
+3)	Disable auto-resize feature at will when you want to turn down for already targeted VMs
+
+### Script Usability
+1)	End-to-end automation via PowerShell – no need to be knowledgeable about the relevant Azure components nor additional touch points for setting this up
+2)	Onboard multiple Virtual Machines from a subscription in one go
+3)	Onboarding time is about a minute per Virtual Machine
+4)	You can just provide the below parameters to the tool in command-line: 
+      - Names of the VMs
+      - Name of the Azure Subscription
+      - Automation Account Name
+      - Email address
+      - Optional parameters: 
+        - Thresholds (Upper and Lower CPU values to trigger Upsize/Downsize respectively e.g., 10% and 60%)
+        - Duration to monitor before triggering resize (e.g., last 12Hrs)
+        - Monitor memory flag (for flipping between CPUs without reducing memory allotment)
+
+### Sample usage
+```azurepowershell-interactive
+Resize-AzureVMSKU.ps1 `
+    -VMNames myVM `
+    -SubscriptionName "mySub" `
+    -AutomationAccountName "myAA" `
+    -LowerCPUThreshold 10 `
+    -UpperCPUThreshold 60 `
+    -AlertMailAddress pavanma@microsoft.com `
+    -AlertDurationMinutes 360
+```
+![Script Output](https://github.com/pavanma/Azure-VM-SKU-Auto-Resize/blob/master/script-output.png)
