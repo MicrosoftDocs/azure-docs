@@ -99,6 +99,4 @@ Control how your application upgrades by using [Upgrade Parameters](service-fabr
 
 Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
-Learn about the behavior when [rolling back application upgrades](service-fabric-application-rollback.md).
-
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
