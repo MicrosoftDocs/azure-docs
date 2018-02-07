@@ -120,13 +120,18 @@ After the tenant has been provisioned, the new tenant's events website is opened
 
    ![red maple racing](media/saas-standaloneapp-provision-and-catalog/redmapleracing.png)
 
-You can then inspect the new resources created in the Azure portal 
+You can then inspect the new resources created in the Azure portal. 
 
    ![red maple racing resources](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
+
+## To stop billing, delete resource groups ##
+
+When you have finished exploring the sample, delete all the resource groups you created to stop the associated billing.
+
 ## Additional resources
 
-- To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
+- To learn more about multi-tenant SaaS database applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 ## Next steps
 
@@ -136,7 +141,3 @@ In this tutorial you learned:
 > * How to deploy the Wingtip Tickets SaaS Standalone Application.
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
-
-## To stop billing, delete resource groups ##
-
-When you have finished exploring the sample, delete all the resource groups you created to stop the associated billing.
