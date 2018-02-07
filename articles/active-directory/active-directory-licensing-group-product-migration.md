@@ -64,7 +64,8 @@ This is a simple walkthrough for a single user being migrated.
 ![User with target license inherited from group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssigned.png)
 
 ### Automating migration using PowerShell
-> [!NOTE]This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
+> [!NOTE]
+> This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
 
 This snippet shows how the migration process can be automated at larger scale.
 ```
@@ -174,7 +175,8 @@ This is a simple walkthrough for a single user being migrated.
 ![User with target license inherited from group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssignedConflictScenario.png)
 
 ### Automating migration using PowerShell
-> [!NOTE]This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
+> [!NOTE]
+> This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
 
 This snippet shows how the migration process can be automated at larger scale.
 ```
@@ -267,7 +269,8 @@ Check passed for all users. Exiting check loop.
 ## PowerShell automation of migration and verification steps
 This section contains the PowerShell code required to execute the scripts used earlier in the article.
 
->[!WARNING]This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
+>[!WARNING]
+>This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
 
 In order to execute the code you will nee to use the [Azure AD PowerShell v1.0 libraries](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0] for instructions). Execute the *connect-msolservice* cmdlet first to sign in into the tenant before executing the script.
 ```
