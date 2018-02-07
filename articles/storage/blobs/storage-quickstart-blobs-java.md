@@ -112,7 +112,7 @@ The first thing to do is create the references to the objects used to access and
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**. 
 
-This example uses [CreateIfNotExists](java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, its better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
+This example uses [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, its better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
