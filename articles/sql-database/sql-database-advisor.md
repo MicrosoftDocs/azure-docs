@@ -20,7 +20,7 @@ ms.author:
 ---
 # Performance recommendations for SQL Database
 
-Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based database-unique workload patterns that helps improve performance.
+Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based on database-unique workload patterns and help improve performance.
 
 > [!TIP]
 > [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for performance tuning. [Intelligent Insights](sql-database-intelligent-insights.md) is the recommended method for monitoring performance. 
@@ -72,7 +72,7 @@ After you apply this recommendation, it enables forced parameterization within m
 
 **Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
-“Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns expected by the query may be missing in the target table or vice-versa. 
+“Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns that's expected by the query may be missing in the target table or vice-versa. 
 
 The “Fix schema issue” recommendation appears when Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your Azure SQL Database. The following table shows the errors that are related to schema issues:
 
