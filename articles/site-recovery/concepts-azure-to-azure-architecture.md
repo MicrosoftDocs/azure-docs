@@ -1,12 +1,16 @@
 ---
 title: Azure to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating Azure VMs between Azure regions using the Azure Site Recovery service.
+services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
+ms.custom: mvc
 ---
+
 
 # Azure to Azure replication architecture
 
