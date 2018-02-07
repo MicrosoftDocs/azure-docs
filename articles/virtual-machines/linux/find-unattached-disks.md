@@ -27,8 +27,10 @@ When you delete a virtual machine (VM) in Azure, by default, any disks that are 
 The following script looks for unattached [managed disks](managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all of the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
 
 >[!IMPORTANT]
->First, run the script by setting the **deleteUnattachedDisks** variable to 0. This action lets you find and view all of the unattached managed disks.<br/>
+>First, run the script by setting the **deleteUnattachedDisks** variable to 0. This action lets you find and view all of the unattached managed disks.
+>
 >After reviewing all of the unattached disks, run the script again and set the **deleteUnattachedDisks** variable to 1. This action lets you delete all of the unattached managed disks.
+>
 
 ```azurecli
 
@@ -57,8 +59,10 @@ done
 Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure Storage accounts](../../storage/common/storage-create-storage-account.md). The following script looks for unattached unmanaged disks (page blobs) by examining the value of the **LeaseStatus** property. When an unmanaged disk is attached to a VM, the **LeaseStatus** property is set to **Locked**. When an unmanaged disk is unattached, the **LeaseStatus** property is set to **Unlocked**. The script examines all of the unmanaged disks in all of the Azure Storage accounts in an Azure subscription. When the script locates an unmanaged disk with a **LeaseStatus** property set to **Unlocked**, the script determines that the disk is unattached.
 
 >[!IMPORTANT]
->First, run the script by setting the **deleteUnattachedVHDs** variable to 0. This action lets you find and view all of the unattached unmanaged VHDs.<br/>
+>First, run the script by setting the **deleteUnattachedVHDs** variable to 0. This action lets you find and view all of the unattached unmanaged VHDs.
+>
 >After reviewing all of the unattached disks, run the script again and set the **deleteUnattachedVHDs** variable to 1. This action lets you delete all of the unattached unmanaged VHDs.
+>
 
 ```azurecli
    
