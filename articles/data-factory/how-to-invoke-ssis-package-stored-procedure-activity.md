@@ -36,8 +36,9 @@ In this section, you use Data Factory UI to create a Data Factory pipeline with 
 ### Create a data factory
 First step is to create a data factory by using the Azure portal. 
 
-1. Navigate to the [Azure portal](https://portal.azure.com). 
-2. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Navigate to the [Azure portal](https://portal.azure.com). 
+3. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**. 
