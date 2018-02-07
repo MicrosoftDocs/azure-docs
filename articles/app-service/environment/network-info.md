@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ---
-# Networking considerations for an App Service environment #
+# Networking considerations for an App Service Environment #
 
 ## Overview ##
 
@@ -53,7 +53,7 @@ This is true if you're on an External ASE or on an ILB ASE. If you're on an Exte
 
 ## ASE subnet size ##
 
-The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you even create an app in that ASE. As you scale out your App Serivce plans it will require additional addresses for each Front End that is added.  By default, Front End servers are added for every 15 total App Service plan instances. 
+The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your App Serivce plans it will require additional addresses for each Front End that is added.  By default, Front End servers are added for every 15 total App Service plan instances. 
 
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
