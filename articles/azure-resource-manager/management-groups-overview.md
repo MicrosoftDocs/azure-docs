@@ -27,7 +27,7 @@ As an example, you can apply policies to a management group that limit the regio
 Azure Customers can build a flexible structure of management groups and subscriptions to organize their resources into a hierarchy for unified policy and access management. 
 The structure shown is a sample of a management group hierarchy that can exist:
 
-![hierarchy tree](media/management-groups/mg_overview.png)
+![hierarchy tree](media/management-groups/MG_overview.png)
 
 Change is always constant and customers have the need to always be updating their hierarchy. To help with these frequent changes, you are able to easily move management groups and subscriptions to change the hierarchy. You are able to move whole branches or individual resources around in the hierarchy to keep it updated. 
 
@@ -123,16 +123,17 @@ C:\> Add-AzureRmManagementGroup -GroupName Contoso
 You will see the new group show in the list
 
 ---
+
 ### Example 2: Add new group that has a different Display Name and is under a parent management group
 This example shows the command to create a new management group with the ID of "newGroup" and have a display name of "Contoso IT." This management group is a child of the management group created in Example 1.  
 
-#[PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 C:\> Add-AzureRmManagementGroup -GroupName newGroup -DisplayName "Contoso IT" -ParentId Contoso
 ```
 
-#[Portal](#tab/portal)
+# [Portal](#tab/portal)
 - Select the Management Groups Service on the left navigation 
 [image]
 - On the main page, select "New Managment group." 
@@ -147,7 +148,7 @@ You will see the new group show in the list
 A user with the role of "Owner" or "Contributor" can change the display name of the management group.  This name is shown within the Azure portal.  
 
 
-#[PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 PowerShell gives the you the ability to change the name or the ParentID within the same command. The ParentId is not editable on the Root managmeent group. 
 
@@ -163,21 +164,118 @@ Update-AzureRmManagementGroup
 - [-DisplayName]: The name that is displayed within the UI. This property can be updated. 
 - [-ParentId]: This parameter can be updated to link this group to a new parent group. The group listed here is the new parent of the updated management group.   
  
- #[Portal](#tab/portal)
-
-
+# [Portal](#tab/portal)
+The abilty to update the diplay name on a management group is available on the detail screen.   
+[image]
 
  ---
+
 ### Example 3: Update a management group with a new display name
 This example shows how to update an existing management group with the "GroupName" of "Contoso" to have a display name of "Contoso Group." After this update, the group shows the new display name in the Azure portal.  
+
+# [PowerShell](#tab/powershell)
 
 ```powershell
 C:\> Update-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" 
 ```    
  
-### Example 4: Update management group parent 
-In this example, it shows how to update an existing management group with the name of "ContosoMarketing" to have a parent of "Contoso."
+# [Portal](#tab/portal)
+To rename a managment group: 
+- Select the Management Groups Service on the left navigation. 
+[image]
+- Select the management group you would like to rename. 
+- Select the "Rename" option at the top of the page
+[image]
+- When the menu opens, enter the new name you would like to have displayed. 
+- Select save. 
+
+The hierarhcy list will update to show the new display name. 
+
+--- 
+
+## Delete a management group
+Any management group can be deleted from the hierarchy that meet these requirments:
+- There are no child management groups or subscriptions under that managmenet group.
+- You have write permissions on the managmeent group.  These can be directly assigned or inherited permissions.  
+
+# [PowerShell](#tab/powershell)
+This command is used to remove a management group from a hierarchy. This command can only be used if the particular group has no children. If the group does have child items, use "Update-AzureRmManagementGroup" or "Remove-AzureRMManagementGroupSubscription" to remove all children. 
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName ContosoMarketing -ParentName Contoso 
-```  
+Remove-AzureRmManagementGroup
+    [-GroupName]<string>
+    [-Defaultprofile]<IAzureContextContainer>
+    [<CommonParameters>]
+```
+- [-GroupName]: Parameter required to identify what group to remove from the hierarchy. 
+
+# [Portal](#tab/portal)
+The abiltiy to delete a management group is availabe on the detail blade of a maangemetn group. The delete icon will be disabled if you do not have the correct permissions or there are children of the managmeent group. 
+
+[image]
+
+---
+ 
+### Example 5: Delete a management group
+This example shows how to remove the management group "ContosoMarketing" from the hierarchy. This management group does not have any children in the hierarchy so it can be deleted. 
+
+# [Powershell](#tab/powershell)
+
+```powershell
+Remove-AzureRmManagementGroup -GroupName ContosoMarketing
+```
+# [Portal](#tab/portal)
+To delete a managment group: 
+- Select the Management Groups Service on the left navigation. 
+[image]
+- Select the management group you would like to delete. 
+- Select the "delete" option at the top of the page. 
+    - If the icon is disabled, hovering your mouse selector over hte icon will shoe you the reason.  
+[image]
+- There will be a window that opens confriming you want to delete the management group. 
+- Select "Okay". 
+
+The hierarhcy list will update showing the group has been deleted.
+
+---
+
+## View management groups
+To view particular a management group or to list all management groups within the directory. 
+
+```powershell
+Get-AzureRmManagementGroup
+    [-GroupName]<string>
+    [-DefaultProfile]<IAzureContextContainer>
+    [-Expand]
+    [-Recurse]
+    [<CommonParameters>]
+```
+- [-GroupName]: Use to select a particular management group.
+- [-Expand]: Expand parameter is used when at a management group scope to view all children.
+- [-Recurse]: Recurse is used when at a management group scope to return the entire hierarchy under that node.   
+
+### Example 6: Show all management groups 
+This example shows how to see all the groups that are under the tenant. 
+
+```powershell
+Get-AzureRmManagementGroup
+```
+
+### Example 7: View one management group
+Use the following command to view on management group with the name of Contoso.  
+
+```powershell
+Get-AzureRmManagementGroup -GroupName Contoso
+```
+
+### Example 8: View a group and its children 
+This example shows how to view the one management group, Contoso, and its children. This command only returns the immediate children.  
+
+```powershell
+Get-AzureRmManagementGroups -GroupName Contoso -Expand
+```
+
+### Example 9: View all groups under a management group
+```powershell
+Get-AzureRmManagementGroup -GroupName ContosoMarketing -Recurse
+``` 
