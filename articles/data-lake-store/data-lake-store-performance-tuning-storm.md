@@ -26,8 +26,8 @@ Understand the factors that should be considered when you tune the performance o
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **An Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Running a Storm cluster on Data Lake Store**. For more information, see [Storm on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
-* **Performance tuning guidelines on Data Lake Store**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Running a Storm cluster on Data Lake Store**. For more information, see [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Performance tuning guidelines on Data Lake Store**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## Tune the parallelism of the topology
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
 
 ---
@@ -33,7 +33,7 @@ In this tutorial, we are going to develop a .NET and a Node.js console app:
 To complete this tutorial, you need:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -76,7 +76,7 @@ In this section, you create a Node.js console app that responds to a method call
    
         response.send(200, 'Input was written to log.', function(err) {
             if(err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }

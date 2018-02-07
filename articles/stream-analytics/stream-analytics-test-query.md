@@ -4,7 +4,7 @@ description: How to test your queries in Stream Analytics jobs.
 keywords: test query, troubleshoot query
 documentation center: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Test Azure Stream Analytics queries in the Azure portal
@@ -24,7 +24,7 @@ With Azure Stream Analytics, you can test queries in the Azure portal without ne
 
 ## Test the input
 
-1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
+1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**. Currently you can upload JSON formatted data only. If your data is in a different format such as CSV, you should convert it to JSON before uploading. You can use any opensource conversion tool such as [CSV to JSON convertor](http://www.convertcsv.com/csv-to-json.htm) to convert your data to JSON.
 
     ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -32,7 +32,7 @@ With Azure Stream Analytics, you can test queries in the Azure portal without ne
 
     ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to the download results should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
+The output of your query is displayed in the browser, with Download results link should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
 ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
@@ -42,12 +42,12 @@ After you are satisfied with the results shown in the browser, you can save your
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

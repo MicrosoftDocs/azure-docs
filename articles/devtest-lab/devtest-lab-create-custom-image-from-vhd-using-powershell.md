@@ -3,7 +3,7 @@ title: Create an Azure DevTest Labs custom image from a VHD file using PowerShel
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
@@ -72,7 +72,7 @@ The following steps walk you through creating a custom image from a VHD file usi
 
 	$parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/ARMTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+	New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 	```
 
 ## PowerShell script to create a custom image from a VHD file
@@ -107,7 +107,7 @@ $customImageDescription = '<Specify the custom image description>'
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
 # Create the custom image. 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/ARMTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
 ## Related blog posts
@@ -117,4 +117,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 
 ##Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](devtest-lab-add-vm.md)

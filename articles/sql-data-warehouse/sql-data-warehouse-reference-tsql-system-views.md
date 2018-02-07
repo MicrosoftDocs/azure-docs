@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: barbkess
 
 ---
@@ -34,6 +34,7 @@ ms.author: barbkess
 * [sys.pdw_nodes_partitions](http://msdn.microsoft.com/library/mt203908.aspx)
 * [sys.pdw_nodes_pdw_physical_databases](http://msdn.microsoft.com/library/mt203897.aspx)
 * [sys.pdw_nodes_tables](http://msdn.microsoft.com/library/mt203886.aspx)
+* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
@@ -55,7 +56,7 @@ ms.author: barbkess
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## SQL Server DMVs applicable to SQL Data Warehouse
 The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
@@ -133,17 +134,17 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 ## SQL Server DMVs available in SQL Data Warehouse
 SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
-Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
-
-This is why each of these DMV's has a specific column called pdw_node_id. This is the the identifier for the Compute node. In PDW the Compute node is a stronger concept for the architecture. In SQL Data Warehouse, the architecture relies more heavily on the distributions.
+SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
-> To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table.
+> To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
 > 
 > 
 
-| DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
+| DMV name in SQL Data Warehouse | SQL Server Transact-SQL article|
 |:--- |:--- |
+| sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
+| sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_file_space_usage |[sys.dm_db_file_space_usage](http://msdn.microsoft.com/library/ms174412.aspx) |
 | sys.dm_pdw_nodes_db_index_usage_stats |[sys.dm_db_index_usage_stats](http://msdn.microsoft.com/library/ms188755.aspx) |
 | sys.dm_pdw_nodes_db_partition_stats |[sys.dm_db_partition_stats](http://msdn.microsoft.com/library/ms187737.aspx) |
@@ -161,6 +162,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
 | sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
+| sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
 | sys.dm_pdw_nodes_os_child_instances |[sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
 | sys.dm_pdw_nodes_os_cluster_nodes |[sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |

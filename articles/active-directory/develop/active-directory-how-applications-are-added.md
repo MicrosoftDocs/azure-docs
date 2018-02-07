@@ -4,7 +4,7 @@ description: This article describes how applications are added to an instance of
 services: active-directory
 documentationcenter: ''
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: ''
 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
+ms.custom: aaddev
 
 ---
 # How and why applications are added to Azure AD
@@ -80,8 +81,8 @@ Applications that you add yourself include:
   * Claims transformation rules
   * Attribute mappings (User provisioning)
 * For more detailed information on the service principal and application objects please refer to the Azure AD Graph REST API reference documentation.  *Hint*: The Azure AD Graph API documentation is the closest thing to a schema reference for Azure AD that's currently available.  
-  * [Application](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Service Principal](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Application](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Service Principal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## How are apps added to my Azure AD instance?
 There are many ways an app can be added to Azure AD:

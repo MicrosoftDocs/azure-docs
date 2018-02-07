@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
+ms.author: LADocs; b-hoedid
 
 ---
 # Scenario: Exception handling and error logging for logic apps
@@ -48,19 +48,19 @@ The project had two major requirements:
 
 ## How we solved the problem
 
-We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") 
-as a repository for the log and error records (DocumentDB refers to records as documents). 
+We chose [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 
+As a repository for the log and error records (Cosmos DB refers to records as documents). 
 Because Azure Logic Apps has a standard template for all responses, 
 we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. 
 We could also define a schema for each within the API app.  
 
 Another requirement was to purge records after a certain date. 
-DocumentDB has a property called [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), 
+Cosmos DB has a property called [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), 
 which allowed us to set a **Time to Live** value for each record or collection. 
-This capability eliminated the need to manually delete records in DocumentDB.
+This capability eliminated the need to manually delete records in Cosmos DB.
 
 > [!IMPORTANT]
-> To complete this tutorial, you need to create a DocumentDB database and two collections (Logging and Errors).
+> To complete this tutorial, you need to create a Cosmos DB database and two collections (Logging and Errors).
 
 ## Create the logic app
 
@@ -122,7 +122,7 @@ We must log the source (request) of the patient record from the Dynamics CRM Onl
    and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
    We get the CRM record by using the CRM **PatientID** and the **Record Type**.
 
-2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown here in 
+2. Next, we need to add our Azure Cosmos DB SQL API app **InsertLogEntry** operation as shown here in 
 Logic App Designer.
 
    **Insert log entry**
@@ -276,7 +276,7 @@ Here is the logic app source code for creating an error record.
 }             
 ```
 
-#### Insert error into DocumentDB--request
+#### Insert error into Cosmos DB--request
 
 ``` json
 
@@ -299,7 +299,7 @@ Here is the logic app source code for creating an error record.
 }
 ```
 
-#### Insert error into DocumentDB--response
+#### Insert error into Cosmos DB--response
 
 ``` json
 {
@@ -417,17 +417,17 @@ After you get the response, you can pass the response back to the parent logic a
 ```
 
 
-## DocumentDB repository and portal
+## Cosmos DB repository and portal
 
-Our solution added capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Our solution added capabilities with [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### Error management portal
 
-To view the errors, you can create an MVC web app to display the error records from DocumentDB. 
+To view the errors, you can create an MVC web app to display the error records from Cosmos DB. 
 The **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
 > [!NOTE]
-> Edit operation: DocumentDB replaces the entire document. 
+> Edit operation: Cosmos DB replaces the entire document. 
 > The records shown in the **List** and **Detail** views are samples only. 
 > They are not actual patient appointment records.
 
@@ -454,16 +454,16 @@ Here are examples of our MVC app details created with the previously described a
 Our open-source Azure Logic Apps exception management API app 
 provides functionality as described here - there are two controllers:
 
-* **ErrorController** inserts an error record (document) in a DocumentDB collection.
-* **LogController** Inserts a log record (document) in a DocumentDB collection.
+* **ErrorController** inserts an error record (document) in an Azure Cosmos DB collection.
+* **LogController** Inserts a log record (document) in an Azure Cosmos DB collection.
 
 > [!TIP]
 > Both controllers use `async Task<dynamic>` operations, 
 > allowing operations to resolve at runtime, 
-> so we can create the DocumentDB schema in the body of the operation. 
+> so we can create the Azure Cosmos DB schema in the body of the operation. 
 > 
 
-Every document in DocumentDB must have a unique ID. 
+Every document in Azure Cosmos DB must have a unique ID. 
 We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). 
 We truncate the value to remove the fractional value.
 
@@ -508,7 +508,7 @@ The expression in the preceding code sample checks for the *Create_NewPatientRec
 ## Summary
 
 * You can easily implement logging and error handling in a logic app.
-* You can use DocumentDB as the repository for log and error records (documents).
+* You can use Azure Cosmos DB as the repository for log and error records (documents).
 * You can use MVC to create a portal to display log and error records.
 
 ### Source code

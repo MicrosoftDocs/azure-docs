@@ -1,42 +1,94 @@
-﻿# Overview
-## [What is Azure Batch](batch-technical-overview.md)
-## [Feature overview](batch-api-basics.md)
+
+# [Batch Documentation](index.yml)
+
+# Overview
+## [What is Azure Batch?](batch-technical-overview.md)
+
+# Quickstarts
+## [Run a Batch job - CLI](quick-create-cli.md)
+## [Run a Batch job - Portal](quick-create-portal.md)
+## [Run a Batch job - .NET](quick-run-dotnet.md)
+## [Run a Batch job - Python](quick-run-python.md)
+
+
+# Tutorials
+
+## [Parallel file processing - .NET](tutorial-parallel-dotnet.md)
+## [Parallel file processing - Python](tutorial-parallel-python.md)
+## [Scene rendering with Arnold](tutorial-rendering-cli.md)
+## [Parallel R simulation](tutorial-r-doazureparallel.md)
+
+# Samples
+## Code samples
+### [Azure code samples](https://azure.microsoft.com/resources/samples/?service=batch)
+### [Batch samples repo](https://github.com/Azure/azure-batch-samples)
+## [Azure CLI](cli-samples.md)
+
+# Concepts
+## [Developer features](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
 ## [Quotas and limits](batch-quota-limit.md)
-# Get Started
-## [Create a Batch account](batch-account-create-portal.md)
-## [Batch .NET tutorial](batch-dotnet-get-started.md)
-## [Batch Python tutorial](batch-python-tutorial.md)
-# How To
-## Develop
-### [Application packages](batch-application-packages.md)
-### [Autoscale compute nodes](batch-automatic-scaling.md)
-### Azure AD authentication
-#### [Azure AD with Batch service](batch-aad-auth.md)
-#### [Azure AD with Batch Management](batch-aad-auth-management.md)
-### [Concurrent node tasks](batch-parallel-node-tasks.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
-### [Job preparation and completion tasks](batch-job-prep-release.md)
-### [Linux compute nodes](batch-linux-nodes.md)
+
+# How-to guides
+## Manage Batch accounts
+### [Manage Batch accounts with the portal](batch-account-create-portal.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
-### [Persist job and task output](batch-task-output.md)
-### [Run MPI jobs in Batch](batch-mpi.md)
+
+## Authenticate with Azure AD
+### [Azure AD with Batch service](batch-aad-auth.md)
+### [Azure AD with Batch Management](batch-aad-auth-management.md)
+
+## [Create application packages](batch-application-packages.md)
+
+## Create and manage pools
+### [Autoscale compute nodes](batch-automatic-scaling.md)
+### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
+### [Create a pool with a custom image](batch-custom-images.md)
+### [Create a pool in a virtual network](batch-virtual-network.md)
+### [Linux compute nodes](batch-linux-nodes.md)
+### [Low-priority VMs](batch-low-pri-vms.md)
+
+## Manage jobs and tasks
+### [Job preparation and completion tasks](batch-job-prep-release.md)
+### [Concurrent node tasks](batch-parallel-node-tasks.md)
+### [Count tasks by state](batch-get-task-counts.md)
 ### [Task dependencies](batch-task-dependencies.md)
 ### [User accounts for running tasks](batch-user-accounts.md)
-### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
-## Manage
-### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Azure CLI](batch-cli-get-started.md)
+### [Run Batch jobs without code](batch-cli-templates.md)
+
+
+## [Persist job and task output](batch-task-output.md)
+### [Persist output with Batch API](batch-task-output-files.md)
+### [Persist output with File Conventions library](batch-task-output-file-conventions.md)
+
+## Run workloads
+### [MPI jobs](batch-mpi.md)
+### [Container workloads](batch-docker-container-workloads.md)
+### [Rendering](batch-rendering-service.md)
+### [Data processing with Batch and Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+
+## Monitor resources
+### [Diagnostic logging](batch-diagnostics.md)
+### [Efficient list queries](batch-efficient-list-queries.md)
+
+## Use developer tools
+### [Use Batch .NET](batch-dotnet-get-started.md)
+### [Use Batch Python ](batch-python-tutorial.md)
+### [Use Batch Node.js](batch-nodejs-get-started.md)
+### [Use PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
+### [Use Azure CLI](batch-cli-get-started.md)
 
 # Reference
-## [PowerShell](/powershell/module/azurerm.batch)
+
 ## [Azure CLI](/cli/azure/batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
-## [REST](/rest/api/batchservice)
-## [Batch diagnostic logs](batch-diagnostics.md)
+## [Node.js](/nodejs/api/overview/azure/batch)
+## [Python](/python/api/overview/azure/batch)
+## REST
+### [Batch Service](/rest/api/batchservice)
+### [Batch Management](/rest/api/batchmanagement/)
 ## [Batch Analytics](batch-analytics.md)
 ### [Pool create event](batch-pool-create-event.md)
 ### [Pool delete start event](batch-pool-delete-start-event.md)
@@ -46,23 +98,19 @@
 ### [Task start event](batch-task-start-event.md)
 ### [Task complete event](batch-task-complete-event.md)
 ### [Task fail event](batch-task-fail-event.md)
-## [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)
-
-# Related
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Data processing with Batch and Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
+## [Batch compute node environment variables](batch-compute-node-environment-variables.md)
+### [Resource Manager template](/templates/microsoft.batch/batchaccounts)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Batch forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [HPC solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI samples](batch-cli-samples.md)
-## [Big Compute resources](big-compute-resources.md)
-## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 
 

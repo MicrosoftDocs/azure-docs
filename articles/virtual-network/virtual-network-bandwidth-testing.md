@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/21/2017
 ms.author: steveesp
 
 ---
@@ -109,7 +109,7 @@ Ubuntu - Install Git:
 ```
 Make and Install on both:
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -130,6 +130,46 @@ ntttcp -s10.0.0.4 -t 300
  
 Test length defaults to 60 seconds if no time parameter is given
 
+## Testing between VMs running Windows and LINUX:
+
+On this scenarios we should enable the no-sync mode so the test can run. This is done by using the **-N flag** for Linux, and **-ns flag** for Windows.
+
+#### From Linux to Windows:
+
+Receiver <Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+Sender <Linux> :
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### From Windows to Linux:
+
+Receiver <Linux>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+Sender <Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+## Testing Cloud Service Instances:
+You need to add following section into your ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
+
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

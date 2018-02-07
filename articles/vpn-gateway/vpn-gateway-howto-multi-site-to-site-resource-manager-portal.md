@@ -4,7 +4,7 @@ description: Add multi-site S2S connections to a VPN gateway that has an existin
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -19,10 +19,11 @@ ms.author: cherylmc
 
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
+
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Classic - PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (classic)](vpn-gateway-multi-site.md)
+>
 > 
 
 This article walks you through using the Azure portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
@@ -41,7 +42,7 @@ Verify the following items:
 
 * You are not creating an ExpressRoute/S2S coexisting connection.
 * You have a virtual network that was created using the Resource Manager deployment model with an existing connection.
-* The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RoutBased.
+* The virtual network gateway for your VNet is RouteBased. If you have a PolicyBased VPN gateway, you must delete the virtual network gateway and create a new VPN gateway as RouteBased.
 * None of the address ranges overlap for any of the VNets that this VNet is connecting to.
 * You have compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.

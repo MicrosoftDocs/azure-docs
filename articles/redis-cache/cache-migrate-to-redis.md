@@ -3,8 +3,8 @@ title: Migrate Managed Cache Service applications to Redis - Azure | Microsoft D
 description: Learn how to migrate Managed Cache Service and In-Role Cache applications to Azure Redis Cache
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
-ms.author: sdanie
+ms.date: 05/30/2017
+ms.author: wesmc
 
 ---
 # Migrate from Managed Cache Service to Azure Redis Cache
 Migrating your applications that use Azure Managed Cache Service to Azure Redis Cache can be accomplished with minimal changes to your application, depending on the Managed Cache Service features used by your caching application. While the APIs are not exactly the same they are similar, and much of your existing code that uses Managed Cache Service to access a cache can be reused with minimal changes. This topic shows how to make the necessary configuration and application changes to migrate your Managed Cache Service applications to use Azure Redis Cache, and shows how some of the features of Azure Redis Cache can be used to implement the functionality of a Managed Cache Service cache.
+
+>[!NOTE]
+>Managed Cache Service and In-Role Cache were [retired](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) November 30, 2016. If you have any In-Role Cache deployments that you want to migrate to Azure Redis Cache, you can follow the steps in this article.
 
 ## Migration Steps
 The following steps are required to migrate a Managed Cache Service application to use Azure Redis Cache.
@@ -55,7 +58,7 @@ Microsoft Azure Redis Cache is available in the following tiers:
 
 * **Basic** – Single node. Multiple sizes up to 53 GB.
 * **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
-* **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
+* **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -119,7 +122,7 @@ In Managed Cache Service, connections to the cache were handled by the `DataCach
 
 Add the following using statement to the top of any file from which you want to access the cache.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -132,7 +135,7 @@ If this namespace doesn’t resolve, be sure that you have added the StackExchan
 
 To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. In this example `abortConnect` is set to false, which means that the call will succeed even if a connection to the cache is not established. One key feature of `ConnectionMultiplexer` is that it will automatically restore connectivity to the cache once the network issue or other causes are resolved.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -151,7 +154,7 @@ The cache endpoint, keys, and ports can be obtained from the **Redis Cache** bla
 
 Once the connection is established, return a reference to the Redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -172,7 +175,7 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

@@ -9,11 +9,11 @@ editor: torsteng
 
 ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: sql-database
+ms.workload: "On Demand"
 ms.date: 05/27/2016
 ms.author: torsteng
 
@@ -92,7 +92,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
 
 ## .NET installation for Azure Cloud Services
-Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
+Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
 
 For Azure App Services, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -143,7 +143,7 @@ The following limitations currently apply to elastic database transactions in SQ
 * Transactions across WCF services are not supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## Next steps
-Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

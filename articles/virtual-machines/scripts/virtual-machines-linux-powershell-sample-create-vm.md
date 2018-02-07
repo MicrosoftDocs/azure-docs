@@ -11,11 +11,12 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a fully configured virtual machine with PowerShell

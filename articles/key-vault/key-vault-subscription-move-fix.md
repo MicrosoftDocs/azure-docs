@@ -28,6 +28,7 @@ When you create a new key vault in a subscription, it is automatically tied to t
 For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
+$Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
 $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId

@@ -3,7 +3,7 @@ title: 'Migrate: Data Warehouse Migration Utility | Microsoft Docs'
 description: Migrate to SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Data Warehouse Migration Utility (Preview)
@@ -63,4 +63,4 @@ Now that you've migrated some data, check out how to [develop][develop].
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/en-us/download/details.aspx?id=49100

@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Azure Load Balancer overview
 
 Azure Load Balancer delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set.
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer can be configured to:
 
@@ -28,38 +30,6 @@ Azure Load Balancer can be configured to:
 * Forward external traffic to a specific virtual machine.
 
 All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
-
-## Azure deployment models
-
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
-
-### Azure classic deployment model
-
-Virtual machines deployed within a cloud service boundary can be grouped to use a load balancer. In this model a public IP address and a Fully Qualified Domain Name, (FQDN) are assigned to a cloud service. The load balancer does port translation and load balances the network traffic by using the public IP address for the cloud service.
-
-Load-balanced traffic is defined by endpoints. Port translation endpoints have a one-to-one relationship between the public-assigned port of the public IP address and the local port assigned to the service on a specific virtual machine. Load balancing endpoints have a one-to-many relationship between the public IP address and the local ports assigned to the services on the virtual machines in the cloud service.
-
-![Azure Load Balancer in the classic deployment model](./media/load-balancer-overview/asm-lb.png)
-
-Figure 1 - Azure Load Balancer in the classic deployment model
-
-The domain label for the public IP address that the load balancer uses for this deployment model is \<cloud service name\>.cloudapp.net. The following graphic shows the Azure Load Balancer in this model.
-
-### Azure Resource Manager deployment model
-
-In the Resource Manager deployment model there is no need to create a Cloud service. The load balancer is created to explicitly route traffic among multiple virtual machines.
-
-A public IP address is an individual resource that has a domain label (DNS name). The public IP address is associated with the load balancer resource. Load balancer rules and inbound NAT rules use the public IP address as the Internet endpoint for the resources that are receiving load-balanced network traffic.
-
-A private or public IP address is assigned to the network interface resource attached to a virtual machine. Once a network interface is added to a load balancer's back-end IP address pool, the load balancer is able to send load-balanced network traffic based on the load-balanced rules that are created.
-
-The following graphic shows the Azure Load Balancer in this model:
-
-![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
-
-Figure 2 - Azure Load Balancer in Resource Manager
-
-The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ## Load Balancer features
 
@@ -71,7 +41,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figure 3 - Hash based distribution
+    Figure - Hash based distribution
 
 * Port forwarding
 
@@ -115,11 +85,17 @@ You can assign more than one load-balanced public IP address to a set of virtual
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## Limitations
+
+Load Balancer backend pools can contain any VM SKU except Basic tier.
+
 ## Next steps
 
-[Internet-facing load balancer overview](load-balancer-internet-overview.md)
+- Learn more about [Internet-facing load balancer](load-balancer-internet-overview.md)
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+- Learn more about [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+- Create an [Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
+
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure
 

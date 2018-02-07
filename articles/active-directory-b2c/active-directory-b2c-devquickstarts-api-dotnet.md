@@ -1,10 +1,10 @@
 ---
-title: Azure AD B2C | Microsoft Docs
+title: Secure a web API - ASP.NET - Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web API by using Azure Active Directory B2C, secured using OAuth 2.0 access tokens for authentication.
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 01/14/2018
 ms.author: parakhj
+author: parakhj
+ms.custom: seohack1
 
 ---
 # Azure Active Directory B2C: Build a .NET web API
@@ -36,10 +38,8 @@ Next, you need to create a web API app in your B2C directory. This gives Azure A
 * Include a **web app** or **web API** in the application.
 * Use the **Redirect URI** `https://localhost:44332/` for the web app. This is the default location of the web app client for this code sample.
 * Copy the **Application ID** that is assigned to your app. You'll need it later.
-* Enter an app identifier into **App ID URI**.
+* Enter an app identifier into **App ID URI**. Copy the full **App ID URI**. You'll need it later.
 * Add permissions through the **Published scopes** menu.
-
-  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 
@@ -55,10 +55,10 @@ After you have successfully created the policy, you're ready to build your app.
 
 ## Download the code
 
-The code for this tutorial is maintained on [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). You can clone the sample by running:
+The code for this tutorial is maintained on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). You can clone the sample by running:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is an MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list. This article will only discuss the `TaskService` application. To learn how to build `TaskWebApp` using Azure AD B2C, see [our .NET web app tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
@@ -79,6 +79,7 @@ Our sample is configured to use the policies and client ID of our demo tenant. I
     * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
     * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
     * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+    * `api:ApiIdentifier` with your "App ID URI"
 
 
 ## Secure the API

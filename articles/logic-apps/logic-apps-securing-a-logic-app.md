@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 
@@ -39,7 +39,7 @@ All requests into a logic app are encrypted and secured via SSL.
 ### Shared Access Signature
 
 Every request endpoint for a logic app includes a 
-[Shared Access Signature (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) 
+[Shared Access Signature (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 
 as part of the URL. Each URL contains a `sp`, `sv`, and `sig` query parameter. 
 Permissions are specified by `sp`, 
 and correspond to HTTP methods allowed, 
@@ -328,17 +328,18 @@ Logic apps provide integration with several services to provide secure and relia
 
 #### On-premises data gateway
 
-Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway uses encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](logic-apps-gateway-install.md#how-the-gateway-works).
+Many managed connectors for logic apps provide secure connectivity to on-premises systems, 
+including File System, SQL, SharePoint, DB2, and more. 
+The gateway relays data from on-premises sources 
+on encrypted channels through the Azure Service Bus. 
+All traffic originates as secure outbound traffic from the gateway agent. 
+Learn more about [how the data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### Azure API Management
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/) 
 has on-premises connectivity options, including site-to-site VPN and ExpressRoute integration for secured proxy and communication to on-premises systems. 
 In the Logic App Designer, you can quickly select an API exposed from Azure API Management within a workflow, providing quick access to on-premises systems.
-
-#### Hybrid connections from Azure App Service
-
-You can use the on-premises hybrid connection feature for Azure API and Web apps to communicate on-premises.  Details on hybrid connections and how to configure can be found [in this article](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## Next steps
 [Create a deployment template](logic-apps-create-deploy-template.md)  

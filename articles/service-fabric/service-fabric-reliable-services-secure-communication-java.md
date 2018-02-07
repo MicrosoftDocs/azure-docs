@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
 
 ---
@@ -52,7 +52,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
 
     Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
 
-   1. Provide them by using a [config package](service-fabric-application-model.md):
+   1. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 
        Add a `TransportSettings` section in the settings.xml file.
 
@@ -89,7 +89,7 @@ We'll be using an existing [example](service-fabric-reliable-services-communicat
             ...
         </Section>
         ```
-        In this case, the `CreateServiceReplicaListeners` method will look like this:
+        In this case, the `CreateServiceInstanceListeners` method will look like this:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {

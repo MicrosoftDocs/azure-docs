@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
 
 # Gather insights about your DNS infrastructure with the DNS Analytics Preview solution
+
+![DNS Analytics symbol](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 This article describes how to set up and use the Azure DNS Analytics solution in Azure Log Analytics to gather insights into DNS infrastructure on security, performance, and operations.
 
@@ -37,7 +39,7 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](log-analytics-om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to the Operations Management Suite is not required. Data is forwarded from the management group to the Operations Management Suite repository. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage isn't used by the solution. |
@@ -50,7 +52,7 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 Use the following information to configure the solution:
 
-- You must have a [Windows](log-analytics-windows-agents.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
+- You must have a [Windows](log-analytics-windows-agent.md) or [Operations Manager](log-analytics-om-agents.md) agent on each DNS server that you want to monitor.
 - You can add the DNS Analytics solution to your Operations Management Suite workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
@@ -140,6 +142,8 @@ The information helps you to identify the:
 
 **Sample DDI Analytics Queries**. Contains a list of the most common search queries that fetch raw analytics data directly.
 
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Sample queries](./media/log-analytics-dns/queries.png)
 
 You can use these queries as a starting point for creating your own queries for customized reporting. The queries link to the DNS Analytics Log Search page where results are displayed:
@@ -149,7 +153,7 @@ You can use these queries as a starting point for creating your own queries for 
 - **Unused Resource Records**. Shows a list of all the unused/stale resource records. This list contains the resource record name, resource record type, the associated DNS server, record generation time, and zone name. You can use this list to identify the DNS resource records that are no longer in use. Based on this information, you can then remove those entries from the DNS servers.
 - **DNS Servers Query Load**. Shows information so that you can get a perspective of the DNS load on your DNS servers. This information can help you plan the capacity for the servers. You can go to the **Metrics** tab to change the view to a graphical visualization. This view helps you understand how the DNS load is distributed across your DNS servers. It shows DNS query rate trends for each server.
 
-    ![DNS servers query log search results](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![DNS servers query log search results](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **DNS Zones Query Load**. Shows the DNS zone-query-per-second statistics of all the zones on the DNS servers being managed by the solution. Click the **Metrics** tab to change the view from detailed records to a graphical visualization of the results.
 - **Configuration Events**. Shows all the DNS configuration change events and associated messages. You can then filter these events based on time of the event, event ID, DNS server, or task category. The data can help you audit changes made to specific DNS servers at specific times.

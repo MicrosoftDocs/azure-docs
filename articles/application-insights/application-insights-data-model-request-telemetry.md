@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
 description: Application Insights data model for request telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: sergkanz
+ms.author: mbullwin
 
 ---
 # Request telemetry: Application Insights data model

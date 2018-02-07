@@ -1,5 +1,5 @@
 ---
-title: Connect to a SQL Server Virtual Machine (Classic) | Microsoft Docs
+title: Connect to a SQL Server Virtual Machine on Azure (Classic) | Microsoft Docs
 description: Learn how to connect to SQL Server running on a Virtual Machine in Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,6 +15,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
+experimental: true
+experimental_id: d51f3cc6-753b-4e
 
 ---
 # Connect to a SQL Server Virtual Machine on Azure (Classic Deployment)
@@ -43,7 +45,7 @@ The way a client connects to SQL Server running on a Virtual Machine differs dep
 > 
 
 ### Connect to SQL Server in the same cloud service
-Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). This scenario is when a client on one virtual machine attempts to connect to SQL Server running on another virtual machine in the same cloud service.
+Multiple virtual machines can be created in the same cloud service. To understand this virtual machines scenario, see [How to connect virtual machines with a virtual network or cloud service](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). This scenario is when a client on one virtual machine attempts to connect to SQL Server running on another virtual machine in the same cloud service.
 
 In this scenario, you can connect using the VM **Name** (also shown as **Computer Name** or **hostname** in the portal). This is the name you provided for the VM during creation. For example, if you named your SQL VM **mysqlvm**, a client VM in the same cloud service could use the following connection string to connect:
 

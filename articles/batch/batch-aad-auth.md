@@ -3,8 +3,8 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 tags: 
 
@@ -14,8 +14,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
-ms.author: tamram
+ms.date: 09/28/2017
+ms.author: danlep
 ---
 
 # Authenticate Batch service solutions with Active Directory
@@ -28,13 +28,6 @@ When using Azure AD authentication with Azure Batch, you can authenticate in one
 - By using a **service principal** to authenticate an unattended application. A service principal defines the policy and permissions for an application in order to represent the application when accessing resources at runtime.
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
-
-## Authentication and pool allocation mode
-
-When you create a Batch account, you can specify where pools created for that account should be allocated. You can choose to allocate pools either in the default Batch service subscription or in a user subscription. Your choice affects how you authenticate access to resources in that account.
-
-- **Batch service subscription**. By default, Batch pools are allocated in a Batch service subscription. If you choose this option, you can authenticate access to resources in that account either with [Shared Key](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) or with Azure AD.
-- **User subscription.** You can choose to allocate Batch pools in a user subscription that you specify. If you choose this option, you must authenticate with Azure AD.
 
 ## Endpoints for authentication
 
@@ -103,7 +96,11 @@ Once you've [registered your application](#register-your-application-with-an-azu
 
 3. Open the **Settings** blade for your application. In the **API Access** section, select **Required permissions**.
 4. In the **Required permissions** blade, click the **Add** button.
-5. In step 1, search for **MicrosoftAzureBatch**, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
+5. In step 1, search for the Batch API. Search for each of these strings until you find the API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+6. Once you find the Batch API, select it and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure Batch Service** and click the **Select** button.
 7. Click the **Done** button.
 
@@ -314,9 +311,11 @@ public static async Task PerformBatchOperations()
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
-To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI. 
+To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
 
-To authenticate Batch Management applications using Azure AD, see [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md). 
+To authenticate Batch Management applications using Azure AD, see [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
+
+For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Azure Active Directory Authentication](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) sample in the Azure SDK for Python documentation.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

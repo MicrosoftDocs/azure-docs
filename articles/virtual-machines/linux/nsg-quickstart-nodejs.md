@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
 ---
 
@@ -24,7 +24,7 @@ You open a port, or create an endpoint, to a virtual machine (VM) in Azure by cr
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](nsg-quickstart.md) - our next generation CLI for the resource management deployment model
 
 
 ## Quick commands
@@ -34,35 +34,45 @@ To create a Network Security Group and rules you need [the Azure CLI 1.0](../../
 azure config mode arm
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `myNetworkSecurityGroup`, and `myVnet`.
+In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
-Create your Network Security Group, entering your own names and location appropriately. The following example creates a Network Security Group named `myNetworkSecurityGroup` in the `WestUS` location:
+Create your Network Security Group, entering your own names and location appropriately. The following example creates a Network Security Group named *myNetworkSecurityGroup* in the *eastus* location:
 
 ```azurecli
-azure network nsg create --resource-group myResourceGroup --location westus \
+azure network nsg create \
+    --resource-group myResourceGroup \
+    --location eastus \
     --name myNetworkSecurityGroup
 ```
 
-Add a rule to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named `myNetworkSecurityGroupRule` to allow TCP traffic on port 80:
+Add a rule to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named *myNetworkSecurityGroupRule* to allow TCP traffic on port 80:
 
 ```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow
+azure network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRule \
+    --protocol tcp \
+    --direction inbound \
+    --priority 1000 \
+    --destination-port-range 80 \
+    --access allow
 ```
 
-Associate the Network Security Group with your VM's network interface (NIC). The following example associates an existing NIC named `myNic` with the Network Security Group named `myNetworkSecurityGroup`:
+Associate the Network Security Group with your VM's network interface (NIC). The following example associates an existing NIC named *myNic* with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup --name myNic
+azure network nic set \
+    --resource-group myResourceGroup \
+    --network-security-group-name myNetworkSecurityGroup \
+    --name myNic
 ```
 
-Alternatively, you can associate your Network Security Group with a virtual network subnet rather than just to the network interface on a single VM. The following example associates an existing subnet named `mySubnet` in the `myVnet` virtual network with the Network Security Group named `myNetworkSecurityGroup`:
+Alternatively, you can associate your Network Security Group with a virtual network subnet rather than just to the network interface on a single VM. The following example associates an existing subnet named *mySubnet* in the *myVnet* virtual network with the Network Security Group named *myNetworkSecurityGroup*:
 
 ```azurecli
-azure network vnet subnet set --resource-group myResourceGroup \
+azure network vnet subnet set \
+    --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet
 ```

@@ -13,8 +13,8 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: mandia
+ms.date: 06/08/2017
+ms.author: LADocs; mandia
 
 ---
 # Exchange AS2 messages for enterprise integration with logic apps
@@ -52,7 +52,7 @@ In the results list, select **Integration Accounts**.
     > If you don't see **More services**, you might have to expand the menu first. 
     > At the top of the collapsed menu, select **Show menu**.
 
-	![More services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+	![More services, filter on "integration", select "Integration Accounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. In the **Integration Accounts** blade that opens, 
 select the integration account where you want to create the agreement.
@@ -64,18 +64,18 @@ If you don't see any integration accounts,
 4. Choose the **Agreements** tile. If you don't have an Agreements tile, 
 add the tile first.
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For **Agreement type**, select **AS2**. 
 Select the **Host Partner**, **Host Identity**, 
 **Guest Partner**, and **Guest Identity** for your agreement.
 
-	![Provide agreement details](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+	![Provide agreement details](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
 	| Property | Description |
 	| --- | --- |
@@ -99,7 +99,7 @@ Configure these properties based on your agreement
 with the partner that exchanges messages with you. 
 For property descriptions, see the table in this section.
 
-	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+	![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Optionally, you can override the properties of incoming messages by selecting **Override message properties**.
 
@@ -152,7 +152,7 @@ Configure these properties based on your agreement
 with the partner that exchanges messages with you. 
 For property descriptions, see the table in this section.
 
-	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. To send signed messages to your partner, select **Enable message signing**. 
 For signing the messages, in the **MIC Algorithm** list, 
@@ -177,9 +177,11 @@ And in the **Certificate** list, select an existing
 8. To receive asynchronous MDNs for the sent messages, select **Request asynchronous MDN**. 
 If you select this option, enter the URL for where to send the MDNs.
 
-9. To require non-repudiation of receipt, select **Enable NRR**.
+9. To require non-repudiation of receipt, select **Enable NRR**.  
 
-10. After you're done, 
+10. To specify algorithm format to use in the MIC or signing in the outgoing headers of the AS2 message or MDN, select **SHA2 Algorithm format**.  
+
+11. After you're done, 
 make sure to save your settings by choosing **OK**.
 
 Now your agreement is ready to handle outgoing 
@@ -200,6 +202,7 @@ messages that conform to your selected settings.
 | Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
 | URL |Specify the URL where to send the MDNs. |
 | Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+| SHA2 Algorithm format |Select algorithm format to use in the MIC or signing in the outgoing headers of the AS2 message or MDN |
 
 ## Find your created agreement
 
@@ -212,7 +215,10 @@ and return to your integration account blade.
 2.	You can also view your agreements in your integration account overview. 
 On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
 
-	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+
+## View the swagger
+See the [swagger details](/connectors/as2/). 
 
 ## Next steps
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

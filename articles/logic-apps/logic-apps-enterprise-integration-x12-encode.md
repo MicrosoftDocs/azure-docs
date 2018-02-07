@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Encode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -39,7 +39,7 @@ that's already defined in your integration account
 
 ## Encode X12 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode X12 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 
@@ -105,6 +105,9 @@ The X12 Encode connector performs these tasks:
 * Requests a Technical and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver
   * A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
+
+## View the swagger
+See the [swagger details](/connectors/x12/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

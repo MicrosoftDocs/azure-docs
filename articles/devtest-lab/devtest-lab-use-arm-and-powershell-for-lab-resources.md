@@ -3,7 +3,7 @@ title: Create or modify labs automatically using Azure Resource Manager template
 description: Learn how to use Azure Resource Manager templates with PowerShell to create or modify labs automatically in a DevTest lab
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
@@ -28,9 +28,9 @@ This article helps guide you through the process of using these templates and sc
 You can find pre-made [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) and [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) at our public [Github repository](https://github.com/Azure/azure-devtestlab). Use them as-is, or customize them for your needs and store them in your own [private Git repo](devtest-lab-add-artifact-repo.md). 
 
 ## Step 2: Modify your Azure Resource Manager template
-[Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) shows you how to use Azure Resource Manager templates within DevTest labs to define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state.
+You can follow the steps at [Create your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) if you have never created a template before.
 
-For example, if you created a new virtual network and wanted to apply it to all of your existing labs, you could quickly do so by using an Azure Resource Manager template.
+In addition, [Best practices for creating Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use. Typically, you will use a variation of one of the approaches or examples provided and modify your template for your needs.
 
 ## Step 3: Deploy resources with PowerShell
 After you have customized your templates and scripts, follow the steps necessary to [deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). The article provides general information about using Azure PowerShell with Azure Resource Manager templates to deploy your resources to Azure.

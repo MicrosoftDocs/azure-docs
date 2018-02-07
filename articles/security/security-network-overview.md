@@ -1,4 +1,4 @@
----
+﻿---
 title: Network security concepts & requirements in Azure | Microsoft Docs
 description: " This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
@@ -215,7 +215,7 @@ For internal name resolution, you have two options:
 Learn more:
 
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 For external DNS resolution, you have two options:
 

@@ -3,19 +3,19 @@ title: Monitor usage and statistics in an Azure Search service | Microsoft Docs
 description: Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search
 documentationcenter: ''
-author: bernitorres
-manager: jlembicz
+author: HeidiSteen
+manager: jhubbard
 editor: ''
 tags: azure-portal
 
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/05/2017
-ms.author: betorres
+ms.date: 11/09/2017
+ms.author: heidist
 
 ---
 # Monitoring an Azure Search service
@@ -58,11 +58,11 @@ The Usage section includes a meter that tells you what portion of available reso
 >
 
 ### Using the REST API
-Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require.
+Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or Azure Cosmos DB, an additional API is available to get the numbers you require.
 
-* [Get Index Statistics](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [Count Documents](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [Get Indexer Status](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+* [Get Index Statistics](/rest/api/searchservice/get-index-statistics)
+* [Count Documents](/rest/api/searchservice/count-documents)
+* [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
 ## How to export logs and metrics
 

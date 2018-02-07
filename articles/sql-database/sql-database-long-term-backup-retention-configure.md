@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure long-term backup retention - Azure SQL database | Microsoft Docs' 
 description: "Learn how to store automated backups in the Azure Recovery Services vault and to restore from the Azure Recovery Services vault"
 services: sql-database
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.custom: business continuity
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -29,10 +29,6 @@ The following sections show you how to use the Azure portal to configure the Azu
 ### Configure the vault, register the server, and select databases
 
 You [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
-
-> [!TIP]
-> To delete backups in long-term backup retention, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md).
->
 
 1. Open the **SQL Server** page for your server.
 
@@ -83,6 +79,9 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 12. On the **Configure** page, provide a valid name for the new retention policy, modify the default retention policy as appropriate, and then click **OK**.
 
    ![define retention policy](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Retention policy names don't allow some characters, including spaces.
 
 13. On the **Long-term backup retention** page for your database, click **Save** and then click **OK** to apply the long-term backup retention policy to all selected databases.
 
@@ -212,9 +211,6 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-> [!IMPORTANT]
-> Once configured, backups show up in the vault within next seven days. Continue this tutorial after backups show up in the vault.
-
 ### View backup info, and backups in long-term retention
 
 View information about your database backups in [long-term backup retention](sql-database-long-term-retention.md). 
@@ -265,7 +261,7 @@ $restoredDb
 
 
 > [!NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## Next steps
 

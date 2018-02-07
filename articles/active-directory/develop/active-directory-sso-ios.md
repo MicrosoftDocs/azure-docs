@@ -3,8 +3,8 @@ title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: xerners
-manager: mbaldwin
+author: brandwe
+manager: mtillman
 editor: ''
 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: xerners
+ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on iOS using ADAL
@@ -290,11 +291,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 #### Step 4: iOS9: Add a configuration parameter to your app
 ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array>
-     <string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### You've configured SSO!
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
