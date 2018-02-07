@@ -74,7 +74,7 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 
 Inside the virtual network, machines may make requests to Azure resources that are in the same IP address range as those configured for the subnet. However, since the virtual network is configured for this range, those requests will be routed within the virtual network and will not reach the intended web resources. This can lead to unpredictable errors with Azure AD Domain Services.
 
-** If you own the IP address range in the internet that is configured in your virtual network, this alert can be ignored. However, Azure AD Domain Services cannot commit to the [SLA](https://azure.microsoft.com/en-us/support/legal/sla/active-directory-ds/v1_0/)] with this configuration since it can lead to unpredictable errors.**
+**If you own the IP address range in the internet that is configured in your virtual network, this alert can be ignored. However, Azure AD Domain Services cannot commit to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] with this configuration since it can lead to unpredictable errors.**
 
 
 1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your directory.

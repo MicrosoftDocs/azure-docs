@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory (AD) Domain Services - Check the health of your managed domain | Microsoft Docs
+title: Azure AD Domain Services - Check the health of your managed domain | Microsoft Docs
 description: Check the health of your managed domain using the health page in the Azure portal.
 services: active-directory-ds
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 02/06/2018
 ms.author: ergreenl
 
 ---
-# Azure Active Directory (AD) Domain Services - Check the health of your managed domain
+# Azure AD Domain Services - Check the health of your managed domain
 
 ## Your domain's health
 
@@ -69,7 +69,7 @@ This monitors how often we take backups of your managed domain. Following is a t
 | Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. First, resolve any alerts that appear on your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
 
 
-### Synchronization with AAD
+### Synchronization with Azure AD
 
 Microsoft keeps track of how often your managed domain is synchronized with Azure Active Directory. The amount of users in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than three days since your last synchronization, it is recommended to [contact support](active-directory-ds-contact-us.md).
 
