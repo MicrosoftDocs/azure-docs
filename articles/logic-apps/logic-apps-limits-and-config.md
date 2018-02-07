@@ -82,7 +82,7 @@ These limits apply to a single logic app run.
 
 ### Throughput limits
 
-These limits apply to a single logic app instance.
+These limits apply to a single logic app resource.
 
 | Name | Limit | Notes | 
 | ----- | ----- | ----- | 
