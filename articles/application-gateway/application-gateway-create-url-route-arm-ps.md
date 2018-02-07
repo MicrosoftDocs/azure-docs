@@ -350,6 +350,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
 Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example:
+<!--Loc Comment: Could you, please, explain the meaning of the source string? "URL to ... to the end" is not quite clear--->
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
