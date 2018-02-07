@@ -102,7 +102,7 @@ Admin should follow the steps stated below to install the plugin:
 	
 ## Plugin Configuration
 
-Below image shows the add-on configuration screen in both JIRA and Confluence
+Following image shows the add-on configuration screen in both JIRA and Confluence
     
 ![add-on configuration](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
@@ -112,9 +112,9 @@ Below image shows the add-on configuration screen in both JIRA and Confluence
  
 2.   Identifier: Used by Azure AD to validate the source of the request. This maps to Identifier element in Azure AD. This is auto derived by plugin as https://<domain:port>/
  
-3.   Reply URL: Use this URL in your IdP to initiate the SAML login. This maps to the Reply URL element in Azure AD. This is auto derived by plugin as https://<domain:port>/plugins/servlet/saml/auth
+3.   Reply URL: Use Reply URL in your IdP to initiate the SAML login. This maps to the Reply URL element in Azure AD. This is auto derived by plugin as https://<domain:port>/plugins/servlet/saml/auth
  
-4.   Sign On URL: Use this URL in your IdP to initiate the SAML login. This maps to the Sign On element in Azure AD. This is auto derived by plugin as https://<domain:port>/plugins/servlet/saml/auth
+4.   Sign On URL: Use Sign On URL in your IdP to initiate the SAML login. This maps to the Sign On element in Azure AD. This is auto derived by plugin as https://<domain:port>/plugins/servlet/saml/auth
  
 5.   IdP Entity ID: The Entity ID that your IdP uses. This is populated when Metadata URL is resolved.
  
@@ -130,9 +130,9 @@ Below image shows the add-on configuration screen in both JIRA and Confluence
  
 11.   Attribute name: Name of the attribute where User Id can be expected.
  
-12.   Enable Home Realm Discovery: Check this flag if the company using the ADFS based login.
+12.   Enable Home Realm Discovery: Check this flag if the company using the ADFS-based login.
  
-13.   Domain Name: Provide the domain name here in case of the ADFS based login
+13.   Domain Name: Provide the domain name here in case of the ADFS-based login
  
 14.   Enable Single Sign out: Check this office if you wish to log out from Azure AD when a user logs out from JIRA/Confluence.
 
@@ -148,7 +148,7 @@ Below image shows the add-on configuration screen in both JIRA and Confluence
 
 * How to disable WebSudo(disable the secure administrator session)
     
-    * JIRA: Secure administrator sessions (i.e. password confirmation before accessing administration functions) are enabled by default. If you wish to disable this in your JIRA instance, you can disable this feature by specifying the following line in your jira-config.properties file : “ira.websudo.is.disabled = true”
+    * JIRA: Secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you wish to disable this in your JIRA instance, you can disable this feature by specifying the following line in your jira-config.properties file: “ira.websudo.is.disabled = true”
     
     * Confluence: Follow the steps provided stated in following URL https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html
 
@@ -170,6 +170,6 @@ Below image shows the add-on configuration screen in both JIRA and Confluence
     
     * See if the appropriate URL is mapped to the app in Azure AD.
 
-* Support details: Reach out to us on: [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). We will respond within 24-48 business hours.
+* Support details: Reach out to us on: [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). We respond within 24-48 business hours.
     
     * You can also raise a support ticket with Microsoft through the Azure portal channel.

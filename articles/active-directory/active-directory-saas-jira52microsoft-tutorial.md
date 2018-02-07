@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/07/2018
 ms.author: jeedes
 
 ---
@@ -38,34 +38,26 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with Microsoft Azure Active Directory single sign-on for JIRA 5.2, you need the following items:
 
 - An Azure AD subscription
-- A Microsoft Azure Active Directory single sign-on for JIRA 5.2 single sign-on enabled subscription
-
-**System Requirements:**
-
-JIRA Core and Software 5.2 should installed and configured on Windows 64-bit version
-
-**Installation Requirements:** Following are the installation requirements for this plugin.
- 
-*	JIRA should be installed on a Windows 64-bit version 
-*	JIRA version should be HTTPS enabled 
-*	Note the supported version for Plugin in “Supported Versions” section below. 
-*	JIRA server should be reachable on internet. 
-*	Admin credentials for JIRA server
-*	Global admin credentials for Azure AD 
-*	WebSudo should be disabled in JIRA 
- 
-**Supported Versions:**
-
-*	JIRA Core and Software: 5.2
-*   JIRA also supports 6.0 and 7.2.0. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-microsoftjira-tutorial)
+- JIRA Core and Software 5.2 should installed and configured on Windows 64-bit version
+- JIRA server is HTTPS enabled
+- Note the supported versions for JIRA Plugin are mentioned in below section.
+- JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
+- Admin credentials are set up in JIRA
+- WebSudo is disabled in JIRA
+- Test user created in the JIRA server application
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> To test the steps in this tutorial, we do not recommend using a production environment of JIRA. Test the integration first in development or staging environment of the application and then use the production environment.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+
+**Supported Versions:**
+
+*	JIRA Core and Software: 5.2
+*   JIRA also supports 6.0 and 7.2.0. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-microsoftjira-tutorial)
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -160,34 +152,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_400.png)
 
-6. Contact [Microsoft](mailto:waadpartners@microsoft.com) with the following information for the JIRA plugin.
-    
-	*	Customer Name:
-    *   Primary domain name:
-    *   Azure AD Premium: Yes/No (Plugin will be available to all the customer Free, Basic, and Premium SKU)
-    *   Number of users who will be using this integration:
-    *   JIRA Version:
-	*	Comments:
+6. In a different web browser window, log in to your JIRA instance as an administrator.
 
-7. In a different web browser window, log in to your JIRA instance as an administrator.
-
-8. Hover on cog and click the **Add-ons**.
+7. Hover on cog and click the **Add-ons**.
     
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon1.png)
 
-9. Under Add-ons tab section, click **Manage add-ons**.
+8. Under Add-ons tab section, click **Manage add-ons**.
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon7.png)
 
-10. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56521). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/).
+9. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56521). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/).
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon12.png)
 
-11. Once the plugin is installed, it appears in **User Installed** add-ons section. Click **Configure** to configure the new plugin.
+10. Once the plugin is installed, it appears in **User Installed** add-ons section. Click **Configure** to configure the new plugin.
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon13.png)
 
-12. Perform following steps on configuration page:
+11. Perform following steps on configuration page:
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon52.png)
  
