@@ -37,7 +37,7 @@ This article shows you how to enable access to the developer portal for users fr
 5. Select your API Management service instance.
 6. Under **SECURITY**, select **Identities**.
 
-7. Click **+Add** from the top.
+7. Select **+Add** from the top.
 
     The **Add identity provider** pane appears on the right.
 8. Under **Provider type**, select **Azure Active Directory**.
@@ -60,7 +60,7 @@ This article shows you how to enable access to the developer portal for users fr
 17. Enter a name for the application.
 18. For the application type, select **Web app/API**.
 19. For the sign-in URL, enter the sign-in URL of your developer portal. In this example, the sign-in URL is https://apimwithaad.portal.azure-api.net/signin.
-20. Click **Create** to create the application.
+20. Select **Create** to create the application.
 21. To find your app, select **App registrations** and search by name.
 
     ![Box where you search for an app](./media/api-management-howto-aad/find-your-app.png)
