@@ -9,7 +9,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: v-demak;v-geberr;
 ---
 # Language Understanding FAQ
@@ -36,12 +36,12 @@ Limits on entities depend on the entity type, as shown in the following table:
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a best-practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
 * Create a top-level LUIS app to determine the category of utterance, and then use the result to send the utterance to the LUIS app for that category.
-* Do some preprocessing on the utterance, such as matching on regular expressions, to determine which LUIS app or set of apps receives it.
+* Do some preprocessing on the utterance, such as matching on [regular expressions](#where-is-the-pattern-feature-that-provides-regular-expression-matching), to determine which LUIS app or set of apps receives it.
 
 When you're deciding which approach to use with multiple LUIS apps, consider the following trade-offs:
 * **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
@@ -103,7 +103,7 @@ If you don't want to use a spell check service, you can label utterances that ha
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
-The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following:
+The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following tasks:
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
@@ -111,7 +111,7 @@ The errors indicate that there is some discrepancy between your labels and the p
 The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
 ## How do I transfer ownership of a LUIS app?
-To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. The LUIS app's ID needs to be updated in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
 
 ## I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
 1. Export your app.
@@ -140,7 +140,13 @@ In Azure, a tenant represents the client or organization that's associated with 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 ## Why did I get an email saying I'm almost out of quota?
-Your programmatic/starter key is only allowed 1000 endpoint queries a month. You create LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your programmatic/starter key is only allowed 1000 endpoint queries a month. You should create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+
+## Where is the Pattern feature that provides regular expression matching?
+The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
+
+## Why are there more subscription keys on my app's publish page than I assigned to the app? 
+Each app has the programmatic/starter key. If your app was created before the GA time frame, you will see all LUIS subscription keys, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS apps will not see all LUIS subscription keys. New apps will only see the programmatic/starter key as well as keys you have intentionally assigned to the app. 
 
 ## Next steps
 

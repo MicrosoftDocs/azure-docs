@@ -34,11 +34,8 @@ You can only import directly from the Runbook Gallery using the Azure portal. Yo
 
 ### To import a runbook from the Runbook Gallery with the Azure portal
 1. In the Azure portal, open your Automation account.
-2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Click **Browse gallery** button.
-   
-    ![Browse gallery button](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Locate the gallery item you want and select it to view its details.
+2. Under **Process Automation**, click on **Runbooks gallery**
+3. Locate the gallery item you want and select it to view its details. On the left you can enter additional search parameters for the publisher and type.
    
     ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
 5. Click on **View source project** to view the item in the [TechNet Script Center](http://gallery.technet.microsoft.com/).
@@ -91,14 +88,8 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
    
     ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. To install the module directly into Azure Automation, click the **Import** button.
-   
-    ![Import module button](media/automation-runbook-gallery/module-import-button.png)
 8. When you click the Import button, on the **Import** pane, you see the module name that you are about to import. If all the dependencies are installed, the **OK** button is activated. If you are missing dependencies, you need to import those before you can import this module.
-9. Click **OK** to import the module. While Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets.
-   
-    ![Import module page](media/automation-runbook-gallery/module-import-blade.png)
-   
-    This may take a couple of minutes since each activity needs to be extracted.
+9. On the **Import** page, click **OK** to import the module. While Azure Automation imports a module to your account, it extracts metadata about the module and the cmdlets. This may take a couple of minutes since each activity needs to be extracted.
 10. You receive an initial notification that the module is being deployed and another notification when it has completed.
 11. After the module is imported, you can see the available activities, and you can use its resources in your runbooks and Desired State Configuration.
 

@@ -168,13 +168,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
-        int counterValue = Interlocked.Increment(ref counter);
+        var counterValue = Interlocked.Increment(ref counter);
 
         try {
             DeviceClient deviceClient = (DeviceClient)userContext;
 
-            byte[] messageBytes = message.GetBytes();
-            string messageString = Encoding.UTF8.GetString(messageBytes);
+            var messageBytes = message.GetBytes();
+            var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
             // Get message body
@@ -205,7 +205,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            var deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)
