@@ -76,8 +76,6 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
-    ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/getcommandoutput.png)
-
     Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
 
     - Clear-Host
