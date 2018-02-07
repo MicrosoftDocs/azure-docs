@@ -20,7 +20,7 @@ ms.custom: mvc
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that provides zero-touch device provisioning to the IoT hub. With the Device Provisioning Service, you can provision millions of devices in a secure and scalable manner.
 
-Device provisioning consists of two steps. The first step is creating the appropriate enrollment entry in the Device Provisioning Service based on the specific requirements of the solution.  The second step is establishing a connection between the device and the Device Provisioning Service and registering the device with the IoT hub. Once both steps have been completed, we can say that the device has been fully provisioned. Device Provisioning Service automates both steps to provide a seamless provisioning experience for the device. For further information, see [Device Provisioning Service concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-service).
+Device provisioning consists of two steps. The first step is creating the appropriate enrollment entry in the Device Provisioning Service based on the specific requirements of the solution.  The second step is establishing a connection between the device and the Device Provisioning Service and registering the device with the IoT hub. Once both steps have been completed, the device is considered fully provisioned. Device Provisioning Service automates both steps to provide a seamless provisioning experience for the device. For more information, see [Device Provisioning Service concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-service).
 
 These steps show how to create an enrollment entry in the Device Provisioning Service, simulate an X.509 device on your development machine, connect the simulated device with the Device Provisioning Service, and register the device on your IoT hub using the [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
 
@@ -33,7 +33,7 @@ These steps show how to create an enrollment entry in the Device Provisioning Se
 
 1. Make sure [Git](https://git-scm.com/download/) is installed on your machine and is added to the environment variables accessible to the command window. 
 
-1. Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine and is added to the environment variables accessible to the command window. This can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). 
+1. Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine and is added to the environment variables accessible to the command window. This library can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). 
 
     > [!NOTE]
     > If you have already created your _root_, _intermediate_, and/or _leaf_ X.509 certificates, you may skip this step and all following steps regarding certificate generation.
@@ -42,9 +42,9 @@ These steps show how to create an enrollment entry in the Device Provisioning Se
 
 ## Create an enrollment entry
 
-An enrollment is the record of devices or groups of devices that may at some point register stored in the Device Provisioning Service. The enrollment record contains the information about the device or group of devices, including X.509 certificate details, and additional registration information. There are two types of enrollments supported by Device Provisioning Service, _Individual enrollment_ and _Enrollment group_. For further information, see [Enrollment concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-service#enrollment).
+An enrollment is the record of devices or groups of devices that may at some point register stored in the Device Provisioning Service. The enrollment record contains the information about the device or group of devices, including X.509 certificate details, and additional registration information. There are two types of enrollments supported by Device Provisioning Service, _Individual enrollment_ and _Enrollment group_. For more information, see [Enrollment concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-service#enrollment).
 
-If you are creating your own X.509 test certificates, please refer to [Security concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#x509-certificates) on which certificates are necessary for your solution, and [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/azure/azure-iot-sdk-node/tree/master/provisioning/tools) for implementation details.
+If you are creating your own X.509 test certificates, refer to [Security concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#x509-certificates) on which certificates are necessary for your solution, and [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/azure/azure-iot-sdk-node/tree/master/provisioning/tools) for implementation details.
 
 1. Open a command prompt. Clone the GitHub repo for the code samples:
     
@@ -69,7 +69,7 @@ If you are creating your own X.509 test certificates, please refer to [Security 
         node create_test_cert.js device {certificate-name}
         ```
          
-        1. In the **Azure Portal**, open the **Device Provisioning Service** summary blade. Select **Manage enrollments**, then the **Individual Enrollments** tab, and click the **Add** button at the top. 
+        1. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Manage enrollments**, then the **Individual Enrollments** tab, and click the **Add** button at the top. 
 
         1. Under the **Add enrollment list entry**, enter the following information:
             - Select **X.509** as the identity attestation *Mechanism*.
@@ -92,7 +92,7 @@ If you are creating your own X.509 test certificates, please refer to [Security 
         node create_test_cert.js root {root-name}
         ```
 
-        1. In the **Azure Portal**, open the **Device Provisioning Service** summary blade. Select **Certificates** and click the **Add** button at the top.
+        1. In the **Azure** portal, open the **Device Provisioning Service** summary blade. Select **Certificates** and click the **Add** button at the top.
 
         1. Under the **Add Certificate**, enter the following information:
             - Enter a unique certificate name.
@@ -103,13 +103,13 @@ If you are creating your own X.509 test certificates, please refer to [Security 
 
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
-            - Create the _verification_ certificate. Enter the _verification code_ or right-click to paste in your running Node script window with the following command.  Press **Enter**.
+            - Create the _verification_ certificate. Enter the _verification code_ or right-click to paste in your running Node script window with the following command:
 
                 ```cmd/sh
                 node create_test_cert.js verification {rootname_cert} {verification code}
                 ```
 
-            - Under the *Verification certificate .pem or .cer file*, select the certificate file **_verification_cert.pem_** created in the previous steps using the *File Explorer* widget. Click **Verfiy**.
+            - Under the *Verification certificate .pem or .cer file*, select the certificate file **_verification_cert.pem_** created in the previous steps using the *File Explorer* widget. Click **Verify**.
 
             ![Validate certificate](./media/quick-create-simulated-device-x509-node/validate-certificate.png)
 
@@ -124,7 +124,7 @@ If you are creating your own X.509 test certificates, please refer to [Security 
 
         On successful enrollment, your X.509 device group appears under the *Group Name* column in the *Enrollment Groups* tab. Note this value for later.
 
-        1. Create the _leaf_ certificate by running the script using your own _certficate-name_ followed by the _root-name_ used previously. Note that the leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+        1. Create the _leaf_ certificate by running the script using your own _certficate-name_ followed by the _root-name_ used previously. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
             ```cmd/sh
             node create_test_cert.js device {certificate-name} {root-name}
