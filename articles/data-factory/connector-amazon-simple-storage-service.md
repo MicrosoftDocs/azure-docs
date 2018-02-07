@@ -9,7 +9,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -36,7 +36,7 @@ To copy data from Amazon S3, make sure you have been granted the following permi
 - `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
 - `s3:ListBucket` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
 
-For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Getting started
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -29,6 +29,8 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 ## Supported capabilities
 
 You can copy data from Xero to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+
+All Xero tables (API endpoints) are supported except "Reports". Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table Bank_Transaction and Bank_Transaction_Line_Items, with Bank_Transaction_ID as foreign key to link them together.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 

@@ -93,6 +93,8 @@
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Set up network mapping for Azure VM disaster recovery (preview)
       href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Retain IP for Azure VM disaster recovery (preview)
+      href: site-recovery-retain-ip-azure-vm-failover.md
     - name: Prepare network mapping for Hyper-V VM replication to Azure
       href: site-recovery-network-mapping.md
     - name: Set up IP addressing for access to Azure after failover
@@ -123,6 +125,8 @@
       href: site-recovery-create-recovery-plans.md
     - name: Add Azure runbooks to recovery plans
       href: site-recovery-runbook-automation.md
+    - name: Add VMM scripts to recovery plans
+      href: site-recovery-how-to-add-vmmscript.md
     - name: Fail over
       items:
       - name: About failover
@@ -251,8 +255,6 @@
       href: site-recovery-workload.md#workload-summary
   - name: Manage
     items:
-    - name: Upgrade to a Recovery Services vault
-      href: upgrade-site-recovery-vaults.md
     - name: Manage process servers in Azure
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
     - name: Manage the configuration server
