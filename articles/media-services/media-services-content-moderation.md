@@ -227,8 +227,8 @@ The following example of a Content Moderator JSON output was truncated.
 
 Learn more about Content Moderator's [video moderation and review solution](../cognitive-services/Content-Moderator/video-moderation-human-review.md).
 
-Get the full source code and the Visual Studio project from the [video moderation quickstart](video-moderation-api.md). 
+Get the full source code and the Visual Studio project from the [video moderation quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md). 
 
-Learn how to generate [video reviews](../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) from your moderated output, and [moderate transcripts](../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md).
+Learn how to generate [video reviews](../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) from your moderated output, and [moderate transcripts](../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) in .NET.
 
-Check out the detailed [video moderation and review tutorial](../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 
+Check out the detailed .NET [video moderation and review tutorial](../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 
