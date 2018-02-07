@@ -44,7 +44,7 @@ Definition create
 				"CustomScriptExtension"
 			]
 		}
-	}
+	}'
 ```
 
 ## Assign the policy
@@ -65,6 +65,16 @@ Create a VM to test the policy.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
+
+Try to create a new user named **myNewUser** using the VM Access extension.
+
+```azurecli-interactive
+az vm user update \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --username myNewUser \
+  --generate-ssh-keys
 ```
 
 
