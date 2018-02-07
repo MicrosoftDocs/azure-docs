@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate BambooHR with Azure Active Director
 Integrating BambooHR with Azure AD provides the following benefits:
 
 - You can control in Azure AD who has access to BambooHR.
-- You can enable your users to automatically get signed in to BambooHR by using single sign-on (SSO)) with their Azure AD accounts.
+- You can enable your users to automatically get signed in to BambooHR by using single sign-on (SSO) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -102,7 +102,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 	b. In the **Identifier** box, type a value: `BambooHR-SAML`.
 
 	> [!NOTE] 
-	> The **Sign on URL** value is not real. Update it with your actual sign-On URL. To obtain the value, contact the [BambooHR client support team](https://www.bamboohr.com/contact.php). 
+	> The **Sign on URL** value is not real. Update it with your actual sign-on URL. To obtain the value, contact the [BambooHR client support team](https://www.bamboohr.com/contact.php). 
  
 4. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
@@ -139,7 +139,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
     c. Select **Save**.
 
 > [!TIP]
-> While you're setting up the app, you can read a concise version of these instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory > Enterprise Applications** section, simply select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. For information, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> While you're setting up the app, you can read a concise version of these instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. For information, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### Create an Azure AD test user
