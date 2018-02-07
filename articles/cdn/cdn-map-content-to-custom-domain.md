@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > - Verify that the custom subdomain references your CDN endpoint
 > - (Dependent step): Map the permanent custom domain to the CDN endpoint
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

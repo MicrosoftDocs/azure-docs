@@ -32,7 +32,7 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
 > For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
