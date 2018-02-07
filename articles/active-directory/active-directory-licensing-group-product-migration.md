@@ -33,39 +33,39 @@ This article includes sample PowerShell code that can be used to perform the mig
 ## Before you begin
 Before executing the migration process, it is important to verify the following assumptions are true for all users being migrated. If not, the migration may fail for some of the users and, as a result, they could lose access to services or data:
 
--	Users have the source license assigned using group based-licensing. Licenses for the product to move away from are inherited from a single source group and are not assigned directly. Note: if licenses are also assigned directly, they may prevent the application of the target license. Learn more about direct and group license assignment [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). You may want to use a PowerShell script like [this one](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) to check if users have direct licenses.
+-	Users have the *source license* assigned using group based-licensing. Licenses for the product to move away from are inherited from a single source group and are not assigned directly. Note: if licenses are also assigned directly, they may prevent the application of the *target license*. Learn more about direct and group license assignment [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). You may want to use a PowerShell script like [this one](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) to check if users have direct licenses.
 
--	You have enough available licenses for the target product. If not, some users may fail to get the target license. You can check the number of available licenses [here](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+-	You have enough available licenses for the target product. If not, some users may fail to get the *target license*. You can check the number of available licenses [here](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--	Users do not have other product licenses assigned that could conflict with the target license or could prevent the source license from being removed (for example, add-on products like Workplace Analytics or Project Online that have a dependency on other products).
+-	Users do not have other product licenses assigned that could conflict with the *target license* or could prevent the *source license* from being removed (for example, add-on products like Workplace Analytics or Project Online that have a dependency on other products).
 
 -	Understand how groups are managed in your environment. For example, if you manage groups on-premises and sync them into Azure AD using AAD Connect, you need to add/remove users using your on-premises system and it will take some time for the changes to sync into AAD and get picked up by group-based licensing. If you are using Azure AD dynamic group memberships, you will add/remove users by modifying their attributes instead. However, the overall migration process remains the same, the only difference being how users are added/removed from groups.
 
 ## Migrating users between products without conflicting service plans
-The goal is to use group-based licensing to change user licenses from source license (in this example: *Office 365 Enterprise E3*) to target license (in this example: *Office 365 Enterprise E5*). The two products do not contain conflicting service plans, so they can be fully assigned at the same time, without a conflict. At no point during migration should users lose access to services or data. Furthermore, the migration is performed in small “batches”, so there is a chance to validate the outcome for each batch and minimize the scope of any problems that may occur during the process. Overall, the process is as follows:
-1.	Users are members of source group and inherit the source license from that group.
-2.	Create a target group with the target license but without any members.
-3.	Add a batch of users to target group. This will cause group-based licensing (GBL) to pick up the change and assign the target license. Note that this may take some time depending on the size of the batch and other activities in the tenant.
-4.	Verify that the batch of users has been fully processed by GBL and each user actually has the target license assigned. Check that users did not end up in an error state, such as conflicts with other products or lack of sufficient licenses. More information on errors is available [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
-5.	At this point, users have both the source and target licenses assigned.
-6.	Remove the same user batch from the source group. GBL will respond to the change and the source licenses will be removed from users.
+The goal is to use group-based licensing to change user licenses from *source license* (in this example: *Office 365 Enterprise E3*) to *target license* (in this example: *Office 365 Enterprise E5*). The two products do not contain conflicting service plans, so they can be fully assigned at the same time, without a conflict. At no point during migration should users lose access to services or data. Furthermore, the migration is performed in small “batches”, so there is a chance to validate the outcome for each batch and minimize the scope of any problems that may occur during the process. Overall, the process is as follows:
+1.	Users are members of source group and inherit the *source license* from that group.
+2.	Create a target group with the *target license* but without any members.
+3.	Add a batch of users to target group. This will cause group-based licensing (GBL) to pick up the change and assign the *target license*. Note that this may take some time depending on the size of the batch and other activities in the tenant.
+4.	Verify that the batch of users has been fully processed by GBL and each user actually has the *target license* assigned. Check that users did not end up in an error state, such as conflicts with other products or lack of sufficient licenses. More information on errors is available [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+5.	At this point, users have both the source and *target licenses* assigned.
+6.	Remove the same user batch from the source group. GBL will respond to the change and the *source licenses* will be removed from users.
 7.	Repeat the process for subsequent batches of users.
 
 ### Migrating a single user using Azure portal
 This is a simple walkthrough for a single user being migrated.
 
-- **Step 1:** User has the source license inherited from a group and no direct assignments for the license.
+- **Step 1:** User has the *source license* inherited from a group and no direct assignments for the license.
 ![User with source license inherited from group](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInherited.png)
 
-- **Step 2:** User has been added to the target group and GBL has processed the change; user now has both the source and target licenses inherited from both groups.
+- **Step 2:** User has been added to the target group and GBL has processed the change; user now has both the *source* and *target* licenses inherited from both groups.
 ![User with both source and target license inherited from groups](media/active-directory-licensing-group-product-migration/UserWithBothSourceAndTargetLicense.png)
 
-- **Step 3:** User has been removed from the source group and GBL has processed the change; user now only has the target license
+- **Step 3:** User has been removed from the source group and GBL has processed the change; user now only has the *target license*
 ![User with target license inherited from group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssigned.png)
 
 ### Automating migration using PowerShell
 > [!NOTE]
-> This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
+> This sample code uses PowerShell functions included in [the last section](#powershell-automation-of-migration-and-verification-steps) of this document.
 
 This snippet shows how the migration process can be automated at larger scale.
 ```
@@ -152,31 +152,31 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## Migrating users between products with conflicting service plans
-The goal is to use group-based licensing to change user licenses from source license (in this example: *Office 365 Enterprise E1*) to target license (in this example: *Office 365 Enterprise E3*). The two products do contain conflicting service plans (read more about conflicts [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)), so we will have to work around that to seamlessly migrate users. At no point during migration should users lose access to services or data. Furthermore, the migration is performed in small “batches”, so there is a chance to validate the outcome for each batch and minimize the scope of any problems that may occur during the process. Overall, the process is as follows:
-1.	Users are members of source group and inherit the source license from that group.
-2.	Create a target group with the target license but without any members.
-3.	Add a batch of users to target group. This will cause group-based licensing (GBL) to pick up the change and try to assign the target license. The assignment will fail due to conflicts between services in the two products, and instead GBL will record an error on each user.
+The goal is to use group-based licensing to change user licenses from *source license* (in this example: *Office 365 Enterprise E1*) to *target license* (in this example: *Office 365 Enterprise E3*). The two products do contain conflicting service plans (read more about conflicts [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans)), so we will have to work around that to seamlessly migrate users. At no point during migration should users lose access to services or data. Furthermore, the migration is performed in small “batches”, so there is a chance to validate the outcome for each batch and minimize the scope of any problems that may occur during the process. Overall, the process is as follows:
+1.	Users are members of source group and inherit the *source license* from that group.
+2.	Create a target group with the *target license* but without any members.
+3.	Add a batch of users to target group. This will cause group-based licensing (GBL) to pick up the change and try to assign the *target license*. The assignment will fail due to conflicts between services in the two products, and instead GBL will record an error on each user.
 Note that this may take some time depending on the size of the batch and other activities in the tenant.
 4.	Verify that the batch of users has been fully processed by GBL and each user has the conflict error recorded. Check that some users did not end up in an unexpected error state. More information on errors is available [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
-5.	At this point, users still have the source license and a conflict error for the target license – they do not have the target license actually assigned, yet.
-6.	Remove the same user batch from the source group. GBL will respond to the change and the source license will be removed from each user and, at the same time, the conflict error will also be removed (assuming that no other product license is contributing to the error) and the target licenses will be assigned. This ensures no loss of services or data during the transition.
+5.	At this point, users still have the *source license* and a conflict error for the *target license* – they do not have the *target license* actually assigned, yet.
+6.	Remove the same user batch from the source group. GBL will respond to the change and the *source license* will be removed from each user and, at the same time, the conflict error will also be removed (assuming that no other product license is contributing to the error) and the *target licenses* will be assigned. This ensures no loss of services or data during the transition.
 7.	Repeat the process for subsequent batches of users.
 
 ### Migrating a single user using Azure portal
 This is a simple walkthrough for a single user being migrated.
 
-- **Step 1:** User has the source license inherited from a group and no direct assignments for the license.
+- **Step 1:** User has the *source license* inherited from a group and no direct assignments for the license.
 ![User with source license inherited from group](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInheritedConflictScenario.png)
 
-- **Step 2:** User has been added to the target group and GBL has processed the change; user still has the source license and now they have the target license in error state due to the conflict.
+- **Step 2:** User has been added to the target group and GBL has processed the change; user still has the *source license* and now they have the *target license* in error state due to the conflict.
 ![User with source license inherited from group and target license in error state](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-- **Step 3:** User has been removed from the source group and GBL has processed the change; the target license has now been applied to the user
+- **Step 3:** User has been removed from the source group and GBL has processed the change; the *target license* has now been applied to the user
 ![User with target license inherited from group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssignedConflictScenario.png)
 
 ### Automating migration using PowerShell
 > [!NOTE]
-> This sample code uses PowerShell functions included in [the last section](#PowerShell automation of migration and verification steps) of this document.
+> This sample code uses PowerShell functions included in [the last section](#powershell-automation-of-migration-and-verification-steps) of this document.
 
 This snippet shows how the migration process can be automated at larger scale.
 ```
