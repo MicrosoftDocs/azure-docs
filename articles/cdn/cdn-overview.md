@@ -20,12 +20,9 @@ ms.custom: mvc
 ---
 # What is Azure Content Delivery Network?
 
-Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. The CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. 
+Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 
-> [!NOTE]
-> This article describes Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
-
-The benefits of using a CDN to cache web site assets include:
+A CDN is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users, to minimize latency. The benefits of using a CDN to cache web site assets include:
 
 * Better performance and improved user experience for end users, especially when using applications in which multiple round-trips are required to load content.
 * Large scaling to better handle instantaneous high loads, such as the start of a product launch event.
