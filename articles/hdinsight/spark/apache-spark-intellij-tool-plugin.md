@@ -174,14 +174,20 @@ You can link a normal cluster by using admin username, also link a security hado
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Ambari username and password. If input invaild username and password, then it shows authentication failed (403) when you click Ok button.
+2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Ambari username and password. You need to check the username and password if get the authentication failure.
    
    ![link cluster dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
+   > [!NOTE]
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   
 3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
 
    ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
+4. You also can unlink a cluster from **Azure Explorer**.
+   
+   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
 You can perform various operations by using Azure Toolkit for IntelliJ.
@@ -194,6 +200,8 @@ You can perform various operations by using Azure Toolkit for IntelliJ.
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
 
     ![Application details](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Note
+    >
 
 3. To display basic running job information, hover over the job graph. To view the stages graph and information that every job generates, select a node on the job graph.
 
