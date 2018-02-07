@@ -20,7 +20,7 @@ ms.author:
 ---
 # Performance recommendations for SQL Database
 
-Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously asseses and analyzes the usage history of your SQL databases. The recommendations that are provided are based database-unique workload patterns that helps improve performance.
+Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based database-unique workload patterns that helps improve performance.
 
 > [!TIP]
 > [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for performance tuning. [Intelligent Insights](sql-database-intelligent-insights.md) is the recommended method for monitoring performance. 
@@ -60,7 +60,7 @@ Applications that send queries, which include non-parameterized values, can lead
 
 The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
 
-To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you you gain CPU savings. It can also helps decrease query duration. In addition, it will help decrease overhead for the plan cache, which means that more the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
+To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you gain CPU savings. It can also help decrease query duration. In addition, it helps decrease overhead for the plan cache, which means that more the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
 
 After you apply this recommendation, it enables forced parameterization within minutes on your database. It starts the monitoring process, which lasts for approximately 24 hours. After this period, you can see the validation report. This report shows the CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation if performance regression has been detected.
 
