@@ -20,14 +20,14 @@ Learn how to mount a *gitRepo* volume to clone a git repository into your contai
 
 ## gitRepo volume
 
-The *gitRepo* volume mounts a directory and clones the specified git repository into into the directory at container startup. By using a *gitRepo* volume in your container instances, you can avoid adding code for doing so in your applications.
+The *gitRepo* volume mounts a directory and clones the specified Git repository into it at container startup. By using a *gitRepo* volume in your container instances, you can avoid adding the code for doing so in your applications.
 
 When you mount a *gitRepo* volume, you can set three properties to configure the volume:
 
 | Property | Required | Description |
 | -------- | -------- | ----------- |
 | `repository` | Yes | The full URL, including `http://` or `https://`, of the Git repository to be cloned.|
-| `directory` | No | Directory into which the repository should be cloned. The path must not contain or start with "`..`".  If you specify "`.`", the repository is cloned into the volume's directory. Otherwise, the Git repository is cloned into the volume directory in a subdirectory of the given name. |
+| `directory` | No | Directory into which the repository should be cloned. The path must not contain or start with "`..`".  If you specify "`.`", the repository is cloned into the volume's directory. Otherwise, the Git repository is cloned into a subdirectory of the given name within the volume directory. |
 | `revision` | No | The commit hash of the revision to be cloned. If unspecified, the `HEAD` revision is cloned. |
 
 ## Mount a gitRepo volume
