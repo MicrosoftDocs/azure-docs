@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table storage with Python | Microsoft Docs
+title: Get started with Azure Table storage using Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: python
@@ -17,22 +17,50 @@ ms.date: 11/03/2017
 ms.author: mimig
 
 ---
-# How to use Azure Table storage with Python
+# Get started with Azure Table storage using Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-This guide shows you how to perform common Azure Table storage scenarios in Python using the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities.
+Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to Table storage data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.
 
-While working through the scenarios in this tutorial, you may wish to refer to the [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
+You can use Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
+### About this tutorial
+This tutorial shows you how to use the [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) in common Azure Table storage scenarios. The name of the SDK indicates it is for use with Azure Cosmos DB, but it works with both Azure Cosmos DB and Azure Tables storage, each service just has a unique endpoint. These scenarios are explored using Python examples that illustrate how to:
+* Create and delete tables
+* Insert and query entities
+
+While working through the scenarios in this tutorial, you may want to refer to the [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/).
+
+## Prerequisites
+
+You need the following to complete this tutorial successfully:
+
+- [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
+- [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
+- [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/) is recommended
+- [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)  
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+
+## Create an Azure service account
+
+You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
+
+You can work with tables using Azure Table storage or Azure Cosmos DB. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
+
+
+### Create an Azure Cosmos DB Table API account
+
+For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+
+
 ## Install the Azure Storage SDK for Python
 
-Once you've created a storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
+After you've created a Storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
 
 ## Create a table
 
@@ -183,6 +211,7 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
+* [FAQ - Develop with the Table API](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
