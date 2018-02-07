@@ -161,12 +161,27 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](https://
 
    c. The **Spark Submission** tab at the bottom of the window should start displaying the progress. You can also stop the application by selecting the red button in the **Spark Submission** window.
       
-      ![The Spark Submission window](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![The Spark Submission window](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       To learn how to access the job output, see the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article.
 
 ## Debug Spark applications locally or remotely on an HDInsight cluster 
-We also recommend another way of submitting the Spark application to the cluster. You can do also by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+## Link a cluster
+You can link a normal cluster by using admin username, also link a security hadoop cluster by using Ambari username. Here are the steps to Linking a cluster by using Ambari username.
+1. Click **Link a cluster** from **Azure Explorer**.
+
+   ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Ambari username and password. If input invaild username and password, then it shows authentication failed (403) when you click Ok button.
+   
+   ![link cluster dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
+
+   ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
 
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
 You can perform various operations by using Azure Toolkit for IntelliJ.
