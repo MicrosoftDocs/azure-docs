@@ -58,8 +58,10 @@ Navigate to the [Azure portal](https://portal.azure.com) and click **Networking*
 The overview page shows a list of all packet captures that exist no matter the state.
 
 > [!NOTE]
-> Packet capture requires inbound connectivity from Azure platform (168.63.129.16).
-> Packet capture requires outbound connectivity to the storage account over port 443.
+> Packet capture requires following conectivity.
+> * Outbound connectivity to the storage account over port 443.
+> * Inbound and Outbound connectivity to 169.254.169.254
+> * Inbound and Outbound connectivity to 168.63.129.16
 
 ![packet capture overview screen][1]
 
