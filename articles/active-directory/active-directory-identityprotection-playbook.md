@@ -93,7 +93,7 @@ Simulating the impossible travel condition is difficult because the algorithm us
 4. Change your IP address. You can change your IP address by using a VPN, a Tor add-on, or spinning up a new machine in Azure in a different data center.
 5. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com) using the same credentials as before and within a few minutes after the previous sign-in.
 
-The sign-in showsSimulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk events. Because of the complex machine learning models and above rules, there is a chance that the following steps will not lead to a risk event. You might want to replicate these steps for multiple Azure AD accounts to publish this risk event. up in the Identity Protection dashboard within 2-4 hours.  
+The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Simulating vulnerabilities
 Vulnerabilities are weaknesses in an Azure AD environment that can be exploited by a bad actor. Currently 3 types of vulnerabilities are surfaced in Azure AD Identity Protection that leverage other features of Azure AD. These Vulnerabilities will be displayed on the Identity Protection dashboard automatically once these features are set up.
