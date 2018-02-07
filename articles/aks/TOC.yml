@@ -41,6 +41,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Delete an AKS cluster
+      href: delete-cluster.md
   - name: Configure data volumes
     items:
     - name: Azure Disks - Persistent Volume
