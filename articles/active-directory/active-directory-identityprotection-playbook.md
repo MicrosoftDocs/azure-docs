@@ -47,13 +47,13 @@ Completing the following procedure requires you to use:
 1. Using the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com).   
 2. Enter the credentials of the account you want to appear in the **Sign-ins from anonymous IP addresses** report.
 
-The sign-in will show up on the Identity Protection dashboard within 5 minutes. 
+The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes. 
 
 ### Sign-ins from unfamiliar locations
 
 For more information about this risk event, see [Sign-ins from unfamiliar locations](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
 
-To simulate unfamiliar locations, you have to sign in from a location and device that the account has not signed in from before.
+To simulate unfamiliar locations, you have to sign in from a location and device your test account has not signed in from before.
 
 The procedure below uses a newly created:
 
