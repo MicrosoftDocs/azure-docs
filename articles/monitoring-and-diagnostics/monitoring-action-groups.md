@@ -55,10 +55,10 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     b. **Action Type**: Select SMS, email, webhook, Azure app, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 
    > [!NOTE]
-   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
+   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Select **OK** to create the action group.
 
@@ -72,6 +72,6 @@ After you create an action group, it's visible in the **Action groups** section 
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
-* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts. 
+* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

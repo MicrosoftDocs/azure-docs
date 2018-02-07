@@ -24,12 +24,12 @@ ms.custom: mvc
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -86,19 +86,19 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ## Create a Ruby web app on Azure
 
-A resource group is required to contain the assets needed for your web app. To create a resource group, use the [az group create]() command.
+A resource group is required to contain the assets needed for your web app. To create a resource group, use the [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Use the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command to create an app service plan for your web app.
+Use the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command to create an app service plan for your web app.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Next, issue the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
+Next, issue the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -143,7 +143,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

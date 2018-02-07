@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
 
 ---
@@ -57,9 +57,7 @@ Virtual Machine sizes and their associated resource quantities are consistent be
 
 ## Virtual machine extensions
 
- The Azure Stack supports the following virtual machine extension versions:
-
-![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
+ The Azure Stack includes a small set of extensions. Updates and additional extensions and  are available through Marketplace syndication.
 
 Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
 
