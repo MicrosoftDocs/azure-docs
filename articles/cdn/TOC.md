@@ -4,6 +4,15 @@
 # Quickstarts
 ## [Enable Azure CDN](cdn-create-new-endpoint.md)
 
+# Tutorials
+## [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
+
+# Samples
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
+
+# Concepts
+## [How caching works](cdn-how-caching-works.md)
+
 # How-to guides
 ## Integrate
 ### [Web apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
@@ -24,7 +33,6 @@
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### Control caching behavior
-#### [How caching works](cdn-how-caching-works.md)
 #### [Control caching behavior with caching rules](cdn-caching-rules.md)
 #### Cache content by query strings
 ##### [Standard tier](cdn-query-string.md)
@@ -58,12 +66,6 @@
 ## Troubleshoot
 ### [404 status](cdn-troubleshoot-endpoint.md)
 ### [File compression](cdn-troubleshoot-compression.md)
-
-# Tutorials
-## [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
-
-# Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 
 # Reference
 ##  [Azure CDN rules engine reference](cdn-rules-engine-reference.md)

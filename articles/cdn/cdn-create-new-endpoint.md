@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/01/2018
+ms.date: 02/06/2018
 ms.author: mazha
 ms.custom: mvc
 
@@ -32,7 +32,7 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
 > For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -45,15 +45,15 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
     The CDN profile pane appears.
    
-    ![CDN profile][cdn-profile-settings]
+    ![CDN profile](./media/cdn-create-new-endpoint/cdn-profile-settings.png)
 
 2. Select **Endpoint**.
    
-    ![Add endpoint button][cdn-new-endpoint-button]
+    ![Add endpoint button](./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png)
    
     The **Add an endpoint** pane appears.
    
-    ![Add endpoint pane][cdn-add-endpoint]
+    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
 3. For **Name**, enter a unique name for the new CDN endpoint. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.
 
@@ -91,7 +91,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
    After the endpoint is created, it appears in the list of endpoints for the profile.
     
-   ![CDN endpoint][cdn-endpoint-success]
+   ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    > [!IMPORTANT]
    > Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN from Akamai** profiles, propagation usually completes within one minute. For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes, but in some cases can take longer.
@@ -107,7 +107,7 @@ To delete a profile or endpoint when it is no longer needed, select it and then 
 In this quickstart, you’ve created a CDN profile and an endpoint. To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
 
 > [!div class="nextstepaction"]
-> [Add a custom domain](cdn-map-content-to-custom-domain)
+> [Add a custom domain](cdn-map-content-to-custom-domain.md)
 
 ## See Also
 * [Controlling caching behavior of requests with query strings](cdn-query-string.md)
@@ -116,7 +116,3 @@ In this quickstart, you’ve created a CDN profile and an endpoint. To learn abo
 * [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
 * [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md)
 
-[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
