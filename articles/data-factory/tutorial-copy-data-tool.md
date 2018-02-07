@@ -37,7 +37,7 @@ In this tutorial, you perform the following steps:
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **Azure storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Azure SQL Database**: Use a SQL database as the _sink_ data store. If you don't have a SQL database, see the instructions in [Create a SQL database](../sql-database/sql-database-get-started-portal.md).
 
 ### Create a blob and a SQL table
@@ -103,7 +103,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 
 5. Under **version**, select **V2 (Preview)** for the version.
-6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) that are used by your data factory can be in other locations and regions.
+6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that are used by your data factory can be in other locations and regions.
 7. Select **Pin to dashboard**. 
 8. Select **Create**.
 9. On the dashboard, the **Deploying Data Factory** tile shows the process status.
@@ -129,7 +129,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     a. Under **Connection name**, enter **AzureStorageLinkedService**.
 
-    b. Select your Storage account name from the **Storage account name** drop-down list.
+    b. Select your storage account name from the **Storage account name** drop-down list.
 
     c. Select **Next**. 
 
