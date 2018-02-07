@@ -155,7 +155,7 @@
         href: site-recovery-failback-from-azure-to-hyper-v.md
     - name: Set up a Linux master target server for failback
       href: site-recovery-how-to-install-linux-master-target.md
-   name: Migrate
+  - name: Migrate
     items:
     - name: About migration
       href: site-recovery-migrate-to-azure.md
