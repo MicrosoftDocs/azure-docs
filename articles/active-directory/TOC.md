@@ -200,10 +200,6 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
-##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-
-
-
 ##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Advanced configurations
@@ -214,6 +210,8 @@
 ##### [Silent install](active-directory-application-proxy-silent-installation.md)
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
+##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
