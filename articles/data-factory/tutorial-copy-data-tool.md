@@ -108,7 +108,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 8. Select **Create**.
 9. On the dashboard, the **Deploying Data Factory** tile shows the process status.
 
-	![Deploying Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
+	![Deploying data factory tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. After creation is finished, the **Data Factory** home page is displayed.
    
     ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)
@@ -118,13 +118,13 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
 1. On the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool. 
 
-   ![Copy Data tool](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
 2. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name. 
 
-    ![Properties](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+    ![Properties page](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 3. On the **Source data store** page, select **Azure Blob Storage**, and then select **Next**. The source data is in Blob storage. 
 
-    ![Source data store](./media/tutorial-copy-data-tool/source-data-store-page.png)
+    ![Source data store page](./media/tutorial-copy-data-tool/source-data-store-page.png)
 4. On the **Specify the Azure Blob storage account** page, take the following steps:
 
     a. Under **Connection name**, enter **AzureStorageLinkedService**.
@@ -133,9 +133,9 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     c. Select **Next**. 
 
-    ![Specify the Azure Blob storage account](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
+    ![Specify the storage account](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
 
-    A linked service links a data store or a compute to the data factory. In this case, you create a Storage linked service to link your storage account to the data store. The linked service has the connection information that Data Factory uses to connect to Blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
+    A linked service links a data store or a compute to the data factory. In this case, you create a storage linked service to link your storage account to the data store. The linked service has the connection information that Data Factory uses to connect to Blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
 
 5. On the **Choose the input file or folder** page, do the following steps:
     
@@ -169,7 +169,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     f. Select **Next**. 
 
-    ![Specify the Azure SQL database](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
+    ![Specify the SQL database](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
 
     A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied.
 
@@ -178,22 +178,22 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     ![Table mapping](./media/tutorial-copy-data-tool/table-mapping-page.png)
 10. On the **Schema mapping** page, notice that the first and second columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table.
 
-    ![Schema mapping](./media/tutorial-copy-data-tool/schema-mapping-page.png)
+    ![Schema mapping page](./media/tutorial-copy-data-tool/schema-mapping-page.png)
 11. On the **Settings** page, select **Next**. 
 
-    ![Settings](./media/tutorial-copy-data-tool/settings-page.png)
+    ![Settings page](./media/tutorial-copy-data-tool/settings-page.png)
 12. On the **Summary** page, review the settings, and then select **Next**.
 
-    ![Summary](./media/tutorial-copy-data-tool/summary-page.png)
+    ![Summary page](./media/tutorial-copy-data-tool/summary-page.png)
 13. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
-    ![Deployment](./media/tutorial-copy-data-tool/deployment-page.png)
+    ![Deployment page](./media/tutorial-copy-data-tool/deployment-page.png)
 14. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list. 
 
-    ![Monitor Pipeline Runs](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
+    ![Monitor pipeline runs](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
 15. To view the activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select the **Pipelines** link at the top. To refresh the view, select **Refresh**. 
 
-    ![Activity Runs](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
+    ![Monitor activity runs](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
 16. Select the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. Select **Code** to view the JSON code for the entity that's currently opened in the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
     ![Editor tab](./media/tutorial-copy-data-tool/edit-tab.png)
