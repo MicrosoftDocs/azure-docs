@@ -49,6 +49,8 @@
           href: quick-enroll-device-x509-csharp.md
         - name: Node.js
           href: quick-enroll-device-x509-node.md
+        - name: Python
+          href: quick-enroll-device-x509-python.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources

@@ -121,35 +121,36 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
-1. On the menu on the left, select **New** > **Data + Analytics** > **Data Factory**. 
+1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. On the left menu, select **New** > **Data + Analytics** > **Data Factory**.
    
    ![New data factory creation](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
-2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
+3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
      ![New data factory page](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
   
    ![New data factory name](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
-3. Select the Azure **subscription** in which you want to create the data factory.
-4. For **Resource Group**, take one of the following steps:
+4. Select the Azure **subscription** in which you want to create the data factory.
+5. For **Resource Group**, take one of the following steps:
      
       a. Select **Use existing**, and select an existing resource group from the drop-down list.
 
       b. Select **Create new**, and enter the name of a resource group.
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-5. Under **Version**, select **V2 (Preview)**.
-6. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
-7. Select **Pin to dashboard**. 
-8. Select **Create**.
-9. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
+6. Under **Version**, select **V2 (Preview)**.
+7. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
+8. Select **Pin to dashboard**. 
+9. Select **Create**.
+10. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
 
 	![Deploying Data Factory tile](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
-10. After the creation is finished, you see the **Data Factory** page as shown in the image:
+11. After the creation is finished, you see the **Data Factory** page as shown in the image:
    
     ![Data factory home page](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
-11. Select the **Author & Monitor** tile to launch the Data Factory UI in a separate tab. 
+12. Select the **Author & Monitor** tile to launch the Data Factory UI in a separate tab. 
 
 
 ## Create a pipeline
