@@ -63,7 +63,7 @@ In this case, the results no longer fit into a continuous x-axis model as they d
 
 ## How does the Impact tool calculate these conversion rates?
 
-Under the hood, the Impact tool relies on the [Pearson correlation coefficient] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
+Under the hood, the Impact tool relies on [Pearson correlation coefficients] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a postive correlation.
 
 The basic breakdown of how Impact Analysis works is as follows:
 
