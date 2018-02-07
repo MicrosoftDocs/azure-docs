@@ -75,8 +75,8 @@ Impact looks at a sample of all the sessions from users in the selected time ran
 
 Sessions are then broken into two different kinds of _subsessions_ based on one of two conditions:
 
-1. A converted subsession consists of a session ending with a _B_ event and encompasses all _A_ events that occur prior to _B_.
-2. An unconverted subsession occurs when all _A_'s occur without a terminal _B_.
+- A converted subsession consists of a session ending with a _B_ event and encompasses all _A_ events that occur prior to _B_.
+- An unconverted subsession occurs when all _A_'s occur without a terminal _B_.
 
 How Impact is ultimately calculated varies based on whether we are analyzing by metric or by dimension. For metrics all _A_'s in a subsession are averaged. Whereas for dimensions the value of each _A_ contributes _1/N_ to the value assigned to _B_ where _N_ is the number of _A_'s in the subsession.
 
