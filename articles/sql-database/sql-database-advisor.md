@@ -20,14 +20,14 @@ ms.author:
 ---
 # Performance recommendations for SQL Database
 
-Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. Your performance is continuously assessed by analyzing your SQL Database usage history. The recommendations that are provided are based on a database-unique workload pattern that helps improve its performance.
+Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously asseses and analyzes the usage history of your SQL databases. The recommendations that are provided are based database-unique workload patterns that helps improve performance.
 
 > [!TIP]
 > [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for performance tuning. [Intelligent Insights](sql-database-intelligent-insights.md) is the recommended method for monitoring performance. 
 >
 
 ## Create index recommendations
-SQL Database continuously monitors the queries that are running and identifies the indexes that could improve the performance. After there is enough confidence that a certain index is missing, a new **Create index** recommendation is created.
+SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there is enough confidence that a certain index is missing, a new **Create index** recommendation is created.
 
  Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low. 
 
@@ -35,11 +35,11 @@ Indexes that are created by using recommendations are always flagged as auto-cre
 
 If you try to drop the column that has an auto-created index over it, the command passes. The auto-created index is dropped with the command as well. Regular indexes block the ALTER/RENAME command on columns that are indexed.
 
-After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn’t improve performance, it is automatically reverted. SQL Database uses this process to ensures that recommendations improve database performance.
+After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn’t improve performance, it is automatically reverted. SQL Database uses this process to ensure that recommendations improve database performance.
 
 Any **create index** recommendation has a back-off policy that doesn't allow applying the recommendation if the resource usage of a database or pool is high. The back-off policy takes into account CPU, Data IO, Log IO, and available storage. 
 
-If CPU, Data IO, or Log IO is higher than 80% in the previous 30 minutes, the create index recommendations is postponed. If the available storage will be below 10% after the index is created, the recommendation goes into an error state. If, after a couple of days, automatic tuning still believes that the index would be beneficial, the process starts again. 
+If CPU, Data IO, or Log IO is higher than 80% in the previous 30 minutes, the create index recommendation is postponed. If the available storage will be below 10% after the index is created, the recommendation goes into an error state. If, after a couple of days, automatic tuning still believes that the index would be beneficial, the process starts again. 
 
 This process repeats until there is enough available storage to create an index, or until the index is not seen as beneficial anymore.
 
@@ -58,9 +58,9 @@ Every query that's issued against SQL Server initially needs to be compiled to g
 
 Applications that send queries, which include non-parameterized values, can lead to a performance overhead, where for every such query with different parameter values, the execution plan is compiled again. In many cases, the same queries with different parameter values generate the same execution plans. These plans, however, are still separately added to the plan cache. 
 
-When you recompile execution plans, the process uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
+The process of recompiling execution plans uses database resources, increases the query duration time, and overflows the plan cache. These events, in turn, cause plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
 
-To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). In addition to CPU savings, your query duration decreases for the time spent in compilation. There is also much less overhead for the plan cache, allowing the majority of the plans to stay in cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
+To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation were applied). This recommendation can help you you gain CPU savings. It can also helps decrease query duration. In addition, it will help decrease overhead for the plan cache, which means that more the plans can stay in the cache and be reused. You can apply this recommendation quickly by selecting the **Apply** command. 
 
 After you apply this recommendation, it enables forced parameterization within minutes on your database. It starts the monitoring process, which lasts for approximately 24 hours. After this period, you can see the validation report. This report shows the CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation if performance regression has been detected.
 
@@ -88,8 +88,8 @@ The “Fix schema issue” recommendation appears when Azure SQL Database servic
 ## Next steps
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database Advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
-* For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md) .
-* For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) .
+* For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
+* For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md).
 *  For more information about how to use performance recommendations in the Azure portal, see [Performance recommendations in the Azure portal](sql-database-advisor-portal.md).
 * See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
 
