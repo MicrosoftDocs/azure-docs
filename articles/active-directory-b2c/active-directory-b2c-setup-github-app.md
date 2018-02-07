@@ -19,6 +19,10 @@ ms.author: parja
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with GitHub accounts
 
+> [!NOTE]
+> This feature is in preview.
+> 
+
 This article shows you how to enable sign-in for users with a GitHub account.
 
 ## Create a GitHub OAuth application
