@@ -1,13 +1,13 @@
 ---
-title: Provision a simulated X.509 device to Azure IoT Hub | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated X.509 device for Azure IoT Hub Device Provisioning Service
+title: include file
+description: include file
 services: iot-dps 
 author: msebolt
 ms.author: v-masebo
 ms.date: 02/07/2018
-ms.topic: selector
+ms.topic: include
 ms.service: iot-dps
-ms.custom: mvc
+ms.custom: include file
 ---
 
 > [!div class="op_single_selector"]
