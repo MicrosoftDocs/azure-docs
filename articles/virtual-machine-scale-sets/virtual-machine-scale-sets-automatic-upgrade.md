@@ -66,7 +66,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## Portal experience
-Once you follow the registration steps above, you can go to [the Azure portal](aka.ms/managed-compute) to enable automatic OS upgrades on your scale sets and to see the progress of upgrades:
+Once you follow the registration steps above, you can go to [the Azure portal](https://aka.ms/managed-compute) to enable automatic OS upgrades on your scale sets and to see the progress of upgrades:
 
 ![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
