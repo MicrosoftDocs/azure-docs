@@ -36,7 +36,7 @@ for disaster recovery scenario.
 1. In **Recovery Services vaults**, click the vault name, **ContosoVMVault**.
 2. In **Getting Started**, click Site Recovery. Then click **Prepare Infrastructure**.
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
-4. In **Where do you want to replicate your machines, select **To Azure**.
+4. In **Where do you want to replicate your machines**, select **To Azure**.
 5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 
 ## Set up the source environment
