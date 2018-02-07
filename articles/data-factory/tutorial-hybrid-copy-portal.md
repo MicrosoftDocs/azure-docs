@@ -121,6 +121,7 @@ In this section, you create a blob container named **adftutorial** in your Azure
 ## Create a data factory
 In this step, you create a data factory, and launch the Azure Data Factory UI to create a pipeline in the data factory. 
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)

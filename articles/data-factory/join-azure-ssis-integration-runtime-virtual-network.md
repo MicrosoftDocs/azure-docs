@@ -62,10 +62,11 @@ This section shows you how to join an existing Azure SSIS runtime to a VNet (Cla
 ### Use portal to configure a Classic VNet
 You first need to configure VNet before you can join an Azure-SSIS IR to the VNet.
 
-1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **More services**. Filter for and select **Virtual networks (classic)**.
-3. Filter for and select your **virtual network** in the list. 
-4. In the Virtual network (classic) page, select **Properties**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to [Azure portal](https://portal.azure.com).
+3. Click **More services**. Filter for and select **Virtual networks (classic)**.
+4. Filter for and select your **virtual network** in the list. 
+5. In the Virtual network (classic) page, select **Properties**. 
 
 	![classic VNet resource ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Click the copy button for the **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file.
@@ -97,13 +98,14 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
 ### Use portal to configure an Azure Resource Manager VNet
 You first need to configure VNet before you can join an Azure-SSIS IR to the VNet.
 
-1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **More services**. Filter for and select **Virtual networks**.
-3. Filter for and select your **virtual network** in the list. 
-4. In the Virtual network page, select **Properties**. 
-5. Click the copy button for the **RESOURCE ID** to copy the resource ID for the virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file.
-6. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
-5. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to [Azure portal](https://portal.azure.com).
+3. Click **More services**. Filter for and select **Virtual networks**.
+4. Filter for and select your **virtual network** in the list. 
+5. In the Virtual network page, select **Properties**. 
+6. Click the copy button for the **RESOURCE ID** to copy the resource ID for the virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file.
+7. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
+8. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
 	1. In Azure portal, click **Subscriptions** on the left menu. 
 	2. Select your **subscription**. 
 	3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
@@ -115,7 +117,8 @@ You first need to configure VNet before you can join an Azure-SSIS IR to the VNe
 ### Join the Azure SSIS IR to a VNet
 
 
-1. In the [Azure portal](https://portal.azure.com), select **Data factories** on the left menu. If you do not see **Data factories** on the menu, select **More services**,  select **Data factories** in the **INTELLIGENCE + ANALYTICS** section. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. In the [Azure portal](https://portal.azure.com), select **Data factories** on the left menu. If you do not see **Data factories** on the menu, select **More services**,  select **Data factories** in the **INTELLIGENCE + ANALYTICS** section. 
     
 	![Data factories list](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Select your data factory with Azure SSIS integration runtime in the list. You see the home page for your data factory. Select **Author & Deploy** tile. You see the Data Factory user interface (UI) in a separate tab. 
