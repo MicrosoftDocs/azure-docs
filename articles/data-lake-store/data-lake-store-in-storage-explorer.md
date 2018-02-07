@@ -19,32 +19,81 @@ ms.date: 02/05/2018
 ms.author: jejiang
 
 ---
-# Manage Azure Data Lake Store resources with Storage Explorer (Preview)
-## Overview
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. User can get access to the data from anywhere via HTTP or HTTPS. ADLS in Azure Storage Explorer enables users to access and manage ADLS data and resources along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place.
+# Manage Azure Data Lake Store resources with Storage Explorer (preview)
+
+[Azure Data Lake Store(ADLS)](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is a service for storing large amounts of unstructured data, such as text or binary data. User can get access to the data from anywhere via HTTP or HTTPS. ADLS in Azure Storage Explorer enables users to access and manage ADLS data and resources along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place.
 
 Another advantage is that users do not need to have subscription permission to manage ADLS data. In Storage Explorer, users can attach the ADLS path to "Local and Attached" node as long as others grant the permission.
 
 ## Prerequisites
 To complete the steps in this article, you need the following prerequisites:
 
-* [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
 *	An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial).
 *	An Azure Data Lake Store account. For instructions on how to create one, see [Get Started with Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal)
 
-## View Azure Data Lake Store account's contents
-Azure Data Lake Store account's resources contain folders and files.
+## Installation
+
+Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Now we support Windows, Linux, and MAC version.
+
+## Connect to an Azure subscription
+
+1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image.
+       
+   ![Plug in icon](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
+ 
+2. Select **Add an Azure Account**, and then click **Sign-in**.
+
+   ![Connect to Azure subscription](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
+
+2. In the **Azure Sign in** dialog box, select **Sign in**, and then enter your Azure credentials.
+
+    ![Sign in](./media/data-lake-store-in-storage-explorer/sign-in.png)
+
+3. Select your subscription from the list and then click **Apply**.
+
+    ![Apply](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
+
+    The Explorer pane updates and displays the accounts in the selected subscription.
+
+    ![Account list](./media/data-lake-store-in-storage-explorer/account-list.png)
+
+    You have successfully connected to your **Azure Data Lake Store** to your Azure subscription.
+
+## Connect to Data Lake Store
+If you want to get access to the resources, which do not exist in your subscription. But others grant you to get the Uri for the resources. In this case, you can connect to Data Lake Store using the Uri after you have signed in. Refer to following steps.
+1. Open Storage Explorer (Preview).
+2. In the left pane, expand **Local and Attached**.
+3. Right-click **Data Lake Store**, and - from the context menu - select **Connect to Data Lake Store...**.
+
+      ![connect to Data Lake Store context menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Enter the Uri, then the tool navigates to the location of the URL you just entered.
+
+      ![connect to Data Lake Store context dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+      ![connect to Data Lake Store result](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
+
+## Azure Data Lake Store resources management
+
+You can manage Azure Data Lake Store resources by doing following operations:
+*	Navigate  ADLS resources across multiple ADL accounts.  
+*	Use connection string to connect to and manage ADLS directly. 
+*	View ADLS resources shared by others through ACL under Local & Attached.
+*	Perform File/Folder CRUD Operations: support recursive folder and multi-selected files. 
+*	Drag, drop and add folder to quick access and recent locations, which mirrors desktop file explorer experience. 
+*	Copy and open ADL hyperlink with Storage Explorer with one click. 
+*	Display activity log in the lower right pane to view activity status.
+*	Display folder statistics and file property.
+
+## View an Azure Data Lake Store account's contents
+An Azure Data Lake Store account's resources contain folders and files.
 
 The following steps illustrate how to view the contents of an ADLS account within Storage Explorer (Preview):
 
 1. Open Storage Explorer (Preview).
 2. In the left pane, expand the subscription containing the Azure Data Lake Store account you wish to view.
 3. Expand **Data Lake Store**.
-4. Right-click the Azure Data Lake Store account node you wish to view, and - from the context menu - select **Open**.
-   You can also double-click the ADLS account to open.
-
-     ![open account context menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open-contextmenu.png) 
-
+4. Right-click the Azure Data Lake Store account node you wish to view, and - from the context menu - select **Open**. You can also double-click the ADLS account to open. 
 5. The main pane displays the ADLS account's contents.
 
      ![main pane](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
@@ -128,19 +177,6 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
         ![deep link in file explorer](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
-## Connect to Data Lake Store
-If you want to get access to the resources, which do not exist in your subscription. But others grant you to get the Uri for the resources. In this case, you can connect to Data Lake Store using the Uri. Refer to following steps.
-1. Open Storage Explorer (Preview).
-2. In the left pane, expand **Local and Attached**.
-3. Right-click **Data Lake Store**, and - from the context menu - select **Connect to Data Lake Store...**.
-
-      ![connect to Data Lake Store context menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
-
-4. Enter the Uri, then the tool navigates to the location of the URL you just entered.
-
-      ![connect to Data Lake Store context dialog](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
-
-      ![connect to Data Lake Store result](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## Next steps
 * View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
