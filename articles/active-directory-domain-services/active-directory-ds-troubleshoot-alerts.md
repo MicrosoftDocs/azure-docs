@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/07/2018
 ms.author: ergreenl
 
 ---
@@ -84,6 +84,13 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 3. Follow [the Getting Started Using Azure AD Domain Services guide](active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Check your domain's health in two hours to ensure that you have completed the steps correctly.
+
+## Next Steps
+
+- [Check your domain's health](active-directory-ds-check-health.md)
+- [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)
+- [Restore missing service principals](active-directory-ds-troubleshoot-service-principals.md)
+- [Secure LDAP errors](active-directory-ds-troubleshoot-service-principals.md)
 
 
 ## Contact us
