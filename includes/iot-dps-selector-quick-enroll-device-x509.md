@@ -1,13 +1,13 @@
 ---
-title: Enroll X.509 device to Azure Device Provisioning Service | Microsoft Docs
-description: Azure Quickstart - Enroll X.509 device to Azure IoT Hub Device Provisioning Service
+title: iot-dps-selector-quick-enroll-device-x509
+description: iot-dps-selector-quick-enroll-device-x509
 services: iot-dps 
 author: msebolt
 ms.author: v-masebo
 ms.date: 02/07/2018
 ms.topic: selector
 ms.service: iot-dps
-ms.custom: mvc
+ms.custom: include
 ---
 
 > [!div class="op_single_selector"]
