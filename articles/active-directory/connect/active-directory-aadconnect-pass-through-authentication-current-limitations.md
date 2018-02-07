@@ -23,39 +23,32 @@ ms.author: billmath
 
 ## Supported scenarios
 
-The following scenarios are fully supported by Pass-through Authentication:
+The following scenarios are fully supported:
 
 - User sign-ins to all web browser-based applications
 - User sign-ins to Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2016, and Office 2013 _with_ modern authentication
+- User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, SMTP, POP and IMAP.
 - User sign-ins to Skype for Business that support modern authentication, including Online & Hybrid topologies. Learn more about supported topologies [here](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD domain joins for Windows 10 devices
-- Exchange ActiveSync support
+- App passwords for Multi-Factor Authentication.
 
 ## Unsupported scenarios
 
-The following scenarios are _not_ supported by Pass-through Authentication:
+The following scenarios are _not_ supported:
 
-- User sign-ins to legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
+- User sign-ins to legacy Office client applications, excluding Outlook: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
 - User sign-ins to Skype for Business client applications _without_ modern authentication.
 - User sign-ins to PowerShell version 1.0. We recommended that you use PowerShell version 2.0.
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- The Apple Device Enrollment Program (Apple DEP) does not support modern authentication. Apple DEP devices will fail to enroll into Intune for managed domains using Pass-through Authentication.
+- The Apple Device Enrollment Program (Apple DEP) does not support modern authentication.  Apple DEP devices will fail to enroll into Intune for domains using Pass-through Authentication.
 
 >[!IMPORTANT]
 >As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 >[!NOTE]
 Enabling password hash synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
-
-## Known issues or limitations
-
-These are other known issues or limitations with Pass-through Authentication:
-
-- You cannot switch your sign-in method from Pass-through Authentication to a third-party federation provider using Azure AD Connect. This is because you cannot switch from "Pass-through authentication" to "Do not configure" on the "Change user sign-in" page on the Azure AD Connect wizard.
-- If you choose Password Hash Synchronization as your sign-in method on your Azure AD Connect primary server, and choose Pass-through Authentication instead on the Azure AD Connect staging server, user sign-ins on your tenant will start to fail. To recover, choose Password Hash Synchronization on the Azure AD Connect staging server - the same configuration as on the Azure AD Connect primary server.
-- If you disable or uninstall a Pass-through Authentication Agent on your tenant, the Authentication Agent will continue to be listed on the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/) as **Inactive** for a few days. The **Inactive** entry is automatically dropped after that period of time.
 
 ## Next steps
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running with Azure AD Pass-through Authentication.
