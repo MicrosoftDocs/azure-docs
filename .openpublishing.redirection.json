@@ -8145,14 +8145,14 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/migrate/how-to-tag-v-center.md",
-        "redirect_url": "how-to-create-a-group",
-        "redirect_document_id": false
+            "source_path": "articles/migrate/how-to-tag-v-center.md",
+            "redirect_url": "how-to-create-a-group",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
-        "redirect_url": "azure-to-azure-tutorial-migrate",
-        "redirect_document_id": false
+            "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-tutorial-migrate",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/tutorial-migrate-azure-to-azure.md",
@@ -8160,24 +8160,24 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
-        "redirect_url": "azure-to-azure-support-matrix",
-        "redirect_document_id": false
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
+            "redirect_url": "azure-to-azure-support-matrix",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/site-recovery/site-recovery-support-matrix-azure-to-azure.md,
-        "redirect_url": "azure-to-azure-support-matrix",
-        "redirect_document_id": false
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-azure-to-azure.md,
+            "redirect_url": "azure-to-azure-support-matrix",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/site-recovery/site-recovery-azure-to-azure-architecture.md",
-        "redirect_url": "azure-to-azure-architecture",
-        "redirect_document_id": false
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-architecture.md",
+            "redirect_url": "azure-to-azure-architecture",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/site-recovery/concepts-azure-to-azure-architecture.md",
-        "redirect_url": "azure-to-azure-architecture",
-        "redirect_document_id": false
+            "source_path": "articles/site-recovery/concepts-azure-to-azure-architecture.md",
+            "redirect_url": "azure-to-azure-architecture",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-architecture.md",
