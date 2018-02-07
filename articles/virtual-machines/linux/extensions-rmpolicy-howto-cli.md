@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/06/2018
 ms.author: danis
 
 ---
@@ -49,17 +49,24 @@ Definition create
 
 ## Assign the policy
 
-Assign the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az_policy_assignment_create). 
+This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access or Custom Script extensions. Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
 
 
 ```azurecli-interactive
 az policy assignment create \
    --name 'not-allowed-vmextension' \
-   --scope /subscriptions/<subscription Id>/resourceGroups/myVMs \
+   --scope /subscriptions/<subscription Id>/resourceGroups/myResourceGroup \
    --policy "not-allowed-vmextension" 
 ```
 
 ## Test the policy
+
+Create a VM to test the policy.
+
+```azurecli-interactive
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
+
 
 
 ## Removing the assignment
