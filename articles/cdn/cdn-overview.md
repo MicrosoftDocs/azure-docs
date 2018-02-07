@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # What is Azure Content Delivery Network?
 
-Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. To see a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-locations.md).
 
 A CDN is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users, to minimize latency. The benefits of using a CDN to cache web site assets include:
 
@@ -39,11 +39,11 @@ A CDN is a distributed network of servers that can efficiently deliver web conte
 6. If the TTL for the file hasn't expired, the edge server returns the file from the cache. This process results in a faster, more responsive user experience.
 
 ## Azure CDN features
-There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+There are three Azure CDN products: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| __Performance Features and optimizations__ |
+| __Performance features and optimizations__ |
 | [Dynamic site acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic site acceleration - adaptive image compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic site acceleration - object prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
@@ -64,7 +64,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| __Analytics and Reporting__ |
+| __Analytics and reporting__ |
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Core reports from Verizon](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
 | [Custom reports from Verizon](cdn-verizon-custom-reports.md) | |**&#x2713;** |**&#x2713;** |
@@ -72,7 +72,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Edge node performance](cdn-edge-performance.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |
-| __Ease of Use__ |
+| __Ease of use__ |
 | Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | |**&#x2713;** |
@@ -88,13 +88,13 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 > 
 
 ## Next steps
-To get started with CDN, see [Getting started with Azure CDN](cdn-create-new-endpoint.md).
+- To get started with CDN, see [Getting started with Azure CDN](cdn-create-new-endpoint.md).
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
+- If you are an existing CDN customer, you can manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
-To see Azure CDN in action, watch the [video of the Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+- To see Azure CDN in action, watch the [video of the Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
+- Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 
-For pricing information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+- For pricing information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
