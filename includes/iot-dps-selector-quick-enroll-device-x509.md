@@ -1,13 +1,13 @@
 ---
-title: iot-dps-selector-quick-enroll-device-x509
-description: iot-dps-selector-quick-enroll-device-x509
+title: include file
+description: include file
 services: iot-dps 
 author: msebolt
 ms.author: v-masebo
 ms.date: 02/07/2018
-ms.topic: selector
+ms.topic: include
 ms.service: iot-dps
-ms.custom: include
+ms.custom: include file
 ---
 
 > [!div class="op_single_selector"]
