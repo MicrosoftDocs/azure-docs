@@ -41,6 +41,7 @@ You need the following to complete this tutorial successfully:
 - [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
 - [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/) is recommended
 - [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)  
+
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## Create an Azure service account
