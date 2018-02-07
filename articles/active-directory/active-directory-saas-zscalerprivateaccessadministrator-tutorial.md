@@ -78,8 +78,6 @@ In this section, you configure and test Azure AD single sign-on with Zscaler Pri
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Zscaler Private Access Administrator is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Zscaler Private Access Administrator needs to be established.
 
-In Zscaler Private Access Administrator, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Zscaler Private Access Administrator, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
@@ -123,29 +121,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. In a different web browser window, login to Zscaler Private Access Administrator as an Administrator.
 
-7. On the top, click **Administration** and navigate to **AUTHENTICATION** section click **Idp Configuration**.
+7. On the top, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 
 	![Zscaler Private Access Administrator admin](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-8. In the top right corner, click **Add Idp Configuration**. 
+8. In the top right corner, click **Add IdP Configuration**. 
 
 	![Zscaler Private Access Administrator addidp](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-9. On the **Add Idp Configuration** page perform the following steps:
+9. On the **Add IdP Configuration** page perform the following steps:
  
 	![Zscaler Private Access Administrator idpselect](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
-	a. Click **Select File** to upload the downloaded Metadata file from Azure AD in the **Idp Metadata File Upload** field.
+	a. Click **Select File** to upload the downloaded Metadata file from Azure AD in the **IdP Metadata File Upload** field.
 
-10. It reads the **IdP metadata** and populates all the fields information.
+	b. It reads the **IdP metadata** from Azure AD and populates all the fields information as shown below.
 
 	![Zscaler Private Access Administrator idpconfig](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/idpconfig.png)
 
-	a. Select **Single Sign On** as **Administrator**.
+	c. Select **Single Sign On** as **Administrator**.
 
-	b. Select Your Domain from **Domains** field.
+	d. Select your domain from **Domains** field.
 	
-	c. Click **Save**.
+	e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,19 +188,23 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 1. Log in to your Zscaler Private Access Administrator company site as an administrator.
 
-2. Click **“Administrators** on left side of the page.
+2. On the top, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
+
+	![Zscaler Private Access Administrator admin](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
+
+3. Click **Administrators** from left side of the menu.
 
     ![Zscaler Private Access Administrator administrator](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-3. In the top right corner, click **Add Administrator**:
+4. In the top right corner, click **Add Administrator**:
 
 	![Zscaler Private Access Administrator add admin](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
-4. In the **Add Administrator** page, perform the following steps:
+5. In the **Add Administrator** page, perform the following steps:
 
 	![Zscaler Private Access Administrator user admin](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-	a. In the **Username** textbox, type the email address of BrittaSimon account.
+	a. In the **Username** textbox, enter the email of user like **BrittaSimon@contoso.com**.
 
 	b. In the **Password** textbox, type the Password.
 
@@ -210,7 +212,7 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 	d. Select **Role** as **Zscaler Private Access Administrator**.
 
-	e. In the **Email** textbox, type the email address of Britta Simon account.
+	e. In the **Email** textbox, enter the email of user like **BrittaSimon@contoso.com**.
 
 	f. In the **Phone** textbox, type the Phone number.
 
