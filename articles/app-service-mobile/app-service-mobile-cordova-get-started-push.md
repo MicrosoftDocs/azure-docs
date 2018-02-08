@@ -33,13 +33,13 @@ Android Emulator, an Android device, a Windows device, or an iOS device.
 
 To complete this tutorial, you need:
 
-* A PC with [Visual Studio Community 2015][2] or later versions.
-* [Visual Studio Tools for Apache Cordova][4].
-* An [active Azure account][3].
-* A completed [Apache Cordova quickstart][5] project.
-* (Android) A [Google account][6] with a verified email address.
-* (iOS) An [Apple Developer Program membership][7] and an iOS device (iOS Simulator does not support push notifications).
-* (Windows) A [Windows Store developer account][8] and a Windows 10 device.
+* A PC with [Visual Studio Community 2015][2] or later versions
+* [Visual Studio Tools for Apache Cordova][4]
+* An [active Azure account][3]
+* A completed [Apache Cordova quickstart][5] project
+* (Android) A [Google account][6] with a verified email address
+* (iOS) An [Apple Developer Program membership][7] and an iOS device (iOS Simulator does not support push notifications)
+* (Windows) A [Windows Store developer account][8] and a Windows 10 device
 
 ## <a name="configure-hub"></a>Configure a notification hub
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -54,10 +54,10 @@ Ensure your Apache Cordova app project is ready to handle push notifications by
 installing the Cordova push plugin plus any platform-specific push services.
 
 #### Update the Cordova version in your project.
-If your project uses a version of Apache Cordova that's earlier than v6.1.1, update the client project. To update
+If your project uses a version of Apache Cordova that's earlier than version 6.1.1, update the client project. To update
 the project, take the following steps: 
 
-* Right-click `config.xml` to open the configuration designer.
+* To open the configuration designer, right-click `config.xml`.
 * Select the **Platforms** tab.
 * In the **Cordova CLI** text box, select **6.1.1** .
 * To update the project, select **Build**, and then select **Build Solution**.
@@ -88,7 +88,7 @@ Run the following command:
 
 4. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can
     add it here. Otherwise, enter a placeholder value, such as 777777. If you are targeting Android, you can update
-    this value later in the config.xml file.
+    this value in the config.xml file later.
 
     >[NOTE!]
     >As of version 2.0.0, the SENDER_ID has been removed from install time and google-services.json needs
@@ -99,15 +99,15 @@ The push plugin is now installed.
 
 #### Install the device plugin
 Follow the same procedure you used to install the push plugin.  Add the Device plugin from the Core
-plugins list (To find it, select **Plugins** > **Core**). You need this plugin to obtain the platform
+plugins list (To find it, select **Plugins** > **Core**.) You need this plugin to obtain the platform
 name.
 
 #### Register your device when the application starts 
 Initially, we include some minimal code for Android. Later you can modify the app to run on iOS or Windows 10.
 
-1. Add a call to **registerForPushNotifications** during the callback for the sign-in process. You can also add it at the bottom ofthe **onDeviceReady** method instead:
+1. Add a call to **registerForPushNotifications** during the callback for the sign-in process. Alternatively, you can add it at the bottom of the **onDeviceReady** method:
 
-        // Login to the service.
+        // Log in to the service.
         client.login('google')
             .then(function () {
                 // Create a table reference.
@@ -130,7 +130,7 @@ Initially, we include some minimal code for Android. Later you can modify the ap
 
 2. Add the new **registerForPushNotifications** method as follows:
 
-        // Register for Push Notifications. Requires that phonegap-plugin-push be installed.
+        // Register for push notifications. Requires that phonegap-plugin-push be installed.
         var pushRegistration = null;
         function registerForPushNotifications() {
           pushRegistration = PushNotification.init({
@@ -179,7 +179,7 @@ Initially, we include some minimal code for Android. Later you can modify the ap
 Complete this section to enable push notifications for Android.
 
 #### <a name="enable-gcm"></a>Enable Firebase Cloud Messaging
-Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging.
+Since you are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
@@ -223,7 +223,7 @@ The push plugin relies on Android Google Play Services for push notifications.
    * Google Repository revision 27 or higher
    * Google Play Services 9.0.2 or higher
 
-2. Select **Install Packages**. Then wait for the installation to complete.
+2. Select **Install Packages**. Then wait for the installation to finish.
 
 The current required libraries are listed in the [phonegap-plugin-push installation documentation][19].
 
@@ -232,21 +232,19 @@ You can now test push notifications by running the app and inserting items in th
 from the same device or from a second device, as long as you are using the same back end. Test your Cordova
 app on the Android platform in one of the following ways:
 
-* **On a physical device:**
-  Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**,
-  select **Device**. Visual Studio deploys the application to the device and then runs the application. You can then
-  interact with the application on the device.
+* *On a physical device:* Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio deploys the application to the device and runs the application. You can then
+ interact with the application on the device.
 
-  Screen-sharing applications such as [Mobizen][20] can assist you in developing an Android application. Mobizen projects your Android screen to a web browser on your PC.
+  Screen-sharing applications such as [Mobizen][20] can assist you in developing Android applicationa. Mobizen projects your Android screen to a web browser on your PC.
 
-* **On an Android emulator:**
+* *On an Android emulator:*
   There are additional configuration steps that are required when you're using an emulator.
 
     Make sure you are deploying to a virtual device that has Google APIs set as the target, as shown in the Android Virtual Device (AVD) manager.
 
     ![Android Virtual Device manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    If you want to use a faster x86 emulator, [install the HAXM driver][11] and configure the emulator to use it.
+    If you want to use a faster x86 emulator, [install the HAXM driver][11], and then configure the emulator to use it.
 
     Add a Google account to the Android device by selecting **Apps** > **Settings** > **Add account**. Then follow the prompts.
 
