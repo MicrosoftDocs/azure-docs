@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/02/2018
 ms.author: magoedte
 
 ---
@@ -62,11 +62,11 @@ The information below list the proxy and firewall configuration information requ
 |*.azure-automation.net | 443 | Yes | 
 
 ### Linux operating systems
-The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.
+The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.  Unless otherwise noted, all minor releases are supported for each major version listed.  
 
 * Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)
-* Oracle Linux 5, 6, and 7 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)  
+* Oracle Linux 5, 6, and 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)

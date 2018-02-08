@@ -9,7 +9,7 @@ The following table lists the limits that apply to IoT Hub Device Provisioning S
 | Maximum number of CAs | 10 |
 
 > [!NOTE]
-> These limits are for public preview. Once the service is generally available, you can contact [Microsoft Support](https://azure.microsoft.com/support/options/) to increase the number of instances in your subscription.
+> You can contact [Microsoft Support](https://azure.microsoft.com/support/options/) to increase the number of instances in your subscription.
 
 The Device Provisioning Service throttles requests when the following quotas are exceeded:
 

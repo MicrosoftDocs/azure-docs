@@ -31,6 +31,8 @@
           href: quick-create-simulated-device-x509-csharp.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
+        - name: Node.js
+          href: quick-create-simulated-device-x509-node.md
   - name: Enroll device
     items:
     - name: TPM 
@@ -41,12 +43,18 @@
           href: quick-enroll-device-tpm-csharp.md
         - name: Node.js
           href: quick-enroll-device-tpm-node.md
+        - name: Python
+          href: quick-enroll-device-tpm-python.md
     - name: X.509 
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
+        - name: C#
+          href: quick-enroll-device-x509-csharp.md
         - name: Node.js
           href: quick-enroll-device-x509-node.md
+        - name: Python
+          href: quick-enroll-device-x509-python.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
