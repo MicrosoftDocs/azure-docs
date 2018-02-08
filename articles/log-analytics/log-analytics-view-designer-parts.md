@@ -33,13 +33,13 @@ The available View Designer tile types are described in the following table:
 | View type | Description |
 |:--- |:--- |
 | [List of queries](#list-of-queries-part) |Displays a list of log search queries. You can select each query to display its results. |
-| [Number & list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time. |
-| [Two numbers & list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time. |
+| [Number & list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Two numbers & list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Donut & list](#donut-amp-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
-| [Two timelines & list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time. |
+| [Two timelines & list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Information](#information-part) |The header displays static text and an optional link. The list displays one or more items with a static title and text. |
-| [Line chart, callout, & list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time. |
-| [Line chart & list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time. |
+| [Line chart, callout, & list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart & list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Stack of line charts part](#stack-of-line-charts-part) |Displays three separate line charts, with multiple series from a log query over time. |
 
 The next sections describe the tile types and their properties in detail.
@@ -61,7 +61,7 @@ The list of queries part displays a list of log search queries. You can select e
 | Friendly name | The descriptive name that's displayed. |
 
 ## Number & list part
-The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time.
+The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![List of queries view](media/log-analytics-view-designer/view-number-list.png)
 
@@ -136,7 +136,7 @@ The header displays a single number that summarizes a value column in a log quer
 | Query |The query to run for the donut. The first property is a text value, and the second property is a numeric value. |
 | **Donut** |**> Center** |
 | Text |The text that's displayed under the value inside the donut. |
-| Operation |The operation to perform on the value property to summarize it as a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: The ratio of the records returned by the values in **Result values used in center operation** to the total records in the query. |
+| Operation |The operation to perform on the value property to summarize it as a single value.<ul><li>Sum: Add the values of all records.</li><li>Percentage: The ratio of the records returned by the values in **Result values used in center operation** to the total records in the query.</li></ul> |
 | Result values used in center operation |Optionally, select the plus sign (+) to add one or more values. The results of the query are limited to records with the property values you specify. If no values are added, all records are included in the query. |
 | **Additional options** |**> Colors** |
 | Color 1<br>Color 2<br>Color 3 |Select the color for the each of the values displayed in the donut. |
@@ -158,7 +158,7 @@ The header displays a single number that summarizes a value column in a log quer
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
 ## Two timelines & list part
-The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph indicating the relative value of a numeric column or its change over time.
+The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
 ![Two timelines & list view](media/log-analytics-view-designer/view-two-timelines-list.png)
 
@@ -173,7 +173,7 @@ The header displays the results of two log queries over time as column charts, w
 | Legend |The text that's displayed under the callout for the first series. |
 | Color |The color to use for the columns in the series. |
 | Query |The query to run for the first series. The count of the number of records over each time interval are represented by the chart columns. |
-| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<br><br>-Sum: The sum of the values from all records.<br>- Average: The average of the values from all records.<br>- Last sample: The value from the last interval that's included in the chart.<br>- First sample: The value from the first interval that's included in the chart.<br>- Count: The count of all records that are returned by the query. |
+| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Sum: The sum of the values from all records.</li><li>Average: The average of the values from all records.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>First sample: The value from the first interval that's included in the chart.</li><li>Count: The count of all records that are returned by the query.</li></ul> |
 | **List** | |
 | Query |The query to run for the list. The number of records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
@@ -228,10 +228,10 @@ The header displays a line chart with multiple series from a log query over time
 | **Line chart** |**> Callout** |
 | Callout title |The text that's displayed above the callout value. |
 | Series Name |Property value for the series to use for the callout value. If no series is provided, all records from the query are used. |
-| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count    Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart.<br>- Min: Minimum value from the intervals included in the chart.<br>- Sum: Sum of the value from all records. |
+| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Average: Average of the value from all records.</li><li>Count: The count of all records that are returned by the query.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>Max: The maximum value from the intervals that are included in the chart.</li><li>Min: The minimum value from the intervals that are included in the chart.</li><li>Sum: The sum of the values from all records.</li></ul> |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values returned by the query. This information is used to display labels on the chart indicating the value types and optionally for converting the values. The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available. If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
+| Units |Specify the units for the values returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available. If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
 | **List** | |
 | Query |The query to run for the list. The number of records that are returned by the query is displayed. |
@@ -266,7 +266,7 @@ The header displays a line chart with multiple series from a log query over time
 | Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the **measure** keyword to summarize results. If the query uses the **interval** keyword, the x-axis of the chart uses this time interval. If the query does not include the **interval** keyword, the x-axis uses hourly intervals. |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values to be returned by the query. This information is used to display labels on the chart indicating the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
+| Units |Specify the units for the values to be returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
 | Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
 | **List** | |
 | Query |The query to run for the list. The number of records that are returned by the query is displayed. |
@@ -324,7 +324,7 @@ The following table describes the settings for sparklines:
 | Setting | Description |
 |:--- |:--- |
 | Enable Sparklines |Select this link to display a sparkline instead of a horizontal bar. |
-| Operation |If sparklines are enabled, this is the operation to perform on each property in the list to calculate the values for the sparkline.<br><br>- Last sample: The last value for the series over the time interval.<br>- Max: The maximum value for the series over the time interval.<br>- Min: The minimum value for the series over the time interval.<br>- Sum: The sum of values for the series over the time interval.<br>- Summary: Uses the same `measure` command as the query in the header. |
+| Operation |If sparklines are enabled, this is the operation to perform on each property in the list to calculate the values for the sparkline.<ul><li>Last sample: The last value for the series over the time interval.</li><li>Max: The maximum value for the series over the time interval.</li><li>Min: The minimum value for the series over the time interval.</li><li>Sum: The sum of the values for the series over the time interval.</li><li>Summary: Uses the same `measure` command as the query in the header.</li></ul> |
 
 ### <a name="thresholds">Thresholds</a>
 By using thresholds, you can display a colored icon next to each item in a list. Thresholds give you a quick visual indicator of items that exceed a particular value or fall within a particular range. For example, you could display a green icon for items with an acceptable value, yellow if the value is within a range that indicates a warning, and red if it exceeds an error value.
@@ -339,7 +339,7 @@ The following table describes the settings for thresholds:
 |:--- |:--- |
 | Enable Thresholds |Select this link to display a color icon at the left of each value that indicates its health relative to specified thresholds. |
 | Name |The name of the threshold value. |
-| Threshold |The value for the threshold. The health color for each list item is set to the color of the highest threshold value exceeded by the item's value. If no threshold values are exceeded, a default color is used. |
+| Threshold |The value for the threshold. The health color for each list item is set to the color of the highest threshold value that's exceeded by the item's value. If no threshold values are exceeded, a default color is used. |
 | Color |The color for the threshold value. |
 
 ## Next steps
