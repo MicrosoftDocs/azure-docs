@@ -141,10 +141,10 @@ In order to get the optimizations, it is best to create a VM with the latest sup
 New and existing VMs can benefit from installing the latest Linux Integration Services (LIS). The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
-mkdir lis4.2.3-4
-cd lis4.2.3-4
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
-tar xvzf lis-rpms-4.2.3-4.tar.gz
+mkdir lis4.2.3-5
+cd lis4.2.3-5
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+tar xvzf lis-rpms-4.2.3-5.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```
