@@ -22,7 +22,7 @@ ms.author: tamram
 
 This tutorial will show you how to use Azure Blob Storage with ASP.NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of a simple Web API project.
 
-To begin, please [clone the sample project from GitHub](https://github.com/cartermp/TutorialForStorage). The rest of the tutorial will work with this project.
+To begin, [clone the sample project from GitHub](https://github.com/cartermp/TutorialForStorage). The rest of the tutorial will work with this project.
 
 ## Set up your environment
 
@@ -30,27 +30,64 @@ Ensure that you have [Visual Studio 2017](https://www.visualstudio.com/vs/) inst
 
 ![Screenshot of searching for the Azure Storage Emulator via Windows search](media/storage-blobs-introduction/workloads.png)
 
-Once the Azure Development workload has been installed, start the Azure Storage Emulator by pressing the **Windows** key on your keyboard and searching for **Azure Storage Emulator**:
+## Run the application locally
+
+Open the [sample application](https://github.com/cartermp/TutorialForStorage) in Visual Studio 2017. Start it by pressing **f5** in Visual Studio. This will launch the web app on `http://localhost:58673/` so that you can interact with it. You can explore the shape of the API by entering `http://localhost:58673/api` to explore the REST API.
+
+Next, start the Azure Storage Emulator by pressing the **Windows** key on your keyboard and searching for **Azure Storage Emulator**:
 
 ![Screenshot of searching for the Azure Storage Emulator via Windows search](media/storage-blobs-introduction/storage-emulator.png)
 
 This will start the Azure Storage emulator on your machine, and open a command prompt which you can use to control it from there.
 
-Finally, ensure that you have the following local development connection string in your `Web.config` file:
+It's very easly to GET/PUT/DELETE to the running app with tools such as [cURL](https://curl.haxx.se/) or [Postman](https://www.getpostman.com/). For example, the following PUT:
 
-```xml
-  <appSettings>
-    <!-- Any number of appSettings entries could be here -->
+```
+PUT /api/blobs/4 HTTP/1.1
+Host: localhost:58673
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 61b387e3-56cb-ea8f-dcbd-1020655aff41
 
-    <add key="AzureStorageConnectionString" value="UseDevelopmentStorage=true" />
-  </appSettings>
+"I have a kitty."
 ```
 
-This will allow you to connect to the Azure Storage emulator for local development.
+Will upload "I have a kitty" to the Blob Storage emulator and create a blob named "4". You can list all blobs with a GET call.
+
+```
+GET /api/blobs/ HTTP/1.1
+Host: localhost:58673
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 975eca0c-a33b-e64a-ffe9-70fa67bd8b20
+```
+
+Which will download the contents of all blobs in the emulator and send a response as JSON:
+
+```json
+[
+    {
+        "ID": "1",
+        "Content": "I have a cat who I love"
+    },
+    {
+        "ID": "2",
+        "Content": "I have a wonderful bicycle."
+    },
+    {
+        "ID": "3",
+        "Content": "I have a cat who likes to be pet."
+    },
+    {
+        "ID": "4",
+        "Content": "I have a kitty."
+    }
+]
+```
 
 ## Basic Blob operations
 
-The [sample application](https://github.com/cartermp/TutorialForStorage) defines all of its basic blob operations in a single API controller:
+Now that you've run the the [sample application](https://github.com/cartermp/TutorialForStorage), let's take a look at the basic operations on Blobs that it performs. All code for interacting with blobs is in a single file:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -136,7 +173,7 @@ namespace TutorialForStorage.Controllers
 }
 ```
 
-As you can see, basic operations on blobs are very straightforward. Let's walk through each significant section of this code.
+As you can see, basic operations on blobs are very straightforward. Let's take a deeper look at each section.
 
 ## Create a storage account and container
 
@@ -247,11 +284,9 @@ public async Task Delete(string id)
 
 You can also use the [`DeleteAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync?view=azure-dotnet) method, but you'll need to handle any exceptions if the blob doesn't exist yourself.
 
-## Run the application locally
-
 ## Run the sample application in Azure
 
-To publish the [application this tutorial demonstrated](https://github.com/cartermp/TutorialForStorage) in Azure, you'll need an Azure Storage account. The easiest way to do this is with Visual Studio Connected Services.
+To publish the [application this sample application](https://github.com/cartermp/TutorialForStorage) to Azure, you'll need an Azure Storage account. The easiest way to do this is with Visual Studio Connected Services.
 
 ### Create a storage account with Connected Services
 
@@ -276,7 +311,18 @@ After you've added a service reference through Connected Services, it will have 
 </appSettings>
 ```
 
-REPLACE A VALUE I GUESS, I DUNNO :(
+Go ahead and replace the `"UseDevelopmentStroage=true"` value with the real connection string generated by Connected Services.
+
+### Publish to Azure
+
+Finally, you can publish to Azure!
+
+1. In **Solution Explorer**, right-click and select **Publish**.
+2. Under **Microsoft Azure App Service**, ensure that **Create New** is selected and press the **Publish** button.
+3. Fill out the form - all fields should be automatically populated with values that will allow you to create a new App Service web app with the project.
+4. Click **Create**.
+
+After it creates the App Service web app, and the application is fully published, a browser window will open and you can interact with the sample app live over the internet!
 
 ## Next steps
 
