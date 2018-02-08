@@ -8,7 +8,7 @@ documentationcenter: monitoring-and-diagnostics
 
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ---
@@ -29,9 +29,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Search for and select **Logic App**. Create a new resource group named **myResourceGroup** Use the default location. Click the **Create** button.
+2. Search for and select **Logic App**. Click the **Create** button.
 
-3. Enter the logic app information and check the **Pin to Dashboard** option. When complete, click **Create**.
+3. Enter the logic app information shown in the following picture.  Use the default location. Check the **Pin to Dashboard** option.  When complete, click **Create**. 
 
     ![Enter basic information about your logic app in the portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
