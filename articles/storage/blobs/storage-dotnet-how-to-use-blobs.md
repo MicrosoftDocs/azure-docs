@@ -20,234 +20,271 @@ ms.author: tamram
 
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+This tutorial will show you how to use Azure Blob Storage with ASP.NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of a simple Web API project.
 
-This tutorial will show you how to use Azure Blob Storage with .NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of an Image Gallery sample application. By the end of this tutorial, you should know how to use Blob Storage for basic tasks.
+To begin, please [clone the sample project from GitHub](https://github.com/cartermp/TutorialForStorage). The rest of the tutorial will work with this project.
 
-## Set up you environment
+## Set up your environment
 
-First, ensure that you have [Visual Studio 2017](https://www.visualstudio.com/vs/) installed with the [Azure Development workload](https://www.visualstudio.com/vs/visual-studio-workloads/). This will give you all of the tools that you will need for this tutorial.
+Ensure that you have [Visual Studio 2017](https://www.visualstudio.com/vs/) installed with the **ASP.NET and web development** and **Azure Development** workloads. This will give you all of the tools that you will need for this tutorial.
 
-Next, create a new ASP.NET Core Razor Pages project from **File > New Project > Visual C# > ASP.NET Core Web Application**, and select this option:
+![Screenshot of searching for the Azure Storage Emulator via Windows search](media/storage-blobs-introduction/workloads.png)
 
-(image)
+Once the Azure Development workload has been installed, start the Azure Storage Emulator by pressing the **Windows** key on your keyboard and searching for **Azure Storage Emulator**:
 
-### Create a storage account with Add Service Reference
+![Screenshot of searching for the Azure Storage Emulator via Windows search](media/storage-blobs-introduction/storage-emulator.png)
 
-1. In **Solution Explorer**, right-click the project.
+This will start the Azure Storage emulator on your machine, and open a command prompt which you can use to control it from there.
+
+Finally, ensure that you have the following local development connection string in your `Web.config` file:
+
+```xml
+  <appSettings>
+    <!-- Any number of appSettings entries could be here -->
+
+    <add key="AzureStorageConnectionString" value="UseDevelopmentStorage=true" />
+  </appSettings>
+```
+
+This will allow you to connect to the Azure Storage emulator for local development.
+
+## Basic Blob operations
+
+The [sample application](https://github.com/cartermp/TutorialForStorage) defines all of its basic blob operations in a single API controller:
+
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Threading.Tasks;
+using System.Web.Http;
+
+namespace TutorialForStorage.Controllers
+{
+    public class BlobModel
+    {
+        public string ID { get; set; }
+        public string Content { get; set; }
+    }
+
+    public class BlobsController : ApiController
+    {
+        private readonly string CONN_STRING = "AzureStorageConnectionString";
+        private readonly string CONTAINER_NAME = "myblobs";
+        private readonly CloudBlobClient _client;
+        private readonly CloudBlobContainer _container;
+
+        public BlobsController()
+        {
+            // CONN_STRING is defined in the applications Web.config file.
+            var connString = ConfigurationManager.AppSettings[CONN_STRING];
+            var account = CloudStorageAccount.Parse(connString);
+
+            _client = account.CreateCloudBlobClient();
+            _container = _client.GetContainerReference(CONTAINER_NAME);
+            _container.CreateIfNotExists();
+        }
+
+        // List all blob contents
+        public async Task<IEnumerable<BlobModel>> Get()
+        {
+            var blobContents = new List<BlobModel>();
+            var blobs = _container.ListBlobs();
+
+            foreach (var blob in blobs)
+            {
+                if (blob is CloudBlockBlob cbb)
+                {
+                    var blobContent = await cbb.DownloadTextAsync();
+                    var blobName = cbb.Name;
+
+                    var model = new BlobModel
+                    {
+                        ID = blobName,
+                        Content = blobContent
+                    };
+
+                    blobContents.Add(model);
+                }
+            }
+
+            return blobContents;
+        }
+
+        // Download the contents of a single blob
+        public async Task<string> Get(string id)
+        {
+            var blob = _container.GetBlockBlobReference(id);
+            return await blob.DownloadTextAsync();
+        }
+
+        // Upload content to a new blob
+        public async Task Put(string id, [FromBody]string content)
+        {
+            var blob = _container.GetBlockBlobReference(id);
+            await blob.UploadTextAsync(content);
+        }
+
+        // Delete a blob
+        public async Task Delete(string id)
+        {
+            var blob = _container.GetBlockBlobReference(id);
+            await blob.DeleteIfExistsAsync();
+        }
+    }
+}
+```
+
+As you can see, basic operations on blobs are very straightforward. Let's walk through each significant section of this code.
+
+## Create a storage account and container
+
+In the constructor, a Storage Account and Container are created as follows:
+
+1. Parse the connection string (which could be for local development or an actual connection string).
+2. Creates a client, which could then be used to create multiple containers.
+3. Creates a container by name if it doesn't already exist.
+
+```csharp
+private readonly string CONN_STRING = "AzureStorageConnectionString";
+private readonly string CONTAINER_NAME = "myblobs";
+private readonly CloudBlobClient _client;
+private readonly CloudBlobContainer _container;
+
+public BlobsController()
+{
+    // CONN_STRING is defined in the applications Web.config file.
+    var connString = ConfigurationManager.AppSettings[CONN_STRING];
+    var account = CloudStorageAccount.Parse(connString);
+
+    _client = account.CreateCloudBlobClient();
+    _container = _client.GetContainerReference(CONTAINER_NAME);
+    _container.CreateIfNotExists();
+}
+```
+
+Every blob in Azure Storage must reside in a container. The container name is part of how you uniquely identify any blob in Azure Storage, and is your entry point for any blob operation.
+
+Container names must also be a valid DNS name. To learn more about containers and naming, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata?redirectedfrom=MSDN).
+
+## List blobs in a container
+
+To list blobs in a container, call [`ListBlobs`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs?view=azure-dotnet) on the container as done in the HTTP GET call from the API controller:
+
+```csharp
+public async Task<IEnumerable<BlobModel>> Get()
+{
+    var blobContents = new List<BlobModel>();
+    var blobs = _container.ListBlobs();
+
+    foreach (var blob in blobs)
+    {
+        if (blob is CloudBlockBlob cbb)
+        {
+            var blobContent = await cbb.DownloadTextAsync();
+            var blobName = cbb.Name;
+
+            var model = new BlobModel
+            {
+                ID = blobName,
+                Content = blobContent
+            };
+
+            blobContents.Add(model);
+        }
+    }
+
+    return blobContents;
+}
+```
+
+You've likely noticed that we had to pattern match on each blob item as we enumerate the list. This is because each item is an [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. We're working with Block Blobs, which are the most common types, hence the cast. If you are working with Page Blobs or Blob Directories, you can cast to those types.
+
+If you have a large number of blobs, you may need to use other listing APIs such as [ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listblobssegmentedasync?view=azure-dotnet).
+
+## Download a blob
+
+In the API controller, the HTTP GET operation which specified an ID shows how to download a blob:
+
+```csharp
+public async Task<string> Get(string id)
+{
+    var blob = _container.GetBlockBlobReference(id);
+    return await blob.DownloadTextAsync();
+}
+```
+
+The [`DownloadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.downloadtextasync?view=azure-dotnet#Definiti) method is used to download text, since we know that the blob is text. There are other APIs available such as [`DownloadToFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet), [`DownloadToStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtostreamasync?view=azure-dotnet), and to [`DownloadToByteArrayAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtobytearrayasync?view=azure-dotnet).
+
+## Upload to a blob
+
+In the API controller, the HTTP PUT operation shows how to upload string content to a blob:
+
+```csharp
+public async Task Put(string id, [FromBody]string content)
+{
+    var blob = _container.GetBlockBlobReference(id);
+    await blob.UploadTextAsync(content);
+}
+```
+
+The [`UploadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadtextasync?view=azure-dotnet) will upload string content to a blob, optionally creating the blob if it does not exist. There are other APIs available such as [`UploadFromFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromfileasync?view=azure-dotnet), [`UploadFromStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync?view=azure-dotnet), and [`UploadFromByteArrayAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfrombytearrayasync?view=azure-dotnet).
+
+## Delete a blob
+
+The last operation in the API controller is an HTTP DELETE which will delete a blob by its specified ID:
+
+```csharp
+public async Task Delete(string id)
+{
+    var blob = _container.GetBlockBlobReference(id);
+    await blob.DeleteIfExistsAsync();
+}
+```
+
+[`DeleteIfExistsAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) will delete a blob if it exists. It returns a `Task<bool>`, where `true` indicates that it successfully deleted the blob, and `false` indicates that the container did not exist. In this case, we can simply ignore it.
+
+You can also use the [`DeleteAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync?view=azure-dotnet) method, but you'll need to handle any exceptions if the blob doesn't exist yourself.
+
+## Run the application locally
+
+## Run the sample application in Azure
+
+To publish the [application this tutorial demonstrated](https://github.com/cartermp/TutorialForStorage) in Azure, you'll need an Azure Storage account. The easiest way to do this is with Visual Studio Connected Services.
+
+### Create a storage account with Connected Services
+
+1. In **Solution Explorer**, right-click on **Connected Services**.
 2. From the context menu, select **Add > Connected Service**.
-3. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
+3. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Create a new Storage Account**.
 
-(image)
+![A screenshot of creating a Storage account with Visual Studio Connected Services](media/storage-blobs-introduction/storage-blob-create-account.png)
 
-4. In the **Azure Storage** dialog box, select **Create a New storage Account** and complete the form. If you have an existing account, select that instead.
-5. Select **Add**.
+4. In the **Azure Storage** dialog box, complete the form. Under **Resource Group**, select **Create new**. Under **Location**, pick anything you like.
+5. Once your account has been created, click **Add**. This will install all the necessary dependencies that you'll need to get started.
 
-Now you're ready to code!
+### Add the connection string to the release configuration file.
 
-## Create a class to represent Images
+After you've added a service reference through Connected Services, it will have placed a true connection string in the `appSettings` section of your `Web.config` like so:
 
-First, we'll need to have a way to represent images coming from Azure Blob Storage. In **Solution Explorer**, right-click the solution and add a new folder named `Models`. Select the created folder node and create a C# file named `Image.cs`. Replace the default code with this:
-
-```csharp
-using System;
-
-/// <summary>
-/// A representation of an image in Blob storage.
-/// Does not contain the actual bits of an image itself for efficiency reasons.
-/// </summary>
-public class Image
-{
-    /// <summary>
-    /// Unique identifier for an image in Blob Storage. This can be used to determine images within our own app.
-    /// </summary>
-    public Guid ID { get; set; }
-
-    /// <summary>
-    /// The URI for this image which can uniquely identify it in Azure's Blob Storage service.
-    /// </summary>
-    public URI StorageUri { get; set; }
-
-    // TODO
-    public string FileExtension { get; set; }
-}
+```xml
+<appSettings>
+    <add key="AzureStorageConnectionString" value="UseDevelopmentStorage=true" />
+<!-- Azure Storage: STORAGE_NAME -->
+    <add key="<STORAGE_NAME>_AzureStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=STORAGE_NAME;AccountKey=<ACCOUNT_KEY_HERE>;EndpointSuffix=core.windows.net" />
+</appSettings>
 ```
 
-We'll use this class throughout the tutorial.
-
-## Create a new layer to interact with Blob Storage APIs
-
-To follow best practices with ASP.NET Core apps, we'll represent interactions with Blob Storage via an interface and its implementation. This will allow you to stub out the interface implemention with a testable implementation if you're interested in testing its logic.
-
-In **Solution Explorer**, right-click the solution and add a new folder named `StorageService`. In that folder, create a new C# file named `IStorageService.cs`. Replace the default template code with the following:
-
-```csharp
-public interface IStorageService
-{
-    Task AddNewImageAsync(Stream imageFileStream);
-    List<Image> GetAllImages();
-    Task<Stream> DownloadBlobContent(Image image);
-    Task DeleteImageFromBlob(Image image);
-}
-```
-
-Next, we'll implement this interface. Right-click the `StorageService` folder and add a new C# class called `StorageService.cs`. Replace the default template code with the following:
-
-```csharp
-// Using statements...
-
-public class StorageService : IStorageService
-{
-    private readonly CloudBlobClient _client;
-    private readonly CloudBlobContainer _container;
-    private readonly string CONTAINER_NAME = "images";
-
-    public StorageService()
-    {
-        var account = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("YOUR KEY HERE"));
-        _client = account.CreateCloudBlobClient();
-        _container = _client.GetContainerReference(CONTAINER_NAME);
-        _container.CreateIfNotExists();
-    }
-
-    public async Task AddNewImageAsync(Stream imageFileStream)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async List<Image> GetAllImages()
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<Stream> DownloadBlobContentAsync(Image image)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task DeleteImageBlobAsync(Image image)
-    {
-        throw new NotImplementedException();
-    }
-}
-```
-
-Now, open the **Web.Config** file and look for the Azure Storage connection string generated by Connected Services. Replace `YOUR KEY HERE` with the `key` name of the connection string found in your **Web.Config**.
-
-This class represents an object which interacts with the Blob Storage client APIs. Upon instantiation, it will:
-
-1. Read your the connection string from your configuration file and parse it into a representation of your Storage account.
-2. Create a client for Blob storage.
-3. Create a container by name if it doesn't already exist.
-
-By default, the new container is private, meaning that you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public using the following code:
-
-```csharp
-_container.SetPermissions(
-    new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
-```
-
-Anyone on the Internet can see blobs in a public container. However, you can modify or delete them only if you have the appropriate account access key or a shared access signature.
-
-## Upload an image to a blob
-
-Let's implement the `UploadToBlob` method:
-
-```csharp
-public async Task AddNewImageAsync(Stream imageFileStream, string fileExtension)
-{
-    var imageGuid = Guid.NewGuid();
-    var blobName = imageGuid + fileExtension;
-    var blob = _container.GetBlockBlobReference(blobName);
-
-    await blob.UploadFromStreamAsync(imageFileStream);
-}
-```
-
-This method is very simple. First, it creates a unique name for a new blob to store an image. `GetContainerReference` will generate associated metadata to send off the stream to Azure Blob Storage. Finally, `UploadFromStreamAsync` will perform the upload. This operation will also create the blob in Azure Storage.
-
-## List all images in a container
-
-Next, let's implement `GetAllImages`:
-
-```csharp
-public async List<Image> GetAllImages()
-{
-    var imageList = new List<Image>();
-    var blobList = _container.ListBlobs();
-
-    foreach (var blob in blobList)
-    {
-        var image = new Image();
-
-        var blobUriPath = blob.Uri.AbsolutePath;
-
-        // Associate the image ID with the GUID from the blob.
-        image.ID = new Guid(blobUriPath.Substring(blobUriPath.IndexOf("."), Guid.Empty.ToString().Length));
-        image.StorageUri = blob.Uri;
-    }
-
-    return imageList;
-}
-```
-
-The key call in this method is `ListBlobs()`. This will return an `IEnumerable` of [`IListBlobItem>`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet) rather than a specific blob type. If you wish to treat each of these items as a specific blob type, you must cast them to either a `CloudBlockBlob`, `CloudPageBlob`, or `CloudBlobDirectory` type. However, in this tutorial we only need a blob's URI to display images in our image gallery.
-
-## Download an image blob's content
-
-Let's implement the `DownloadBlobContentAsync` method:
-
-```csharp
-public async Task<Stream> DownloadBlobContentAsync(Image image, Stream fileStream)
-{
-    var blobName = image.ID + image.FileExtension;
-    var blob = _container.GetBlockBlobReference(blobName);
-
-    await blob.DownloadToStreamAsync(fileStream);
-
-    return fileStream;
-}
-```
-
-The `DownloadToStreamAsync` method does what its name implies. This facility is quite useful, because you can do whatever you like with a stream. In our case, we'll write this stream to the response of the web app to allow you to download the file directly.
-
-## Delete an image from a blob
-
-Finally, let's implement `DeleteImageBlobAsync`:
-
-```csharp
-public async Task DeleteImageBlobAsync(Image image)
-{
-    var blobName = image.ID + image.FileExtension;
-    var blob = _container.GetBlockBlobReference(blobName);
-
-    await blob.DeleteAsync();
-}
-```
-
-This will completely delete the image from Blob Storage.
-
-## Wire up the blob service code
-
-Now that we have all of our operations on Blob Storage implemented, let's complete our web app by calling everything! Just as a reminder, the [entire source code for this app is already on GitHub](some-url-here.com).
-
-TODO
+REPLACE A VALUE I GUESS, I DUNNO :(
 
 ## Next steps
 
 Now that you've learned the basics of Blob storage, follow these links to learn more.
 
-### Microsoft Azure Storage Explorer
-* [Microsoft Azure Storage Explorer (MASE)](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-
-### Blob storage samples
-* [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+### More samples
+* [Azure Storage samples using .NET](https://docs.microsoft.com/en-us/azure/storage/common/storage-samples-dotnet)
 
 ### Blob storage reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 * [REST API reference](/rest/api/storageservices/azure-storage-services-rest-api-reference)
-
-### Conceptual guides
-* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Get started with File storage for .NET](../files/storage-dotnet-how-to-use-files.md)
-* [How to use Azure blob storage with the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
