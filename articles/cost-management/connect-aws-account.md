@@ -1,6 +1,6 @@
 ---
 title: Connect an Amazon Web Services account to Azure Cost Management | Microsoft Docs
-description: Connect an Amazon Web Services account to view cost and usage data in Cost Management repots.
+description: Connect an Amazon Web Services account to view cost and usage data in Cost Management reports.
 services: cost-management
 keywords:
 author: bandersmsft
