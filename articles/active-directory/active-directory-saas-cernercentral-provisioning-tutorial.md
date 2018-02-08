@@ -120,9 +120,9 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
 14. Click **Save**. 
 
-This starts the initial synchronization of any users and/or groups assigned to Cerner Central in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Cerner Central app.
+This starts the initial synchronization of any users and/or groups assigned to Cerner Central in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Cerner Central app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 
