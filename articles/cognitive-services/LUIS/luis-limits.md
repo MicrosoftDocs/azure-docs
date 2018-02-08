@@ -13,6 +13,10 @@ ms.date: 02/06/2018
 ms.author: v-geberr;
 ---
 # LUIS Boundaries
+LUIS has several boundary areas. The first is [model boundaries](#model-boundaries) which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS endpoint APIs. 
+
+
+## Model boundaries
 
 |Area|Limit|
 |--|:--|--|
@@ -40,7 +44,7 @@ The programmatic key has different limits for authoring and endpoint. The subscr
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
 
-## Keyboard
+## Keyboard controls
 
 |Keyboard input | Description | 
 |--|--|
