@@ -20,28 +20,18 @@ ms.author: rajanaki
 
 # Failback in Site Recovery for Hyper-V virtual machines
 
-This article describes how to failback virtual machines protected by Site Recovery.
+This article describes how to failback Hyper-V virtual machines protected by Site Recovery.
 
 ## Prerequisites
+1. Ensure that you have read the details about the [different types of failback](concepts-types-of-failback.md) and corresponding caveats.
 1. Ensure that the primary site VMM server/Hyper-V server is connected.
 2. You should have performed **Commit** on the virtual machine.
 
-## Why is there no button called failback?
-On the portal, there is no explicit gesture called failback. Failback is a step where you come back to the primary site. By definition, failover is when you failover the virtual machines from primary(on-premises) site to recovery (Azure), and failback is when you failover the virtual machines from recovery back to primary.
-
-When you initiate a failover, the blade informs you about the direction of the job. If the direction is from Azure to On-premises, it is a failback.
-
-## Why is there only a planned failover gesture to failback?
-Azure is a highly available environment and your virtual machines are always available. Failback is a planned activity where you decide to take a small downtime so that the workloads can start running on-premises again. This expects no data loss. Hence only a planned failover gesture is available, that will turn off the VMs in Azure, download the latest changes and ensure there is no data loss.
-
-## Do I need a process server in Azure to failback to Hyper-v?
-No, a process server is required only when you are protecting VMware virtual machines. No additional components are required to be deployed when protecting/failback of Hyper-v virtual machines.
-
-## Initiate failback
+## Perform failback
 After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the active location. Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Planned Failover**.
-2. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
+2. On the **Confirm Planned Failover** page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
 3. If you're failing back from Azure select settings in **Data Synchronization**:
 
    * **Synchronize data before failover(Synchronize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following steps:
@@ -50,8 +40,8 @@ After failover from the primary to secondary location, replicated virtual machin
 
     - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-	>[!NOTE]
-	>We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted. This option doesn't perform any checksum calculations.
+	    >[!NOTE]
+	    >We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted. This option doesn't perform any checksum calculations.
 
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
@@ -61,7 +51,7 @@ After failover from the primary to secondary location, replicated virtual machin
 8. The virtual machine is in a commit pending state. Click **Commit** to commit the failover.
 9. Now in order to complete the failback click **Reverse Replicate** to start protecting the virtual machine in the primary site.
 
-## Failback to an alternate location
+## Failback to an alternate location in Hyper-V environment
 If you've deployed protection between a [Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md) you have to ability to failback from Azure to an alternate on-premises location. This is useful if you need to set up new on-premises hardware. Here's how you do it.
 
 1. If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.
@@ -75,11 +65,24 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
    * Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 7. Click the checkmark to begin the failover (failback).
 8. After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click **Jobs** > <planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.
-9. You can log on to the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover.
+9. You can log on to the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
     > [!NOTE]
     > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is canceled, it may not boot. Retrigger failover to complete the Data Synchronization.
+
+
+## Why is there no button called failback?
+On the portal, there is no explicit gesture called failback. Failback is a step where you come back to the primary site. By definition, failback is when you failover the virtual machines from recovery back to primary.
+
+When you initiate a failover, the blade informs you about the direction in which the virtual machines is to be moved, if the direction is from Azure to On-premises, it is a failback.
+
+## Why is there only a planned failover gesture to failback?
+Azure is a highly available environment and your virtual machines are always available. Failback is a planned activity where you decide to take a small downtime so that the workloads can start running on-premises again. This expects no data loss. Hence only a planned failover gesture is available, that will turn off the VMs in Azure, download the latest changes and ensure there is no data loss.
+
+## Do I need a process server in Azure to failback to Hyper-v?
+No, a process server is required only when you are protecting VMware virtual machines. No additional components are required to be deployed when protecting/failback of Hyper-v virtual machines.
+
 
 ## Time taken to failback
 The time taken to complete the data synchronization and boot the virtual machine depends on various factors. To give an insight into the time taken, we explain what happens during data synchronization.
@@ -90,7 +93,5 @@ To speed up the download of data, you can configure your MARS agent to use more 
 
 
 ## Next Steps
-
-Once you have completed the failback job, **Commit** the virtual machine. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 
 After **Commit**, you can initiate the *Reverse Replicate*. This starts protecting the virtual machine from on-premises back to Azure. This will only replicate the changes since the VM has been turned off in Azure and hence sends differential changes only.
