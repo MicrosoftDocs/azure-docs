@@ -22,7 +22,13 @@ ms.author: tamram
 
 This tutorial will show you how to use [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) with ASP.NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of a simple Web API project.
 
+## Get the sample project
+
 To begin, [clone the sample project from GitHub](https://github.com/cartermp/TutorialForStorage). The rest of the tutorial will work with this project.
+
+If you're unfamiliar with git, you can also download the project as a zip file. In the GitHub repository, there is a green button called **Clone or download**. You can click that and select **Download ZIP**:
+
+![Screenshot of GitHub showing how to clone or download the sample application](media/storage-blobs-introduction/download-sample.png)
 
 ## Set up your environment
 
@@ -302,7 +308,8 @@ After you've added a service reference through Connected Services, it will have 
 ```xml
 <appSettings>
     <add key="AzureStorageConnectionString" value="UseDevelopmentStorage=true" />
-<!-- Azure Storage: STORAGE_NAME -->
+
+    <!-- Azure Storage: STORAGE_NAME -->
     <add key="<STORAGE_NAME>_AzureStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=STORAGE_NAME;AccountKey=<ACCOUNT_KEY_HERE>;EndpointSuffix=core.windows.net" />
 </appSettings>
 ```
