@@ -60,7 +60,7 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     > [!NOTE]
 
-    > Activity Log alerts support an enhanced unified experience in Alerts (Preview). [Learn more](monitoring-activity-log-alerts-new-experience.md).
+    > Unified Alerts (Preview) also supports Activity Log alerts. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
