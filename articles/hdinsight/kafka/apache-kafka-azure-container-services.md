@@ -13,14 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/02/2018
+ms.date: 02/08/2018
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
 
-Learn how to use a Kafka client hosted in Azure Container Service (AKS) to read and write data from a Kafka on HDInsight cluster.
+Learn how to use Azure Container Service (AKS) with Kafka on HDInsight cluster.
 
-[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Azure Container Service manages your hosted Kubernetes environment, and makes it quick and easy to deploy containerized applications.
+[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Azure Container Service manages your hosted Kubernetes environment, and makes it quick and easy to deploy containerized applications. Using an Azure Virtual Network, you can connect the two services.
+
+> [!IMPORTANT]
+> This document assumes that you are familiar with creating and using the following Azure services:
+>
+> * Kafka on HDInsight
+> * Azure Container Service
+> * Azure Virtual Networks
+>
+> This document also assumes that you have walked through the [Azure Container Services tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -31,9 +40,18 @@ Both HDInsight and AKS use an Azure Virtual Network as a container for compute r
 The following diagram illustrates the network topology used in this document:
 [tbd]
 
-### Name resolution
+> [!IMPORTANT]
+> Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
 
-Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
+### Test application
+
+The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
+
+
+## Prerequisites
+
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* An Azure subscription
 
 ## Create an Azure Container Service (AKS)
 
@@ -75,11 +93,12 @@ If you do not already have an AKS cluster, use one of the following documents to
 
 ## Install Kafka on HDInsight
 
-[tbd - install notes that don't re-invent the wheel]
+When creating the Kafka on HDInsight cluster, you must join the virtual network created earlier for HDInsight. For more information on creating a Kafka cluster, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
+
+> [!IMPORTANT]
+> When creating the cluster, you must use the __Advanced settings__ to join the virtual network that you created for HDInsight.
 
 ## Configure Kafka IP Advertising
-
-[tbd - revisit as these to be sure the screenshots are accurate]
 
 Use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
@@ -89,15 +108,15 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    ![Service list with Kafka highlighted](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    ![Service list with Kafka highlighted](./media/apache-kafka-azure-container-services/select-kafka-service.png)
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Configs links for Kafka](./media/apache-kafka-azure-container-services/select-kafka-config.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    ![Kafka configuration, for kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    ![Kafka configuration, for kafka-env](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
@@ -115,19 +134,88 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Save configuration button](./media/apache-kafka-azure-container-services/save-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    ![Service actions, with turn on maintenance highlighted](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    ![Service actions, with turn on maintenance highlighted](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Restart button with restart all affected highlighted](./media/apache-kafka-azure-container-services/restart-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
-## Create Kafka topics
+## Test the configuration
+
+At this point, Kafka and Azure Container Service are in communication through the peered virtual networks. To test this connection, use the following steps:
+
+1. Create a Kafka topic that is used by the test application. For information on creating Kafka topics, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
+
+2. Download the example application from [](). 
+
+3. From a command-line in the `src` directory, install dependencies and use Docker to build an image for deployment:
+
+    ```bash
+    docker build -t kafka-aks-test .
+    ```
+
+    > [!NOTE]
+    > Packages required by this application are checked into the repository, so you do not need to use the `npm` utility to install them.
+
+4. Log in to your Azure Container Registry (ACR) and find the loginServer name:
+
+    ```bash
+    az acr login --name <acrName>
+    az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+    ```
+
+    > [!NOTE]
+    > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure Container Service, see the [AKS tutorials](../../aks/tutorial-kubernetes-prepare-app.md).
+
+5. Tag the local `kafka-aks-test` image with the loginServer of your ACR. Also add `:v1` to the end to indicate the image version:
+
+    ```bash
+    docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
+    ```
+
+6. Push the image to the registry:
+
+    ```bash
+    docker push <acrLoginServer>/kafka-aks-test:v1
+    ```
+    This operation takes several minutes to complete.
+
+7. Edit the Kubernetes manifest file (`kafka-aks-test.yaml`) and replace the following items:
+
+    * `image`: Replace `microsoft` with the ACR loginServer name retrieved in step 4.
+    * `TOPIC`: Replace the `value` with the name of the Kafka topic used by this application.
+    * `BROKERHOST`: Replace the `value` with the internal IP address of one of the broker hosts. For example, `20.0.0.13:9092`
+
+        To find the internal IP address address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api#example-get-the-internal-ip-address-of-cluster-nodes.md) document.
+
+8. Use the following command to deploy the application settings from the manifest:
+
+    ```bash
+    kubectl create -f kafka-aks-test.yaml
+    ```
+
+9. Use the following command to watch for the `EXTERNAL-IP` of the application:
+
+    ```bash
+    kubectl get service kafka-aks-test --watch
+    ```
+
+    Once an external IP address is assigned, use __CTRL + C__ to exit the watch
+
+10. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following:
+
+    ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page.png)
+
+11. Enter text into the field and then select the __Send__ button. This sends data to Kafka. The Kafka consumer in the application then picks up the message and adds it to the __Messages from Kafka__ section at the top of the page.
+
+    > [!WARNING]
+    > You may receive multiple copies of a message. This usually happens when you refresh your browser after connecting, or open multiple browser connections to the application.
 
 ## Next steps
 
