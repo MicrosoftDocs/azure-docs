@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -36,7 +36,7 @@ If this is not the information you are looking for, please leave a comment at th
 
 ## Cloud apps assignments
 
-With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-azure-portal.md#who). When you configure a conditional access policy, you need to select at least one cloud app. 
+With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps). When you configure a conditional access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -102,7 +102,7 @@ In a conditional access policy, you can configure the device platform condition 
 
 ## Client apps condition 
 
-In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-azure-portal.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
