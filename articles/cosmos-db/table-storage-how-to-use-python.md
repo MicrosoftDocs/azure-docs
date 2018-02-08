@@ -197,7 +197,7 @@ for task in tasks:
 
 ## Delete an entity
 
-Delete an entity by passing its PartitionKey and RowKey to the [delete_entity][py_delete_entity] method.
+Delete an entity by passing its **PartitionKey** and **RowKey** to the [delete_entity][py_delete_entity] method.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
