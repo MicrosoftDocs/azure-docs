@@ -134,9 +134,9 @@ In this step, you create a data factory and start the Data Factory UI to create 
 4. Select the Azure **subscription** in which you want to create the data factory.
 5. For **Resource Group**, take one of the following steps:
      
-      a. Select **Use existing**, and select an existing resource group from the drop-down list.
+      - Select **Use existing**, and select an existing resource group from the drop-down list.
 
-      b. Select **Create new**, and enter the name of a resource group.
+      - Select **Create new**, and enter the name of a resource group.
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 6. Under **Version**, select **V2 (Preview)**.
@@ -199,7 +199,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     b. Under **Connect via integration runtime**, confirm that the self-hosted integration runtime you created earlier shows up.
 
-    c. Under **Server name**, enter the name of your SQL Server. 
+    c. Under **Server name**, enter the name of your SQL Server instance. 
 
     d. Under **Database name**, enter the name of the database with the **emp** table.
 
