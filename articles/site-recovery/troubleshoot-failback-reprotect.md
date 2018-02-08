@@ -18,8 +18,8 @@ ms.author: rajanaki
  
 ---
 
-# Troubleshoot errors reporte during the process of failback
-Failback essentialy involves two main steps. One is to reprotect virtual machines from Azue to on-premises, second is to actually perform the failback from Azure to on-premises.
+# Troubleshoot errors reported during the process of failback
+Failback essentially involves two main steps. One is to reprotect virtual machines from Azure to on-premises, second is to actually perform the failback from Azure to on-premises.
 
 ## Troubleshoot errors when reprotecting a virtual machine back to on-premises, after failover
 You may receive one of the following errors while performing reprotect of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.

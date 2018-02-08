@@ -37,14 +37,14 @@ If you choose to fail back to the original virtual machine, the following condit
 * You can fail back to a virtual storage area network (vSAN) or a disk that based on raw device mapping (RDM) if the disks already exist and are connected to the on-premises virtual machine.
 
 > [!IMPORTANT]
-> It is important to enable disk.enableUUID= TRUE so that during failback, the Azure SiteRecovery service is able to identify the original VMDK on the virtual machine to which the pending changes will be written. If this value is not set to be TRUE, then the service tries to identify the corresponding on-premises VMDK on a best effort basis. If the right VMDK is not found, it creates an extra disk and the data gets written on to that.
+> It is important to enable disk.enableUUID= TRUE so that during failback, the Azure Site Recovery service is able to identify the original VMDK on the virtual machine to which the pending changes will be written. If this value is not set to be TRUE, then the service tries to identify the corresponding on-premises VMDK on a best effort basis. If the right VMDK is not found, it creates an extra disk and the data gets written on to that.
 
 ## Alternate location recovery (ALR)
 If the on-premises virtual machine does not exist before reprotecting the virtual machine, the scenario is called an alternate location recovery. The reprotect workflow creates the on-premises virtual machine again. This will also cause a full data download.
 
-* When you fail back to an alternate location, the virtual machine will be recovered to the same ESX host on which the master target server is deployed. The datastore that's used to create the disk will be the same datastore that was selected when reprotecting the virtual machine.
-* You can fail back only to a virtual machine file system (VMFS) or vSAN datastore. If you have a RDM, reprotect and failback will not work.
-* Reprotect involves one large initial data transfer that's followed by the changes. This process exists because the virtual machine does not exist on premises. The complete data needs to be replicated back. This reprotect will also take more time than an original location recovery.
+* When you fail back to an alternate location, the virtual machine is recovered to the same ESX host on which the master target server is deployed. The datastore that's used to create the disk will be the same datastore that was selected when reprotecting the virtual machine.
+* You can fail back only to a virtual machine file system (VMFS) or vSAN datastore. If you have an RDM, reprotect and failback will not work.
+* Reprotect involves one large initial data transfer that's followed by the changes. This process exists because the virtual machine does not exist on premises. The complete data has to be replicated back. This reprotect will also take more time than an original location recovery.
 * You cannot fail back to RDM-based disks. Only new virtual machine disks (VMDKs) can be created on a VMFS/vSAN datastore.
 
 > [!NOTE]
