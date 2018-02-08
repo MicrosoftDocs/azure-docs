@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/08/2018
 ms.author: jeedes
 
 ---
@@ -57,7 +57,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 **Supported Versions:**
 
 *	JIRA Core and Software: 5.2
-*   JIRA also supports 6.0 and 7.2.0. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-jiramicrosoft-tutorial)
+*   JIRA also supports 6.0 and 7.2.0. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA](./active-directory-saas-jiramicrosoft-tutorial.md)
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -173,20 +173,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 11. Perform following steps on configuration page:
 
 	![Configure Single Sign-On](.\media\active-directory-saas-msaadssojira5.2-tutorial\addon52.png)
- 
-	a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
-
-	> [!Note]
-	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
-	
+ 
+	a. In **Metadata URL** paste the **Metadata URL** generated from Azure AD and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+
 	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Microsoft Azure Active Directory single sign-on for JIRA 5.2 Domain and URLs** section on Azure portal.
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user id. If the user id is not matched, then system will not allow users to log in. 
+	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user id. If the user id is not matched, then system will not allow users to log in.
+
+	> [!Note]
+	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name. 
 	
 	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
 
@@ -199,7 +199,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	i. Click **Save** button to save the settings.
 
 	> [!NOTE]
-	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) and there is also FAQ for your assist visit [MS JIRA SSO Connector FAQ](ms-confluence-jira-plugin-faq.md)
+	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](ms-confluence-jira-plugin-faq.md) for your assistance
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
