@@ -128,6 +128,7 @@ Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNa
 Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName -InstanceId "4"
 ```
 
+### Azure CLI
 ```azurecli
 ResourceGroup="linuxdatadiskencryptiontest"
 VmssName="nt1vm"
@@ -136,9 +137,10 @@ az vmss encryption show -g $ResourceGroup -n $VmssName
 ```
 
 ## Disable encryption
+Disable encryption on a running virtual machine scale set (Windows only during the preview) using the following templates and commands.
 
 ### Templates
-Disable encryption on a running Windows virtual machine scale set: [201-decrypt-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+[201-decrypt-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 Disable encryption on a running Linux virtual machine scale set: [201-decrypt-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
 ### PowerShell
