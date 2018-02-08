@@ -22,7 +22,7 @@ ms.author: jomolesk
 # Access Control (AC)
 
 > [!NOTE]
-> These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
+> These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
 
 ## NIST 800-53 Control AC-1
 
@@ -202,7 +202,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -482,7 +482,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements role-based access control which can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
+| **Customer** | This blueprint implements role-based access controls that can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -636,7 +636,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this blueprint. The policy limits consecutive invalid logon attempts by users to not more than three within a 15 minute period. |
+| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this blueprint. The policy limits consecutive invalid logon attempts by users to not more than three within a 15-minute period. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

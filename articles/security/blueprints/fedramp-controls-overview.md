@@ -21,7 +21,7 @@ ms.author: jomolesk
 
 # FedRAMP overview
 
-The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov), is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. FedRAMP defines a security assessment process based on a standardized set of requirement derived from [National Institute of Standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) secuirty controls.
+The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov), is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. FedRAMP defines a security assessment process based on a standardized set of requirement derived from [National Institute of Standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) security controls.
 
 Browse the control families below to see how this Azure Security and Compliance Blueprint Automation aligns with the control requirements.
 
