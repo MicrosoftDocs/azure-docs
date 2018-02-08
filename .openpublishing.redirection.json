@@ -12131,6 +12131,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md",
+            "redirect_url": "/azure/cloud-services/diagnostics-performance-counters",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
             "redirect_document_id": false
@@ -16662,6 +16667,26 @@
     {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-tsql.md",
             "redirect_url": "/azure/sql-data-warehouse/quickstart-scale-compute-tsql",
+            "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/application-gateway/application-gateway-configure-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-redirect-powershell",
+            "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-deployment-planning.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-datacenter-integration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-deployment-decisions.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-connection-models",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
     }
    ]

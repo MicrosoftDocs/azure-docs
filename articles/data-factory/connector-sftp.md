@@ -62,7 +62,7 @@ To use basic authentication, set "authenticationType" property to **Basic**, and
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | User who has access to the SFTP server. |Yes |
-| password | Password for the user (userName). Mark this field as a SecureString. | Yes |
+| password | Password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example:**
 
@@ -101,8 +101,8 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 |:--- |:--- |:--- |
 | userName | User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that Integration Runtime can access. Applies only when Self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `privateKeyPath` or `privateKeyContent`.  |
-| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString. | Specify either the `privateKeyPath` or `privateKeyContent`. |
-| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString. | Yes if the private key file is protected by a pass phrase. |
+| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Specify either the `privateKeyPath` or `privateKeyContent`. |
+| passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes if the private key file is protected by a pass phrase. |
 
 > [!NOTE]
 > SFTP connector supports only OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
