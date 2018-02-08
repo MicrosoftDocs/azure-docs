@@ -54,7 +54,7 @@ Get information about a [preview version of the profiler for Azure compute resou
 
 ## View profiler data
 
-**Make sure your application is receiving traffics.** If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and two minutes each time it runs. Suggest to run load test for one hour to make sure you get sample profiler traces.
+**Make sure your application is receiving traffic.** If you are doing an experiment, you can generate requests to your Web App using the [Application Insights Performance Testing](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). If you newly enabled the Profiler, you can run a short load test for about 15 minutes and you should get profiler traces. If you have the Profiler enabled for a while already, please keep in mind that Profiler runs randomly for two times every hour and two minutes each time it runs. Suggest to run load test for one hour to make sure you get sample profiler traces.
 
 Once your application received some traffic, go to the **Performance** blade,  go to the **Take Actions** section of the page to view profiler traces. Select the **Profiler Traces** button.
 
