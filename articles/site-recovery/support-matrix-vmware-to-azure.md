@@ -126,14 +126,14 @@ Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 TB | Yes<br/><br/>Up to 4095 GB 
 Guest/server disk with 4K logical and 4k physical sector size | Yes
 Guest/server disk with 4K logical and 512 bytes physical sector size | Yes 
-Guest/server volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management 
+Guest/server volume with striped disk > 4 TB <br><br/>LVM-Logical Volume Management | Yes
 Guest/server - Storage Spaces | No 
 Guest/server hot add/remove disk | No 
 Guest/server - exclude disk | Yes 
 Guest/server multi-path (MPIO) | N/A
 
 > [!NOTE]
-> ** UEFI boot VMware virtual machines or Physical servers running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
+> ** UEFI ** boot VMware virtual machines or Physical servers running Windows Server 2012 or later, can be migrated to Azure. Following restrictions apply.
 > - Only migration to Azure is supported. Failback to on-premises VMware site not supported.
 > - The server should not have more than 4 partitions on the OS disk.
 > - Requires Azure Site Recovery Mobility service version 9.13 or later.
