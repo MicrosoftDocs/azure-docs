@@ -60,7 +60,7 @@ Labeling is the process of associating a word or phrase in an intent's [utteranc
 
 ## <a name="luis-app"></a>LUIS app
 
-A LUIS app is a trained data model for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](utterance).
+A LUIS app is a trained data model for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
 
 
 ## <a name="phrase-list"></a>Phrase list
