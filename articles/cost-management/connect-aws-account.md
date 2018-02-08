@@ -14,13 +14,13 @@ ms.custom:
 
 # Connect an Amazon Web Services account
 
-You have two options to connect your Amazon Web Services (AWS) account to Azure Cost Management. You can connect with an IAM role or with a read only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cost Management, cost and usage data is available in Cost Management reports. This document guides you through both options.
+You have two options to connect your Amazon Web Services (AWS) account to Azure Cost Management. You can connect with an IAM role or with a read-only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cost Management, cost and usage data is available in Cost Management reports. This document guides you through both options.
 
 For more information about AWS IAM identities, see [Identities (Users, Groups, and Roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
 
 ## AWS role-based access
 
-The following sections walk you through creating a read only IAM role to provide access to Cost Management.
+The following sections walk you through creating a read-only IAM role to provide access to Cost Management.
 
 ### Get your Cost Management account external ID
 
@@ -32,7 +32,7 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 4. In the **Add AWS Account** dialog, copy the **External ID** and save this value for AWS Role creation steps in the next section. In the following image, the example ID is _Cloudyn_. Your ID differs.  
     ![External ID](./media/connect-aws-account/external-id.png)
 
-### Add AWS read only role-based access
+### Add AWS read-only role-based access
 
 1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
 2. Click **Create Role** and then select **Another AWS account**.
@@ -40,7 +40,7 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 4. Next to **Options**, select **Require external ID** then paste the value that copied previously in the **External ID** field and then click **Next: Permissions**.  
     ![Create role](./media/connect-aws-account/create-role01.png)
 5. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, then click **Next: Review**.  
-    ![Read only access](./media/connect-aws-account/readonlyaccess.png)
+    ![Read-only access](./media/connect-aws-account/readonlyaccess.png)
 6. On the Review page, ensure your selections are correct and type a **Role name**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. For example, _Role assignment for Azure Cost Management_, then click **Create role**.
 7. In the **Roles** list, click the role you created and copy the **Role ARN** value from the Summary page. Use the Role ARN value later when you register your configuration in Azure Cost Management.  
     ![Role ARN](./media/connect-aws-account/role-arn.png)
@@ -61,9 +61,9 @@ Cost Management starts collecting the data and populating reports. However, some
 
 ## AWS user-based access
 
-The following sections walk you through creating a read only user to provide access to Cost Management.
+The following sections walk you through creating a read-only user to provide access to Cost Management.
 
-### Add AWS read only user-based access
+### Add AWS read-only user-based access
 
 1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Users**.
 2. Click **Add User**.
