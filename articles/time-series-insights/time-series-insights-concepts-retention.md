@@ -45,7 +45,7 @@ In this example, on the 61st day, the environment shows the freshest data, but p
 If the user wishes to retain data longer, they can increase the size of the environment by adding additional units or can push less data.  
 
 ### Example 2:
-Consider an environment also configured retention mode**Continue ingress and purge old data**. In this example, **Data retention time** is set to a lower value of 180 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity. In order to store data for the full 180 days, the daily ingress cannot exceed 0.166 GB (166 MB) per day.  
+Consider an environment also configured retention mode **Continue ingress and purge old data**. In this example, **Data retention time** is set to a lower value of 180 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity. In order to store data for the full 180 days, the daily ingress cannot exceed 0.166 GB (166 MB) per day.  
 
 Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment’s ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
 
@@ -54,8 +54,8 @@ Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, da
 - This mode provides additional time for the users to increase the capacity of their environment before data is purged due to breaching of retention period
 - This mode helps protect from data loss. 
 - However, once an environment’s maximum capacity is reached, the environment pauses data ingress until additional actions occur: 
-    a. You increase the environment’s maximum capacity. For more information, [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to add more scale units.
-    b. The data retention period is reached and data is purged, thus bringing the environment below its maximum capacity.
+   - You increase the environment’s maximum capacity. For more information, [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to add more scale units.
+   - The data retention period is reached and data is purged, thus bringing the environment below its maximum capacity.
 
 ### Example 3:
 Consider an environment with retention mode configured to **pause ingress**. In this example, the **Data retention period** is configured to 60 days. **Capacity** is set to 3 units of S1. Assume this environment has ingress of 2-GB data each day. In this environment, ingress is paused once the maximum capacity is reached. At that time, the environment shows the same dataset until ingress resumes or until ‘continue ingress’ is enabled (which would purge older data to make room for new data). 
@@ -68,6 +68,7 @@ When ingress resumes:
 > You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 1 day for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch modes to **Continue ingress and purge mode** to avoid the data loss potential.
 
 In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
+
 ![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)
 
 If no properties are configured on event source (timeStampPropertyName), TSI defaults to the timestamp of arrival at event hub as the x-axis. If timeStampPropertyName is configured to be something different, the environment looks for the configured timeStampPropertyName in the data packet when events are parsed. 
