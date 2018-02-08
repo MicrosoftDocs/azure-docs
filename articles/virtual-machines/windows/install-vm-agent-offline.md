@@ -1,6 +1,6 @@
 ﻿---
-title: Install the Azure Virtual Machines Agent in offline mode | Microsoft Docs
-description: Learn how to install the Azure Virtual Machines Agent in offline mode.
+title: Install the Azure VM Agent in offline mode | Microsoft Docs
+description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -17,28 +17,30 @@ ms.date: 01/26/2018
 ms.author: genli
 
 ---
-# Install the Azure Virtual Machines Agent in offline mode 
+# Install the Azure Virtual Machine Agent in offline mode 
 
-The Azure Virtual Machines Agent provides useful features, such as local administrator password reset and script pushing. This article shows you how to install the Virtual Machines Agent for an offline Windows virtual machine (VM). 
+The Azure Virtual Machine Agent (VM Agent) provides useful features, such as local administrator password reset and script pushing. This article shows you how to install the VM Agent for an offline Windows virtual machine (VM). 
 
-## When to use the Agent in offline mode
+## When to use the VM Agent in offline mode
 
-Install the Virtual Machines Agent in offline mode in the following scenarios:
+Install the VM Agent in offline mode in the following scenarios:
 
-- The deployed Azure VM doesn't have the Virtual Machines Agent installed or the Agent isn't working.
+- The deployed Azure VM doesn't have the VM Agent installed or the agent isn't working.
 - You forgot the administrator password for the VM or you can't access the VM.
 
-## How to install the Agent in offline mode
+## How to install the VM Agent in offline mode
 
-**Step 1: Attach the OS disk of the VM to another VM as a data disk**
+Use the following steps to install the VM Agent in offline mode.
+
+### Step 1: Attach the OS disk of the VM to another VM as a data disk
 
 1.  Delete the VM. Be sure to select the **Keep the disks** option when you delete the VM.
 
-2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [How to attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md).
+2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [Attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md).
 
 3.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
 
-**Step 2: Modify the OS disk to install the Virtual Machines Agent**
+### Step 2: Modify the OS disk to install the Azure VM Agent
 
 1.  Make a remote desktop connection to the troubleshooter VM.
 
@@ -54,10 +56,10 @@ Install the Virtual Machines Agent in offline mode in the following scenarios:
 
 6.  Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
 
-7.  If the Virtual Machines Agent isn't working, back up the current configuration.
+7.  If the VM Agent isn't working, back up the current configuration.
 
     >[!NOTE]
-    >If the VM doesn't have the Agent installed, proceed to step 8. 
+    >If the VM doesn't have the agent installed, proceed to step 8. 
       
     1. Rename the \windowsazure folder to \windowsazure.old.
 
@@ -66,7 +68,7 @@ Install the Virtual Machines Agent in offline mode in the following scenarios:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.	Use the existing files on the troubleshooter VM as a repository for the Virtual Machines Agent installation. Complete the following steps:
+8.	Use the existing files on the troubleshooter VM as a repository for the VM Agent installation. Complete the following steps:
 
     1. From the troubleshooter VM, export the following subkeys in registry format (.reg): 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
@@ -86,9 +88,9 @@ Install the Virtual Machines Agent in offline mode in the following scenarios:
         - WindowsAzureTelemetryService
         - RdAgent
 
-9.  Copy the Virtual Machines Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
+9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
 
-    ![Copy the Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
+    ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
       
     >[!NOTE]
     >Don’t copy the **logs** folder. After the service starts, new logs are generated.
@@ -106,7 +108,7 @@ If you created the VM by using the classic deployment model, you're done.
 
 ### Use ProvisionGuestAgent property for VMs created with Azure Resource Manager
 
-If you created the VM by using the Resource Manager deployment model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the Virtual Machines Agent installed.
+If you created the VM by using the Resource Manager deployment model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 
 To set the **ProvisionGuestAgent** property, run the following commands in Azure PowerShell:
 
@@ -125,5 +127,5 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 
 ## Next steps
 
-- [Azure Virtual Machines Agent overview](agent-user-guide.md)
-- [Azure Virtual Machines extensions and features for Windows](extensions-features.md)
+- [Azure Virtual Machine Agent overview](agent-user-guide.md)
+- [Virtual machine extensions and features for Windows](extensions-features.md)
