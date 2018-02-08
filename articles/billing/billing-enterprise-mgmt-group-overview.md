@@ -207,8 +207,10 @@ There are two pieces of information needed to link a subscription and a manageme
 Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
 ```
 
-## Remove the subscription link to a management group
+## Remove the subscription from a management group
 Use the following command to remove the link between the management group and a subscription. 
+
+#[Powershell](#tab/powershell)
 
 ```powershell
 Remove-AzureRmManagementGroupSubscription
@@ -220,7 +222,14 @@ Remove-AzureRmManagementGroupSubscription
 - [-GroupName]: This required field identifies the management group that is the current parent. 
 - [-SubscriptionId]: The required field that identifies the subscription that is currently linked to a management group to be unlinked.
 
+#[Portal](#tab/portal)
+Within the Azure portal you can move a subscription to a new parent managmenet group a couple different pages.  The image shown here is on the main managmeent group page. 
+
+---
+
 ### Example 11: Removing a link between a subscription and a management group
+
+
 Almost the same command syntax as the Add-, to remove the link between and subscription and the management group use the following command: 
 
 ```powershell
