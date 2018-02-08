@@ -106,6 +106,7 @@ Each virtual network rule applies to your whole Azure SQL Database server, not j
 
 There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
 
+
 - **Network Admin:** &nbsp; Turn on the endpoint.
 - **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the SQL Database server.
 
@@ -139,6 +140,8 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+
+- If "Allow access to Azure services" is turned off, some Azure SQL Database features (for example: Data Sync) will not work.
 
 #### ExpressRoute
 
