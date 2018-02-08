@@ -192,7 +192,7 @@ At this point, Kafka and Azure Container Service are in communication through th
     * `TOPIC`: Replace the `value` with the name of the Kafka topic used by this application.
     * `BROKERHOST`: Replace the `value` with the internal IP address of one of the broker hosts. For example, `20.0.0.13:9092`
 
-        To find the internal IP address address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api#example-get-the-internal-ip-address-of-cluster-nodes.md) document.
+        To find the internal IP address address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document.
 
 8. Use the following command to deploy the application settings from the manifest:
 
@@ -221,12 +221,12 @@ At this point, Kafka and Azure Container Service are in communication through th
 
 Use the following links to learn how to use Apache Kafka on HDInsight:
 
-* [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
+* [Get started with Kafka on HDInsight](apache-kafka-get-started.md)
 
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](apache-kafka-mirroring.md)
 
-* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
