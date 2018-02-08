@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -22,17 +22,21 @@ ms.reviewer: calebb
 
 # Controls in Azure Active Directory conditional access 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to a specific condition ("when this happens"). In the context of conditional access, 
+With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
 
-- "**When this happens**" is called **condition statement**
+![Control](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Then do this**" is called **controls**
 
-![Control](./media/active-directory-conditional-access-controls/11.png)
+In the context of conditional access, 
+
+- "**When this happens**" is called **conditions**
+
+- "**Then do this**" is called **access controls**
+
 
 The combination of a condition statement with your controls represents a conditional access policy.
 
-![Control](./media/active-directory-conditional-access-controls/12.png)
+![Control](./media/active-directory-conditional-access-controls/61.png)
 
 Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in. 
 
