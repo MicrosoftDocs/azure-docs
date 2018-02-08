@@ -152,7 +152,7 @@ At this point, Kafka and Azure Container Service are in communication through th
 
 1. Create a Kafka topic that is used by the test application. For information on creating Kafka topics, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
 
-2. Download the example application from [](). 
+2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. From a command-line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
