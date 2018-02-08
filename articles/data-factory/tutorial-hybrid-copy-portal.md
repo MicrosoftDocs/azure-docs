@@ -260,7 +260,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 24. To validate the pipeline settings, select **Validate** on the toolbar for the pipeline. To close the **Pipe Validation Report**, select **Close**. 
 
     ![Validate pipeline](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
-25. To publish entities you created to Data Factory, select **Publish**.
+25. To publish entities you created to Data Factory, select **Publish All**.
 
     ![Publish button](./media/tutorial-hybrid-copy-portal/publish-button.png)
 26. Wait until you see the **Publishing succeeded** pop-up. To check the status of publishing, select the **Show Notifications** link on the left. To close the notification window, select **Close**. 
