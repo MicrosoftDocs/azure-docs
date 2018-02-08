@@ -142,7 +142,7 @@ The information helps you to identify the:
 
 **Sample DDI Analytics Queries**. Contains a list of the most common search queries that fetch raw analytics data directly.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Sample queries](./media/log-analytics-dns/queries.png)
 

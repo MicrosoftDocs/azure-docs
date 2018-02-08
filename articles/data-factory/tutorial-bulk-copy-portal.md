@@ -70,6 +70,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
 ## Create a data factory
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)

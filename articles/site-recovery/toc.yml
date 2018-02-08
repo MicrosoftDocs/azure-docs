@@ -95,6 +95,8 @@
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Set up network mapping for Azure VM disaster recovery (preview)
       href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Retain IP for Azure VM disaster recovery (preview)
+      href: site-recovery-retain-ip-azure-vm-failover.md
     - name: Prepare network mapping for Hyper-V VM replication to Azure
       href: site-recovery-network-mapping.md
     - name: Set up IP addressing for access to Azure after failover
