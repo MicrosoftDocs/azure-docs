@@ -40,7 +40,6 @@ You need the following to complete this tutorial successfully:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
 - [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-- [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/) is recommended
 - [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)  
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -63,7 +62,8 @@ For instructions on creating an Azure Cosmos DB Table API account, see [Create a
 
 
 ## Install the Azure Cosmos DB Table SDK for Python
-After you've created a Storage account, your next step is to install the [Microsoft Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/blob/master/azure-cosmosdb-table/README.rst) file in the Storage SDK for Python repository on GitHub.
+
+After you've created a Storage account, your next step is to install the [Microsoft Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/blob/master/azure-cosmosdb-table/README.rst) file in the Cosmos DB Table SDK for Python repository on GitHub.
 
 ## Create a table
 
@@ -216,8 +216,7 @@ table_service.delete_table('tasktable')
 ## Next steps
 
 * [FAQ - Develop with the Table API](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
-* [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
+* [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 * [Working with Python in Visual Studio (Windows)](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
