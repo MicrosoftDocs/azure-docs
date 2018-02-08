@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -30,7 +30,7 @@ With [Azure Active Directory (Azure AD) conditional access](active-directory-con
 In the context of conditional access:
 
 - "**When this happens**" is called **conditions**. 
-- "**Then do this**" is called "**access controls**.
+- "**Then do this**" is called **access controls**.
 
 The combination of your conditions with your access controls represents a conditional access policy.
 
