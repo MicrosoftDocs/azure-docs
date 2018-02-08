@@ -8,7 +8,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -49,7 +49,7 @@ You can create a Storage linked service by using the account key. It provides th
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureStorage**. |Yes |
-| connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as SecureString. |Yes |
+| connectionString | Specify the information needed to connect to Storage for the connectionString property. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -92,7 +92,7 @@ To use service shared access signature authentication, the following properties 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureStorage**. |Yes |
-| sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as SecureString. |Yes |
+| sasUri | Specify the shared access signature URI to the Storage resources, such as blob, container, or table. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
