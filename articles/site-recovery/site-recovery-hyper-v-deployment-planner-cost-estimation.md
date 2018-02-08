@@ -125,7 +125,7 @@ To manually add VMs:
 
     h. **Data redundancy**
 
-    i. **Azure Hybrid Use Benefit**
+    i. **Azure Hybrid Benefit**
 
 3. You can apply the same value to all VMs in the table by selecting **Apply to all** for **Number of DR-Drills in a year**, **Each DR-Drill duration (Days)**, **Data redundancy**, and **Azure Hybrid Use Benefit**.
 
@@ -151,7 +151,7 @@ To manually add VMs:
 
 **Data redundancy**: It can be locally redundant storage, geo-redundant storage, or read-access geo-redundant storage. The default is locally redundant storage. You can change the type based on your storage account for specific VMs, or you can apply the new type to all VMs. Change the type of the top row, and select **Apply to all**. The cost of storage for replication is calculated based on the price of data redundancy that you selected. 
 
-**Azure Hybrid Use Benefit**: You can apply the Azure Hybrid Use Benefit to Windows VMs, if applicable. The default is **Yes**. You can change the setting for specific VMs, or you can update all VMs. Select **Apply to all**.
+**Azure Hybrid Benefit**: You can apply the Azure Hybrid Benefit to Windows VMs, if applicable. The default is **Yes**. You can change the setting for specific VMs, or you can update all VMs. Select **Apply to all**.
 
 **Total Azure consumption**: The compute, storage, and Site Recovery license cost for your DR. Based on your selection, it shows the cost either monthly or yearly.
 
