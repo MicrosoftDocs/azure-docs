@@ -1,15 +1,26 @@
 # Prerequisites
 
-## System
+## System Requirements
 
-For this exercise, you will need root or sudo access. In addition, your
-system needs to meet the following minimum requirements:
+To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
 
-  - Linux 64-bit operating system (Centos 6, Ubuntu 12.04 LTS, Ubuntu
-    14.04 LTS, etc.)
-  - Java Runtime Environment (version 8 or higher)
-  - 8GB System Memory
-  - 10GB Free Disk Space
+* A 32-bit or 64-bit Linux distribution or Windows Server 2008 or newer
+
+* Java Runtime Environment (version 8 or higher)
+
+* At least 8GB of RAM
+
+* Two or more CPU cores
+
+* At least 50GB of free disk space
+
+* Administrator (root) privileges
+
+* Phraseless SSH key
+
+Cycle Computing Portal Account
+-------------------------------
+A `Cycle Computing Portal Account <https://portal.cyclecomputing.com/login>`_ allows you to access downloads and licenses associated with your account. If you do not have a Portal Account, please contact your rep or email info@cyclecomputing.com for assistance.
 
 > [!NOTE]
 > CycleCloud may be installed on physical or virtualized hardware.
