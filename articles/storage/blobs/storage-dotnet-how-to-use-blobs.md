@@ -34,11 +34,11 @@ Ensure that you have [Visual Studio 2017](https://www.visualstudio.com/vs/) inst
 
 Open the [sample application](https://github.com/cartermp/TutorialForStorage) in Visual Studio 2017. Start it by pressing **f5** in Visual Studio. This will launch the web app on `http://localhost:58673/` so that you can interact with it. You can explore the shape of the API by entering `http://localhost:58673/api` to explore the REST API.
 
-Next, start the Azure Storage Emulator by pressing the **Windows** key on your keyboard and searching for **Azure Storage Emulator**:
+Next, start the [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) by pressing the **Windows** key on your keyboard and searching for **Azure Storage Emulator**:
 
 ![Screenshot of searching for the Azure Storage Emulator via Windows search](media/storage-blobs-introduction/storage-emulator.png)
 
-This will start the Azure Storage emulator on your machine, and open a command prompt which you can use to control it from there.
+This will start the Azure Storage Emulator on your machine, and open a command prompt which you can use to control it from there.
 
 It's very easly to GET/PUT/DELETE to the running app with tools such as [cURL](https://curl.haxx.se/) or [Postman](https://www.getpostman.com/). For example, the following PUT:
 
@@ -52,7 +52,9 @@ Postman-Token: 61b387e3-56cb-ea8f-dcbd-1020655aff41
 "I have a kitty."
 ```
 
-Will upload "I have a kitty" to the Blob Storage emulator and create a blob named "4". You can list all blobs with a GET call.
+Will upload the text string "I have a kitty" to the Blob Storage emulator and create a blob named "4".
+
+You can list all blobs with a GET call:
 
 ```
 GET /api/blobs/ HTTP/1.1
@@ -62,7 +64,7 @@ Cache-Control: no-cache
 Postman-Token: 975eca0c-a33b-e64a-ffe9-70fa67bd8b20
 ```
 
-Which will download the contents of all blobs in the emulator and send a response as JSON:
+This will download the contents of all blobs in the emulator and send a response as JSON:
 
 ```json
 [
@@ -87,7 +89,7 @@ Which will download the contents of all blobs in the emulator and send a respons
 
 ## Basic Blob operations
 
-Now that you've run the the [sample application](https://github.com/cartermp/TutorialForStorage), let's take a look at the basic operations on Blobs that it performs. All code for interacting with blobs is in a single file:
+Now that you've run the the [sample application](https://github.com/cartermp/TutorialForStorage), take a look at the basic operations on Blobs that it performs. All code for interacting with blobs is in a single file, `BlobsController.cs`:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -236,7 +238,7 @@ public async Task<IEnumerable<BlobModel>> Get()
 }
 ```
 
-You've likely noticed that an `is` expression is needed on the `blob` item in the `for` loop. This is because each `blob` is of type [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. This tutorial uses Block Blobs, which are the most common kinds of blobs. If you are working with Page Blobs or Blob Directories, you can cast to those types instead.
+You've likely noticed that an [`is` expression](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/is) is needed on the `blob` item in the `for` loop. This is because each `blob` is of type [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. This tutorial uses Block Blobs, which are the most common kinds of blobs. If you are working with Page Blobs or Blob Directories, you can cast to those types instead.
 
 If you have a large number of blobs, you may need to use other listing APIs such as [ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listblobssegmentedasync?view=azure-dotnet).
 
