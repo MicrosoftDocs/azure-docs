@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: v-geberr;
 ---
-# LUIS Boundaries
+# LUIS boundaries
 LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS endpoint APIs. 
 
 
@@ -26,7 +26,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Hierarchical](./luis-concept-entity-types.md)|Parent: 30, child: 10|
 | [Intents][intents]|500|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items | 
-| Total machine-learned entities<br>: simple, composite parent(s) and hierarchical parent(s) | 100|
+| Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s) | 100|
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Simple](./luis-concept-entity-types.md)| 30|
