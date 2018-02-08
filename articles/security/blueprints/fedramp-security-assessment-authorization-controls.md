@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton -- Security Assessment and Authorization 
-description: FedRAMP Web Applications Automaiton - Security Assessment and Authorization 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation -- Security Assessment and Authorization 
+description: FedRAMP Web Applications Automation - Security Assessment and Authorization 
 services: security
 documentationcenter: na
 author: jomolesk

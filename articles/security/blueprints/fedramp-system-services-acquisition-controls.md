@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - System and Services Acquisition
-description: FedRAMP Web Applications Automaiton - System and Services Acquisition
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - System and Services Acquisition
+description: FedRAMP Web Applications Automation - System and Services Acquisition
 services: security
 documentationcenter: na
 author: jomolesk

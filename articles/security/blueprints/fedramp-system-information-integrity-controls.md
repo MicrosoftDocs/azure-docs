@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - System and Information Integrity
-description: FedRAMP Web Applications Automaiton - System and Information Integrity
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - System and Information Integrity
+description: FedRAMP Web Applications Automation - System and Information Integrity
 services: security
 documentationcenter: na
 author: jomolesk

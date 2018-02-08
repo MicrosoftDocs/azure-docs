@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Planning
-description: FedRAMP Web Applications Automaiton - Planning
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Planning
+description: FedRAMP Web Applications Automation - Planning
 services: security
 documentationcenter: na
 author: jomolesk

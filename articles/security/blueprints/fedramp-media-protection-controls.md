@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Media Protection
-description: FedRAMP Web Applications Automaiton - Media Protection
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Media Protection
+description: FedRAMP Web Applications Automation - Media Protection
 services: security
 documentationcenter: na
 author: jomolesk

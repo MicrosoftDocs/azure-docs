@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Physical and Environmental Protection
-description: FedRAMP Web Applications Automaiton - Physical and Environmental Protection
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Physical and Environmental Protection
+description: FedRAMP Web Applications Automation - Physical and Environmental Protection
 services: security
 documentationcenter: na
 author: jomolesk

@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Maintenance
-description: FedRAMP Web Applications Automaiton - Maintenance
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Maintenance
+description: FedRAMP Web Applications Automation - Maintenance
 services: security
 documentationcenter: na
 author: jomolesk

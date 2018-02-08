@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Configuration Management
-description: FedRAMP Web Applications Automaiton - Configuration Management
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Configuration Management
+description: FedRAMP Web Applications Automation - Configuration Management
 services: security
 documentationcenter: na
 author: jomolesk

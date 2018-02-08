@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Awareness and Training 
-description: FedRAMP Web Applications Automaiton - Awareness and Training 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Awareness and Training 
+description: FedRAMP Web Applications Automation - Awareness and Training 
 services: security
 documentationcenter: na
 author: jomolesk

@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Identification and Authentication
-description: FedRAMP Web Applications Automaiton - Identification and Authentication
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Identification and Authentication
+description: FedRAMP Web Applications Automation - Identification and Authentication
 services: security
 documentationcenter: na
 author: jomolesk

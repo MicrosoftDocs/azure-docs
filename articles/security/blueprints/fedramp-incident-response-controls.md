@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Incident Response
-description: FedRAMP Web Applications Automaiton - Incident Response
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Incident Response
+description: FedRAMP Web Applications Automation - Incident Response
 services: security
 documentationcenter: na
 author: jomolesk

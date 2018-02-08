@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - System and Communications Protection 
-description: FedRAMP Web Applications Automaiton - System and Communications Protection 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - System and Communications Protection 
+description: FedRAMP Web Applications Automation - System and Communications Protection 
 services: security
 documentationcenter: na
 author: jomolesk

@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Personnel Security 
-description: FedRAMP Web Applications Automaiton - Personnel Security
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Personnel Security 
+description: FedRAMP Web Applications Automation - Personnel Security
 services: security
 documentationcenter: na
 author: jomolesk

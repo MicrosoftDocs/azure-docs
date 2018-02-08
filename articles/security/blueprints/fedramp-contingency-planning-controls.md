@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Contingency Planning 
-description: FedRAMP Web Applications Automaiton - Contingency Planning 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Contingency Planning 
+description: FedRAMP Web Applications Automation - Contingency Planning 
 services: security
 documentationcenter: na
 author: jomolesk

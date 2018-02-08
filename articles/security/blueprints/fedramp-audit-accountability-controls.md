@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Audit and Accountability 
-description: FedRAMP Web Applications Automaiton - Audit and Accountability 
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Audit and Accountability 
+description: FedRAMP Web Applications Automation - Audit and Accountability 
 services: security
 documentationcenter: na
 author: jomolesk

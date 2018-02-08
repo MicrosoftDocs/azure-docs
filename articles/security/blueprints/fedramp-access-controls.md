@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Access Control
-description: FedRAMP Web Applications Automaiton - Access Control
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Access Control
+description: FedRAMP Web Applications Automation - Access Control
 services: security
 documentationcenter: na
 author: jomolesk

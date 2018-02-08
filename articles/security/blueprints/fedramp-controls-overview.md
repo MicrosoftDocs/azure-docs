@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - overview
-description: FedRAMP Web Applications Automaiton - overview
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - overview
+description: FedRAMP Web Applications Automation - overview
 services: security
 documentationcenter: na
 author: jomolesk

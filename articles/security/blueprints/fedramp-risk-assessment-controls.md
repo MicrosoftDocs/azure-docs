@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Web Applications Automaiton - Risk Assessment
-description: FedRAMP Web Applications Automaiton - Risk Assessment
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Risk Assessment
+description: FedRAMP Web Applications Automation - Risk Assessment
 services: security
 documentationcenter: na
 author: jomolesk
