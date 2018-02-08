@@ -73,7 +73,7 @@ This section guides you through connecting your Azure AD to Samanage's user rost
 
 5. Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account.
 
-6. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Admin permissions and try step 5 again.
+6. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Admin permissions and try Step 5 again.
 
 7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
@@ -91,7 +91,7 @@ This section guides you through connecting your Azure AD to Samanage's user rost
 
 14. Click **Save**. 
 
-This starts the initial synchronization of any users and/or groups assigned to Samanage in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
+This starts the initial synchronization of any users and/or groups assigned to Samanage in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Samanage app.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
