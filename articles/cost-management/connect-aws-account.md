@@ -14,13 +14,13 @@ ms.custom:
 
 # Connect an Amazon Web Services account
 
-You have two options to connect your Amazon Web Services (AWS) account to Azure Cost Management. You can connect with an IAM role or with a read-only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities without having to share long-term access keys. After you connect an AWS account to Cost Management, cost and usage data is available in Cost Management reports. This document guides you through both options.
+You have two options to connect your Amazon Web Services (AWS) account to Azure Cost Management. You can connect with an IAM role or with a read only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cost Management, cost and usage data is available in Cost Management reports. This document guides you through both options.
 
 For more information about AWS IAM identities, see [Identities (Users, Groups, and Roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
 
 ## AWS role-based access
 
-The following sections walk you through creating a read-only IAM role to provide access to Cost Management.
+The following sections walk you through creating a read only IAM role to provide access to Cost Management.
 
 ### Get your Cost Management account external ID
 
@@ -29,10 +29,10 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 1. Open the Cloudyn portal from the Azure portal or navigate to  [https://azure.cloudyn.com](https://azure.cloudyn.com) and log in.
 2. Click **Settings** (cog icon) and then select **Cloud Accounts**.
 3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +**.
-4. In the **Add AWS Account** dialog, copy the **External ID** and save this value for AWS Role creation steps in the next section. In the following image, the example ID is _Cloudyn_. Your ID will differ.  
+4. In the **Add AWS Account** dialog, copy the **External ID** and save this value for AWS Role creation steps in the next section. In the following image, the example ID is _Cloudyn_. Your ID differs.  
     ![External ID](./media/connect-aws-account/external-id.png)
 
-### Add AWS read-only role-based access
+### Add AWS read only role-based access
 
 1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
 2. Click **Create Role** and then select **Another AWS account**.
@@ -57,13 +57,13 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 
 Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol.
 
-Cost Management starts collecting the data and populating reports. However, some Optimization reports might require a few day's worth of data before accurate recommendations are generated.
+Cost Management starts collecting the data and populating reports. However, some Optimization reports might require data from a few days before accurate recommendations are generated.
 
 ## AWS user-based access
 
-The following sections walk you through creating a read-only user to provide access to Cost Management.
+The following sections walk you through creating a read only user to provide access to Cost Management.
 
-### Add AWS read-only user-based access
+### Add AWS read only user-based access
 
 1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Users**.
 2. Click **Add User**.
@@ -92,7 +92,7 @@ The following sections walk you through creating a read-only user to provide acc
 
 Your AWS account appears in the list of accounts. Your **Account Status** should have a green check mark symbol.
 
-Cost Management starts collecting the data and populating reports. However, some Optimization reports might require a few day's worth of data before accurate recommendations are generated.
+Cost Management starts collecting the data and populating reports. However, some Optimization reports might require data from a few days before accurate recommendations are generated.
 
 ## Next steps
 
