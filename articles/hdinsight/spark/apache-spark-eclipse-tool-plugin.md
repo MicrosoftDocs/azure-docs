@@ -129,12 +129,12 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
    ![Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
 ## Link a cluster
-You can link a normal cluster by using admin username, also link a security hadoop cluster by using Ambari username. Here are the steps to Linking a cluster by using Ambari username.
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
 1. Click **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Ambari username and password.
+2. Enter **Cluster Name**, **Storage Account**, **Storage Key**, then select a container from **Storage Container**, at last, input Username and Password. Click OK button to link cluster.
    
    ![link cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
