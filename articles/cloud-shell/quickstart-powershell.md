@@ -277,7 +277,7 @@ Add following code snippet in your profile.ps1 to create a symlink to CloudDrive
 
 ``` PowerShell
 # Check if the .ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
