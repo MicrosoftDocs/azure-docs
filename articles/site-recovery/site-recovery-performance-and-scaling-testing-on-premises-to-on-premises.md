@@ -2,18 +2,11 @@
 title: Test results for Hyper-V replication between sites with Azure Site Recovery | Microsoft Docs
 description: This article provides information about performance testing for on-premises to on-premises replication of Hyper-V VMs using Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
 
 ---
