@@ -62,7 +62,7 @@ If you do not already have an AKS cluster, use one of the following documents to
 
 ## Configure the virtual networks
 
-1. From the [Azure portal](https://portal.azure.com), select __Resource groups__, and then find the resource group that contains the virtual network for your AKS cluster. The resource group name is `MC_<resourcegroup>_<akscluster>_<location>`, where `resourcegroup` and `akscluster` are the name of the resource group you created the cluster in and the name of the cluster. The `location` is the location that the cluster was created in.
+1. From the [Azure portal](https://portal.azure.com), select __Resource groups__, and then find the resource group that contains the virtual network for your AKS cluster. The resource group name is `MC_<resourcegroup>_<akscluster>_<location>`. The `resourcegroup` and `akscluster` entries are the name of the resource group you created the cluster in, and the name of the cluster. The `location` is the location that the cluster was created in.
 
 2. In the resource group, select the __Virtual network__ resource.
 
@@ -154,7 +154,7 @@ At this point, Kafka and Azure Container Service are in communication through th
 
 2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
 
-3. From a command-line in the `src` directory, install dependencies and use Docker to build an image for deployment:
+3. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
     ```bash
     docker build -t kafka-aks-test .
@@ -192,7 +192,7 @@ At this point, Kafka and Azure Container Service are in communication through th
     * `TOPIC`: Replace the `value` with the name of the Kafka topic used by this application.
     * `BROKERHOST`: Replace the `value` with the internal IP address of one of the broker hosts. For example, `20.0.0.13:9092`
 
-        To find the internal IP address address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document.
+        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document.
 
 8. Use the following command to deploy the application settings from the manifest:
 
@@ -208,14 +208,14 @@ At this point, Kafka and Azure Container Service are in communication through th
 
     Once an external IP address is assigned, use __CTRL + C__ to exit the watch
 
-10. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following:
+10. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
 
     ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page.png)
 
-11. Enter text into the field and then select the __Send__ button. This sends data to Kafka. The Kafka consumer in the application then picks up the message and adds it to the __Messages from Kafka__ section at the top of the page.
+11. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
 
     > [!WARNING]
-    > You may receive multiple copies of a message. This usually happens when you refresh your browser after connecting, or open multiple browser connections to the application.
+    > You may receive multiple copies of a message. This problem usually happens when you refresh your browser after connecting, or open multiple browser connections to the application.
 
 ## Next steps
 
