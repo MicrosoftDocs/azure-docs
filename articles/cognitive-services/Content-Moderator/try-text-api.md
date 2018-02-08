@@ -35,7 +35,14 @@ For **Open API testing console**, select the region that most closely describes 
 ## Select the inputs
 
 ### Parameters
-Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
+Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. You can also leave it blank because the operation will automatically detect the likely language as part of its execution.
+
+> [!NOTE]
+> Use `eng` or leave it blank, for the **language** parameter to see the machine-assisted '**Classification** section (preview feasture) in the API response. **This feature supports English only**.
+>
+> To see profanity term detection in action, try the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the [supported languages](Text-Moderation-API-Languages.md) or leave it blank for the automated language detection to come into play.
+
+For **autocorrect**, **PII**, and **classify (preview)**, select **true**. Leave the **ListId** field empty.
 
   ![Text - Screen console query parameters](images/text-api-console-inputs.PNG)
 
@@ -67,7 +74,7 @@ In the following example, you see Content Moderator’s machine-assisted text cl
 The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.
 
 > [!NOTE]
-> The machine-assisted 'Classification' feature is in preview.
+> The machine-assisted 'Classification' feature is in preview and supports English only.
 
 ```
 {
