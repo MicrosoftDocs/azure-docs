@@ -17,20 +17,20 @@ ms.custom: mvc
 
 # How to do proof-of-possession for X.509 CA certificates with your provisioning service
 
-Using enrollment groups you can enroll multiple devices that share the same X.509 root or intermediate CA certificate in their certificate chain through a single enrollment entry. The enrollment group also allows you to set policies and specify where devices with the verified certificate in their chain get provisioned. You can create an enrollment group for any X.509 CA certificate whose public part has been previously uploaded and verified with your provisioning service. The process of verifying the certificate is called proof-of-possession. It involves creating an X.509 certificate with a unique verification code obtained from the service as its subject and signing the certificate with the private key associated with the CA certificate to be verified. You then upload this signed verification certificate to the service which validates it using the public portion of the CA certificate to be verified, thus proving that you are in possession of the CA certificate's private key.
+A verified X.509 CA certificate is a certificate that has been uploaded and registered to your provisioning service and has gone through proof-of-possession with the service to prove that you are in possession of the private key associated with the certificate. Proof-of-possession involves creating an X.509 certificate with a unique verification code obtained from the service as its subject, signing the certificate with the private key associated with the CA certificate to be verified, and  uploading the signed verification certificate to the service. The service validates the verification certificate using the public portion of the CA certificate to be verified, thus proving that you are in possession of the CA certificate's private key.
+
+Verified certificates play an important role when using enrollment groups. The root or intermediate certificates configured in an enrollment group must either be verified certificates or must roll up to a verified certificate in the certificate chain a device presents when it authenticates with the service. This ensures the validity of the enrollment group by ensuring that the service has validated the ownership of either the configured certificate or at least one certificate used to sign the configured certificate and ensures that the device can be provisioned using the enrollment group. To learn more about enrollment groups, see [X.509 certificates](concepts-security.md#x509-certificates) and [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## Register the public part of an X.509 certificate and get a verification code
 
-You must first upload the public part of your CA certificate to the provisioning service. 
+You must first register your CA certificate with your provisioning service by uploading its public part to the service. You can then get a verification code from the service that you can use to provide proof-of-possession. 
 
-These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
-
-1. In the Azure portal, navigate to your IoT hub and open the **SETTINGS** > **Certificates** menu. 
+1. In the Azure portal, navigate to your provisioning service and open **Certificates** from the left-hand menu. 
 2. Click **Add** to add a new certificate.
-3. Enter a friendly display name for your certificate. Select the root certificate file named *RootCA.cer* created in the previous section, from your machine. Click **Upload**.
+3. Enter a friendly display name for your certificate. Browse to the .CER or .PEM file that represents the public part of your X.509 certificate. Click **Upload**.
 4. Once you get a notification that your certificate is successfully uploaded, click **Save**.
 
-    ![Upload certificate](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![Upload certificate](./media/how-to-verify-certificates/add-new-cert.png)  
 
    This will show your certificate in the **Certificate Explorer** list. Note the **STATUS** of this certificate is *Unverified*.
 
@@ -38,13 +38,13 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 6. In the **Certificate Details** blade, click **Generate Verification Code**.
 
-7. It creates a **Verification Code** to validate the certificate ownership. Copy the code to your clipboard. 
+7. The provisioning service creates a **Verification Code** to use to validate the certificate ownership. Copy the code to your clipboard. 
 
-   ![Verify certificate](./media/iot-hub-security-x509-get-started/verify-cert.png)  
+   ![Verify certificate](./media/how-to-verify-certificates/verify-cert.png)  
 
 ## Digitally sign the verification code to create a verification certificate
 
-Now, you need to sign the *Verification Code* with the private key associated with your X.509 CA certificate, which generates a signature. This is known as the [Proof of possession](https://tools.ietf.org/html/rfc5280#section-3.1). 
+Now, you need to sign the *Verification Code* with the private key associated with your X.509 CA certificate, which generates a signature. This is known as [Proof of possession](https://tools.ietf.org/html/rfc5280#section-3.1) and results in a signed verification certificate.
 
 Microsoft provides tools and samples that can help you create a signed verification certificate: 
 
@@ -52,29 +52,25 @@ Microsoft provides tools and samples that can help you create a signed verificat
 - The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
 - You can follow the steps in the PowerShell scripts in the [PowerShell scripts to manage CA-signed X.509 certificates](iot-hub-security-x509-create-certificates.md) article in the IoT Hub documentation, specifically the script mentioned in the section titled [Proof of possession of your X.509 CA certificate](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
->[!IMPORTANT]
-> In addition to performing proof-of-possession, the PowerShell and Bash scripts provided above also allow you to create CA certificates and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 
+> [!IMPORTANT]
+> In addition to performing proof-of-possession, the PowerShell and Bash scripts provided above also allow you to create root and intermediate CA certificates and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 
 
-The PowerShell and Bash scripts cited above rely on [OpenSSL](https://www.openssl.org/). You may use OpenSSL or other third-party tools to help you do proof-of-possession.
+The PowerShell and Bash scripts cited above rely on [OpenSSL](https://www.openssl.org/). You may also use OpenSSL or other third-party tools to help you do proof-of-possession. For more information about tooling provided with the SDKs, see [How to use tools provided in the SDKs](how-to-use-sdk-tools.md). 
 
 
-## Upload the verification certificate
+## Upload the signed verification certificate
 
-1. Upload the resulting signature as a verification certificate to your IoT hub in the portal. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the signature, for example, *VerifyCert4.cer* created by the sample PowerShell command using the _File Explorer_ icon besides it.
+1. Upload the resulting signature as a verification certificate to your IoT hub in the portal. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the signature -- for example, *VerifyCert4.cer* if using the sample PowerShell commands -- using the _File Explorer_ icon beside it.
 
-10. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
+2. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
-   ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+   ![Upload certificate verification](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
 ## Next steps
 
-After you have a verified CA certificate, you can use it to configure an enrollment group. To learn more, see [Managing dev]().
+- To learn about how to use the portal to create an enrollment group using your verified certificate or an intermediate certificate that rolls up to it, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).
+- To learn about how to use one of the platform service SDKs to create an enrollment group using your verified certificate or an intermediate certificate that rolls up to it, see [Managing device enrollments with service SDKs](how-to-manage-enrollments-sdks.md).
 
-
-A root (intermediate root) CA will be generated.
-The Portal will be used to upload the public part of the X509 certificate
-The private part of the X509 will be used to sign a leaf certificate with a name specified by the service. This is required to ensure that the user owns the private key. The public part of this leaf certificate will be uploaded to the service.
-Service SDK will be used to create a Group Enrollment that allows devices to authenticate with X.509 certs issued by the root CA. The Group allows the user to set policies and specify where devices having these certificates get provisioned and is bound to the CA certificate.
 
 
 
