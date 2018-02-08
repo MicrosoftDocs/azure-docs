@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-<<<<<<< HEAD
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/06/2018
-ms.author: rajanaki
-=======
 ms.topic: quickstart
 ms.date: 02/07/2018
 ms.author: raynew
->>>>>>> cce5e8c3f1fc8d796fefe6917aa84402d1fd1686
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.custom: mvc
 ---
 # Replicate an Azure VM to another Azure region (Preview)
