@@ -55,11 +55,9 @@ You can also create an Azure storage account by using [Azure PowerShell](../stor
 
 If you prefer not to create a storage account at this time, you can also use the Azure storage emulator to run and test your code in a local environment. For more information, see [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md).
 
-
 ### Create an Azure Cosmos DB Table API account
 
 For instructions on creating an Azure Cosmos DB Table API account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
-
 
 ## Install the Azure Cosmos DB Table SDK for Python
 
@@ -67,7 +65,7 @@ After you've created a Storage account, your next step is to install the [Micros
 
 ## Create a table
 
-To work with the Azure Table service in Python, you must import the [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) module. Since you'll be working with Table entities, you also need the [Entity][py_Entity] class. Add this code near the top your Python file to import both:
+To work with entities in the Azure Table service in Python, you use the [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) and [Entity][py_Entity] classes. Add this code near the top your Python file to import both:
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
