@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2018
 ms.author: jeedes
 
 ---
@@ -100,7 +100,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_samlbase.png)
 
-3. On the **Zscaler Private Access Administrator Domain and URLs** section, perform the following steps:
+3. On the **Zscaler Private Access Administrator Domain and URLs** section if you wish to configure the application in **IDP** initiated mode:
 
 	![Zscaler Private Access Administrator Domain and URLs single sign-on information](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_url.png)
 
@@ -108,28 +108,36 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.private.zscaler.com/auth/sso`
 
+	c. Check **Show advanced URL settings**
+
+	d. In the **RelayState** textbox, type a value: `idpadminsso`
+
+4.  If you wish to configure the application in **SP** initiated mode perform the following steps:
+
+	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.private.zscaler.com/auth/sso`
+
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Zscaler Private Access Administrator support team](https://help.zscaler.com/zpa-submit-ticket) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Zscaler Private Access Administrator support team](https://help.zscaler.com/zpa-submit-ticket) to get these values.
  
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_general_400.png)
 
-6. In a different web browser window, login to Zscaler Private Access Administrator as an Administrator.
+7. In a different web browser window, login to Zscaler Private Access Administrator as an Administrator.
 
-7. On the top, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
+8. On the top, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 
 	![Zscaler Private Access Administrator admin](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-8. In the top right corner, click **Add IdP Configuration**. 
+9. In the top right corner, click **Add IdP Configuration**. 
 
 	![Zscaler Private Access Administrator addidp](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-9. On the **Add IdP Configuration** page perform the following steps:
+10. On the **Add IdP Configuration** page perform the following steps:
  
 	![Zscaler Private Access Administrator idpselect](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
