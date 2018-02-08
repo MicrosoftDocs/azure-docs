@@ -182,6 +182,7 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -189,6 +190,7 @@ This setting applies to the following client apps:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word
