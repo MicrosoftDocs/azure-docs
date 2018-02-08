@@ -52,7 +52,7 @@ You can customize the following properties of the target VMe during reprotection
 
 |Property |Notes  |
 |---------|---------|
-|Target resource group     | <odify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover .        |
+|Target resource group     | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover .        |
 |Target virtual network     | The target network can't be changed during the reprotect job. To change the network, redo the network mapping.         |
 |Target Storage     | You can change the storage account that the VM will use after failover.         |
 |Cache Storage     | You can specify a cache storage account to be used during replication. By default, a new cache storage account will be created, if it doesn't exist.         |
