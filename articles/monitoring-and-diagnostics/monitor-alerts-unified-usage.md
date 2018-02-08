@@ -47,7 +47,7 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
 4.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter appropriately by choosing needed *Subscription*, *Resource Type*, and finally selecting required *Resource*.
 
-    >![NOTE]
+    >[!NOTE]
 
     > verify the signals available for the selected resource before you proceed.
 
@@ -60,14 +60,14 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     > [!NOTE]
 
-    > Activity Log alerts supports  an enhanced unified experience in Alerts (Preview). [Learn more](monitoring-activity-log-alerts-new-experience.md).
+    > Activity Log alerts support an enhanced unified experience in Alerts (Preview). [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
-    
+
     > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
