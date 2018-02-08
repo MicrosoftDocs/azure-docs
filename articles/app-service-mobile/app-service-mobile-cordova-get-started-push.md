@@ -28,7 +28,7 @@ If you do not use the downloaded quick start server project, you need the push n
 package. For more information, see [Work with the .NET back-end server SDK for Azure Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Prerequisites
-This tutorial assumes that you have an Apache Cordova application tha was developed with Visual Studio 2015, and that runs on Google
+This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015, and that runs on Google
 Android Emulator, an Android device, a Windows device, or an iOS device.
 
 To complete this tutorial, you need:
