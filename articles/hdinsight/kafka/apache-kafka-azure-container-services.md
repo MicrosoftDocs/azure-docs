@@ -31,6 +31,9 @@ Learn how to use Azure Container Service (AKS) with Kafka on HDInsight cluster.
 >
 > This document also assumes that you have walked through the [Azure Container Services tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
+> [!NOTE]
+> The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
+
 ## Architecture
 
 ### Network topology
@@ -38,15 +41,11 @@ Learn how to use Azure Container Service (AKS) with Kafka on HDInsight cluster.
 Both HDInsight and AKS use an Azure Virtual Network as a container for compute resources. To enable communication between HDInsight and AKS, you must enable communication between their networks. The steps in this document use Virtual Network Peering to the networks. For more information on peering, see the [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) document.
 
 The following diagram illustrates the network topology used in this document:
-[tbd]
+
+![HDInsight in one virtual network, AKS in another, and the networks connected using peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]
 > Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
-
-### Test application
-
-The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
-
 
 ## Prerequisites
 
