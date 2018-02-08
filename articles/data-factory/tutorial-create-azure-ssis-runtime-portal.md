@@ -23,7 +23,7 @@ In this tutorial, you complete the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -67,7 +67,7 @@ In this tutorial, you complete the following steps:
 11. After the creation is complete, you see the **Data factory** page.
    
    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Select **Monitor & Manage** to open the Data Factory user interface (UI) on a separate tab. 
+12. Select **Author & Deploy** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 
@@ -158,7 +158,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 To learn about copying data from on-premises to the cloud, advance to the following tutorial: 
 
