@@ -236,13 +236,11 @@ public async Task<IEnumerable<BlobModel>> Get()
 }
 ```
 
-You've likely noticed that we had to pattern match on each blob item as we enumerate the list. This is because each item is an [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. We're working with Block Blobs, which are the most common types, hence the cast. If you are working with Page Blobs or Blob Directories, you can cast to those types.
+You've likely noticed that an `is` expression is needed on the `blob` item in the `for` loop. This is because each `blob` is of type [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. This tutorial uses Block Blobs, which are the most common kinds of blobs. If you are working with Page Blobs or Blob Directories, you can cast to those types instead.
 
 If you have a large number of blobs, you may need to use other listing APIs such as [ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listblobssegmentedasync?view=azure-dotnet).
 
 ## Download a blob
-
-In the API controller, the HTTP GET operation which specified an ID shows how to download a blob:
 
 ```csharp
 public async Task<string> Get(string id)
@@ -256,8 +254,6 @@ The [`DownloadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.window
 
 ## Upload to a blob
 
-In the API controller, the HTTP PUT operation shows how to upload string content to a blob:
-
 ```csharp
 public async Task Put(string id, [FromBody]string content)
 {
@@ -269,8 +265,6 @@ public async Task Put(string id, [FromBody]string content)
 The [`UploadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadtextasync?view=azure-dotnet) will upload string content to a blob, optionally creating the blob if it does not exist. There are other APIs available such as [`UploadFromFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromfileasync?view=azure-dotnet), [`UploadFromStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync?view=azure-dotnet), and [`UploadFromByteArrayAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfrombytearrayasync?view=azure-dotnet).
 
 ## Delete a blob
-
-The last operation in the API controller is an HTTP DELETE which will delete a blob by its specified ID:
 
 ```csharp
 public async Task Delete(string id)
