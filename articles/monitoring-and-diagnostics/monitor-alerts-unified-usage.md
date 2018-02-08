@@ -49,7 +49,7 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     >[!NOTE]
 
-    > verify the signals available for the selected resource before you proceed.
+    > Verify the signals available for the selected resource before you proceed.
 
     ![Select resource](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
