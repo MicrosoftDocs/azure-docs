@@ -14,6 +14,12 @@ ms.author: sajagtap
 
 # Supported languages by feature
 
+> [!NOTE]
+> Use `eng` or leave it blank, for the **language** parameter for the **ScreenText** operation [See API console quickstart](try-text-api.md) to see the machine-assisted '**Classification** section (preview feasture) in the API response. **This feature supports English only**.
+>
+> To see profanity term detection in action, try the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it blank for the automated language detection to come into play.
+
+
 | Auto-detected | Profanity   | OCR    |
 | -------------------- |-------------|--------|
 | Arabic (Romanized)   | Afrikaans   | Arabic
