@@ -45,18 +45,30 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
     ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Define the alert condition by first using the **Select Resource** link and specifying the target, by selecting a resource. Filter appropriately by choosing needed *Subscription*, *Resource Type*, and finally selecting required *Resource*.
-As Azure Alerts (Preview) allows for creation of various types of alerts from a singular interface; based on the type of alert desired choose the next step as:
+4.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter appropriately by choosing needed *Subscription*, *Resource Type*, and finally selecting required *Resource*.
+
+    >![NOTE]
+
+    > verify the signals available for the selected resource before you proceed.
+
+    ![Select resource](./media/monitor-alerts-unified/Alert-SelectResource.png)
+
+ As Azure Alerts (Preview) allows you to create various types of alerts from a singular interface; based on the type of alert desired choose the next step as:
+
     - For **Metric Alerts**: follow steps 5 to 7; then go directly to step 11
-    - For **Log Alerts**, jump to step 8 onwards
+    - For **Log Alerts**, jump to step 8.
+
+    > [!NOTE]
+
+    > Activity Log alerts supports  an enhanced unified experience in Alerts (Preview). [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
+    
     > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
-
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
 
