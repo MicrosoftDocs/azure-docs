@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - overview
-description: FedRAMP overview
+title: FedRAMP Web Applications Automaiton - overview
+description: FedRAMP Web Applications Automaiton - overview
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -23,7 +23,7 @@ ms.author: jomolesk
 
 The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov), is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. FedRAMP defines a security assessment process based on a standardized set of requirement derived from [National Institute of Standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) secuirty controls.
 
-Browse the control families below to see how this Blueprint Automation aligns with the control requirements.
+Browse the control families below to see how this Azure Security and Compliance Blueprint Automation aligns with the control requirements.
 
 | | |
 |---|---|
