@@ -48,11 +48,11 @@ The Standard and Premium CDN tiers provide the same compression functionality, b
 
     ![CDN profile endpoints](./media/cdn-file-compression/cdn-compress-select-std.png)
    
-    The CDN Configuration page opens.
-3. Turn on **Compression**.
+    The Compression page opens.
+3. Select **On** to turn on compression.
    
     ![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
-4. Use the default types, or modify the list by removing or adding file types.
+4. Use the default format types, or modify the list by adding or removing format types.
    
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
@@ -83,23 +83,24 @@ The Standard and Premium CDN tiers provide the same compression functionality, b
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
+    
 4. After making your changes, select **Update**.
 
 ## Compression rules
 
-### **Azure CDN from Verizon** profiles (standard and premium)
+### Azure CDN from Verizon profiles (both standard and premium)
 
-For these profiles, only eligible files are compressed. To be eligible for compression, a file must:
+For **Azure CDN from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
 - Be larger than 128 bytes.
 - Be smaller than 1 MB.
  
 These profiles support **gzip** (GNU zip), **deflate**, **bzip2**, or **br** (Brotli) encoding. If the request supports more than one compression type, those compression types take precedence over Brotli compression.
 
-When a request for an asset specifies Brotli encoding (request includes the HTTP header `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs Brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
+When a request for an asset specifies Brotli encoding (includes the HTTP header `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs Brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
 
-### **Azure CDN from Akamai** profiles
+### Azure CDN from Akamai profiles
 
-For these profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
+For **Azure CDN from Akamai** profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
 
 These profiles support only **gzip** encoding. When a profile endpoint requests **gzip** encoded files, they are always requested from the origin, regardless of the client request. 
 
@@ -107,7 +108,7 @@ These profiles support only **gzip** encoding. When a profile endpoint requests 
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client requested format (via `Accept-Encoding` header) | Cached file format | CDN response to the client | Notes |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Uncompressed |Uncompressed | |
@@ -117,23 +118,23 @@ The following tables describe Azure CDN compression behavior for every scenario:
 | Uncompressed |Not cached |Uncompressed | |
 
 ### Compression is enabled and file is eligible for compression
-| Client requested format (via `Accept-Encoding` header) | Cached file format | CDN response to the client | Notes |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |CDN transcodes between supported formats |
 | Compressed |Uncompressed |Compressed |CDN performs compression |
-| Compressed |Not cached |Compressed |CDN performs compression if origin returns uncompressed.  **Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests.  Files with the `Cache-Control: no-cache` header are never compressed. |
+| Compressed |Not cached |Compressed |CDN performs compression if origin returns uncompressed.  **Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
 | Uncompressed |Compressed |Uncompressed |CDN performs decompression |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
 
 ## Media Services CDN Compression
-For endpoints enabled for Media Services CDN streaming, compression is enabled by default for the following content types: 
+For endpoints enabled for Media Services CDN streaming, compression is enabled by default for the following MIME types: 
 - application/vnd.ms-sstr+xml 
 - application/dash+xml
 - application/vnd.apple.mpegurl
 - application/f4m+xml. 
 
-You cannot enable or disable compression for the mentioned types by using the Azure portal.  
+You cannot enable or disable compression for these MIME types by using the Azure portal.  
 
 ## See also
 * [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    
