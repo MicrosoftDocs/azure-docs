@@ -1,83 +1,72 @@
 ---
-title: Azure Site Recovery networking guidance for replicating virtual machines from Azure to Azure | Microsoft Docs
-description: Networking guidance for replicating Azure virtual machines
+title: About networking in Azure to Azure disaster recovery using Azure Site Recovery  | Microsoft Docs
+description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 02/08/2018
 ms.author: sujayt
 
 ---
-# Networking guidance for replicating Azure virtual machines
+# About networking in Azure to Azure replication
 
 >[!NOTE]
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
-This article details the networking guidance for Azure Site Recovery when you're replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md) article.
+This article provides networking guidance when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md). 
 
-## Site Recovery architecture
+## Before you start
 
-Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered if there is a disruption in the primary region. Learn more about [this scenario and Site Recovery architecture](site-recovery-azure-to-azure-architecture.md).
+Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-azure-architecture.md).
 
-## Your network infrastructure
+## Typical network infrastructure
 
-The following diagram depicts the typical Azure environment for an application running on Azure virtual machines:
+The following diagram depicts a typical Azure environment, for applications running on Azure VMs:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-If you are using Azure ExpressRoute or a VPN connection from an on-premises network to Azure, the environment looks like this:
+If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment looks like this:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Typically, customers protect their networks using firewalls and/or network security groups (NSGs). The firewalls can use either URL-based or IP-based whitelisting for controlling network connectivity. NSGs allow rules for using IP ranges to control network connectivity.
+Typically, networks are protected using firewalls and network security groups (NSGs). Firewalls use URL or IP-based whitelisting to control network connectivity. NSGs provide rules that use IP address ranges to control network connectivity.
 
 >[!IMPORTANT]
-> If you are using an authenticated proxy to control network connectivity, it is not supported, and Site Recovery replication cannot be enabled.
-
-The following sections discuss the network outbound connectivity changes that are required from Azure virtual machines for Site Recovery replication to work.
-
-## Outbound connectivity for Azure Site Recovery URLs
-
-If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required Azure Site Recovery service URLs:
+> Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
 
 
-**URL** | **Purpose**  
+## Outbound connectivity for URLs
+
+If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
+
+
+**URL** | **Details**  
 --- | ---
 *.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM.
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
 
-## Outbound connectivity for Azure Site Recovery IP ranges
+## Outbound connectivity for IP address ranges
 
->[!NOTE]
-> To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.
 
->[!IMPORTANT]
-> * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
-> * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription.
+- All IP address ranges that correspond to the source location.
+    - You can download the [IP address ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+    - You need to allow these addresses so that data can be written to the cache storage account, from the VM.
+- All IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+    - If new address are added to the Office 365 ranges in the future, you need to create new NSG rules.
+- Site Recovery service endpoint IP addresses. These are available in an [XML file](https://aka.ms/site-recovery-public-ips),and depend on your target location.
+-  You can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702), to automatically create the required rules on the NSG. 
+- We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
+- To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact Azure support to increase the NSG rule limit in your subscription.
 
-If you are using any IP-based firewall proxy or NSG rules to control outbound connectivity, the following IP ranges need to be whitelisted, depending on the source and target locations of the virtual machines:
+IP address ranges are as follows:
 
-- All IP ranges that correspond to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Whitelisting is required so that data can be written to the cache storage account from the VM.
-
-- All IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-
-    >[!NOTE]
-    > If new IPs get added to Office 365 IP ranges in the future, you need to create new NSG rules.
-
-- Site Recovery service endpoint IPs ([available in an XML file](https://aka.ms/site-recovery-public-ips)), which depend on your target location:
-
-   **Target location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+>
+   **Target** | **Site Recovery IP** |  **Site Recovery monitoring IP**
    --- | --- | ---
    East Asia | 52.175.17.132 | 13.94.47.61
    Southeast Asia | 52.187.58.193 | 13.76.179.223
@@ -106,32 +95,28 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
    UK North | 51.142.209.167 | 13.87.102.68
    Korea Central | 52.231.28.253 | 52.231.32.85
    Korea South | 52.231.298.185 | 52.231.200.144
+   
+   
+  
 
-## Sample NSG configuration
-This section explains the steps to configure NSG rules so that Site Recovery replication can work on a virtual machine. If you are using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP ranges.
+## Example NSG configuration
 
->[!Note]
-> To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
+This example shows how to configure NSG rules for a VM to replicate. 
 
-For example, if your VM's source location is "East US" and your replication target location is "Central US," follow the steps in the next two sections.
+- If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP address ranges.
+- The example presumes that the VM source location is "East US" and the target location is "Central US.
 
->[!IMPORTANT]
-> * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
-> * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription.
+### NSG rules - East US
 
-### NSG rules on the East US network security group
+1. Create rules that correspond to [East US IP address ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
+2. Create rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Create rules that correspond to the target location:
 
-* Create rules that correspond to [East US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
-
-* Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-
-* Create rules that correspond to the target location:
-
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
    Central US | 40.69.144.231 | 52.165.34.144
 
-### NSG rules on the Central US network security group
+### NSG rules - Central US 
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
@@ -140,21 +125,20 @@ These rules are required so that replication can be enabled from the target regi
 * Rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
 * Rules that correspond to the source location:
+    - East US
+    - Site Recovery IP address: 13.82.88.226
+    - Site Recovery monitoring IP address: 104.45.147.24
 
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
-    --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
 
+## ExpressRoute/VPN 
 
-## Guidelines for existing Azure-to-on-premises ExpressRoute/VPN configuration
+If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
 
-If you have an ExpressRoute or VPN connection between on-premises and the source location in Azure, follow the guidelines in this section.
+### Forced tunneling
 
-### Forced tunneling configuration
+Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location. We do not recommend this. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
 
-A common customer configuration is to define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location. We do not recommend this. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
-
-### Connectivity between the target and on-premises location
+### Connectivity 
 
 Follow these guidelines for connections between the target location and the on-premises location:
 - If your application needs to connect to the on-premises machines or if there are clients that connect to the application from on-premises over VPN/ExpressRoute, ensure that you have at least a [site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) between your target Azure region and the on-premises datacenter.
@@ -163,7 +147,7 @@ Follow these guidelines for connections between the target location and the on-p
 
 - If you want to retain IPs for the virtual machines after they fail over, keep the target region's site-to-site/ExpressRoute connection in a disconnected state. This is to make sure there is no range clash between the source region's IP ranges and target region's IP ranges.
 
-### Best practices for ExpressRoute configuration
+### ExpressRoute configuration
 Follow these best practices for ExpressRoute configuration:
 
 - You need to create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
