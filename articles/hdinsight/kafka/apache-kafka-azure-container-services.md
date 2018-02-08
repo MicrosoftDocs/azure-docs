@@ -154,7 +154,14 @@ At this point, Kafka and Azure Container Service are in communication through th
 
 2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
 
-3. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
+3. Edit the `index.js` file and change the following lines:
+
+    * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
+    * `var brokerHost = '20.0.0.13:9092`: Replace `20.0.0.13` with the internal IP address of one of the broker hosts for your cluster.
+
+        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
+
+4. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
     ```bash
     docker build -t kafka-aks-test .
@@ -163,7 +170,7 @@ At this point, Kafka and Azure Container Service are in communication through th
     > [!NOTE]
     > Packages required by this application are checked into the repository, so you do not need to use the `npm` utility to install them.
 
-4. Log in to your Azure Container Registry (ACR) and find the loginServer name:
+5. Log in to your Azure Container Registry (ACR) and find the loginServer name:
 
     ```bash
     az acr login --name <acrName>
@@ -173,34 +180,28 @@ At this point, Kafka and Azure Container Service are in communication through th
     > [!NOTE]
     > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure Container Service, see the [AKS tutorials](../../aks/tutorial-kubernetes-prepare-app.md).
 
-5. Tag the local `kafka-aks-test` image with the loginServer of your ACR. Also add `:v1` to the end to indicate the image version:
+6. Tag the local `kafka-aks-test` image with the loginServer of your ACR. Also add `:v1` to the end to indicate the image version:
 
     ```bash
     docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
     ```
 
-6. Push the image to the registry:
+7. Push the image to the registry:
 
     ```bash
     docker push <acrLoginServer>/kafka-aks-test:v1
     ```
     This operation takes several minutes to complete.
 
-7. Edit the Kubernetes manifest file (`kafka-aks-test.yaml`) and replace the following items:
+8. Edit the Kubernetes manifest file (`kafka-aks-test.yaml`) and replace `microsoft` with the ACR loginServer name retrieved in step 4.
 
-    * `image`: Replace `microsoft` with the ACR loginServer name retrieved in step 4.
-    * `TOPIC`: Replace the `value` with the name of the Kafka topic used by this application.
-    * `BROKERHOST`: Replace the `value` with the internal IP address of one of the broker hosts. For example, `20.0.0.13:9092`
-
-        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document.
-
-8. Use the following command to deploy the application settings from the manifest:
+9. Use the following command to deploy the application settings from the manifest:
 
     ```bash
     kubectl create -f kafka-aks-test.yaml
     ```
 
-9. Use the following command to watch for the `EXTERNAL-IP` of the application:
+10. Use the following command to watch for the `EXTERNAL-IP` of the application:
 
     ```bash
     kubectl get service kafka-aks-test --watch
@@ -208,11 +209,11 @@ At this point, Kafka and Azure Container Service are in communication through th
 
     Once an external IP address is assigned, use __CTRL + C__ to exit the watch
 
-10. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
+11. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
 
     ![Image of the web page](./media/apache-kafka-azure-container-services/test-web-page.png)
 
-11. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
+12. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
 
     > [!WARNING]
     > You may receive multiple copies of a message. This problem usually happens when you refresh your browser after connecting, or open multiple browser connections to the application.
