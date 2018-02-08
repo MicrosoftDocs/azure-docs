@@ -48,7 +48,7 @@ You can use strings to make it easier to scan and differentiate groups in the gl
 
 #### User attributes
 
-You can use attributes that can help identify who created the group, such as \[Department\], or the location of group members, such as \[CountryOrRegion\] or \[Office\]. For example, if you define your naming policy as `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, and `User’s department = Engineering` and the department of the user who is creating the group is ‘Engineering’, then an enforced group name might be “GRP My Group Engineering." Supported Azure AD attributes are \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]. Unsupported user attributes are treated as fixed strings; for example, “\[postalCode\]”. Extension attributes and custom attributes aren't supported.
+You can use attributes that can help you and your users identify which department, office or geographic region for which the group was created. For example, if you define your naming policy as `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, and `User’s department = Engineering`, then an enforced group name might be “GRP My Group Engineering." Supported Azure AD attributes are \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]. Unsupported user attributes are treated as fixed strings; for example, “\[postalCode\]”. Extension attributes and custom attributes aren't supported.
 
 We recommend that you use attributes that have values filled in for all users in your organization and don't use attributes that have long values.
 
@@ -99,7 +99,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-In the **Sign in to your Account** screen that opens, enter your Office 365 admin account and password to connect you to your service, and select **Sign in**.
+In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
 ### View the current settings
 

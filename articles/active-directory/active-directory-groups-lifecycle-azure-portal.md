@@ -143,7 +143,7 @@ The following cmdlets can be used to configure the policy in more detail. There'
 *	Get-AzureADMSLifecyclePolicyGroup
  
 ## How Office 365 group expiration works with a mailbox on legal hold 
-When a group that is on legal hold expires and is deleted, 30 days after deletion:
+When a group whose mailbox is on legal hold expires and is deleted, 30 days after deletion:
 * Groups app data (from Planner, Sites, Teams, and so on) is permanently deleted
 * The group mailbox that is on legal hold is retained and isn't permanently deleted
 
