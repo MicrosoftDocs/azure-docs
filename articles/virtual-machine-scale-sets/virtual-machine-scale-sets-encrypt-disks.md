@@ -84,11 +84,13 @@ az keyvault update --name $VaultName --enabled-for-disk-encryption
 The following templates and commands can be used to encrypt a virtual machine scale set with managed disks using a key vault in the same resource group.
 
 ### Templates
-Create a Windows virtual machine scale set and enable encryption: [201-encrypt-running-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-Enable encryption on a running Windows virtual machine scale set: [201-encrypt-vmss-windows-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+Create a Windows virtual machine scale set and enable encryption: 
+- [201-encrypt-running-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- Enable encryption on a running Windows virtual machine scale set: [201-encrypt-vmss-windows-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
-Create a Linux virtual machine scale set and enable encryption: [201-encrypt-running-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-Enable encryption on a running Linux virtual machine scale set: [201-encrypt-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+Create a Linux virtual machine scale set and enable encryption: 
+- [201-encrypt-running-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- Enable encryption on a running Linux virtual machine scale set: [201-encrypt-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
 ### PowerShell
 
@@ -137,11 +139,11 @@ az vmss encryption show -g $ResourceGroup -n $VmssName
 ```
 
 ## Disable encryption
-Disable encryption on a running virtual machine scale set (Windows only during the preview) using the following templates and commands.
+Disable encryption on a running virtual machine scale set using the following templates and commands.
 
 ### Templates
-[201-decrypt-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
-Disable encryption on a running Linux virtual machine scale set: [201-decrypt-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- Disable encryption on a running Windows virtual machine scale set: [201-decrypt-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- Disable encryption on a running Linux virtual machine scale set: [201-decrypt-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
 ### PowerShell
 
