@@ -4,14 +4,13 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Contribute to Azure technical documentation
-We welcome contributions from our community (users, customers, partners, MSFT employees outside core Azure product units, etc.) as well as from employees working in core Azure product units. How you contribute depends on who you are:
+We welcome contributions from our community as well as from employees working in core Azure product units. How you contribute depends on who you are:
 
 * **Community - minor updates**: If you are contributing minor updates out of the goodness of your heart, you can find the article in this repository, or visit the article on [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) and click the **Edit** link in the article that goes to the GitHub source for the article. Then, just use the GitHub UI to make your updates. Or, you are welcome to fork the repository and submit updates from your fork.
 
-* **Community - new articles**: If you're part of the Azure community and you want to create a new article, you need to work with an employee to help bring that new content in through a combination of work in the public and private repository.
+* **Community - new articles + major changes**: If you're part of the Azure community and you want to create a new article or submit major changes, you need to work with an employee to help bring that new content in through a combination of work in the public and private repository. To start the collaboration, please create an issue in our public repository. Follow the instructions provided in the issue template.
 
-* **Employees**: If you are a technical writer, program manager, or developer from the product team for an Azure service and it's your job to contribute to or author technical articles, you should use the private repository (https://github.com/MicrosoftDocs/azure-docs-pr). If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, a markdown editor, and learn some git commands. See [the internal contributor's guide](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) for more information.
-
+* **Employees**: If you are a technical writer, program manager, or developer from the product team for an Azure service and it's your job to contribute to or author technical articles, you should use the private repository (https://github.com/MicrosoftDocs/azure-docs-pr).
 
 ## About your contributions to Azure content
 ### Minor corrections
@@ -35,7 +34,7 @@ The *\articles* folder contains the *\media* folder for root directory article m
 You can create reusable content sections to be included in one or more articles. 
 
 ## How to use markdown to format your topic
-All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
+All the articles in this repository use GitHub flavored markdown. If you are not familiar with markdown, see [Markdown basics](https://help.github.com/articles/markdown-basics/).
 
 * [Markdown basics](https://help.github.com/articles/markdown-basics/)
 * [Printable markdown cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
@@ -44,11 +43,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 ## Labels
 In the public azure-docs repository, automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
 
-* Contribution License Agreement related
-  * cla-not-required: The change is relatively minor and does not require that you sign a CLA.
-  * cla-required: The scope of the change is relatively large and requires that you sign a CLA.
-  * cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.
-* Change sent to author: The author has been notified of the pending pull request.
-* ready-to-merge: Ready for review by our pull request review team.
+* **Change sent to author**: The author has been notified of the pending pull request.
+* **ready-to-merge**: Ready for review by our pull request review team.
 
 
