@@ -1,5 +1,5 @@
 ---
-title: Mount secret volume in Azure Container Instances
+title: Mount a secret volume in Azure Container Instances
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
 services: container-instances
 author: mmacy
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/08/2018
 ms.author: marsma
 ---
 
@@ -30,7 +30,7 @@ To mount a *secret* volume in a container instance, you must deploy using an [Az
 
 First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *secret* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
-For example, the following Resource Manager template creates container group consisting of a single container. The container mounts a *secret* volume consisting of two Base64-encoded secrets.
+For example, the following Resource Manager template creates a container group consisting of a single container. The container mounts a *secret* volume consisting of two Base64-encoded secrets.
 
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 

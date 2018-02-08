@@ -1,19 +1,19 @@
 ---
 title: Mount a gitRepo volume Azure Container Instances
-description: Learn how to mount a gitRepo volume to clone a git repository into your container instances
+description: Learn how to mount a gitRepo volume to clone a Git repository into your container instances
 services: container-instances
 author: mmacy
 manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/08/2018
 ms.author: marsma
 ---
 
 # Mount a gitRepo volume in Azure Container Instances
 
-Learn how to mount a *gitRepo* volume to clone a git repository into your container instances.
+Learn how to mount a *gitRepo* volume to clone a Git repository into your container instances.
 
 > [!NOTE]
 > Mounting a *gitRepo* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
@@ -36,7 +36,7 @@ To mount a *gitRepo* volume in a container instance, you must deploy using an [A
 
 First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *gitRepo* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
-For example, the following Resource Manager template creates container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
+For example, the following Resource Manager template creates a container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
 
 [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
@@ -55,3 +55,4 @@ Learn how to mount other volume types in Azure Container Instances:
 
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md)
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md)
+* [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md)

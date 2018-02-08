@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/08/2018
 ms.author: marsma
 ---
 
@@ -36,7 +36,7 @@ To mount an emptyDir volume in a container instance, you must deploy using an [A
 
 First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *emptyDir* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
 
-For example, the following Resource Manager template creates container group consisting of two containers, each of which mounts the *emptyDir* volume:
+For example, the following Resource Manager template creates a container group consisting of two containers, each of which mounts the *emptyDir* volume:
 
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
