@@ -75,7 +75,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 ## Associate a route table to a subnet
 
-A subnet can have zero or one route table associated to it. A route table can be associated to zero or multiple subnets. Since route tables are not associated to virtual networks, you must associate a route table to each subnet you want the route table associated to. All traffic leaving the subnet is routed based on routes you've created within route tables, [default routes](virtual-networks-udr-overview.md#default) and routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute, or VPN, if using BGP with a VPN gateway). You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
+A subnet can have zero or one route table associated to it. A route table can be associated to zero or multiple subnets. Since route tables are not associated to virtual networks, you must associate a route table to each subnet you want the route table associated to. All traffic leaving the subnet is routed based on routes you've created within route tables, [default routes](virtual-networks-udr-overview.md#default), and routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute, or VPN, if using BGP with a VPN gateway). You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, click it.
 2. Click the virtual network in the list that contains the subnet you want to associate a route table to.
@@ -125,7 +125,7 @@ There is a limit to how many routes per route table can create per Azure locatio
 3. Click **Routes**, under **SETTINGS**.
 4. Click **+ Add**.
 5. Enter a unique **Name** for the route within the route table.
-6. Enter a the **Address prefix**, in CIDR notation, that you want to route traffic to. The prefix cannot be duplicated in more than one route within the route table, though the prefix can be within another prefix. For example, if you defined 10.0.0.0/16 as a prefix in one route, you can still define another route with the 10.0.0.0/24 address prefix. Azure selects a route for traffic based on longest prefix match. To learn more about how Azure selects routes, see [Routing overview](irtual-networks-udr-overview#how-azure-selects-a-route).
+6. Enter the **Address prefix**, in CIDR notation, that you want to route traffic to. The prefix cannot be duplicated in more than one route within the route table, though the prefix can be within another prefix. For example, if you defined 10.0.0.0/16 as a prefix in one route, you can still define another route with the 10.0.0.0/24 address prefix. Azure selects a route for traffic based on longest prefix match. To learn more about how Azure selects routes, see [Routing overview](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Select a **Next hop type**. For a detailed description of all next hop types, see [Routing overview](virtual-networks-udr-overview.md).
 8. Enter an IP address for **Next hop address**. You can only enter an address if you selected *Virtual appliance* for **Next hop type**.
 9. Click **OK**. 
