@@ -12,23 +12,18 @@ you will find CycleServer referenced in many commands and directory names.
 To begin the installation, unpack the CycleCloud installation to a temporary working directory.
 On Windows, this must be a local disk.
 
-From the local directory, run ``install.sh`` (on Linux) or ``install.cmd`` (on Windows)
+From the local directory, run `install.sh` (on Linux) or `install.cmd` (on Windows)
 to begin the installation process. On Linux, the default install location is /opt/cycle_server.
 On Windows, only C:\Program Files\CycleServer is currently supported.
 
 On Linux systems, the install.sh script supports several options for customization:
 
-+------------------+---------------------------------------------------------------+
-| Option           | Definition                                                    |
-+==================+===============================================================+
-| ``--batch``      | Install without any prompts                                   |
-+------------------+---------------------------------------------------------------+
-| ``--installdir`` | Install to a directory other than /opt/cycle_server           |
-+------------------+---------------------------------------------------------------+
-| ``--force``      | Install to the specified directory even if it is not empty    |
-+------------------+---------------------------------------------------------------+
-| ``--nostart``    | Do not start the processes after the installation is complete |
-+------------------+---------------------------------------------------------------+
+Option | Definition
+------ | ----------
+``--batch``| Install without any prompts
+``--installdir`` | Install to a directory other than /opt/cycle_server
+``--force``      | Install to the specified directory even if it is not empty
+``--nostart``    | Do not start the processes after the installation is complete
 
 > [!NOTE]
 >You must have write permission to the /opt directory. The CycleCloud installer will create a cycle_server user and unix group, install into the /opt/cycle_server directory by default, and assign cycle_server:cycle_server ownership to the directory.

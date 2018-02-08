@@ -18,10 +18,6 @@ To install CycleCloud, you must have administrator rights. In addition, your sys
 
 * Phraseless SSH key
 
-Cycle Computing Portal Account
--------------------------------
-A `Cycle Computing Portal Account <https://portal.cyclecomputing.com/login>`_ allows you to access downloads and licenses associated with your account. If you do not have a Portal Account, please contact your rep or email info@cyclecomputing.com for assistance.
-
 > [!NOTE]
 > CycleCloud may be installed on physical or virtualized hardware.
 
