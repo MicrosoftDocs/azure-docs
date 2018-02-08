@@ -26,9 +26,8 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Hierarchical](./luis-concept-entity-types.md)|Parent: 30, child: 10|
 | [Intents][intents]|500|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items | 
-| Total machine-learned entities: simple, composite parent(s) and hierarchical parent(s) | 100|
+| Total machine-learned entities<br>: simple, composite parent(s) and hierarchical parent(s) | 100|
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
-| Available prebuilt domains | 21 |
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
