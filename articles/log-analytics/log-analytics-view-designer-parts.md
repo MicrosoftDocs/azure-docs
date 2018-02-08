@@ -224,15 +224,15 @@ The header displays a line chart with multiple series from a log query over time
 | Title |The text that's displayed at the top of the header. |
 | Subtitle |The text that's displayed under the title at the top of the header. |
 | **Line chart** | |
-| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the **measure** keyword to summarize results. If the query uses the **interval** keyword, the x-axis of the chart uses this time interval. If the query does not include the **interval** keyword, the x-axis uses hourly intervals. |
+| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
 | **Line chart** |**> Callout** |
 | Callout title |The text that's displayed above the callout value. |
 | Series Name |Property value for the series to use for the callout value. If no series is provided, all records from the query are used. |
 | Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Average: The average of the values from all records.</li><li>Count: The count of all records that are returned by the query.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>Max: The maximum value from the intervals that are included in the chart.</li><li>Min: The minimum value from the intervals that are included in the chart.</li><li>Sum: The sum of the values from all records.</li></ul> |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values that are returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available. If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
-| Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
+| Units |Specify the units for the values to be returned by the query. This information is used to display chart labels that indicate the value types and, optionally, to convert the values. The *Unit* type specifies the category of the unit and defines the available *Current Unit* type values. If you select a value in *Convert to*, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
+| Custom label |The text that's displayed for the y-axis next to the label for the *Unit* type. If no label is specified, only the *Unit* type is displayed. |
 | **List** | |
 | Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
@@ -263,11 +263,11 @@ The header displays a line chart with multiple series from a log query over time
 | Title |The text that's displayed at the top of the header. |
 | Subtitle |The text that's displayed under the title at the top of the header. |
 | **Line chart** | |
-| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the **measure** keyword to summarize results. If the query uses the **interval** keyword, the x-axis of the chart uses this time interval. If the query does not include the **interval** keyword, the x-axis uses hourly intervals. |
+| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values to be returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
-| Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
+| Units |Specify the units for the values to be returned by the query. This information is used to display chart labels that indicate the value types and, optionally, to convert the values. The *Unit* type specifies the category of the unit and defines the available *Current Unit* type values. If you select a value in *Convert to*, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
+| Custom label |The text that's displayed for the y-axis next to the label for the *Unit* type. If no label is specified, only the *Unit* type is displayed. |
 | **List** | |
 | Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
@@ -297,11 +297,11 @@ The stack of line chart displays three separate line charts, with multiple serie
 | Title |The text that's displayed at the top of the chart. |
 | Subtitle |The text that's displayed under the title at the top of the chart. |
 | **Chart 1<br>Chart 2<br>Chart 3** |**Line chart** |
-| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the **measure** keyword to summarize results. If the query uses the **interval** keyword, the x-axis of the chart uses this time interval. If the query does not include the **interval** keyword, the x-axis uses hourly intervals. |
+| Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
 | **Chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values that are returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
-| Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
+| Units |Specify the units for the values to be returned by the query. This information is used to display chart labels that indicate the value types and, optionally, to convert the values. The *Unit* type specifies the category of the unit and defines the available *Current Unit* type values. If you select a value in *Convert to*, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
+| Custom label |The text that's displayed for the y-axis next to the label for the *Unit* type. If no label is specified, only the *Unit* type is displayed. |
 
 ## Common settings
 The following sections describe settings that are common to several visualization parts.
@@ -309,7 +309,7 @@ The following sections describe settings that are common to several visualizatio
 ### <a name="name-value-separator"></a>Name & value separator
 The name & value separator is the single-character delimiter to use to parse the text property from a list query into multiple values. If you specify a delimiter, you can provide names for each field, separated by the same delimiter in the **Name** box.
 
-For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (–) for the name & value separator and *City-Building* for the Name. This approach parses each value into two properties called *City* and *Building*.
+For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name & value separator and *City-Building* for the Name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="navigation-query"></a>Navigation query
 The navigation query is the query to run when you select an item in the list. Use *{selected item}* to include the syntax for the item that the user selected.
