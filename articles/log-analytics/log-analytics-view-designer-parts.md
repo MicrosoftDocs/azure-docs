@@ -1,6 +1,6 @@
 ---
-title: Part reference for View Designer in Azure Log Analytics | Microsoft Docs
-description: By using View Designer in Log Analytics, you can create custom views in the Azure portal that display a variety of data visualizations in your Log Analytics workspace. This article provides a reference to the settings for each of the visualization parts that are available to use in your custom views.
+title: A reference guide to the View Designer parts in Azure Log Analytics | Microsoft Docs
+description: By using View Designer in Log Analytics, you can create custom views in the Azure portal that display a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,8 +17,8 @@ ms.date: 01/17/2018
 ms.author: bwren
 
 ---
-# Log Analytics View Designer visualization part reference
-By using View Designer in Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article provides a reference to the settings for each of the visualization parts that are available to use in your custom views.
+# Reference guide to View Designer visualization parts in Log Analytics
+By using View Designer in Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 
 For more information about View Designer, see:
 
@@ -74,7 +74,7 @@ The header displays a single number that shows a count of records from a log sea
 | Use Icon |Select this link to display the icon. |
 | **Title** | |
 | Legend |The text that's displayed at the top of the header. |
-| Query |The query to run for the header. The count of the number of records that are returned by the query is displayed. |
+| Query |The query to run for the header. The count of the records that are returned by the query is displayed. |
 | **List** | |
 | Query |The query to run for the list. The first two properties for the first ten records in the results are displayed. The first property is a text value, and the second property is a numeric value. Bars are automatically created that are based on the relative value of the numeric column.<br><br>Use the `Sort` command in the query to sort the records in the list. To run the query and return all records, you can select **See all**. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
@@ -83,8 +83,8 @@ The header displays a single number that shows a count of records from a log sea
 | Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -102,7 +102,7 @@ The header has two numbers that display a count of records from separate log sea
 | Use Icon |Select this link to display the icon. |
 | **Title** | |
 | Legend |The text that's displayed at the top of the header. |
-| Query |The query to run for the header. The number of records that are returned by the query is displayed. |
+| Query |The query to run for the header. The count of the records that are returned by the query is displayed. |
 | **List** | |
 | Query |The query to run for the list. The first two properties for the first ten records in the results are displayed. The first property is a text value, and the second property is a numeric value. Bars are automatically created based on the relative value of the numeric column.<br><br>Use the `Sort` command in the query to sort the records in the list. To run the query and return all records, you can select **See all**. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
@@ -112,8 +112,8 @@ The header has two numbers that display a count of records from separate log sea
 | Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -136,15 +136,15 @@ The header displays a single number that summarizes a value column in a log quer
 | Query |The query to run for the donut. The first property is a text value, and the second property is a numeric value. |
 | **Donut** |**> Center** |
 | Text |The text that's displayed under the value inside the donut. |
-| Operation |The operation to perform on the value property to summarize it as a single value.<ul><li>Sum: Add the values of all records.</li><li>Percentage: The ratio of the records returned by the values in **Result values used in center operation** to the total records in the query.</li></ul> |
+| Operation |The operation to perform on the value property to summarize it as a single value.<ul><li>Sum: Adds the values of all records.</li><li>Percentage: The ratio of the records returned by the values in **Result values used in center operation** to the total records in the query.</li></ul> |
 | Result values used in center operation |Optionally, select the plus sign (+) to add one or more values. The results of the query are limited to records with the property values you specify. If no values are added, all records are included in the query. |
 | **Additional options** |**> Colors** |
-| Color 1<br>Color 2<br>Color 3 |Select the color for the each of the values displayed in the donut. |
+| Color 1<br>Color 2<br>Color 3 |Select the color for each of the values that are displayed in the donut. |
 | **Additional options** |**> Advanced color mapping** |
 | Field value |Type the name of a field to display it as a different color if it is included in the donut. |
 | Color |Select the color for the unique field. |
 | **List** | |
-| Query |The query to run for the list. The number of records that are returned by the query is displayed. |
+| Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
@@ -152,8 +152,8 @@ The header displays a single number that summarizes a value column in a log quer
 | Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -172,18 +172,18 @@ The header displays the results of two log queries over time as column charts, w
 | **First chart<br>Second chart** | |
 | Legend |The text that's displayed under the callout for the first series. |
 | Color |The color to use for the columns in the series. |
-| Query |The query to run for the first series. The count of the number of records over each time interval are represented by the chart columns. |
+| Query |The query to run for the first series. The count of records over each time interval is represented by the chart columns. |
 | Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Sum: The sum of the values from all records.</li><li>Average: The average of the values from all records.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>First sample: The value from the first interval that's included in the chart.</li><li>Count: The count of all records that are returned by the query.</li></ul> |
 | **List** | |
-| Query |The query to run for the list. The number of records that are returned by the query is displayed. |
+| Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -228,13 +228,13 @@ The header displays a line chart with multiple series from a log query over time
 | **Line chart** |**> Callout** |
 | Callout title |The text that's displayed above the callout value. |
 | Series Name |Property value for the series to use for the callout value. If no series is provided, all records from the query are used. |
-| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Average: Average of the value from all records.</li><li>Count: The count of all records that are returned by the query.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>Max: The maximum value from the intervals that are included in the chart.</li><li>Min: The minimum value from the intervals that are included in the chart.</li><li>Sum: The sum of the values from all records.</li></ul> |
+| Operation |The operation to perform on the value property to summarize it as a single value for the callout.<ul><li>Average: The average of the values from all records.</li><li>Count: The count of all records that are returned by the query.</li><li>Last sample: The value from the last interval that's included in the chart.</li><li>Max: The maximum value from the intervals that are included in the chart.</li><li>Min: The minimum value from the intervals that are included in the chart.</li><li>Sum: The sum of the values from all records.</li></ul> |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available. If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
+| Units |Specify the units for the values that are returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available. If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
 | **List** | |
-| Query |The query to run for the list. The number of records that are returned by the query is displayed. |
+| Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
@@ -242,8 +242,8 @@ The header displays a line chart with multiple series from a log query over time
 | Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -269,7 +269,7 @@ The header displays a line chart with multiple series from a log query over time
 | Units |Specify the units for the values to be returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
 | Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
 | **List** | |
-| Query |The query to run for the list. The number of records that are returned by the query is displayed. |
+| Query |The query to run for the list. The count of the records that are returned by the query is displayed. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
@@ -277,8 +277,8 @@ The header displays a line chart with multiple series from a log query over time
 | Name & value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
 | Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
 | **List** |**> Column titles** |
-| Name |The text that's displayed at the top of the first column of the list. |
-| Value |The text that's displayed at the top of the second column of the list. |
+| Name |The text that's displayed at the top of the first column. |
+| Value |The text that's displayed at the top of the second column. |
 | **List** |**> Thresholds** |
 | Enable Thresholds |Select this link to enable thresholds. For more information, see [Common Settings](#thresholds). |
 
@@ -300,23 +300,23 @@ The stack of line chart displays three separate line charts, with multiple serie
 | Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the **measure** keyword to summarize results. If the query uses the **interval** keyword, the x-axis of the chart uses this time interval. If the query does not include the **interval** keyword, the x-axis uses hourly intervals. |
 | **Chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
-| Units |Specify the units for the values returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
+| Units |Specify the units for the values that are returned by the query. This information is used to display labels on the chart that indicate the value types and, optionally, for converting the values. The *Unit Type* specifies the category of the unit and defines the *Current Unit Type* values that are available. If you select a value in **Convert to**, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
 | Custom label |The text that's displayed for the y-axis next to the label for the unit type. If no label is specified, only the unit type is displayed. |
 
 ## Common settings
 The following sections describe settings that are common to several visualization parts.
 
-### <a name="name-value-separator">Name & value separator</a>
+### <a name="name-value-separator"></a>Name & value separator
 The name & value separator is the single-character delimiter to use to parse the text property from a list query into multiple values. If you specify a delimiter, you can provide names for each field, separated by the same delimiter in the **Name** box.
 
-For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You could specify a dash (–) for the name & value separator and *City-Building* for the Name. This approach parses each value into two properties called *City* and *Building*.
+For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (–) for the name & value separator and *City-Building* for the Name. This approach parses each value into two properties called *City* and *Building*.
 
-### <a name="navigation-query">Navigation query</a>
+### <a name="navigation-query"></a>Navigation query
 The navigation query is the query to run when you select an item in the list. Use *{selected item}* to include the syntax for the item that the user selected.
 
 For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* would be run.
 
-### <a name="sparklines">Sparklines</a>
+### <a name="sparklines"></a>Sparklines
 A sparkline is a small line chart that illustrates the value of a list entry over time. For visualization parts with a list, you can select whether to display a horizontal bar, which indicates the relative value of a numeric column, or a sparkline, which indicates its value over time.
 
 The following table describes the settings for sparklines:
@@ -326,8 +326,8 @@ The following table describes the settings for sparklines:
 | Enable Sparklines |Select this link to display a sparkline instead of a horizontal bar. |
 | Operation |If sparklines are enabled, this is the operation to perform on each property in the list to calculate the values for the sparkline.<ul><li>Last sample: The last value for the series over the time interval.</li><li>Max: The maximum value for the series over the time interval.</li><li>Min: The minimum value for the series over the time interval.</li><li>Sum: The sum of the values for the series over the time interval.</li><li>Summary: Uses the same `measure` command as the query in the header.</li></ul> |
 
-### <a name="thresholds">Thresholds</a>
-By using thresholds, you can display a colored icon next to each item in a list. Thresholds give you a quick visual indicator of items that exceed a particular value or fall within a particular range. For example, you could display a green icon for items with an acceptable value, yellow if the value is within a range that indicates a warning, and red if it exceeds an error value.
+### <a name="thresholds"></a>Thresholds
+By using thresholds, you can display a colored icon next to each item in a list. Thresholds give you a quick visual indicator of items that exceed a particular value or fall within a particular range. For example, you can display a green icon for items with an acceptable value, yellow if the value is within a range that indicates a warning, and red if it exceeds an error value.
 
 When you enable thresholds for a part, you must specify one or more thresholds. If the value of an item is greater than a threshold value and lower than the next threshold value, the color for that value is used. If the item is greater than the highest threshold value, another color is used. 
 
@@ -337,7 +337,7 @@ The following table describes the settings for thresholds:
 
 | Setting | Description |
 |:--- |:--- |
-| Enable Thresholds |Select this link to display a color icon at the left of each value that indicates its health relative to specified thresholds. |
+| Enable Thresholds |Select this link to display a color icon at the left of each value. The icon indicates the value's health relative to specified thresholds. |
 | Name |The name of the threshold value. |
 | Threshold |The value for the threshold. The health color for each list item is set to the color of the highest threshold value that's exceeded by the item's value. If no threshold values are exceeded, a default color is used. |
 | Color |The color for the threshold value. |
