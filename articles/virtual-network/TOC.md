@@ -157,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logs](virtual-network-nsg-manage-log.md)
+### [Route tables](manage-route-table.md)
 ### Network interfaces (NICs)
 #### [Create, change, or delete NICs](virtual-network-network-interface.md)
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
