@@ -23,7 +23,7 @@ In this tutorial, you learn how to run a sample app on your DevKit to send senso
 
 ## What you need
 
-Finish the [Getting Started Guide](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
+Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
 
 * Have your DevKit connected to Wi-Fi
 * Prepare the development environment
@@ -31,7 +31,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/en-us/azure/iot-hu
 An active Azure subscription. If you do not have one, you can register via one of these two methods:
 
 * Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html)
-* Claim your [Azure credit](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
+* Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Create an Azure IoT Suite
 
@@ -115,3 +115,9 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+
+## Next steps
+
+Now that you have learned how to connect a DevKit device to your Azure IoT Suite and visualize the sensor data, here are the suggested next steps:
+
+* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
