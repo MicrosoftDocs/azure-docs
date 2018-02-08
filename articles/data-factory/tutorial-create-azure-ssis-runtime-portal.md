@@ -67,7 +67,7 @@ In this tutorial, you complete the following steps:
 11. After the creation is complete, you see the **Data factory** page.
    
    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Select **Author & Deploy** to open the Data Factory user interface (UI) on a separate tab. 
+12. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 
