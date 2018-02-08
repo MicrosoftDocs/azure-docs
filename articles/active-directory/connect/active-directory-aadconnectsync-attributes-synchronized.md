@@ -419,15 +419,15 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
-| msExchBlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchSafeRecipientsHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchSafeSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
-| msExchUCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
-| msExchUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
+| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
+| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
+| ms-Exch-BlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| ms-Exch-SafeRecipientsHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| ms-Exch-SafeSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
+| ms-Exch-UCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
+| ms-Exc-hUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
 | proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
-| publicDelegates |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
+| ms-Exch-Public-Delegates |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
 
 ## Exchange Mail Public Folder
 These attributes are synchronized from on-premises Active Directory to Azure AD when you select to enable **Exchange Mail Public Folder**.
