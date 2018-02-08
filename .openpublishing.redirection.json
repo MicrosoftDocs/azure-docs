@@ -8205,7 +8205,7 @@
         "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/azure-to-azure-networking-guidance.md",
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-networking-guidance.md",
             "redirect_url": "azure-to-azure-about-networking",
             "redirect_document_id": false
         },
