@@ -128,13 +128,13 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 3. Select the Azure **subscription** in which you want to create the data factory. 
 4. For **Resource Group**, take one of the following steps:
      
-      a. Select **Use existing**, and select an existing resource group from the drop-down list.
+      - Select **Use existing**, and select an existing resource group from the drop-down list.
 
-      b. Select **Create new**, and enter the name of a resource group. 
+      - Select **Create new**, and enter the name of a resource group. 
          
       To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 5. Under **Version**, select **V2 (Preview)**.
-6. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other locations/regions.
+6. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other locations/regions.
 7. Select **Pin to dashboard**. 
 8. Select **Create**.
 9. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
@@ -175,7 +175,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
     a. Under **Connection name**, enter **OnPremSqlLinkedService**.
 
-    b. Under **Server name**, enter the name of your on-premises SQL Server.
+    b. Under **Server name**, enter the name of your on-premises SQL Server instance.
 
     c. Under **Database name**, enter the name of your on-premises database.
 
