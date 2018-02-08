@@ -48,7 +48,7 @@ The Standard and Premium CDN tiers provide the same compression functionality, b
 
     ![CDN profile endpoints](./media/cdn-file-compression/cdn-compress-select-std.png)
    
-    The Compression page opens.
+    The compression page opens.
 3. Select **On** to turn on compression.
    
     ![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
@@ -122,7 +122,7 @@ The following tables describe Azure CDN compression behavior for every scenario:
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |CDN transcodes between supported formats |
 | Compressed |Uncompressed |Compressed |CDN performs compression |
-| Compressed |Not cached |Compressed |CDN performs compression if origin returns uncompressed.  **Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
+| Compressed |Not cached |Compressed |CDN performs compression if the origin returns an uncompressed file. **Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
 | Uncompressed |Compressed |Uncompressed |CDN performs decompression |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
