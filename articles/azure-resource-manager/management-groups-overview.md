@@ -29,27 +29,27 @@ The structure shown is a sample of a management group hierarchy that can exist:
 
 ![hierarchy tree](media/management-groups/MG_overview.png)
 
-Change is always constant and customers have the need to always be updating their hierarchy. To help with these frequent changes, you are able to easily move management groups and subscriptions to change the hierarchy. You are able to move whole branches or individual resources around in the hierarchy to keep it updated. 
+Change is always constant and customers have the need to always be updating their hierarchy. To help with these frequent changes, you are able to easily move management groups and subscriptions around in the hierarchy. You are able to move whole branches or individual resources around in the hierarchy to keep it updated. 
 
-For example, another common scenario for customers is the repetitive work needed to apply resource accesses to each subscription they manage. With management groups, the customer can simplify their process by only needing to apply an RBAC role for a person to one management group that has all the subscriptions under it. With the access control assigned on the management group, the management group is a single management location for the RBAC role and its inheritance to all the child resources.    
+For example, another common scenario for customers is the repetitive work needed to apply resource accesses to each subscription they manage. With management groups, the customer can simplify their process by only needing to apply an RBAC role for a person to one management group that has all the subscriptions under it. The management group that has the assigned access is now central management location for accesses to the inherited child resource.  
 
 ### Important facts about management groups
-- 10,000 management groups can be supported in a single directory 
-- A hierarchy tree can support up to six levels in-depth
-    -This does not include the Root level or the subscription level
-- Each management group can only support one parent
-- Each management group can have multiple children 
-- To remove a management group, no children can be linked to the management group
-
+- 10,000 management groups can be supported in a single directory. 
+- A hierarchy tree can support up to six levels in-depth.
+    - This limit does not include the Root level or the subscription level.
+- Each management group can only support one parent.
+- Each management group can have multiple children. 
 
 ## Root management group for each directory
 
-Each directory is given one "Root" management group that allows for global policies to be applied. The Directory Administrator needs to escalate themselves to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC roles to other people so that they can manage the hierarchy.  
+Each directory is given one "Root" management group that allows for global policies to be applied. The Directory Administrator needs to escalate themselves to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups that they want to manage the hierarchy.  
 
 ### Important facts about the Root management Group
-- The root management group is given the Directory ID number as the name by default. The display name can be updated at any time to show different within the Azure portal.  
+- The root management group is given the Directory ID number as the name and ID by default. The display name can be updated at anytime to be different within the Azure portal.  
 - All subscriptions and management groups can fold up to the one root management group within the directory.  
     - It is recommended to have all items in the directory fold up to the Root management group.  
+    - In the Public Preview, all subscriptions within the directory will not automatically be made children of the root.   
+    - In the Public Preview, all 
 - This root management group is special in that it cannot be moved or deleted unlike other management groups. 
 - All new management groups have their parent group defaulted to the root management group when created.
     - During the Public Preview, new subscriptions are not automatically default to the Root management group.        
@@ -72,7 +72,7 @@ While any [built-in RBAC role](https://docs.microsoft.com/en-us/azure/active-dir
 ## Create a management group
 Any user within a directory can create a management group and they are made the owner of that management group. A management group created under another management group inherits the policy and accesses that are assigned from any parent of the hierarchy.  
 
-# [PowerShell](#tab/create)
+# [PowerShell](#tab/powershell)
 Following is the PowerShell cmdlet and its variables. 
 
 ```powershell
@@ -87,7 +87,7 @@ Add-AzureRmManagementGroup
 - [-DisplayName]: The name that is displayed within the UI for this group. The Display Name can be changed at anytime.
 - [-ParentId]: This parameter is used while creating the group to link it as a child to another group. The group listed here is the parent of the new group. 
 
-# [Portal](#tab/create)
+# [Portal](#tab/portal)
 
 Within the portal, there are two locations to create a new management group. 
 
@@ -105,14 +105,14 @@ Within the portal, there are two locations to create a new management group.
 ### Example 1: Add new management group
 This example is to create a new management group with the identifier of "Contoso." 
 
-# [PowerShell](#tab/example1)
+# [PowerShell](#tab/powershell)
 Use the following command to create the group with identifier of "Contoso" in PowerShell 
 
 ```powershell
 C:\> Add-AzureRmManagementGroup -GroupName Contoso  
 ```
 
-# [Portal](#tab/example1)
+# [Portal](#tab/portal)
 
 - Select the Management Groups Service on the left navigation 
 [image]
@@ -128,13 +128,13 @@ You see the new group show in the list
 ### Example 2: Add new group that has a different Display Name and is under a parent management group
 This example shows the command to create a new management group with the identifier of "newGroup" and have a display name of "Contoso IT." This management group is a child of the management group created in Example 1.  
 
-# [PowerShell](#tab/example2)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 C:\> Add-AzureRmManagementGroup -GroupName newGroup -DisplayName "Contoso IT" -ParentId Contoso
 ```
 
-# [Portal](#tab/example2)
+# [Portal](#tab/portal)
 - Select the Management Groups Service on the left navigation 
 [image]
 - On the main page, select "New Management group." 
