@@ -257,6 +257,26 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
+## Link a cluster
+You can link a normal cluster by using admin username, also link a security hadoop cluster by using Ambari username. Here are the steps to Linking a cluster by using Ambari username.
+1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
+
+   ![link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Enter HDInsight cluster URL -> input username -> input password -> select cluster type -> it shows success info if verification passed.
+   
+   ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > We use the linked username and password if the cluster both logged in Azure subscription and Linked a cluster. 
+   
+3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
+
+   ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. You also can unlink a cluster by inputing **HDInsight: Unlink a cluster** from command palette.
+   
+
 
 ## Additional features
 
