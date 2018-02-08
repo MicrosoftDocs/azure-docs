@@ -83,6 +83,7 @@
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrate users between product licenses](active-directory-licensing-group-product-migration.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 #### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
-
-
 ##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Advanced configurations
@@ -212,6 +211,8 @@
 ##### [Silent install](active-directory-application-proxy-silent-installation.md)
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
+##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -229,7 +230,7 @@
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrate AD FS apps to Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
@@ -332,8 +333,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrate other services with Azure AD]()
-### [Enable LinkedIn integration](linkedin-integration.md)
+## Integrate other services with Azure AD
+### [Integrate LinkedIn with Azure AD](linkedin-integration.md)
 
 ## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)

@@ -2,18 +2,11 @@
 title: Set up disaster recovery to Azure for physical on-premises servers with Azure Site Recovery | Microsoft Docs
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 02/07/2018
 ms.author: raynew
 
 ---
@@ -61,7 +54,7 @@ Make sure your Azure account has permissions for replication of VMs to Azure.
 
 ### Set up an Azure network
 
-Set up an [Azure network](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
