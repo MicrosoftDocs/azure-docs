@@ -63,18 +63,18 @@ For instructions on creating an Azure Cosmos DB Table API account, see [Create a
 
 
 ## Install the Azure Cosmos DB Table SDK for Python
-
 After you've created a Storage account, your next step is to install the [Microsoft Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/blob/master/azure-cosmosdb-table/README.rst) file in the Storage SDK for Python repository on GitHub.
 
 ## Create a table
 
-To work with the Azure Table service in Python, you must import the [TableService][https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html] module. Since you'll be working with Table entities, you also need the [Entity][py_Entity] class. Add this code near the top your Python file to import both:
+To work with the Azure Table service in Python, you must import the [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) module. Since you'll be working with Table entities, you also need the [Entity][py_Entity] class. Add this code near the top your Python file to import both:
 
 ```python
-from azure.storage.table import TableService, Entity
+from azure.cosmosdb.table.tableservice import TableService
+from azure.cosmosdb.table.models import Entity
 ```
 
-Create a [TableService][https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
+Create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -84,7 +84,7 @@ table_service.create_table('tasktable')
 
 ## Add an entity to a table
 
-To add an entity, you first create an object that represents your entity, then pass the object to the [TableService][py_TableService].insert_entity method. The entity object can be a dictionary or an object of type [Entity][py_Entity], and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
+To add an entity, you first create an object that represents your entity, then pass the object to the [TableService.insert_entity method][py_TableService]. The entity object can be a dictionary or an object of type [Entity][py_Entity], and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
 
 This example creates a dictionary object representing an entity, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
