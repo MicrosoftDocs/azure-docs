@@ -49,10 +49,8 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### 2. Manual Installation
 For manual installation of Service Fabric runtime and common SDK, follow the rest of this guide.
 
-## Update your APT sources/Yum Repositories
+## Update your APT sources
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
-
-### Ubuntu
 
 1. Open a terminal.
 2. Add the Service Fabric repo to your sources list.
@@ -93,40 +91,9 @@ To install the SDK and the associated runtime package via the apt-get command-li
     sudo apt-get update
     ```
 
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
-1. Open a terminal.
-2. Download and install Extra Packages for Enterprise Linux(EPEL).
-
-    ```bash
-    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    sudo yum install epel-release-latest-7.noarch.rpm
-    ```
-
-3. Install restricted shell(rssh)
-
-    ```bash
-    sudo yum --enablerepo=epel-testing install rssh
-    ```
-
-4. Add EfficiOS RHEL7 package repository to your system.
-
-    ```bash
-    wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
-    ```
-
-5. Import the efficios package signing key to the local GPG keyring
-
-    ```bash
-    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
-    ```
-
 ## Install and set up the Service Fabric SDK for local cluster setup
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
-
-### Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -138,13 +105,6 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
-
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
-```bash
-sudo yum install servicefabricsdkcommon
-```
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
@@ -208,7 +168,7 @@ After you have installed the generators, you should be able to create guest exec
 
 ## Set up .NET Core 2.0 development
 
-Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu)/[.NET Core 2.0 SDK for RedHat](https://www.microsoft.com/net/learn/get-started/linuxredhat) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
+Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
 ## Set up Java development
 
@@ -253,20 +213,10 @@ For more information, see [Service Fabric plug-in for Eclipse Java application d
 
 To update to the latest version of the SDK and runtime, run the following commands:
 
-### Ubuntu
-
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
-```bash
-sudo yum update servicefabric servicefabricsdkcommon
-```
-
 To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, you can refer to any ``build.gradle`` file in Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
@@ -275,22 +225,11 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following:
 
-### Ubuntu
-
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
-```
-
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
-```bash
-sudo yum remote servicefabric servicefabicsdkcommon
-sudo npm uninstall generator-azuresfcontainer
-sudo npm uninstall generator-azuresfguest
 ```
 
 ## Next steps
