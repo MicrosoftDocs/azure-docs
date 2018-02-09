@@ -171,3 +171,10 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_03.png
