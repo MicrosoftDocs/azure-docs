@@ -90,7 +90,7 @@ Add-AzureRmManagementGroup
 
 Within the portal, there are two locations to create a new management group. 
 
-1. At the top of the management group main page, you can find the command "New management Group." This option opens the menu to fill in the fields needed to create the management group. When you create a management group here, it is automatically made a child of the Root management group. 
+At the top of the management group main page, you can find the command "New management Group." This option opens the menu to fill in the fields needed to create the management group. When you create a management group here, it is automatically made a child of the Root management group. 
 
 ![Create Managment Group](media/management-groups/create_main.png)
 
@@ -98,7 +98,7 @@ Within the portal, there are two locations to create a new management group.
 - Management Group Display Name: This field is the Name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time. 
 - Management Group Parent: This field is showing you where the group is being created under. 
 
-2. On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main blade. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
+On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main blade. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
 ---
 
 
