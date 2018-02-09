@@ -108,21 +108,21 @@ These profiles support only **gzip** encoding. When a profile endpoint requests 
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Uncompressed |Uncompressed | |
-| Compressed |Not cached |Compressed or Uncompressed |Depends on origin response |
+| Compressed |Not cached |Compressed or Uncompressed |Depends on the origin response &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | Uncompressed |Compressed |Uncompressed | |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
-
+   
 ### Compression is enabled and file is eligible for compression
 | Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |CDN transcodes between supported formats |
 | Compressed |Uncompressed |Compressed |CDN performs compression |
-| Compressed |Not cached |Compressed |CDN performs compression if the origin returns an uncompressed file. **Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
+| Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
 | Uncompressed |Compressed |Uncompressed |CDN performs decompression |
 | Uncompressed |Uncompressed |Uncompressed | |
 | Uncompressed |Not cached |Uncompressed | |
@@ -133,8 +133,6 @@ For endpoints enabled for Media Services CDN streaming, compression is enabled b
 - application/dash+xml
 - application/vnd.apple.mpegurl
 - application/f4m+xml. 
-
-You cannot enable or disable compression for these MIME types by using the Azure portal.  
 
 ## See also
 * [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    
