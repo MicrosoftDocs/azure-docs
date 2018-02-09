@@ -61,9 +61,9 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## What applications and systems can I use with Azure AD automatic user provisioning?
 
-Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the SCIM 2.0 standard.
 
-For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the list of [application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
 
 For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
 
@@ -216,6 +216,5 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-* [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
 * [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
