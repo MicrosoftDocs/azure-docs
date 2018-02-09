@@ -44,7 +44,19 @@ First, start the [Azure Storage Emulator](https://docs.microsoft.com/azure/stora
 
 This will start the Azure Storage Emulator on your machine, and open a command prompt which you can use to control it from there.
 
-Next, open the [sample application](https://github.com/cartermp/TutorialForStorage) in Visual Studio 2017. Start it by pressing **f5** in Visual Studio. This will launch the web app on `http://localhost:58673/` so that you can interact with it. You can explore the shape of the API by entering `http://localhost:58673/api` to explore the REST API. Ensure that the Azure Storage Emulator is running before you use the API.
+Open the [sample application](https://github.com/cartermp/TutorialForStorage) in Visual Studio 2017. Start it by pressing **f5** in Visual Studio. This will launch the web app on `http://localhost:58673/` so that you can interact with it or click the API tab to browse the reference.
+
+Next, enter the following in your browser to test that your GET API is working:
+
+```
+http://localhost:58673/api/blobs
+```
+
+You should see a response that is similar to the following:
+
+```
+TODO phillip - response from running the app against the good images
+```
 
 To see metadata about the images contained in the sample application, enter `http://localhost:58673/api/blobs` into your browser. To add more images and upload them to blobs, simply add an image to the `Images` folder in the project and POST to the running API.
 
