@@ -108,12 +108,18 @@ These profiles support only **gzip** encoding. When a profile endpoint requests 
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-<table style="width:100%">
+<table>
+<colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+  </colgroup>
   <tr>
-    <th style="width:25%">Client-requested format (via Accept-Encoding header)</th>
-    <th style="width:25%">Cached-file format</th> 
-    <th style="width:25%">CDN response to the client</th>
-    <th style="width:25%">Notes</th>
+    <th>Client-requested format (via Accept-Encoding header)</th>
+    <th>Cached-file format</th> 
+    <th>CDN response to the client</th>
+    <th>Notes</th>
   </tr>
   <tr>
     <td>Compressed</td>
@@ -154,12 +160,18 @@ The following tables describe Azure CDN compression behavior for every scenario:
 </table>
 
 ### Compression is enabled and file is eligible for compression
-<table style="width:100%">
+<table>
+<colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+  </colgroup>
   <tr>
-    <th style="width:25%">Client-requested format (via Accept-Encoding header)</th>
-    <th style="width:25%">Cached-file format</th> 
-    <th style="width:25%">CDN response to the client</th>
-    <th style="width:25%">Notes</th>
+    <th>Client-requested format (via Accept-Encoding header)</th>
+    <th>Cached-file format</th> 
+    <th>CDN response to the client</th>
+    <th>Notes</th>
   </tr>
   <tr>
     <td>Compressed</td>
