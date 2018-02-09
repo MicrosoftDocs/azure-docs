@@ -54,20 +54,20 @@ The following section provides you with a complete overview of all possible erro
 
 |Error|Description|
 |---|---|
-|50055|Invalid password, entered expired password.|
-|50089|Flow token validation failed due to flow token expiry.|
-|50097|Device is not authenticated.|
-|50105|The signed in user is not assigned to a role for this application.|
 |50001|The service principal named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 |50008|SAML assertion are missing or misconfigured in the token.|
 |50011|The reply address is missing, misconfigured or does not match reply addresses configured for the application.|
 |50012|User reported fraud during Multi-Factor authentication.|
 |50053|Account is locked because user tried to sign in too many times with an incorrect user ID or password.|
 |50054|Old password is used for authentication.|
+|50055|Invalid password, entered expired password.|
 |50057|User account is disabled.|
 |50058|No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
 |50074|User did not pass the MFA challenge.|
 |50079|User needs to enroll for second factor authentication.|
+|50089|Flow token validation failed due to flow token expiry.|
+|50097|Device is not authenticated.|
+|50105|The signed in user is not assigned to a role for this application.|
 |50126|Invalid username or password or Invalid on-premise username or password.|
 |50131|Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 |50133|Session is invalid due to expiration or recent password change.|
@@ -95,7 +95,6 @@ The following section provides you with a complete overview of all possible erro
 |81013|Unable to find user object based on information in the user's Kerberos ticket.|
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
-
 
 
 
