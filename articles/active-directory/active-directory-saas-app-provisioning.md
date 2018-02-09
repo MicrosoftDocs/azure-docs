@@ -75,7 +75,7 @@ To contact the Azure AD engineering team to request provisioning support for add
 	
 ## How do I set up automatic provisioning to an application?
 
-Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://potal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
+Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
 * All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) for additional ones.
 
