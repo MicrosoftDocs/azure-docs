@@ -4,7 +4,7 @@ description: Learn how to create, change, or delete a virtual network in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -27,27 +27,19 @@ A virtual network is a representation of your own network in the cloud. A virtua
 - Choose to use the Azure-provided DNS server, or use your own DNS server. All resources that are connected to the virtual network are assigned this DNS server to resolve names within the virtual network.
 - Segment the virtual network into subnets, each with its own address range, within the address space of the virtual network. To learn how to create, change, and delete subnets, see [Add, change, or delete subnets](virtual-network-manage-subnet.md).
 
-This article explains how to create, change, and delete virtual networks by using the Azure Resource Manager deployment model.
+## Before you begin
 
-## <a name="before"></a>Before you begin
+Complete the following tasks before completing steps in any section of this article:
 
-Before you begin the tasks that are described in this article, complete the following prerequisites:
+- If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+- If using the portal, open https://portal.azure.com, and log in with your Azure account.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
-- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](quick-create-portal.md). This exercise can help you become more familiar with virtual networks.
-- To learn about limits for virtual networks, review [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Sign in to the Azure portal, the Azure command-line tool (Azure CLI), or Azure PowerShell by using your Azure account. If you don't have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-- If you plan to use PowerShell commands to complete the tasks described in this article, you must first [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands in the examples, enter `get-help <command> -full`.
-- If you plan to use Azure CLI commands to complete the tasks described in this article, you must first [install and configure Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of Azure CLI installed. To get help with Azure CLI commands, enter `az <command> --help`.
+## Create a virtual network
 
-
-## <a name="create-vnet"></a>Create a virtual network
-
-To create a virtual network:
-
-1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Click **New** > **Networking** > **Virtual network**.
-3. On the **Virtual network** blade, in the **Select a deployment model** box, leave **Resource Manager** selected, and then click **Create**.
-4. On the **Create virtual network** blade, enter or select values for the following settings, then click **Create**:
+1. Select **+ New** > **Networking** > **Virtual network**.
+2. On the **Create virtual network** blade, enter or select values for the following settings, then select **Create**:
 	- **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Following a naming convention can help make it easier to manage multiple virtual networks.
 	- **Address space**: Specify the address space in CIDR notation. The address space you define can be public or private (RFC 1918). Whether you define the address space as public or private, the address space is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address spaces:
 		- 224.0.0.0/4 (Multicast)
@@ -76,19 +68,14 @@ To create a virtual network:
 
 **Commands**
 
-|Tool|Command|
-|---|---|
-|Azure CLI|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_create)|
-|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI: [az network vnet create](/cli/azure/network/vnet)
+- PowerShell: [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)
 
-## <a name = "view-vnet"></a>View virtual networks and settings
+## View virtual networks and settings
 
-To view virtual networks and settings:
-
-1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. In the portal search box, enter **virtual networks**. In the search results, click **Virtual networks**.
-3. On the **Virtual networks** blade, click the virtual network that you want to view settings for.
-4. The following settings are listed on the blade for the virtual network you selected:
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+2. On the **Virtual networks** blade, select the virtual network that you want to view settings for.
+3. The following settings are listed on the blade for the virtual network you selected:
 	- **Overview**: Provides information about the virtual network, including address space and DNS servers. The following screenshot shows the overview settings for a virtual network named **MyVNet**:
 
 		![Network interface overview](./media/virtual-network-manage-network/vnet-overview.png)
@@ -100,7 +87,7 @@ To view virtual networks and settings:
 	- **DNS servers**: You can specify whether the Azure internal DNS server or a custom DNS server provides name resolution for devices that are connected to the virtual network. When you create a virtual network by using the Azure portal, Azure's DNS servers are used for name resolution within a virtual network, by default. To modify the DNS servers, complete the steps in [Add, change, or remove a DNS server](#dns-servers) in this article.
 	- **Peerings**: If there are existing peerings in the subscription, they are listed here. You can view settings for existing peerings, or create, change, or delete peerings. To learn more about peerings, see [Virtual network peering](virtual-network-peering-overview.md).
 	- **Properties**: Displays settings about the virtual network, including the virtual network's resource ID and the Azure subscription it is in.
-	- **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, click the device.
+	- **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, select the device.
 	- **Common Azure settings**: To learn more about common Azure settings, see the following information:
 		*	[Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
 		*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -110,13 +97,10 @@ To view virtual networks and settings:
 
 **Commands**
 
-|Tool|Command|
-|---|---|
-|Azure CLI|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI: [az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_show)
+- PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-
-## <a name="add-address-spaces"></a>Add or remove an address space
+## Add or remove an address space
 
 You can add and remove address spaces for a virtual network. An address space must be specified in CIDR notation, and cannot overlap with other address spaces within the same virtual network. The address spaces you define can be public or private (RFC 1918). Whether you define the address space as public or private, the address space is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address spaces:
 
@@ -128,68 +112,67 @@ You can add and remove address spaces for a virtual network. An address space mu
 
 To add or remove an address space:
 
-1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. In the portal search box, enter **virtual networks**. In the search results, select **Virtual networks**.
-3. On the **Virtual networks** blade, click the virtual network for which you want to add or remove an address space.
-4. On the virtual network blade, under **SETTINGS**, click **Address space**.
-5. On the blade for the address space, complete one of the following options:
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+2. On the **Virtual networks** blade, select the virtual network for which you want to add or remove an address space.
+3. On the virtual network blade, under **SETTINGS**, select **Address space**.
+4. On the blade for the address space, complete one of the following options:
 	- **Add an address space**: Enter the new address space. The address space cannot overlap with an existing address space that is defined for the virtual network.
-	- **Remove an address space**: Right-click an address space, and then click **Remove**. If a subnet exists in the address space, you cannot remove the address space. To remove an address space, you must first delete any subnets (and any resources that are connected to the subnets) that exist in the address space.
-6. Click **Save**.
+	- **Remove an address space**: Right-click an address space, and then select **Remove**. If a subnet exists in the address space, you cannot remove the address space. To remove an address space, you must first delete any subnets (and any resources that are connected to the subnets) that exist in the address space.
+5. Select **Save**.
 
 **Commands**
 
-|Tool|Command|
-|---|---|
-|Azure CLI|Resource Manager only|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI: Resource Manager only|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)
+- PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="dns-servers"></a>Add, change, or remove a DNS server
+## Add, change, or remove a DNS server
 
 All VMs that are connected to the virtual network register with the DNS servers that you specify for the virtual network. They also use the specified DNS server for name resolution. Each network interface (NIC) in a VM can have its own DNS server settings. If a NIC has its own DNS server settings, they override the DNS server settings for the virtual network. To learn more about NIC DNS settings, see [Network interface tasks and settings](virtual-network-network-interface.md#change-dns-servers). To learn more about name resolution for VMs and role instances in Azure Cloud Services, see [Name resolution for VMs and role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md). To add, change, or remove a DNS server:
 
-1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. In the portal search box, type **virtual networks**. In the search results, select **Virtual networks**.
-3. On the **Virtual networks** blade, click the virtual network you want to change DNS settings for.
-4. On the virtual network blade, under **SETTINGS**, click **DNS servers**.
-5. Select one of the following options on the blade that lists DNS servers:
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+2. On the **Virtual networks** blade, select the virtual network you want to change DNS settings for.
+3. On the virtual network blade, under **SETTINGS**, select **DNS servers**.
+4. Select one of the following options on the blade that lists DNS servers:
 	- **Default (Azure-provided)**: All resource names and private IP addresses are automatically registered to the Azure DNS servers. You can resolve names between any resources that are connected to the same virtual network. You cannot use this option to resolve names across virtual networks. To resolve names across virtual networks, you must use a custom DNS server.
 	- **Custom**: You can add one or more servers, up to the Azure limit for a virtual network. To learn more about DNS server limits, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). You have the following options:
 		- **Add an address**: Adds the server to your virtual network DNS servers list. This option also registers the DNS server with Azure. If you've already registered a DNS server with Azure, you can select that DNS server in the list.
-		- **Remove an address**: Next to the server that you want to remove, click **X**. Deleting the server removes the server only from this virtual network list. The DNS server remains registered in Azure for your other virtual networks to use.
+		- **Remove an address**: Next to the server that you want to remove, select **X**. Deleting the server removes the server only from this virtual network list. The DNS server remains registered in Azure for your other virtual networks to use.
 		- **Reorder DNS server addresses**: It's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists are used in the order that they are specified. They do not work as a round-robin setup. If the first DNS server in the list can be reached, the client uses that DNS server, regardless of whether the DNS server is functioning properly. Remove all the DNS servers that are listed, and then add them back in the order that you want.
 		- **Change an address**: Highlight the DNS server in the list, and then enter the new name.
-6. Click **Save**.
-7. Restart the VMs that are connected to the virtual network, so they are assigned the new DNS server settings. VMs continue to use their current DNS settings until they are restarted.
+5. Select **Save**.
+6. Restart the VMs that are connected to the virtual network, so they are assigned the new DNS server settings. VMs continue to use their current DNS settings until they are restarted.
 
 **Commands**
 
-|Tool|Command|
-|---|---|
-|Azure CLI|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)
+- PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="delete-vnet"></a>Delete a virtual network
+## Delete a virtual network
 
 You can delete a virtual network only if there are no resources connected to it. If there are resources connected to any subnet within the virtual network, you must first delete the resources that are connected to all subnets within the virtual network. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are connected to subnets, read the documentation for each resource type you want to delete. To delete a virtual network:
 
-1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. In the portal search box, enter **virtual networks**. In the search results, click **Virtual networks**.
-3. On the **Virtual networks** blade, select the virtual network you want to delete.
-4. On the virtual network blade, to confirm that there are no devices connected to the virtual network, under **SETTINGS**, click **Connected devices**. If there are connected devices, you must delete them before you can delete the virtual network. If there are no connected devices, click **Overview**.
-5. At the top of the blade, click the **Delete** icon.
-6. To confirm the deletion of the virtual network, click **Yes**.
-
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+2. On the **Virtual networks** blade, select the virtual network you want to delete.
+3. On the virtual network blade, to confirm that there are no devices connected to the virtual network, under **SETTINGS**, select **Connected devices**. If there are connected devices, you must delete them before you can delete the virtual network. If there are no connected devices, select **Overview**.
+4. At the top of the blade, select **Delete**.
+5. To confirm the deletion of the virtual network, select **Yes**.
 
 **Commands**
 
-|Tool|Command|
-|---|---|
-|Azure CLI|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)|
-|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
+## Permissions
 
-## <a name="next-steps"></a>Next steps
+To perform tasks on virtual networks, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+
+|Operation                                    |   Operation name                    |
+|-------------------------------------------  |   --------------------------------  |
+|Microsoft.Network/virtualNetworks/read       |   Get Virtual Network               |
+|Microsoft.Network/virtualNetworks/write      |   Create or Update Virtual Network  |
+|Microsoft.Network/virtualNetworks/delete     |   Delete Virtual Network            |
+
+## Next steps
 
 - To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](quick-create-portal.md#create-virtual-machines).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
