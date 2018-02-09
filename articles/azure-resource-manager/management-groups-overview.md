@@ -18,9 +18,9 @@ ms.author: rithorn
 
 # Organize your resources with Azure Management Groups 
 
-If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise grade management at scale no matter what type of subscriptions you might have.  
+If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
-As an example, you can apply policies to a management group that limit the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.   
+As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.   
 
 >![NOTE] Management group feature is being introduced as a Public Preview in February 2018.
 
@@ -45,12 +45,12 @@ For example, another common scenario for customers is the repetitive work needed
 Each directory is given one "Root" management group that allows for global policies to be applied. The Directory Administrator needs to escalate themselves to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups that they want to manage the hierarchy.  
 
 ### Important facts about the Root management Group
-- The root management group is given the Directory ID number as the name and ID by default. The display name can be updated at anytime to be different within the Azure portal.  
+- The root management group is given the Directory ID number as the name and ID by default. The display name can be updated at any time to be different within the Azure portal.  
 - All subscriptions and management groups can fold up to the one root management group within the directory.  
-    - It is recommended to have all items in the directory fold up to the Root management group for ease of management.  
-    - During the Public Preview, all subscriptions within the directory will not be automatically made children of the root.   
+    - It is recommended to have all items in the directory fold up to the Root management group for global management.  
+    - During the Public Preview, all subscriptions within the directory are not automatically made children of the root.   
     - During the Public Preview, new subscriptions are not automatically default to the Root management group 
-- The Root management group is special in that it cannot be moved or deleted unlike other management groups. 
+- The Root management group is special in that it cannot be moved or deleted, unlike other management groups. 
 - All new management groups have their parent group defaulted to the root management group when created.
   
 ## Management Group Access
@@ -83,7 +83,7 @@ Add-AzureRmManagementGroup
     [<CommonParameters>]
 ```
 - [-GroupName]: Defines the identifier of the group being created. This identifier is used by other commands to reference this group and it cannot be edited later.
-- [-DisplayName]: The name that is displayed within the UI for this group. The Display Name can be changed at anytime.
+- [-DisplayName]: The name that is displayed within the UI for this group. The Display Name can be changed at any time.
 - [-ParentId]: This parameter is used while creating the group to link it as a child to another group. The group listed here is the parent of the new group. 
 
 # [Portal](#tab/portal)
@@ -92,7 +92,7 @@ Within the portal, there are two locations to create a new management group.
 
 At the top of the management group main page, you can find the command "New management Group." This option opens the menu to fill in the fields needed to create the management group. When you create a management group here, it is automatically made a child of the Root management group. 
 
-![Create Managment Group](media/management-groups/create_main.png)
+![Create Management Group](media/management-groups/create_main.png)
 
 - Management Group ID: This identifier is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system. 
 - Management Group Display Name: This field is the Name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time. 
@@ -125,7 +125,7 @@ You see the new group show in the list
 
 ---
 
-### Example 2: Add new group that has a different Display Name and is under a parent management group
+### Example 2: Add new group that has a different Display Name 
 This example shows the command to create a new management group with the identifier of "newGroup" and have a display name of "Contoso IT." This management group is a child of the management group created in Example 1.  
 
 # [PowerShell](#tab/powershell)
@@ -233,7 +233,7 @@ To delete a management group:
 - Select the management group you would like to delete. 
 ![delete Group](media/management-groups/delete.png)
 - Select the "delete" option at the top of the page. 
-    - If the icon is disabled, hovering your mouse selector over the icon will shoe you the reason. 
+    - If the icon is disabled, hovering your mouse selector over the icon shows you the reason. 
 ![delete Group](media/management-groups/detail_action_small.png) 
 [image]
 - There is a window that opens confirming you want to delete the management group. 
@@ -248,7 +248,7 @@ The hierarchy list updates showing the group has been deleted.
 There are multiple ways to view management groups within Azure. The following are the PowerShell and Portal methods of viewing. 
 
 # [Powershell](#tab/powershell)
-Within PowerShell, you can use the Get command to retrieve all groups or details on an individual management groups. 
+Within PowerShell, you can use the Get command to retrieve all groups or details on an individual management group. 
 
 ```powershell
 Get-AzureRmManagementGroup
@@ -344,7 +344,7 @@ A subscription that moves to a management group inherits all user accesses and p
 ### Moving a subscription to a management group   
 There are a couple easy ways to connect a subscription to a management group.    
 
-# [Powershell](#tab/poweshell)
+# [Powershell](#tab/powershell)
 
 ```powershell
 Add-AzureRmManagementGroupSubscription
@@ -387,7 +387,7 @@ Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123456
 ![Children](media/management-groups/add_context_2.png)
 - Select "Save"
 
-You see the list update with the subscription
+You see the list now show with the subscription
 
 ---
 
@@ -416,11 +416,11 @@ Remove-AzureRmManagementGroupSubscription
 - [-SubscriptionId]: The required field that identifies the subscription that is currently linked to a management group to be unlinked.
 
 #[Portal](#tab/portal)
-Within the Azure portal you can move a subscription to a new parent management group a couple different pages. The image shown here is on the main management group page. 
+Within the Azure portal, you can move a subscription to a new parent management group a couple different pages. The image shown here is on the main management group page. 
 
 There are a couple different ways to move a subscription to a management group within the Azure portal. 
 
-The first way is on the management group's detail blade. Here you are able to add an existing subscription to the management group
+The first way is the management group's detail blade. Here you are able to add an existing subscription to the management group
 
 ![Children](media/management-groups/add_context_2.png)
 
@@ -447,7 +447,7 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 - On the menu that opens, select the parent management group.  
 - Select "Save"
 
-You see the list update with the subscription
+You see the list update now with the subscription
 
 ---
 
@@ -471,7 +471,7 @@ Update-AzureRmManagementGroup
 # [Portal](#tab/portal)
 There are a couple different ways to move a management group to a different management group within the Azure portal. 
 
-The first way is on the management group's detail blade. Here you are able to add an existing management group.
+The first way is the management group's detail blade. Here you are able to add an existing management group.
 
 ![Action](media/management-groups/children_action.png)
 
@@ -507,7 +507,7 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoMarketing -ParentName Conto
 
 - Select "Save"
 
-You see the list update with the management group
+You see the list update now with the management group
 
 The alternative way is to navigate to the management group and change the parent
 - Select the management group service menu on the left 
@@ -529,7 +529,7 @@ The first option is to go to the other management group and add the new manageme
 the second option is where you go to the management group detail page and change the parent.  
 
 A management group that moves to a different management group inherits all user accesses and policies from any parent management group in the hierarchy. To move a management group, there are a couple permissions that you must have: 
-- "Owner" role on the child management group.
+- "Owner" role of the child management group.
 - "Owner" or "Contributor" role on the new parent management group. 
 - "Owner" or "Contributor" role on the old parent management group.
 
@@ -552,7 +552,7 @@ Update-AzureRmManagementGroup
 
 There are a couple different ways to move a management group to a different management group within the Azure portal. 
 
-he first way is on the management group's detail blade. Here you are able to add an existing management group.
+The first way is on the management group's detail blade. Here you are able to add an existing management group.
 
 ![Action](media/management-groups/children_action.png)
 
