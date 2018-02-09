@@ -126,7 +126,7 @@ When the provisioning service is started, the first sync ever performed will:
 7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
 
 >[!NOTE]
-> A selected number of applications also support provisioning of group names and group properties to targets systems, in addition to user accounts. When this is supported and enabled in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md), the provisioning service will synchronize the parent group object first, before enumerating and synchronizing the users that are members of the group.
+> A selected number of applications also support provisioning of group names and group properties to target systems, in addition to user accounts. When this is supported and enabled in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md), the provisioning service will synchronize the parent group object first, before enumerating and synchronizing the users that are members of the group.
 
 ### Delta syncs
 After the initial sync, all subsequent syncs will:
