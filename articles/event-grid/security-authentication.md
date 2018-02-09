@@ -56,6 +56,10 @@ In order to prove endpoint ownership, echo back the validation code in the valid
 }
 ```
 
+### Event delivery security
+
+The destination webhook can optionally verify that every every event delivery is coming from the Event Subscripion. This can by achieved  by adding query parameters to the webhook URL when creating an Event Subscription. One of these query parameters could be a secret that the webhook could use to recognize that the event is coming from an Event Grid. Event Grid will include these query parameters in every event delivery to the webhook.
+
 Finally, it is important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 
 ## Event subscription
