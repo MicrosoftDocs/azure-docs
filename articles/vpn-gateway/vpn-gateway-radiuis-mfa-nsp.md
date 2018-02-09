@@ -20,7 +20,11 @@ ms.author: genli
 ---
 # Integrate Azure VPN gateway RADIUS authentication with NPS server for Multi-Factor Authentication 
 
-The article describes how to integrate NPS server with Azure VPN gateway RADIUS authentication to deliver Multi-Factor Authentication (MFA) for Point-to-site VPN connections. 
+The article describes how to integrate Network Policy Server (NPS) server with Azure VPN gateway RADIUS authentication to deliver Multi-Factor Authentication (MFA) for Point-to-site VPN connections. 
+
+## Prerequisite
+
+To enable MFA, the users must be in Azure Active Directory (Synced from on-premises or cloud only), and the user must already complete the proof up process for MFA.  Users can complete the proof up process by using https://myapps.microsoft.com.
 
 ## Detailed steps
 
@@ -32,10 +36,10 @@ The article describes how to integrate NPS server with Azure VPN gateway RADIUS 
     ![The image about how to add gateway subnet](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Create a virtual network gateway with the following settings:
 
-    - **Gateway type**: select **VPN**
-    - **VPN type**: select **Route-based**
-    - **SKU**: select a SKU type based on your requirements
-    - **Virtual network**: select the virtual network that you created the gateway subnet
+    - **Gateway type**: select **VPN**.
+    - **VPN type**: select **Route-based**.
+    - **SKU**: select a SKU type based on your requirements.
+    - **Virtual network**: select the virtual network that you created the gateway subnet.
 
         ![The image about virtual network gateway settings](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -69,8 +73,8 @@ The article describes how to integrate NPS server with Azure VPN gateway RADIUS 
 3. Click **Point to site configuration** > **Configure now**, and then add the following settings:
 
     - **Address pool**: type the gateway subnet you created in the step 1.
-    - **Authentication type**: select **RADIUS authentication**
-    - **Server IP address**: type the IP address of the NPS server
+    - **Authentication type**: select **RADIUS authentication**.
+    - **Server IP address**: type the IP address of the NPS server.
 
 ## Next steps
 
