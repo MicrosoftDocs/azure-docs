@@ -19,14 +19,14 @@ ms.custom: mvc
 
 ---
 
-# Monitor your Service Fabric applicaitons in Service Fabric using ELK 
-This tutorial is part four of a series and shows you how to use ELK (Elasticsearch, Logstash and Kibana) to monitor your Service Fabric applications running in Azure. 
+# Monitor your Service Fabric applications in Service Fabric using ELK 
+This tutorial is part four of a series. It shows how to use ELK (Elasticsearch, Logstash, and Kibana) to monitor Service Fabric applications running in Azure. 
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * [Create an ELK image in Azure]
-> * Set up your ELK environment
-> * Visualize data from Service Fabric in Kibana
+> * Set up ELK server in Azure
+> * Configure Logstash to receive logs from Event Hubs
+> * Visualize platform and application logs in Kibana 
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -44,14 +44,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 ## Create an ELK server in Azure
 
-You can use a preconfigured ELK set up for this tutorial and if you already have one, skip to the **Setup Logstash** step. However, if you do not have one, follow the steps below to create one in Azure. 
+You can use a preconfigured ELK environment for this tutorial and if you already have one, skip to the **Setup Logstash** section. However, if you do not have one, the following steps creates one in Azure. 
 
-1. Create a [ELK Certified by Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server. 
+1. Create an ELK Certified by Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) in Azure. For the purposes of the tutorial, there are not any particular specifications to follow for the creation of this server. 
 
-2. Once the resource is up and running, go to your resource in Azure Portal and enter the **Boot Diagnostics** tab under the **Support + Troubleshooting** section on the left hand pane and click on the **Serial Log** tab.
+2. Go to your resource in Azure portal and enter the **Boot Diagnostics** tab under the **Support + Troubleshooting** section. Next, click on the **Serial Log** tab.
 
 ![Boot Diagnostics](./media/service-fabric-tutorial-java-elk/bootdiagnostics.png)
-3. Do a search on the logs for your password that will be needed for the Kibana instance running on this server. It will resemble the following. Make a note of the below. 
+3. Do a search on the logs for the password is required to access the Kibana instance. It resembles the following snippet:
+
 ```bash
 [   25.932766] bitnami[1496]: #########################################################################
 [   25.948656] bitnami[1496]: #                                                                       #
@@ -60,9 +61,13 @@ You can use a preconfigured ELK set up for this tutorial and if you already have
 [   26.004770] bitnami[1496]: #                                                                       #
 [   26.029413] bitnami[1496]: #########################################################################
 ```
-3. Once the resource is up and running, press the connect button on the Overview page of the server in Azure Portal to get the SSH details. 
-![VM Connection](./media/service-fabric-tutorial-java-elk/vmconnection.png)
-4. SSH into the server hosting the ELK image using the following command
+
+4. Press the connect button on the Overview page of the server in Azure portal to get the login details. 
+
+    ![VM Connection](./media/service-fabric-tutorial-java-elk/vmconnection.png)
+
+5. SSH into the server hosting the ELK image using the following command
+
 ```bash
 ssh [USERNAME]@[CONNECTION-IP-OF-SERVER] 
 
@@ -77,17 +82,20 @@ Example: ssh testaccount@104.40.63.157
 sudo /opt/bitnami/use_elk 
 ```
 
-2. If you are using an existing environment, you will have to run the following command to stop the Logstash service so we can configure it 
+2. If you are using an existing environment, you have to run the following command to stop the Logstash service
+
 ```bash
 sudo /opt/bitnami/ctlscript.sh stop logstash
 ```
 
 3. Run the following command to install the Logstash plugin for Event Hubs. 
+
 ```bash
 logstash-plugin install logstash-input-azureeventhub
 ```
 
-4. Create or modify your existing Logstash config file with the following contents. If you are creating the file, it will have to be created at ```/opt/bitnami/logstash/conf/access-log.conf``` if using the ELK Bitnami image in Azure. 
+4. Create or modify your existing Logstash config file with the following contents: If you are creating the file, it has to be created at ```/opt/bitnami/logstash/conf/access-log.conf``` if using the ELK Bitnami image in Azure. 
+
 ```json
 input
 {
@@ -108,32 +116,36 @@ output {
  }
 ```
 
-5. Run the following command to verify the configuration
+5. To verify the configuration, run the following command:
 
 ```bash 
 /opt/bitnami/logstash/bin/logstash -f /opt/bitnami/logstash/conf/ --config.test_and_exit
 ```
 
-6. Start the logstash service
+6. Start the Logstash service
 
 ```bash
 sudo /opt/bitnami/ctlscript.sh start logstash
 ```
 
-7. Check your Elasticsearch to make sure you are receving data
+7. Check your Elasticsearch to make sure you are receiving data
+
 ```bash
 curl 'localhost:9200/_cat/indices?v'
 ```
 
-8. Access your Kibana dashboard at **http://SERVER-IP** and enter the username and password for Kibana. If you used the ELK image in Azure the default username is 'user' and the password is the one obtained from the **Boot Diagnostics**. 
+8. Access your Kibana dashboard at **http://SERVER-IP** and enter the username and password for Kibana. If you used the ELK image in Azure, the default username is 'user' and the password is the one obtained from the **Boot Diagnostics**. 
+
 ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
+
 ## Next steps
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Get an ELK server up and running in Azure 
-> * Configure the server to receive to receive diagnostic information from your Service Fabric cluster
+> * Configure the server to receive diagnostic information from your Service Fabric cluster
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Set up CI/CD](service-fabric-tutorial-java-jenkins-cicd.md)
+> [Set up CI/CD with Jenkins](service-fabric-tutorial-java-jenkins.md)
+
