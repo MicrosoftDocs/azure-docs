@@ -10,13 +10,13 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/09/2018
 ---
 
 # Understand data retention in Time Series Insights
 This article describes two settings that impact data retention in your Time Series Insights (TSI) environment.
 
-Each TSI environment has a setting that controls **Data retention time**. The values span between 1 and 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
+Each TSI environment has a setting that controls **Data retention time**. The value spans from 1 and 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
 Each TSI environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
 - **Purge old data** (default)  
