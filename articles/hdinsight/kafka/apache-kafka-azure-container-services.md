@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
 ---
-# Introducing Apache Kafka on HDInsight (preview)
+# Use Azure Container Services with Kafka on HDInsight
 
 Learn how to use Azure Container Service (AKS) with Kafka on HDInsight cluster.
 
