@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/09/2017
 ms.author: jeedes
 
 ---
@@ -154,7 +154,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. Sign on to your ServiceNow application as an administrator.
 
-10. Activate the **Integration - Multiple Provider Single Sign-On Installer** plugin by following the next steps:
+10. In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in servicenow. follow the below steps for the same:
+
+	a. In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
+	
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+
+	b. Click on the automatically generated identity provider
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
+
+	c. Scroll down to the **X.509 Certificate** section. Select **Edit**.
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
+	
+	d. Select on the certificate and click right arrow icon to add the certificate
+
+	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_11.png "Configure single sign-on")
+
+	e. Click **Save**.
+
+	f. Click on **Activate** at the top right corner of the page.
+
+11. For configuring servicenow manually follow the below steps
+
+12. Sign on to your ServiceNow application as an administrator.
+
+13. Activate the **Integration - Multiple Provider Single Sign-On Installer** plugin by following the next steps:
 
 	a. In the navigation pane on the left side, search **System Definition** section from the search bar and then click **Plugins**.
 
@@ -168,11 +194,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click the **Activate** button.
 
-11. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
+14. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
 
 	![Configure app URL](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-12. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
+15. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
 
 	![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "Configure app URL")
 
@@ -186,15 +212,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Click **Save**.
 
-13. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **x509 Certificates**.
+16. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **x509 Certificates**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configure single sign-on")
 
-14. On the **X.509 Certificates** dialog, click **New**.
+17. On the **X.509 Certificates** dialog, click **New**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694974.png "Configure single sign-on")
 
-15. On the **X.509 Certificates** dialog, perform the following steps:
+18. On the **X.509 Certificates** dialog, perform the following steps:
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "Configure single sign-on")
 
@@ -210,19 +236,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	 f. Click **Submit**.
 
-16. In the navigation pane on the left side, click **Identity Providers**.
+19. In the navigation pane on the left side, click **Identity Providers**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-17. On the **Identity Providers** dialog, click **New**.
+20. On the **Identity Providers** dialog, click **New**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694977.png "Configure single sign-on")
 
-18. On the **Identity Providers** dialog, click **SAML2 Update1?**.
+21. On the **Identity Providers** dialog, click **SAML2 Update1?**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694978.png "Configure single sign-on")
 
-19. On the SAML2 Update1 Properties dialog, perform the following steps:
+22. On the SAML2 Update1 Properties dialog, perform the following steps:
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/idp.png "Configure single sign-on")
 
@@ -232,7 +258,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Import**.
 
-20. It reads the IdP metadata URL and populates all the fields information.
+23. It reads the IdP metadata URL and populates all the fields information.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
@@ -255,19 +281,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	 > [!NOTE]
 	 > ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
 
-21. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
+24. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694992.png "Configure single sign-on")
 
-22. In the upper left search box, search for **sys_properties.list** and press enter.
+25. In the upper left search box, search for **sys_properties.list** and press enter.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694993.png "Configure single sign-on")
 
-23. Click **New**.
+26. Click **New**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "Configure single sign-on")
 
-24. In the **System Property** section, perform the following steps:
+27. In the **System Property** section, perform the following steps:
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694995.png "Configure single sign-on")
 
@@ -279,11 +305,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Submit**.
 
-25. Click **New**.
+28. Click **New**.
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694994.png "Configure single sign-on")
 
-26. In the **System Property** section, perform the following steps:
+29. In the **System Property** section, perform the following steps:
 
 	![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694996.png "Configure single sign-on")
 
@@ -293,7 +319,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Submit**.
 
-27. After doing above step, now you will be able to activate your new identity provider and your SSO should work
+30. After doing above step, now you will be able to activate your new identity provider and your SSO should work
 
 > [!NOTE]
 > Also please note that, you have to try your new Idp in a new incognito window
