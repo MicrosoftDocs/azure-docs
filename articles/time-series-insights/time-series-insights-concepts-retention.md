@@ -53,7 +53,7 @@ Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, da
 - This behavior provides additional time for the users to increase the capacity of their environment before data is purged due to breaching of retention period
 - This behavior helps protect from data loss, but creates an opportunity for the loss of your most recent data if ingress is paused beyond the retention period of your event source.
 - However, once an environment’s maximum capacity is reached, the environment pauses data ingress until additional actions occur: 
-   - You increase the environment’s maximum capacity. For more information, [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to add more scale units.
+   - You increase the environment’s maximum capacity. For more information, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to add more scale units.
    - The data retention period is reached and data is purged, thus bringing the environment below its maximum capacity.
 
 ### Example 3:
@@ -72,7 +72,7 @@ In the impacted Event Hubs, consider adjusting the **Message Retention** propert
 
 If no properties are configured on event source (timeStampPropertyName), TSI defaults to the timestamp of arrival at event hub as the x-axis. If timeStampPropertyName is configured to be something different, the environment looks for the configured timeStampPropertyName in the data packet when events are parsed. 
 
-If you need to scale your environment up to accommodate additional capacity or to increase the length of retention, [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) for more information.  
+If you need to scale your environment up to accommodate additional capacity or to increase the length of retention, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) for more information.  
 
 ## Next steps
 For information on switching retention behavior, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
