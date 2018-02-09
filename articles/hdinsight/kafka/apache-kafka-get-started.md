@@ -229,3 +229,4 @@ In this document, you have learned the basics of working with Apache Kafka on HD
 * [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Use Kafka with Azure Container Service](apache-kafka-azure-container-service.md)
