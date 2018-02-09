@@ -65,7 +65,7 @@ Azure AD features pre-integrated support for a variety of popular SaaS apps and 
 
 For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](active-directory-saas-tutorial-list.md).
 
-For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](active-directory-scim-provisioning).md.
+For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md).
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).	
 
