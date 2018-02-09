@@ -166,10 +166,9 @@ This setting has an impact on access attempts made from the following mobile app
 |Outlook 2016 (Office for macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook mobile app|Office 365 Exchange Online|Android, iOS|
-|PowerBI app. The Power BI app for Android does not currently support device-based conditional access.|PowerBI service|Windows 10, Windows 8.1, Windows 7, and iOS|
+|PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, and iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
-
 
 
 ## Approved client app requirement 
@@ -183,6 +182,7 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -190,6 +190,7 @@ This setting applies to the following client apps:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word
