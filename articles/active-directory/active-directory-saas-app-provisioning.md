@@ -197,7 +197,7 @@ See the [provisioning reporting guide](active-directory-saas-provisioning-report
 
 All failures are recorded in the Azure AD audit logs. For more information, see the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).
 
-**Can I configure the provisioning service to never delete users? Or only update users?
+**Can I configure the provisioning service to never delete users? Or only update users?**
 
 Yes. You can use the **Target object actions** menu in the [Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md) section to optionally disable create, update, or delete actions. 
 
