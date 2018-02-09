@@ -73,6 +73,8 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
     - **Authentication type**: select **RADIUS authentication**.
     - **Server IP address**: type the IP address of the NPS server.
 
+    ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+
 ## Next steps
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
