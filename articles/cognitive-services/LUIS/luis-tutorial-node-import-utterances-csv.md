@@ -177,5 +177,5 @@ This sample applications uses the following LUIS APIs:
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
-[LUIS]: luis-reference-regions.md]
+[LUIS]: luis-reference-regions.md
 
