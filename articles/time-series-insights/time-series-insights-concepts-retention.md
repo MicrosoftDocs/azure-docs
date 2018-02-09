@@ -18,21 +18,20 @@ This article describes two settings that impact data retention in your Time Seri
 
 Each TSI environment has a setting that controls **Data retention time**. The values span between 1 and 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
-Each TSI environment has an additional setting **Data retention mode**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two modes to choose from:
-- **Continue ingress and purge old data** (default)  
+Each TSI environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two modes to choose from:
+- **Purge old data** (default)  
 - **Pause ingress**
 
 > [!NOTE]
-> By default, when creating a new environment, the retention is configured to **Continue ingress and purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the TSI environment.
+> By default, when creating a new environment, the retention is configured to **Purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the TSI environment.
 
 For information on switching retention modes, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Compare the data retention modes:
 
-## Continue ingress and purge old data
-- This mode is the default mode for TSI environments and exhibits the same behavior TSI environments did in public preview.
+## Purge old data
+- This mode is the default mode for TSI environments and exhibits the same behavior TSI environments has exhibited since it launched in to public preview.  
 - This mode is preferred when users want to always see their *most recent data* in their TSI environment. 
-- Ensure the end users are comfortable with data loss once the limits are reached.
 - This mode *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default. 
 - The oldest ingested data is purged first (FIFO approach).
 
@@ -52,7 +51,7 @@ Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, da
 ## Pause ingress
 - This mode is designed to ensure data is not purged if the size and count limits are reached prior to their retention period.  
 - This mode provides additional time for the users to increase the capacity of their environment before data is purged due to breaching of retention period
-- This mode helps protect from data loss. 
+- This mode helps protect from data loss, but creates an opportunity for the loss of your most recent data if ingress is paused beyond the retention period of your event source.
 - However, once an environment’s maximum capacity is reached, the environment pauses data ingress until additional actions occur: 
    - You increase the environment’s maximum capacity. For more information, [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) to add more scale units.
    - The data retention period is reached and data is purged, thus bringing the environment below its maximum capacity.
@@ -65,7 +64,7 @@ When ingress resumes:
 - The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source. For more information on event source retention configuration, [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
 
 > [!IMPORTANT]
-> You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 1 day for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch modes to **Continue ingress and purge mode** to avoid the data loss potential.
+> You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 1 day for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch modes to **Purge old data** to avoid the data loss potential.
 
 In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
 
