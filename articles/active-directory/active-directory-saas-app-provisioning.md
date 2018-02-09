@@ -117,9 +117,9 @@ When Azure AD is the source system, the provisioning service uses the [Different
 ### Initial full sync
 When the provisioning service is started, the first sync ever performed will:
 
-1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings]((active-directory-saas-customizing-attribute-mappings.md).
+1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md).
 2. Create and store a watermark in the service for each user found, to enable optimized change detection in subsequent delta syncs.
-3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters]((active-directory-saas-scoping-filters.md).
+3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
 4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
@@ -131,7 +131,7 @@ After the initial sync, all subsequent syncs will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 2. Update the watermarks stored in the service for the new and updated users.
-3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters]((active-directory-saas-scoping-filters.md).
+3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
 4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
