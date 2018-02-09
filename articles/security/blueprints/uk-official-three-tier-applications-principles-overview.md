@@ -23,7 +23,7 @@ ms.author: jomolesk
 
 
 > [!NOTE]
-> These security principles are defined by the UK National Cyber Security Centre (NCSC). Please refer to [NCSC documentation](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) for information on testing procedures and guidance for each security principle.
+> These security principles are defined by the UK National Cyber Security Centre (NCSC). Refer to [NCSC documentation](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) for information on testing procedures and guidance for each security principle.
 
 
 
@@ -43,7 +43,7 @@ This should be achieved through a combination of:
 |||
 |---|---|
 | **Customer** | This blueprint configures resources to communicate using only secure protocols. The WAF component of the Application Gateway is configured to accept communicators from external uses over HTTPS/TLS and communicate with the backend pool only over HTTPS/TLS. Remote Desktop services are configured to use secure connections. VPN is used to secure web traffic between AppGateway and Azure. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys, as recommended by CESG/NCSC, to encrypt communications both between the customer and the cloud, and internally between Azure systems and datacentres. For example, when administrators use the Microsoft Azure portal to manage the service for their organization, the data transmitted between the portal and the administrator's device is sent over an encrypted TLS channel. When an email user connects to Outlook.com using a standard web browser, the HTTPS connection provides a secure channel for receiving and sending email.<br /> <br /> Azure offers its customers a range of options for securing their own data and traffic. The certificate management features built into Azure give administrators flexibility for configuring certificates and encryption keys for management systems, individual services, secure shell (SSH) sessions, virtual private network (VPN) connections, remote desktop (RDP) connections, and other functions. <br /><br /> Developers can use the cryptographic service providers (CSPs) built into the Microsoft .NET Framework to access Advanced Encryption Standard (AES) algorithms, along with Secure Hash Algorithm (SHA-2) functionality to handle such tasks as validating digital signatures. Azure Key Vault helps customers safeguard cryptographic keys and secrets by storing them in hardware security modules (HSMs). |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Azure uses the industry-standard Transport Layer Security (TLS) 1.2 protocol with 2048-bit RSA/SHA256 encryption keys, as recommended by CESG/NCSC, to encrypt communications both between the customer and the cloud, and internally between Azure systems and datacenters. For example, when administrators use the Microsoft Azure portal to manage the service for their organization, the data transmitted between the portal and the administrator's device is sent over an encrypted TLS channel. When an email user connects to Outlook.com using a standard web browser, the HTTPS connection provides a secure channel for receiving and sending email.<br /> <br /> Azure offers its customers a range of options for securing their own data and traffic. The certificate management features built into Azure give administrators flexibility for configuring certificates and encryption keys for management systems, individual services, secure shell (SSH) sessions, virtual private network (VPN) connections, remote desktop (RDP) connections, and other functions. <br /><br /> Developers can use the cryptographic service providers (CSPs) built into the Microsoft .NET Framework to access Advanced Encryption Standard (AES) algorithms, along with Secure Hash Algorithm (SHA-2) functionality to handle such tasks as validating digital signatures. Azure Key Vault helps customers safeguard cryptographic keys and secrets by storing them in hardware security modules (HSMs). |
 
 
  ## NCSC Cloud Security Principle 2
@@ -53,9 +53,9 @@ User data, and the assets storing or processing it, should be protected against 
 The aspects to consider are:
 
 1. Physical Location and Legal Jurisdiction
-2. Datacentre Security
+2. Datacenter Security
 3. Data at Rest Protection
-4. Data Sanitisation
+4. Data Sanitization
 5. Equipment Disposal
 6. Physical Resilience and Availability
 
@@ -69,7 +69,7 @@ You will also need to understand how data-handling controls within the service a
 **Responsibilities:** `Customer`
 
 > [!NOTE]
-> Azure services are deployed regionally, and customers can configure certain Azure services to store customer data only in a single region. Microsoft Azure provides a list of globally available datacentres in order to provide availability and reliability on a global scale. All Azure datacentres have been certified against the ISO/IEC 27001:2013. The UK Geo consists of 2 regions: UK South and UK West.
+> Azure services are deployed regionally, and customers can configure certain Azure services to store customer data only in a single region. Microsoft Azure provides a list of globally available datacenters in order to provide availability and reliability on a global scale. All Azure datacenters have been certified against the ISO/IEC 27001:2013. The UK Geo consists of 2 regions: UK South and UK West.
 
 |||
 |---|---|
@@ -78,8 +78,8 @@ You will also need to understand how data-handling controls within the service a
 
 
  ## NCSC Cloud Security Principle 2.2
-### Datacentre Security
-Locations used to provide cloud services need physical protection against unauthorised access, tampering, theft or reconfiguration of systems. Inadequate protections may result in the disclosure, alteration or loss of data.
+### Datacenter Security
+Locations used to provide cloud services need physical protection against unauthorized access, tampering, theft or reconfiguration of systems. Inadequate protections may result in the disclosure, alteration or loss of data.
 
 
 **Responsibilities:** `Microsoft Azure`
@@ -87,13 +87,13 @@ Locations used to provide cloud services need physical protection against unauth
 
 |||
 |---|---|
-| **Customer** | Customers do not have physical access to any system resources in Azure datacentres; datacentre security protection measures are implemented and managed by Microsoft Azure. This principle is inherited from Microsoft Azure. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure implements this principle on behalf of customers. Microsoft Azure runs in geographically distributed Microsoft facilities, sharing space and utilities with other Microsoft online services. Each facility is designed to run 24x7x365 and employs various industry-standard measures to help protect operations from power failure, physical intrusion, and network outages. These datacentres comply with industry standards (such as ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. <br /> <br /> Azure customers can be confident that physical security controls are in place at all Azure datacentres due to Azure holding certificates at all datacentres for the ISO/IEC 27001:2013 standard. The UK Geo consists of 2 regions: UK South and UK West. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters; datacenter security protection measures are implemented and managed by Microsoft Azure. This principle is inherited from Microsoft Azure. |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure implements this principle on behalf of customers. Microsoft Azure runs in geographically distributed Microsoft facilities, sharing space and utilities with other Microsoft online services. Each facility is designed to run 24x7x365 and employs various industry-standard measures to help protect operations from power failure, physical intrusion, and network outages. These datacenters comply with industry standards (such as ISO 27001) for physical security and availability. They are managed, monitored, and administered by Microsoft operations personnel. <br /> <br /> Azure customers can be confident that physical security controls are in place at all Azure datacenters due to Azure holding certificates at all datacenters for the ISO/IEC 27001:2013 standard. The UK Geo consists of two regions: UK South and UK West. |
 
 
  ## NCSC Cloud Security Principle 2.3
 ### Data at Rest Protection
-To ensure data is not available to unauthorised parties with physical access to infrastructure, user data held within the service should be protected regardless of the storage media on which it's held. Without appropriate measures in place, data may be inadvertently disclosed on discarded, lost or stolen media.
+To ensure data is not available to unauthorized parties with physical access to infrastructure, user data held within the service should be protected regardless of the storage media on which it's held. Without appropriate measures in place, data may be inadvertently disclosed on discarded, lost or stolen media.
 
 
 **Responsibilities:** `Shared`
@@ -108,8 +108,8 @@ To ensure data is not available to unauthorised parties with physical access to 
 
 
  ## NCSC Cloud Security Principle 2.4
-### Data Sanitisation
-The process of provisioning, migrating and de-provisioning resources should not result in unauthorised access to user data.
+### Data Sanitization
+The process of provisioning, migrating and de-provisioning resources should not result in unauthorized access to user data.
 
 Inadequate sanitization of data could result in:
 
@@ -137,7 +137,7 @@ Once equipment used to deliver a service reaches the end of its useful life, it 
 
 |||
 |---|---|
-| **Customer** | Customers do not have physical access to any system resources in Azure datacentres; equipment disposal procedures are implemented and managed by Microsoft Azure. This principle is inherited from Microsoft Azure. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters; equipment disposal procedures are implemented and managed by Microsoft Azure. This principle is inherited from Microsoft Azure. |
 | **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure implements this principle on behalf of customers. Upon a system's end-of-life, Microsoft operational personnel follow rigorous data handling procedures and hardware disposal processes to help assure that no hardware that may contain customer data is made available to untrusted parties. Microsoft Azure follows the NIST SP800-88r1 disposal process with data classification aligned to FIPS-199 Moderate. NIST provides for Secure Erase approach (via hard drive firmware) for drives that support it. For hard drives that can't be wiped Microsoft destroys them and renders the recovery of information impossible (e.g., disintegrate, shred, pulverize, or incinerate). The appropriate means of disposal is determined by the asset type. Records of the destruction are retained. All Microsoft Azure services utilize approved media storage and disposal management services. |
 
 
@@ -149,12 +149,12 @@ Services have varying levels of resilience, which will affect their ability to o
 **Responsibilities:** `Shared`
 
 > [!NOTE]
-> If the customer configures Microsoft Azure appropriately by enabling Azure Site Recovery and alternative storage of data at another geo-graphically located datacentre, Microsoft Azure can support the continued operation of customer-deployed resources.
+> If the customer configures Microsoft Azure appropriately by enabling Azure Site Recovery and alternative storage of data at another geo-graphically located datacenter, Microsoft Azure can support the continued operation of customer-deployed resources.
 
 |||
 |---|---|
 | **Customer** | The customer is responsible for establishing an alternate storage site. The customer control implementation statement should address the customer's ability to operate in the event of an incident. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure has UK National Cyber Security Centre (NCSC) approved datacentres in different geographical locations (UK South and UK West) in order to provide resilience and availability. It will be the customer's responsibility to reserve capacity in an alternate region using Azure's Site Recovery service. Once they have configured Azure Site Recovery, Azure will start and stop the customer's services in a seamless transition to the alternate processing site. |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft Azure has UK National Cyber Security Centre (NCSC) approved datacenters in different geographical locations (UK South and UK West) in order to provide resilience and availability. It will be the customer's responsibility to reserve capacity in an alternate region using Azure's Site Recovery service. Once they have configured Azure Site Recovery, Azure will start and stop the customer's services in a seamless transition to the alternate processing site. |
 
 
  ## NCSC Cloud Security Principle 3
@@ -176,7 +176,7 @@ Factors affecting user separation include:
 |||
 |---|---|
 | **Customer** | Microsoft Azure ensures isolation for each user to prevent one malicious or compromised user from affecting the service or data of another. As such, this principle is inherited from Microsoft Azure. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Due to customer cloud servers being virtual, the physical separation paradigm no longer applies. Microsoft Azure was designed to help identify and counter risks inherent in a multitenant environment. Data storage and processing is logically segregated among users of Azure using Active Directory and functionality specifically developed for multitenant services, which aims to ensure that user data stored in shared Azure datacentres is not accessible by another organization. <br /> <br /> Fundamental to any shared cloud architecture is the isolation provided for each user to prevent one malicious or compromised user from affecting the service or data of another. <br /> <br /> For more information regarding Microsoft tenant separation please see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Due to customer cloud servers being virtual, the physical separation paradigm no longer applies. Microsoft Azure was designed to help identify and counter risks inherent in a multitenant environment. Data storage and processing is logically segregated among users of Azure using Active Directory and functionality specifically developed for multitenant services, which aims to ensure that user data stored in shared Azure datacenters is not accessible by another organization. <br /> <br /> Fundamental to any shared cloud architecture is the isolation provided for each user to prevent one malicious or compromised user from affecting the service or data of another. <br /> <br /> For more information regarding Microsoft tenant separation, see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
 
 
  ## NCSC Cloud Security Principle 4
@@ -191,7 +191,7 @@ Having an effective governance framework will ensure that procedure, personnel, 
 |||
 |---|---|
 | **Customer** | Microsoft Azure maintains a documented security governance framework for Azure services. As such, this principle is inherited from Microsoft Azure. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft compliance framework includes a standard methodology for defining compliance domains, determining which objectives apply to a given team or asset, and capturing how domain control objectives are addressed in sufficient detail as they apply to a given set of industry standards, regulations, or business requirements. The framework maps controls to multiple regulatory standards, which enables Microsoft to design and build services using a common set of controls, thereby streamlining compliance across a range of regulations today and as they evolve in the future. <br /> <br /> Microsoft compliance processes also make it easier for customers to achieve compliance across multiple services and meet their changing needs efficiently. Together, security-enhancing technology and effective compliance processes enable Microsoft to maintain and expand a rich set of third-party certifications. These certifications help customers demonstrate compliance readiness to their customers, auditors, and regulators. <br /> <br />  Azure complies with a broad set of international as well as regional and industry-specific compliance standards, such as ISO 27001, FedRAMP, SOC 1, and SOC 2. Compliance with the strict security controls contained in these standards is verified by rigorous third-party audits that demonstrate Azure services work with and meet world-class industry standards, certifications, attestations, and authorizations. <br /> <br /> Azure is designed with a compliance strategy that helps customers address business objectives as well as industry standards and regulations. The security compliance framework includes test and audit phases, security analytics, risk management best practices, and security benchmark analysis to achieve certificates and attestations. <br /> <br /> For more information regarding Microsoft's adherence to compliance frameworks please see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm).|
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft compliance framework includes a standard methodology for defining compliance domains, determining which objectives apply to a given team or asset, and capturing how domain control objectives are addressed in sufficient detail as they apply to a given set of industry standards, regulations, or business requirements. The framework maps controls to multiple regulatory standards, which enables Microsoft to design and build services using a common set of controls, thereby streamlining compliance across a range of regulations today and as they evolve in the future. <br /> <br /> Microsoft compliance processes also make it easier for customers to achieve compliance across multiple services and meet their changing needs efficiently. Together, security-enhancing technology and effective compliance processes enable Microsoft to maintain and expand a rich set of third-party certifications. These certifications help customers demonstrate compliance readiness to their customers, auditors, and regulators. <br /> <br />  Azure complies with a broad set of international as well as regional and industry-specific compliance standards, such as ISO 27001, FedRAMP, SOC 1, and SOC 2. Compliance with the strict security controls contained in these standards is verified by rigorous third-party audits that demonstrate Azure services work with and meet world-class industry standards, certifications, attestations, and authorizations. <br /> <br /> Azure is designed with a compliance strategy that helps customers address business objectives as well as industry standards and regulations. The security compliance framework includes test and audit phases, security analytics, risk management best practices, and security benchmark analysis to achieve certificates and attestations. <br /> <br /> For more information regarding Microsoft's adherence to compliance frameworks, see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm).|
 
 
  ## NCSC Cloud Security Principle 5
@@ -200,9 +200,9 @@ The service needs to be operated and managed securely in order to impede, detect
 
 There are four elements to consider:
 
-- Configuration and Change Management - you should ensure that changes to the system have been properly tested and authorised. Changes should not unexpectedly alter security properties
+- Configuration and Change Management - you should ensure that changes to the system have been properly tested and authorized. Changes should not unexpectedly alter security properties
 - Vulnerability Management - you should identify and mitigate security issues in constituent components
-- Protective Monitoring - you should put measures in place to detect attacks and unauthorised activity on the service
+- Protective Monitoring - you should put measures in place to detect attacks and unauthorized activity on the service
 - Incident Management - ensure you can respond to incidents and recover a secure, available service
 
 
@@ -211,7 +211,7 @@ There are four elements to consider:
  ## NCSC Cloud Security Principle 5.1
 ### Configuration and Change Management
 You should have an accurate picture of the assets which make up the service, along with their configurations and dependencies.
-Changes which could affect the security of the service should be identified and managed. Unauthorised changes should be detected.
+Changes which could affect the security of the service should be identified and managed. Unauthorized changes should be detected.
 Where change is not effectively managed, security vulnerabilities may be unwittingly introduced to a service. And even where there is awareness of the vulnerability, it may not be fully mitigated.
 
 
@@ -255,7 +255,7 @@ A service which does not effectively monitor for attack, misuse and malfunction 
  ## NCSC Cloud Security Principle 5.4
 ### Incident Management
 Unless carefully pre-planned incident management processes are in place, poor decisions are likely to be made when incidents do occur, potentially exacerbating the overall impact on users.
-These processes needn't be complex or require large amounts of description, but good incident management will minimise the impact to users of security, reliability and environmental issues with a service.
+These processes needn't be complex or require large amounts of description, but good incident management will minimize the impact to users of security, reliability and environmental issues with a service.
 
 
 **Responsibilities:** `Shared`
@@ -266,7 +266,7 @@ These processes needn't be complex or require large amounts of description, but 
 |||
 |---|---|
 | **Customer** | The customer is responsible for establishing an incident management process for customer-deployed resources (to include applications, operating systems, databases, and software). The customer implementation statement should address reporting incidents and alerts, supporting timely incident responses, and forwarding information to the PGA and other HMG organizations as appropriate. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft has implemented a security incident management process to facilitate a coordinated response to incidents should one occur. <br /> <br /> If Microsoft becomes aware of any unauthorized access to any customer data stored on its equipment or in its facilities, or unauthorized access to such equipment or facilities resulting in loss, disclosure, or alteration of customer data, Microsoft has stated that it will: <br /> <br />   - Promptly notify the customer of the security incident; <br /> - Promptly investigate the security incident and provide the customer with detailed information about the security incident; and <br /> - Take reasonable and prompt steps to mitigate the effects and minimize a damage resulting from the security incident.  <br />  <br /> An incident management framework has been established with roles defined and responsibilities allocated. The Windows Azure Security Incident Management (WASIM) team is responsible for managing security incidents, including escalation and ensuring the involvement of specialist teams when necessary. Azure Operations Managers are responsible for overseeing investigation and resolution of security and privacy incidents with support from other functions. <br /> <br /> For more information regarding Microsoft's Incident Response processes please see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft has implemented a security incident management process to facilitate a coordinated response to incidents should one occur. <br /> <br /> If Microsoft becomes aware of any unauthorized access to any customer data stored on its equipment or in its facilities, or unauthorized access to such equipment or facilities resulting in loss, disclosure, or alteration of customer data, Microsoft has stated that it will: <br /> <br />   - Promptly notify the customer of the security incident; <br /> - Promptly investigate the security incident and provide the customer with detailed information about the security incident; and <br /> - Take reasonable and prompt steps to mitigate the effects and minimize a damage resulting from the security incident.  <br />  <br /> An incident management framework has been established with roles defined and responsibilities allocated. The Windows Azure Security Incident Management (WASIM) team is responsible for managing security incidents, including escalation and ensuring the involvement of specialist teams when necessary. Azure Operations Managers are responsible for overseeing investigation and resolution of security and privacy incidents with support from other functions. <br /> <br /> For more information regarding Microsoft's Incident Response processes, see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
 
 
  ## NCSC Cloud Security Principle 6
@@ -295,7 +295,7 @@ Services should be designed and developed to identify and mitigate threats to th
 |||
 |---|---|
 | **Customer** | The virtual machines deployed by this blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability, which enables real-time integrity checking. <br /> <br /> Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). <br /> <br /> This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Windows Defender. Windows Defender is configured to automatically update both the antimalware engine and protection signatures as release become available. <br /> <br /> In order to be compliant with this principle, further configuration is required by the customer for use in production. As such, these configurations will need to be a part of the customer's secure development process. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft Security Development Lifecycle (SDL) provides an effective threat-modelling process to identify threats and vulnerabilities in software and services. Threat modelling is a team exercise, encompassing the operations manager, program/project managers, developers, and testers, and represents a key security analysis task performed for solution design. Team members use the SDL Threat Modelling Tool to model all services and projects, both when they are built and when they are updated with new features and functionality. Threat models cover all code exposed on the attack surface and all code written by or licensed from a third party, and consider all trust boundaries. The STRIDE system (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and Elevation of privilege) is used to help identify and resolve security threats early in the design process, before they can affect customers. |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft Security Development Lifecycle (SDL) provides an effective threat-modeling process to identify threats and vulnerabilities in software and services. Threat modeling is a team exercise, encompassing the operations manager, program/project managers, developers, and testers, and represents a key security analysis task performed for solution design. Team members use the SDL Threat Modelling Tool to model all services and projects, both when they are built and when they are updated with new features and functionality. Threat models cover all code exposed on the attack surface and all code written by or licensed from a third party, and consider all trust boundaries. The STRIDE system (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, and Elevation of privilege) is used to help identify and resolve security threats early in the design process, before they can affect customers. |
 
 
  ## NCSC Cloud Security Principle 8
@@ -310,12 +310,12 @@ Cloud services often rely upon third party products and services. Consequently, 
 |||
 |---|---|
 | **Customer** | The customer is responsible for providing secure supply chain documentation for any third-party acquired software and operating systems used in their Azure subscription. The customer implementation statement should address the exception to follow processes identified by this supply chain documentation. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft Cloud Supply Chain (MCSC) group consists of six unique teams each contributing to protecting Azure from threats to the Supply Chain.  <br />  <br /> - Procurement <br /> - Customer Operations <br /> - Deployment Quality <br /> - Supplier Relationship Management <br /> - Spares <br />  <br /> For more information regarding Microsoft's MCSC group please see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | The Microsoft Cloud Supply Chain (MCSC) group consists of six unique teams each contributing to protecting Azure from threats to the Supply Chain.  <br />  <br /> - Procurement <br /> - Customer Operations <br /> - Deployment Quality <br /> - Supplier Relationship Management <br /> - Spares <br />  <br /> For more information regarding Microsoft's MCSC group, see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm). |
 
 
  ## NCSC Cloud Security Principle 9
 ### Secure User Management
-Your provider should make the tools available for you to securely manage your use of their service. Management interfaces and procedures are a vital part of the security barrier, preventing unauthorised access and alteration of your resources, applications and data.
+Your provider should make the tools available for you to securely manage your use of their service. Management interfaces and procedures are a vital part of the security barrier, preventing unauthorized access and alteration of your resources, applications and data.
 
 The aspects to consider are:
 
@@ -359,8 +359,8 @@ Exposing management interfaces to less accessible networks (e.g. community rathe
 
  ## NCSC Cloud Security Principle 10
 ### Identity and Authentication
-All access to service interfaces should be constrained to authenticated and authorised individuals.
-Weak authentication to these interfaces may enable unauthorised access to your systems, resulting in the theft or modification of your data, changes to your service, or a denial of service.
+All access to service interfaces should be constrained to authenticated and authorized individuals.
+Weak authentication to these interfaces may enable unauthorized access to your systems, resulting in the theft or modification of your data, changes to your service, or a denial of service.
 Importantly, authentication should occur over secure channels. Email, HTTP or telephone are vulnerable to interception and social engineering attacks.
 
 
@@ -386,13 +386,13 @@ You can use different models to connect to cloud services which expose your ente
 |||
 |---|---|
 | **Customer** | This blueprint deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality (e.g., external traffic cannot access the database, management, or Active Directory subnets).  <br /> <br /> An Application Gateway is deployed to manage external connections to a customer-deployed web application. External connections for management access are restricted to a jumpbox (bastion host) deployed in a management subnet with network security rules applied to restrict external connections to authorized IP addresses. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft employs a method it calls "Red Teaming" to improve Azure security controls and processes through regular penetration testing. The Red Team is a group of full-time staff within Microsoft that focuses on performing targeted and persistent attacks against Microsoft infrastructure, platforms, and applications, but not end-customers' applications or data. <br /> <br /> For more information regarding Microsoft's Red Teaming as well as a description of Blue Teaming efforts please see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm).  |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Microsoft employs a method it calls "Red Teaming" to improve Azure security controls and processes through regular penetration testing. The Red Team is a group of full-time staff within Microsoft that focuses on performing targeted and persistent attacks against Microsoft infrastructure, platforms, and applications, but not end-customers' applications or data. <br /> <br /> For more information regarding Microsoft's Red Teaming as well as a description of Blue Teaming efforts, see the full description in the [Azure Security and Compliance Blueprint - NCSC Cloud Security Principles - Customer Responsibilities Matrix](https://aka.ms/blueprintuk-gcrm).  |
 
 
  ## NCSC Cloud Security Principle 12
 ### Secure Service Administration
 Systems used for administration of a cloud service will have highly privileged access to that service. Their compromise would have significant impact, including the means to bypass security controls and steal or manipulate large volumes of data.
-The design, implementation and management of administration systems should follow enterprise good practice, whilst recognising their high value to attackers.
+The design, implementation and management of administration systems should follow enterprise good practice, whilst recognizing their high value to attackers.
 
 
 **Responsibilities:** `Shared`
@@ -415,13 +415,13 @@ You should be provided with the audit records needed to monitor access to your s
 |||
 |---|---|
 | **Customer** | Events audited by this blueprint include those audited by Azure activity logs for deployed resources, OS-level logs, and Active Directory logs. These event logs include information sufficient to determine when events occur, the source of the event, the outcome of the event, and other detailed information that supports investigation of security incidents. Customers may select additional events to be audited to meet mission needs. All Azure resources have audit logs available in the Azure portal. |
-| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Azure Log Analytics collects records of the events occurring within an organization's systems and networks as soon as they occur, before anyone can tamper with them, and allows different types of analysis by correlating data across multiple computers. Azure enables customers to perform security event generation and collection from Azure IaaS and PaaS roles to central storage in their subscriptions. These collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring. After the data is transferred to storage, there are many options to view the diagnostic data. <br /> <br /> Azure built-in diagnostics can help with debugging. For applications that are deployed in Azure, a set of operating system security events are enabled by default. Customers can add, remove, or modify events to be audited by customizing the operating system audit policy. <br /> <br /> At a high level, it is quite easy and simple to begin collecting logs using Windows Event Forwarding (WEF) or the more advanced Azure Diagnostics when Windows-based VMs are deployed using IaaS in Azure. In addition, Azure Diagnostics can be configured to collect logs and events from PaaS role instances. When using IaaS-based VMs, a customer simply configures and enables the desired security events the same way they enable Windows Servers to log audits in their on-premises datacentre. For web applications, it's also possible to enable IIS logging if that is the primary application and deployment in Azure. Customers can always store security data in storage accounts in supported geo-locations of their choice to meet data sovereignty requirements. |
+| **Provider&nbsp;(Microsoft&nbsp;Azure)** | Azure Log Analytics collects records of the events occurring within an organization's systems and networks as soon as they occur, before anyone can tamper with them, and allows different types of analysis by correlating data across multiple computers. Azure enables customers to perform security event generation and collection from Azure IaaS and PaaS roles to central storage in their subscriptions. These collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring. After the data is transferred to storage, there are many options to view the diagnostic data. <br /> <br /> Azure built-in diagnostics can help with debugging. For applications that are deployed in Azure, a set of operating system security events are enabled by default. Customers can add, remove, or modify events to be audited by customizing the operating system audit policy. <br /> <br /> At a high level, it is quite easy and simple to begin collecting logs using Windows Event Forwarding (WEF) or the more advanced Azure Diagnostics when Windows-based VMs are deployed using IaaS in Azure. In addition, Azure Diagnostics can be configured to collect logs and events from PaaS role instances. When using IaaS-based VMs, a customer simply configures and enables the desired security events the same way they enable Windows Servers to log audits in their on-premises datacenter. For web applications, it's also possible to enable IIS logging if that is the primary application and deployment in Azure. Customers can always store security data in storage accounts in supported geo-locations of their choice to meet data sovereignty requirements. |
 
 
  ## NCSC Cloud Security Principle 14
 ### Secure Use of the Service
 The security of cloud services and the data held within them can be undermined if you use the service poorly. Consequently, you will have certain responsibilities when using the service in order for your data to be adequately protected.
-The extent of your responsibility will vary depending on the deployment models of the cloud service, and the scenario in which you intend to use the service. Specific features of individual services may also have bearing. For example, how a content delivery network protects your private key, or how a cloud payment provider detects fraudulent transactions, are important security considerations over and above the general considerations covered by the cloud security principles.  
+The extent of your responsibility will vary depending on the deployment models of the cloud service, and the scenario in which you intend to use the service. Specific features of individual services may also have bearing. For example, how a content delivery network protects your private key, or how a cloud payment provider detects fraudulent transactions, are important security considerations over and above the general considerations covered by the cloud security principles.
 With IaaS and PaaS offerings, you are responsible for significant aspects of the security of your data and workloads. For example, if you procure an IaaS compute instance, you will normally be responsible for installing a modern operating system, configuring that operating system securely, securely deploying any applications and also maintaining that instance through applying patches or performing maintenance required.
 
 
