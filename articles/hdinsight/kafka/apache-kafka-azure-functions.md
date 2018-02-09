@@ -20,17 +20,17 @@ ms.author: larryfr
 
 Learn how to create an Azure Function app that sends data to Kafka on HDInsight.
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure.
+[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is a serverless compute service. It enables you to run code on-demand without having to explicitly provision or manage infrastructure.
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. Kafka on HDInsight provides you with a managed, highly scalable, and highly available service in the Microsoft Azure cloud.
 
-Kafka on HDInsight does not provide a API on the public internet. To publish or consume data from Kafka, you must connect to the Kafka cluster using an Azure Virtual Network. Azure Functions provide a convenient way to create a public endpoint that pushes data into Kafka on HDInsight through a Virtual Network gateway.
+Kafka on HDInsight does not provide an API on the public internet. To publish or consume data from Kafka, you must connect to the Kafka cluster using an Azure Virtual Network. Azure Functions provides a convenient way to create a public endpoint that pushes data into Kafka on HDInsight through a Virtual Network gateway.
 
 ## Architecture
 
-Kafka on HDInsight is contained in an Azure Virtual Network. Azure Functions can communicate with the virtual network by using a Point-to-Site gateway. The following is an illustration of this network topology:
+Kafka on HDInsight is contained in an Azure Virtual Network. Azure Functions can communicate with the virtual network by using a Point-to-Site gateway. The following image is a diagram of this network topology:
 
-![image tbd]()
+![Architecture of Azure Functions connecting to HDInsight](./media/apache-kafka-azure-functions/kafka-azure-functions.png)
 
 > [!IMPORTANT]
 > When communicating with resources in an Azure Virtual network, Azure Functions can only communicate with the following IP ranges:
@@ -197,7 +197,7 @@ From the list of names returned, select the IP address of a workernode. The inte
 
     Replace `'test'` with the name of the Kafka topic you created on your HDInsight cluster.
 
-    Replace `10.1.0.7` with the IP address you retrieved earlier. Leave the `:9092` value. This is the port that Kafka listens on.
+    Replace `10.1.0.7` with the IP address you retrieved earlier. Leave the `:9092` value. 9092 is the port that Kafka listens on.
 
     Use the __Save__ button to save the changes.
 
@@ -228,15 +228,15 @@ From the list of names returned, select the IP address of a workernode. The inte
 5. To install the `kafka-node` package, use the _Node version and package management_ section of the [Azure Functions JavaScript developer guide](../../azure-functions/functions-reference-node.md#node-version-and-package-management). This uses the `npm install` command to parse the `package.json` file and install the dependencies.
 
     > [!NOTE]
-    > You may receive several errors as the kafka-node package is installed. You can safely ignore these.
+    > You may receive several errors as the kafka-node package is installed. You can safely ignore these errors.
 
 ## Run the function
 
-From the right of the function editor, select __Test__. Leave the default settings for the test, and then select __Run__. This runs the function and passes a parameter named `name`, which contains a value of `Azure`. The function inserts this value into Kafka.
+From the right of the function editor, select __Test__. Leave the default settings for the test, and then select __Run__. As the test runs, it passes a `name` parameter to the function. This parameter contains a value of `Azure`, which the function inserts into Kafka.
 
 ![Test dialog screenshot](./media/apache-kafka-azure-functions/function-test-dialog.png)
 
-To view information logged by the function while the test runs, select __Logs__ at the bottom of the page and then run the test again.
+To view information logged by the function while the test runs, select __Logs__ at the bottom of the page. Run the test again to generate log information.
 
 ![Example of the function log output](./media/apache-kafka-azure-functions/function-log.png)
 
