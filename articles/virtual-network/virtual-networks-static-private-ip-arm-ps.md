@@ -188,7 +188,7 @@ Expected output:
     Primary              : True
 
 ## Add a static private IP address to a network interface
-To add a static private IP address to the VM created using the script above, run the following commands:
+Network connection properties, such as DNS server IP addresses, should not be edited directly within Windows VMs as they may get erased during service heal, when the virtual network adaptor gets replaced, and cause VM connectivity/RDP issues. To add a static private IP address to the VM created using the script above, run the following commands:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
