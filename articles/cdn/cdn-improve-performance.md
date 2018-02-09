@@ -22,8 +22,8 @@ File compression is a simple and effective method to improve file transfer speed
 
 There are two ways to enable file compression:
 
-* Enable compression on your origin server. In this case, the CDN passes through the compressed files and delivers them to clients that request them.
-* Enable compression directly on the CDN edge servers. In this case, the CDN compresses the files and serves them to end users, even if they are not compressed by the origin server.
+- Enable compression on your origin server. In this case, the CDN passes along the compressed files and delivers them to clients that request them.
+- Enable compression directly on the CDN edge servers. In this case, the CDN compresses the files and serves them to end users, even if they are not compressed by the origin server.
 
 > [!IMPORTANT]
 > CDN configuration changes can take some time to propagate through the network. For **Azure CDN from Akamai** profiles, propagation usually completes in under one minute.  For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
@@ -113,7 +113,7 @@ These profiles support gzip compression encoding only. When a profile endpoint r
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Uncompressed |Uncompressed | |
