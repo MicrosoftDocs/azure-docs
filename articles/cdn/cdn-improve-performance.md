@@ -93,7 +93,13 @@ For **Azure CDN from Verizon** profiles, only eligible files are compressed. To 
 - Be larger than 128 bytes
 - Be smaller than 1 MB
  
-These profiles support gzip (GNU zip), DEFLATE, bzip2, and brotli compression encodings. If the request supports more than one compression type, those compression types take precedence over brotli compression.
+These profiles support the following compression encodings:
+- gzip (GNU zip)
+- DEFLATE
+- bzip2
+- brotli 
+ 
+If the request supports more than one compression type, those compression types take precedence over brotli compression.
 
 When a request for an asset specifies brotli compression (`Accept-Encoding: br` HTTP header) and the request results in a cache miss, Azure CDN performs brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
 
@@ -107,7 +113,7 @@ These profiles support gzip compression encoding only. When a profile endpoint r
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Uncompressed |Uncompressed | |
