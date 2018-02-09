@@ -36,9 +36,9 @@ At the end of this tutorial, you have two Python console apps:
 To complete this tutorial, you need the following:
 
 * [Python 2.x or 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
-    * [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) package
+    * Install the [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) package, using the command
         `pip install azure-iothub-device-client`
-    * [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) package
+    * Install the [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) package, using the command
         `pip install azure-iothub-service-client`
 * If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
@@ -159,7 +159,7 @@ In this section, you create a Python console app that initiates a remote reboot 
 
 1. Using a text editor, create a **dmpatterns_getstarted_service.py** file.
 
-1. Add the following 'import' statements at the start of the **dmpatterns_getstarted_service.py** file.
+1. Add the following `import` statements at the start of the **dmpatterns_getstarted_service.py** file.
    
     ```python
     import sys, time
@@ -256,7 +256,7 @@ You are now ready to run the apps.
 <!-- images and links -->
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: c
+[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
 
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
