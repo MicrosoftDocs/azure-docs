@@ -40,15 +40,15 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
+	![The Enterprise applications blade][2]
 	
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![The New application button][3]
 
 4. In the search box, type **Zendesk**.
 
