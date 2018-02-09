@@ -99,6 +99,7 @@ At the top of the management group main page, you can find the command "New mana
 - Management Group Parent: This field is showing you where the group is being created under. 
 
 On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main blade. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
+
 ---
 
 
@@ -121,6 +122,7 @@ C:\> Add-AzureRmManagementGroup -GroupName Contoso
 - Select the save button at the bottom of the menu
 
 You see the new group show in the list
+
 ---
 
 ### Example 2: Add new group that has a different Display Name and is under a parent management group
@@ -141,6 +143,7 @@ C:\> Add-AzureRmManagementGroup -GroupName newGroup -DisplayName "Contoso IT" -P
 - Select the save button at the bottom of the menu
 
 You see the new group show in the list
+
 ---
 
 ## Change the name of a management group 
@@ -166,6 +169,7 @@ Update-AzureRmManagementGroup
 # [Portal](#tab/portal)
 The ability to update the display name on a management group is available on the detail screen.   
 ![Rename Group](media/management-groups/rename.png)
+
 ---
 
 ### Example 3: Update a management group with a new display name
