@@ -112,37 +112,41 @@ In the application management screen, provisioning is configured in the **Provis
 
 ## What happens during provisioning?
 
-When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to extract users and groups. The provisioning service runs an initial full sync against the source system and target system, followed by periodic delta syncs every 40 minutes.
+When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to extract users and groups. The provisioning service runs an initial full sync against the source system and target system, followed by periodic delta syncs. 
 
 ### Initial full sync
 When the provisioning service is started, the first sync ever performed will:
 
-1. Query all users and groups from the source system, retrieving all attributes defined in the attribute mappings.
+1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings]((active-directory-saas-customizing-attribute-mappings.md).
 2. Create and store a watermark in the service for each user found, to enable optimized change detection in subsequent delta syncs.
-3. Filter the users and groups returned, using any configured assignments or attribute-based scoping filters.
+3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters]((active-directory-saas-scoping-filters.md).
 4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
 7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
+
 
 ### Delta syncs
 After the initial sync, all subsequent syncs will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 2. Update the watermarks stored in the service for the new and updated users.
-3. Filter the users and groups returned, using any configured assignments or attribute-based scoping filters.
+3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters]((active-directory-saas-scoping-filters.md).
 4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
 7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
-8. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system.
-9. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system.
+8. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system via an update.
+9. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system via an update.
 10. If a user that was previously in scope for provisioning is hard-deleted in the source system, the service deletes the user in the target system. In Azure AD, users are hard-deleted 30 days after they are soft-deleted.
 
-The provisioning service will continue to run back-to-back delta syncs indefinitely, until one of the following events occurs:
+>[!NOTE]
+> You can optionally disable the create, update, or delete operations by using the **Target object actions** check boxes in the [Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
+
+The provisioning service will continue to run back-to-back delta syncs indefinitely at 40 minutes intervals, until one of the following events occurs:
 
 * The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
-* A new full sync is triggered using the *clear state and restart* option in the Azure portal, or using the appropriate Graph API command
+* A new full sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command
 * A new full sync is triggered due to a change in attribute mappings or scoping filters
 * The provisioning process goes into quarantine (see below) due to a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
@@ -196,10 +200,6 @@ See the [provisioning reporting guide](active-directory-saas-provisioning-report
 **How will I know if users fail to get provisioned properly?**
 
 All failures are recorded in the Azure AD audit logs. For more information, see the [provisioning reporting guide](active-directory-saas-provisioning-reporting.md).
-
-**Can I configure the provisioning service to never delete users? Or only update users?**
-
-Yes. You can use the **Target object actions** menu in the [Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md) section to optionally disable create, update, or delete actions. 
 
 **How can I build an application that works with the provisioning service?**
 
