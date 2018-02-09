@@ -36,7 +36,7 @@ The following operating system versions are supported for development:
 
 ## Installation Methods
 
-### 1. Script installation
+### 1. Script installation (Ubuntu)
 
 A script is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with **sfctl** CLI. Run the manual installation steps in the next section to determine what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed. 
 
@@ -103,20 +103,13 @@ To install the SDK and the associated runtime package via the apt-get command-li
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install epel-release-latest-7.noarch.rpm
     ```
-
-3. Install restricted shell(rssh)
-
-    ```bash
-    sudo yum --enablerepo=epel-testing install rssh
-    ```
-
-4. Add EfficiOS RHEL7 package repository to your system.
+3. Add EfficiOS RHEL7 package repository to your system.
 
     ```bash
     wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-5. Import the efficios package signing key to the local GPG keyring
+4. Import the efficios package signing key to the local GPG keyring
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
