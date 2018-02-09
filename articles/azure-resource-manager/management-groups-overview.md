@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 2/14/2018
 ms.author: rithorn
 ---
 
@@ -168,7 +168,7 @@ Update-AzureRmManagementGroup
  
 # [Portal](#tab/portal)
 The ability to update the display name on a management group is available on the detail screen.   
-![Rename Group](media/management-groups/rename.png)
+![Rename Group](media/management-groups/detail_action_small.png)
 
 ---
 
@@ -186,12 +186,14 @@ To rename a management group:
 - Select the Management Groups Service on the left navigation. 
 - Select the management group you would like to rename. 
 - Select the "Rename" option at the top of the page
-![Rename Group](media/management-groups/rename.png)
+
+![Rename Group](media/management-groups/detail_action_small.png)
 - When the menu opens, enter the new name you would like to have displayed.
 ![Rename Group](media/management-groups/rename_context.png) 
 - Select save. 
 
 The hierarchy list updates to show the new display name. 
+
 --- 
 
 ## Delete a management group
@@ -214,6 +216,7 @@ Remove-AzureRmManagementGroup
 The ability to delete a management group is available on the detail blade of a management group. The disabled delete icon is when you do not have the correct permissions or there are children of the management group. 
 
 ![delete Group](media/management-groups/delete.png)
+
 ---
  
 ### Example 5: Delete a management group
@@ -238,6 +241,7 @@ To delete a management group:
 - Select "Yes." 
 
 The hierarchy list updates showing the group has been deleted.
+
 ---
 
 ## View management groups
@@ -266,6 +270,7 @@ Hierarchy tree view:
 
 Detail view:
 ![detail](media/management-groups/detail_all.png)
+
 ---
 
 ### Example 6: Show all management groups 
@@ -282,6 +287,7 @@ Get-AzureRmManagementGroup
 - Select the Management Groups Service on the left navigation. 
 - The Management Group hierarchy blade loads where all groups are displayed.
 ![Main](media/management-groups/main.png)
+
 ---
 
 ### Example 7: View one management group
@@ -298,6 +304,7 @@ Get-AzureRmManagementGroup -GroupName Contoso
 - The Management Group hierarchy blade loads where all groups are displayed.
 - Select the management group "Contoso" 
 ![detail](media/management-groups/detail_all.png)
+
 ---
 
 ### Example 8: View a group and its children 
@@ -315,6 +322,7 @@ Get-AzureRmManagementGroup -GroupName Contoso -Expand
 - Select the management group "Contoso"
 - On the detail blade, you see all the children listed
 ![detail](media/management-groups/detail_all.png)
+
 ---
 
 ### Example 9: View all groups under a management group
@@ -352,6 +360,7 @@ Add-AzureRmManagementGroupSubscription
 To move a subscription in the portal, go to the management group's detail blade. Here you are able to add an existing subscription to the management group
 
 ![Add Subscription](media/management-groups/children_action.png)
+
 ---
 
 
@@ -379,6 +388,7 @@ Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123456
 - Select "Save"
 
 You see the list update with the subscription
+
 ---
 
 ### Moving a subscription from a management group
@@ -413,6 +423,7 @@ There are a couple different ways to move a subscription to a management group w
 The first way is on the management group's detail blade. Here you are able to add an existing subscription to the management group
 
 ![Children](media/management-groups/add_context_2.png)
+
 ---
 
 ### Example 11: Removing a link between a subscription and a management group
@@ -437,6 +448,7 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 - Select "Save"
 
 You see the list update with the subscription
+
 ---
 
 ### Moving a management group to a different management group   
@@ -470,6 +482,7 @@ The second way is on the management group detail blade. You select the "Move" ac
 The third option is to select "Move" on any of the lists.  
 
 ![move](media/management-groups/move_small.png)
+
 ---
 
 ### Example 12: Connecting a management group to another management group
@@ -506,6 +519,7 @@ The alternative way is to navigate to the management group and change the parent
 - Select "Save" 
 
 After you select save the Parent listed updated to Contoso
+
 ---
 
 ### Moving a management group from a management group
@@ -549,6 +563,7 @@ The second way is on the management group detail blade. You select the "Move" ac
 The third option is to select "Move" on any of the lists.  
 
 ![move](media/management-groups/move_small.png)
+
 ---
 
 ### Example 13: Removing a link between a two management groups 
@@ -570,4 +585,5 @@ You select the "Move" action to move this management group to a new parent manag
 Another option is to select "Move" on any of the lists.  
 
 ![move](media/management-groups/move_small.png)
+
 ---
