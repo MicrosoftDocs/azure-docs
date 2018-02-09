@@ -31,7 +31,7 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
 ### Step 1 Create virtual network gateway
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. In the virtual network that will host the virtual network gateway, select **Subnets**, select **Gateway subnet** to create a subnet. 
+2. In the virtual network that will host the virtual network gateway, select **Subnets**, and then select **Gateway subnet** to create a subnet. 
 
     ![The image about how to add gateway subnet](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Create a virtual network gateway with the following settings:
@@ -48,7 +48,7 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
 ### Step 2 Configure the NPS for Azure MFA
 
 1. On the NPS server, [install the NPS extension for Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
-2. Open NSP console, right-click **RADUIS Clients**, choose **New**. Create a RADUIS client with the following settings:
+2. Open NSP console, right-click **RADUIS Clients**, select **New**. Create a RADUIS client with the following settings:
 
     - **Friendly Name**: type any name.
     - **Address (IP or DNS)**: type the gateway subnet you created in the step 1.
@@ -57,15 +57,12 @@ To enable MFA, the users must be in Azure Active Directory (Synced from on-premi
     ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
-3.  In the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **additional options are not selected**.
+3.  In the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **additional options** are not selected.
 
     ![The image about RADUIS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Go to **Policies** > **Network Policies**, double-click **Connections to Microsoft Routing and Remote Access server** policy, select **Grant access**, and then click **OK**.
 
-    ![The image about Network Policies settings](./media/vpn-gateway-radiuis-mfa-nsp/network-policy.png)
-
- 
 ### Step 3 Configure the virtual network gateway
 
 1. Log in to [Azure portal](https://portal.azure.com).
