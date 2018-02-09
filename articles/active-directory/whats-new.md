@@ -15,14 +15,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # What's new in Azure Active Directory?
-
-
 
 
 > Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -72,7 +70,7 @@ The insight you get for a detected risk event is tied to your Azure AD subscript
 
 With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event Sign-in with additional risk detected.
 
-For more information, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+For more information, see [Azure Active Directory risk events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -87,7 +85,7 @@ For more information, see [Azure Active Directory risk events](active-directory-
 You can now better manage how Office 365 applications show up on your user's access panels through a new user setting. This option is helpful for reducing the amount of apps in a user's access panels if you prefer to only show Office apps in the Office portal. The setting is located in the **User Settings** and is labeled **Users can only see Office 365 apps in the Office 365 portal**.
  
 
-For more information, see [Hide an application from user's experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+For more information, see [Hide an application from user's experience in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -107,7 +105,7 @@ The My Apps browser extension is now available via a convenient tool that gives 
 - Shortcuts to recently used apps from the extension
 - The extension is available for Edge, Chrome and Firefox.
  
-For more information, see [My Apps Secure Sign-in Extension](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+For more information, see [My Apps Secure Sign-in Extension](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -122,7 +120,7 @@ As of January 8, 2018, the Azure AD administration experience in the Azure class
  
 ---
 
-### Azure AD administration experience in Azure classic portal has been retired
+### The PhoneFactor web portal has been retired
 
 **Type:** Deprecated  
 **Service category:** Azure AD  
@@ -152,9 +150,9 @@ As part of the transition to the new admin console, we have made 2 new APIs avai
 
 For more information, see:
 
-- [Get started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Get started with the Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Get started with Azure Active Directory Identity Protection and Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -224,7 +222,7 @@ An option for administrators requires their users to expand the terms of use pri
 
 Select either **On** or **Off** to require users to expand the terms of use. The **On** setting requires users to view the terms of use prior to accepting them.
 
-For more information, see the [Azure AD terms of use feature (preview)](active-directory-tou.md).
+For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -237,7 +235,7 @@ For more information, see the [Azure AD terms of use feature (preview)](active-d
  
 You can use scoped activation to activate eligible Azure resource role assignments with less autonomy than the original assignment defaults. An example is if you're assigned as the owner of a subscription in your tenant. With scoped activation, you can activate the owner role for up to five resources contained within the subscription (such as resource groups and virtual machines). Scoping your activation might reduce the possibility of executing unwanted changes to critical Azure resources.
 
-For more information, see [What is Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+For more information, see [What is Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -246,7 +244,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](act
 
 **Type:** New feature  
 **Service category:** Enterprise apps  
-**Product capability:** Third-party integration
+**Product capability:** 3rd Party Integration
  
 In December 2017, the following new apps with federation support were added in the app gallery:
 
@@ -341,7 +339,7 @@ Today, access is blocked when you use this condition. When the preview is availa
 
 Look for this capability and more information in upcoming blogs and release notes. 
 
-For more information, see [Conditional access in Azure AD](active-directory-conditional-access-azure-portal.md).
+For more information, see [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -356,7 +354,7 @@ For more information, see [Conditional access in Azure AD](active-directory-cond
 
 
 
-The following apps are planned to be added to the list of [approved client apps](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+The following apps are planned to be added to the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -364,8 +362,8 @@ The following apps are planned to be added to the list of [approved client apps]
 
 For more information, see:
 
-- [Approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app-based conditional access](active-directory-conditional-access-mam.md)
+- [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -407,7 +405,7 @@ If there are issues with your connection to your on-premises writeback client, y
 - A link to documentation that assists you in resolving the issue. 
 
 
-For more information, see [on-premises integration](active-directory-passwords-how-it-works.md#on-premises-integration).
+For more information, see [on-premises integration](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -426,9 +424,9 @@ For more information, see [on-premises integration](active-directory-passwords-h
 
 
 
-You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](active-directory-conditional-access-mam.md). Intune app protection policies are used to configure and protect company data on these client applications.
+You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune app protection policies are used to configure and protect company data on these client applications.
 
-By combining [app-based](active-directory-conditional-access-mam.md) with [device-based](active-directory-conditional-access-policy-connected-applications.md) conditional access policies, you have the flexibility to protect data for personal and company devices.
+By combining [app-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) conditional access policies, you have the flexibility to protect data for personal and company devices.
 
 The following conditions and controls are now available for use with app-based conditional access:
 
@@ -446,7 +444,7 @@ The following conditions and controls are now available for use with app-based c
 - Require approved client app
 
 
-For more information, see [Azure AD app-based conditional access](active-directory-conditional-access-mam.md).
+For more information, see [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -470,7 +468,7 @@ You now can find all your devices connected to Azure AD and the device-related a
 - Find BitLocker keys for your Azure AD-joined devices, manage your device with Intune, and more.
 - Manage Azure AD device-related settings.
 
-For more information, see [Manage devices by using the Azure portal](device-management-azure-portal.md).
+For more information, see [Manage devices by using the Azure portal](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -495,7 +493,7 @@ You now can include (or exclude) macOS as a device platform condition in your Az
 For more information, see:
 
 - [Create a device compliance policy for macOS devices with Intune](https://aka.ms/macoscompliancepolicy)
-- [Conditional access in Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -516,7 +514,7 @@ The Network Policy Server extension for Azure Multi-Factor Authentication adds c
 This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
 
-For more information, see [Integrate your existing Network Policy Server infrastructure with Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+For more information, see [Integrate your existing Network Policy Server infrastructure with Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -555,7 +553,7 @@ In the Azure AD admin center, you can now:
 **Product capability:** Identity security and protection
 
 
-The following apps were added to the list of [approved client apps](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+The following apps were added to the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -563,8 +561,8 @@ The following apps were added to the list of [approved client apps](active-direc
 
 For more information, see:
 
-- [Approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app-based conditional access](active-directory-conditional-access-mam.md)
+- [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -579,7 +577,7 @@ For more information, see:
  
 You now can use "OR" (require one of the selected controls) for conditional access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using multi-factor authentication "OR" to be on a compliant device.
 
-For more information, see [Controls in Azure AD conditional access](active-directory-conditional-access-controls.md).
+For more information, see [Controls in Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -633,7 +631,7 @@ Due to these new capabilities, the report APIs under the /reports endpoint were 
 
 
 
-Azure AD supports automatic sign-in field detection for applications that render an HTML user name and password field. These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, enter a web URL, and then save the page.
+Azure AD supports automatic sign-in field detection for applications that render an HTML user name and password field. These steps are documented in [How to automatically capture sign-in fields for an application](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, enter a web URL, and then save the page.
  
 Due to a service issue, this functionality was temporarily disabled. The issue was resolved, and the automatic sign-in field detection is available again.
 
@@ -655,7 +653,7 @@ Multi-factor authentication (MFA) is an essential part of protecting your organi
 
 With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the MFA management portal functionality within the Azure AD experience.
 
-For more information, see [Reference for MFA reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md). 
+For more information, see [Reference for MFA reporting in the Azure portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -678,7 +676,7 @@ You can use Azure AD terms of use in the following scenarios:
 - Specific terms of use based on a user's attributes (for example, doctors vs. nurses or domestic vs. international employees, done by dynamic groups)
 - Specific terms of use for accessing high-impact business apps, like Salesforce
 
-For more information, see [Azure AD terms of use](active-directory-tou.md).
+For more information, see [Azure AD terms of use](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -699,7 +697,7 @@ With Azure AD Privileged Identity Management, you can manage, control, and monit
 
 All resources within the Azure portal that use the Azure RBAC functionality can take advantage of all the security and lifecycle management capabilities that Azure AD Privileged Identity Management has to offer.
 
-For more information, see [Privileged Identity Management for Azure resources](privileged-identity-management/azure-pim-resource-rbac.md).
+For more information, see [Privileged Identity Management for Azure resources](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -720,7 +718,7 @@ Organizations can use access reviews (preview) to efficiently manage group membe
 
 You can collect the access review controls into programs relevant for your organization to track reviews for compliance or risk-sensitive applications.
 
-For more information, see [Azure AD access reviews](active-directory-azure-ad-controls-access-reviews-overview.md).
+For more information, see [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -737,7 +735,7 @@ For more information, see [Azure AD access reviews](active-directory-azure-ad-co
 
 You now can better manage apps that show up on your users' portals through a new **hide app** property. You can hide apps to help in cases where app tiles show up for back-end services or duplicate tiles and clutter users' app launchers. The toggle is in the **Properties** section of the third-party app and is labeled **Visible to user?** You also can hide an app programmatically through PowerShell. 
 
-For more information, see [Hide a third-party application from a user's experience in Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+For more information, see [Hide a third-party application from a user's experience in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **What's available?**

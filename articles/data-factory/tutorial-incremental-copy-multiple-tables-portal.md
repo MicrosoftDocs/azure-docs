@@ -131,7 +131,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 	```
 
-### Create another table in the SQL database to store the high watermark value
+### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
@@ -153,7 +153,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the SQL database 
+### Create a stored procedure in the Azure SQL database 
 
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
@@ -171,7 +171,7 @@ END
 
 ```
 
-### Create data types and additional stored procedures
+### Create data types and additional stored procedures in Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
@@ -225,6 +225,7 @@ END
 
 ## Create a data factory
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
