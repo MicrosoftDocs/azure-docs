@@ -1,6 +1,6 @@
 ---
 title: Improve performance by compressing files in Azure CDN | Microsoft Docs
-description: Learn how to improve file transfer speed and increases page load performance by compressing your files in Azure CDN.
+description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -13,14 +13,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: mazha
 
 ---
 # Improve performance by compressing files in Azure CDN
-File compression is a simple and effective method to improve file transfer speed and increase page load performance by reducing a file's size before it is sent from the server. File compression can reduce bandwidth costs and provide a more responsive experience for your users.
+File compression is a simple and effective method to improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server. File compression can reduce bandwidth costs and provide a more responsive experience for your users.
 
-There are two ways to enable compression:
+There are two ways to enable file compression:
 
 * Enable compression on your origin server. In this case, the CDN passes through the compressed files and delivers them to clients that request them.
 * Enable compression directly on the CDN edge servers. In this case, the CDN compresses the files and serves them to end users, even if they are not compressed by the origin server.
@@ -52,7 +52,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 3. Select **On** to turn on compression.
    
     ![CDN file compression options](./media/cdn-file-compression/cdn-compress-standard.png)
-4. Use the default format types, or modify the list by adding or removing format types.
+4. Use the default MIME types, or modify the list by adding or removing MIME types.
    
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
@@ -74,7 +74,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
     ![CDN compression selection](./media/cdn-file-compression/cdn-compress-select.png)
    
-    Compression options are displayed.
+    The compression options are displayed.
    
     ![CDN file compression options](./media/cdn-file-compression/cdn-compress-files.png)
 3. Enable compression by selecting **Compression Enabled**. Enter the MIME types you want to compress as a comma-delimited list (no spaces) in the **File Types** box.
@@ -93,21 +93,21 @@ For **Azure CDN from Verizon** profiles, only eligible files are compressed. To 
 - Be larger than 128 bytes
 - Be smaller than 1 MB
  
-These profiles support **gzip** (GNU zip), **deflate**, **bzip2**, or **br** (Brotli) encoding. If the request supports more than one compression type, those compression types take precedence over Brotli compression.
+These profiles support gzip (GNU zip), DEFLATE, bzip2, and brotli compression encodings. If the request supports more than one compression type, those compression types take precedence over brotli compression.
 
-When a request for an asset specifies Brotli encoding (includes the HTTP header `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs Brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
+When a request for an asset specifies brotli compression (`Accept-Encoding: br` HTTP header) and the request results in a cache miss, Azure CDN performs brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
 
 ### Azure CDN from Akamai profiles
 
 For **Azure CDN from Akamai** profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
 
-These profiles support only **gzip** encoding. When a profile endpoint requests a **gzip** encoded file, it is always requested from the origin, regardless of the client request. 
+These profiles support gzip compression encoding only. When a profile endpoint requests a gzip-encoded file, it is always requested from the origin, regardless of the client request. 
 
 ## Compression behavior tables
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Uncompressed |Uncompressed | |
