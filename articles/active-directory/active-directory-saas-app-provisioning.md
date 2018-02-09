@@ -162,9 +162,9 @@ Common failures can include:
 These failures can be resolved by adjusting the attribute values for the affected user in the source system, or by adjusting the attribute mappings to not cause conflicts.   
 
 ### Quarantine
-If most or all of the calls made against the target system consistently fail due to an error (such as in the case of invalid admin credentials),then the provisioning job goes into a "quarantine" state. This is indicated in the [provisioning summary report](active-directory-saas-provisioning-reporting.md), and via email if email notifications were configured in the Azure portal. 
+If most or all of the calls made against the target system consistently fail due to an error (such as in the case of invalid admin credentials), then the provisioning job goes into a "quarantine" state. This is indicated in the [provisioning summary report](active-directory-saas-provisioning-reporting.md), and via email if email notifications were configured in the Azure portal. 
 
-When in quarantine, the frequency of delta syncs are gradually reduced to once per day. 
+When in quarantine, the frequency of delta syncs is gradually reduced to once per day. 
 
 The provisioning job will be removed from quarantine after all of the offending errors being fixed, and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
