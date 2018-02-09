@@ -34,7 +34,7 @@ Specifically, this Amazon S3 connector supports copying files as-is or parsing f
 To copy data from Amazon S3, make sure you have been granted the following permissions:
 
 - `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- `s3:ListBucket` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
+- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
 
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

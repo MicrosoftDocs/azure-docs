@@ -43,7 +43,7 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
 
 ## Classification (preview)
 
-Content Moderator’s machine-assisted text classification feature (preview) helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+Content Moderator’s machine-assisted **text classification feature (preview)** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
 
 The following extract in the JSON extract shows an example output:
 
