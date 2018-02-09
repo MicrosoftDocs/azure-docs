@@ -1,6 +1,6 @@
 ---
-title: Create, change, or delete Azure route tables | Microsoft Docs
-description: Learn how to create, change, or delete route tables and routes.
+title: Create, change, or delete an Azure route table | Microsoft Docs
+description: Learn how to create, change, or delete a route table.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: jdial
-
 ---
-# Create, change, or delete route tables
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating route tables. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](create-user-defined-route-portal.md) tutorial, before completing tasks in this article.
+# Create, change, or delete a route table
+
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table. If you're not familiar with Azure routing, we recommend reading the [Routing overview](virtual-networks-udr-overview.md) and completing the [Route network traffic with a route table](create-user-defined-route-portal.md) tutorial, before completing tasks in this article.
 
 ## Before you begin
 
@@ -28,8 +28,8 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. This tutorial requires the Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. To get help, with examples, for individual commands, type `get-help <command> -full`, replacing `<command>` with the command you want help on.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure. To get help, with examples, for individual commands, type `az <command> -h`, replacing `<command>` with the command you want help on.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 ## Create a route table
 
@@ -56,7 +56,13 @@ In the search box at the top of the portal, enter *route tables* in the search b
 ## View details of a route table
 
 1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, click it.
-2. Click the route table in the list that you want to view details for.
+2. Click the route table in the list that you want to view details for. Under **SETTINGS** you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
+3. To learn more about common Azure settings, see the following information:
+	*	[Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+	*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+	*	[Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Commands**
 
@@ -90,7 +96,7 @@ A subnet can have zero or one route table associated to it. A route table can be
 
 ## Dissociate a route table from a subnet
 
-When you dissociate a route table from a subnet, Azure routes traffic based on its default routing.
+When you dissociate a route table from a subnet, Azure routes traffic based on its [default routes](virtual-networks-udr-overview.md#default).
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, click it.
 2. Click the virtual network that contains the subnet you want to dissociate a route table from.
@@ -109,7 +115,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 
 1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, click it.
 2. Click **...** on the right-side of the route table you want to delete.
-3. Click **Delete**, then click **Yes**.
+3. Click **Delete**, and then click **Yes**.
 
 **Commands**
 
@@ -137,7 +143,7 @@ There is a limit to how many routes per route table can create per Azure locatio
 
 ## View routes
 
-A route table contains zero or multiple routes.
+A route table contains zero or multiple routes. To learn more about the information listed when viewing routes, see [Routing overview](virtual-networks-udr-overview.md).
 
 1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, click it.
 2. Click the route table from the list that you want to view routes for.
@@ -220,7 +226,7 @@ You can determine the next hop type between a virtual machine and the IP address
  
 ## Permissions
 
-To perform tasks on route tables and routes, your account must be assigned one or more of the following permissions:
+To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
 |Operation                                       |   Operation name                |
 |-------------------------------------------     |   ----------------------------  |
@@ -232,6 +238,4 @@ To perform tasks on route tables and routes, your account must be assigned one o
 |Microsoft.Network/routeTables/routes/write      |   Create or update route        |
 |Microsoft.Network/routeTables/routes/delete     |   Delete route                  |
 
-The *join* operation is required to associate a route table to a subnet.
-
-If you receive any permission-related errors when trying to complete tasks in this article, someone with permissions to assign your account to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role with the necessary permissions needs to assign your account to the role.
+The *Join route table* operation is required to associate a route table to a subnet.
