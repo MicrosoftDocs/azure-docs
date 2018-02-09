@@ -20,12 +20,12 @@ ms.author: dekapur
 
 # Set up Operations Management Suite Log Analytics for a cluster
 
-You can set up an Operations Management Suite (OMS) workspace through Azure Resource Manager, PowerShell, or via Azure Marketplace. If you are maintaining an updated Resource Manager template of your deployment for future use, use the same template to set up your OMS environment. Deploying via Marketplace is easier if you already have a cluster deployed, with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying OMS, use PowerShell, or deploy via the Resource Manager template.
+You can set up an Operations Management Suite (OMS) workspace through Azure Resource Manager, PowerShell, or via Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your OMS environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying OMS, deploy by using PowerShell or the Resource Manager template.
 
 > [!NOTE]
 > To set up OMS to monitor your cluster, you need to have diagnostics enabled to view cluster- or platform-level events.
 
-## Deploy OMS using Azure Marketplace
+## Deploy OMS by using Azure Marketplace
 
 If you prefer to add an OMS workspace after you have deployed a cluster, go to Azure Marketplace (in the portal) and look for *Service Fabric Analytics*:
 
@@ -37,47 +37,47 @@ If you prefer to add an OMS workspace after you have deployed a cluster, go to A
 
     ![OMS SF Analytics in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. In the Service Fabric Analytics creation window, select **Select a workspace** for the *OMS Workspace* field, and then **Create a new workspace**. Fill out the required entries. The only requirement here is that the subscription for the Service Fabric cluster and the OMS workspace is the same. Once your entries have been validated, your OMS workspace  starts to deploy. This takes only a few minutes.
+4. In the Service Fabric Analytics creation window, select **Select a workspace** for the *OMS Workspace* field, and then **Create a new workspace**. Fill out the required entries. The only requirement here is that the subscription for the Service Fabric cluster and the OMS workspace is the same. When your entries have been validated, your OMS workspace starts to deploy. The deployment takes only a few minutes.
 
-5. When finished, select **Create** again at the bottom of the Service Fabric Analytics creation window. Make sure that the new workspace shows up under *OMS Workspace*. This adds the solution to the workspace you just created.
+5. When finished, select **Create** again at the bottom of the Service Fabric Analytics creation window. Make sure that the new workspace shows up under *OMS Workspace*. This action adds the solution to the workspace you created.
 
 If you are using Windows, continue with the following steps to hook up OMS to the storage account where your cluster events are stored. 
 
 >[!NOTE]
 Enabling this experience correctly for Linux clusters is still in progress. 
 
-Proceed with adding the OMS Agent to your cluster:  
+To add the OMS Agent to your cluster:  
 
-1. The workspace still needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. You should see *ServiceFabric(\<nameOfOMSWorkspace\>)*. Select the solution and go to its overview page, from where you can change solution settings, workspace settings, and access the OMS portal.
+1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select *ServiceFabric(\<nameOfOMSWorkspace\>)* and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS portal.
 
 2. On the left navigation menu, select **Storage accounts logs**, under *Workspace Data Sources*.
 
 3. On the *Storage account logs* page, select **Add** at the top to add your cluster's logs to the workspace.
 
-4. Select **Storage account** to add the appropriate account created in your cluster. If you used the default name, the storage account is named *sfdg\<resourceGroupName\>*. You can also confirm this with the Azure Resource Manager template used to deploy your cluster, by checking the value used for the `applicationDiagnosticsStorageAccountName`. You may also have to scroll down and select **Load more** if the name does not show up. Select the storage account name.
+4. Select **Storage account** to add the appropriate account created in your cluster. If you used the default name, the storage account is *sfdg\<resourceGroupName\>*. You can also confirm this with the Azure Resource Manager template used to deploy your cluster, by checking the value used for the `applicationDiagnosticsStorageAccountName`. If the name does not show up, scroll down and select **Load more** . Select the storage account name.
 
-5. Next, specify the *Data Type*, which should be set to **Service Fabric Events**.
+5. Next, specify the *Data Type*. Set it to **Service Fabric Events**.
 
-6. The *Source* should automatically be set to *WADServiceFabric\*EventTable*.
+6. The *Source* is automatically set to *WADServiceFabric\*EventTable*.
 
 7. Select **OK** to connect your workspace to your cluster's logs.
 
     ![Add storage account logs to OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-The account should now show up as part of your *Storage account logs* in your workspace's data sources.
+The account now shows up as part of your *Storage account logs* in your workspace's data sources.
 
-You have added the Service Fabric Analytics solution in an OMS Log Analytics workspace that is now correctly connected to your cluster's platform and application log table. You can add additional sources to the workspace in the same way.
+You have added the Service Fabric Analytics solution in an OMS Log Analytics workspace that's now correctly connected to your cluster's platform and application log table. You can add additional sources to the workspace in the same way.
 
 
-## Deploy OMS using a Resource Manager template
+## Deploy OMS by using a Resource Manager template
 
-When deploying a cluster using a Resource Manager template, the template should create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
+When you deploy a cluster by using a Resource Manager template, the template creates a new OMS workspace, adds the Service Fabric Solution to the workspace, and configures it to read data from the appropriate storage tables.
 
 You can use and modify this [sample template](https://azure.microsoft.com/resources/templates/service-fabric-oms/) to meet your requirements. Templates that give you different options for setting up an OMS workspace can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-The main changes made are the following:
+The main changes made are:
 
-1. Add `omsWorkspaceName` and `omsRegion` to your parameters. This means adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. You should also add the two new parameters in your *parameters.json* to define their values for the resource deployment:
+1. Add `omsWorkspaceName` and `omsRegion` to your parameters by adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. Also, add the two new parameters in your *parameters.json* to define their values for the resource deployment:
     
     ```json
     "omsWorkspacename": {
@@ -103,7 +103,7 @@ The main changes made are the following:
 
     The `omsRegion` values have to conform to a specific set of the values. Choose the one that is closest to the deployment of your cluster.
 
-2. If you send any application logs to OMS, first confirm that the `applicationDiagnosticsStorageAccountType` and `applicationDiagnosticsStorageAccountName` are included as parameters in your template. If they are not included, add them to the variables section and edit their values as needed. You can also include them as parameters following the preceding format.
+2. If you send any application logs to OMS, first confirm that the `applicationDiagnosticsStorageAccountType` and `applicationDiagnosticsStorageAccountName` are included as parameters in your template. If they are not included, add them to the variables section and edit their values as needed. You can also include them as parameters by following the preceding format.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -178,17 +178,17 @@ The main changes made are the following:
     > [!NOTE]
     > If you added the `applicationDiagnosticsStorageAccountName` as a variable, make sure to modify each reference to it to `variables('applicationDiagnosticsStorageAccountName')` instead of `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Deploy the template as a Resource Manager upgrade to your cluster. This is done using the `New-AzureRmResourceGroupDeployment` API in the AzureRM PowerShell module. An example command would be:
+5. Deploy the template as a Resource Manager upgrade to your cluster by using the `New-AzureRmResourceGroupDeployment` API in the AzureRM PowerShell module. An example command would be:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Azure Resource Manager detects that this is an update to an existing resource. It only processes the changes between the template driving the existing deployment and the new template provided.
+    Azure Resource Manager detects that this command is an update to an existing resource. It only processes the changes between the template driving the existing deployment and the new template provided.
 
-## Deploy OMS using Azure PowerShell
+## Deploy OMS by using Azure PowerShell
 
-You can also deploy your OMS Log Analytics resource via PowerShell. This is achieved by using the `New-AzureRmOperationalInsightsWorkspace` command. To do this, make sure you have installed [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Use this script to create a new OMS Log Analytics workspace and add the Service Fabric solution to it: 
+You can also deploy your OMS Log Analytics resource via PowerShell by using the `New-AzureRmOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Use this script to create a new OMS Log Analytics workspace and add the Service Fabric solution to it: 
 
 ```ps
 
@@ -214,7 +214,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-When this is done, if your cluster is a Windows cluster, follow the steps in the section above to hook up OMS Log Analytics to the appropriate storage account.
+When done, follow the steps in the preceding section to hook up OMS Log Analytics to the appropriate storage account.
 
 You can also add other solutions or make other modifications to your OMS Workspace by using PowerShell. To learn more, see [Manage Log Analytics using PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
