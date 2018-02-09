@@ -212,10 +212,10 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+* [Azure AD synchronization API overview](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-overview)
 
