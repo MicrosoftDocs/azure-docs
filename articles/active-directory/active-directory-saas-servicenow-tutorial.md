@@ -154,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. Sign on to your ServiceNow application as an administrator.
 
-10. In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in servicenow. follow the below steps for the same:
+10. In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in ServiceNow. follow the below steps for the same:
 
 	a. In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
 	
