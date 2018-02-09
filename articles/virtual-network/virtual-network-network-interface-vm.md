@@ -29,16 +29,17 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 
 Complete the following tasks before you perform the steps in any section of this article:
 
-- Sign in to the Azure [portal](https://portal.azure.com), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial](https://azure.microsoft.com/free).
+- Sign in to the Azure [portal](https://portal.azure.com), Azure CLI, or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial](https://azure.microsoft.com/free).
 - If you use PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`. 
 - Alternatively, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free PowerShell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account. To use this option, select the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.com) and select PowerShell in the upper-left corner.
-- If you use Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. 
+- If you use Azure CLI commands to complete tasks in this article, [install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. 
 
 ## Add existing network interfaces to a new VM
 
 When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, nor create a VM with multiple network interfaces, by using the Azure portal. You can do both by using the CLI or PowerShell, but be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) for multiple network interfaces.
 
-**Commands**
+### Commands
+
 Before you create the VM, create a network interface by using the steps in [Create a network interface](virtual-network-network-interface.md#create-a-network-interface).
 
 |Tool|Command|
@@ -50,7 +51,7 @@ Before you create the VM, create a network interface by using the steps in [Crea
 
 1. Sign in to the Azure portal.
 2. In the search box at the top of the portal, type the name of the VM to which you want to add the network interface, or browse for the VM by selecting **All services**, and then **Virtual machines**. After you've found the VM, select it. The VM must support the number of network interfaces you want to add. To find out how many network interfaces each VM size supports, see [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Select **Overview**, under **SETTINGS**. Select **Stop**, and then wait until the **Status** of the VM changes to *Stopped (deallocated)*. 
+3. Select **Overview**, under **SETTINGS**. Select **Stop**, and then wait until the **Status** of the VM changes to **Stopped (deallocated)**. 
 4. Select **Networking**, under **SETTINGS**.
 5. Select **Attach network interface**. From the list of network interfaces that aren't currently attached to another VM, select the one you'd like to attach. 
 
@@ -73,11 +74,11 @@ Before you create the VM, create a network interface by using the steps in [Crea
 You can view the network interfaces currently attached to a VM to learn about each network interface's configuration, and the IP addresses assigned to each network interface. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about how to assign roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, select it.
+2. In the box that contains the text **Search resources** at the top of the Azure portal, type **virtual machines**. When **virtual machines** appears in the search results, select it.
 3. Select the name of the VM for which you want to view network interfaces.
 4. In the **SETTINGS** section for the VM you selected, select **Networking**. To learn about network interface settings and how to change them, see [Manage network interfaces](virtual-network-network-interface.md). To learn about how to add, change, or remove IP addresses assigned to a network interface, see [Manage network interface IP addresses](virtual-network-network-interface-addresses.md).
 
-**Commands**
+### Commands
 
 |Tool|Command|
 |---|---|
@@ -88,7 +89,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 
 1. Sign in to the Azure portal.
 2. In the search box at the top of the portal, search for the name of the VM you want to remove (detach) the network interface from, or browse for the VM by selecting **All services**, and then **Virtual machines**. After you've found the VM, select it.
-3. Select **Overview**, under **SETTINGS**, and then **Stop**. Wait until the **Status** of the VM changes to *Stopped (deallocated)*. 
+3. Select **Overview**, under **SETTINGS**, and then **Stop**. Wait until the **Status** of the VM changes to **Stopped (deallocated)**. 
 4. Select **Networking**, under **SETTINGS**.
 5. Select **Detach network interface**. From the list of network interfaces currently attached to the virtual machine, select the network interface you'd like to detach. 
 
@@ -96,7 +97,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
     If only one network interface is listed, you cannot detach it, because a virtual machine must always have at least one network interface attached to it.
 6. Select **OK**.
 
-**Commands**
+### Commands
 
 |Tool|Command|
 |---|---|
@@ -121,7 +122,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 ## Next steps
 To create a VM with multiple network interfaces or IP addresses, read the following articles:
 
-**Commands**
+### Commands
 
 |Task|Tool|
 |---|---|
