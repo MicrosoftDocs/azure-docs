@@ -18,11 +18,11 @@ This article describes how to configure **Data retention time** and **Data reten
 
 Each Time Series Insights (TSI) environment has a setting to configure **Data retention time**. The values span between 1 and 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
-Each TSI environment has an additional setting **Data retention mode**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two modes to choose from:
-- **Continue ingress and purge old data** (default)  
+Each TSI environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two modes to choose from:
+- **Purge old data** (default)  
 - **Pause ingress**
 
-For detailed information to better understand these settings, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+For detailed information to better understand these settings, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).  
 
 ## Configure data retention
 
@@ -36,7 +36,7 @@ For detailed information to better understand these settings, review [Understand
 
 5. Note the **Capacity** setting, since this configuration impacts the maximum amount of data events and total storage capacity for storing data. 
 
-6. Toggle the **Data retention mode** setting. Select **Continue ingress and purge old data** or **Pause ingress** modes.
+6. Toggle the **Storage limit exceeded behavior** setting. Select **Purge old data** or **Pause ingress** modes.
 
 7. Select **Save** to configure the changes.
 
