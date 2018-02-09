@@ -31,18 +31,18 @@ Azure Active Directory (Azure AD) allows you to automate the creation, maintenan
 **Automated user provisioning also includes the following functionality:**
 
 * The ability to match existing identities between source and target systems.
-* Customization options to help Azure AD fit the current configurations of the apps and systems that your organization is currently using.
-* Optional email alerts for provisioning errors.
+* Customizable attribute mappings that define what user data should flow from the source system to the target system.
+* Optional email alerts for provisioning errors
 * Reporting and activity logs to help with monitoring and troubleshooting.
 
 ## Why use automated provisioning?
 Some common motivations for using this feature include:
 
-* To avoid the costs, inefficiencies, and human error associated with manual provisioning processes.
-* To avoid the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
+* Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
+* Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a bulk number of users into a particular SaaS application or system.
-* To enjoy the convenience of having your provisioning solution run off of the same app access policies that you defined for Azure AD Single Sign-On.
+* To easily import a large numbers of users into a particular SaaS application or system.
+* To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 
 ## How does automatic provisioning work?
@@ -112,43 +112,43 @@ In the application management screen, provisioning is configured in the **Provis
 
 ## What happens during provisioning?
 
-When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to extract users and groups. The provisioning service runs an initial full sync against the source system and target system, followed by periodic delta syncs. 
+When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs. 
 
-### Initial full sync
+### Initial sync
 When the provisioning service is started, the first sync ever performed will:
 
 1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md).
-2. Create and store a watermark in the service for each user found, to enable optimized change detection in subsequent delta syncs.
-3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
-4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the matching ID of the user.
-5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
-6. If a matching user is found, it is updated using the attributes returned from the source system.
-7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
+2. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
+3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Example: If the userPrincipal name in the source system is the matching attribute and maps to userName in the target system, then the provisioning service queries the target system for userNames that match the userPrincipal name values in the source system.
+4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
+5. If a matching user is found, it is updated using the attributes provided by the source system.
+6. If the attribute mappings contain "reference" attributes, the service performs additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
+7. Persist a watermark at the end of the initial sync, which provides the starting point for the subsequent incremental syncs.
 
-Some applications such as ServiceNow, Google Apps, and Box also support provisioning of group names and group properties to target systems, in addition to user accounts. When this is supported and enabled in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md), the provisioning service will synchronize the parent group object first, before enumerating and synchronizing the users that are members of the group.
+Some applications such as ServiceNow, Google Apps, and Box support not only provisioning users, but also provisioning groups and their members. In those cases, if group provisioning is enabled in the [mappings](active-directory-saas-customizing-attribute-mappings.md), the provisioning service synchronizes the users and the groups, and then subsequently synchronizes the group memberships. 
 
-### Delta syncs
+### Incremental syncs
 After the initial sync, all subsequent syncs will:
 
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
-2. Update the watermarks stored in the service for the new and updated users.
-3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
-4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the matching ID of the user.
-5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
-6. If a matching user is found, it is updated using the attributes returned from the source system.
-7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
-8. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system via an update.
-9. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system via an update.
-10. If a user that was previously in scope for provisioning is hard-deleted in the source system, the service deletes the user in the target system. In Azure AD, users are hard-deleted 30 days after they are soft-deleted.
+2. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
+3. When a user is found to be assigned or in scope for provisioning, the service queries the target system for a matching user using the designated [matching attributes](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
+4. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
+5. If a matching user is found, it is updated using the attributes provided by the source system.
+6. If the attribute mappings contain "reference" attributes, the service performs additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
+7. If a user that was previously in scope for provisioning is removed from scope (including being unassigned), the service disables the user in the target system via an update.
+8. If a user that was previously in scope for provisioning is disabled or soft-deleted in the source system, the service disables the user in the target system via an update.
+9. If a user that was previously in scope for provisioning is hard-deleted in the source system, the service deletes the user in the target system. In Azure AD, users are hard-deleted 30 days after they are soft-deleted.
+10. Persist a new watermark at the end of the incremental sync, which provides the starting point for the subsequent incremental syncs.
 
 >[!NOTE]
 > You can optionally disable the create, update, or delete operations by using the **Target object actions** check boxes in the [Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md) section. The logic to disable a user during an update is also controlled via an attribute mapping from a field such as "accountEnabled".
 
-The provisioning service will continue to run back-to-back delta syncs indefinitely at 40 minutes intervals, until one of the following events occurs:
+The provisioning service will continue to run back-to-back incremental syncs indefinitely, at intervals defined in the [tutorial specific to each application](active-directory-saas-tutorial-list.md), until one of the following events occurs:
 
 * The service is manually stopped using the Azure portal, or using the appropriate Graph API command 
-* A new full sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command
-* A new full sync is triggered due to a change in attribute mappings or scoping filters
+* A new initial sync is triggered using the **Clear state and restart** option in the Azure portal, or using the appropriate Graph API command. This clears any stored watermark and causes all source objects to be evaluated again.
+* A new initial sync is triggered due to a change in attribute mappings or scoping filters. This also clears any stored watermark and causes all source objects to be evaluated again.
 * The provisioning process goes into quarantine (see below) due to a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
 ### Errors and retries 
@@ -162,7 +162,7 @@ These failures can be resolved by adjusting the attribute values for the affecte
 ### Quarantine
 If most or all of the calls made against the target system consistently fail due to an error (such as in the case of invalid admin credentials), then the provisioning job goes into a "quarantine" state. This is indicated in the [provisioning summary report](active-directory-saas-provisioning-reporting.md), and via email if email notifications were configured in the Azure portal. 
 
-When in quarantine, the frequency of delta syncs is gradually reduced to once per day. 
+When in quarantine, the frequency of incremental syncs is gradually reduced to once per day. 
 
 The provisioning job will be removed from quarantine after all of the offending errors being fixed, and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
@@ -171,11 +171,11 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 **How long will it take to provision my users?**
 
-Performance will be different depending on whether your provisioning job is performing a full sync, or a delta sync.
+Performance will be different depending on whether your provisioning job is performing an initial sync, or an incremental sync.
 
-For initial full syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete full syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects can take a very long time.
+For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects can take a very long time.
 
-For delta syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
+For incremental syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
 
 Note that overall performance is dependent on both the source and target systems. Some target systems implement request rate limits and throttling that can impact performance during large sync operations, and the pre-built Azure AD provisioning connectors for those systems take this into account.
 
@@ -183,7 +183,7 @@ Performance is also slower if there are many errors (recorded in the [audit logs
 
 **How can I improve the performance of synchronization?**
 
-Most performance problems occur during initial full syncs of systems that have a large number of groups and group members.
+Most performance problems occur during initial syncs of systems that have a large number of groups and group members.
 
 If sync of groups or group memberships is not required, sync performance can be greatly improved by:
 
@@ -191,7 +191,7 @@ If sync of groups or group memberships is not required, sync performance can be 
 2. Use [scoping filters](active-directory-saas-scoping-filters.md) instead of assignments to filter the list of users provisioned.
 
 > [!NOTE]
-> For applications that support provisioning of group names and group properties (such as ServiceNow and Google Apps), disabling this also reduces the time it takes for a full sync to complete. If you do not want to provision group names and group memberships to your application, you can disable this in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md) of your provisioning configuration.
+> For applications that support provisioning of group names and group properties (such as ServiceNow and Google Apps), disabling this also reduces the time it takes for an initial sync to complete. If you do not want to provision group names and group memberships to your application, you can disable this in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md) of your provisioning configuration.
 
 **How can I track the progress of the current provisioning job?**
 
