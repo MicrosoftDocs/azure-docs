@@ -493,7 +493,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|Timespan. Provides some small leeway in case the token's expiration claim is present in the token and is past the current date / time.|No|0 seconds|  
+|clock-skew|Timespan. Use to specify maximum expected time difference between the system clocks of the token issuer and the API Management instance.|No|0 seconds|  
 |failed-validation-error-message|Error message to return in the HTTP response body if the JWT does not pass validation. This message must have any special characters properly escaped.|No|Default error message depends on validation issue, for example "JWT not present."|  
 |failed-validation-httpcode|HTTP Status code to return if the JWT doesn't pass validation.|No|401|  
 |header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
