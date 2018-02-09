@@ -29,6 +29,8 @@
     href: apache-kafka-mirroring.md
   - name: Analyze Kafka logs
     href: apache-kafka-log-analytics-operations-management.md
+  - name: Use Kafka with Azure Container Service
+    href: apache-kafka-azure-container-services.md
   - name: Create streaming pipelines
     items:
     - name: Kafka and Spark (Structured Streaming)
@@ -72,6 +74,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:

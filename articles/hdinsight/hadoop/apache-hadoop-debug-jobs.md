@@ -318,7 +318,4 @@ Some of these error messages could also be seen in the Azure portal when it is u
 
 * [Use Ambari Views to debug Tez Jobs on HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Enable heap dumps for Hadoop services on Linux-based HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
-<!--
-TODO  * [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
--->
+* [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)

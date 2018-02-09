@@ -77,6 +77,8 @@
     href: site-recovery-support-matrix-to-azure.md
   - name: On-premises to secondary site support matrix
     href: site-recovery-support-matrix-to-sec-site.md
+  - name: Types of failback
+    href: concepts-types-of-failback.md
   - name: Disaster recovery for workloads
     href: site-recovery-workload.md
   - name: Migration to Azure
@@ -93,6 +95,8 @@
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Set up network mapping for Azure VM disaster recovery (preview)
       href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Retain IP for Azure VM disaster recovery (preview)
+      href: site-recovery-retain-ip-azure-vm-failover.md
     - name: Prepare network mapping for Hyper-V VM replication to Azure
       href: site-recovery-network-mapping.md
     - name: Set up IP addressing for access to Azure after failover
@@ -123,6 +127,8 @@
       href: site-recovery-create-recovery-plans.md
     - name: Add Azure runbooks to recovery plans
       href: site-recovery-runbook-automation.md
+    - name: Add VMM scripts to recovery plans
+      href: site-recovery-how-to-add-vmmscript.md
     - name: Fail over
       items:
       - name: About failover
@@ -273,6 +279,8 @@
       href: site-recovery-vmware-to-azure-push-install-error-codes.md
     - name: Failover to Azure issues
       href: site-recovery-failover-to-azure-troubleshoot.md
+    - name: Reprotect and failback issues
+      href: troubleshoot-failback-reprotect.md
     - name: Monitor Azure Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
 - name: Reference

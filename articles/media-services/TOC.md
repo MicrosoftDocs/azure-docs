@@ -116,7 +116,8 @@
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
 #### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
+#### [FMLE encoder](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB encoder](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
@@ -170,6 +171,7 @@
 #### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

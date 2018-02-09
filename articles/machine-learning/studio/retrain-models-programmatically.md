@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye;v-donglo
+ms.author: raymondl;garye
 
 ---
 # Retrain Machine Learning models programmatically

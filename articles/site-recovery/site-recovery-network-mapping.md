@@ -1,25 +1,17 @@
 ---
-title: Plan network mapping for Hyper-V VM replication with Site Recovery | Microsoft Docs
+title: About network mapping for Hyper-V VM replication with Site Recovery | Microsoft Docs
 description: Set up network mapping for Hyper-V virtual machine replication from an on-premises datacenter to Azure, or to a secondary site.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: tysonn
-
-ms.assetid: fcaa2f52-489d-4c1c-865f-9e78e000b351
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
 ---
 
 
-# Plan network mapping for Hyper-V VM replication with Site Recovery
-
+# About network mapping for Hyper-V VM replication
 
 
 This article helps you to understand and plan for network mapping during replication of Hyper-V VMs to Azure, or to a secondary site, using the [Azure Site Recovery service](site-recovery-overview.md).
