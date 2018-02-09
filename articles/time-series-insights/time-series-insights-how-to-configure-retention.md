@@ -10,7 +10,7 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/09/2018
 ---
 
 # Configuring retention in Time Series Insights
