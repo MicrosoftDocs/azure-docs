@@ -67,8 +67,6 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
-    - name: Compute units
-      href: concepts-compute-unit-and-storage.md
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security

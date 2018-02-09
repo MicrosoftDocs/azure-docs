@@ -24,7 +24,7 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 
 2. On the New page, select **Databases**, and then on Databases page, select **Azure Database for MySQL**.
 
-    > An Azure Database for MySQL server is created with a defined set of [compute and storage](./concepts-compute-unit-and-storage.md) resources. The database is created within an Azure resource group and in an Azure Database for MySQL server.
+    > An Azure Database for MySQL server is created with a defined set of [compute and storage](./concepts-pricing-tiers.md) resources. The database is created within an Azure resource group and in an Azure Database for MySQL server.
 
    ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 

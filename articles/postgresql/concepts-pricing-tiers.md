@@ -61,7 +61,7 @@ The service automatically takes backups of your server. The minimum retention pe
 
 ## Scaling of resources
 
-After creating your server, you can independently change the vCores, amount storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up and down. The storage size can only be increased. Scaling of the resources can be done both through the portal or via Azure CLI. An example for scaling using CLI can be found [here](scripts/sample-scale-server.md).
+After creating your server, you can independently change the vCores, amount storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up and down. The storage size can only be increased. Scaling of the resources can be done both through the portal or via Azure CLI. An example for scaling using CLI can be found [here](scripts/sample-scale-server-up-or-down.md).
 
 When changing the number of vCores, a copy of the original server is created with the new compute allocation. Once the new server is up and running, connections are switched over to the new server. During the brief moment when the system switches over to the new the server, no new connections can be established and all uncommitted transactions are rolled back. This window varies, but in most cases is less than a minute and typically only lasts a few seconds.
 
@@ -73,6 +73,6 @@ Please review the service [pricing page](https://azure.microsoft.com/pricing/det
 
 ## Next Steps
 
-- Learn how to [create a PostgreSQL server in the portal](howto-create-manage-server-portal.md)
-- Learn how to [monitor and scale an Azure Database for PostgreSQL server using Azure CLI](scripts/sample-scale-server.md)
+- Learn how to [create a PostgreSQL server in the portal](tutorial-design-database-using-azure-portal.md)
+- Learn how to [monitor and scale an Azure Database for PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
 - Learn about the [Service limitations](concepts-limits.md)
