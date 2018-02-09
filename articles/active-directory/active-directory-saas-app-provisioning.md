@@ -77,7 +77,7 @@ To contact the Azure AD engineering team to request provisioning support for add
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://potal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
-* All applications in the **Featured applications** section support automatic provisioning
+* All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) for additional ones.
 
 * Use the “non-gallery application” option for custom-developed SCIM integrations
 
@@ -88,7 +88,7 @@ In the application management screen, provisioning is configured in the **Provis
 ![Settings](./media/active-directory-saas-app-provisioning/provisioning_settings0.PNG)
 
 
-* **Admin credentials** must be provided to the Azure AD provisioning service that will allow it to connect to the user management API provided by the application.
+* **Admin credentials** must be provided to the Azure AD provisioning service that will allow it to connect to the user management API provided by the application. This section also allows you to enable email notifications if the credentials fail, or the provisioning job goes into [quarantine](#quarantine).
 
 * **Attribute mappings** can be configured that specify which fields in the source system (example: Azure AD) will have their contents synchronized to which fields in the target system (example: ServiceNow). If the target application supports it, this section will allow you to optionally configure provisioning of groups in addition to user accounts. "Matching properties" allow you to select which fields are used to match accounts between the systems. "[Expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md)" allow you to modify and transform the values retrieved from the source system before they are written to the target system. For more information, see [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -120,11 +120,13 @@ When the provisioning service is started, the first sync ever performed will:
 1. Query all users and groups from the source system, retrieving all attributes defined in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md).
 2. Create and store a watermark in the service for each user found, to enable optimized change detection in subsequent delta syncs.
 3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
-4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
+4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the matching ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
 7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
 
+>[!NOTE]
+> A selected number of applications also support provisioning of group names and group properties to targets systems, in addition to user accounts. When this is supported and enabled in the [attribute mappings](active-directory-saas-customizing-attribute-mappings.md), the provisioning service will synchronize the parent group object first, before enumerating and synchronizing the users that are members of the group.
 
 ### Delta syncs
 After the initial sync, all subsequent syncs will:
@@ -132,7 +134,7 @@ After the initial sync, all subsequent syncs will:
 1. Query the source system for any users and groups that were updated since the last watermark was stored.
 2. Update the watermarks stored in the service for the new and updated users.
 3. Filter the users and groups returned, using any configured [assignments](active-directory-coreapps-assign-user-azure-portal.md) or [attribute-based scoping filters](active-directory-saas-scoping-filters.md).
-4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the ID of the user.
+4. When a user is found to be assigned or in scope for provisioning, the service queries the target system for the matching ID of the user.
 5. If a matching user is not found in the target system, it is created using the attributes returned from the source system.
 6. If a matching user is found, it is updated using the attributes returned from the source system.
 7. If any reference attributes were present in the attribute mappings (example: Manager), the service queries the target system again to resolve the IDs of the referenced objects, and updates the user in the target system again with the correct values.
