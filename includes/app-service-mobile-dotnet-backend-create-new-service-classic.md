@@ -9,11 +9,11 @@
 6. In the **Settings** pane for the new Mobile Apps back end, select **Quick start** > your client app platform > **Connect a database**. 
    
    ![Selections for connecting a database](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-7. In the **Add data connection** pane, select **SQL Database** > **Create a new database**. Type the database name, choose a pricing tier, and then select **Server**. You can reuse this new database. If you already have a database in the same location, you can instead choose **Use an existing database**. We don't recommend the use of a database in a different location, due to bandwidth costs and higher latency.
+7. In the **Add data connection** pane, select **SQL Database** > **Create a new database**. Enter the database name, choose a pricing tier, and then select **Server**. You can reuse this new database. If you already have a database in the same location, you can instead choose **Use an existing database**. We don't recommend the use of a database in a different location, due to bandwidth costs and higher latency.
    
    ![Selecting a database](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-8. In the **New server** pane, type a unique server name in the **Server name** box, provide a login and password, select **Allow Azure services to access server**, and select **OK**. This step creates the new database.
-9. Back in the **Add data connection** pane, select **Connection string**, type the login and password values for your database, and select **OK**. 
+8. In the **New server** pane, enter a unique server name in the **Server name** box, provide a login and password, select **Allow Azure services to access server**, and select **OK**. This step creates the new database.
+9. Back in the **Add data connection** pane, select **Connection string**, enter the login and password values for your database, and select **OK**. 
 
    Wait a few minutes for the database to be deployed successfully before you proceed.
 

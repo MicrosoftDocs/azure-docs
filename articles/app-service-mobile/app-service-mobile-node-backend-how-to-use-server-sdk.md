@@ -148,11 +148,11 @@ can add or modify tables and APIs, and then republish the project. For more info
 [Azure App Service deployment guide]. 
 
 The following procedure uses a Git repository to download the quickstart
-project code.
+project code:
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
 2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
-3. In the blade for your Mobile Apps back end, make a note of the **Git clone URL** setting.
+3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
 4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:
 
@@ -251,7 +251,7 @@ You can find a complete example in the [todo sample on GitHub].
 ### <a name="howto-staticschema"></a>Define tables by using a static schema
 You can explicitly define the columns to expose via the Web API. The azure-mobile-apps Node.js SDK automatically
 adds any extra columns required for offline data sync to the list that you provide. For example, the
-quickstart client applications require a table with two columns: text (a string) and complete (a Boolean).  
+quickstart client applications require a table with two columns: `text` (a string) and `complete` (a Boolean).  
 The table can be defined in the table definition JavaScript file (located in the `tables` directory) as follows:
 
     var azureMobileApps = require('azure-mobile-apps');
@@ -357,7 +357,7 @@ The azureMobile.js file should export a configuration object. The most common se
 * Diagnostic logging settings
 * Alternate CORS settings
 
-This example azureMobile.js file is implementing the preceding database settings:
+This example azureMobile.js file implements the preceding database settings:
 
     module.exports = {
         cors: {
@@ -461,7 +461,7 @@ Mobile Apps back end or create a new SQL database. In this section, we create a 
 Creation of the database can take a few minutes. Use the **Notifications** area to monitor the progress of
 the deployment. Do not progress until the database is deployed successfully. After the database is deployed,
 a connection string is created for the SQL Database instance in your Mobile Apps back-end app settings. You can
-see this app setting in the **Settings** > **Application settings** > **Connection strings**.
+see this app setting in **Settings** > **Application settings** > **Connection strings**.
 
 ### <a name="howto-tables-auth"></a>Require authentication for access to tables
 If you want to use App Service Authentication with the `tables` endpoint, you must configure App Service
@@ -506,7 +506,7 @@ If the access property is undefined, unauthenticated access is allowed.
 You can set up various claims that are requested when authentication is set up. These claims are not normally
 available through the `context.user` object. However, you can retrieve them by using the `context.user.getIdentity()`
 method. The `getIdentity()` method returns a promise that resolves to an object. The object is keyed by the
-authentication method (Facebook, Twitter, Google, Microsoft, and Azure Active Directory).
+authentication method (`facebook`, `google`, `twitter`, `microsoftaccount`, or `aad`).
 
 For example, if you set up Microsoft account authentication and request the email addresses claim, you can add
 the email address to the record with the following table controller:
@@ -630,10 +630,10 @@ clauses:
 
     context.query.where('myfield eq ?', 'value');
 
-### <a name="howto-tables-softdelete"></a>Configure soft delete on a table
+### <a name="howto-tables-softdelete"></a>Configure a soft delete on a table
 A soft delete does not actually delete records. Instead it marks them as deleted within the database by setting
 the deleted column to true. The Mobile Apps SDK automatically removes soft-deleted records from results
-unless the Mobile Client SDK uses `IncludeDeleted()`. To configure a table for soft delete, set the `softDelete`
+unless the Mobile Client SDK uses `IncludeDeleted()`. To configure a table for a soft delete, set the `softDelete`
 property in the table definition file:
 
     var azureMobileApps = require('azure-mobile-apps');
@@ -695,7 +695,7 @@ running.
 
 ### <a name="Swagger"></a>Enable Swagger support
 Mobile Apps comes with built-in [Swagger] support. To enable Swagger support, first install
-`swagger-ui` as a dependency:
+swagger-ui as a dependency:
 
     npm install --save swagger-ui
 
