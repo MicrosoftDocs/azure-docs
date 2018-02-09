@@ -68,7 +68,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I synchronize or set the authentication phone, authentication email, or alternate authentication phone fields on behalf of my users?**
 
-  > **A:** No, this is not possible today.
+  > **A:** The fields that are able to be set by a Global Administrator are defined in the article [SSPR Data requirements](active-directory-passwords-data.md).
   >
   >
 * **Q:  How does the registration portal determine which options to show my users?**

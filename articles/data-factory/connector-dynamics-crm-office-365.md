@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -42,8 +42,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-> [!NOTE]
-> To use the Dynamics connector, store your password in Azure Key Vault and let the copy activity pull from there when you perform data copy. For more information on configuration, see the [Linked service properties](#linked-service-properties) section.
+Other application types e.g. Operations and Finance, Talent, etc. are not supported.
 
 ## Get started
 
@@ -64,7 +63,7 @@ The following properties are supported for the Dynamics linked service.
 | organizationName | The organization name of the Dynamics instance. | No, should specify when there are more than one Dynamics instances associated with the user |
 | authenticationType | The authentication type to connect to a Dynamics server. Specify **"Office365"** for Dynamics online. | Yes |
 | username | Specify the user name to connect to Dynamics. | Yes |
-| password | Specify the password for the user account you specified for username. You must put the password in Key Vault and configure the password as **"AzureKeyVaultSecret"**. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | Specify the password for the user account you specified for username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if the source linked service doesn't have an integration runtime |
 
 >[!IMPORTANT]
@@ -84,12 +83,8 @@ The following properties are supported for the Dynamics linked service.
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -113,7 +108,7 @@ The following properties are supported for the Dynamics linked service.
 | organizationName | The organization name of the Dynamics instance. | Yes |
 | authenticationType | The authentication type to connect to the Dynamics server. Specify **"Ifd"** for Dynamics on-premises with IFD. | Yes |
 | username | Specify the user name to connect to Dynamics. | Yes |
-| password | Specify the password for the user account you specified for username. You must put the password in Key Vault and configure the password as **"AzureKeyVaultSecret"**. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | Specify the password for the user account you specified for username. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
@@ -135,12 +130,8 @@ The following properties are supported for the Dynamics linked service.
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

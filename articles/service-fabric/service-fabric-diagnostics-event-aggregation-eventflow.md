@@ -42,6 +42,9 @@ After all the packages are installed, the next step is to configure and enable E
 ## Configure and enable log collection
 The EventFlow pipeline responsible for sending the logs is created from a specification stored in a configuration file. The `Microsoft.Diagnostics.EventFlow.ServiceFabric` package installs a starting EventFlow configuration file under `PackageRoot\Config` solution folder, named `eventFlowConfig.json`. This configuration file needs to be modified to capture data from the default service `EventSource` class, and any other inputs you want to configure, and send data to the appropriate place.
 
+>[!NOTE]
+>If your project file has VisualStudio 2017 format the `eventFlowConfig.json` file will not be automatically added. To fix this create the file in the `Config` folder and set the build action to `Copy if newer`. 
+
 Here is a sample *eventFlowConfig.json* based on the NuGet packages mentioned above:
 ```json
 {

@@ -22,7 +22,7 @@ ms.author: jdial;anavin
 
 Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're not familiar with virtual network peering, we recommend reading the [Virtual network peering overview](virtual-network-peering-overview.md) and completing the [Create a virtual network peering tutorial](virtual-network-create-peering.md), before completing the tasks in this article.
 
-Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, and US West 2. You can [register your subscription for the preview.](virtual-network-create-peering.md)
+Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) for available regions. You must [register your subscription for the preview](virtual-network-create-peering.md).
 
 > [!WARNING]
 > Virtual network peerings created in this scenario may not have the same level of availability and reliability as scenarios in a general availability release. Virtual network peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
@@ -107,7 +107,7 @@ A virtual network peering is created between virtual networks created through th
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet peering list](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) to change peering settings.|
+|CLI|[az network vnet peering list](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) to change peering settings.|
 |PowerShell|[Get-​Azure​Rm​Virtual​Network​Peering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) to retrieve view peering settings and [Set-​Azure​Rm​Virtual​Network​Peering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) to change settings.|
 
 ## Delete a peering
@@ -126,7 +126,7 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 |Tool|Command|
 |---|---|
-|CLI|[az network vnet peering delete](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az network vnet peering delete](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Requirements and constraints 

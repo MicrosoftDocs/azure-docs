@@ -58,7 +58,10 @@ Navigate to the [Azure portal](https://portal.azure.com) and click **Networking*
 The overview page shows a list of all packet captures that exist no matter the state.
 
 > [!NOTE]
-> Packet capture requires connectivity to the storage account over port 443.
+> Packet capture requires following conectivity.
+> * Outbound connectivity to the storage account over port 443.
+> * Inbound and Outbound connectivity to 169.254.169.254
+> * Inbound and Outbound connectivity to 168.63.129.16
 
 ![packet capture overview screen][1]
 
@@ -77,6 +80,7 @@ The properties that can be defined on a packet capture are:
 
 **Capture configuration**
 
+- **Local file path** - Local path on the virtual machine where packet capture is saved (valid only when **[file]** is selected). You must specify a valid path. If you are using a Linux virtual machine, the path must start with / var / captures.
 - **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)

@@ -33,7 +33,7 @@ This article explains how to create, change, and delete virtual networks by usin
 
 Before you begin the tasks that are described in this article, complete the following prerequisites:
 
-- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](virtual-network-get-started-vnet-subnet.md). This exercise can help you become more familiar with virtual networks.
+- If you're new to working with virtual networks, we recommend that you review the exercise in [Create your first Azure virtual network](quick-create-portal.md). This exercise can help you become more familiar with virtual networks.
 - To learn about limits for virtual networks, review [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Sign in to the Azure portal, the Azure command-line tool (Azure CLI), or Azure PowerShell by using your Azure account. If you don't have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If you plan to use PowerShell commands to complete the tasks described in this article, you must first [install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands in the examples, enter `get-help <command> -full`.
@@ -78,7 +78,7 @@ To create a virtual network:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Azure CLI|[az network vnet create](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_create)|
 |PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>View virtual networks and settings
@@ -112,7 +112,7 @@ To view virtual networks and settings:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Azure CLI|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -141,7 +141,7 @@ To add or remove an address space:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|Resource Manager only|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|Resource Manager only|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Add, change, or remove a DNS server
@@ -166,7 +166,7 @@ All VMs that are connected to the virtual network register with the DNS servers 
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Delete a virtual network
@@ -185,13 +185,13 @@ You can delete a virtual network only if there are no resources connected to it.
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure CLI|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>Next steps
 
-- To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
+- To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](quick-create-portal.md#create-virtual-machines).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
 - To peer a virtual network to another virtual network, see [Create a virtual network peering](virtual-network-create-peering.md#portal).
 - To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
