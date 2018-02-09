@@ -108,24 +108,96 @@ These profiles support only **gzip** encoding. When a profile endpoint requests 
 The following tables describe Azure CDN compression behavior for every scenario:
 
 ### Compression is disabled or file is ineligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | The CDN response to the client | Notes |
-| --- | --- | --- | --- |
-| Compressed |Compressed |Compressed | |
-| Compressed |Uncompressed |Uncompressed | |
-| Compressed |Not cached |Compressed or Uncompressed |Depends on the origin response &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-| Uncompressed |Compressed |Uncompressed | |
-| Uncompressed |Uncompressed |Uncompressed | |
-| Uncompressed |Not cached |Uncompressed | |
-   
+<table style="width:50%">
+  <tr>
+    <th>Client-requested format (via Accept-Encoding header)</th>
+    <th>Cached-file format</th> 
+    <th>CDN response to the client</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Compressed</td> 
+    <td>Compressed</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Uncompressed</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Not cached</td> 
+    <td>Compressed or Uncompressed</td>
+    <td>Compression depends on the origin response.</td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Compressed</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Uncompressed</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Not cached</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+</table>
+
 ### Compression is enabled and file is eligible for compression
-| Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
-| --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |CDN transcodes between supported formats |
-| Compressed |Uncompressed |Compressed |CDN performs compression |
-| Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. Files with the Cache-Control: no-cache header are never compressed. |
-| Uncompressed |Compressed |Uncompressed |CDN performs decompression |
-| Uncompressed |Uncompressed |Uncompressed | |
-| Uncompressed |Not cached |Uncompressed | |
+<table style="width:100%">
+  <tr>
+    <th>Client-requested format (via Accept-Encoding header)</th>
+    <th>Cached-file format</th> 
+    <th>CDN response to the client</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Compressed</td> 
+    <td>Compressed</td>
+    <td>CDN transcodes between supported formats.</td>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Uncompressed</td> 
+    <td>Compressed</td>
+    <td>CDN performs compression.</td>
+  </tr>
+  <tr>
+    <td>Compressed</td>
+    <td>Not cached</td> 
+    <td>Compressed</td>
+    <td>CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Verizon** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the Cache-Control: no-cache header are never compressed.</td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Compressed</td> 
+    <td>Uncompressed</td>
+    <td>CDN performs decompression</td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Uncompressed</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Uncompressed</td>
+    <td>Not cached</td> 
+    <td>Uncompressed</td>
+    <td></td>
+  </tr>
+</table>
 
 ## Media Services CDN Compression
 For endpoints enabled for Media Services CDN streaming, compression is enabled by default for the following MIME types: 
