@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -35,9 +35,7 @@ Your first entry point to all sign-in activities data is **[Sign-ins](https://po
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/61.png "Sign-in activity")
 
-
 In your sign-ins report, you can display all failed sign-ins by selecting **Failure** as **Sign-in status**.
-
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins-errors/06.png "Sign-in activity")
 
@@ -67,6 +65,7 @@ The following section provides you with a complete overview of all possible erro
 | 50058| No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
 | 50074| User did not pass the MFA challenge.|
 | 50079| User needs to enroll for second factor authentication.|
+| 50097| Device is not authenticated.|
 | 50126| Invalid username or password or Invalid on-premise username or password.|
 | 50131| Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 | 50133| Session is invalid due to expiration or recent password change.|
@@ -101,4 +100,3 @@ The following section provides you with a complete overview of all possible erro
 ## Next steps
 
 For more details, see the [Sign-in activity reports in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins.md).
-
