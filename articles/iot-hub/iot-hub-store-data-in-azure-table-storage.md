@@ -26,7 +26,7 @@ ms.author: xshi
 
 ## What you learn
 
-You learn how to create an Azure storage account and an Azure function app to store IoT hub messages in your table storage.
+You learn how to create an Azure storage account and an Azure function app to store IoT hub messages in your blob storage.
 
 ## What you do
 

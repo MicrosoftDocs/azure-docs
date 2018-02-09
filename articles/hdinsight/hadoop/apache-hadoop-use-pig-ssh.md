@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
 
 ---
@@ -32,35 +32,39 @@ Learn how to interactively run Pig jobs from an SSH connection to your HDInsight
 
 Use SSH to connect to your HDInsight cluster. The following example connects to a cluster named **myhdinsight** as the account named **sshuser**:
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system.
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**If you provided a password for SSH authentication** when you created the HDInsight cluster, provide the password when prompted.
-
-For more information on using SSH with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Use the Pig command
 
 1. Once connected, start the Pig command-line interface (CLI) by using the following command:
 
-        pig
+    ```bash
+    pig
+    ```
 
-    After a moment, you should see a `grunt>` prompt.
+    After a moment, the prompt changes to`grunt>`.
 
 2. Enter the following statement:
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     This command loads the contents of the sample.log file into LOGS. You can view the contents of the file by using the following statement:
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. Next, transform the data by applying a regular expression to extract only the logging level from each record by using the following statement:
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     You can use **DUMP** to view the data after the transformation. In this case, use `DUMP LEVELS;`.
 
@@ -78,36 +82,48 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](.
 
 5. You can also save the results of a transformation by using the `STORE` statement. For example, the following statement saves the `RESULT` to the `/example/data/pigout` directory on the default storage for your cluster:
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
 
 6. To exit the grunt prompt, enter the following statement:
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### Pig Latin batch files
 
 You can also use the Pig command to run Pig Latin contained in a file.
 
-1. After exiting the grunt prompt, use the following command to pipe STDIN into a file named `pigbatch.pig`. This file is created in the home directory for the SSH user account.
+1. After exiting the grunt prompt, use the following command to create file named `pigbatch.pig`:
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. Type or paste the following lines, and then use Ctrl+D when finished.
+2. Type or paste the following lines:
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    When finished, use __Ctrl__ + __X__, __Y__, and then __Enter__ to save the file.
 
 3. Use the following command to run the `pigbatch.pig` file by using the Pig command.
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     Once the batch job finishes, you see the following output:
 

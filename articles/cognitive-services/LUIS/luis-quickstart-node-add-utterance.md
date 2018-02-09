@@ -8,17 +8,13 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
 # Add utterances to a LUIS app using Node.js 
-
-This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app and train LUIS. 
-
-Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
-
-Refer to the [Authoring API definitions][authoring-apis] for technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c450), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, 
+refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
 ## Prerequisites
 
@@ -78,7 +74,7 @@ Add the code that chooses which action to take (add utterance or train) based on
    [!code-javascript[Train the application](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=153-184 "Train the application")]
 
 ## Specify utterances to add
-Create and edit the file `utterances.json` to specify the entities you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
+Create and edit the file `utterances.json` to specify the **array of utterances** you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
 > The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities.
@@ -174,7 +170,6 @@ Call the sample with the `-status` argument to check the training status and wri
 
  
 > [!div class="nextstepaction"] 
-> [Integrate LUIS with a bot](luis-nodejs-tutorial-build-bot-framework-sample.md)
+> [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md)
 
-
-[authoring-apis]:https://aka.ms/luis-authoring-api
+> [Authoring APIs](https://aka.ms/luis-authoring-api)

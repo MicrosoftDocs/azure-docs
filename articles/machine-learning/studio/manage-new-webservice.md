@@ -3,7 +3,7 @@ title: Use the Azure Machine Learning Web Services portal | Microsoft Docs
 description: Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: v-donglo
+ms.author: raymondl
 
 ---
 # Manage a Web service using the Azure Machine Learning Web Services portal
@@ -107,7 +107,7 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure classic portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
 > 
 > 
 
@@ -152,36 +152,4 @@ You can update the following properties:
 * **Logging** allows you to enable or disable error logging on the endpoint. For more information on Logging, see Enable [logging for Machine Learning web services](web-services-logging.md).
 * **Enable Sample data** allows you to provide sample data that you can use to test the Request-Response service. If you created the web service in Machine Learning Studio, the sample data is taken from the data your used to train your model. If you created the service programmatically, the data is taken from the example data you provided as part of the JSON package.
 
-## Grant or suspend access to Web services for users in the portal
-Using the Azure classic portal, you can allow or deny access to specific users.
-
-### Access for users of New Web services
-To enable other users to work with your Web services in the Azure Machine Learning Web Services portal, you must add them as co-adminstrators on your Azure subscription.
-
-Sign in to the [Azure classic portal](https://manage.windowsazure.com/) using your Microsoft Azure account - use the account that's associated with the Azure subscription.
-
-1. In the navigation pane, click **Settings**, then click **Administrators**.
-2. At the bottom of the window, click **Add**. 
-3. In the ADD A CO-ADMINISTRATOR dialog, type the email address of the person you want to add as Co-administrator and then select the subscription that you want the Co-administrator to access.
-4. Click **Save**.
-
-### Access for users of Classic Web services
-To manage a workspace:
-
-Sign in to the [Azure classic portal](https://manage.windowsazure.com/) using your Microsoft Azure account - use the account that's associated with the Azure subscription.
-
-1. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
-2. Click the workspace you want to manage.
-3. Click the **CONFIGURE** tab.
-
-From the configuration tab, you can suspend access to the Machine Learning workspace by clicking **DENY**. Users will no longer be able to open the workspace in Machine Learning Studio. To restore access, click **ALLOW**.
-
-To specific users:
-
-To manage additional accounts who have access to the workspace in Machine Learning Studio, click **Sign-in to ML Studio** in the **DASHBOARD** tab. This opens the workspace in Machine Learning Studio. From here, click the **SETTINGS** tab and then **USERS**. You can click **INVITE MORE USERS** to give users access to the workspace, or select a user and click **REMOVE**.
-
-> [!NOTE]
-> The **Sign-in to ML Studio** link opens Machine Learning Studio using the Microsoft Account you are currently signed into. The Microsoft Account you used to sign in to the Azure classic portal to create a workspace does not automatically have permission to open that workspace. To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace.
-> 
-> 
 

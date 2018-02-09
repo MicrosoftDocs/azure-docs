@@ -31,9 +31,9 @@ App Service web apps provide diagnostic functionality for logging information fr
 ### Web server diagnostics
 You can enable or disable the following kinds of logs:
 
-* **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
-* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
+* **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
+* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It is useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
+* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### Application diagnostics
 Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
@@ -42,7 +42,7 @@ Application diagnostics allows you to capture information produced by a web appl
 
 At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-App Service web apps also log deployment information when you publish content to a web app. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
+App Service web apps also log deployment information when you publish content to a web app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 ## <a name="enablediag"></a>How to enable diagnostics
 To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the page for your web app and click **Settings > Diagnostics logs**.
@@ -50,21 +50,20 @@ To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-When you enable **application diagnostics**, you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning**, or **error** information. Setting this to **verbose** logs all information produced by the application.
+When you enable **application diagnostics**, you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning**, or **error** information. Setting it to **verbose** logs all information produced by the application.
 
 > [!NOTE]
 > Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
 >
 >
 
-In the [classic portal](https://manage.windowsazure.com) Web app **Configure** tab, you can select **storage** or **file system** for **web server logging**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. All other logs for **site diagnostics** are written to the file system only.
+For **Application logging**, you can turn on the file system option temporarily for debugging purposes. This option turns off automatically in 12 hours. You can also turn on the blob storage option to select a blob container to write logs to.
 
-The [classic portal](https://manage.windowsazure.com) Web app **Configure** tab also has additional settings for application diagnostics:
+For **Web server logging**, you can select **storage** or **file system**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. 
 
-* **File system** - stores the application diagnostics information to the web app file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).
-* **Table storage** - stores the application diagnostics information in the specified Azure Storage Account and table name.
-* **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
-* **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
+If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).
+
+By default, logs are not automatically deleted (with the exception of **Application Logging (Filesystem)**). To automatically delete logs, set the **Retention Period (Days)** field.
 
 > [!NOTE]
 > If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
@@ -98,12 +97,10 @@ The directory structure that the logs are stored in is as follows:
 * **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments.
 
 ### FTP
-To access diagnostic information using FTP, visit the **Dashboard** of your web app in the [classic portal](https://manage.windowsazure.com). In the **quick glance** section, use the **FTP Diagnostic Logs** link to access the log files using FTP. The **Deployment/FTP User** entry lists the user name that should be used to access the FTP site.
 
-> [!NOTE]
-> If the **Deployment/FTP User** entry is not set, or you have forgotten the password for this user, you can create a new user and password by using the **Reset deployment credentials** link in the **quick glance** section of the **Dashboard**.
->
->
+To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
+
+Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 
 ### Download with Azure PowerShell
 To download the log files, start a new instance of Azure PowerShell and use the following command:
@@ -142,7 +139,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 [Learn more about performance tracking with Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> How to: Stream logs
-While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.
+While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
@@ -204,7 +201,7 @@ Each line logged to the file system or received using streaming is in the follow
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-For example, an error event would appear similar to the following:
+For example, an error event would appear similar to the following sample:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -221,7 +218,7 @@ When logging to table storage, additional properties are used to facilitate sear
 | Timestamp |The date and time that the event occurred |
 | EventTickCount |The date and time that the event occurred, in Tick format (greater precision) |
 | ApplicationName |The web app name |
-| Level |Event level (e.g. error, warning, information) |
+| Level |Event level (for example, error, warning, information) |
 | EventId |The event ID of this event<p><p>Defaults to 0 if none specified |
 | InstanceId |Instance of the web app that the even occurred on |
 | Pid |Process ID |
@@ -235,7 +232,7 @@ When logging to blob storage, data is stored in comma-separated values (CSV) for
 | Property name | Value/format |
 | --- | --- |
 | Date |The date and time that the event occurred |
-| Level |Event level (e.g. error, warning, information) |
+| Level |Event level (for example, error, warning, information) |
 | ApplicationName |The web app name |
 | InstanceId |Instance of the web app that the event occurred on |
 | EventTickCount |The date and time that the event occurred, in Tick format (greater precision) |
@@ -244,7 +241,7 @@ When logging to blob storage, data is stored in comma-separated values (CSV) for
 | Tid |The thread ID of the thread that produced the event |
 | Message |Event detail message |
 
-The data stored in a blob would look similar to the following:
+The data stored in a blob would look similar to the following example:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -255,7 +252,7 @@ The data stored in a blob would look similar to the following:
 >
 
 ### Failed request traces
-Failed request traces are stored in XML files named **fr######.xml**. To make it easier to view the logged information, an XSL stylesheet named **freb.xsl** is provided in the same directory as the XML files. If you open one of the XML files in Internet Explorer, Internet Explorer uses the XSL stylesheet to provide a formatted display of the trace information. This appears similar to the following:
+Failed request traces are stored in XML files named **fr######.xml**. To make it easier to view the logged information, an XSL stylesheet named **freb.xsl** is provided in the same directory as the XML files. If you open one of the XML files in Internet Explorer, Internet Explorer uses the XSL stylesheet to provide a formatted display of the trace information, similar to the following example:
 
 ![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

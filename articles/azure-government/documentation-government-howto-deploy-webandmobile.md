@@ -1,5 +1,5 @@
 ---
-title: Deploy to Azure App Services using Visual Studio 2015 | Microsoft Docs
+title: Deploy to Azure App Services5 | Microsoft Docs
 description: This article describes how to deploy a Web App, API App or Mobile App to Azure Government using Visual Studio 2015 and Azure SDK.
 services: azure-government
 cloud: gov
@@ -18,7 +18,7 @@ ms.author: sdubeymsft
 
 ---
 
-# Deploy to Azure App Services using Visual Studio 2017
+# Azure App Services on Azure Government
 This article describes how to deploy an Azure App Services app (API App, Web App, Mobile App) to Azure Government using Visual Studio 2017.
 
 ## Prerequisites

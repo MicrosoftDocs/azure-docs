@@ -4,7 +4,7 @@ description: A guide to protocols supported by the Azure AD v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with DocuSign | Microsoft Docs'
+title: 'Tutorial: Configure DocuSign for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring DocuSign for User Provisioning
+# Tutorial: Configure DocuSign for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in DocuSign and Azure AD to automatically provision and de-provision user accounts from Azure AD to DocuSign.
 
@@ -38,9 +38,12 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 ### Important tips for assigning users to DocuSign
 
-*   It is recommended that a single Azure AD user is assigned to DocuSign to test the provisioning configuration. Additional users and/or groups may be assigned later.
+*   It is recommended that a single Azure AD user is assigned to DocuSign to test the provisioning configuration. Additional users may be assigned later.
 
 *   When assigning a user to DocuSign, you must select a valid user role. The "Default Access" role does not work for provisioning.
+
+> [!NOTE]
+> Azure AD does not support group provisioning with the Docusign application, only users can be provisioned.
 
 ## Enable User Provisioning
 
@@ -83,9 +86,9 @@ The objective of this section is to outline how to enable user provisioning of A
 
 12. Click **Save.**
 
-It starts the initial synchronization of any users and/or groups assigned to DocuSign in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your DocuSign app.
+It starts the initial synchronization of any users assigned to DocuSign in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your DocuSign app.
 
-You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to DocuSign.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 

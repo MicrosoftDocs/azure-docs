@@ -3,8 +3,8 @@ title: Service quotas and limits for Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -48,10 +48,11 @@ If you used an earlier version of the Batch API to create a Batch account with p
 | Application packages per application |40 |
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
+| Maximum task lifetime | 7 days<sup>3</sup> |
 
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
-<sup>2</sup> Includes resource files and environment variables
-
+<sup>2</sup> Includes resource files and environment variables<br />
+<sup>3</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
 
 
 ## View Batch quotas

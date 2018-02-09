@@ -252,7 +252,7 @@ Now export the certificate to a .pfx file with a protected password. First, get 
    Write-Host $cert.ToString($true)
    ```
 
-Alternatively, if you have an Azure subscription, follow the steps in the section [Add certificates to your key vault](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Alternatively, if you have an Azure subscription, follow the steps in [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Install the certificates
 After you have certificates, you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. Repeat these steps on each node for both cluster and server certificates and any secondary certificates.

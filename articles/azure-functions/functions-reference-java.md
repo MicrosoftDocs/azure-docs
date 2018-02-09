@@ -35,7 +35,7 @@ CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/A
 Notification Hubs | N/A
-Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
+Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
@@ -272,7 +272,7 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 | `HttpResponseMessage<T>` | HTTP Output Binding | Return status other than 200   |
 
 > [!NOTE] 
-> You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+> You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@BindingName("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ### Metadata
 

@@ -4,7 +4,7 @@ description: This article describes the Single Sign On SAML protocol in Azure Ac
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb

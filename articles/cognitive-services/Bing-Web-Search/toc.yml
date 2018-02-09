@@ -4,9 +4,11 @@
   items:
     - name: About Bing Web Search API
       href: overview.md
+    - name: Web Search endpoint
+      href: web-search-endpoints.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -20,10 +22,14 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
+- name: SDK (preview)
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Web search SDK C# quickstart (preview)
+    href: web-search-sdk-quickstart.md  
 - name: How To Guides
   items:
-  - name: Upgrade from v5 to v7
-    href: bing-web-upgrade-guide-v5-to-v7.md
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Filter answers
@@ -36,6 +42,8 @@
     href: paging-webpages.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-web-upgrade-guide-v5-to-v7.md  
 - name: Tutorials
   items:
   - name: Single-page Web app

@@ -1,10 +1,10 @@
 ---
-title: Network mapping between two Azure regions in Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
+title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
+description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
-manager: gauravd
+author: mayanknayar
+manager: rochakm
 editor: ''
 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,85 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: pratshar
+ms.date: 12/15/2017
+ms.author: manayar
 
 ---
-# Network mapping between two Azure regions
+# Map virtual networks in different Azure regions
 
 
-This article describes how to map Azure virtual networks of two Azure regions with each other. Network mapping ensures that when replicated virtual machine is created in the target Azure region, it is created on the virtual network that is mapped to virtual network of the source virtual machine.  
+This article describes how to map two instances of Azure Virtual Network located in different Azure regions with each other. Network mapping ensures that when a replicated virtual machine is created in the target Azure region, the virtual machine is also created on the virtual network that's mapped to the virtual network of the source virtual machine.  
 
 ## Prerequisites
-Before you map networks make sure, you have created [Azure virtual networks](../virtual-network/virtual-networks-overview.md) in both source and target Azure regions.
+Before you map networks, ensure that you have created an [Azure virtual network](../virtual-network/virtual-networks-overview.md) in both the source region and the target Azure region.
 
-## Map networks
+## Map virtual networks
 
-To map an Azure virtual network in one Azure region to another virtual network in another region, go to Site Recovery Infrastructure -> Network Mapping (For Azure Virtual Machines) and create a network mapping.
+To map an Azure virtual network that's located in one Azure region (source network) to a virtual network that's located in another region (target network), for Azure virtual machines, go to **Site Recovery Infrastructure** > **Network Mapping**. Create a network mapping.
 
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
-
-
-In the example below my virtual machine is running in East Asia region and is being replicated to Southeast Asia.
-
-Select the source and target network and then click OK to create a network mapping from East Asia to Southeast Asia.
-
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+![Network mappings window - Create a network mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Do the same thing to create a network mapping from Southeast Asia to East Asia.  
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+In the following example, the virtual machine is running in the East Asia region. The virtual machine is being replicated to the Southeast Asia region.
+
+To create a network mapping from the East Asia region to the Southeast Asia region, select the location of the source network and the location of the target network. Then, select **OK**.
+
+![Add network mapping window - Select source and target locations for the source network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-## Mapping network when enabling replication
+Repeat the preceding process to create a network mapping from the Southeast Asia region to the East Asia region.
 
-If network mapping is not done when you are replicating a virtual machine for the first time form one Azure region to another, then you can choose target network as part of the same process. Site Recovery creates network mappings from source region to target region and from target region to source region based on this selection.   
-
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
-
-By default, Site Recovery creates a network in the target region that is identical to the source network and by adding '-asr' as a suffix to the name of the source network. You can choose an already created network by clicking Customize.
-
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-If the network mapping is already done, you can't change the target virtual network while enabling replication. To change it, modify existing network mapping.  
+## Map a network when you enable replication
 
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
+When you replicate a virtual machine from one Azure region to another region for the first time, if no network mapping exists, you can set the target network when you set up replication. Based on this setting, Azure Site Recovery creates network mappings from the source region to the target region, and from the target region to the source region.   
 
-![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
+![Configure settings pane - Choose the target location](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+
+By default, Site Recovery creates a network in the target region that is identical to the source network. Site Recovery creates a network by adding **-asr** as a suffix to the name of the source network. To choose a network that has already been created, select **Customize**.
+
+![Customize target settings pane - Set target resource group name and target virtual network name](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+
+If network mapping has already occurred, you can't change the target virtual network when you enable replication. In this case, to change the target virtual network, modify the existing network mapping.  
+
+![Customize target settings pane - Set the target resource group name](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
+
+![Modify network mapping pane - Modify an existing target virtual network name](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
 
 > [!IMPORTANT]
-> If you modify a network mapping from region-1 to region-2, make sure you modify the network mapping from region-2 to region-1 as well.
+> If you modify a network mapping from region A to region B, ensure that you also modify the network mapping from region B to region A.
 >
 >
 
 
 ## Subnet selection
-Subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If there is a subnet of the same name as that of the source virtual machine available in the target network, then that is chosen for the target virtual machine. If there is no subnet with the same name in the target network, then alphabetically first subnet is chosen as the target subnet. You can modify this subnet by going to Compute and Network settings of the virtual machine.
+The subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If a subnet that has the same name as the source virtual machine is available in the target network, that subnet is set for the target virtual machine. If a subnet with the same name doesn't exist in the target network, the alphabetically first subnet is set as the target subnet. 
 
-![Modify Subnet](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+To modify the subnet, go to the **Compute and Network** settings for the virtual machine.
+
+![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## IP address
 
-IP address for each of the network interface of the target virtual machine is chosen as follows:
+The IP address for each network interface of the target virtual machine is set as described in the following sections.
 
 ### DHCP
-If the network interface of the source virtual machine is using DHCP, then network interface of the target virtual machine is also set as DHCP.
+If the network interface of the source virtual machine uses DHCP, the network interface of the target virtual machine is also set to use DHCP.
 
-### Static IP
-If the network interface of the source virtual machine is using Static IP, then network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as follows:
+### Static IP address
+If the network interface of the source virtual machine uses  a static IP address, the network interface of the target virtual machine is also set to use a static IP address. The following sections describe how a static IP address is set.
 
 #### Same address space
 
-If the source subnet and the target subnet have the same address space, then target IP is set same as the IP of  the network interface of the source virtual machine. If same IP is not available, then some other available IP is set as the target IP.
+If the source subnet and the target subnet have the same address space, the IP address of the network interface of the source virtual machine is set as the target IP address. If the same IP address is not available, the next available IP address is set as the target IP address.
 
-#### Different address space
+#### Different address spaces
 
-If the source subnet and the target subnet have different address space, then target IP is set as any available IP in the target subnet.
+If the source subnet and the target subnet have different address spaces, the next available IP address in the target subnet is set as the target IP address.
 
-You can modify the target IP on each network interface by going to Compute and Network settings of the virtual machine.
+To modify the target IP on each network interface, go to the **Compute and Network** settings for the virtual machine.
 
 ## Next steps
 
-- Learn about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md).
+* Review [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).

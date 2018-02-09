@@ -1,7 +1,7 @@
 ---
 title: Create and register SOAP connectors - Azure Logic Apps | Microsoft Docs
 description: Set up SOAP connectors for use in Azure Logic Apps
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
+ms.author: LADocs; estfan
 ---
 
 # Create and register SOAP connectors in Azure Logic Apps
@@ -181,6 +181,12 @@ for example, with all Logic Apps users,
 [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 ## FAQ
+
+**Q:** Is the SOAP connector generally available (GA)? </br>
+**A:** The SOAP connector is in **Preview**, and is not a GA service yet.
+
+**Q:** Are there any restrictions and known issues for SOAP connector? </br>
+**A:** Yes, see the [SOAP connector restrictions and known issues](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **Q:** Are there any limits for custom connectors? </br>
 **A:** Yes, see the [custom connector limits here](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

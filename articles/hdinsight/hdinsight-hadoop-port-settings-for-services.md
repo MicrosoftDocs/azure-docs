@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
    
 ---
@@ -72,7 +72,7 @@ All services publicly exposed on the internet must be authenticated:
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
 > [!IMPORTANT]
-> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive a 404 error, retry using the secondary headnode.
+> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive an error, retry using the secondary headnode.
 
 ### Ambari
 
@@ -167,6 +167,7 @@ Examples:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
 | Livy server | Head nodes | 8998 | HTTP | &nbsp; | Service for running statements, jobs, and applications |
+| Jupyter notebook | Head nodes | 8001 | HTTP | &nbsp; | Jupyter notebook website |
 
 Examples:
 

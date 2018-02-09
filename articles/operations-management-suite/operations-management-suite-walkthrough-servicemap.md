@@ -1,6 +1,6 @@
 ---
 title: Service Map solution self paced demo | Microsoft Docs
-description: Service Map is a solution in Operations Management Suite (OMS) that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This is a self paced demo that walks through using Service Map to identify and diagnose a simulated problem in a web application.
+description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This is a self paced demo that walks through using Service Map to identify and diagnose a simulated problem in a web application.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -18,8 +18,8 @@ ms.author: bwren
 
 ---
 
-# Operations Management Suite (OMS) self paced demo - Service Map
-This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Operations Management Suite (OMS) to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other OMS services to assist you in analyzing performance and identifying issues.  You'll also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
+# Self paced demo - Service Map
+This is a self paced demo that walks through using the [Service Map solution](operations-management-suite-service-map.md) in Azure to identify and diagnose a simulated problem in a web application.  Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services.  It also consolidates data collected by other services and solutions to assist you in analyzing performance and identifying issues.  You also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
 
 
 ## Scenario description
@@ -33,7 +33,7 @@ You've just received a notification that the ACME Customer Portal application is
 ## Walk through
 
 ### 1. Connect to the OMS Experience Center
-This walk through uses the [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/) which provides a complete OMS environment with sample data. Start by following this link, provide your information and then select the **Insight and Analytics** scenario.
+This walk through uses the [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), which provides a complete Log Analytics environment with sample data. Start by following this link, provide your information and then select the **Insight and Analytics** scenario.
 
 
 ### 2. Start Service Map
@@ -41,7 +41,7 @@ Start the Service Map solution by clicking on the **Service Map** tile.
 
 ![Service Map Tile](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-The Service Map console is displayed.  In the left pane is a list of computers in your environment with the Service Map agent installed.  You'll select the computer that you want to view from this list.
+The Service Map console is displayed.  In the left pane is a list of computers in your environment with the Service Map agent installed.  You select the computer that you want to view from this list.
 
 ![Computer list](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
@@ -78,7 +78,7 @@ Let's have a closer look at **acmetomcat**.  Click in the top right of **acmetom
 
 
 ### 7. View change tracking
-Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that OMS has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with interesting recent information should already be expanded, and you can expand other sections to inspect information that they contain.
+Let's see if we can find out what might have caused this high utilization.  Click on the **Summary** tab.  This provides information that Log Analytics has collected from the computer such as failed connections, critical alerts, and software changes.  Sections with relevant recent information should already be expanded, and you can expand other sections to inspect information that they contain.
 
 
 If **Change Tracking** isn't already open, then expand it.  This shows information collected by the [Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).  It looks like there was a software change made during this time window.  Click on **Software** to get details.  A backup process was added to the machine just after 4:00 AM, so this appears to be the culprit for the excessive resources being consumed.
@@ -88,28 +88,28 @@ If **Change Tracking** isn't already open, then expand it.  This shows informati
 
 
 ### 8. View details in Log Search
-We can further verify this by looking at the detailed performance information collected in the Log Analytics repository.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the repository.  Service Map already filled in a queriy for us to retrieve the alert we're interested in.  
+We can further verify by looking at the detailed performance information collected in the Log Analytics workspace.  Click on the **Alerts** tab again and then on one of the **High CPU** alerts.  Click on  **Show in Log Search**.  This opens the Log Search window where you can perform [log searches](../log-analytics/log-analytics-log-searches.md) against any data stored in the workspace.  Service Map already filled in a query for us to retrieve the alert we're interested in.  
 
 ![Log search](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### 9. Open saved search
-Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are being caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  These are queries that we created specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
+Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are caused by that backup process.  Change the time range to **6 hours**.  Then click on **Favorites** and scroll down to the saved searches for **Service Map**.  We created these queries specifically for this analysis.  Click on **Top 5 Processes by CPU for acmetomcat**.
 
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
-This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you were interested in the processes on other computers, you could modify the query to retrieve that information.
+This query returns a list of the top 5 processes consuming processor on **acmetomcat**.  You can inspect the query to get an introduction to the query language used for log searches.  If you're interested in the processes on other computers, you could modify the query to retrieve that information.
 
-In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's pretty obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually leverage Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
+In this case, we can see that the backup process is consistently consuming about 60% of the app server’s CPU.  It's obvious that this new process is responsible for our performance problem.  Our solution would obviously be to remove this new backup software off the application server.  We could actually use Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
 
 
 ## Summary points
 - [Service Map](operations-management-suite-service-map.md) provides you with a view of your entire application even if you don't know all of its servers and dependencies.
-- Service Map surfaces data collected by other OMS solutions to help you identify issues with your application and its underlying infrastructure.
-- [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics repository.    
+- Service Map surfaces data collected by other management solutions to help you identify issues with your application and its underlying infrastructure.
+- [Log searches](../log-analytics/log-analytics-log-searches.md) allow you to drill down into specific data collected in the Log Analytics workspace.    
 
 ## Next steps
 - Learn more about [Service Map](operations-management-suite-service-map.md).
 - [Deploy and configure](operations-management-suite-service-map-configure.md) Service Map.
-- Learn about [Log Analytics](../log-analytics/log-analytics-overview.md) which is required for Service Map and stores operational data stored by agents.
+- Learn about [Log Analytics](../log-analytics/log-analytics-overview.md), which is required for Service Map and stores operational data stored by agents.

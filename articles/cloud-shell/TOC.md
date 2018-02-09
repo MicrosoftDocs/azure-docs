@@ -14,7 +14,12 @@
 ## [Persisting storage in PowerShell](persisting-shell-storage-powershell.md)
 ## [Using the window](using-the-shell-window.md)
 
-# [Pricing](pricing.md)
+# Examples
+## [Deploy Azure resources with Terraform in Bash](example-terraform-bash.md)
+
+## [Run Ansible in Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
+# [Embed Cloud Shell](embed-cloud-shell.md)
 
 # [Troubleshooting](troubleshooting.md)
 

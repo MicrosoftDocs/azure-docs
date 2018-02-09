@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Run Background tasks with WebJobs in Azure App Service

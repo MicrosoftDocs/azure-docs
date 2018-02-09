@@ -3,8 +3,8 @@ title: Troubleshoot failover to Azure failures | Microsoft Docs
 description: This article describes ways to troubleshoot common errors in failing over to Azure
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
-manager: gauravd
+author: ponatara
+manager: abhemraj
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/24/2017
+ms.date: 11/22/2017
 ms.author: pratshar
 
 ---

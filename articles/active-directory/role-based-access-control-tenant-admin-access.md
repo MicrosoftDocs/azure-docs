@@ -3,8 +3,8 @@ title: Tenant admin elevate access - Azure AD | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
-author: andredm7
-manager: femila
+author: rolyon
+manager: mtillman
 editor: rqureshi
 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
+ms.author: rolyon
 
 ---
 # Elevate access as a tenant admin with Role-Based Access Control
@@ -25,7 +25,7 @@ This feature is important because it allows the tenant admin to see all the subs
 
 ## Use elevateAccess for tenant access with Azure AD admin center
 
-1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com) and log in with you credentials.
+1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com) and log in with your credentials.
 
 2. Choose **Properties** from the Azure AD left menu.
 
@@ -37,9 +37,33 @@ This feature is important because it allows the tenant admin to see all the subs
 	> When you choose **No**, removes the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal.
 
 > [!TIP] 
-> The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user which you are currently logged into Azure Active Directory Admin Center.
+> The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user that you are currently logged into Azure Active Directory Admin Center.
 
 ![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## View role assignments at the "/" scope using PowerShell
+To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Example output**:
+
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Scope              : /    
+DisplayName        : username    
+SignInName         : username@somedomain.com    
+RoleDefinitionName : User Access Administrator    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType         : User    
+
+## Delete the role assignment at "/" scope using Powershell:
+You can delete the assignment using following PowerShell cmdlet:
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
 
 ## Use elevateAccess to give tenant access with the REST API
 
@@ -74,7 +98,7 @@ The basic process works with the following steps:
 
 When you call *elevateAccess* you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
 
-1.  Call GET role definitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
+1.  Call GET roleDefinitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
 	1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
     	```
@@ -100,9 +124,9 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 	1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
 	
 		>[!NOTE] 
-		>A tenant admin should not have many assignments, if the query above returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+		>A tenant admin should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
 		
-	2. The above calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. The role assignment looks like this:
+	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. The role assignment looks like this:
 
     	```
 		{"value":[{"properties":{

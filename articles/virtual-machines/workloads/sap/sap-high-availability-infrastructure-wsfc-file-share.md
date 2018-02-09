@@ -1,6 +1,6 @@
 ---
-title: Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and File Share for SAP (A)SCS Instance | Microsoft Docs
-description: Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and File Share for SAP (A)SCS Instance
+title: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances | Microsoft Docs
+description: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and File Share for SAP (A)SCS Instance
+# Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -204,86 +204,89 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-This document is describing Azure infrastructure preparation steps, needed to install and configure high available SAP system on **Windows Failover Cluster (WSFC)**, using **Scale Out File Share** as an option for clustering SAP (A)SCS instance.
+This article describes the Azure infrastructure preparation steps that are needed to install and configure high-availability SAP systems on a Windows Server Failover Clustering cluster (WSFC), using scale-out file share as an option for clustering SAP ASCS/SCS instances.
 
 ## Prerequisite
 
-Make sure to review these documents before starting with installation:
+Before you start the installation, review the following article:
 
-* [Architecture Guide - Clustering SAP (A)SCS Instance on **Windows Failover Cluster** Using **File Share**][sap-high-availability-guide-wsfc-shared-disk]
+* [Architecture guide: Cluster SAP ASCS/SCS instances on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-shared-disk]
 
 
-## Host Names and IP Addresses
+## Host names and IP addresses
 
-| Virtual host name role | Virtual host name | Static IP address | Availability Set |
+| Virtual host name role | Virtual host name | Static IP address | Availability set |
 | --- | --- | --- | --- |
-| First cluster node (A)SCS cluster | ascs-1 | 10.0.6.4 | ascs-as |
-| Second cluster node (A)SCS cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Cluster Network Name |ascs-cl | 10.0.6.6 | n.a |
-| SAP PR1 ASCS cluster Network Name |pr1-ascs | 10.0.6.7 | n.a |
+| First cluster node ASCS/SCS cluster | ascs-1 | 10.0.6.4 | ascs-as |
+| Second cluster node ASCS/SCS cluster | ascs-2 | 10.0.6.5 | ascs-as |
+| Cluster network name |ascs-cl | 10.0.6.6 | n/a |
+| SAP PR1 ASCS cluster network name |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**Table 1:** (A)SCS cluster
+**Table 1**: ASCS/SCS cluster
 
-| SAP &lt;SID&gt; | SAP (A)SCS Instance Number |
+| SAP \<SID> | SAP ASCS/SCS instance number |
 | --- | --- |
 | PR1 | 00 |
 
-**Table 2:** SAP (A)SCS Instance Details
+**Table 2**: SAP ASCS/SCS instance details
 
 
-| Virtual host name role | Virtual host name | Static IP address | Availability Set |
+| Virtual host name role | Virtual host name | Static IP address | Availability set |
 | --- | --- | --- | --- |
 | First cluster node | sofs-1 | 10.0.6.10 | sofs-as |
 | Second cluster node | sofs-2 | 10.0.6.11 | sofs-as |
 | Third cluster node | sofs-3 | 10.0.6.12 | sofs-as |
-| Cluster Network Name | sofs-cl | 10.0.6.13 | n.a |
-| SAP Global Host Name | sapglobal | Use IPs of all cluster nodes | n.a |
+| Cluster network name | sofs-cl | 10.0.6.13 | n/a |
+| SAP global host name | sapglobal | Use IPs of all cluster nodes | n/a |
 
-**Table 3:** SOFS cluster
-
-
-## Deploy VMs for SAP (A)SCS cluster, DBMS Cluster, and SAP Application Servers
-
-To prepare Azure infrastructure, you can follow these steps:
-* [Prepare the infrastructure for Architectural Template 1, 2 and 3][sap-high-availability-infrastructure-wsfc-shared-disk]
-
-* [Azure virtual network][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
-
-* [DNS IP addresses][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
-
-* [Set static IP addresses for the SAP virtual machines][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
-
-* [Set a static IP address for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]
-
-* [Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
-
-* [Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]
-
-*  [Add Windows virtual machines to the domain Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
-
-* As you use Windows Server 2016, it is recommended to configure [Azure Cloud witness][deploy-cloud-witness]
+**Table 3**: Scale-Out File Server cluster
 
 
-## Deploy Scale Out File Server Manually 
+## Deploy VMs for an SAP ASCS/SCS cluster, a Database Management System (DBMS) cluster, and SAP Application Server instances
 
-You can manually deploy SOFS cluster as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure]:  
+To prepare the Azure infrastructure, complete the following:
+
+* [Prepare the infrastructure for architectural templates 1, 2, and 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+
+* [Create an Azure virtual network][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+
+* [Set the required DNS IP addresses][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
+
+* [Set static IP addresses for the SAP virtual machines][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+
+* [Set a static IP address for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+
+* [Set default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+
+* [Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+
+* [Add Windows virtual machines to the domain][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* [Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* As you use Windows Server 2016, we recommend that you configure [Azure Cloud Witness][deploy-cloud-witness].
+
+
+## Deploy the Scale-Out File Server cluster manually 
+
+You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
 
 
 ```PowerShell
-# Set on Execution Policy  ALL cluster nodes!
+# Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
-# Defines SOFS cluster nodes
+# Define Scale-Out File Server cluster nodes
 $nodes = ("sofs-1", "sofs-2", "sofs-3")
 
-# Add cluster and SOFS features
+# Add cluster and Scale-Out File Server features
 Invoke-Command $nodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools -Verbose}
 
 # Test cluster
 Test-Cluster -node $nodes -Verbose
 
-#Install cluster
+# Install cluster
 $ClusterNetworkName = "sofs-cl"
 $ClusterIP = "10.0.6.13"
 New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress $ClusterIP -Verbose
@@ -291,47 +294,51 @@ New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress
 # Set Azure Quorum
 Set-ClusterQuorum –CloudWitness –AccountName gorcloudwitness -AccessKey <YourAzureStorageAccessKey>
 
-# Enable Storage Spaces Direct S2D
+# Enable Storage Spaces Direct
 Enable-ClusterS2D
 
-# Create SOFS with SAP Global Host Name
+# Create Scale-Out File Server with an SAP global host name
 # SAPGlobalHostName
 $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-## Deploy Scale Out File Server Automatically
+## Deploy Scale-Out File Server automatically
 
-Also, you can **automate** deployment of SOFS using Azure Resource Manager templates in an existing VNET and Active Directory environment:
+You can also automate the deployment of Scale-Out File Server by using Azure Resource Manager templates in an existing virtual network and Active Directory environment.
 
 > [!IMPORTANT]
->It is recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring.
+> We recommend that you have three or more cluster nodes for Scale-Out File Server with three-way mirroring.
 >
->Therefore, in the SOFS Resource Manager template UI you must specify in VM Count.
+> In the Scale-Out File Server Resource Manager template UI, you must specify the VM count.
 >
 
-### Using Managed Disks
+### Use managed disks
 
-Azure Resource Manager template to deploy Scale-Out File Server (SOFS) with Storage Spaces Direct (S2D) and Azure Managed Disks is available on [Github][arm-sofs-s2d-managed-disks].
+The Azure Resource Manager template for deploying Scale-Out File Server with Storage Spaces Direct and Azure Managed Disks is available on [GitHub][arm-sofs-s2d-managed-disks].
 
-Managed disks are recommended.
+We recommend that you use Managed Disks.
 
-![Figure 1: UI screen for SOFS Resource Manager template with Managed disks][sap-ha-guide-figure-8010]
+![Figure 1: UI screen for Scale-Out File Server Resource Manager template with managed disks][sap-ha-guide-figure-8010]
 
-_**Figure 1:** UI screen for SOFS Resource Manager template with Managed disks_
+_**Figure 1**: UI screen for Scale-Out File Server Resource Manager template with managed disks_
 
-VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Host network name is **sapglobalhost** and file share is **sapmnt**.
+In the template, do the following:
+1. In the **Vm Count** box, enter a minimum count of **2**.
+2. In the **Vm Disk Count** box, enter a minimum disk count of **3** (2 disks + 1 spare disk = 3 disks).
+3. In the **Sofs Name** box, enter the SAP global host network name, **sapglobalhost**.
+4. In the **Share Name** box, enter the file share name, **sapmnt**.
 
-###	Using non-managed disks
+###	Use unmanaged disks
 
-Azure Resource Manager template to deploy Scale-Out File Server (SOFS) with Storage Spaces Direct (S2D) and Azure Non-Managed Disks is available on [Github][arm-sofs-s2d-non-managed-disks].
+The Azure Resource Manager template for deploying Scale-Out File Server with Storage Spaces Direct and Azure Unmanaged Disks is available on [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figure 2: UI screen for SOFS Azure Resource Manager template without Managed disks][sap-ha-guide-figure-8011]
+![Figure 2: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks][sap-ha-guide-figure-8011]
 
-_**Figure 2:** UI screen for SOFS Azure Resource Manager template without Managed disks_
+_**Figure 2**: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks_
 
-Make sure to choose **Premium Storage** as Storage Account Type. Other settings are the same as with managed disks.
+In the **Storage Account Type** box, select **Premium Storage**. All other settings are the same as the settings for managed disks.
 
-## Next Steps
+## Next steps
 
-* [SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-file-share]
+* [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances][sap-high-availability-installation-wsfc-file-share]

@@ -13,11 +13,12 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 - not connected to the internet
@@ -72,7 +73,7 @@ To deploy App Service in a disconnected environment, you must first create an of
         - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<MOBILE\>**.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
     5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
     6. Click **Next**.
 
@@ -111,7 +112,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
      > [!NOTE]
      > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Role | Minimum instances | Minimum SKU | Notes |

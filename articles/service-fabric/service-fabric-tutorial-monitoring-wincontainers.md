@@ -33,14 +33,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial, you should:
-- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Deploy a containerized application to it](service-fabric-host-app-in-a-container.md)
 
 ## Setting up OMS with your cluster in the Resource Manager template
 
 In the case that you used the [template provided](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with OMS:
 * Make the following changes to your Resource Manager template.
-* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
+* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
 
 ### Adding OMS to your cluster template
 

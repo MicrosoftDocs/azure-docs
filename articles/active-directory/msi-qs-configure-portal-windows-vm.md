@@ -3,8 +3,8 @@ title: How to configure MSI on an Azure VM using the Azure portal
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Configure a VM Managed Service Identity (MSI) using the Azure portal
@@ -26,7 +26,7 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Enable MSI during creation of an Azure VM
 

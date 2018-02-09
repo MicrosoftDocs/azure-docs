@@ -3,8 +3,8 @@ title: How to assign an MSI access to an Azure resource, using the Azure portal
 description: Step-by-step instructions for assigning an MSI on one resource access to another resource, by using the Azure portal.
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Assign a Managed Service Identity access to a resource by using the Azure portal
@@ -24,7 +24,7 @@ After you've configured an Azure resource with a Managed Service Identity (MSI),
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Use RBAC to assign the MSI access to another resource
 

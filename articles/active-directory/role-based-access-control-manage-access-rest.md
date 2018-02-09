@@ -3,8 +3,8 @@ title: Role-Based Access Control with REST - Azure AD | Microsoft Docs
 description: Managing role-based access control with the REST API
 services: active-directory
 documentationcenter: na
-author: andredm7
-manager: femila
+author: rolyon
+manager: mtillman
 editor: ''
 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
+ms.author: rolyon
 
 ---
 # Manage Role-Based Access Control with the REST API

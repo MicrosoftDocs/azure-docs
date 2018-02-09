@@ -119,7 +119,7 @@ You can pass string values from the .config file by providing public named prope
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -132,6 +132,17 @@ You can pass string values from the .config file by providing public named prope
 ```
 
 TelemetryClients created after this point will use your processors.
+
+The following code shows how to add a telemetry initializer in ASP.NET Core.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var initializer = new SuccessfulDependencyFilter();
+    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+    configuration.TelemetryInitializers.Add(initializer);
+}
+```
 
 ### Example filters
 #### Synthetic requests
@@ -152,7 +163,7 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
 #### Failed authentication
 Filter out requests with a "401" response.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -210,7 +221,7 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -261,7 +272,7 @@ In ApplicationInsights.config:
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -47,7 +47,8 @@ To use this SAP HANA connector, you need to:
 - Install the SAP HANA ODBC driver on the Integration Runtime machine. You can download the SAP HANA ODBC driver from the [SAP Software Download Center](https://support.sap.com/swdc). Search with the keyword **SAP HANA CLIENT for Windows**.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP HANA connector.
 
@@ -61,7 +62,7 @@ The following properties are supported for SAP HANA linked service:
 | server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | Yes |
 | authenticationType | Type of authentication used to connect to the SAP HANA database.<br/>Allowed values are: **Basic**, and **Windows** | Yes |
 | userName | Name of the user who has access to the SAP server. | Yes |
-| password | Password for the user. Mark this field as a SecureString. | Yes |
+| password | Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
