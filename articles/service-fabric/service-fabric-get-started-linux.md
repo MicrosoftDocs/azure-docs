@@ -32,6 +32,7 @@ To deploy and run [Azure Service Fabric applications](service-fabric-application
 The following operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
+* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ## Installation Methods
 
@@ -48,8 +49,10 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### 2. Manual Installation
 For manual installation of Service Fabric runtime and common SDK, follow the rest of this guide.
 
-## Update your APT sources
+## Update your APT sources/Yum Repositories
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
+
+### Ubuntu
 
 1. Open a terminal.
 2. Add the Service Fabric repo to your sources list.
@@ -90,9 +93,40 @@ To install the SDK and the associated runtime package via the apt-get command-li
     sudo apt-get update
     ```
 
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+1. Open a terminal.
+2. Download and install Extra Packages for Enterprise Linux(EPEL).
+
+    ```bash
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install epel-release-latest-7.noarch.rpm
+    ```
+
+3. Install restricted shell(rssh)
+
+    ```bash
+    sudo yum --enablerepo=epel-testing install rssh
+    ```
+
+4. Add EfficiOS RHEL7 package repository to your system.
+
+    ```bash
+    wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    ```
+
+5. Import the efficios package signing key to the local GPG keyring
+
+    ```bash
+    sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+
 ## Install and set up the Service Fabric SDK for local cluster setup
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
+
+### Ubuntu
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
@@ -104,6 +138,13 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
+
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+```bash
+sudo yum install servicefabricsdkcommon
+```
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
@@ -147,6 +188,11 @@ Ubuntu
   sudo apt install nodejs-legacy
   ```
 
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+  ```bash
+  sudo yum install nodejs
+  sudo yum install npm
+  ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
@@ -169,9 +215,18 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
+
+Ubuntu 
  ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
+  ```
+
+Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+  ```bash
+  sudo yum install java-1.8.0-openjdk-devel
+  curl -s https://get.sdkman.io | bash
+  sdk install gradle
   ```
 
 ## Install the Eclipse Neon plug-in (optional)
@@ -212,11 +267,22 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following:
 
+### Ubuntu
+
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
 sudo npm uninstall generator-azuresfcontainer
 sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
+```
+
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+```bash
+sudo yum remote servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 ```
 
 ## Next steps
