@@ -20,17 +20,7 @@ This article contains answers to frequently asked questions about Language Under
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ## What is the maximum number of intents and entities that a LUIS app can support?
-A LUIS app can support up to 500 intents.
-
-Limits on entities depend on the entity type, as shown in the following table:
-
-| Type | Entity Limit | Entity Child Limit|
-|:------------- |:----- |:--|
-| [Prebuilt entities](./Pre-builtEntities.md) | No limit | N/A|
-| [List entities](./luis-concept-entity-types.md) | 50 | 20,000 items | 
-| [Simple](./luis-concept-entity-types.md)|30|N/A|
-| [Hierarchical](./luis-concept-entity-types.md)|30| 10|
-| [Composite entities](./luis-concept-entity-types.md) | 30|10|
+See the [boundaries](luis-boundaries.md) reference.
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
@@ -47,7 +37,7 @@ When you're deciding which approach to use with multiple LUIS apps, consider the
 * **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
 * **Calling LUIS apps in parallel instead of in series**: To improve responsiveness, you might ordinarily design a system to reduce the number of REST API calls that happen in series. But if you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call the apps in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
-If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
@@ -57,13 +47,13 @@ Composite entities represent parts of a whole. For example, a composite entity n
 
 LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. A list entity can have up to 20,000 items.
 
-If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## What are the limits on the number and size of phrase lists?
-The maximum length of a [phrase list](./luis-concept-feature.md) is 5,000 items. You can use a maximum of 10 phrase lists per LUIS app.
+For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
 
 ## What are the limits on example utterances?
-The maximum length of an utterance is 500 characters. You can have a maximum of 15,000 example utterances in your LUIS app.
+See the [boundaries](luis-boundaries.md) reference.
 
 ## What is the best way to start building my app in LUIS?
 
@@ -157,3 +147,4 @@ To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
+[LUIS]:luis-reference-regions.md
