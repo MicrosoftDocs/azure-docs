@@ -85,7 +85,7 @@ namespace TutorialForStorage.Controllers
 {
     public class BlobsController : ApiController
     {
-        private readonly string CONN_STRING = "AzureStorageConnectionString";
+        private readonly string CONN_STRING_SETTING = "AzureStorageConnectionString";
         private readonly string CONTAINER_NAME = "quickstart";
         private readonly string UPLOAD_PATH = "~/Images/";
         private readonly string DOWNLOAD_PATH = "~/Downloads";
@@ -95,20 +95,11 @@ namespace TutorialForStorage.Controllers
         // Initialize this controller with storage account and blob container
         public BlobsController()
         {
-            var connString = CloudConfigurationManager.GetSetting(CONN_STRING);
+            var connString = CloudConfigurationManager.GetSetting(CONN_STRING_SETTING);
             var account = CloudStorageAccount.Parse(connString);
 
             _client = account.CreateCloudBlobClient();
             _container = _client.GetContainerReference(CONTAINER_NAME);
-
-            if (_container.CreateIfNotExists(BlobContainerPublicAccessType.Container))
-            {
-                Trace.WriteLine("Creating container {0}.", CONTAINER_NAME);
-            }
-            else
-            {
-                Trace.WriteLine("Using container {0}.", CONTAINER_NAME);
-            }
         }
 
         // List all blob contents
@@ -122,15 +113,12 @@ namespace TutorialForStorage.Controllers
 
             if (blobsList.Count == 0)
             {
-                Trace.WriteLine("No blobs found in blob container.  Uploading sample files.");
                 await InitializeContainerWithSampleData();
 
                 // Refresh enumeration after initializing
                 blobs = _container.ListBlobs();
                 blobsList.AddRange(blobs);
             }
-
-            Trace.WriteLine("{0} blobs found in container.", blobsList.Count.ToString());
 
             foreach (var item in blobs)
             {
@@ -142,7 +130,6 @@ namespace TutorialForStorage.Controllers
                         $"and URI '{blob.Uri}'";
 
                     blobsInfoList.Add(blobInfoString);
-                    Trace.WriteLine(blobInfoString);
                 }
             }
 
@@ -163,34 +150,23 @@ namespace TutorialForStorage.Controllers
 
         // Upload a file from server to Blob container
         [Route("api/blobs/upload")]
-        public async Task<bool> UploadFile(string path)
+        public async Task UploadFile(string path)
         {
             var filePathOnServer = Path.Combine(HostingEnvironment.MapPath(UPLOAD_PATH), path);
 
             using (var fileStream = File.OpenRead(filePathOnServer))
             {
                 var filename = Path.GetFileName(path); // Trim fully pathed filename to just the filename
-                if (File.Exists(filePathOnServer))
-                {
-                    var blockBlob = _container.GetBlockBlobReference(filename);
-                    Trace.WriteLine("Uploading {0}.", filename);
+                var blockBlob = _container.GetBlockBlobReference(filename);
 
-                    await blockBlob.UploadFromStreamAsync(fileStream);
-
-                    return await Task.FromResult(true);
-                }
-                else
-                {
-                    Trace.TraceError("File {0} not found.", path);
-                    throw new FileNotFoundException();
-                }
+                await blockBlob.UploadFromStreamAsync(fileStream);
             }
         }
 
         // Download a blob to ~/Downloads/ on server
         [HttpGet]
         [Route("api/blobs/download")]
-        public async Task<bool> DownloadFile(string blobName)
+        public async Task DownloadFile(string blobName)
         {
             var blockBlob = _container.GetBlockBlobReference(blobName);
 
@@ -198,11 +174,7 @@ namespace TutorialForStorage.Controllers
 
             using (var fileStream = File.OpenWrite(downloadsPathOnServer))
             {
-                Trace.WriteLine("Downloading file {0}.", blockBlob.Name);
                 await blockBlob.DownloadToStreamAsync(fileStream);
-
-                Trace.WriteLine("Download complete.");
-                return await Task.FromResult(true);
             }
         }
 
@@ -239,7 +211,7 @@ In the constructor, a [Storage Account](https://docs.microsoft.com/dotnet/api/mi
 3. Create a container by name if it doesn't already exist, and write diagnostics based on if it already did.
 
 ```csharp
-private readonly string CONN_STRING = "AzureStorageConnectionString";
+private readonly string CONN_STRING_SETTING = "AzureStorageConnectionString";
 private readonly string CONTAINER_NAME = "quickstart";
 private readonly string SERVER_PATH = "~/Images/";
 private readonly CloudBlobClient _client;
@@ -248,20 +220,11 @@ private readonly CloudBlobContainer _container;
 // Initialize this controller with storage account and blob container
 public BlobsController()
 {
-    var connString = CloudConfigurationManager.GetSetting(CONN_STRING);
+    var connString = CloudConfigurationManager.GetSetting(CONN_STRING_SETTING);
     var account = CloudStorageAccount.Parse(connString);
 
     _client = account.CreateCloudBlobClient();
     _container = _client.GetContainerReference(CONTAINER_NAME);
-
-    if (_container.CreateIfNotExists(BlobContainerPublicAccessType.Container))
-    {
-        Trace.WriteLine("Creating container {0}.", CONTAINER_NAME);
-    }
-    else
-    {
-        Trace.WriteLine("Using container {0}.", CONTAINER_NAME);
-    }
 }
 ```
 
@@ -282,15 +245,12 @@ public async Task<IEnumerable<string>> Get()
 
     if (blobsList.Count == 0)
     {
-        Trace.WriteLine("No blobs found in blob container.  Uploading sample files.");
         await InitializeContainerWithSampleData();
 
         // Refresh enumeration after initializing
         blobs = _container.ListBlobs();
         blobsList.AddRange(blobs);
     }
-
-    Trace.WriteLine("{0} blobs found in container.", blobsList.Count.ToString());
 
     foreach (var item in blobs)
     {
@@ -302,7 +262,6 @@ public async Task<IEnumerable<string>> Get()
                 $"and URI '{blob.Uri}'";
 
             blobsInfoList.Add(blobInfoString);
-            Trace.WriteLine(blobInfoString);
         }
     }
 
@@ -318,27 +277,16 @@ If you have a large number of blobs, you may need to use other listing APIs such
 
 ```csharp
 [Route("api/blobs/upload")]
-public async Task<bool> UploadFile(string path)
+public async Task UploadFile(string path)
 {
     var filePathOnServer = Path.Combine(HostingEnvironment.MapPath(UPLOAD_PATH), path);
 
     using (var fileStream = File.OpenRead(filePathOnServer))
     {
         var filename = Path.GetFileName(path); // Trim fully pathed filename to just the filename
-        if (File.Exists(filePathOnServer))
-        {
-            var blockBlob = _container.GetBlockBlobReference(filename);
-            Trace.WriteLine("Uploading {0}.", filename);
+        var blockBlob = _container.GetBlockBlobReference(filename);
 
-            await blockBlob.UploadFromStreamAsync(fileStream);
-
-            return await Task.FromResult(true);
-        }
-        else
-        {
-            Trace.TraceError("File {0} not found.", path);
-            throw new FileNotFoundException();
-        }
+        await blockBlob.UploadFromStreamAsync(fileStream);
     }
 }
 ```
@@ -351,7 +299,7 @@ The [`UploadFromStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.wi
 ```csharp
 [HttpGet]
 [Route("api/blobs/download")]
-public async Task<bool> DownloadFile(string blobName)
+public async Task DownloadFile(string blobName)
 {
     var blockBlob = _container.GetBlockBlobReference(blobName);
 
@@ -360,10 +308,6 @@ public async Task<bool> DownloadFile(string blobName)
     using (var fileStream = File.OpenWrite(downloadsPathOnServer))
     {
         Trace.WriteLine("Downloading file {0}.", blockBlob.Name);
-        await blockBlob.DownloadToStreamAsync(fileStream);
-
-        Trace.WriteLine("Download complete.");
-        return await Task.FromResult(true);
     }
 }
 ```
