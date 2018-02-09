@@ -15,11 +15,11 @@ ms.author: v-demak
 
 # Build a LUIS app programmatically using Node.js
 
-LUIS provides a programmatic API that does everything that the UI at [https://www.luis.ai](https://www.luis.ai) does. This can save time when you might have a lot of preexisting data and it'd be faster to create a LUIS app programmatically than by entering information by hand. 
+LUIS provides a programmatic API that does everything that the [LUIS][LUIS] website does. This can save time when you might have a lot of preexisting data and it'd be faster to create a LUIS app programmatically than by entering information by hand. 
 
 ## Prerequisites
 
-* Log in to www.luis.ai and find your Programmatic Key in Account Settings.  You use this key to call the Authoring API.
+* Log in to the [LUIS][LUIS] website and find your Programmatic Key in Account Settings.  You use this key to call the Authoring API.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
@@ -158,8 +158,8 @@ upload done
 
 
 
-## Open the LUIS app in LUIS.ai
-Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and see the LUIS app you just created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
+## Open the LUIS app
+Once the script completes, you can log in to [LUIS][LUIS] and see the LUIS app you just created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
 
 ![TurnOn intent](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -167,7 +167,7 @@ Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS.ai](Train-Test.md)
+> [Test and train your app in LUIS website](Train-Test.md)
 
 ## Additional resources
 
@@ -177,5 +177,5 @@ This sample applications uses the following LUIS APIs:
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
-
+[LUIS]: luis-reference-regions.md]
 
