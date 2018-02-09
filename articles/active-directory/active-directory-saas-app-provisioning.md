@@ -63,9 +63,9 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the SCIM 2.0 standard.
 
-For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+For a list of all applications for which Azure AD supports a pre-integrated provisioning connector, see the [list of application tutorials for user provisioning](active-directory-saas-tutorial-list.md).
 
-For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+For information on how to add support for Azure AD user provisioning to an application, see [Using SCIM to automatically provision users and groups from Azure Active Directory to applications](active-directory-scim-provisioning).md.
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, submit a message through the [Azure Active Directory feedback forum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).	
 
@@ -77,7 +77,7 @@ To contact the Azure AD engineering team to request provisioning support for add
 
 Configuration of the Azure AD provisioning service for a selected application starts in the **[Azure portal](https://portal.azure.com)**. In the **Azure Active Directory > Enterprise Applications** section, select **Add**, then **All**, and then add either of the following depending on your scenario:
 
-* All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) for additional ones.
+* All applications in the **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning]active-directory-saas-tutorial-list.md) for additional ones.
 
 * Use the “non-gallery application” option for custom-developed SCIM integrations
 
@@ -107,12 +107,12 @@ In the application management screen, provisioning is configured in the **Provis
 ![Settings](./media/active-directory-saas-app-provisioning/audit_logs.PNG)
 
 > [!NOTE]
-> The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-overview).
+> The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
 
 ## What happens during provisioning?
 
-When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs. 
+When Azure AD is the source system, the provisioning service uses the [Differential Query feature of the Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) to monitor users and groups. The provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs. 
 
 ### Initial sync
 When the provisioning service is started, the first sync ever performed will:
@@ -216,5 +216,5 @@ Contact us through the [Azure Active Directory feedback forum](https://feedback.
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-* [Azure AD synchronization API overview](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 
