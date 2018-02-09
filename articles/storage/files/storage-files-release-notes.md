@@ -25,10 +25,13 @@ This article covers the release notes for supported versions of the Azure File S
 ## Supported versions
 The following versions are supported by Azure File Sync:
 
-| Agent version number | Release date | Supported until |
-|----------------------|--------------|------------------|
-| 2.0.11.0 | 2018-02-08 | Current version |
-| 1.1.0.0 | 2017-09-26 | 2018-07-30 |
+| Milestone | Agent version number | Release date | Supported until |
+|----|----------------------|--------------|------------------|
+| Refresh 1 | 2.0.11.0 | 2018-02-08 | Current version |
+| January update rollup | 1.4.0.0 | 2018-01-08 | 2018-07-30 |
+| November update rollup | 1.3.0.0 | 2017-11-30 | 2018-07-30 |
+| October update rollup | 1.2.0.0 | 2017-10-31 | 2018-07-30 |
+| Initial preview release | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
