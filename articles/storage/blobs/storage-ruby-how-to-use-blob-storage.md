@@ -32,7 +32,7 @@ This guide will show you how to perform common scenarios using Blob storage. The
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby application
-Create a Ruby application. For instructions, see [Ruby on Rails Web application on an Azure VM](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)
+Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 
 ## Configure your application to access Storage

@@ -15,7 +15,9 @@
 ### [Access control lists](virtual-networks-acl.md)
 
 # Get Started
-## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
+## [Create virtual network - Portal](quick-create-portal.md)
+## [Create virtual network - PowerShell](quick-create-powershell.md)
+## [Create virtual network - Azure CLI](quick-create-cli.md)
 
 # How To
 ## Plan and design
@@ -175,6 +177,7 @@
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
