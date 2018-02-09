@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Adding Zendesk from the gallery
 To configure the integration of Zendesk into Azure AD, you need to add Zendesk from the gallery to your list of managed SaaS apps.
 
-**To add Samanage from the gallery, perform the following steps:**
+**To add Zendesk from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
