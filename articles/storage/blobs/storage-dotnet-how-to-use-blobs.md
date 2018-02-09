@@ -20,7 +20,9 @@ ms.author: tamram
 
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-This tutorial will show you how to use [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) with ASP.NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of a simple Web API project that works with images.
+This tutorial will show you how to use [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) with ASP.NET and Visual Studio 2017. It will show how to upload, list, download, and delete blobs in the context of a simple Web API project that works with images. If you are developing for Xamarin, see [How to use Blob Storage from Xamarin](https://docs.microsoft.com/azure/storage/blobs/storage-xamarin-blob-storage).
+
+Azure Storage also works on other .NET platforms, such as .NET Core and Xamarin, and the APIs used in this guide are available on more than just Windows. This tutorial will use Windows and Visual Studio 2017, but the code samples can work in any .NET environment where Azure Storage APIs work.
 
 ## Get the sample project
 
@@ -76,15 +78,11 @@ The following sections will walk through the basics of interacting with blob sto
 * Deleting a blob.
 * Listing metadata about each blob.
 
-These five basic operations should be enough for you to do a large amount of tasks with Blob Storage.
+The code samples below are pulled directly from the [sample application](https://github.com/cartermp/TutorialForStorage) (with some minor modifications to help readability). You can see them all in unison near the bottom of this article.
 
 ## Create a storage account and container
 
-In the constructor, a [Storage Account](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) and [Container](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) are created as follows:
-
-1. Parse the connection string (which could be for local development or an actual connection string).
-2. Create a client, which could then be used to create multiple containers.
-3. Create a container by name if it doesn't already exist, and write diagnostics based on if it already did.
+The first thing you need to do is initialize a [Storage Account](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) and [Container](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet). In most cases, the best place to do that is via a constructor in a class.
 
 ```csharp
 private readonly string CONN_STRING_SETTING = "AzureStorageConnectionString";
@@ -378,6 +376,8 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 
 ### More samples
 * [Azure Storage samples using .NET](https://docs.microsoft.com/en-us/azure/storage/common/storage-samples-dotnet)
+* [Azure Storage sample for Xamarin](https://developer.xamarin.com/samples/xamarin-forms/WebServices/AzureStorage/)
+* [Azure Storage Service - Photo Uploader Sample using Xamarin for Android, iOS and Windows](https://azure.microsoft.com/resources/samples/storage-blob-xamarin-image-uploader/)
 
 ### Blob storage reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/mt347887.aspx)
@@ -387,3 +387,4 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 * [Transfer data with AzCopy command-line utility](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Get started with File storage for .NET](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
 * [How to use Azure blob storage with the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* [Storing and Accessing Data in Azure Storage for Xamarin](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/storage/azure-storage/)
