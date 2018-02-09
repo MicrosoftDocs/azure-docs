@@ -148,7 +148,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Make note of the end date and the password for the .pfx (in this example: 07/31/2017 and test123). You will need them below.
+Make note of the end date and the password for the .pfx (in this example: 07/31/2018 and test123). You will need them below.
 
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
