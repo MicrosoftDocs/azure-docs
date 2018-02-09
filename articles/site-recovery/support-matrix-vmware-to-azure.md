@@ -51,7 +51,7 @@ Machine operating system (Linux) | Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 t
 ### Ubuntu kernel versions
 
 
-**Supported release** | **Azure Site Recovery Mobility service version** | **Kernel version** |
+**Supported release** | **Azure Site Recovery Mobility Service version** | **Kernel version** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-generic to 3.13.0-121-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic to 3.13.0-128-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-91-generic |
@@ -73,7 +73,7 @@ Paravirtualized storage devices | Devices exported by paravirtualized drivers ar
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Directories | These directories (if set up as separate partitions/file-systems) must all be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc. </br></br> If / (root) volume is an LVM volume, then /boot must reside on a separate partition on the same disk and not be an LVM volume.<br/><br/>
-XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of the Mobility service onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
+XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of Mobility service and later. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
 
 
@@ -139,7 +139,7 @@ Guest/server multi-path (MPIO) | N/A
 
 > - The server shouldn't have more than four partitions on the OS disk.
 
-> - Requires the Mobility service version 9.13 or later.
+> - Requires Mobility Service version 9.13 or later.
 
 
 ## Azure storage
@@ -200,7 +200,7 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Unified Setup** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
-**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+**Mobility Service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
 
 
 ## Next steps
