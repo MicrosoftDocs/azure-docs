@@ -152,9 +152,8 @@ The provisioning service will continue to run back-to-back delta syncs indefinit
 * The provisioning process goes into quarantine (see below) due to a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
 
 ### Errors and retries 
-If an individual user can't be added, updated, or deleted in the target system due to an error in the target system, then the operation will be retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators will need to check the [audit logs](active-directory-saas-provisioning-reporting.md) to determine the root cause and take the appropriate action.
+If an individual user can't be added, updated, or deleted in the target system due to an error in the target system, then the operation will be retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators will need to check the [audit logs](active-directory-saas-provisioning-reporting.md) to determine the root cause and take the appropriate action. Common failures can include:
 
-Common failures can include:
 * Users not having an attribute populated in the source system that is required in the target system
 * Users having an attribute value in the source system for which there is a unique constraint in the target system, and the same value is present in another user record
 
