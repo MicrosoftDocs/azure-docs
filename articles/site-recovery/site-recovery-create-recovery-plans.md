@@ -21,7 +21,7 @@ ms.author: raynew
 
 This article describes how to create and customize a recovery plan in [Azure Site Recovery](site-recovery-overview.md).
 
-To create a recovery plan in Site Recovery:
+Create a recovery plan to do the following:
 
 * Define groups of machines that fail over together and then start together.
 * Model dependencies between machines by grouping them together in a recovery plan group. For example, to fail over and bring up a specific application, include all the VMs for that application in the same recovery plan group.
