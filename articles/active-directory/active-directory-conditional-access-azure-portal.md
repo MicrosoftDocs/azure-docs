@@ -83,9 +83,10 @@ One benefit of using a policy-based approach to protect access to your cloud app
 
 ## Next steps
 
-- If you want to know more about the conditions, see [Conditions in Azure Active Directory conditional access](active-directory-conditional-access-conditions.md).
+- If you want to know more about:
+    - Conditions, see [Conditions in Azure Active Directory conditional access](active-directory-conditional-access-conditions.md).
 
-- If you want to know more about access controls, see [Access controls in Azure Active Directory conditional access](active-directory-conditional-access-controls.md).
+    - Access controls, see [Access controls in Azure Active Directory conditional access](active-directory-conditional-access-controls.md).
 
 - If you want to get some experience with configuring conditional access policies, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
