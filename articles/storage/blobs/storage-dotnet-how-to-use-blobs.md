@@ -102,9 +102,6 @@ namespace TutorialForStorage.Controllers
             _container = _client.GetContainerReference(CONTAINER_NAME);
         }
 
-        // List all blob contents
-        // Local: http://localhost:58673/api/blobs
-        // route /api/blobs
         public async Task<IEnumerable<string>> Get()
         {
             var blobsInfoList = new List<string>();
@@ -136,7 +133,6 @@ namespace TutorialForStorage.Controllers
             return blobsInfoList;
         }
 
-        // Display properties from a single blob
         public string Get(string name)
         {
             // Retrieve reference to a blob by filename, e.g. "photo1.jpg".
@@ -148,7 +144,6 @@ namespace TutorialForStorage.Controllers
             return blobInfoString;
         }
 
-        // Upload a file from server to Blob container
         [Route("api/blobs/upload")]
         public async Task UploadFile(string path)
         {
@@ -163,7 +158,6 @@ namespace TutorialForStorage.Controllers
             }
         }
 
-        // Download a blob to ~/Downloads/ on server
         [HttpGet]
         [Route("api/blobs/download")]
         public async Task DownloadFile(string blobName)
@@ -178,14 +172,12 @@ namespace TutorialForStorage.Controllers
             }
         }
 
-        // Delete a blob by name.
         public async Task Delete(string blobName)
         {
             var blob = _container.GetBlobReference(blobName);
             await blob.DeleteIfExistsAsync();
         }
 
-        // Initialize blob container with all files in subfolder ~/Images/
         public async Task InitializeContainerWithSampleData()
         {
             var folderPath = HostingEnvironment.MapPath(UPLOAD_PATH);
@@ -232,6 +224,61 @@ Every blob in Azure Storage must reside in a container. The container name is pa
 
 Container names must also be a valid DNS name. To learn more about containers and naming, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
+## Upload to a blob
+
+```csharp
+[Route("api/blobs/upload")]
+public async Task UploadFile(string path)
+{
+    var filePathOnServer = Path.Combine(HostingEnvironment.MapPath(UPLOAD_PATH), path);
+
+    using (var fileStream = File.OpenRead(filePathOnServer))
+    {
+        var filename = Path.GetFileName(path); // Trim fully pathed filename to just the filename
+        var blockBlob = _container.GetBlockBlobReference(filename);
+
+        await blockBlob.UploadFromStreamAsync(fileStream);
+    }
+}
+```
+
+The [`UploadFromStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync?view=azure-dotnet) method is a general-purpose API for uploading from anything which can be exposed as a stream to a blob. There are other APIs available such as [`UploadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadtextasync?view=azure-dotnet), [`UploadFromFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromfileasync?view=azure-dotnet), and [`UploadFromByteArrayAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfrombytearrayasync?view=azure-dotnet).
+
+
+## Download a blob
+
+```csharp
+[HttpGet]
+[Route("api/blobs/download")]
+public async Task DownloadFile(string blobName)
+{
+    var blockBlob = _container.GetBlockBlobReference(blobName);
+
+    var downloadsPathOnServer = Path.Combine(HostingEnvironment.MapPath(DOWNLOAD_PATH), blockBlob.Name);
+
+    using (var fileStream = File.OpenWrite(downloadsPathOnServer))
+    {
+        await blockBlob.DownloadToStreamAsync(fileStream);
+    }
+}
+```
+
+The [`DownloadToStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtostreamasync?view=azure-dotnet)method is a general-purpose API for downloading to anything that can be exposed as a stream. There are other APIs available such as [`DownloadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.downloadtextasync?view=azure-dotnet#Definiti), [`DownloadToFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet), and [`DownloadToByteArrayAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtobytearrayasync?view=azure-dotnet).
+
+## Delete a blob
+
+```csharp
+public async Task Delete(string blobName)
+{
+    var blob = _container.GetBlobReference(blobName);
+    await blob.DeleteIfExistsAsync();
+}
+```
+
+[`DeleteIfExistsAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) will delete a blob if it exists. It returns a `Task<bool>`, where `true` indicates that it successfully deleted the blob, and `false` indicates that the container did not exist. In this case, we can simply ignore it.
+
+You can also use the [`DeleteAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync?view=azure-dotnet) method, but you'll need to handle any exceptions if the blob doesn't exist yourself.
+
 ## List blobs in a container
 
 To list blobs in a container, call [`ListBlobs`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs?view=azure-dotnet) on the container as done in the HTTP GET call from the API controller:
@@ -272,61 +319,6 @@ public async Task<IEnumerable<string>> Get()
 You've likely noticed that an [`is` expression](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/is) is needed on the `blob` item in the `for` loop. This is because each `blob` is of type [`IListBlobItem`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.ilistblobitem?view=azure-dotnet), which is a common interface implemented by multiple blob types. This tutorial uses Block Blobs, which are the most common kinds of blobs. If you are working with Page Blobs or Blob Directories, you can cast to those types instead.
 
 If you have a large number of blobs, you may need to use other listing APIs such as [ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listblobssegmentedasync?view=azure-dotnet).
-
-## Upload to a blob
-
-```csharp
-[Route("api/blobs/upload")]
-public async Task UploadFile(string path)
-{
-    var filePathOnServer = Path.Combine(HostingEnvironment.MapPath(UPLOAD_PATH), path);
-
-    using (var fileStream = File.OpenRead(filePathOnServer))
-    {
-        var filename = Path.GetFileName(path); // Trim fully pathed filename to just the filename
-        var blockBlob = _container.GetBlockBlobReference(filename);
-
-        await blockBlob.UploadFromStreamAsync(fileStream);
-    }
-}
-```
-
-The [`UploadFromStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync?view=azure-dotnet) method is a general-purpose API for uploading from anything which can be exposed as a stream to a blob. There are other APIs available such as [`UploadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadtextasync?view=azure-dotnet), [`UploadFromFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromfileasync?view=azure-dotnet), and [`UploadFromByteArrayAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfrombytearrayasync?view=azure-dotnet).
-
-
-## Download a blob
-
-```csharp
-[HttpGet]
-[Route("api/blobs/download")]
-public async Task DownloadFile(string blobName)
-{
-    var blockBlob = _container.GetBlockBlobReference(blobName);
-
-    var downloadsPathOnServer = Path.Combine(HostingEnvironment.MapPath(DOWNLOAD_PATH), blockBlob.Name);
-
-    using (var fileStream = File.OpenWrite(downloadsPathOnServer))
-    {
-        Trace.WriteLine("Downloading file {0}.", blockBlob.Name);
-    }
-}
-```
-
-The [`DownloadToStreamAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtostreamasync?view=azure-dotnet)method is a general-purpose API for downloading to anything that can be exposed as a stream. There are other APIs available such as [`DownloadTextAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.downloadtextasync?view=azure-dotnet#Definiti), [`DownloadToFileAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet), and [`DownloadToByteArrayAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtobytearrayasync?view=azure-dotnet).
-
-## Delete a blob
-
-```csharp
-public async Task Delete(string blobName)
-{
-    var blob = _container.GetBlobReference(blobName);
-    await blob.DeleteIfExistsAsync();
-}
-```
-
-[`DeleteIfExistsAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) will delete a blob if it exists. It returns a `Task<bool>`, where `true` indicates that it successfully deleted the blob, and `false` indicates that the container did not exist. In this case, we can simply ignore it.
-
-You can also use the [`DeleteAsync`](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync?view=azure-dotnet) method, but you'll need to handle any exceptions if the blob doesn't exist yourself.
 
 ## Run the sample application in Azure
 
