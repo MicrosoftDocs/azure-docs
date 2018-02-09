@@ -228,14 +228,16 @@ You can determine the next hop type between a virtual machine and the IP address
 
 To perform tasks on route tables and routes, your account must be assigned to the [network contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
 
-|Operation                                       |   Operation name                |
-|-------------------------------------------     |   ----------------------------  |
-|Microsoft.Network/routeTables/read              |   Get route table               |
-|Microsoft.Network/routeTables/write             |   Create or update route table  |
-|Microsoft.Network/routeTables/delete            |   Delete route table            |
-|Microsoft.Network/routeTables/join/action       |   Join route table              |
-|Microsoft.Network/routeTables/routes/read       |   Get route                     |
-|Microsoft.Network/routeTables/routes/write      |   Create or update route        |
-|Microsoft.Network/routeTables/routes/delete     |   Delete route                  |
+|Operation                                                       |   Operation name                               |
+|--------------------------------------------------------------  |   -------------------------------------------  |
+|Microsoft.Network/routeTables/read                              |   Get route table                              |
+|Microsoft.Network/routeTables/write                             |   Create or update route table                 |
+|Microsoft.Network/routeTables/delete                            |   Delete route table                           |
+|Microsoft.Network/routeTables/join/action                       |   Join route table                             |
+|Microsoft.Network/routeTables/routes/read                       |   Get route                                    |
+|Microsoft.Network/routeTables/routes/write                      |   Create or update route                       |
+|Microsoft.Network/routeTables/routes/delete                     |   Delete route                                 |
+|Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Get Network Interface Effective Route Table  | 
+|Microsoft.Network/networkWatchers/nextHop/action                |   Gets the next hop from a VM                  |
 
 The *Join route table* operation is required to associate a route table to a subnet.
