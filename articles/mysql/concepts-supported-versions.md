@@ -24,4 +24,4 @@ Azure Database for MySQL automatically manages patching for minor version update
 
 ## Next steps
 
-For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-service-tiers.md)
+For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)

@@ -16,7 +16,7 @@ ms.date: 11/03/2017
 ## Backup happens automatically
 When using Azure Database for PostgreSQL, the database service automatically makes a backup of the server every 5 minutes. 
 
-The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier. For more information, see [Azure Database for PostgreSQL service tiers](concepts-service-tiers.md)
+The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier. For more information, see [Azure Database for PostgreSQL service tiers](concepts-pricing-tiers.md)
 
 Using this automatic backup feature you may restore the server and all its databases into a new server to an earlier point-in-time.
 

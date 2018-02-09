@@ -66,7 +66,7 @@
   - name: Resources
     items:
     - name: Pricing tiers
-      href: concepts-service-tiers.md
+      href: concepts-pricing-tiers.md
     - name: Compute units
       href: concepts-compute-unit-and-storage.md
     - name: Limits

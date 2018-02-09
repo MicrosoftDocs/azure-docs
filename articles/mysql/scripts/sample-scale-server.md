@@ -41,4 +41,4 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
-- For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).
+- For more information on scaling, see [Service Tiers](../concepts-pricing-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).

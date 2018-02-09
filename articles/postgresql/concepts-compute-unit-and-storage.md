@@ -38,4 +38,4 @@ If your workload reaches the maximum limits in either the Compute Units or provi
 If your workload reaches the maximum limits on number of connections, explicit errors are raised. For more information on resources limits, see [Limitations in Azure Database for PostgreSQL](concepts-limits.md).
 
 ## Next steps
-For more information on pricing tiers, see [Azure Database for PostgreSQL pricing tiers](./concepts-service-tiers.md).
+For more information on pricing tiers, see [Azure Database for PostgreSQL pricing tiers](./concepts-pricing-tiers.md).
