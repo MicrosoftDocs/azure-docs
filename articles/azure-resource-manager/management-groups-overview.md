@@ -101,6 +101,7 @@ Within the portal, there are two locations to create a new management group.
 2. On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main blade. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
 ---
 
+
 ### Example 1: Add new management group
 This example is to create a new management group with the identifier of "Contoso." 
 
@@ -165,7 +166,7 @@ Update-AzureRmManagementGroup
 # [Portal](#tab/portal)
 The ability to update the display name on a management group is available on the detail screen.   
 ![Rename Group](media/management-groups/rename.png)
- ---
+---
 
 ### Example 3: Update a management group with a new display name
 This example shows how to update an existing management group with the "GroupName" of "Contoso" to have a display name of "Contoso Group." After this update, the group shows the new display name in the Azure portal.  
@@ -565,5 +566,4 @@ You select the "Move" action to move this management group to a new parent manag
 Another option is to select "Move" on any of the lists.  
 
 ![move](media/management-groups/move_small.png)
-
 ---
