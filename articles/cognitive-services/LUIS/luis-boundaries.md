@@ -32,7 +32,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000|
-| [Version name][luis-how-to-manage-versions] | 10 characters |
+| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
 
 ## Key limits
 The programmatic key has different limits for authoring and endpoint. The subscription key is only valid for endpoint queries.
@@ -41,7 +41,7 @@ The programmatic key has different limits for authoring and endpoint. The subscr
 |--|--|--|--|
 |Programmatic/Starter|1 million/month|1 thousand/month|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
-|[Subscription][pricing] - S0 - Basic tier|invalid|1 million/month, 50/second|Querying your LUIS endpoint|
+|[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 
 ## Keyboard controls
 
