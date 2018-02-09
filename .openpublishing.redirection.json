@@ -16708,6 +16708,11 @@
         "source_path": "articles/postgresql/concepts-service-tiers.md",
         "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
         "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/security/security-azure-log-integration-security-center.md",
+            "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+            "redirect_document_id": false
     }
 
    ]
