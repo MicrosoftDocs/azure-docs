@@ -966,7 +966,7 @@ Time taken to execute above cell: 49.21 seconds
 ### Gradient boosting trees regression
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Train and evaluate **
+**Train and evaluate**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

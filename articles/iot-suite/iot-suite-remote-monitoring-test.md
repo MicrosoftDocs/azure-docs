@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Test your solution with simulated devices
+# Create a new simulated device
 
 This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
