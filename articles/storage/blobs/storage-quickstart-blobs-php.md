@@ -149,22 +149,18 @@ You can get a list of files in the container using the **listBlobs()** method. T
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
     $listBlobsOptions->setPrefix("HelloWorld");
-    
-    $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-    $blobs = $result->getBlobs();
+
     echo "These are the blobs present in the container: ";
-    
-    
-    while ($result->getContinuationToken()) {
-        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        $result = $blobClient->listBlobs("mycontainer", $listBlobsOptions);
-        $blobs = array_merge($blobs, $blob_list->getBlobs());
-    }
-    
-    
-    foreach($blobs as $blob) {
-        echo $blob->getName().": ".$blob->getUrl()."<br />";
-    }
+       
+    do{
+            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+            foreach ($result->getBlobs() as $blob)
+            {
+                echo $blob->getName().": ".$blob->getUrl()."<br />";
+            }
+        
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
 ```
 
 ### Get the content of your blobs
@@ -200,7 +196,7 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
 
 ## Next steps
  
-In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Ruby. To learn more about working with blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](./storage-php-how-to-use-blobs.md)
