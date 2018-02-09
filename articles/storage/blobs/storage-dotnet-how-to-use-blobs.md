@@ -52,13 +52,19 @@ Next, enter the following in your browser to test that your GET API is working:
 http://localhost:58673/api/blobs
 ```
 
-You should see a response that is similar to the following:
+You should see a response that is similar to the following (if viewed as JSON):
 
 ```
-TODO phillip - response from running the app against the good images
+[
+    "Block blob with name 'Awesome-Mountain-River-Wallpaper.jpg', content type 'application/octet-stream', size '1465150', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/Awesome-Mountain-River-Wallpaper.jpg'",
+    "Block blob with name 'Beautiful Stream Desktop Wallpapers (2).jpg', content type 'application/octet-stream', size '382544', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/Beautiful Stream Desktop Wallpapers (2).jpg'",
+    "Block blob with name 'Forest-river-wallpaper-Hd.jpg', content type 'application/octet-stream', size '2690689', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/Forest-river-wallpaper-Hd.jpg'",
+    "Block blob with name 'Grand-Canyon-Colorado-River.jpg', content type 'application/octet-stream', size '261788', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/Grand-Canyon-Colorado-River.jpg'",
+    "Block blob with name 'Smith-River.jpg', content type 'application/octet-stream', size '519207', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/Smith-River.jpg'",
+    "Block blob with name 'grand-canyon-colorado-river-1.jpg', content type 'application/octet-stream', size '232356', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/grand-canyon-colorado-river-1.jpg'",
+    "Block blob with name 'ws_Columbia_Mountain_River_Grass_1366x768.jpg', content type 'application/octet-stream', size '450769', and URI 'http://127.0.0.1:10000/devstoreaccount1/quickstart/ws_Columbia_Mountain_River_Grass_1366x768.jpg'"
+]
 ```
-
-To see metadata about the images contained in the sample application, enter `http://localhost:58673/api/blobs` into your browser. To add more images and upload them to blobs, simply add an image to the `Images` folder in the project and POST to the running API.
 
 ## Basic Blob operations
 
