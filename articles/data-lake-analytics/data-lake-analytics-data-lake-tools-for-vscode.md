@@ -103,7 +103,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 
 **Set Default Context**
 
- You can also set default context to apply this setting to all script files if you have not set parameters for file respectively. Parameters set for respective file priority are higher than default context setting.
+ You can set default context to apply this setting to all script files if you have not set parameters for file respectively.
 
 1. Select Ctrl+Shift+P to open the command palette. 
 2. Enter **ADL: Set Default Context**.
@@ -343,7 +343,7 @@ As the same time, you can monitor the [downloading status](#check-storage-tasks-
 
 As the same time, you can monitor the [downloading status](#check-storage-tasks-status).
 
-## Check storage tasks' status
+### Check storage tasks' status
 The status displays on the bottom of the status bar when completed downloading and uploading.
 1. Click the bellow status bar, and then the downloading and uploading status show in **OUTPUT** panel.
 
