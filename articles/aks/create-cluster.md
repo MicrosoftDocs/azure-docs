@@ -16,7 +16,7 @@ ms.custom: mvc
 
 An Azure Container Service (AKS) cluster can be created with either the Azure CLI or Azure portal. This document shows how to create using the Azure CLI including a description of all deployment options.
 
-For instruction on deploying an AKS cluster with the Azure portal, see the [Azure Container Service (AKS) portal quickstart][aks-portal-quickstart] 
+For instruction on deploying an AKS cluster with the Azure portal, see the Azure Container Service (AKS) [Azure portal quickstart][aks-portal-quickstart]. 
 
 ## Azure CLI
 
