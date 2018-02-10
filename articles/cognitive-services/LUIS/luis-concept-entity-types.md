@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 02/09/2018
 ms.author: v-demak
 ---
 # Entities in LUIS
@@ -22,7 +22,7 @@ In the utterance "Book me a ticket to Paris", "Paris" is an entity of type locat
 
 You do not need to create entities for every concept in your app, but only for those required for the app to take action. 
 
-You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
+You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
 
 ## Types of entities
@@ -36,8 +36,10 @@ LUIS offers the following types of entities:
 | List      | List entities represent a fixed set of related words in your system. Each list entity may have one or more forms. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities don't have to be labeled in utterances or trained by the system.  <br/> A list entity is an explicitly specified list of values.  Unlike other entity types, LUIS does not discover additional values for list entities during training. Therefore, each list entity forms a closed set.  | 
 | Simple | A simple entity is a generic entity that describes a single concept.  <br/> |  
 | Hierarchical | A hierarchical entity defines a category and its members. It is made up of child entities that form the members of the category. You can use hierarchical entities to define hierarchical or inheritance relationships between entities, in which children are subtypes of the parent entity. <br/><br/>For example, in a travel agent app, you could add hierarchical entities like these:<ul><li> $Location, including $FromLocation and $ToLocation as child entities that represent origin and destination locations.</li> <li> $TravelClass, including $First, $Business, and $Economy as child entities that represent the travel class.</li></ul>     | 
-| Composite | A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities or prebuilt entities.  |  
+| Composite | A composite entity is made up of other entities that form parts of a whole.  For example, a composite entity named PlaneTicketOrder may have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities, or prebuilt entities.  |  
 
+## Best practices
+Create an entity when the calling application or bot needs some parameters required to execute an action.
 
 ## Next steps
 
