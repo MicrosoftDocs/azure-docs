@@ -249,7 +249,7 @@ This topic describes the entity and type representations for common items used i
 |Terms|string|Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.|  
 |ProductState|number|Specifies whether the product is published or not. Published products are discoverable by developers on the developer portal. Non-published products are visible only to administrators.<br /><br /> The allowable values for product state are:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|boolean|Specifies whether a user can have multiple subscriptions to this product at the same time.|  
-|MultipleSubscriptionsCount|number|The number of subscriptions to this product by the current user.|  
+|MultipleSubscriptionsCount|number|Maximum number of subscriptions to this product a user is allowed to have at the same time.|  
   
 ##  <a name="Provider"></a> Provider  
  The `provider` entity has the following properties.  

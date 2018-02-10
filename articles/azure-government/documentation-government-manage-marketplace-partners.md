@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/14/2016
+ms.date: 02/08/2018
 ms.author: gsacavdm
 
 ---
@@ -41,7 +41,7 @@ If there are other offer types you'd like to see supported in Azure Government, 
 
 ## Publishing
 > [!NOTE]
-> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) documentation before proceeding.
+> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/marketplace-publishers-guide.md) documentation before proceeding.
 
 1. **Sign in to the [Azure Cloud Partner Portal](https://cloudpartner.azure.com)**.
 1. **Open the offer** you want to publish to the Azure Government Marketplace.

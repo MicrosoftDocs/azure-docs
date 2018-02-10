@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -49,7 +49,7 @@ The following properties are supported for the Google BigQuery linked service.
 | additionalProjects | A comma-separated list of project IDs of public BigQuery projects to access.  | No |
 | requestGoogleDriveScope | Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is **false**.  | No |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can be used only on Self-hosted Integration Runtime. <br/>Allowed values are **ServiceAuthentication** and **UserAuthentication**. | Yes |
-| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery for UserAuthentication. You can mark this field as SecureString to store it securely in Data Factory. You also can store the password in Azure Key Vault and let the copy activity pull from there when you perform data copy. To learn more, see [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery for UserAuthentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
 | keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. It can be used only on Self-hosted Integration Runtime.  | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |

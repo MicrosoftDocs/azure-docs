@@ -11,7 +11,7 @@
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - Linux computer
     href: log-analytics-quick-collect-linux-computer.md
-  - name: Collect - Windows Computer
+  - name: Collect - Windows computer
     href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:

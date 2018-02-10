@@ -23,7 +23,7 @@ In this tutorial, you complete the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -38,8 +38,9 @@ In this tutorial, you complete the following steps:
  
 ## Create a data factory
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).    
-2. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Sign in to the [Azure portal](https://portal.azure.com/).    
+3. Select **New** on the left menu, select **Data + Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. On the **New data factory** page, enter **MyAzureSsisDataFactory** under **Name**. 
@@ -66,7 +67,7 @@ In this tutorial, you complete the following steps:
 11. After the creation is complete, you see the **Data factory** page.
    
    ![Home page for the data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Select **Monitor & Manage** to open the Data Factory user interface (UI) on a separate tab. 
+12. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
 
 ## Provision an Azure-SSIS integration runtime
 
@@ -157,7 +158,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create and start an Azure-SSIS integration runtime.
+> * Provision an Azure-SSIS integration runtime.
 
 To learn about copying data from on-premises to the cloud, advance to the following tutorial: 
 
