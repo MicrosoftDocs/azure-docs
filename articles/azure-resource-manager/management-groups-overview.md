@@ -17,6 +17,7 @@ ms.author: rithorn
 
 
 # Organize your resources with Azure Management Groups 
+## Management group overview
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
@@ -98,7 +99,7 @@ At the top of the management group main page, you can find the command "New mana
 - *Management Group Display Name:* This field is the Name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time. 
 - *Management Group Parent:* This field is showing you where the group is being created under. 
 
-On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main blade. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
+On the "Children" section of the management group detail page, you have the option to create a new management group. The menu looks the same as the "New management group" option from the main page. The only difference with this "New management group" option is the new group is placed as a child of the current management group you are viewing.
 ![Detail](media/management-groups/children_all.png)
 
 ---
@@ -204,9 +205,9 @@ The hierarchy list updates to show the new display name.
 --- 
 
 ## Delete a management group
-Any management group can be deleted from a hierarchy that meet these requirements:
+Any management group can be deleted from a hierarchy that meets these requirements:
 - There are no child management groups or subscriptions under the management group.
-- You have write permissions on the management group (This include the "Owner" or "Contributor" roles). These permissions can be directly assigned or inherited.  
+- You have write permissions on the management group ("Owner" or "Contributor" roles). These permissions can be directly assigned or inherited.  
 
 # [PowerShell](#tab/powershell)
 This command is used to remove a management group from a hierarchy and can only be used if the particular group has no children. If the group does have child items, use "Update-AzureRmManagementGroup" or "Remove-AzureRMManagementGroupSubscription" to remove all children. 
@@ -220,7 +221,7 @@ Remove-AzureRmManagementGroup
 - [-GroupName]: Parameter required to identify what group to remove from the hierarchy. 
 
 # [Portal](#tab/portal)
-The ability to delete a management group is available on the detail blade of a management group. The delete icon is disabled when you do not have the correct permissions or there are children of the management group. 
+The ability to delete a management group is available on the detail page of a management group. The delete icon is disabled when you do not have the correct permissions or there are children of the management group. 
 
 ![delete Group](media/management-groups/delete.png)
 
@@ -291,7 +292,7 @@ Get-AzureRmManagementGroup
 # [Portal](#tab/portal)
 
 Select the Management Groups Service on the left navigation. 
-- The Management Group hierarchy blade loads where all groups are displayed.
+- The Management Group hierarchy page loads where all groups are displayed.
 ![Main](media/management-groups/main.png)
 
 ---
@@ -307,7 +308,7 @@ Get-AzureRmManagementGroup -GroupName Contoso
 
 # [Portal](#tab/portal)
 Select the Management Groups Service on the left navigation. 
-- The Management Group hierarchy blade loads showing all groups.
+- The Management Group hierarchy page loads showing all groups.
 - Select the management group "Contoso." 
 ![detail](media/management-groups/detail_all.png)
 
@@ -324,9 +325,9 @@ Get-AzureRmManagementGroup -GroupName Contoso -Expand
 
 # [Portal](#tab/portal)
 Select the Management Groups Service on the left navigation. 
-- The Management Group hierarchy blade loads where all groups are displayed.
+- The Management Group hierarchy page loads where all groups are displayed.
 - Select the management group "Contoso"
-- On the detail blade, you see all the children listed
+- On the detail page, you see all the children listed
 ![detail](media/management-groups/detail_all.png)
 
 ---
@@ -363,7 +364,7 @@ Add-AzureRmManagementGroupSubscription
 - [-SubscriptionId]: The required field that identifies the subscription that becomes the child of the management group
 
 # [Portal](#tab/portal)
-To move a subscription in the portal, go to the management group's detail blade. Here you are able to add an existing subscription to the management group
+To move a subscription in the portal, go to the management group's detail page. Here you are able to add an existing subscription to the management group
 
 ![Add Subscription](media/management-groups/children_action.png)
 
@@ -371,7 +372,7 @@ To move a subscription in the portal, go to the management group's detail blade.
 
 
 ### Example 10: Connecting a subscription and a management group
-Do the folowing to group "Contoso" and a Subscription with a GUID of 12345678-1234-1234-1234-123456789012.
+Do the following to group "Contoso" and a Subscription with a GUID of 12345678-1234-1234-1234-123456789012.
 
 # [Powershell](#tab/powershell)
 
@@ -419,7 +420,7 @@ Remove-AzureRmManagementGroupSubscription
 - [-SubscriptionId]: The required field that identifies the subscription that is currently linked to a management group to be unlinked.
 
 #[Portal](#tab/portal)
-On the management group's detail blade, you are able to add an existing subscription to the management group
+On the management group's detail page, you are able to add an existing subscription to the management group
 
 ![Children](media/management-groups/add_context_2.png)
 
@@ -455,7 +456,7 @@ You see the list update now with the subscription
 ---
 
 ### Moving a management group to a different management group   
-There is plenty of flexibilty to move management groups and subscriptions within the hierarhcy.       
+There is plenty of flexibility to move management groups and subscriptions within the hierarchy.       
 
 # [Powershell](#tab/powershell)
 
@@ -474,11 +475,11 @@ Update-AzureRmManagementGroup
 # [Portal](#tab/portal)
 There are a couple different ways to move a management group to a different management group within the Azure portal. 
 
-The first way is the management group's detail blade. Here you are able to add an existing management group.
+The first way is the management group's detail page. Here you are able to add an existing management group.
 
 ![Action](media/management-groups/children_action.png)
 
-The second way is on the management group detail blade. You select the "Move" action to move this management group to a new parent management group.
+The second way is on the management group detail page. You select the "Move" action to move this management group to a new parent management group.
 
 ![move](media/management-groups/move_detail.png)
 
@@ -518,7 +519,7 @@ The alternative way is to navigate to the management group and change the parent
 - Select the management group service menu on the left 
 [image]
 - Choose the management group you would like to move 
-- On the detail blade, select "Move" 
+- On the detail page, select "Move" 
 - In the menu that opened, the first two fields are already populated for you. 
 - Select the new parent of the management group. For this example, select "Contoso"
 - Select "Save" 
@@ -557,11 +558,11 @@ Update-AzureRmManagementGroup
 
 There are a couple different ways to move a management group to a different management group within the Azure portal. 
 
-The first way is on the management group's detail blade. Here you are able to add an existing management group.
+The first way is on the management group's detail page. Here you are able to add an existing management group.
 
 ![Action](media/management-groups/children_action.png)
 
-The second way is on the management group detail blade. You select the "Move" action to move this management group to a new parent management group.
+The second way is on the management group detail page. You select the "Move" action to move this management group to a new parent management group.
 
 ![move](media/management-groups/move_detail.png)
 
