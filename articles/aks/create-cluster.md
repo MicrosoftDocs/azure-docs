@@ -34,10 +34,9 @@ The following options are available with the `az aks create` command.
 | `--resource-group` `-g` | Name of the Azure Container Service resource group. | yes |
 | `--admin-username` `-u` | User name for the Linux Virtual Machines.  Default: azureuser. | no |
 | ` --client-secret` | The secret associated with the service principal. | no |
-| `--dns-name-prefix` `-p` | | no |
+| `--dns-name-prefix` `-p` | DNS prefix for the clusters public ip address. | no |
 | `--generate-ssh-keys` | Generate SSH public and private key files if missing. | no |
 | `--kubernetes-version` `-k` | The version of Kubernetes to use for creating the cluster, such as '1.7.9' or '1.8.2'.  Default: 1.7.7. | no |
-| `--location` `-l` | Location. You can configure the default location using `az configure --defaults location=<location>`. | no |
 | `--no-wait` | Do not wait for the long-running operation to finish. | no |
 | `--node-count` `-c` | The default number of nodes for the node pools.  Default: 3. | no |
 | `--node-osdisk-size` | The osDisk size in GB of node pool Virtual Machine. | no |
