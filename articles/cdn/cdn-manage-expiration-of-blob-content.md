@@ -26,7 +26,7 @@ ms.author: mazha
 
 The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
 
-You can also control cache settings from the Azure portal by setting [CDN caching rules](cdn-caching-rules.md). If you set up one or more caching rules and set their caching behavior to **Override** or **Bypass cache**, the origin-provided caching settings discussed in this article are ignored. For information about general caching concepts, see [How caching works](cdn-how-caching-works.md).
+You can also control cache settings from the Azure portal by setting [CDN caching rules](#setting-cache-control-headers-by-using-caching-rules). If you create a caching rule and set its caching behavior to **Override** or **Bypass cache**, the origin-provided caching settings discussed in this article are ignored. For information about general caching concepts, see [How caching works](cdn-how-caching-works.md).
 
 > [!TIP]
 > You can choose to set no TTL on a blob. In this case, Azure CDN automatically applies a default TTL of seven days, unless you have set up caching rules in the Azure portal. This default TTL applies only to general web delivery optimizations. For large file optimizations, the default TTL is one day, and for media streaming optimizations, the default TTL is one year.
@@ -35,6 +35,23 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 > 
 > For more information about Azure Blob storage, see [Introduction to Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
+
+## Setting Cache-Control headers by using caching rules
+You can use caching rules in the Azure portal to set a blob's `Cache-Control` header. For more information, see [CDN caching rules](cdn-caching-rules.md).
+
+To update Cache-Control headers using caching rules:
+1. Open the Azure portal, select a CDN profile, then select an endpoint.
+
+2. In the left pane under Settings, click **Caching rules**.
+
+   ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+3. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings**.
+
+4. Set **Caching behavior** to **Override**.
+       
+5. For **Cache expiration duration**, enter 3600 in the **Seconds** field. 
+
 
 ## Setting Cache-Control headers by using Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
