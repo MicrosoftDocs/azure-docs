@@ -38,29 +38,29 @@ pool.NetworkConfiguration = new NetworkConfiguration
     {
       new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 60000, 60099, new NetworkSecurityGroupRule[]
         {
-            new NetworkSecurityGroupRule( NetworkSecurityGroupRuleAccess.Deny, 162, "*"),
-        }),
-    }    
+            new NetworkSecurityGroupRule(162, NetworkSecurityGroupRuleAccess.Deny, "*"),
+        })
+    })    
 };
 ```
 
-## Example: Deny all SSH traffic
+## Example: Deny all SSH traffic from the internet
 
-The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to deny all network traffic. The endpoint uses a frontend pool of ports in the range *4000 - 4100*. This example includes a single NSG rule. You could include additional rules that are applied in priority order.
+The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to deny all internet traffic. The endpoint uses a frontend pool of ports in the range *4000 - 4100*. This example includes a single NSG rule. You could include additional rules that are applied in priority order.
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
-            name='myNATpool',
-            protocol='tcp',
+            name='SSH',
+            protocol='udp    ',
             backend_port=22,
             frontend_port_range_start=4000,
             frontend_port_range_end=4100,
             network_security_group_rules=[batchmodels.NetworkSecurityGroupRule(
                 priority=170,
                 access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                source_address_prefix='*'
+                source_address_prefix='Internet'
             )
             ]
         )
@@ -79,10 +79,11 @@ pool.NetworkConfiguration = new NetworkConfiguration
     EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
     {
       new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 7500, 8000, new NetworkSecurityGroupRule[]
-        {
-            new NetworkSecurityGroupRule( NetworkSecurityGroupRuleAccess.Allow, 168, "198.51.100.7"),
-        }),
-    }    
+        {   
+            new NetworkSecurityGroupRule(169,NetworkSecurityGroupRuleAccess.Deny, "*"),
+            new NetworkSecurityGroupRule(179,NetworkSecurityGroupRuleAccess.Allow,  "198.51.100.7")
+        })
+    })    
 };
 ```
 
@@ -94,7 +95,7 @@ The following Python snippet shows how to configure the SSH endpoint on compute 
 pool.network_configuration=batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
-            name='myNATpool',
+            name='SSH',
             protocol='tcp',
             backend_port=22,
             frontend_port_range_start=4000,
