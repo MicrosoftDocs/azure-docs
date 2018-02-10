@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: mimig
 
 ---
@@ -46,7 +46,7 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 You also need the [Python SDK](sql-api-sdk-python.md). 
    
    > [!NOTE]
-   > Each sample is self-contained; it sets itself up and cleans up after itself. The samples issue multiple calls to [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Each time this is done, your subscription is billed for one hour of usage. For more information about Azure Cosmos DB billing, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/).
+   > Each sample is self-contained; it sets itself up and cleans up after itself. The samples issue multiple calls to [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Each time this is done, your subscription is billed for one hour of usage. For more information about Azure Cosmos DB billing, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
    > 
    > 
 
