@@ -26,7 +26,7 @@ Example intent   |   Example utterances   |
 
 All applications come with the predefined intent, **"None"**. The none intent teaches LUIS to recognize user statements that are irrelevant to the app.
 
-## prebuilt domains provide intents
+## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
 
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, it returns the one top intent for that utterance. If you want all intents, you can provide `verbose=true` flag on the query string of the API [endpoint call](https://aka.ms/v1-endpoint-api-docs). 
