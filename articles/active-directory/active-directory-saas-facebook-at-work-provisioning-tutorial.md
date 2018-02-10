@@ -20,8 +20,8 @@ ms.author: jeedes
 
 This tutorial shows you the steps necessary to automatically provision and de-provision user accounts from Azure Active Directory (Azure AD) to Workplace by Facebook.
 
->[!IMPORTANT]
->This tutorial describes a connector built on top of the [Azure AD User Provisioning Service](active-directory-saas-app-provisioning.md). For important details on how this service works, what operations happen during user provisioning, performance guidelines, and frequently asked questions, please see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
+>[!NOTE]
+>This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, please see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
