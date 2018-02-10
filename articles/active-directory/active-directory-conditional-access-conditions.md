@@ -49,7 +49,7 @@ When you select:
 
 - **All users**, your policy is applied to all users with in the directory. This includes guest users.
 
-- **Select users and groups**, you can target specific sets of users, for example, all members of the HR department, when they sign into an HR app. 
+- **Select users and groups**, you can target specific sets of users. For example, you can select a group that contains all members of the HR department, when you have an HR app selected as cloud app. 
 
 - A group, it can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
@@ -87,8 +87,8 @@ To use this condition, you need to have [Azure Active Directory Identity Protect
  
 Common use cases for this condition are policies that:
 
-- Block a users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
-- Require multi-factor authentication when for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
+- Block users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
+- Require multi-factor authentication for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
 
 For more information, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
 
