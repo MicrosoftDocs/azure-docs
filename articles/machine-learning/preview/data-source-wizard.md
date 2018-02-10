@@ -14,7 +14,7 @@ ms.date: 09/07/2017
 
 # Data Source Wizard #
 
-The Data Source Wizard is a quick and easy way to bring a dataset into Azure ML Workbench without code. It is where you can also select a sample strategy for the dataset. 
+The Data Source Wizard is a quick and easy way to bring a dataset into Azure ML Workbench without code. It is where you can also select a sample strategy for the dataset and data types for each column. 
 
 ## Step 1: Trigger the Data Source Wizard ## 
 
@@ -46,6 +46,8 @@ The Data Source Wizard can automatically detect the file type, separators, and e
 ## Step 5: Set data types for columns ##
 
 The Data Source Wizard automatically detects the data types of the dataset's columns. If it misses one, or you wish to enforce a data type, you can manually change the data type. The **SAMPLE OUTPUT DATA** column shows you examples of what the data will look like.
+
+For columns that Data Prep infers to contain dates, you may be prompted to select the order of month and day in the date format. For example, 1/2/2013 could represent January 2nd (for this, select *Day-Month*) or Feburary 1st (select *Month-Day*).
 
 ![step 6](media/data-source-wizard/step4.png)
 
