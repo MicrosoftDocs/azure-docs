@@ -37,7 +37,7 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 4. Select a connection option and then press **Connect**. 
 
-    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server perfromance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI** setting applies only when choosing **Connect live**.
+    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI** setting applies only when choosing **Connect live**.
 
 5. If prompted, enter your login credentials. 
 
