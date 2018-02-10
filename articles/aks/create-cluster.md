@@ -46,10 +46,6 @@ The following options are available with the `az aks create` command.
 | `--ssh-key-value` | SSH key file value or key file path.  Default: ~/.ssh/id_rsa.pub. | no |
 | `--tags` | Space separated tags in 'key[=value]' format. Use '' to clear existing tags. | no |
 
-## Azure portal
-
-See the [Azure Container Service (AKS) portal quick start][aks-portal-quickstart] for instruction on deploying an AKS cluster with the Azure portal.
-
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md
