@@ -1,6 +1,6 @@
 ---
 title: Connect computers to OMS using the OMS Gateway | Microsoft Docs
-description: Connect your OMS-managed devices and Operations Manager-monitored computers with the OMS Gateway to send data to the OMS service when they do not have Internet access.
+description: Connect your devices and Operations Manager-monitored computers with the OMS Gateway to send data to the Azure Automation and Log Analytics service when they do not have Internet access.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 02/10/2018
 ms.author: magoedte;banders
 ---
 
 # Connect computers without Internet access to OMS using the OMS Gateway
 
-This document describes how your OMS-managed and System Center Operations Manager monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to the OMS service on their behalf.  
+This document describes how your agent-managed systems and System Center Operations Manager monitored computers can send data to the OMS service when they do not have Internet access. The OMS Gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to the OMS service on their behalf.  
 
 The OMS Gateway supports:
 
 * Azure Automation Hybrid Runbook Workers  
-* Windows computers with the Microsoft Monitoring Agent directly connected to an OMS workspace
-* Linux computers with the OMS Agent for Linux directly connected to an OMS workspace  
-* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or Operations Manager 2016 management group integrated with OMS.  
+* Windows computers with the Microsoft Monitoring Agent directly connected to a Log Analytics workspace
+* Linux computers with the OMS Agent for Linux directly connected to a Log Analytics workspace  
+* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, Operations Manager 2016, and Operations Manager version 1801 management group integrated with OMS.  
 
 If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to OMS to manage and monitor them, they can be configured to communicate directly with the OMS Gateway to receive configuration and forward data on their behalf.  If these computers are configured with the OMS agent to directly connect to an OMS workspace, all computers will instead communicate with the OMS Gateway.  The gateway transfers data from the agents to OMS directly, it does not analyze any of the data in transit.
 
@@ -78,6 +78,14 @@ The OMS Gateway is available in the following languages:
 ### Supported encryption protocols
 The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
+## Supported number of agent connections
+|Gateway |Approx. Number of agents supported|
+|--------|----------------------------------|
+|* CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> * Memory: 4 GB<br> * Network Bandwidth: 1 Gbps| 600|
+|* CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 Cores<br> * Memory: 8 GB<br> * Network Bandwidth: 1 Gbps| 1000|
+<br>
+*This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.*
+
 ## Download the OMS Gateway
 
 There are three ways to get the latest version of the OMS Gateway Setup file.
@@ -125,7 +133,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 ## Configure OMS agent and Operations Manager management group
 The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the OMS Gateway to communicate with OMS.  
 
-To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agent.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
+To understand requirements and steps on how to install the OMS agent on Windows computers directly connecting to OMS, see [Connect Windows computers to OMS](log-analytics-windows-agents.md) or for Linux computers see [Connect Linux computers to OMS](log-analytics-linux-agents.md). 
 
 ### Configuring the OMS agent and Operations Manager to use the OMS Gateway as a proxy server
 
@@ -289,7 +297,5 @@ To request assistance, click the question mark symbol in the top right corner of
 
 ![New support request](./media/log-analytics-oms-gateway/support.png)
 
-You can also leave feedback about OMS or Log Analytics at the [Microsoft Azure feedback forum](https://feedback.azure.com/forums/267889).
-
 ## Next steps
-* [Add data sources](log-analytics-data-sources.md) to collect data from the Connected Sources in your Log Analytics workspace and store it in the Log Analytics repository.
+[Add data sources](log-analytics-data-sources.md) to collect data from your Connected Sources and store it in your Log Analytics workspace.
