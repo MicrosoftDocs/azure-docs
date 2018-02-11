@@ -20,7 +20,7 @@ For instruction on deploying an AKS cluster with the Azure portal, see the Azure
 
 ## Azure CLI
 
-Use the [az aks delete][az-aks-delete] command to delete the AKS cluster.
+Use the [az aks create][az-aks-create] command to delete the AKS cluster.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster
@@ -46,5 +46,5 @@ The following options are available with the `az aks create` command.
 | `--tags` | Space separated tags in 'key[=value]' format. Use '' to clear existing tags. | no |
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md
