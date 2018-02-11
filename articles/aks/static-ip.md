@@ -18,7 +18,9 @@ In some cases, such as when the Azure Container Service (AKS) load balancer is r
 
 ## Create static IP address
 
-Create a static IP address in the Azure Container Service (AKS) auto created resource group using the [az network public-ip create][az-network-public-ip-create] command. For information on the different AKS resource groups and how to identify the auto created resource group, see the [AKS FAQ][aks-faq-resource-group].
+Create a static public IP address for the Kubernetes service. The IP address needs to be created in resource group that was auto-created during cluster deployment. For information on the different AKS resource groups and how to identify the auto created resource group, see the [AKS FAQ][aks-faq-resource-group].
+
+Use the [az network public ip create][az-network-public-ip-create] command to create the IP address.
 
 ```console
 $ az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
@@ -27,8 +29,7 @@ $ az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_e
   "publicIp": {
     "dnsSettings": null,
     "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAdd
-resses/myAKSPublicIP",
+    "id": "/subscriptions/<SubscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
     "ipConfiguration": null,
@@ -49,7 +50,7 @@ resses/myAKSPublicIP",
   }
 ````
 
-Take note of the IP address, if needed the address can be retrieved using the [az network public-ip list][az-network-public-ip-list] command.
+Take note of the IP address. If needed, the address can be retrieved using the [az network public-ip list][az-network-public-ip-list] command.
 
 ```console
 $ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -59,7 +60,7 @@ $ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eas
 
 ## Create service with IP address
 
-Once the static IP address has been provisioned, a Kubernetes service can be created with the `loadBalancerIP` property which configures the service to use the static IP address.
+Once the static IP address has been provisioned, a Kubernetes service can be created with the `loadBalancerIP` property, which configures the service to use the static IP address.
 
 ```yaml
 apiVersion: v1
@@ -67,7 +68,7 @@ kind: Service
 metadata:
   name: azure-vote-front
 spec:
-  loadBalancerIP: 52.191.112.98
+  loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
   - port: 80
@@ -77,7 +78,7 @@ spec:
 
 ## Troubleshooting
 
-If the static IP address has not been created, or has been created in the wrong resource group, the service creation fails. To troubleshoot, return service creation event with the [kubectl describe][kubectl-describe] command.
+If the static IP address has not been created, or has been created in the wrong resource group, the service creation fails. To troubleshoot, return service creation events with the [kubectl describe][kubectl-describe] command.
 
 ```console
 $ kubectl describe service azure-vote-front
@@ -108,5 +109,5 @@ Events:
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: azure/network/public-ip#az_network_public_ip_create
-[az-network-public-ip-list]: azure/network/public-ip#az_network_public_ip_list
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
