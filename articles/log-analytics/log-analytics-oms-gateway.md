@@ -78,11 +78,11 @@ The OMS Gateway is available in the following languages:
 ### Supported encryption protocols
 The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
-## Supported number of agent connections
+### Supported number of agent connections
 |Gateway |Approx. Number of agents supported|
 |--------|----------------------------------|
-|* CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> * Memory: 4 GB<br> * Network Bandwidth: 1 Gbps| 600|
-|* CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 Cores<br> * Memory: 8 GB<br> * Network Bandwidth: 1 Gbps| 1000|
+|- CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> - Memory: 4 GB<br> - Network Bandwidth: 1 Gbps| 600|
+|- CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 Cores<br> - Memory: 8 GB<br> - Network Bandwidth: 1 Gbps| 1000|
 <br>
 *This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.*
 

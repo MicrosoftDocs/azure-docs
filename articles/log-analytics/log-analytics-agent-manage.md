@@ -144,9 +144,7 @@ The downloaded file for the agent is a self-contained installation package creat
 3. At the prompt, type `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### Linux agent
-To remove the agent, perform the following steps.
-
-1. Run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
+To remove the agent, run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
