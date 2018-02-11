@@ -49,6 +49,10 @@
       href: azure-disks-dynamic-pv.md
     - name: Azure Files
       href: azure-files-dynamic-pv.md
+  - name: Configure networking
+    items:
+    - name: Static IP address
+      href: static-ip.md
   - name: Security and authentication
     items:
     - name: Create service principal
