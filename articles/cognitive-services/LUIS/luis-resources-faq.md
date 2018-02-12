@@ -141,6 +141,14 @@ The Pattern feature is currently deprecated. Pattern features in LUIS are provid
 ## Why are there more subscription keys on my app's publish page than I assigned to the app? 
 Each LUIS app has the programmatic/starter key. LUIS subscription keys created during the GA time frame will be visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys will not appear on the publish page. 
 
+## How do I secure my LUIS endpoint? 
+You can control who has access to your LUIS endpoint by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure function) with controlled access (such as AAD). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as Application Insights).  
+
+## Where is my LUIS app created during the Azure web app bot subscription process?
+If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
+
+![LUIS template web app bot region](./media/luis-faq/web-app-bot-location.png)
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
