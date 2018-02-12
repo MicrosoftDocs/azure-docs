@@ -1,6 +1,6 @@
 ---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: PowerShell | Microsoft Docs'
-description: Connect Windows and Mac OS X clients securely to Azure using P2S and self-signed or CA issued certificates. This article uses PowerShell.
+description: Connect Windows and Mac OS X clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -20,32 +20,24 @@ ms.author: cherylmc
 ---
 # Configure a Point-to-Site connection to a VNet using native Azure certificate authentication: PowerShell
 
-This article helps you securely connect individual  clients running Windows or Mac OS X to an Azure VNet. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. 
-
-The steps in this article show you how to create a VNet with a Point-to-Site connection using Azure PowerShell. Clients connect to the Azure VNet using a VPN client configuration and use either self-signed or CA issued certificates for authentication. The Azure VPN gateway performs validation of the certificate. Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
+This article helps you securely connect individual clients running Windows or Mac OS X to an Azure VNet. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about Point-to-Site VPN, see [About Point-to-Site VPN](point-to-site-about.md).
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
 
-When you create a P2S configuration, connecting clients can use the following authentication methods:
-
-* [RADIUS authentication](point-to-site-how-to-radius-ps.md)
-* VPN Gateway native Azure certificate authentication (this article)
-
-For more information about Point-to-Site VPN, see [About Point-to-Site VPN](point-to-site-about.md).
 
 ## Architecture
 
-Point-to-Site native Azure certificate authentication connections use the following items, which you can configure in this exercise:
+Point-to-Site native Azure certificate authentication connections use the following items, which you configure in this exercise:
 
 * A RouteBased VPN gateway.
 * The public key (.cer file) for a root certificate, which is uploaded to Azure. Once the certificate is uploaded, it is considered a trusted certificate and is used for authentication.
-* A client certificate that is generated from the root certificate and installed on each client computer that will connect to the VNet. This certificate is used for client authentication.
+* A client certificate that is generated from the root certificate. The client certificate installed on each client computer that will connect to the VNet. This certificate is used for client authentication.
 * A VPN client configuration. The VPN client configuration files contain the necessary information for the client to connect to the VNet. The files configure the existing VPN client that is native to the operating system. Each client that connects must be configured using the settings in the configuration files.
 
 ## Before you begin
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* Install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is very important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
+* Install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
 
 ### <a name="example"></a>Example values
 
@@ -148,7 +140,7 @@ In this section, you log in and declare the values used for this configuration. 
 Configure and create the virtual network gateway for your VNet.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
-* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The two tunnel options are **SSTP** and **IKEv2**. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The Strongswan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP.
+* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The two tunnel options are **SSTP** and **IKEv2**. You can choose to enable one of them or both. If you want to enable both, then specify both the names separated by a comma. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP.
 * A VPN gateway can take up to 45 minutes to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. This example uses IKEv2.
 
 ```powershell

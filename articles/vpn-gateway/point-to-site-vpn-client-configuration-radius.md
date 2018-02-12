@@ -120,7 +120,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 The following instructions were created using strongSwan 5.5.1 on Ubuntu 17.0.4. Actual screens may be different depending on your version of Linux and strongSwan.
 
-1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the following command. If you receive an error relating to the "libcharon-extra-plugins," replace it with "strongswan-plugin-eap-mschapv2".
+1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example. If you receive an error relating to the "libcharon-extra-plugins," replace it with "strongswan-plugin-eap-mschapv2".
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
