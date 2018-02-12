@@ -14510,6 +14510,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-instances/container-instances-mounting-azure-files-volume.md",
+            "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
