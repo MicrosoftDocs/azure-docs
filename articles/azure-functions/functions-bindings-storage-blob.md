@@ -311,7 +311,7 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 
 The blob trigger uses a queue internally, so the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-host-json.md#queues). The default settings limit concurrency to 24 invocations. This limit applies separately to each function that uses a blob trigger.
 
-[The consumption plan](functions-scale.md#how-the-consumption-plan-works) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. JavaScript functions load the entire blob into memory, and in C# functions do that if you bind to `string`.
+[The consumption plan](functions-scale.md#how-the-consumption-plan-works) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. JavaScript functions load the entire blob into memory, and C# functions do that if you bind to `string`.
 
 ## Trigger - polling for large containers
 
