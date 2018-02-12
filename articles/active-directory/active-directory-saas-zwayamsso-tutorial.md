@@ -104,12 +104,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ZwayamSSO Domain and URLs single sign-on information](./media/active-directory-saas-zwayamsso-tutorial/tutorial_zwayamsso_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/<issuerid>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/<SAML Entity ID>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
+	b. In the **Identifier** textbox, type the URL: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [ZwayamSSO Client support team](mailto:opendoors@zwayam.com) to get these values. 
+	> The SIgn-on URL value is not real. **SAML Entity ID** value is explained later in this tutorial.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -119,7 +119,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-zwayamsso-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **ZwayamSSO** side, you need to send the downloaded **Metadata XML** to [ZwayamSSO support team](mailto:opendoors@zwayam.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6. On the **ZwayamSSO Configuration** section, click **Configure ZwayamSSO** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section** and paste the **SAML Entity ID** value in **Sign-on URL** textbox in the **ZwayamSSO Domain and URLs** section.
+
+	![ZwayamSSO Configuration](./media/active-directory-saas-zwayamsso-tutorial/tutorial_zwayamsso_configure.png) 
+
+7. To configure single sign-on on **ZwayamSSO** side, you need to send the downloaded **Metadata XML** to [ZwayamSSO support team](mailto:opendoors@zwayam.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -159,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a ZwayamSSO test user
 
-In this section, you create a user called Britta Simon in ZwayamSSO. Work with [ZwayamSSO Client support team](mailto:opendoors@zwayam.com) to add the users in the ZwayamSSO platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ZwayamSSO. Work with [ZwayamSSO support team](mailto:opendoors@zwayam.com) to add the users in the ZwayamSSO platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
@@ -202,6 +206,8 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
