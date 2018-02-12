@@ -19,7 +19,7 @@ ms.reviewer: wfayed
 
 ---
 # Register Azure Stack with Azure
-You can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration.
+You can register Azure Stack with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure Commerce. You can see it under the subscription you used for registration.
 
 > [!IMPORTANT]
 > Registration is mandatory if you choose the pay-as-you-use billing model. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage will otherwise not be reported.
