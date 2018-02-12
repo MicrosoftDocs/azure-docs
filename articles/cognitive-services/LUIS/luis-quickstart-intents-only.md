@@ -12,21 +12,33 @@ ms.date: 02/123/2018
 ms.author: v-geberr;
 ---
 
-# Simple app of intents
+# Simple app with intents
 This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
 
-Once the utterance is identified for either of the two intents, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
 ## Create a new app
-1. Log in to the [LUIS](LUIS) website. Make sure to log in to the region where you need the LUIS endpoints.
+1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
 
-2. On the [LUIS](LUIS) website, select **Create new app**. In the pop-up dialog, enter the name `MyStore`. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-3. Select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you. 
+    ![LUIS apps list](./media/luis-quickstart-intents-only/app-list.png)
+
+3. In the pop-up dialog, enter the name `MyStore`. 
+
+    ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
+
+4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+
+    ![Intents page](./media/luis-quickstart-intents-only/intents-list.png)
+
+5. From the left panel, select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
 
     By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-4. Add seven utterances to the `GetStoreInfo` intent that you expect a user to ask for, such as:
+6. Add seven utterances to the `GetStoreInfo` intent that you expect a user to ask for, such as:
+
+    ![New utterance](./media/luis-quickstart-intents-only/utterance-getstoreinfo.png)
 
     | Example utterances|
     |--|
@@ -38,9 +50,9 @@ Once the utterance is identified for either of the two intents, LUIS is done. Th
     |Where is your store?|
     |How do I get to your store?|
 
-5. The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
+7. The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
     
-    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter, but that your app won't answer. If the app is about your store, some good **None** utterances are:
+    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your store, some good **None** utterances are:
 
     | Example utterances|
     |--|
@@ -48,13 +60,19 @@ Once the utterance is identified for either of the two intents, LUIS is done. Th
     |Good bye|
     |What is going on?|
 
-    In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot could also provider more clear directions for continuing the conversation if the user doesn't want to end it. 
+    In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-6. In the top right side of the LUIS website, select the **Train** button. Training is complete when you see the green status bar at the top of the website confirming success.
+8. In the top right side of the LUIS website, select the **Train** button. 
 
-7. In the top right side of the LUIS website, select the **Publish** button. Select the **Publish to product slot**. Publishing is complete when you see the green status bar at the top of the website confirming success.
+    ![Train button](./media/luis-quickstart-intents-only/train-button.png)
 
-8. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `When do you open next?`. The last querystring parameter is `q`, the utterance **q**uery. This utterances is not the same as any of the example utterances in step four so it is a good test and should return the `GetStoreInfo` utterances. 
+    Training is complete when you see the green status bar at the top of the website confirming success.
+
+    ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
+
+9. In the top right side of the LUIS website, select the **Publish** button. Select the **Publish to product slot**. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `When do you open next?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetStoreInfo` utterances. 
 
     ```
     {
