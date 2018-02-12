@@ -16,11 +16,11 @@ ms.author: v-geberr
 
 ## <a name="active-version"></a>Active version
 
-The active LUIS version is the version that receives any changes to the model. In [LUIS.ai](https://www.luis.ai), if you want to make changes to a version that is not the active version, you need to first set that version as active. 
+The active LUIS version is the version that receives any changes to the model. In the [LUIS](luis-reference-regions.md) website, if you want to make changes to a version that is not the active version, you need to first set that version as active. 
 
 ## <a name="authoring"></a>Authoring
 
-Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS website](https://www.luis.ai) or the [authoring APIs](https://aka.ms/luis-authoring-api). 
+Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS](luis-reference-regions.md) website or the [authoring APIs](https://aka.ms/luis-authoring-api). 
 
 ## <a name="currently-editing"></a>Currently editing
 
@@ -60,7 +60,8 @@ Labeling is the process of associating a word or phrase in an intent's [utteranc
 
 ## <a name="luis-app"></a>LUIS app
 
-A LUIS app is a data model for natural language processing. 
+A LUIS app is a trained data model for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
+
 
 ## <a name="phrase-list"></a>Phrase list
 
@@ -98,7 +99,7 @@ Same as [programmatic key](#programmatic-key).
 
 ## <a name="subscription-key"></a>Subscription key
 
-The subscription key is the key associated with the LUIS service [you created in Azure](azureibizasubscription.md). This key is not the free tier [programmatic key](#programmatic-key). If you have a subscription key, it should be used for any endpoint requests instead of the programmatic key. You can see your current subscription key inside the endpoint URL at the bottom of [**Publish App** page](publishapp.md) in [LUIS.ai](https://www.luis.ai). It is the value of **subscription-key** name/value pair. 
+The subscription key is the key associated with the LUIS service [you created in Azure](azureibizasubscription.md). This key is not the free tier [programmatic key](#programmatic-key). If you have a subscription key, it should be used for any endpoint requests instead of the programmatic key. You can see your current subscription key inside the endpoint URL at the bottom of [**Publish App** page](publishapp.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair. 
 
 ## <a name="test"></a>Test
 
