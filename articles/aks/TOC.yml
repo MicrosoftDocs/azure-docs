@@ -69,7 +69,7 @@
       href: kubernetes-draft.md
     - name: Open Service Broker for Azure
       href: integrate-azure.md
-      - name: Jenkins continuous deployment
+    - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
   - name: Kubernetes basics
     items:
