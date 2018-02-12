@@ -8,7 +8,7 @@ author: chrissie926
 manager: timlt
 
 ms.author: menchi
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -18,7 +18,7 @@ ms.reviewer: kgremban
 
 # Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open source cross platform command line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux and MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS.
 
 Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
@@ -62,7 +62,7 @@ Create an IoT hub called **CLIDemoHub** in the newly created resource group:
    ```
 
    >[!TIP]
-   >Each subscription is alloted one free IoT hub. To create a free hub with the CLI command, replace the SKU value with `--sku F1`. If you already have a free hub in your subscription, you'll get an error message when you try to create a second one. 
+   >Each subscription is allotted one free IoT hub. To create a free hub with the CLI command, replace the SKU value with `--sku F1`. If you already have a free hub in your subscription, you'll get an error message when you try to create a second one. 
 
 Create an IoT Edge device:
 
