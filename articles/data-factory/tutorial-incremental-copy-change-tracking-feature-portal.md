@@ -147,6 +147,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 
 ## Create a data factory
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -463,7 +464,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]
->[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
+>[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-portal.md)
 
 
 

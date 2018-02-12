@@ -349,9 +349,6 @@ The [configuration](#trigger---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -524,6 +521,12 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 
 - **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Request header**: The provider passes the key name in the `x-functions-clientid` header.
+
+## Trigger - limits
+
+The HTTP request length is limited to 100K (102,400) bytes, and the URL length is limited to 4k (4,096) bytes. These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will timeout and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
 
 ## Trigger - host.json properties
 

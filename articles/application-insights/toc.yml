@@ -170,6 +170,8 @@
         href: app-insights-live-stream.md
       - name: Application Map
         href: app-insights-app-map.md
+      - name: Transaction diagnostics
+        href: app-insights-transaction-diagnostics.md
       - name: HockeyApp data
         href: app-insights-hockeyapp-bridge-app.md
     - name: Visual Studio
@@ -190,6 +192,8 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Impact
+        href: app-insights-usage-impact.md     
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows
@@ -265,6 +269,8 @@
       href: app-insights-analytics-troubleshooting.md
     - name: Java
       href: app-insights-java-troubleshoot.md
+    - name: Usage analytics
+      href: app-insights-usage-troubleshoot.md
 - name: Samples
   items:
   - name: Code samples

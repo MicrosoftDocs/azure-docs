@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 02/01/2018
 ---
 # Data Preparations user guide 
 The Azure Machine Learning Data Preparations experience provides a lot of rich functionality. This article documents the deepest parts of the experience.

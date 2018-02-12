@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
 
 ---
@@ -119,6 +119,7 @@ Check to see if you have disabled an application with the identifier 00000002-00
 
 To resolve this error, enable this application and then try to enable Domain Services for your Azure AD tenant.
 
+
 ## Users are unable to sign in to the Azure AD Domain Services managed domain
 If one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
 
@@ -142,6 +143,10 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
     2. net start 'Microsoft Azure AD Sync'
 * **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
 
+## There are one or more alerts on your managed domain
+
+See how to resolve alerts on your managed domain by visiting the [Troubleshoot Alerts](active-directory-ds-troubleshoot-alerts.md) article.
+
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.
 
@@ -149,5 +154,6 @@ The user account remains in the disabled state in your managed domain, even if y
 
 To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the `Remove-MsolUser` PowerShell cmdlet with the `-RemoveFromRecycleBin` option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
-## Contact Us
+
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
