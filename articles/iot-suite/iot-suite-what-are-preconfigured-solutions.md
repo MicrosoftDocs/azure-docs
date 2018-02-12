@@ -77,7 +77,7 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 
 |                      | Remote monitoring  | Predictive maintenance | Connected factory |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub              | Yes                |                        | Yes               |
+| IoT Hub              | Yes                | Yes                    | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
 | Container Services   | Yes                |                        |                   |
