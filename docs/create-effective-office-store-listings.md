@@ -130,11 +130,11 @@ For SharePoint Add-ins, you have to include an icon in the add-in's package. The
 <a name="bk_screenshots"> </a>
 ## Use images effectively
 
-Make your store images rich and informative. Help customers understand how your solution solves problems. Make it clear at a glance. Follow our best practices for [crafting effective AppSource store images](insert link to new page here). Remember to communicate only the essential. In your images:
+Make your store images rich and informative. Help customers understand how your solution solves problems. Make it clear at a glance. Follow our best practices for [crafting effective AppSource store images](craft-effective-appsource-store-images.md). Remember to communicate only the essential. In your images:
 
 - Keep images legible. 
 - Show real content rather than an empty document.
-- Focus on your soltuion.
+- Focus on your solution.
 - Use captions to describe features and value.
 - Reinforce your brand.
 
