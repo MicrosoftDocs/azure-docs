@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/11/2018
 ms.author: magoedte
 
 ---
@@ -33,7 +33,7 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 Contact us with any questions, suggestions, or issues about any of the following information, including our security policies at [Azure support options](http://azure.microsoft.com/support/options/).
 
 ## Data segregation
-After your data is ingested by the Log Analytics service, the data is kept logically separate on each component throughout the service. All data is tagged per (workspace?  Subscription?  ). This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you have selected.
+After your data is ingested by the Log Analytics service, the data is kept logically separate on each component throughout the service. All data is tagged per workspace. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you have selected.
 
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
@@ -156,7 +156,7 @@ TThe Log Analytics service ensures that incoming data is from a trusted source b
 The database has a short term (up to 14 day) data store, that is not yet encrypted at rest. This is planned for mid-2018. Long term storage as selected for the workspace is encrypted at rest.
 
 ## 4. Use Log Analytics to access the data
-You can sign in to Log Analytics in the Azure portal by using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
+To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 ## Next steps
 * Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](log-analytics-quick-collect-azurevm.md).  
