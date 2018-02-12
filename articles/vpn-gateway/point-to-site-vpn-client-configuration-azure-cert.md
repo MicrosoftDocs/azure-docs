@@ -1,10 +1,10 @@
 ---
 title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: PowerShell: Azure | Microsoft Docs'
-description: Create and install VPN client configuration files for P2S certificate authentication.
+description: Create and install Windows and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
 
 ---
@@ -115,4 +115,4 @@ Click **Add** to import.
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-For P2S troubleshooting information, [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

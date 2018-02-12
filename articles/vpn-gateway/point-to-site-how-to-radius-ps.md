@@ -233,7 +233,7 @@ From the Network dialog box, locate the client profile that you want to use, the
       NetBIOS over Tcpip..............: Enabled
   ```
 
-To troubleshoot a P2S connection, see [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+To troubleshoot a P2S connection, see [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 
