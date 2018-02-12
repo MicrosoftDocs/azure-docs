@@ -14,7 +14,7 @@ ms.author: v-gedod
 
 #News Search SDK Node quickstart
 
-The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
+The Bing Video Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
 ##Application dependencies
 
@@ -26,10 +26,9 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cogn
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Then, instantiate the client:
+Then, instantiate the client, and search for results:
 ```
-const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
-
+const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');f
 let client = new VideoSearchAPIClient(credentials);
 
 client.videosOperations.search('Interstellar Trailer').then((result) => {
