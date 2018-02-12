@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2018
 ---
 
-## Learn about automatic backups
+# Learn about automatic backups
 
 Azure Database for MySQL automatically creates database backups and stores these backups in user configured locally redundant or geo-redundant storage. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 
-# What is a backup?
+## What is a backup?
 
 Azure Database for MySQL takes full, differential, and transaction log backups. Transaction log backups, with full and differential backups, allow you to restore a server to a specific point-in-time. When you restore a server, the service figures out which full, differential, and transaction log backups need to be restored.
 
