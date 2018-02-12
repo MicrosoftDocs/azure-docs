@@ -27,7 +27,9 @@
   - name: SDK samples overview 
     href: sdk.md
   - name: Web search SDK C# quickstart (preview)
-    href: web-search-sdk-quickstart.md  
+    href: web-search-sdk-quickstart.md 
+  - name: Web search SDK Node.js quickstart (preview)
+    href: web-search-sdk-node-quickstart.md 
 - name: How To Guides
   items:
   - name: Use and display results
