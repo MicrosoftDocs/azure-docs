@@ -134,7 +134,7 @@ Migration consolidates all a containers blob on the new share.
 - If you lack permissions to a resource group and cannot use PowerShell to query the additional volumes for overflow data, work with the owner of those resource groups and containers to understand the total size of data to migrate before migrating that data.  
 
 > [!IMPORTANT]
-> Migration of blobs for a container is an offline operation that requires the use of PowerShell. Until migration completes, all blobs for the container you are migrating remain offline and cannot be used.
+> Migration of blobs for a container is an offline operation that requires the use of PowerShell. Until migration completes, all blobs for the container you are migrating remain offline and cannot be used. You should also avoid upgrading Azure Stack until all ongoing migration completes.
 
 #### To migrate containers using PowerShell
 1. Confirm that you have [Azure PowerShell installed and configured](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
