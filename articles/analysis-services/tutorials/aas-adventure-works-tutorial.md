@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial
@@ -46,7 +46,7 @@ To complete this tutorial, you need:
   
 -   An Azure Analysis Services server. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/) and [create a server](../analysis-services-create-server.md). 
 
--   An [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) with the **sample AdventureWorksDW database**, or a SQL Server Data Warehouse with the [Adventure Works sample database](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   An [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) with the **sample AdventureWorksDW database**, or a SQL Server Data Warehouse with the [Adventure Works sample database](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Important:** If you install the sample database to an on-premises SQL Server Data Warehouse, and deploy your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
 
