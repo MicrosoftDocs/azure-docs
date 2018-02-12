@@ -83,9 +83,7 @@ If you are already using Network Performance Monitor to monitor other objects or
 5. After the Workspace has been deployed, navigate to the **NetworkMonitoring(name)** resource that you created. Validate the settings, then click **Solution requires additional configuration**.
 
   ![additional configuration](.\media\how-to-npm\5.png)
-6. On the **Welcome to Network Performance Monitor** page, select **Use TCP for synthetic transactions**, then click **Submit**. The TCP transactions are used only to make and break the connection. No data is sent over these TCP connections.
 
-  ![TCP for synthetic transactions](.\media\how-to-npm\6.new.png)
 
 ## <a name="agents"></a>Step 2: Install and configure agents
 
@@ -101,7 +99,7 @@ If you are already using Network Performance Monitor to monitor other objects or
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
 3. From the **Configure OMS Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
-  ![PowerShell script](.\media\how-to-npm\7.new.png)
+  ![PowerShell script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
 
