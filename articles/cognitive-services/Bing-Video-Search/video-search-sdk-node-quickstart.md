@@ -1,5 +1,5 @@
 ---
-title: News search SDK Node quickstart | Microsoft Docs
+title: Video search SDK Node quickstart | Microsoft Docs
 description: Setup for Video search SDK console application.
 titleSuffix: Azure cognitive services Video search SDK Node quickstart
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-#News Search SDK Node quickstart
+#Video Search SDK Node quickstart
 
-The Bing Video Search SDK contains the functionality of the REST API for news queries and parsing results. 
+The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 
 ##Application dependencies
 
-To set up a console application using the Bing News Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
+To set up a console application using the Bing video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
-##News Search client
+##Video Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -42,7 +42,7 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 ```
 The code prints `result.value` items to the console without parsing any text.
 
-![Video results](media/video-search-sdk-quickstart-node-results.png)
+![Video results](media/video-search-sdk-node-results.png)
 
 ##Next steps
 
