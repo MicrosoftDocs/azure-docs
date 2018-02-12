@@ -69,7 +69,8 @@ Set-AzureRmVMExtension -Publisher “Microsoft.Azure.ActiveDirectory.LinuxSSH.Ed
 -Location "South Central US" -TypeHandlerVersion "1.0"
 ```
 
->[!NOTE] Only the 'South Central US' Azure region is supported during the preview.
+>[!NOTE] 
+> Only the 'South Central US' Azure region is supported during the preview.
 >
 
 If the command executes successfully, the VM extension is installed on the virtual machine. You see a ```StatusCode``` value of 'OK' in the PowerShell console.
