@@ -125,7 +125,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
