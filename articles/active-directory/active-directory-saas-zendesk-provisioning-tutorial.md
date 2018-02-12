@@ -85,15 +85,15 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk17.png)
+
 2. Select Zendesk from your list of SaaS applications.
  
-	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk8.png)
-
-	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk16.png)
-
-3. Select your instance of Zendesk, then select the **Provisioning** tab.
-	
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk3.png)
+
+3. Select the **Provisioning** tab.
+	
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk16.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -114,6 +114,8 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
 7. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Zendesk app. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
+
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
 
 8. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
