@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Create custom views by using View Designer in Log Analytics
-By using View Designer in [Log Analytics](log-analytics-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
+By using View Designer in [Log Analytics](log-analytics-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
 For more information about View Designer, see:
 
@@ -33,7 +33,7 @@ Views are displayed on the **Overview** page of your Log Analytics workspace in 
 
 ![Overview page](media/log-analytics-view-designer/overview-page.png)
 
-The views that you create with View Designer contain the elements in the following table:
+The views that you create with View Designer contain the elements that are described in the following table:
 
 | Part | Description |
 |:--- |:--- |
@@ -65,28 +65,28 @@ You can create a new view in View Designer by selecting the **View Designer** ti
 
 
 ## Work with View Designer
-You use View Designer whether you're creating a new view or editing an existing one. 
+You use View Designer to create new views or edit existing ones. 
 
 View Designer has three panes: 
 * **Design**: Contains the custom view that you're creating or editing. 
-* **Controls**: Contains tiles and parts that you add to the **Design** pane. 
-* **Properties**: Displays the properties of the tile or selected part.
+* **Controls**: Contains the tiles and parts that you add to the **Design** pane. 
+* **Properties**: Displays the properties of the tiles or selected parts.
 
 ![View Designer](media/log-analytics-view-designer/view-designer-screenshot.png)
 
-### Configure view tile
+### Configure the view tiles
 A custom view can have only a single tile. To view the current tile or select an alternate one, select the **Tile** tab in the **Control** pane. The **Properties** pane displays the properties of the current tile. 
 
-You can configure the tile properties according to the detailed information in the [Tile reference](log-analytics-view-designer-tiles.md) and then click **Apply** to save the changes.
+You can configure the tile properties according to the information in the [Tile reference](log-analytics-view-designer-tiles.md) and then click **Apply** to save the changes.
 
-### Configure visualization parts
-A view can include any number of visualization parts. To add to the view, select the **View** tab, and then select a visualization part. The **Properties** pane displays the properties of the selected part. 
+### Configure the visualization parts
+A view can include any number of visualization parts. To add parts to a view, select the **View** tab, and then select a visualization part. The **Properties** pane displays the properties of the selected part. 
 
-You can configure the view properties according to the detailed information in the [Visualization part reference](log-analytics-view-designer-parts.md) and then click **Apply** to save the changes.
+You can configure the view properties according to the information in the [Visualization part reference](log-analytics-view-designer-parts.md) and then click **Apply** to save the changes.
 
 Views have only one row of visualization parts. You can rearrange the existing parts by dragging them to a new location.
 
-You can remove a visualization part from the view by selecting the **X** button at the top right of the part.
+You can remove a visualization part from the view by selecting the **X** at the top right of the part.
 
 
 ### Menu options
