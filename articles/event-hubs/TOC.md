@@ -6,13 +6,11 @@
 ## [Create an event hub](event-hubs-create.md)
 
 # Tutorials
-### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-### [Available APIs](event-hubs-api-overview.md)
-#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
-#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
-#### [Diagnostic logs](event-hubs-diagnostic-logs.md)
-### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+## [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+## [Available APIs](event-hubs-api-overview.md)
+### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
+### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 
 # Samples
 
@@ -26,6 +24,8 @@
 ## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ## [Availability and consistency](event-hubs-availability-and-consistency.md)
 ## [Automatically scale throughput units](event-hubs-auto-inflate.md)
+## [Diagnostic logs](event-hubs-diagnostic-logs.md)
+## [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 
 # How-to guides
 ## [Create an event hub](event-hubs-create.md)
