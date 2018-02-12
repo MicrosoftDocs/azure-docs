@@ -26,11 +26,13 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cogn
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Then, instantiate the client, and search for results:
+Then, instantiate the client:
 ```
-const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');f
+const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
 let client = new VideoSearchAPIClient(credentials);
-
+```
+Search for results.
+```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
 }).catch((err) => {
