@@ -39,7 +39,7 @@ Kafka on HDInsight does not provide an API on the public internet. To publish or
     * 172.16.0.0-172.31.255.255
     * 192.168.0.0-192.168.255.255
 
-    For more information, see the the [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) document.
+    For more information, see the [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) document.
 
 * A Kafka on HDInsight cluster. For information on creating a Kafka on HDInsight cluster, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
 
@@ -210,7 +210,7 @@ To create a topic, use the steps in the [Create a Kafka cluster](apache-kafka-ge
 
     ![Add a file](./media/apache-kafka-azure-functions/add-files.png)
 
-4. Select the `package.json` file to open the editor. Use the following text as the contents of the file:
+4. To edit the new file, select `package.json` from the __View files__ list. Use the following text as the contents of the file:
 
     ```json
     {
@@ -228,7 +228,7 @@ To create a topic, use the steps in the [Create a Kafka cluster](apache-kafka-ge
 
     Use the __Save__ button to save the changes.
 
-5. To install the `kafka-node` package, use the _Node version and package management_ section of the [Azure Functions JavaScript developer guide](../../azure-functions/functions-reference-node.md#node-version-and-package-management). This uses the `npm install` command to parse the `package.json` file and install the dependencies.
+5. To install the `kafka-node` package, use the _Node version and package management_ section of the [Azure Functions JavaScript developer guide](../../azure-functions/functions-reference-node.md#node-version-and-package-management).
 
     > [!NOTE]
     > You may receive several errors as the kafka-node package is installed. You can safely ignore these errors.
@@ -245,5 +245,5 @@ To view information logged by the function while the test runs, select __Logs__ 
 
 ## Verify the data is in Kafka
 
-To verify that the data arrived in the Kafka topic, use the information in the _Produce and consume records_ section of the [Create a Kafka cluster](apache-kafka-get-started.md#produce-and-consume-records) document. This uses a `kafka-console-consumer` to read data from the topic. It returns a list of records that are in the topic.
+To verify that the data arrived in the Kafka topic, use the information in the _Produce and consume records_ section of the [Create a Kafka cluster](apache-kafka-get-started.md#produce-and-consume-records) document. The `kafka-console-consumer` reads data from the topic and displays a list of messages stored in the topic.
 
