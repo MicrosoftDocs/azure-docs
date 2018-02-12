@@ -21,19 +21,19 @@ ms.author: crdun
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
-In this tutorial, you add push notifications to the [Apache Cordova quick start] project so that a push
+In this tutorial, you add push notifications to the [Apache Cordova quickstart] project so that a push
 notification is sent to the device every time a record is inserted.
 
-If you do not use the downloaded quick start server project, you need the push notification extension
+If you do not use the downloaded quickstart server project, you need the push notification extension
 package. For more information, see [Work with the .NET back-end server SDK for Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Prerequisites
-This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015, and that runs on Google
+This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015. This device runs on Google
 Android Emulator, an Android device, a Windows device, or an iOS device.
 
 To complete this tutorial, you need:
 
-* A PC with [Visual Studio Community 2015][2] or later versions
+* A PC with [Visual Studio Community 2015][2] or later 
 * [Visual Studio Tools for Apache Cordova][4]
 * An [active Azure account][3]
 * A completed [Apache Cordova quickstart][5] project
@@ -58,7 +58,7 @@ the project, take the following steps:
 
 * To open the configuration designer, right-click `config.xml`.
 * Select the **Platforms** tab.
-* In the **Cordova CLI** text box, select **6.1.1** .
+* In the **Cordova CLI** text box, select **6.1.1**. 
 * To update the project, select **Build**, and then select **Build Solution**.
 
 #### Install the push plugin
@@ -91,7 +91,7 @@ Run the following command:
 
     >[NOTE!]
     >As of version 2.0.0, the SENDER_ID has been removed from install time and google-services.json needs
-    to be installed in the root folder of your project.  See more detail [here.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
+    to be installed in the root folder of your project. For more information, see the [installation documention.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 5. Select **Add**.
 
 The push plugin is now installed.
@@ -234,7 +234,7 @@ app on the Android platform in one of the following ways:
 * *On a physical device:* Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio deploys the application to the device and runs the application. You can then
  interact with the application on the device.
 
-  Screen-sharing applications such as [Mobizen][20] can assist you in developing Android applicationa. Mobizen projects your Android screen to a web browser on your PC.
+  Screen-sharing applications such as [Mobizen][20] can assist you in developing Android applications. Mobizen projects your Android screen to a web browser on your PC.
 
 * *On an Android emulator:*
   There are additional configuration steps that are required when you're using an emulator.
@@ -261,8 +261,8 @@ can skip this section.
 Before you can run a Cordova app on iOS using Visual Studio, go through the steps in the [iOS setup guide][12]
 to install and run the remote build agent.
 
-Make sure you can build the app for iOS. The steps in the setup guide are required to build for iOS from Visual
-Studio. If you do not have a Mac, you can build for iOS using the remote build agent on a service like
+Make sure you can build the app for iOS. The steps in the setup guide are required for building the app for iOS from Visual
+Studio. If you do not have a Mac, you can build for iOS by using the remote build agent on a service like
 MacInCloud. For more information, see [Run your iOS app in the cloud][21].
 
 > [!NOTE]
@@ -290,7 +290,7 @@ widget element must match the App ID on the developer portal.
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 #### Verify that your App ID matches your Cordova app
-If the App ID you created in your Apple Developer Account already matches the ID of the widget element in
+If the App ID that you created in your Apple Developer Account already matches the ID of the widget element in
 the config.xml file, you can skip this step. However, if the IDs don't match, take the following steps:
 
 1. Delete the platforms folder from your project.
@@ -301,7 +301,7 @@ the config.xml file, you can skip this step. However, if the IDs don't match, ta
 5. Rebuild your project.
 
 ##### Test push notifications in your iOS app
-1. In Visual Studio, make sure that **iOS** is selected as the deployment target, and then choose **Device**
+1. In Visual Studio, make sure that **iOS** is selected as the deployment target. Then select **Device**
     to run the push notifications on your connected iOS device.
 
     You can run the push notifications on an iOS device that's connected to your PC with iTunes. The iOS Simulator does not support push
@@ -366,9 +366,9 @@ In Visual Studio, make sure that a Windows platform is selected as the deploymen
 **Windows-x64** or **Windows-x86**. To run the app on a Windows 10 PC that's hosting Visual Studio, choose
 **Local Machine**.
 
-Select the **Run** button to build the project and start the app.
+1. Select the **Run** button to build the project and start the app.
 
-In the app, type a name for a new todoitem, and then select the plus **(+)** icon to add it.
+2. In the app, type a name for a new todoitem, and then select the plus **(+)** icon to add it.
 
 Verify that a notification is received when the item is added.
 
