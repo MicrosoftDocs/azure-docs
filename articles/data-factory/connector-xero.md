@@ -111,13 +111,7 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **XeroSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Minimal.Contacts"`. | Yes |
-
-Note the following when specifying the Xero query:
-
-- Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table `Bank_Transaction` and `Bank_Transaction_Line_Items`, with `Bank_Transaction_ID` as foreign key to link them together.
-
-- Xero data is available through two schemas: `Complete` and `Minimal`. The Complete schema contains prerequisite call tables which require additional data before making the desired query. To reduce the number of API calls, use Minimal schema.
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | Yes |
 
 **Example:**
 
@@ -141,7 +135,7 @@ Note the following when specifying the Xero query:
         "typeProperties": {
             "source": {
                 "type": "XeroSource",
-                "query": "SELECT * FROM Minimal.Contacts"
+                "query": "SELECT * FROM Contacts"
             },
             "sink": {
                 "type": "<sink type>"
@@ -150,6 +144,60 @@ Note the following when specifying the Xero query:
     }
 ]
 ```
+
+Note the following when specifying the Xero query:
+
+- Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table `Bank_Transaction` and `Bank_Transaction_Line_Items`, with `Bank_Transaction_ID` as foreign key to link them together.
+
+- Xero data is available through two schemas: `Minimal` (default) and `Complete`. The Complete schema contains prerequisite call tables which require additional data (e.g. ID column) before making the desired query.
+
+The following tables have the same information in the Minimal and Complete schema. To reduce the number of API calls, use Minimal schema (default).
+
+- Bank_Transactions
+- Contact_Groups 
+- Contacts 
+- Contacts_Sales_Tracking_Categories 
+- Contacts_Phones 
+- Contacts_Addresses 
+- Contacts_Purchases_Tracking_Categories 
+- Credit_Notes 
+- Credit_Notes_Allocations 
+- Expense_Claims 
+- Expense_Claim_Validation_Errors
+- Invoices 
+- Invoices_Credit_Notes
+- Invoices_ Prepayments 
+- Invoices_Overpayments 
+- Manual_Journals 
+- Overpayments 
+- Overpayments_Allocations 
+- Prepayments 
+- Prepayments_Allocations 
+- Receipts 
+- Receipt_Validation_Errors 
+- Tracking_Categories
+
+The following tables can only be queried with complete schema:
+
+- Complete.Bank_Transaction_Line_Items 
+- Complete.Bank_Transaction_Line_Item_Tracking 
+- Complete.Contact_Group_Contacts 
+- Complete.Contacts_Contact_ Persons 
+- Complete.Credit_Note_Line_Items 
+- Complete.Credit_Notes_Line_Items_Tracking 
+- Complete.Expense_Claim_ Payments 
+- Complete.Expense_Claim_Receipts 
+- Complete.Invoice_Line_Items 
+- Complete.Invoices_Line_Items_Tracking
+- Complete.Manual_Journal_Lines 
+- Complete.Manual_Journal_Line_Tracking 
+- Complete.Overpayment_Line_Items 
+- Complete.Overpayment_Line_Items_Tracking 
+- Complete.Prepayment_Line_Items 
+- Complete.Prepayment_Line_Item_Tracking 
+- Complete.Receipt_Line_Items 
+- Complete.Receipt_Line_Item_Tracking 
+- Complete.Tracking_Category_Options
 
 ## Next steps
 For a list of supported data stores by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
