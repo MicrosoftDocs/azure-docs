@@ -65,7 +65,7 @@ This monitors whether regular backups of your managed domain are being performed
 
 
 ### Synchronization with Azure AD
-Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) in your managed domain as well as the amount of changes made since the last sync can both affect how long a synchronization period can take. In general, if it has been longer than three days since your managed domain was last synchronized, [contact support](active-directory-ds-contact-us.md).
+Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) and the number of changes made in your Azure AD directory since the last sync can both affect how long a synchronization period can take. If your managed domain was last synchronized over three days ago, [contact support](active-directory-ds-contact-us.md).
 
 ## Alerts
 Alerts are generated for issues on your managed domain that need to be addressed in order for Azure AD Domain Services to run. Each alert explains the issue and provides a resolution URL that outlines specific steps to resolve the issue. To view all alerts and their resolutions, visit the [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md) article.
@@ -73,11 +73,11 @@ Alerts are generated for issues on your managed domain that need to be addressed
 ### Severity
 Alerts are categorized into three different levels of severity: critical, warning, and informational.
 
- * **Critical alerts** are issues that severely impact your managed domain. These alerts should be addressed immediately, as Microsoft cannot monitor, manage, patch, and synchronize your managed domain.
- * **Warning alerts** can be issues that may impact your domain in the future, but are not necessarily "breaking" your service. These alerts offer recommendations to secure your managed domain.
+ * **Critical alerts** are issues that severely impact your managed domain. These alerts should be addressed immediately, as Microsoft cannot monitor, manage, patch, and synchronize your managed domain. 
+ * **Warning alerts** notify you of issues that may impact your managed domain in the future. These alerts offer recommendations to secure your managed domain.
  * **Informational alerts** are notifications that are not negatively impacting your domain. Informational alerts are designed to keep you knowledgeable about what is happening in your domain and Azure AD Domain Services.
 
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure AD Domain Services](active-directory-ds-features.md)
-- [Contact Us](active-directory-ds-contact-us.md)
+- [Contact the product team](active-directory-ds-contact-us.md)
