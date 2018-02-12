@@ -17,26 +17,25 @@ ms.date: 02/12/2018
 ms.author: ergreenl
 
 ---
-# Check the health of your Azure AD Domain Services managed domain
+# Check the health of an Azure AD Domain Services managed domain
 
-## The health page
+## Overview of the health page
 Using the health page on your Azure portal, you are able to keep up-to-date on what is happening on your managed domain. This article walks through the elements of the health page.
 
 ### How to view the health of your managed domain
-1. Navigate to the Azure AD Domain Services page in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)
+1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
 2. Click on the domain you want to view the health of.
 3. In the left-hand navigation pane, click **Health**.
 
-The following picture is an example health page.
-
+The following picture illustrates a sample health page:
 ![Example health page](.\media\active-directory-domain-services-alerts\health-page.png)
 
 >[!NOTE]
-> Your managed domain's health is evaluated every hour. After making changes to your managed domain, wait until the next evaluation cycle to view your domain's updated health. The "Last evaluated" timestamp in the top right corner shows when the health of your managed domain was last evaluated.
+> Your managed domain's health is evaluated every hour. After making changes to your managed domain, wait until the next evaluation cycle to view your managed domain's updated health. The "Last evaluated" timestamp in the top right corner shows when the health of your managed domain was last evaluated.
 >
 
 ### Status of your managed domain
-The status in the top right of your health page indicates the overall health of your domain. The status factors in all of the existing alerts on your domain. You can also view the status of your domain on the overview page of Azure AD Domain Services.
+The status in the top right of your health page indicates the overall health of your managed domain. The status factors in all of the existing alerts on your domain. You can also view the status of your domain on the overview page of Azure AD Domain Services.
 
 | Status | Icon | Explanation |
 | --- | :----: | --- |
@@ -46,11 +45,11 @@ The status in the top right of your health page indicates the overall health of 
 | Deploying | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
 
 ## Monitors
-Monitors are aspects of your managed domain that Azure AD Domain Services monitors on a regular basis. The best way to keep your monitors in a healthy state is to resolve any alerts on your managed domain.
+Monitors are aspects of your managed domain that Azure AD Domain Services monitors on a regular basis. The best way to keep your monitors in a healthy state is to resolve any active alerts for your managed domain.
 
-The monitors currently available are:
+Azure AD Domain Services currently monitors the following:
  - Backup
- - Synchronization with AAD
+ - Synchronization with Azure AD
 
 ### The 'backup' monitor
 This monitors whether regular backups of your managed domain are being performed. The following table explains what to expect in the details column of the backup monitor:
@@ -77,5 +76,5 @@ Alerts are categorized into three different levels of severity: critical, warnin
 
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](active-directory-ds-features.md)
+- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
 - [Contact the product team](active-directory-ds-contact-us.md)
