@@ -5,7 +5,30 @@
 # Quickstarts
 ## [Create an event hub](event-hubs-create.md)
 
+# Tutorials
+### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Available APIs](event-hubs-api-overview.md)
+#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Diagnostic logs](event-hubs-diagnostic-logs.md)
+### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+
+# Samples
+
+# Concepts
+## [Programming guide](event-hubs-programming-guide.md)
+## [Event Hubs features](event-hubs-features.md)
+## [Managed Service Identity (preview)](event-hubs-managed-service-identity.md)
+## [Role-Based Access Control (preview)](event-hubs-role-based-access-control.md)
+## [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md)
+## [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
+## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+## [Availability and consistency](event-hubs-availability-and-consistency.md)
+## [Automatically scale throughput units](event-hubs-auto-inflate.md)
+
 # How-to guides
+## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
@@ -17,24 +40,6 @@
 ## Capture events
 ### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 ### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
-## [Programming guide](event-hubs-programming-guide.md)
-## [Event Hubs features](event-hubs-features.md)
-## Plan and design
-### [Managed Service Identity (preview)](event-hubs-managed-service-identity.md)
-### [Role-Based Access Control (preview)](event-hubs-role-based-access-control.md)
-### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md)
-### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
-### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
-### [Availability and consistency](event-hubs-availability-and-consistency.md)
-### [Automatically scale throughput units](event-hubs-auto-inflate.md)
-## Develop
-### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-### [Available APIs](event-hubs-api-overview.md)
-#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
-#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
-#### [Diagnostic logs](event-hubs-diagnostic-logs.md)
-### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Monitor Event Hubs with Azure Monitoring](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
@@ -44,21 +49,6 @@
 ### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
-
-## [Create an event hub](event-hubs-create.md)
-## Send events
-### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-### [Java](event-hubs-java-get-started-send.md)
-### [C](event-hubs-c-getstarted-send.md)
-## Receive events
-### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-### [Java](event-hubs-java-get-started-receive-eph.md)
-### [Apache Storm](event-hubs-storm-getstarted-receive.md)
-## Capture events
-### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
-### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 # Reference
 ## Java
