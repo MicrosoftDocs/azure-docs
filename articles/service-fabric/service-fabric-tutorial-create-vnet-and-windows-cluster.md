@@ -90,7 +90,7 @@ A Windows cluster is deployed with the following characteristics:
 - HTTP gateway endpoint: 19080 (configurable in the template parameters)
 
 ### Azure load balancer
-A load balancer is deployed and probes and rules setup for the following ports:
+A load balancer is deployed and probes and rules are setup for the following ports:
 - client connection endpoint: 19000
 - HTTP gateway endpoint: 19080 
 - application port: 80

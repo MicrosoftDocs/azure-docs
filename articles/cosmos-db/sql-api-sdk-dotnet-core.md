@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -55,6 +55,14 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.8.0"/>1.8.1
+
+* Fixed regression where FeedOptions.MaxItemCount = -1 threw an System.ArithmeticException: page size is negative.
+* Added a new ToString() function to QueryMetrics.
+* Exposed partition statistics on reading collections.
+* Added PartitionKey property to ChangeFeedOptions.
+* Minor bug fixes.
 
 ### <a name="1.7.1"/>1.7.1
  
@@ -154,6 +162,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |February 05, 2018 |--- |
 | [1.7.1](#1.7.1) |November 16, 2017 |--- |
 | [1.7.0](#1.7.0) |November 10, 2017 |--- |
 | [1.6.0](#1.6.0) |October 17, 2017 |--- |
