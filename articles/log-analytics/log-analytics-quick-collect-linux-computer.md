@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/09/2018
+ms.date: 02/11/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -110,9 +110,7 @@ Now that you have enabled data collection, lets run a simple log search example 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Linux computer and delete the Log Analytics workspace.  
 
-To remove the agent, perform the following steps.
-
-1. Run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
+To remove the agent, run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
