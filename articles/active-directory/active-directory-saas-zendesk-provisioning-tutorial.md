@@ -91,7 +91,7 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
  
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk3.png)
 
-3. Select the **Provisioning** tab.
+3. Upon selecting the Zendesk SaaS application, select the **Provisioning** tab.
 	
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk16.png)
 
@@ -115,8 +115,8 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 7. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Zendesk app. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
 
-	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
-
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk19.png)
+	
 8. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk9.png)
@@ -124,11 +124,12 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 9. Click **Save**.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zendesk**.
+
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk10.png)
+
 11. Review the user attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. Select the **Save** button to commit any changes.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk11.png)
-
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
 
@@ -141,20 +142,20 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk13.png)
 
-
 15. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
 
 16. To enable the Azure AD provisioning service for Zendesk, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk14.png)
 
-
 17. Define the users and/or groups that you would like to provision to Zendesk by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk15.png)
 
+18. When you are complete and ready to provision, click **Save**.
 
-18. When you are complete and ready to provision, click **Save**. 
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
+
 
 This starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
