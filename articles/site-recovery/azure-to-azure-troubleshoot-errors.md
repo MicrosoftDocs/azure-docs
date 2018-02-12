@@ -2,18 +2,12 @@
 title: Azure Site Recovery troubleshooting for Azure-to-Azure replication issues and errors| Microsoft Docs
 description: Troubleshooting errors and issues when replicating Azure virtual machines for disaster recovery
 services: site-recovery
-documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 02/12/2018
 ms.author: sujayt
 
 ---
@@ -157,7 +151,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 151072<br></br>**Message**: Site Recovery configuration failed. | Connection cannot be established to Site Recovery service endpoints. | - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>- If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
 
 ### Fix the problem
-To whitelist [the required URLs](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-urls) or the [required IP ranges](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-ip-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
@@ -178,14 +172,14 @@ If the problem persists, contact support.
 
 ## Unable to see the Azure VM for selection in "enable replication"
 
-You might not see your Azure VM for selection in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines). This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
+If you don't see the VM you want to enable for replication, it might be because of a stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the resource group containing the Site Recovery vault without explicitly disabling replication on the VM.
 
 ### Fix the problem
 
-You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) after removing the stale configuration.
+You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
 ## VM's provisioning state is not valid (error code 150019)
 
