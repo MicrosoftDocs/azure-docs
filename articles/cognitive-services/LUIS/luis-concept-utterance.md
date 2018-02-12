@@ -42,7 +42,7 @@ The core term here, "computer", is not varied. They could say desktop compute
 After your model is trained, published, and receiving endpoint queries, [review the utterances)(label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterance that have low scores for either the intent or entity. 
 
 ## Best practices
-Begin with 10-15 utterances per intent, but not more. Each utterance should be different enough from the other utterances in the intent that each utterance is equally informative. The none intent should have between 10 and 20 percent of the total utterances in the application. 
+Begin with 10-15 utterances per intent, but not more. Each utterance should be different enough from the other utterances in the intent that each utterance is equally informative. The **None** intent should have between 10 and 20 percent of the total utterances in the application. 
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. Train, publish, and test again. 
 
