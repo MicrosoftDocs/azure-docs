@@ -46,10 +46,16 @@ If you do not want to use PowerShell, you can manually add single rules to NSGs 
 
 
 ## Create an NSG for Azure AD Domain Services using PowerShell
-Use the following steps to create a new NSG using PowerShell. This NSG is configured to allow inbound traffic to the ports required by Azure AD Domain Services, while denying any other unwanted inbound access.
+This NSG is configured to allow inbound traffic to the ports required by Azure AD Domain Services, while denying any other unwanted inbound access.
 
-Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0) to complete this resolution.
+**Pre-requisite: Install and configure Azure PowerShell**
+Follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
+>[!TIP]
+> We recommend using the latest version of the Azure PowerShell module. If you already have an older version of the Azure PowerShell module installed, update to the latest version.
+>
+
+Use the following steps to create a new NSG using PowerShell. 
 1. Log in to your Azure subscription.
 
   ```PowerShell
@@ -102,7 +108,10 @@ Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azur
   Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
   ```
 
-### Full script to create and apply an NSG for Azure AD Domain Services
+## Full script to create and apply an NSG for Azure AD Domain Services
+>[!TIP]
+> We recommend using the latest version of the Azure PowerShell module. If you already have an older version of the Azure PowerShell module installed, update to the latest version.
+>
 
 ```PowerShell
 # Change the following values to match your deployment
