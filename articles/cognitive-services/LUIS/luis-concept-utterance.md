@@ -39,7 +39,7 @@ When can I have a computer?
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Review utterances
-After your model is trained, published, and receiving endpoint queries, [review the utterances)(label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterance that have low scores for either the intent or entity. 
+After your model is trained, published, and receiving endpoint queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
 Begin with 10-15 utterances per intent, but not more. Each utterance should be different enough from the other utterances in the intent that each utterance is equally informative. The **None** intent should have between 10 and 20 percent of the total utterances in the application. 
