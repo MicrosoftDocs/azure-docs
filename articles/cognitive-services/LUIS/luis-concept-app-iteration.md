@@ -43,4 +43,8 @@ When you are done with a cycle of authoring, you can begin again. Start with rev
 ## Batch testing
 Batch testing is a way to see how many example utterances are scored by LUIS. The examples should be new to LUIS and should be correctly labeled with intent and entities you want LUIS to find. The test results indicate how well LUIS would perform on that set of utterances. 
 
+## Next steps
+
+See [Intents in LUIS](luis-concept-intent.md) to learn more about intents in your LUIS app.
+
 [luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md
