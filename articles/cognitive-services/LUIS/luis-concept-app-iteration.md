@@ -34,7 +34,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 ## Train and publish the app
 Once you have 10 to 15 different utterances in each intent, with the required entities labeled, you train LUIS, then publish to get your endpoints. Make sure to create your app and publish your app so that it is available in the [endpoint regions](luis-reference-regions.md) you need. 
 
-## Https endpoint testing
+## HTTPS endpoint testing
 You can test your LUIS app from the HTTPS endpoint listed on the **[Publish](publishapp.md)** page. Testing from the endpoint allows LUIS to choose any utterances with low-confidence for review.  
 
 ## Recycle
