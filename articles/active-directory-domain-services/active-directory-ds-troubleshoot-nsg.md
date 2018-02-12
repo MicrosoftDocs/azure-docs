@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/12/2018
 ms.author: ergreenl
 
 ---
@@ -50,20 +50,14 @@ Use the following steps to create a new NSG using PowerShell. This NSG is config
 
 Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2Fazure%2Factive-directory-domain-services%2Ftoc.json&view=azureadps-2.0) to complete this resolution.
 
-1. Connect to your Azure AD directory.
-
-  ```PowerShell
-  # Connect to your Azure AD directory.
-  Connect-AzureAD
-  ```
-2. Log in to your Azure subscription.
+1. Log in to your Azure subscription.
 
   ```PowerShell
   # Log in to your Azure subscription.
   Login-AzureRmAccount
   ```
 
-3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. Use the same format to add additional rules that allow other inbound traffic, if required by workloads deployed in the virtual network.
+2. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. Use the same format to add additional rules that allow other inbound traffic, if required by workloads deployed in the virtual network.
 
   ```PowerShell
   # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
@@ -77,7 +71,11 @@ Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azur
   $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
   -Description "Allow management of domain through port 5986" `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
-  -SourceAddressPrefix $ServiceIPs -SourcePortRange * -DestinationAddressPrefix * `
+  -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
+  13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
+  52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
+  52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
+  -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 5986
 
   # Allow management of your domain over port 3389 (remote desktop).
@@ -86,13 +84,13 @@ Install and run [Azure AD Powershell](https://docs.microsoft.com/powershell/azur
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
   -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389
-  
+
   # Create the NSG with the 3 rules above
   $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
   -Name "AAD-DomainServices-NSG" -SecurityRules $SyncRule,$PSRemotingRule,$RemoteDesktopRule
   ```
 
-4. Lastly, the script associates the NSG with the vnet and subnet of choice.
+3. Lastly, associate the NSG with the vnet and subnet of choice.
 
   ```PowerShell
   # Find vnet and subnet
@@ -113,11 +111,8 @@ $Location = "westus"
 $VnetName = "exampleVnet"
 $SubnetName = "exampleSubnet"
 
-# IP addresses used by Azure AD Domain Services to manage your domain.
-$ServiceIPs = "52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, `
-52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134,`
-52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149,`
-13.64.151.161"
+# Log in to your Azure subscription.
+Login-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
 $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
@@ -130,7 +125,11 @@ $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD `
 $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting `
 -Description "Allow management of domain through port 5986" `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 102 `
--SourceAddressPrefix $ServiceIPs -SourcePortRange * -DestinationAddressPrefix * `
+-SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, `
+13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, `
+52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, `
+52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 `
+-SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 5986
 
 # Allow management of your domain over port 3389 (remote desktop).
@@ -139,12 +138,6 @@ $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD `
 -Access Allow -Protocol Tcp -Direction Inbound -Priority 103 `
 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 3389
-
-# Connect to your Azure AD directory.
-Connect-AzureAD
-
-# Log in to your Azure subscription.
-Login-AzureRmAccount
 
 # Create the NSG with the 3 rules above
 $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
