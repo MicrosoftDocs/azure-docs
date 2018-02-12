@@ -19,8 +19,10 @@ ms.author: v-ant-msft
 
 # Tutorial: Configure Zendesk for automatic user provisioning
 
-
 The objective of this tutorial is to demonstrate the steps that are needed to be performed in Zendesk and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Zendesk. 
+
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, please see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
@@ -34,19 +36,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 > The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
 
 ## Adding Zendesk from the gallery
-To configure the integration of Zendesk into Azure AD, you need to add Zendesk from the gallery to your list of managed SaaS apps.
+Before configuring Zendesk for automatic user provisioning with Azure AD, you will need to add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Zendesk from the gallery, perform the following steps:**
+**To add Zendesk from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+3. To add Zendesk, click the **New application** button on the top of the dialog.
 
 	![The New application button][3]
 
@@ -54,10 +56,9 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk6.png)
 
-5. In the results panel, select **Zendesk**, and then click **Add** button to add the application.
+5. In the results panel, select **Zendesk**, and then click the **Add** button to add Zendesk to your list of SaaS applications.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk7.png)
-
 
 ## Assigning users to Zendesk
 
@@ -73,7 +74,6 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 *	When assigning a user to Zendesk, you must select either the **User** role or another valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-
 ## Configuring automatic user provisioning to Zendesk 
 
 This section will guide you through connecting your Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, which will utilize Zendesk's user provisioning API to create, update and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
@@ -81,15 +81,11 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zendesk, following the instructions provided in the [Zendesk single sign-on tutorial](active-directory-saas-zendesk-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-
-### To configure automatic user provisioning to Zendesk in Azure AD:
-
+### To configure automatic user provisioning for Zendesk in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
-	
-	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk5.png)
 
-2. Search for Zendesk in the application gallery. Select Zendesk from the search results, and add it to your list of applications.
+2. Select Zendesk from your list of SaaS applications.
  
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk8.png)
 
