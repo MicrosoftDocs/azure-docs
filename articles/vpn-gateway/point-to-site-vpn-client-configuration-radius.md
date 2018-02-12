@@ -1,6 +1,6 @@
 ---
 title: 'Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure | Microsoft Docs'
-description: This article helps you create VPN client configuration file for Point-to-Site connections that use RADIUS authentication.
+description: Create VPN client configuration files for Point-to-Site connections using RADIUS authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -248,3 +248,5 @@ To use a different authentication type (for example, OTP), and not username/pass
 ## Next steps
 
 Return to the article to [complete your P2S configuration](point-to-site-how-to-radius-ps.md).
+
+For P2S troubleshooting information, [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

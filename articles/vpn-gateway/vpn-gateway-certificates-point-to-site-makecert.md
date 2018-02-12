@@ -1,6 +1,6 @@
 ---
 title: 'Generate and export certificates for Point-to-Site: MakeCert : Azure | Microsoft Docs'
-description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
+description: Create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -96,3 +96,5 @@ Continue with your Point-to-Site configuration.
 
 * For **Resource Manager** deployment model steps, see [Configure P2S using native Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+For P2S troubleshooting information, [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

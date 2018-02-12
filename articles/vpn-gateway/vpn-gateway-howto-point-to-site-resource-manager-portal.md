@@ -1,6 +1,6 @@
 ---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: Azure Portal| Microsoft Docs'
-description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using certificate authentication. This article applies to the Resource Manager deployment model and uses the Azure portal.
+description: Securely connect a computer to your VNet by creating a Point-to-Site VPN gateway connection and certificate authentication. This article applies to the Resource Manager deployment model and uses the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -249,3 +249,5 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
+
+For P2S troubleshooting information, [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -1,6 +1,6 @@
 ---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: PowerShell | Microsoft Docs'
-description: Securely connect a computer to your virtual network by creating a Point-to-Site VPN gateway connection using VPN gateway native Azure certificate authentication. This article applies to the Resource Manager deployment model and uses PowerShell.
+description: Securely connect a computer to your virtual network by creating a Point-to-Site connection using certificate authentication. This article applies to the Resource Manager deployment model and uses PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -425,3 +425,5 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
+
+For P2S troubleshooting information, [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
