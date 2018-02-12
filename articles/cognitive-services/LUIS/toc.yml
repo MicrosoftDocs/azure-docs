@@ -62,7 +62,9 @@
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
-  items: 
+  items:
+  - name: Authoring cycle
+    href: luis-concept-app-iteration.md 
   - name: Intents
     href: luis-concept-intent.md
   - name: Entities
