@@ -145,12 +145,10 @@ Apply the configuration to your IoT Edge device:
    az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
-   ![Apply configuration][5]
-
-3. View the modules on your IoT Edge device:
+View the modules on your IoT Edge device:
     
    ```cli
-   az iot hub module-identity list --device-id edge001 --hub-name blogDemoHub
+   az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
    ```
 
    ![List modules][6]
@@ -166,6 +164,5 @@ Apply the configuration to your IoT Edge device:
 <!-- Images -->
 [2]: ./media/tutorial-create-deployment-with-cli-iot-extension/create-resource-group.png
 [4]: ./media/tutorial-create-deployment-with-cli-iot-extension/Create-edge-device.png
-[5]: ./media/tutorial-create-deployment-with-cli-iot-extension/apply-configuration.PNG
-[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.PNG
+[6]: ./media/tutorial-create-deployment-with-cli-iot-extension/list-modules.png
 
