@@ -248,7 +248,7 @@ Here is an example cluster configuration where the cluster, server, and client c
 
 ## Certificate rollover
 When you use a certificate common name instead of a thumbprint, certificate rollover doesn't require a cluster configuration upgrade. For issuer thumbprint upgrades, make sure that the new thumbprint list intersects with the old list. You first have to do a config upgrade with the new issuer thumbprints, and then install the new certificates (both cluster/server certificate and issuer certificates) in the store. Keep the old issuer certificate in the certificate store for at least two hours after you install the new issuer certificate.
-If you are using issuer stores, then no config upgrade needs to be performed for issuer certifiate rollover. Simply install the new issuer certificate with a latter expiration date in the corresponding certificate store and remove the old issuer certificate after a few hours.
+If you are using issuer stores, then no config upgrade needs to be performed for issuer certificate rollover. Simply install the new issuer certificate with a latter expiration date in the corresponding certificate store and remove the old issuer certificate after a few hours.
 
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you need to obtain and install certificates for the client machines.
