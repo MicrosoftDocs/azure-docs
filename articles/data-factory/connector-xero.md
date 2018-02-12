@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
 
 ---
@@ -30,7 +30,10 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from Xero to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-All Xero tables (API endpoints) are supported except "Reports". Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table Bank_Transaction and Bank_Transaction_Line_Items, with Bank_Transaction_ID as foreign key to link them together.
+Specifically, this Xero connector supports:
+
+- Xero [private application](https://developer.xero.com/documentation/getting-started/api-application-types) but not public application.
+- All Xero tables (API endpoints) except "Reports". 
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -49,7 +52,7 @@ The following properties are supported for Xero linked service:
 | type | The type property must be set to: **Xero** | Yes |
 | host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
 | consumerKey | The consumer key associated with the Xero application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | The private key from the .pem file that was generated for your Xero private application. Include all the text from the .pem file, including the Unix line endings(\n). You can choose to mark this field as a SecureString to store it securely in Data Factory, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | The private key from the .pem file that was generated for your Xero private application. Include all the text from the .pem file, including the Unix line endings(\n). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -108,7 +111,13 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **XeroSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Minimal.Contacts"`. | Yes |
+
+Note the following when specifying the Xero query:
+
+- Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table `Bank_Transaction` and `Bank_Transaction_Line_Items`, with `Bank_Transaction_ID` as foreign key to link them together.
+
+- Xero data is available through two schemas: `Complete` and `Minimal`. The Complete schema contains prerequisite call tables which require additional data before making the desired query. To reduce the number of API calls, use Minimal schema.
 
 **Example:**
 
@@ -132,7 +141,7 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
         "typeProperties": {
             "source": {
                 "type": "XeroSource",
-                "query": "SELECT * FROM Contacts"
+                "query": "SELECT * FROM Minimal.Contacts"
             },
             "sink": {
                 "type": "<sink type>"
