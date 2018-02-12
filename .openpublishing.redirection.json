@@ -4964,11 +4964,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/index.md",
-            "redirect_url": "/azure/machine-learning/preview/",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/preview/quick-start-installation.md",
             "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
             "redirect_document_id": false
@@ -8149,70 +8144,69 @@
             "redirect_url": "how-to-create-a-group",
             "redirect_document_id": false
         },
-		{
-            "source_path": "articles/site-recovery/upgrade-site-recovery-vaults.md",
-            "redirect_url": "site-recovery-overview",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
-            "redirect_url": "tutorial-migrate-azure-to-azure",
+            "redirect_url": "azure-to-azure-tutorial-migrate",
             "redirect_document_id": false
         },
-
+		{
+            "source_path": "articles/site-recovery/site-recovery-replicate-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-how-to-enable-replication",
+            "redirect_document_id": false
+        },
         {
-            "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
-            "redirect_url": "tutorial-vmware-to-vmware",
+            "source_path": "articles/site-recovery/tutorial-migrate-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-tutorial-migrate",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
-            "redirect_url": "site-recovery-support-matrix-azure-to-azure",
+            "redirect_url": "azure-to-azure-support-matrix",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/site-recovery-network-design.md",
-            "redirect_url": "concepts-on-premises-to-azure-networking",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-prereq.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
-            "redirect_url": "tutorial-migrate-aws-to-azure",
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-support-matrix",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-azure-to-azure-architecture.md",
-            "redirect_url": "concepts-azure-to-azure-architecture",
+            "redirect_url": "azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
-            "redirect_url": "concepts-hyper-v-to-azure-architecture",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
-            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
+            "source_path": "articles/site-recovery/concepts-azure-to-azure-architecture.md",
+            "redirect_url": "azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-architecture.md",
-            "redirect_url": "concepts-azure-to-azure-architecture",
+            "redirect_url": "azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-enable-replication.md",
-            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "source_path": "articles/site-recovery/site-recovery-components.md",
+            "redirect_url": "azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
-            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-after-migration.md",
+            "redirect_url": "azure-to-azure-replicate-after-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-troubleshoot-errors.md",
+            "redirect_url": "azure-to-azure-troubleshoot-errors",
+            "redirect_document_id": false
+        },
+        {
+        "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
+        "redirect_url": "azure-to-azure-about-networking",
+        "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure-networking-guidance.md",
+            "redirect_url": "azure-to-azure-about-networking",
             "redirect_document_id": false
         },
         {
@@ -8233,6 +8227,61 @@
         {
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-vault.md",
             "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/azure-to-azure-walkthrough-enable-replication.md",
+            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-how-to-reprotect-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-how-to-reprotect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-network-mapping-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-network-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/upgrade-site-recovery-vaults.md",
+            "redirect_url": "site-recovery-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
+            "redirect_url": "tutorial-vmware-to-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-network-design.md",
+            "redirect_url": "concepts-on-premises-to-azure-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-prereq.md",
+            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-migrate-aws-to-azure.md",
+            "redirect_url": "tutorial-migrate-aws-to-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
+            "redirect_url": "concepts-hyper-v-to-azure-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
+            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
             "redirect_document_id": false
         },
         {
@@ -8583,11 +8632,6 @@
         {
             "source_path": "articles/site-recovery/site-recovery-best-practices.md",
             "redirect_url": "site-recovery-support-matrix-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-components.md",
-            "redirect_url": "concepts-azure-to-azure-architecture",
             "redirect_document_id": false
         },
         {
