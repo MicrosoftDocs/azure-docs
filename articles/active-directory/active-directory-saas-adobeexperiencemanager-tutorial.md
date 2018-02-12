@@ -56,7 +56,7 @@ To configure the integration of Adobe Experience Manager into Azure AD, you need
 
 **To add Adobe Experience Manager from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation pane, select the **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
@@ -191,14 +191,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. In the **User Attribute ID** box, enter the **Name ID** or another user ID that's relevant in your case.
 
-	h. Select **Autocreate CRX Users.**
+	h. Select **Autocreate CRX Users**.
 
 	i. In the **Logout URL** box, enter the unique **Sign-Out URL** value that you got from the Azure portal.
 
-	j. Select **Save**
+	j. Select **Save**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -208,7 +208,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 **To create a test user in Azure AD, take the following steps:**
 
-1. In the Azure portal, in the left navigation pane, select the **Azure Active Directory** button.
+1. In the Azure portal, in the left pane, select the **Azure Active Directory** button.
 
     ![The Azure Active Directory button](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_01.png)
 
@@ -272,13 +272,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the Adobe Experience Manager tile in the access panel, you should get automatically signed-in to your Adobe Experience Manager application.
+When you select the Adobe Experience Manager tile in the access panel, you should get automatically signed in to your Adobe Experience Manager application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
-* [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
