@@ -3,7 +3,7 @@ title: Network Performance Monitor solution in Azure Log Analytics | Microsoft D
 description: Network Performance Monitor in Azure Log Analytics helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 # Network Performance Monitor solution in Log Analytics
@@ -186,7 +186,7 @@ You can use PowerShell scripts to configure firewall rules on your computers run
 In contrast, ICMP does not operate using port. In most enterprise scenarios, ICMP traffic is permitted through the firewalls to allow you to use network diagnostics tools like the Ping utility. So, if you can Ping one machine from another, then you can use the ICMP protocol without having to configure firewalls manually.
 
 > [!NOTE]
-> Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, we recommended that you use TCP for monitoring. 
+> Some firewalls may block ICMP, which may lead to retransmission resulting in large number of events in your security information and event management system. Make sure the protocol that you choose is not blocked by a network firewall/NSG, otherwise NPM will not be able to monitor the network segment.  Because of this, we recommended that you use TCP for monitoring.
 > You should use ICMP in scenarios where you are not able to use TCP, such as when:
 > * You are using Windows client based nodes, since TCP raw sockets are not allowed in Windows client
 > * Your network firewall/NSG blocks TCP
@@ -289,7 +289,7 @@ Now that you've read about Network Performance Monitor, let's look at a simple i
 
 1. On the Overview page, you'll get a quick snapshot of the health of your network by observing the **Network Performance Monitor** tile. Notice that out of the 6 subnetworks links being monitored, 2 are unhealthy. This warrants investigation. Click the tile to view the solution dashboard.<br><br> ![Network Performance Monitor tile](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
 2. In the example image below, you'll notice that there is a health event a network link that is unhealthy. You decide to investigate the issue and click on the **DMZ2-DMZ1** network link to find out the root of the problem.<br><br> ![unhealthy network link example](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
-3. The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You'll notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill-down further.<br><br> ![unhealthy subnet links example](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+3. The drill-down page shows all the subnetwork links in **DMZ2-DMZ1** network link. You'll notice that for both the subnetwork links, the latency has crossed the threshold making the network link unhealthy. You can also see the latency trends of both the subnetwork links. You can use the time selection control in the graph to focus on the required time range. You can see the time of the day when latency has reached its peak. You can later search the logs for this time period to investigate the issue. Click **View node links** to drill-down further.<br><br> ![unhealthy subnet links example](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
 4. Similar to the previous page, the drill-down page for the particular subnetwork link lists down its constituent node links. You can perform similar actions  here as you did in the previous step. Click **View topology** to view the topology between the 2 nodes.<br><br> ![unhealthy node links example](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
 5. All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.<br><br> ![unhealthy topology view example](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. The loss, latency, and the number of hops in each path can be reviewed in the **Action** pane. Use the scrollbar to view the details of those unhealthy paths.  Use the filters to select the paths with the unhealthy hop so that the topology for only the selected paths is plotted. You can use your mouse wheel to zoom in or out of the topology map.
