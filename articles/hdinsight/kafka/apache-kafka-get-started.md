@@ -230,3 +230,4 @@ In this document, you have learned the basics of working with Apache Kafka on HD
 * [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 * [Use Kafka with Azure Container Service](apache-kafka-azure-container-services.md)
+* [Use Kafka with Azure Function Apps](apache-kafka-azure-functions.md)
