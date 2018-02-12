@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Features Overview | Microsoft Docs
-description: This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature.
+title: Azure SQL Database feature comparison | Microsoft Docs
+description: This article compares the features of SQL Server and Azure SQL Database and shows their differences.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -18,7 +18,7 @@ ms.date: 02/08/2018
 ms.author: carlrab
 ---
 
-# Azure SQL Database features
+# Feature comparison: Azure SQL Database versus SQL Server 
 
 Azure SQL Database shares a common code base with SQL Server and, at the database level, supports most of the same features. The major feature differences between Azure SQL Database and SQL Server are at the instance level. 
 
