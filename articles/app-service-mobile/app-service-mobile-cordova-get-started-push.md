@@ -25,7 +25,7 @@ In this tutorial, you add push notifications to the [Apache Cordova quick start]
 notification is sent to the device every time a record is inserted.
 
 If you do not use the downloaded quick start server project, you need the push notification extension
-package. For more information, see [Work with the .NET back-end server SDK for Azure Mobile Apps][1].
+package. For more information, see [Work with the .NET back-end server SDK for Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Prerequisites
 This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015, and that runs on Google
@@ -50,8 +50,7 @@ To complete this tutorial, you need:
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="add-push-to-app"></a>Modify your Cordova app
-Ensure your Apache Cordova app project is ready to handle push notifications by
-installing the Cordova push plugin plus any platform-specific push services.
+To ensure that your Apache Cordova app project is ready to handle push notifications, install the Cordova push plugin plus any platform-specific push services.
 
 #### Update the Cordova version in your project.
 If your project uses a version of Apache Cordova that's earlier than version 6.1.1, update the client project. To update
@@ -292,12 +291,12 @@ widget element must match the App ID on the developer portal.
 
 #### Verify that your App ID matches your Cordova app
 If the App ID you created in your Apple Developer Account already matches the ID of the widget element in
-config.xml, you can skip this step. However, if the IDs don't match, take the following steps:
+the config.xml file, you can skip this step. However, if the IDs don't match, take the following steps:
 
 1. Delete the platforms folder from your project.
 2. Delete the plugins folder from your project.
 3. Delete the node_modules folder from your project.
-4. Update the id attribute of the widget element in config.xml to use the App ID that you created in your
+4. Update the id attribute of the widget element in the config.xml file to use the app ID that you created in your
     Apple developer account.
 5. Rebuild your project.
 
@@ -315,7 +314,7 @@ config.xml, you can skip this step. However, if the IDs don't match, take the fo
    > The app requests confirmation for push notifications during the first run.
 
 3. In the app, type a task, and then select the plus **(+)** icon.
-4. Verify that a notification is received. Then select **OK** to dismiss the notification.
+4. Verify that a notification was received. Then select **OK** to dismiss the notification.
 
 ## (Optional) Configure and run on Windows
 This section describes how to run the Apache Cordova app project on Windows 10 devices (the PhoneGap push plugin is
@@ -360,7 +359,7 @@ After the update, the build.json file should contain the following code:
         }
 
 Build the app and verify that you have no errors. Your client app should now register for the notifications
-from the Mobile App back end. Repeat this section for every Windows project in your solution.
+from the Mobile Apps back end. Repeat this section for every Windows project in your solution.
 
 #### Test push notifications in your Windows app
 In Visual Studio, make sure that a Windows platform is selected as the deployment target, such as
