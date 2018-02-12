@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: rajanaki
 
 
@@ -20,9 +20,9 @@ ms.author: rajanaki
 
 
 
-When you [fail over](site-recovery-failover.md) Azure VMs from one region to another, the VMs boot up in the secondary region, but are in an unprotected state. If you want to bring the VMs back to the primary region, you need to do the following:
+When you [fail over](site-recovery-failover.md) Azure VMs from one region to another using [Azure Site Recovery](site-recovery-overview.md), the VMs boot up in the secondary region, in an unprotected state. If fail back the VMs to the primary region, you need to do the following:
 
-- Reprotect the VMs in the secondary region, so that they start replicating to the primary region. Note that reprotection must be done on a VM. You can't reprotect a recovery plan.
+- Reprotect the VMs in the secondary region, so that they start replicating to the primary region. 
 - After reprotection completes and the VMs are replicating, you can fail them over from the secondary to primary region.
 
 > [!WARNING]
@@ -30,16 +30,16 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 
 
 ## Prerequisites
-1. The VM failover must be committed.
-2. The primary target site hould be available, and you should be able to access or create resources in that region.
+1. The VM failover from the primary to secondary region must be committed.
+2. The primary target site should be available, and you should be able to access or create resources in that region.
 
 ## Reprotect a VM
 
-1. In **Vault** > **Replicated items**, right-click the failed over VM, and select **Re-Protect**. Note that that the reprotection direction should appear (from secondary to primary). 
+1. In **Vault** > **Replicated items**, right-click the failed over VM, and select **Re-Protect**. The reprotection direction should show from secondary to primary. 
 
   ![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. Review the resource group, network, storage, andaAvailability sets information, and click **OK**. If there are any resources marked as new, they are created as part of the reprotection process.
+2. Review the resource group, network, storage, and availability sets. Then click **OK**. If there are any resources marked as new, they are created as part of the reprotection process.
 3. The reprotection job seeds the target site with the latest data. After that finishes, delta replication takes place. Then, you can fail over back to the primary site. You can select the storage account or the network you want to use during reprotect, using the customize option.
 
   ![Customize option](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
@@ -48,14 +48,14 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 
 You can customize the following properties of the target VMe during reprotection.
 
-![Customize blade](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
+![Customize](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Property |Notes  |
 |---------|---------|
-|Target resource group     | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover .        |
+|Target resource group     | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover.        |
 |Target virtual network     | The target network can't be changed during the reprotect job. To change the network, redo the network mapping.         |
-|Target Storage     | You can change the storage account that the VM will use after failover.         |
-|Cache Storage     | You can specify a cache storage account to be used during replication. By default, a new cache storage account will be created, if it doesn't exist.         |
+|Target Storage     | You can change the storage account that the VM uses after failover.         |
+|Cache Storage     | You can specify a cache storage account to be used during replication. By default, a new cache storage account is be created, if it doesn't exist.         |
 |Availability Set     |If the VM in the secondary region is part of an availability set, you can choose an availability set for the target VM in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set.         |
 
 
@@ -64,10 +64,10 @@ You can customize the following properties of the target VMe during reprotection
 By default the following occurs:
 
 1. A cache storage account is created in the primary region
-2. If the target storage account (the original storage account in the primary region) doesn't exist, a new one is created. The assigned storage account name will be the name of the storage account used by the secondary VM, suffixed with "asr".
+2. If the target storage account (the original storage account in the primary region) doesn't exist, a new one is created. The assigned storage account name is the name of the storage account used by the secondary VM, suffixed with "asr".
 3. If the target availability set doesn't exist, a new one is created as part of the reprotect job if required. If you have customized the reprotection settings, then the selected set is used.
 
-When you trigger a reprotect job, and the target VM exists, the following occurs:.
+When you trigger a reprotect job, and the target VM exists, the following occurs:
 
 1. The required  components are created as part of reprotect. If they already exist, they are reused.
 2. The target side VM is turned off if it's running.
@@ -76,7 +76,7 @@ When you trigger a reprotect job, and the target VM exists, the following occurs
 5. The seed blob is used by the current source side (secondary) VM to replicate. This ensures that only deltas are replicated.
 6. Major changes between the source disk and the seed blob are synchronized. This can take some time to complete.
 7. After the reprotect job completes, the delta replication begins, and creates a recovery point in line with the replication policy.
-8. After the reprotect job succeeds, the VMs enters a protected state.
+8. After the reprotect job succeeds, the VM enters a protected state.
 
 ## Next steps
 
