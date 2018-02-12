@@ -18,13 +18,13 @@ ms.author: ergreenl
 
 ---
 # Troubleshoot invalid networking configuration for your managed domain
-This article helps you troubleshoot and resolve network related configuration errors that result in the following alert message:
+This article helps you troubleshoot and resolve network-related configuration errors that result in the following alert message:
 
 ## Alert AADDS104: Network error
 **Alert message:**
- *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
+ *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
+Invalid NSG configurations are the most common cause of network errors for Azure AD Domain Services. The Network Security Group (NSG) configured for your virtual network must allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). If these ports are blocked, Microsoft cannot monitor or update your managed domain. Additionally, synchronization between your Azure AD directory and your managed domain is impacted. While creating your NSG, keep these ports open to avoid interruption in service.
 
 
 ## Sample NSG
@@ -36,7 +36,7 @@ The following table depicts a sample NSG that would keep your managed domain sec
 > Azure AD Domain Services requires unrestricted outbound access from the virtual network. We recommend not to create any additional NSG rule that restricts outbound access for the virtual network.
 
 ## Add a rule to a Network Security Group using the Azure portal
-If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. Follow these steps to create rules in your Network security group.
+If you do not want to use PowerShell, you can manually add single rules to NSGs using the Azure portal. To create rules in your Network security group, complete the following steps:
 
 1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
 2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
