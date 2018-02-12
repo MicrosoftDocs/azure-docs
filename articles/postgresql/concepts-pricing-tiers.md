@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: PostreSQL-database
 ms.topic: article
-ms.date: 2/20/2017
+ms.date: 2/16/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers

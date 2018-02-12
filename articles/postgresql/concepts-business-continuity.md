@@ -41,7 +41,7 @@ You can use these automatic backups to recover a server from various disruptive 
 
 ## Recover a database after a user or application error
 
-*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect.
+No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect.
 
 In this scenario, you can perform a point-in-time-restore and use the automated backups to restore a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database.
 
@@ -75,4 +75,5 @@ After restore from either recovery mechanism, you must perform the following add
 
 ## Next steps
 
-TBD
+- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
+- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).

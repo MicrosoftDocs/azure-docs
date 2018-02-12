@@ -14,11 +14,12 @@ ms.date: 11/02/2017
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
-This sample CLI script scales a single Azure Database for MySQL server to a different performance level after querying the metrics.
+
+This sample CLI script shows how to scale a single Azure Database for MySQL server.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you are using the CLI locally, please make sure you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) for instructions on how to install or upgrade the CLI.
 
 ## Sample script
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription ID used in the az monitor commands with your own subscription id.

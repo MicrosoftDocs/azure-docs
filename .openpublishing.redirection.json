@@ -16705,6 +16705,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/postgresql/concepts-compute-unit-and-storage.md",
+        "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
+        "redirect_document_id": false
+    },
+    {
             "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
