@@ -18,8 +18,21 @@ ms.author: maheshu
 
 ---
 
-# Login to an Azure Linux virtual machine using Azure AD authentication *[PREVIEW]*
+# Login to an Azure Linux virtual machine using Azure AD authentication *[Preview]*
 This article shows you how to log in to an Azure Linux virtual machine using Azure AD authentication.
+
+## Benefits of using Azure AD authentication
+There are many benefits of using Azure AD authentication to log in to Azure Linux virtual machines.
+
+1. **Improved security:** This approach has many security benefits:
+  - You can use your corporate AD credentials to log in to Azure Linux VMs. There is no need to create local administrator accounts and manage credential lifetime.
+  - By reducing your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
+  - The password complexity and password lifetime policies configured for your Azure AD directory help secure Linux VMs as well.
+  - The VM is not susceptible to password brute force attacks on local administrator accounts.
+  - You can configure multiple factor authentication or conditional access control policies to further secure log in to Azure virtual machines.
+
+2. **Seamless collaboration:** Using RBAC roles you can specify who has access to a given VM, as a regular user or with administrator privileges. When users join or leave your team, you can easily update the RBAC policy for the VM to grant or deny access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization, they no longer have access to your resources.
+
 
 ## Supported Azure Linux distributions
 The following Linux distributions are supported for this functionality:
@@ -32,7 +45,7 @@ The following Linux distributions are supported for this functionality:
 ## Install the pre-requisite software
 
 ### Prepare the virtual machine
-Use the local administrator credentials you specified when provisioning the virtual machine to connect using *ssh*.
+Use the local administrator credentials you specified when provisioning the virtual machine to connect using *SSH*.
 
 Type the following command to open the ```/etc/hosts``` file:
 ```
@@ -69,7 +82,7 @@ Set-AzureRmVMExtension -Publisher “Microsoft.Azure.ActiveDirectory.LinuxSSH.Ed
 -Location "South Central US" -TypeHandlerVersion "1.0"
 ```
 
->[!NOTE] 
+>[!NOTE]
 > Only the 'South Central US' Azure region is supported during the preview.
 >
 
