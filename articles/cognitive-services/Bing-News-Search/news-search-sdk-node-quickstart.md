@@ -41,7 +41,7 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 });
 
 ```
-The code prints `result.value` items to the console without parsing text.
+The code prints `result.value` items to the console without parsing any text.
 
 ![News results](media/node-sdk-quickstart-results.png)
 
