@@ -36,10 +36,10 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the example file.  
+This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
 
 ## Configure your storage connection string
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable.  Replace \<yourconnectionstring\> with your actual connection string.
+In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Make sure to remove `;EndpointSuffix=core.windows.net` from it and then replace \<yourconnectionstring\> with your actual connection string.
 
 ### Linux
 
@@ -59,14 +59,10 @@ This sample creates a test file in the 'Documents' folder. The sample program up
 Run the sample. The following output is an example of the output returned when running the application:
   
 ```
-Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
+Uploading BlockBlob: HelloWorld.txt
+These are the blobs present in the container: HelloWorld.txt: https://myexamplesacct.blob.core.windows.net/blockblobsleqvxd/HelloWorld.txt
 
-Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-List blobs in the container
-         Blob name: QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
-
-Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
+This is the content of the blob uploaded: Hello Azure!
 ```
 When you press the button displayed, the sample program deletes the storage container and the files. Before you continue, check your server's folder for the two files. You can open them and see they are identical.
 
