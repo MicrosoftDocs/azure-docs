@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. Click **Ok**.
 
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer and perform the following steps:
 
 	![The Certificate download link](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_certificate.png)
 
