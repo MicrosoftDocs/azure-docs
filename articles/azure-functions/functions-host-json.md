@@ -111,7 +111,7 @@ Specifies how many function invocations are aggregated when [calculating metrics
 }
 ```
 
-|Property  |Default | Description |
+|Property |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1000|Maximum number of requests to aggregate.| 
 |flushTimeout|00:00:30|Maximum time period to aggregate.| 
