@@ -218,7 +218,7 @@
     - name: Enable replication
       items:
       - name: Enable Azure to Azure replication
-        href: site-recovery-replicate-azure-to-azure.md
+        href: azure-to-azure-how-to-enable-replication.md
       - name: Enable VMware to Azure replication
         href: site-recovery-replicate-vmware-to-azure.md
     - name: Deploy the Mobility service for VMware

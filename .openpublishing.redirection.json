@@ -8154,6 +8154,11 @@
             "redirect_url": "azure-to-azure-tutorial-migrate",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/site-recovery/site-recovery-replicate-azure-to-azure.md",
+            "redirect_url": "azure-to-azure-how-to-enable-replication",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/site-recovery/tutorial-migrate-azure-to-azure.md",
             "redirect_url": "azure-to-azure-tutorial-migrate",
