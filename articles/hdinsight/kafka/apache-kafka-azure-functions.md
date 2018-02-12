@@ -247,3 +247,16 @@ To view information logged by the function while the test runs, select __Logs__ 
 
 To verify that the data arrived in the Kafka topic, use the information in the _Produce and consume records_ section of the [Create a Kafka cluster](apache-kafka-get-started.md#produce-and-consume-records) document. The `kafka-console-consumer` reads data from the topic and displays a list of messages stored in the topic.
 
+## Next steps
+
+Use the following links to learn how to use Apache Kafka on HDInsight:
+
+* [Get started with Kafka on HDInsight](apache-kafka-get-started.md)
+
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](apache-kafka-mirroring.md)
+
+* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+
+* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+
+* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
