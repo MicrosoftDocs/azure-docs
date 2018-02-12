@@ -98,13 +98,14 @@ Then refresh the project dependencies, to get the binaries downloaded.
 ```
 
 #### Otherwise ...
-Follow the guidelines to manually install Application Insights Java SDK, download the jar for appropriate appender and add the downloaded appender jar to the project.
+Follow the guidelines to manually install Application Insights Java SDK, download the jar (Upon Landing to Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
 
 | Logger | Download | Library |
 | --- | --- | --- |
-| Logback |[Logback appender Jar](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/applicationinsights-logging-logback/2.0.0-BETA/applicationinsights-logging-logback-2.0.0-BETA.jar) |applicationinsights-logging-logback |
-| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/applicationinsights-logging-log4j2/2.0.0-BETA/applicationinsights-logging-log4j2-2.0.0-BETA.jar) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/applicationinsights-logging-log4j1_2/2.0.0-BETA/applicationinsights-logging-log4j1_2-2.0.0-BETA.jar) |applicationinsights-logging-log4j1_2 |
+| Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J v1.2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## Add the appender to your logging framework
 To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
