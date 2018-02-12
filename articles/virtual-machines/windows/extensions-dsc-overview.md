@@ -128,7 +128,7 @@ scans it for dependent DSC resources,
 and creates a .zip file containing the configuration and DSC resources
 needed to enact the configuration.
 It can also create the package locally
-using the `-ConfigurationArchivePath` parameter.
+using the `-OutputArchivePath` parameter.
 Otherwise, it publishes the .zip file to Azure blob storage
 and secures it with a SAS token.
 
@@ -211,7 +211,7 @@ Requires a .ps1 file containing a configuration script,
 or a .zip file with a .ps1 configuration script at the root,
 and all dependent resources in module folders within the .zip.
 It can be created with the
-`Publish-AzureVMDscConfiguration -ConfigurationArchivePath`
+`Publish-AzureVMDscConfiguration -OutputArchivePath`
 cmdlet included in the Azure PowerShell SDK.
 The .zip file is uploaded into your user blob storage secured by a SAS token.
 
