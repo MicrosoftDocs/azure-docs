@@ -1,6 +1,6 @@
 ---
-title: Use Kafka on HDInsight with Azure Functions | Microsoft Docs
-description: 'Learn how to use Kafka on HDInsight from an Azure Function app.'
+title: Use Azure Functions to send data to Kafka on HDInsight | Microsoft Docs
+description: 'Learn how to use an Azure Function to write data to Kafka on HDInsight.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -26,46 +26,43 @@ Learn how to create an Azure Function app that sends data to Kafka on HDInsight.
 
 Kafka on HDInsight does not provide an API on the public internet. To publish or consume data from Kafka, you must connect to the Kafka cluster using an Azure Virtual Network. Azure Functions provides a convenient way to create a public endpoint that pushes data into Kafka on HDInsight through a Virtual Network gateway.
 
+> [!NOTE]
+> The focus of this document is on the steps required to enable Azure Functions to communicate with Kafka on HDInsight. The example itself is just a basic Kafka producer to demonstrate that the configuration works.
+
+## Prerequisites
+
+* An Azure Function app. For more information, see the [Create your first function](../../azure-functions/functions-create-first-azure-function.md) documentation.
+
+* An Azure Virtual Network. To work with Azure Functions, the virtual network must use one of the following IP ranges:
+
+    * 10.0.0.0-10.255.255.255
+    * 172.16.0.0-172.31.255.255
+    * 192.168.0.0-192.168.255.255
+
+    For more information, see the the [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) document.
+
+* A Kafka on HDInsight cluster. For information on creating a Kafka on HDInsight cluster, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
+
+    > [!IMPORTANT]
+    > During cluster configuration, you must use the __Advanced settings__ step to select the Azure Virtual Network and subnet that HDInsight uses. Select the virtual network and subnet created in the previous step.
+
+    For more information on Kafka and virtual networks, see the [Connect to Kafka through a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+
 ## Architecture
 
 Kafka on HDInsight is contained in an Azure Virtual Network. Azure Functions can communicate with the virtual network by using a Point-to-Site gateway. The following image is a diagram of this network topology:
 
 ![Architecture of Azure Functions connecting to HDInsight](./media/apache-kafka-azure-functions/kafka-azure-functions.png)
 
-> [!IMPORTANT]
-> When communicating with resources in an Azure Virtual network, Azure Functions can only communicate with the following IP ranges:
->
-> * 10.0.0.0-10.255.255.255
-> * 172.16.0.0-172.31.255.255
-> * 192.168.0.0-192.168.255.255
->
-> Be sure to use one of these ranges for the virtual network that contains HDInsight. For more information, see the [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) document.
+## Configure Kafka
 
-## Create an Azure Function
+The information in this section prepares the Kafka cluster to accept data from the Azure Function. It covers the following configuration actions:
 
-Follow the [Create your first function](../../azure-functions/functions-create-first-azure-function.md) documentation.
+* IP Advertising
+* Gathering Kafka Broker IP addresses
+* Creating a Kafka topic
 
-## Create an Azure Virtual Network
-
-You can either create an Azure Virtual Network on your own, or you can use your Azure Function to create it. For more information, see the [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) document.
-
-
-## Create a Kafka on HDInsight cluster
-
-For information on creating a Kafka on HDInsight cluster, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
-
-> [!IMPORTANT]
-> During cluster configuration, you must use the __Advanced settings__ step to select the Azure Virtual Network and subnet that HDInsight uses. Select the virtual network and subnet created in the previous step.
-
-For more information on Kafka and virtual networks, see the [Connect to Kafka through a virtual network](apache-kafka-connect-vpn-gateway.md) document.
-
-## Create a Kafka topic
-
-Kafka stores data in __topics__. Before sending data to Kafka from an Azure Function, you need to create the function.
-
-To create a function, use the steps in the [Create a Kafka cluster](apache-kafka-get-started.md) document.
-
-## Configure Kafka for IP advertising
+### Configure Kafka for IP advertising
 
 By default, Zookeeper returns the domain name of the Kafka brokers to clients. This configuration does not work without a DNS server, as the client (Azure Functions) cannot resolve names for the virtual network. For this configuration, use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
@@ -113,7 +110,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
-## Get the Kafka broker IP address
+### Get the Kafka broker IP address
 
 Use one of the following methods to retrieve the fully qualified domain name (FQDN) and IP addresses of the nodes in the Kafka cluster:
 
@@ -141,7 +138,13 @@ This command assumes that `<resourcegroupname>` is the name of the Azure resourc
 
 From the list of names returned, select the IP address of a workernode. The internal fully qualified domain name of the node begins with the letters `wn`. This IP address is used by the function to communicate with Kafka.
 
-## Create a function
+### Create a Kafka topic
+
+Kafka stores data in __topics__. Before sending data to Kafka from an Azure Function, you need to create the function.
+
+To create a topic, use the steps in the [Create a Kafka cluster](apache-kafka-get-started.md) document.
+
+## Create a function that sends to Kafka
 
 > [!NOTE]
 > The steps in this section create a JavaScript function that uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to publish data to Kafka:
@@ -240,7 +243,7 @@ To view information logged by the function while the test runs, select __Logs__ 
 
 ![Example of the function log output](./media/apache-kafka-azure-functions/function-log.png)
 
-## Check the topic on Kafka
+## Verify the data is in Kafka
 
 To verify that the data arrived in the Kafka topic, use the information in the _Produce and consume records_ section of the [Create a Kafka cluster](apache-kafka-get-started.md#produce-and-consume-records) document. This uses a `kafka-console-consumer` to read data from the topic. It returns a list of records that are in the topic.
 
