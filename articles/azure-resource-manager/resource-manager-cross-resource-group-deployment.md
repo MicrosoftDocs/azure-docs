@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
 
 ---
@@ -20,6 +20,9 @@ ms.author: tomfitz
 # Deploy Azure resources to more than one subscription or resource group
 
 Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
+
+> [!NOTE]
+> You can deploy to only five resource groups in a single deployment.
 
 ## Specify a subscription and resource group
 
@@ -119,7 +122,7 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-To deploy the example template, use a release of Azure PowerShell or Azure CLI from May 2017 or later.
+To deploy the example template, use Azure PowerShell 4.0.0 or later, or Azure CLI 2.0.0 or later.
 
 ## Use the resourceGroup() function
 

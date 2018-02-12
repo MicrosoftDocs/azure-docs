@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
 
 ---
@@ -373,9 +373,6 @@ Use the following information to install and configure the solution.
 
 After you have agents installed and you install the solution, the Wire Data 2.0 tile appears in your workspace.
 
-> [!NOTE]
-> Currently, you must use the OMS portal to view wire data. You cannot use the Azure portal to view wire data.
-
 ![Wire Data tile](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## Using the Wire Data 2.0 solution
@@ -388,7 +385,7 @@ In the OMS portal, click the **Wire Data 2.0** tile to open the Wire Data dashbo
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
 | Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data dashboard](./media/log-analytics-wire-data/wire-data-dash.png)
 

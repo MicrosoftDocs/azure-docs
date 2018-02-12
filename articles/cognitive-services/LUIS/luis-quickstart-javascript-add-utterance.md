@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: v-geberr
 ---
-# Call a LUIS app using JavaScript
+# Add utterances to a LUIS app using JavaScript
 Programmatically add labeled utterances to your LUIS app and train it. 
 
 For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
@@ -36,7 +36,7 @@ Create `add-utterances.html` and add the following code:
 
 2. Add your LUIS programmatic ID, your LUIS application ID, and change the version if it is not `0.1`
 
-3. Modify the utterances to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
+3. Modify the **array of utterances** to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
     ```json
     // example batch utterances
@@ -61,11 +61,11 @@ Create `add-utterances.html` and add the following code:
     ];
     ```
 
-4. Click the `Upload utterance` button. The LUIS results are displayed below the buttons.
+4. Select the `Upload utterance` button. The LUIS results are displayed below the buttons.
 
-5. Click the `Train model` button to train your application with these new utterances.
+5. Select the `Train model` button to train your application with these new utterances.
 
-6. Click the `Train Status` button to see the training status. 
+6. Select the `Train Status` button to see the training status. 
 
 ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 

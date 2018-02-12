@@ -59,6 +59,7 @@
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+### [Resolving network performance issues](expressroute-troubleshooting-network-performance.md)
 ### [Reset a failed circuit](reset-circuit.md)
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)

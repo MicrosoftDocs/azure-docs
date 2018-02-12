@@ -124,7 +124,7 @@ If you only want to create an image of the OS disk, you can also create an image
 2. Get the VM.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Get the ID of the managed disk.

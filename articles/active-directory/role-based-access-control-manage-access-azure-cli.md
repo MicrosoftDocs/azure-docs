@@ -3,7 +3,7 @@ title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
 description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: rolyon
 manager: mtillman
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/29/2018
+ms.author: rolyon
 ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with the Azure command-line interface
@@ -23,9 +23,14 @@ ms.reviewer: rqureshi
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope. 
 
-Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
+> [!NOTE] 
+> The latest role documentation is now available for [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++> The latest role documentation for [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
 
 * Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 * Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.

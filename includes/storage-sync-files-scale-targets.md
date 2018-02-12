@@ -8,3 +8,4 @@
 | Endpoint size | 4 TiB | No |
 | File system objects (directories and files) per sync group | 6 million objects | No |
 | File size | 100 GiB | No |
+| Minimum file size for a file to be tiered | 64 KiB | Yes |

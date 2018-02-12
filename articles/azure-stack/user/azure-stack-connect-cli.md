@@ -73,7 +73,7 @@ $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
 $sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-$certText = (Get-Content -Path root.pem -Raw).ToString().Replace("`r`n","`n")
+$certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 
 $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
 $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText

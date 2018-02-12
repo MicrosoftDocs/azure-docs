@@ -67,7 +67,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-If you don't have the LUIS app ID, log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. 
+If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Click on **My apps**. 
 
 1. Find the LUIS app you previously created, that contains the intents and entites from the HomeAutomation domain.
 2. In the **Settings** page for the LUIS app, find and copy the app ID.
@@ -233,12 +233,41 @@ bot.dialog('CancelDialog',
 > [!TIP] 
 > You can also find the sample code described in this article in the [HomeAutomation bot sample][IoTBotSample].
 -->
+## Add a default message handler
+
+Remove this line of code.
+
+```javascript
+var bot = new builder.UniversalBot(connector);
+```
+
+Replace it with the following code that creates the bot with a default message handler.
+
+```javascript
+// Create your bot with a function to receive messages from the user
+// This default message handler is invoked if the user's utterance doesn't
+// match any intents handled by other dialogs.
+var bot = new builder.UniversalBot(connector, function (session, args) {
+    session.send('You reached the default message handler. You said \'%s\'.', session.message.text);
+});
+```
 
 ## Add dialogs to handle the HomeAutomation intents
 
-Now that the notes recognizer is set up to point to the LUIS app, you can add code for the dialogs. 
+Find line of code that creates a `LuisRecognizer`. 
 
-First, delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
+```javascript
+// Create a recognizer that gets intents from LUIS
+var recognizer = new builder.LuisRecognizer(LuisModelUrl);
+```
+
+Add this line of code right after it, to add the recognizer to the bot.
+```javascript
+// Add the recognizer to the bot
+bot.recognizer(recognizer); 
+```
+
+Delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
 
 ```javascript
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
@@ -341,7 +370,6 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 > [Add intents](./add-intents.md)
 
 
-[LUIS]: https://www.luis.ai/
 
 [intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
 
@@ -349,7 +377,7 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 [NotesSample]: https://github.com/Microsoft/BotFramework-Samples/tree/master/docs-samples/Node/basics-naturalLanguage
 
-[triggerAction]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
+[triggerAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
 
 [confirmPrompt]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#confirmprompt
 
@@ -359,7 +387,7 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 [EntityRecognizer_findEntity]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.entityrecognizer.html#findentity
 
-[matches]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
+[matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
 
 [LUISAzureDocs]: https://docs.microsoft.com/azure/cognitive-services/LUIS/Home
 
@@ -392,6 +420,5 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS-website]: https://www.luis.ai
 
 

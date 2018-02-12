@@ -130,7 +130,7 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 * The **tags** assigned to the storage account. Tags are often used to categorize resources for billing purposes.
 
-* The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these. 
+* The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard\_ZRS or Premium\_LRS to other SKUs, or change other SKUs to these.
 
 * The **access tier** for Blob storage accounts. The value for access tier is set to **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -220,7 +220,7 @@ Azure Cosmos DB Table API provides premium features for table storage such as tu
 * For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
 * To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
-## Azure's independently-deployed clouds
+## Independent cloud deployments of Azure
 
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." These are the available environments:
 

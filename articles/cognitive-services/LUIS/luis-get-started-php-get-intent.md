@@ -21,7 +21,7 @@ To get an API key follow these steps:
   1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   2. Log in to the Azure portal at https://portal.azure.com. 
   3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to https://www.luis.ai and log in using your Azure account. 
+  4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
 
 ## Understand what LUIS returns
 
@@ -49,4 +49,4 @@ You can use PHP to access the same results you saw in the browser window in the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Add utterances](luis-quickstart-php-add-utterance.md)
