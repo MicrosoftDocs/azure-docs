@@ -62,7 +62,9 @@
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
-  items: 
+  items:
+  - name: Authoring cycle
+    href: luis-concept-app-iteration.md 
   - name: Intents
     href: luis-concept-intent.md
   - name: Entities
@@ -121,6 +123,8 @@
   items: 
   - name: Regions
     href: luis-reference-regions.md
+  - name: Boundaries
+    href: luis-boundaries.md
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
   - name: Prebuilt domain reference
