@@ -37,10 +37,10 @@ enterprise identity.
 You can find samples for each use case in the [samples directory on GitHub].
 
 ## Supported platforms
-The Mobile Apps Node SDK supports the current LTS release of Node and later. Currently, the latest
+The Mobile Apps Node.js SDK supports the current LTS release of Node and later. Currently, the latest
 LTS version is Node v4.5.0. Other versions of Node might work but are not supported.
 
-The Mobile Apps Node SDK supports two database drivers: 
+The Mobile Apps Node.js SDK supports two database drivers: 
 
 * The node-mssql driver supports Azure SQL Database and local SQL Server instances.  
 * The sqlite3 driver supports SQLite databases on a single instance only.
@@ -274,7 +274,7 @@ schema on startup. The `tables.initialize()` method returns a [promise] so that 
 requests before the database is initialized.
 
 ### <a name="howto-sqlexpress-setup"></a>Use SQL Server Express as a development data store on your local machine
-The Mobile Apps Node SDK provides three options for serving data out of the box:
+The Mobile Apps Node.js SDK provides three options for serving data out of the box:
 
 * Use the **memory** driver to provide a non-persistent example store.
 * Use the **mssql** driver to provide a SQL Server Express data store for development.
