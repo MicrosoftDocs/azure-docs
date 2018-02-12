@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Docs'
-description: Join a Windows Server virtual machine to Azure AD Domain Services
+description: Join a Windows Server virtual machine to Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -23,7 +23,7 @@ This article shows how to deploy a Windows Server virtual machine by using the A
 ## Step 1: Create a Windows Server virtual machine
 To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following:
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 2. At the top of the left pane, select **New**.
 3. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 
@@ -41,7 +41,7 @@ To create a Windows virtual machine that's joined to the virtual network in whic
 
     ![The "Choose a size" pane](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
 
-6. In the **Settings** pane, select the virtual network in which your Azure AD Domain Services-managed domain is deployed. Pick a different subnet than the one that your managed domain is deployed into. For the other settings, keep the defaults, and then select **OK**.
+6. In the **Settings** pane, select the virtual network in which your Azure AD DS-managed domain is deployed. Pick a different subnet than the one that your managed domain is deployed into. For the other settings, keep the defaults, and then select **OK**.
 
     ![Virtual network settings for the virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
@@ -71,14 +71,14 @@ To connect to the virtual machine, do the following:
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. To connect to your VM, open the downloaded RDP file. If you are prompted, select **Connect**.
-3. At the logon prompt, enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, 'localhost\mahesh').
+3. At the logon prompt, enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, *localhost\mahesh*).
 4. If you receive a certificate warning during the sign-in process, proceed with the connection by selecting **Yes** or **Continue**.
 
 At this point, you should be logged on to the newly created Windows virtual machine with your local administrator credentials. The next step is to join the virtual machine to the domain.
 
 
-## Step 3: Join the Windows Server virtual machine to the Azure AD Domain Services-managed domain
-To join the Windows Server virtual machine to the Azure AD Domain Services-managed domain, do the following:
+## Step 3: Join the Windows Server virtual machine to the Azure AD DS-managed domain
+To join the Windows Server virtual machine to the Azure AD DS-managed domain, do the following:
 
 1. Connect to the Windows Server VM, as shown in "Step 2." On the **Start** screen, open **Server Manager**.
 2. In the left pane of the **Server Manager** window, select **Local Server**.
@@ -90,7 +90,7 @@ To join the Windows Server virtual machine to the Azure AD Domain Services-manag
 
     ![The System Properties window](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 
-5. In the **Domain** box, specify the name of your Azure AD Domain Services-managed domain, and then select **OK**.
+5. In the **Domain** box, specify the name of your Azure AD DS-managed domain, and then select **OK**.
 
     ![Specify the domain to be joined](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
@@ -100,14 +100,14 @@ To join the Windows Server virtual machine to the Azure AD Domain Services-manag
 
 7. You can specify credentials in either of the following ways:
 
-   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
+   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **SAMAccountName format**: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'.
+   * **SAMAccountName format**: You can specify the account name in the SAMAccountName format. In this example, the user *bob* would need to enter *CONTOSO100\bob*.
 
      > [!TIP]
      > **We recommend using the UPN format to specify credentials.**
      >
-     > If a user's UPN prefix is overly long (for example, 'joehasareallylongname'), the SAMAccountName might be auto-generated. If multiple users have the same UPN prefix (for example, 'bob') in your Azure AD tenant, their SAMAccountName format might be auto-generated by the service. In these cases, the UPN format can be used reliably to log on to the domain.
+     > If a user's UPN prefix is overly long (for example, *joehasareallylongname*), the SAMAccountName might be auto-generated. If multiple users have the same UPN prefix (for example, *bob*) in your Azure AD tenant, their SAMAccountName format might be auto-generated by the service. In these cases, the UPN format can be used reliably to log on to the domain.
      >
 
 8. After you have successfully joined a domain, the following message welcomes you to the domain.
@@ -124,9 +124,9 @@ If the virtual machine is unable to find the domain, try one or more of the foll
 
 * Ensure that the virtual machine is on a virtual network that is in turn connected to the virtual network in which you've enabled Azure AD DS.
 
-* Try to ping the domain by using the domain name of the managed domain (for example, 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain that's displayed on the page where you enabled Azure AD DS (for example, 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS might be incorrectly configured. Check to see whether the IP addresses of the domain are configured as DNS servers for the virtual network.
+* Try to ping the domain by using the domain name of the managed domain (for example, *ping contoso100.com*). If you're unable to do so, try to ping the IP addresses for the domain that's displayed on the page where you enabled Azure AD DS (for example, *ping 10.0.0.4*). If you're able to ping the IP address but not the domain, DNS might be incorrectly configured. Check to see whether the IP addresses of the domain are configured as DNS servers for the virtual network.
 
-* Try flushing the DNS resolver cache on the virtual machine ('ipconfig /flushdns').
+* Try flushing the DNS resolver cache on the virtual machine (*ipconfig /flushdns*).
 
 If a window is displayed that asks for credentials to join the domain, you do not have connectivity issues.
 
@@ -135,14 +135,14 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 * Try using the UPN format to specify credentials. If there are multiple users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the SAMAccountName for your account may be auto-generated. Therefore, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
 
-* Try to use the credentials of a user account that belongs to the 'AAD DC Administrators' group.
+* Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
 
-* Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
+* Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the getting started guide.
 
-* Ensure that you use the UPN of the user as configured in Azure AD (for example, 'bob@domainservicespreview.onmicrosoft.com') to sign in.
+* Ensure that you use the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
 
-* Ensure that you have waited long enough for password synchronization to be completed, as specified in the Getting Started guide.
+* Ensure that you have waited long enough for password synchronization to be completed, as specified in the getting started guide.
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services-managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD DS getting started guide](active-directory-ds-getting-started.md)
+* [Administer an Azure AD DS-managed domain](active-directory-ds-admin-guide-administer-domain.md)
