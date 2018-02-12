@@ -43,7 +43,7 @@ The following table describes the connected sources that are supported by this s
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data is sent to Log Analytics directly by Azure. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data are sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
@@ -59,11 +59,11 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 2. In the Azure portal, click **New** (the + symbol), then in the list of resources, select **Monitoring + Management**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In the **Monitoring + Management** list click **See all**.
-4. In the **Recommended** list, click **More** , and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
+4. In the **Recommended** list, click **More**, and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
     ![Azure SQL Analytics solution](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In the **Azure SQL Analytics (Preview)** blade, click **Create**.  
+5. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-6. In the **Create new solution** blade, select the workspace that you want to add the solution to and then click **Create**.  
+6. In the **Create new solution** area, select the workspace that you want to add the solution to and then click **Create**.  
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,11 +97,11 @@ Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashbo
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, drill down report is opened.
+Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
 ![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Each perspective, provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows perspective specific report on the right. Selecting subscription, server, pool, or database from the list continues the drill down.
+Each perspective provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
 | Perspective | Description |
 | --- | --- |
@@ -130,13 +130,13 @@ Both Elastic Pools and Databases have their own specific reports which show all 
 
 ### Query reports
 
-Through Query duration and query waits perspective, you can correlate the performance of any query through the query report. This report compares the query performance across different databases and makes it easy to pinpoint databases that perform the selected query well versus ones that are slow.
+Through the Query duration and query waits perspectives, you can correlate the performance of any query through the query report. This report compares the query performance across different databases and makes it easy to pinpoint databases that perform the selected query well versus ones that are slow.
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### Analyze data and create alerts
 
-You can easily create alerts with the data coming from Azure SQL Database resources. Here are a couple of useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
+You can easily create alerts with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
