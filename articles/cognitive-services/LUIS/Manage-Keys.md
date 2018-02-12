@@ -20,7 +20,7 @@ A key allows you to publish your LUIS app. LUIS has two different types of keys:
 
 A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one programmatic key across all your LUIS apps. Use the [key limits chart](#key-limits) to understand the purpose and limit of the key. 
 
-To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.ai) and click on the account name in the upper-right navigation bar to open **Account Settings**.
+To find the Programmatic Key, log in to [LUIS][LUIS] and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
 ![Programmatic Key](./media/luis-manage-keys/programatic-key.png)
 
@@ -84,6 +84,4 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](PublishApp.md).
 
- [www.luis.ai]:https://www.luis.ai
- [au.luis.ai]:https://au.luis.ai
- [eu.luis.ai]:https://eu.luis.ai
+[LUIS]: luis-reference-regions.md

@@ -227,6 +227,8 @@
         items:
         - name: .NET samples
           href: sql-api-dotnet-samples.md
+        - name: Java samples
+          href: sql-api-java-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
         - name: Python samples
@@ -357,9 +359,10 @@
     - name: Connect to Spark
       href: spark-connector.md
     - name: Connect to Spark GraphX
-      href: spark-connector-graph.md      
+      href: spark-connector-graph.md
     - name: Streaming with Kafka and Spark on HDInsight
       href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+      maintainContext: true
     - name: Deploy a website with Azure App Service
       href: create-website.md
     - name: Application logging with Logic Apps

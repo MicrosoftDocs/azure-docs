@@ -48,6 +48,8 @@
         href: how-to-vscode-develop-azure-function.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
+  - name: Store data at the edge
+    href: sql-storage.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Concepts
