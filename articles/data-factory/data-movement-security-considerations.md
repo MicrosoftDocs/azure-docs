@@ -55,9 +55,6 @@ In this article, we review security considerations in the following two data mov
 
    You can now choose to store data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), then let Azure Data Factory to retrieve it during execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
-   > [!NOTE]
-   > Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) supports this feature. 
-
 ### Data encryption in transit
 If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
 
