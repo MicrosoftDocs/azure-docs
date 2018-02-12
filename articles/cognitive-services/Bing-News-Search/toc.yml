@@ -28,7 +28,9 @@
   - name: SDK samples overview 
     href: sdk.md
   - name: News search SDK C# quickstart (preview)
-    href: news-search-sdk-quickstart.md  
+    href: news-search-sdk-quickstart.md
+  - name: News search SDK Node.js quickstart (preview)  
+    href: news-search-sdk-node-quickstart.md
 - name: How to
   items:
   - name: Use and display requirements
