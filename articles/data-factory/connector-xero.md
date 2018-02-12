@@ -52,7 +52,7 @@ The following properties are supported for Xero linked service:
 | type | The type property must be set to: **Xero** | Yes |
 | host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
 | consumerKey | The consumer key associated with the Xero application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | The private key from the .pem file that was generated for your Xero private application. Include all the text from the .pem file, including the Unix line endings(\n). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | The private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Include all the text from the .pem file, including the Unix line endings(\n). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -77,6 +77,12 @@ The following properties are supported for Xero linked service:
         }
     }
 }
+```
+
+**Sample private key value:**
+
+```
+"-----BEGIN RSA PRIVATE KEY-----\nMII***************************************************P\nbu****************************************************s\nU/****************************************************B\nA*****************************************************W\njH****************************************************e\nsx*****************************************************l\nq******************************************************X\nh*****************************************************i\nd*****************************************************s\nA*****************************************************dsfb\nN*****************************************************M\np*****************************************************Ly\nK*****************************************************Y=\n-----END RSA PRIVATE KEY-----"
 ```
 
 ## Dataset properties
@@ -104,7 +110,7 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Xero source.
 
-### XeroSource as source
+### Xero as source
 
 To copy data from Xero, set the source type in the copy activity to **XeroSource**. The following properties are supported in the copy activity **source** section:
 

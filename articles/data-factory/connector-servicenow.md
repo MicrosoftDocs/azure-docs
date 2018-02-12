@@ -100,7 +100,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by ServiceNow source.
 
-### ServiceNowSource as source
+### ServiceNow as source
 
 To copy data from ServiceNow, set the source type in the copy activity to **ServiceNowSource**. The following properties are supported in the copy activity **source** section:
 
