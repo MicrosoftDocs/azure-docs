@@ -20,17 +20,7 @@ This article contains answers to frequently asked questions about Language Under
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ## What is the maximum number of intents and entities that a LUIS app can support?
-A LUIS app can support up to 500 intents.
-
-Limits on entities depend on the entity type, as shown in the following table:
-
-| Type | Entity Limit | Entity Child Limit|
-|:------------- |:----- |:--|
-| [Prebuilt entities](./Pre-builtEntities.md) | No limit | N/A|
-| [List entities](./luis-concept-entity-types.md) | 50 | 20,000 items | 
-| [Simple](./luis-concept-entity-types.md)|30|N/A|
-| [Hierarchical](./luis-concept-entity-types.md)|30| 10|
-| [Composite entities](./luis-concept-entity-types.md) | 30|10|
+See the [boundaries](luis-boundaries.md) reference.
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
@@ -47,7 +37,7 @@ When you're deciding which approach to use with multiple LUIS apps, consider the
 * **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
 * **Calling LUIS apps in parallel instead of in series**: To improve responsiveness, you might ordinarily design a system to reduce the number of REST API calls that happen in series. But if you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call the apps in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
-If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
@@ -57,13 +47,13 @@ Composite entities represent parts of a whole. For example, a composite entity n
 
 LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. A list entity can have up to 20,000 items.
 
-If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## What are the limits on the number and size of phrase lists?
-The maximum length of a [phrase list](./luis-concept-feature.md) is 5,000 items. You can use a maximum of 10 phrase lists per LUIS app.
+For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
 
 ## What are the limits on example utterances?
-The maximum length of an utterance is 500 characters. You can have a maximum of 15,000 example utterances in your LUIS app.
+See the [boundaries](luis-boundaries.md) reference.
 
 ## What is the best way to start building my app in LUIS?
 
@@ -125,6 +115,9 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 ## How can I disable the logging of utterances?
 You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of those user utterances from LUIS or use those utterances to improve your app.
 
+## Why don't I want all my endpoint utterances logged?
+You do not want any test utterances captured in your log if you are using your log for prediction analysis. 
+
 ## Can I delete data from LUIS? 
 
 * You can always delete example utterances used for training LUIS. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
@@ -146,7 +139,15 @@ Your programmatic/starter key is only allowed 1000 endpoint queries a month. You
 The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
 
 ## Why are there more subscription keys on my app's publish page than I assigned to the app? 
-Each app has the programmatic/starter key. If your app was created before the GA time frame, you will see all LUIS subscription keys, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS apps will not see all LUIS subscription keys. New apps will only see the programmatic/starter key as well as keys you have intentionally assigned to the app. 
+Each LUIS app has the programmatic/starter key. LUIS subscription keys created during the GA time frame will be visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys will not appear on the publish page. 
+
+## How do I secure my LUIS endpoint? 
+You can control who has access to your LUIS endpoint by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+
+## Where is my LUIS app created during the Azure web app bot subscription process?
+If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
+
+![LUIS template web app bot region](./media/luis-faq/web-app-bot-location.png)
 
 ## Next steps
 
@@ -154,3 +155,4 @@ To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
+[LUIS]:luis-reference-regions.md
