@@ -4,6 +4,8 @@
 
 # Quickstarts
 ## [Create an event hub](event-hubs-create.md)
+
+# How-to guides
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
@@ -43,7 +45,6 @@
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
-# How-to guides
 ## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
