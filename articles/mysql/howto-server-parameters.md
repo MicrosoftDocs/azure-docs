@@ -28,7 +28,7 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements. 
 
 ## Nonconfigurable server parameters
-InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md). 
+InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-pricing-tiers.md). 
 
 | **Pricing tier** | **InnoDB Buffer Pool (MB)** | **Max Connections** |
 | :------------------------ | :-------- | :----------- |

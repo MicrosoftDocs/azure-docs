@@ -14,7 +14,7 @@ ms.date: 01/11/2018
 The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
-Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
+Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-pricing-tiers.md).  
 
 There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
 
@@ -88,5 +88,5 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
 
 ## Next steps
-- [What’s available in each service tier](concepts-service-tiers.md)
+- [What’s available in each service tier](concepts-pricing-tiers.md)
 - [Supported MySQL database versions](concepts-supported-versions.md)

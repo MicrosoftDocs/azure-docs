@@ -15,7 +15,7 @@ ms.date: 12/04/2017
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
 ## Service Tier Maximums
-Azure Database for PostgreSQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
+Azure Database for PostgreSQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-pricing-tiers.md).  
 
 There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
 
@@ -56,6 +56,6 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 2.	Restoring a dropped server is not supported.
 
 ## Next steps
-- Understand [What’s available in each pricing tier](concepts-service-tiers.md)
+- Understand [What’s available in each pricing tier](concepts-pricing-tiers.md)
 - Understand [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
 - Review [How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md)

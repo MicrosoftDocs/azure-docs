@@ -28,7 +28,7 @@ An Azure Database for PostgreSQL server:
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
 
-Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, compute units, and storage (GB). For more information, see [Pricing tiers](./concepts-service-tiers.md).
+Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, compute units, and storage (GB). For more information, see [Pricing tiers](./concepts-pricing-tiers.md).
 
 ## How do I connect and authenticate to an Azure Database for PostgreSQL server?
 The following elements help ensure safe access to your database:
@@ -51,6 +51,6 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 ## Next steps
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md).
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-pricing-tiers.md).
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
