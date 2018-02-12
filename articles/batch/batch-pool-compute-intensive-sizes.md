@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/12/2018
 ms.author: danlep
 
 
@@ -31,9 +31,9 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Subscription and account limits
 
-* **Quotas** - The [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas) may limit the number or type of nodes you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
+* **Quotas** - The [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas) may limit the number or type of nodes you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. Additionally, you must contact customer support to use certain VM families in your Batch account that might have limited capacity: NCv2 and ND.  
 
-If you need to request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+If you need to request a quota increase or to use a restricted VM size, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 
 * **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
