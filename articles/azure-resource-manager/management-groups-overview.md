@@ -21,9 +21,9 @@ ms.author: rithorn
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
-As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.   
+>![NOTE] Management group feature in Public Preview.
 
->![NOTE] Management group feature is being introduced as a Public Preview in February 2018.
+As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.   
 
 Azure Customers can build a flexible structure of management groups and subscriptions to organize their resources into a hierarchy for unified policy and access management. 
 The structure shown is a sample of a management group hierarchy that can exist:
@@ -65,6 +65,17 @@ While any [built-in RBAC role](https://docs.microsoft.com/en-us/azure/active-dir
 - **Reader** can view existing Azure resources.
 
 >![Note] For the public preview, custom RBAC roles are not supported. 
+
+### Assigning RBAC in the public preview 
+Assignment of RBAC roles to management groups is only available via PowerShell/CloudShell, REST API, or CLI.  
+
+The page "[Manage Role-Based Access Control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-powershell)"  provides the full list of PowerShell commands that are available. 
+
+It is important to note the management group scope when doing a policy assignment is shown here.  
+
+```powershell
+/providers/Microsoft.Management/ManagementGroups/<groupID>
+``` 
 
 
 # How-to guide
@@ -210,7 +221,7 @@ Any management group can be deleted from a hierarchy that meets these requiremen
 - You have write permissions on the management group ("Owner" or "Contributor" roles). These permissions can be directly assigned or inherited.  
 
 # [PowerShell](#tab/powershell)
-This command is used to remove a management group from a hierarchy and can only be used if the particular group has no children. If the group does have child items, use "Update-AzureRmManagementGroup" or "Remove-AzureRMManagementGroupSubscription" to remove all children. 
+Delete can only be used if the particular group has no children. If the group does have child items, use "Update-AzureRmManagementGroup" or "Remove-AzureRMManagementGroupSubscription" to remove all children. 
 
 ```powershell
 Remove-AzureRmManagementGroup
@@ -221,7 +232,7 @@ Remove-AzureRmManagementGroup
 - [-GroupName]: Parameter required to identify what group to remove from the hierarchy. 
 
 # [Portal](#tab/portal)
-The ability to delete a management group is available on the detail page of a management group. The delete icon is disabled when you do not have the correct permissions or there are children of the management group. 
+The ability to delete a management group is available on the detail page of a management group. The delete icon shows disabled if you do not have the correct permissions or there are children of the management group. 
 
 ![delete Group](media/management-groups/delete.png)
 
