@@ -73,7 +73,7 @@ Paravirtualized storage devices | Devices exported by paravirtualized drivers ar
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Directories | These directories (if set up as separate partitions/file-systems) must all be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc. </br></br> If / (root) volume is an LVM volume, then /boot must reside on a separate partition on the same disk and not be an LVM volume.<br/><br/>
-XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of Mobility service and later. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
+XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from version 9.10 of Mobility Service and later. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
 
 
@@ -195,7 +195,7 @@ Move vault across resource groups<br/><br/> Within and across subscriptions | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No 
 
 
-## Mobility service
+## Mobility Service
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
