@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
 ---
 
@@ -224,13 +224,22 @@ In C# and C# script, access the blob data by using a method parameter such as `T
 
 As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
 
-If text blobs are expected, you can bind to the `string` type. This is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type.
+If text blobs are expected, you can bind to the `string` type. This is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
 
 In JavaScript, access the input blob data using `context.bindings.<name>`.
 
 ## Trigger - blob name patterns
 
-You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns).
+You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns). The following sections provide examples.
+
+### Get file name and extension
+
+The following example shows how to bind to the blob file name and extension separately:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+If the blob is named *original-Blob1.txt*, the value of the `blobname` and `blobextension` variables in function code are *original-Blob1* and *txt*.
 
 ### Filter on blob name
 
@@ -259,15 +268,6 @@ To look for curly braces in file names, escape the braces by using two braces. T
 ```
 
 If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in the function code is *soundfile.mp3*. 
-
-### Get file name and extension
-
-The following example shows how to bind to the blob file name and extension separately:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-If the blob is named *original-Blob1.txt*, the value of the `blobname` and `blobextension` variables in function code are *original-Blob1* and *txt*.
 
 ## Trigger - metadata
 
@@ -306,6 +306,12 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 * ContainerName
 * BlobName
 * ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+## Trigger - concurrency and memory usage
+
+The blob trigger uses a queue internally, so the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-host-json.md#queues). The default settings limit concurrency to 24 invocations. This limit applies separately to each function that uses a blob trigger.
+
+[The consumption plan](functions-scale.md#how-the-consumption-plan-works) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. JavaScript functions load the entire blob into memory, and in C# functions do that if you bind to `string`.
 
 ## Trigger - polling for large containers
 
