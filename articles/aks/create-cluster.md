@@ -1,22 +1,20 @@
 ---
 title: Create an Azure Container Service (AKS) cluster
-description: Create and AKS cluster with the CLI or Azure portal.
+description: Create an AKS cluster with the CLI or the Azure portal.
 services: container-service
 author: neilpeterson
 manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Create an Azure Container Service (AKS) cluster
 
-An Azure Container Service (AKS) cluster can be created with either the Azure CLI or Azure portal. This document shows how to create using the Azure CLI including a description of all deployment options.
-
-For instruction on deploying an AKS cluster with the Azure portal, see the Azure Container Service (AKS) [Azure portal quickstart][aks-portal-quickstart]. 
+An Azure Container Service (AKS) cluster can be created with either the Azure CLI or the Azure portal.
 
 ## Azure CLI
 
@@ -44,6 +42,10 @@ The following options are available with the `az aks create` command.
 | `--service-principal` | Service principal used for cluster authentication. | no |
 | `--ssh-key-value` | SSH key file value or key file path.  Default: ~/.ssh/id_rsa.pub. | no |
 | `--tags` | Space separated tags in 'key[=value]' format. Use '' to clear existing tags. | no |
+
+## Azure portal
+
+For instruction on deploying an AKS cluster with the Azure portal, see the Azure Container Service (AKS) [Azure portal quickstart][aks-portal-quickstart]. 
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
