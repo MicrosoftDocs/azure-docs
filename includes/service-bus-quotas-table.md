@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 02/12/2018
+ms.author: sethm
+ms.custom: "include file"
+
+---
+
 The following table lists quota information specific to Service Bus messaging. For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
 
 | Quota Name | Scope | Type | Behavior when exceeded | Value |
