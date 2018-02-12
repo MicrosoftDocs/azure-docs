@@ -23,7 +23,7 @@ ms.author: pullabhk;markgal;adigan
 
 This article describes solutions for issues that you might encounter while using Data Protection Manager.
 
-For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in this [matrix](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
 ## Error: Replica is inconsistent
@@ -68,29 +68,29 @@ To resolve this issue, perform the following actions:
 
 ## Error: Server not registered as specified in vault credential file
 
-This error occurs during the recovery process for Data Protection Manager / Azure Backup server data. The vault credential file that's used in the recovery process doesn't belong to the Recovery Services vault for the Data Protection Manager / Azure Backup server.
+This error occurs during the recovery process for Data Protection Manager/Azure Backup server data. The vault credential file that's used in the recovery process doesn't belong to the Recovery Services vault for the Data Protection Manager/Azure Backup server.
 
 To resolve this issue, perform these steps:
-1. Download the vault credential file from the Recovery Services vault to which the Data Protection Manager / Azure Backup server is registered.
+1. Download the vault credential file from the Recovery Services vault to which the Data Protection Manager/Azure Backup server is registered.
 2. Try to register the server with the vault by using the most recently downloaded vault credential file.
 
 ## Error: No recoverable data or selected server not a Data Protection Manager server
 
 This error occurs for the following reasons:
-- No other Data Protection Manager / Azure Backup servers are registered to the Recovery Services vault.
+- No other Data Protection Manager/Azure Backup servers are registered to the Recovery Services vault.
 - The servers haven't yet uploaded the metadata.
-- The selected server isn't a Data Protection Manager / Azure Backup server.
+- The selected server isn't a Data Protection Manager/Azure Backup server.
 
-When other Data Protection Manager / Azure Backup servers are registered to the Recovery Services vault, perform these steps to resolve the issue:
+When other Data Protection Manager/Azure Backup servers are registered to the Recovery Services vault, perform these steps to resolve the issue:
 1. Ensure that the latest Azure Backup agent is installed.
 2. After you ensure that the latest agent is installed, wait one day before you start the recovery process. The nightly backup job uploads the metadata for all of the protected backups to the cloud. The backup data is then available for recovery.
 
 ## Error: Provided encryption passphrase doesn't match passphrase for server
 
-This error occurs during the encryption process when recovering Data Protection Manager / Azure Backup server data. The encryption passphrase that's used in the recovery process doesn't match the server's encryption passphrase. As a result, the agent can't decrypt the data and the recovery fails.
+This error occurs during the encryption process when recovering Data Protection Manager/Azure Backup server data. The encryption passphrase that's used in the recovery process doesn't match the server's encryption passphrase. As a result, the agent can't decrypt the data and the recovery fails.
 
 > [!IMPORTANT]
 > If you forget or lose the encryption passphrase, there are no other methods for recovering the data. The only option is to regenerate the passphrase. Use the new passphrase to encrypt future backup data.
 >
-> When recovering data, always provide the same encryption passphrase that's associated with the Data Protection Manager / Azure Backup server. 
+> When you're recovering data, always provide the same encryption passphrase that's associated with the Data Protection Manager/Azure Backup server. 
 >
