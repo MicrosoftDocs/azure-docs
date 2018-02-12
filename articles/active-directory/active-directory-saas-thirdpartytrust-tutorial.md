@@ -104,9 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ThirdPartyTrust Domain and URLs single sign-on information](./media/active-directory-saas-thirdpartytrust-tutorial/tutorial_thirdpartytrust_url.png)
 
-    a. In the **Identifier** textbox, type a URL: `https://api.thirdpartytrust.com/sai3/saml/metadata`
-
-	b. In the **Reply URL** textbox, type a URL: `https://api.thirdpartytrust.com/sai3/saml/acs`
+    In the **Identifier** textbox, type a URL: `https://api.thirdpartytrust.com/sai3/saml/metadata`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
