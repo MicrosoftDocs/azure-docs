@@ -1,4 +1,5 @@
 - name: Bing Entities Search Documentation
+  href: index.yml
   name: Overview
   items:
     - name: Search the web for entities and places
