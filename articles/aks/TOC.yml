@@ -37,6 +37,8 @@
   items:
   - name: Cluster operations
     items:
+    - name: Create an AKS cluster
+      href: create-cluster.md
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
