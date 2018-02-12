@@ -27,7 +27,7 @@ Using the health page on your Azure portal, you are able to keep up-to-date on w
 
 1. Navigate to the Azure AD Domain Services page in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)
 2. Click on the domain you want to view the health of.
-3. In the left-hand navigation, click "Health".
+3. In the left-hand navigation pane, click **Health**.
 
 The following picture is an example health page.
 
@@ -59,8 +59,8 @@ This monitors whether regular backups of your managed domain are being performed
 
 | Detail value | Explanation |
 | --- | --- |
-|"Never backed up" | This state is normal for a newly created managed domain. The first backup is usually created after 24 hours. If your managed domain is not newly created or you see this state for an abnormal amount of time, [contact support](active-directory-ds-contact-us.md). |
-| Last backup was taken 1 to 14 days ago | In general, this is the expected value of the backup monitor. |
+|"Never backed up" | This state is normal for a newly created managed domain. Generally, the first backup is created 24 hours after your managed domain is provisioned. If your managed domain is not newly created or you see this state for an abnormal amount of time, [contact support](active-directory-ds-contact-us.md). |
+| Last backup was taken 1 to 14 days ago | In general, this value is expected for the backup monitor. |
 | Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. Active critical alerts may prevent your managed domain from being backed up on a regular basis. First, resolve any active alerts for your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
 
 
@@ -74,7 +74,7 @@ Alerts are generated for issues on your managed domain that need to be addressed
 Alerts are categorized into three different levels of severity: critical, warning, and informational.
 
  * **Critical alerts** are issues that severely impact your managed domain. These alerts should be addressed immediately, as Microsoft cannot monitor, manage, patch, and synchronize your managed domain.
- * **Warning alerts** can be issues that may impact your domain in the future, but are not necessarily "breaking" your service. These alerts outline best practices and give suggestions to protect your managed domain.
+ * **Warning alerts** can be issues that may impact your domain in the future, but are not necessarily "breaking" your service. These alerts offer recommendations to secure your managed domain.
  * **Informational alerts** are notifications that are not negatively impacting your domain. Informational alerts are designed to keep you knowledgeable about what is happening in your domain and Azure AD Domain Services.
 
 ## Next steps
