@@ -1,5 +1,5 @@
 ---
-title: Understand LUIS iterative app design | Microsoft Docs
+title: Understand LUIS iterative app design -Azure | Microsoft Docs
 description: LUIS apps require design iterations to train LUIS to get the best data extraction.
 services: cognitive-services
 author: v-geberr
