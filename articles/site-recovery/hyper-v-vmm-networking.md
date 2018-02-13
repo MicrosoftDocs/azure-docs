@@ -12,36 +12,39 @@ ms.author: rayne
 ---
 # Set up IP addressing to connect to a secondary on-premises site after failover
 
-In order to continue working after failover of Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds, you need to connect to the replica VMs in the secondary on-premises site. This article helps you to understand how to do this. 
+After you fail over Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds to a secondary site, you need to be able connect to the replica VMs. This article helps you to do this. 
 
-When planning your replication and failover strategy between VMM sites, you have a couple of choices: 
+## Connection options
 
-- **Retain the same IP address after failover**: In this scenario the replicated VM at the secondary site has the same IP address as the primary VM. This simplifies recovery by reducing network related issues after failover, but requires some planning.
-- **Use a different IP address after failover**: In this scenario the VM gets a new IP address after failover. This will introduce some networking 
+After failover, there are a couple of ways to handle IP addressing for replica VMs: 
+
+- **Retain the same IP address after failover**: In this scenario, the replicated VM has the same IP address as the primary VM. This simplifies network related issues after failover, but requires some infrastructure work.
+- **Use a different IP address after failover**: In this scenario the VM gets a new IP address after failover. 
  
 
 ## Retain the IP address
 
-If you want to retain the IP addresses from the primary site after failover to the secondary site, you can:
+If you want to retain the IP addresses from the primary site, after failover to the secondary site, you can:
 
 - Deploy a stretched subnet between the primary and the secondary sites.
-- Do a full subnet failover from primary to secondary, and update routes to indicate the new location of the IP addresses.
+- Perform a full subnet failover from the primary to secondary site. You need to update routes to indicate the new location of the IP addresses.
 
 
 ### Deploy a stretched subnet
 
-In a stretched configuration, the subnet is available simultaneously in both the primary and secondary sites. When you move a machine and its IP (Layer 3) address configuration to the secondary site, the network automatically routes the traffic to the new location. 
+In a stretched configuration, the subnet is available simultaneously in both the primary and secondary sites. In a stretched subnet, when you move a machine and its IP (Layer 3) address configuration to the secondary site, the network automatically routes the traffic to the new location. 
 
 - From a Layer 2 (data link layer) perspective, you need networking equipment that can manage a stretched VLAN.
-- By stretching the VLAN, the potential fault domain extends to both sites. This becomes a single point of failure. While unlikely, you might not be able to isolate an incident such as a broadcast storm. 
+- By stretching the VLAN, the potential fault domain extends to both sites. This becomes a single point of failure. While unlikely, in such a scenario you might not be able to isolate an incident such as a broadcast storm. 
 
 
 ### Fail over a subnet
 
-You can run a subnet failover to obtain the benefits of the stretched subnet, without actually stretching it. In this solution, a subnet will be available in the source or target site, but not in both simultaneously.
+You can fail over the entire subnet to obtain the benefits of the stretched subnet, without actually stretching it. In this solution, a subnet is available in the source or target site, but not in both simultaneously.
 
 - To maintain the IP address space in the event of a failover, you can programmatically arrange for the router infrastructure to move subnets from one site to another.
-- When a failover occurs, subnets move with their associated VMs. The main drawback of this approach is that in the event of a failure, you have to move the entire subnet.
+- When a failover occurs, subnets move with their associated VMs.
+- The main drawback of this approach is that in the event of a failure, you have to move the entire subnet.
 
 #### Example
 
@@ -51,7 +54,7 @@ Here's an example of complete subnet failover.
 - During failover, all of the VMs in this subnet are failed over to the secondary site, and retain their IP addresses. 
 - Routes between all sites need to be modified to reflect the fact that all the VMs in subnet 192.168.1.0/24 have now moved to the secondary site.
 
-The following graphics show the subnets before and after failover:
+The following graphics illustrate the subnets before and after failover.
 
 
 **Before failover**
@@ -62,15 +65,15 @@ The following graphics show the subnets before and after failover:
 
 ![After failover](./media/vmm-to-vmm-walkthrough-network/network-design3.png)
 
-After failover, Site Recovery allocates an IP address for each network interface on the VM. The address is allocated from the static IP address pool in the relevant network, for each VMM instance.
+After failover, Site Recovery allocates an IP address for each network interface on the VM. The address is allocated from the static IP address pool in the relevant network, for each VM instance.
 
-- If the IP address pool in the secondary site is the same as that on the source site, Site Recovery allocates the same IP address (of the source VM) to the replica VM.The IP address is reserved in VMM, but it isn't set as the failover IP address on the Hyper-V host. The failover IP address on a Hyper-v host is set just before the failover.
+- If the IP address pool in the secondary site is the same as that on the source site, Site Recovery allocates the same IP address (of the source VM), to the replica VM. The IP address is reserved in VMM, but it isn't set as the failover IP address on the Hyper-V host. The failover IP address on a Hyper-v host is set just before the failover.
 - If the same IP address isn't available, Site Recovery allocates another available IP address from the pool.
-- If VMs use DHCP, Site Recovery doesn't manage the IP addresses. You need to check that the DHCP server on the secondary site can allocate address from the same range as the source site.
+- If VMs use DHCP, Site Recovery doesn't manage the IP addresses. You need to check that the DHCP server on the secondary site can allocate addresses from the same range as the source site.
 
 ### Validate the IP address
 
-After you enable protection for a VM, you can use following sample script to verify the address assigned to the VM. The same IP address will be set as the failover IP address, and assigned to the VM at the time of failover:
+After you enable protection for a VM, you can use following sample script to verify the address assigned to the VM. This IP address is set as the failover IP address, and assigned to the VM at the time of failover:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -81,10 +84,10 @@ After you enable protection for a VM, you can use following sample script to ver
 
 ## Use a different IP address
 
-In this scenario, the IP addresses of VMs that fail over are changed. The drawback of this solution is the maintenance required. Typically, DNS is updated after thereplica VMs start. DNS entries, and cache entries, might need to be updated. This can result in downtime, which can be mitigated as follows:
+In this scenario, the IP addresses of VMs that fail over are changed. The drawback of this solution is the maintenance required.  DNS and cache entries might need to be updated. This can result in downtime, which can be mitigated as follows:
 
 - Use low TTL values for intranet applications.
-- Use the following script in a Site Recovery recovery plan, to update the DNS server to ensure a timely update. You don't need the script if you use dynamic DNS registration.
+- Use the following script in a Site Recovery recovery plan, for a timely update of the DNS server. You don't need the script if you use dynamic DNS registration.
 
     ```
     param(
@@ -118,5 +121,7 @@ In this example we have different IP addresses across primary and secondary site
 ![Different IP address - after failover](./media/vmm-to-vmm-walkthrough-network/network-design11.png)
 
 
+## Next steps
 
+[Run a failover](hyper-v-vmm-failover-failback.md)
 
