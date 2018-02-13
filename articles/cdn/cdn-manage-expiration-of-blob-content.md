@@ -37,21 +37,23 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
  
 
 ## Setting Cache-Control headers by using caching rules
-You can use caching rules in the Azure portal to set a blob's `Cache-Control` header. For more information, see [CDN caching rules](cdn-caching-rules.md).
+The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
-To update Cache-Control headers using caching rules:
-1. Open the Azure portal, select a CDN profile, then select an endpoint.
+**To set a blob's Cache-Control headers by using global caching rules:**
 
-2. In the left pane under Settings, click **Caching rules**.
+1. In the Azure portal, select a CDN profile, then select the endpoint for the blob.
 
-   ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+2. In the left pane under Settings, select **Caching rules**.
 
-3. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings**.
+   ![CDN caching rules button](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
 
-4. Set **Caching behavior** to **Override**.
-       
+3. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
+      
 5. For **Cache expiration duration**, enter 3600 in the **Seconds** field. 
 
+   ![CDN global caching rules example](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
+
+6. Select **Save**.
 
 ## Setting Cache-Control headers by using Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
@@ -121,7 +123,7 @@ With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage
 To update the *CacheControl* property of a blob with Azure Storage Explorer:
    1. Select a blob, then select **Properties** from the context menu. 
    2. Scroll down to the *CacheControl* property.
-   3. Enter a value, then click **Save**.
+   3. Enter a value, then select **Save**.
 
 
 ![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
