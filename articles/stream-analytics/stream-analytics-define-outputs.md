@@ -164,12 +164,12 @@ The table below lists the property names and their description for creating a bl
 
 When using blob storage as output, a new file is created in the blob in the following cases:
 
-* If the file exceeds the maximum number of allowed blocks (Note that the maximum allowed number of blocks might be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.)
-•	If there is a schema change in the output, and the output format requires fixed schema (CSV and Avro). 
-•	If a job is restarted either externally or internal restart of a job.
-•	If the query is fully partitioned, new file is created for each output partition. 
-•	If a file or a container of the storage account is deleted by the user.
-•	If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
+* If the file exceeds the maximum number of allowed blocks (Note that the maximum allowed number of blocks might be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.)  
+* If there is a schema change in the output, and the output format requires fixed schema (CSV and Avro).  
+* If a job is restarted either externally or internal restart of a job.  
+* If the query is fully partitioned, new file is created for each output partition.  
+* If a file or a container of the storage account is deleted by the user.  
+* If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
 
 ## Event Hub
 [Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an Event Hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
