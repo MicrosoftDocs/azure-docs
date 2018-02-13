@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: raynew
 
 ---
@@ -22,7 +22,7 @@ This article describes how to fail over a Hyper-V VM managed in a System Center 
 > * Reprotect from the secondary site to the primary, and fail back
 > * Optionally start replicating from primary to secondary again
 
-## Overview
+## Failover and failback
 
 Failover and failback has three stages:
 
@@ -31,14 +31,14 @@ Failover and failback has three stages:
 3. After the planned failover, optionally start replicating from the primary site to the secondary again.
 
 
-## Fail over to a secondary site
+## Prerequisites
 
-### Failover prerequisites
+- Make sure you've completed a [disaster recovery drill](hyper-v-vmm-test-failover.md) to check that everything's working as expected.
+- To complete failback, make sure that the primary and secondary VMM servers are connected to Site Recovery.
 
-Make sure you've completed a [disaster recovery drill](tutorial-dr-drill-secondary.md) to check that everything's working as expected.
 
 
-### Run a failover from primary to secondary
+## Run a failover from primary to secondary
 
 You can run a regular or planned failover for Hyper-V VMs.
 
@@ -62,14 +62,7 @@ This procedure describes how to run a regular failover.
 > **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
 
 
-## Reprotect and fail back from secondary to primary
-
-### Prerequisites for failback
-
-To complete failback, make sure that the primary and secondary VMM servers are connected to Site Recovery.
-
-
-### Reprotect and fail back
+## Reprotect and fail back
 
 Start replicating from the secondary site to the primary, and fail back to the primary site. After VMs are running in the primary site again, you can replicate them to the secondary site again.  
 

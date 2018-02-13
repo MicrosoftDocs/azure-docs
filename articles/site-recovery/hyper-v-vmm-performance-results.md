@@ -1,6 +1,6 @@
 ---
-title: Test results for Hyper-V replication between sites with Azure Site Recovery | Microsoft Docs
-description: This article provides information about performance testing for on-premises to on-premises replication of Hyper-V VMs using Azure Site Recovery.
+title: Test results for Hyper-V replication between VMM sites with Azure Site Recovery | Microsoft Docs
+description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,33 +10,35 @@ ms.date: 02/07/2018
 ms.author: raynew
 
 ---
-# Test results for on-premises to on-premises Hyper-V replication with Site Recovery
+# Test results for Hyper-V replication to a secondary site
 
-You can use Microsoft Azure Site Recovery to orchestrate and manage replication of virtual machines and physical servers to Azure, or to a secondary datacenter. This article provides the results of performance testing we did when replicating Hyper-V virtual machines between two on-premises datacenters.
+This article provides the results of performance testing when replicating Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds, to a secondary datacenter.
 
 ## Test goals
 
-The goal of testing was to examine how Azure Site Recovery performs during steady state replication. Steady state replication occurs when virtual machines have completed initial replication and are synchronizing delta changes. It’s important to measure performance using steady state because it’s the state in which most virtual machines remain unless unexpected outages occur.
+The goal of testing was to examine how Site Recovery performs during steady state replication.
 
-The test deployment consisted of two on-premises sites with a VMM server in each site. This test deployment is typical of a head office/branch office deployment, with head office acting as the primary site and the branch office as the secondary or recovery site.
+- Steady state replication occurs when VMs have completed initial replication and are synchronizing delta changes.
+- It’s important to measure performance using steady state, because it’s the state in which most VMs remain unless unexpected outages occur.
+- The test deployment consisted of two on-premises sites, with a VMM server in each site. This test deployment is typical of a head office/branch office deployment, with head office acting as the primary site, and the branch office as the secondary or recovery site.
 
 ## What we did
 
 Here's what we did in the test pass:
 
-1. Created virtual machines using VMM templates.
-2. Started virtual machines and capture baseline performance metrics over 12 hours.
-3. Created clouds on primary and recovery VMM servers.
-4. Configured cloud protection in Azure Site Recovery, including mapping of source and recovery clouds.
-5. Enabled protection for virtual machines and allow them to complete initial replication.
+1. Created VMss using VMM templates.
+2. Started VMs, and captured baseline performance metrics over 12 hours.
+3. Created clouds on the primary and recovery VMM servers.
+4. Configured replication in Site Recovery, including mapping between source and recovery clouds.
+5. Enabled protection for VMs, and allowed them to complete initial replication.
 6. Waited a couple of hours for system stabilization.
-7. Captured performance metrics over 12 hours, ensuring that all virtual machines remained in an expected replication state for those 12 hours.
-8. Measure the delta between the baseline performance metrics and the replication performance metrics.
+7. Captured performance metrics over 12 hours, where all VMs remained in an expected replication state for those 12 hours.
+8. Measured the delta between the baseline performance metrics, and the replication performance metrics.
 
 
 ## Primary server performance
 
-* Hyper-V Replica asynchronously tracks changes to a log file with minimum storage overhead on the primary server.
+* Hyper-V Replica (used by Site Recovery) asynchronously tracks changes to a log file, with minimum storage overhead on the primary server.
 * Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
 * The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5% which is quite low.
 
@@ -50,7 +52,7 @@ Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication ove
 
 ![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
-## Secondary (recovery) server performance
+## Secondary server performance
 
 Hyper-V Replica uses a small amount of memory on the recovery server to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication compared to the total installed memory on the Hyper-V server.
 
@@ -85,17 +87,17 @@ The following graph shows the throughput of virtual machines running different w
 
 ## Conclusion
 
-The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica, scales well with minimum overhead for a large cluster.  Azure Site Recovery provides simple deployment, replication, management and monitoring. Hyper-V Replica provides the necessary infrastructure for successful replication scaling. For planning an optimum deployment we suggest you download the [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
+The results clearly show that Site Recovery, coupled with Hyper-V Replica, scales well with minimum overhead for a large cluster. Site Recovery provides simple deployment, replication, management and monitoring. Hyper-V Replica provides the necessary infrastructure for successful replication scaling. 
 
 ## Test environment details
 
 ### Primary site
 
-* The primary site has a cluster containing five Hyper-V servers running 470 virtual machines.
-* The virtual machines run different workloads, and all have Azure Site Recovery protection enabled.
+* The primary site has a cluster containing five Hyper-V servers, running 470 virtual machines.
+* The VMs run different workloads, and all have Site Recovery protection enabled.
 * Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
 * Each cluster server has four network cards (NICs) of one Gbps each.
-* Two of the network cards are connected to an iSCSI private network and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
+* Two of the network cards are connected to an iSCSI private network, and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
 
 ![Primary hardware requirements](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
@@ -104,7 +106,7 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 | Hyper-V servers in cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
-### Secondary (recovery) site
+### Secondary site
 
 * The secondary site has a six-node failover cluster.
 * Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
@@ -134,9 +136,9 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 
 ### VM configuration
 
-* 470 virtual machines on the primary cluster.
-* All virtual machines with VHDX disk.
-* Virtual machines running workloads summarized in the table. All were created with VMM templates.
+* 470 VMs on the primary cluster.
+* All VMs with VHDX disk.
+* VMs running workloads summarized in the table. All were created with VMM templates.
 
 | Workload | # VMs | Minimum RAM (GB) | Maximum RAM (GB) | Logical disk size (GB) per VM | Maximum IOPS |
 | --- | --- | --- | --- | --- | --- |
@@ -149,10 +151,10 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 
 ### Site Recovery settings
 
-* Azure Site Recovery was configured for on-premises to on-premises protection
-* The VMM server has four clouds configured, containing the Hyper-V cluster servers and their virtual machines.
+* Site Recovery was configured for on-premises to on-premises protection
+* The VMM server has four clouds configured, containing the Hyper-V cluster servers and their VMs.
 
-| Primary VMM cloud | Protected virtual machines in the cloud | Replication frequency | Additional recovery points |
+| Primary VMM cloud | Protected VMs | Replication frequency | Additional recovery points |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15 mins |None |
 | PrimaryCloudRpo30s |47 |30 secs |None |
@@ -175,4 +177,4 @@ The table summarizes the performance metrics and counters that were measured in 
 
 ## Next steps
 
-[Set up replication between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
+[Set up replication](hyper-v-to-vmm-walkthrough.md)

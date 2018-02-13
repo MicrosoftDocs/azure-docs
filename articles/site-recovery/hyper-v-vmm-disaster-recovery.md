@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: raynew
 
 ---
@@ -14,7 +14,7 @@ ms.author: raynew
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
-This tutorial shows you how to set up disaster recovery to a secondary site, for on-premises Hyper-V VMs managed in System Center Virtual Machine Manager (VMM) clouds. In this tutorial, you learn how to:
+This article shows you how to set up disaster recovery to a secondary site, for on-premises Hyper-V VMs managed in System Center Virtual Machine Manager (VMM) clouds. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare on-premises VMM servers and Hyper-V hosts
@@ -26,7 +26,7 @@ This tutorial shows you how to set up disaster recovery to a secondary site, for
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this scenario:
 
 - Review the [scenario architecture and components](concepts-hyper-v-to-secondary-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
@@ -151,4 +151,4 @@ You can track progress of the **Enable Protection** action in **Jobs** > **Site 
 
 ## Next steps
 
-[Run a disaster recovery drill](tutorial-dr-drill-secondary.md)
+[Run a disaster recovery drill](hyper-v-to-vmm-test-failover.md)

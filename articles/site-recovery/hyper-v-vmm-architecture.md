@@ -4,7 +4,7 @@ description: This article provides an overview of the architecture for replicati
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 02/12/2018
 ms.author: raynew
 ---
 
@@ -53,4 +53,4 @@ The following table and graphic provide a high-level view of the components used
 ## Next steps
 
 
-Follow [this tutorial](tutorial-vmm-to-vmm.md) to enable Hyper-V replication between VMM clouds.
+Follow [this tutorial](hyper-v-vmm-walkthrough.md) to enable Hyper-V replication between VMM clouds.
