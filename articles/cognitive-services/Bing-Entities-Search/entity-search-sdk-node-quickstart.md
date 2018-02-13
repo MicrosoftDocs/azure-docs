@@ -21,7 +21,7 @@ The Bing Entity Search SDK contains the functionality of the REST API for entity
 To set up a console application using the Bing Entity Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.
 
 ## Entity Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
