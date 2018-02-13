@@ -25,7 +25,7 @@ ms.author: larryfr
 
 Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure HDInsight cluster.
 
-# Prerequisites
+## Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
