@@ -4,7 +4,7 @@ description: Create and manage Azure Database for MySQL firewall rules using the
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
@@ -33,7 +33,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
    ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
-5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
+5. Allow access to Azure Services by clicking **ON** and click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
 
    ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
