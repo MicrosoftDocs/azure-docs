@@ -23,7 +23,7 @@ When you delete a virtual machine in Azure, the NICs attached to it are not dele
 
 ## Find and delete unattached NICs
 
-The following script shows you how to find unattached NICs by using the *virtualMachine* property. It loops through all the NICs in a subscription and checks if the *virtualMachine* property is null to find unattached NICs. *virtualMachine* property stores the MAC address of the interface when it's attached to a VM.
+The following script shows you how to find unattached NICs by using the *virtualMachine* property. It loops through all the NICs in a subscription and checks if the *virtualMachine* property is null to find unattached NICs. *virtualMachine* property stores the id and the resource group of the virtual machine the NIC is attached to.
 
 We highly recommend you to first run the script by setting the *deleteUnattachedNics* variable to 0 to view all the unattached NICs. After reviewing the unattached NICs, run the script by setting *deleteUnattachedNics* to 1 to delete all the unattached NICs.
 
