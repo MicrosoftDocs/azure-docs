@@ -30,7 +30,7 @@ This article shows you how to connect classic VNets to Resource Manager VNets to
 
 Connecting a classic VNet to a Resource Manager VNet is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. 
 
-If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
+If you do not already have a virtual network gateway and do not want to create one, you may want to instead consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Before you begin
 
@@ -195,16 +195,16 @@ In this section, you replace the placeholder IP address that you used when speci
 2. On the page for your virtual network, click **Overview**.
 3. In the **VPN connections** section, click the name of your local site in the graphic.
 
-	![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
 4. On the **Site-to-site VPN connections** page, click the name of the site.
 
-	![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
+  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
 5. On the connection page for your local site, click the name of the local site to open the **Local site** page.
 
-	![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
+  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
 6. On the **Local site** page, replace the **VPN gateway IP address** with the IP address of the Resource Manager gateway.
 
-	![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
+  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
 7. Click **OK** to update the IP address.
 
 ## <a name="RMtoclassic"></a>Section 4 - Create Resource Manager to classic connection
@@ -246,13 +246,13 @@ Specify the subscription that you want to use (if you have more than one subscri
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-You need to also use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:
+Next, log in to use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:
 
 ```powershell
 Add-AzureAccount
 ```
 
-Get a list of your subscriptions. This step is necessary when adding the Service Management cmdlets.
+Get a list of your subscriptions. This step may be necessary when adding the Service Management cmdlets, depending on your Azure module install.
 
 ```powershell
 Get-AzureSubscription
