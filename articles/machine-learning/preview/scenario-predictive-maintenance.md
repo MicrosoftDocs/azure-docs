@@ -21,8 +21,8 @@ This scenario explores a relatively [large-scale simulated data set](https://git
 
 ## Link to the Gallery GitHub repository
 
-Following is the link to the public GitHub repository: 
-[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Following is the link to the public GitHub repository for issue reports and contributions:
+    [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## Use case overview
@@ -39,7 +39,7 @@ The business problem for this simulated data is to predict issues caused by comp
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quickstart installation guide](./quickstart-installation.md) to install the program and create a workspace.
 * Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
-This example can be run on any AML Workbench compute context. However, it is recommended to run it with at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+This example can run on any AML Workbench compute context. However, it is recommended to run it with at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model operationalization was done using version 0.1.0a22 of Azure ML CLI.
 
@@ -49,8 +49,8 @@ Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench
 2.	On the **Projects** page, click the **+** sign and select **New Project**
 3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Predictive Maintenance" and select the template
-5.	Click **Create**
+4.	In the **Search Project Templates** search box, type "Predictive Maintenance" and select the **Predictive Maintenance** template
+5.	Click the **Create** button
 
 ## Prepare the notebook server computation target
 
