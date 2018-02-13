@@ -16,7 +16,7 @@ ms.author: v-gedod
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Web Search SDK, run `npm install azure-cognitiveservices-websearch` in your development environment.
 
@@ -51,6 +51,6 @@ The code prints `result.value` items to the console without parsing any text.
 
 ![Video results](media/video-search-sdk-quickstart-node-results.png)
 
-##Next steps
+## Next steps
 
 [Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
