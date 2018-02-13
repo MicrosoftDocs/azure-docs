@@ -41,7 +41,7 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 ```
 The code prints `result.value` items to the console without parsing any text.
 
-![Video results](media/video-search-sdk-quickstart-node-results.png)
+![Video results](media/video-search-sdk-node-results.png)
 
 ##Next steps
 
