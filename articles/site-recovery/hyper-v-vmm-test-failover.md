@@ -118,7 +118,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 4. After failover is complete, verify that the VMs start successfully.
 5. When you're done, click **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This step deletes any VMs and networks that were created by Site Recovery during test failover. 
 
-![Test failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+![Test failover](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 
