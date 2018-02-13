@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
@@ -114,6 +114,10 @@ By default, for user-defined resources, the consistency level for queries is the
 | None |Select from strong, bounded staleness, session, consistent prefix, or eventual |Not applicable |
 
 As with read requests, you can lower the consistency level of a specific query request in each API.
+
+## Consistency levels for the MongoDB API
+
+Azure Cosmos DB currently implements MongoDB version 3.4, which has two consistency settings, strong and eventual. Because Azure Cosmos DB is multi-api, the consistency settings are applicable at the account level and enforcement of the consistency is controlled by each API.  Until MongoDB 3.6, there was no concept of a session consistency, so if you set a MongoDB API account to use session consistency, the consistency is downgraded to eventual when using MongoDB APIs. If you need a read-your-own-write guarantee for a MongoDB API account, the default consistency level for the account should be set to strong or bounded staleness.
 
 ## Next steps
 If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
