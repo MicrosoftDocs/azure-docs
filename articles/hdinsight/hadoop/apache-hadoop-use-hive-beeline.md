@@ -173,7 +173,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 5. To exit Beeline, use `!exit`.
 
-## <a id="file"></a>Use Beeline to run a HiveQL file
+### <a id="file"></a>Use Beeline to run a HiveQL file
 
 Use the following steps to create a file, then run it using Beeline.
 

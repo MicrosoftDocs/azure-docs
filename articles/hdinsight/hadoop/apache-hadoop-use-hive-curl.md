@@ -34,28 +34,36 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 * A REST client. This document uses Windows PowerShell and [Curl](http://curl.haxx.se/) examples.
 
+    > [!NOTE]
+    > Azure PowerShell provides dedicated cmdlets for working with Hive on HDInsight. For more information, see the [Use Hive with Azure PowerShell](apache-hadoop-use-hive-powershell.md) document.
+
 This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq/) to process the JSON data returned from REST requests.
 
-## <a id="curl"></a>Run Hive queries
+## <a id="curl"></a>Run a Hive query
 
 > [!NOTE]
 > When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator.
->
-> For the commands in this section, replace **admin** with the user to authenticate to the cluster. Replace **CLUSTERNAME** with the name of your cluster. When prompted, enter the password for the user account.
 >
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-    > [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-    > ```bash
-    > curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    > ```
-    > ```powershell
-    > $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-    >    -Credential $creds
-    > $resp.Content
-    > ```
+    ```curl
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+    
+    > [!NOTE]
+    > Replace `admin` with the cluster login name. Replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the user account.
+    
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
+       -Credential $creds
+    $resp.Content
+    ```
+
+    > [!NOTE]
+    > Replace `admin` wsith the cluster login name. Replace `$clusterName` with the name of your cluster. When prompted, enter the password for the user account.
 
     You receive a response similar to the following text:
 
@@ -70,8 +78,14 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
-    ```bash
+    ```curl
     curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
+       -Credential $creds
+    $resp.Content
     ```
 
     This request returns a response similar to the following text:
@@ -82,13 +96,20 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
 2. Use the following to create a table named **log4jLogs**:
 
-    ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    ```curl
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
-    The following parameters used with this request:
+    ```powershell
+    $reqParams = @{"user.name"="admin";"execute"="set hive.execution.engine=tez;DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST
+    $resp.Content
+    ```
 
-   * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+    This request uses the POST method, which sends data as part of the request to the REST API. The following data values are sent with the request:
 
      * **user.name** - The user that is running the command.
      * **execute** - The HiveQL statements to execute.
@@ -111,12 +132,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
      > [!NOTE]
      > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
 
-   * **INPUT__FILE__NAME LIKE '%25.log'** - This statement limits the search to only use files ending in .log.
-
-     > [!NOTE]
-     > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
-
-   This command returns a job ID that can be used to check the status of the job.
+      This command returns a job ID that can be used to check the status of the job.
 
     ```json
        {"id":"job_1415651640909_0026"}
@@ -124,18 +140,26 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
 3. To check the status of the job, use the following command:
 
-    ```bash
+    ```curl
     curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-    Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
-    If the job has finished, the state is **SUCCEEDED**.
+    Replace `JOBID` or `$joID` with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then value is `job_1415651640909_0026`.
 
-   > [!NOTE]
-   > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. Jq is used to retrieve only the state value.
+    If the job has finished, the state is `SUCCEEDED`.
 
-4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
+4. Once the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
     You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
