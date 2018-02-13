@@ -24,7 +24,7 @@ The ANOMALYDETECTION operator is used to detect different types of anomalies in 
 
 This ANOMALYDETECTION operator detects three types of anomalies: 
 
-* **Bi-directional Level Change**: A sustained increase or decrease in the level of values, both upward and downward. This is different from spikes and dips, which are instantaneous or very short-lived changes.  
+* **Bi-directional Level Change**: A sustained increase or decrease in the level of values, both upward and downward. This is different from spikes and dips, which are instantaneous or short-lived changes.  
 
 * **Slow Positive Trend**: A slow increase in the trend over time.  
 
@@ -46,7 +46,7 @@ When using the AnomalyDetection operator, you must specify the LIMIT DURATION cl
 * **partition_by_clause** - The `PARTITION BY <partition key>` clause divides the
 learning and training across separate partitions. In other words, a separate
 model would be used per value of `<partition key>` and only events with that
-value would be used for learning and training in that model. For example, the following query will train and score a reading against other readings of the same sensor only:
+value would be used for learning and training in that model. For example, the following query trains and scores a reading against other readings of the same sensor only:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -72,7 +72,7 @@ Anomaly of a particular type is detected when one of these anomaly scores crosse
 
 ## Anomaly Detection algorithm
 
-* ANOMALYDETECTION algorithm uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, 2 models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
+* ANOMALYDETECTION algorithm uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, two models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
 
 * ANOMALYDETECTION uses **sliding window semantics**** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
 
