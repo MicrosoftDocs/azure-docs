@@ -31,19 +31,13 @@ Configure access to the MySQL slow query log.
 
 4. Select the heading **Click here to enable logs and configure log parameters** to see the server parameters.
 
-5. Select the **Show more** expander to see an extended list of available parameters. 
-
-   For more information on the definitions of parameters, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-
-   ![Click show more for longer list](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Change the parameters that you need to adjust. All changes you make in this session are highlighted in purple. 
+5. Change the parameters that you need to adjust. All changes you make in this session are highlighted in purple. 
 
    Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
 
    ![Click save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
+6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 
 ## View list and download logs
 Once logging begins, you can view a list of available logs and download individual log files on the Server Logs pane. 
