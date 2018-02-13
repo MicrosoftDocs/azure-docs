@@ -90,6 +90,74 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 # copy a blob to a file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
+### Create a share snapshot by using PowerShell
+You can create a share snapshot by using the `$share.Snapshot()` command:
+
+```powershell
+$connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
+$sharename=":<file share name>"
+
+$ctx = New-AzureStorageContext -ConnectionString $connectionstring
+
+##create snapshot
+$share=Get-AzureStorageShare -Context $ctx -Name <file share name>
+$share.Properties.LastModified
+$share.IsSnapshot
+$snapshot=$share.Snapshot()
+
+```
+
+#### List share snapshots
+
+You may list share snapshots of a particular share using `Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### Browse share snapshots
+You may also browse into a particular share snapshot to view its content using `Get-AzureStorageFile` with the value of `-Share` pointing to the particular snapshot
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### Restore from share snapshots
+
+You can restore a file by copying or downloading a file from the share snapshot using `Get-AzureStorageFileContent` command
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+### Delete a share snapshot by using PowerShell
+You can delete a share snapshot by using the `Remove-AzureStorageShare -Share` command:
+
+```powershell
+$connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
+$sharename=":<file share name>"
+
+$ctx = New-AzureStorageContext -ConnectionString $connectionstring
+
+##Create snapshot
+$share=Get-AzureStorageShare -Context $ctx -Name <file share name>
+$share.Properties.LastModified
+$share.IsSnapshot
+$snapshot=$share.Snapshot()
+
+##Delete snapshot
+Remove-AzureStorageShare -Share $snapshot
+
+```
+
 ## Next steps
 See these links for more information about Azure Files.
 
