@@ -56,7 +56,9 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 4. Define the following [application settings](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
 
 > [!NOTE]
-> The **cm: Region** should be the name of the region (without any spaces). For example, **westeurope**, not West Europe, **westcentralus**, not West Central US, and so on.
+> The **cm: Region** should be the name of the region (without any spaces). 
+> For example, **westeurope**, not West Europe, **westcentralus**, not West Central US, and so on.
+>
 
     | App Setting | Description   | 
     | -------------------- |-------------|
