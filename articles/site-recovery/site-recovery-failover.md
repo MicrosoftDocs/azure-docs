@@ -73,7 +73,6 @@ Virtual machines/physical servers protected using Site Recovery also support **P
 > When you failover Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you have to first **reverse replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available, then before starting to **reverse replicate** you have to restore the virtual machine from a backup.   
 >
 >
-
 ## Failover job
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
@@ -115,7 +114,8 @@ In all the other cases this intermediate step is not required and the time taken
 You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](site-recovery-runbook-automation.md) in [recovery plans](site-recovery-create-recovery-plans.md) to do that.
 
 ## Post failover considerations
-### Retaining Drive letter after failover 
+Post failover you might want to consider the following recommendations.
+### Retaining drive letter after failover 
 To retain the drive letter on virtual machines after failover you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
