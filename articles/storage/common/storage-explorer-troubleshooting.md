@@ -177,6 +177,14 @@ If your accidentally attached an invalid SAS URL and could not detach, please fo
 4.	The value of the key should be a JSON array. Find the object associated with the bad URI and remove it.
 5.	Press Ctrl+R to reload Storage Explorer.
 
+## Linux Dependencies
+
+For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
+* libgconf-2-4
+* libsecret
+* Up-to-date GCC
+
+Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
 
 ## Next steps
 
