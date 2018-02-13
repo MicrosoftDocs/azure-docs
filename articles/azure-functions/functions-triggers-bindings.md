@@ -483,12 +483,12 @@ The *function.json* file schema is available at [http://json.schemastore.org/fun
 
 ## Register binding extensions
 
-Version 2.x of the Azure Functions runtime introduced a new extension model for triggers and bindings. In version 2.x of the runtime, you must explicitly register binding extensions. 
+Version 2.x of the Azure Functions runtime introduces a new extension-based model for triggers and bindings. In version 2.x of the runtime, you must explicitly register binding extensions. For more information, see the [Azure WebJobs SDK Extensions project](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)
  
 >[!NOTE]
 >For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview.
 
-Extensions are delivered as NuGet packages, where the package name starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The process for registering these binding extension packages depends on how you develop your functions. 
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions. 
 
 ### Precompiled functions (C#)
 
@@ -507,7 +507,7 @@ If you develop locally in a non-.NET language, you should instead use the Azure 
 
 ### Local development Azure Functions Core Tools
 
-When you develop functions locally, you can install the extensions you need by using the Azure Functions Core Tools from the Terminal or from a command prompt. The following command installs a specific version of the extension that supports the Azure Cosmos DB trigger and bindings:
+When you develop functions locally, you can install the extensions you need by using the Azure Functions Core Tools from the Terminal or from a command prompt. The following command installs the Azure Cosmos DB binding extension:
 
 ```
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
