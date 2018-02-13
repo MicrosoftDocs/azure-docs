@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 02/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
+
 # Conditional access in Azure Active Directory
 
 Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. In order to master the balance between security and productivity, IT professionals also need to factor how a resources is being accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions from a central location. 
@@ -79,6 +80,27 @@ With Azure AD conditional access, you can control how authorized users can acces
 
 One benefit of using a policy-based approach to protect access to your cloud apps is that you can start drafting the policy requirements for your environment using the structure outlined in this article without worrying about the technical implementation. 
 
+## What you need to know
+
+You can use Azure AD conditional access to protect cloud apps when an authentication attempt comes from:
+
+- A web browser
+
+- A client app that uses modern authentication
+
+- Exchange ActiveSync
+
+For more information, see [client apps](active-directory-conditional-access-conditions.md#client-apps).
+
+Some [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps) also support legacy authentication protocols. This applies, for example, to SharePoint Online and Exchange Online. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a conditional access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
+
+Examples for client apps conditional access does not apply to are:
+
+- Office 2010 and earlier
+
+- Office 2013 when modern authentication is not enabled
+
+For more information, see [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md).
 
 
 ## Next steps
