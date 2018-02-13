@@ -32,8 +32,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [Curl](http://curl.haxx.se/) is used to demonstrate how you can interact with HDInsight by using raw HTTP requests. 
-* [Jq](http://stedolan.github.io/jq/) is used to process the JSON data returned from REST requests.
+* A REST client. This document uses Windows PowerShell and [Curl](http://curl.haxx.se/) examples.
+
+This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq/) to process the JSON data returned from REST requests.
 
 ## <a id="curl"></a>Run Hive queries
 
@@ -46,9 +47,15 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-    ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    ```
+    > [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
+    > ```bash
+    > curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    > ```
+    > ```powershell
+    > $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
+    >    -Credential $creds
+    > $resp.Content
+    > ```
 
     You receive a response similar to the following text:
 

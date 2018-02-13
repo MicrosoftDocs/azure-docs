@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/26/2018
+ms.date: 02/13/2018
 ms.author: larryfr
 
 ---
@@ -131,6 +131,11 @@ You can use the __Tables__ tab to work with tables within a Hive database.
 From the **Query** tab, you can optionally save queries. After you save a query, you can reuse it from the __Saved Queries__ tab.
 
 ![Image of saved queries tab](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+
+> [!TIP]
+> Saved queries are stored in the default cluster storage. You can find the saved queries under the path `/user/<username>/hive/scripts`. These are stored as plain-text `.hql` files.
+>
+> If you delete the cluster, but keep the storage, you can use a utility like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or Data Lake Storage Explorer (from the [Azure Portal](https://portal.azure.com)) to retrieve the queries.
 
 ## User-defined functions
 
