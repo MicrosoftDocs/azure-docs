@@ -47,12 +47,12 @@ when you fail over from on-premises to Azure.
 1. On the [Azure portal](https://portal.azure.com) menu, select **New** > **Storage** > **Storage account**.
 2. On **Create storage account**, enter a name for the account. For these tutorials, use the name **contosovmsacct1910171607**. The name must be unique within Azure and be between 3 and 24
    characters, with numbers and lowercase letters only.
-3. Under **Deployment model**, select **Resource Manager**.
-4. Under **Account kind**, select **General purpose**. Under **Performance**, select **Standard**. Don't select blob storage.
-5. Under **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy.
-6. Under **Subscription**, select the subscription in which you want to create the new storage account.
-7. Under **Resource group**, enter a new resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. For these tutorials, use the name **ContosoRG**.
-8. Under **Location**, select the geographic location for your storage account. The storage account must be in the same region as the Recovery Services vault. For these tutorials, use the **West Europe** region.
+3. In **Deployment model**, select **Resource Manager**.
+4. In **Account kind**, select **General purpose**. In **Performance**, select **Standard**. Don't select blob storage.
+5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy.
+6. In **Subscription**, select the subscription in which you want to create the new storage account.
+7. In **Resource group**, enter a new resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. For these tutorials, use the name **ContosoRG**.
+8. In **Location**, select the geographic location for your storage account. The storage account must be in the same region as the Recovery Services vault. For these tutorials, use the **West Europe** region.
 
    ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -62,9 +62,9 @@ when you fail over from on-premises to Azure.
 
 1. On the Azure portal menu, select **New** > **Monitoring & Management** >
    **Backup and Site Recovery**.
-2. Under **Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
-3. Under **Resource group**, select the existing resource group named **contosoRG**.
-4. Under **Location**, enter the Azure region **West Europe** that is used in this set of tutorials.
+2. In **Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
+3. In **Resource group**, select the existing resource group named **contosoRG**.
+4. In **Location**, enter the Azure region **West Europe** that is used in this set of tutorials.
 5. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
 
    ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -80,17 +80,17 @@ When Azure VMs are created from storage after failover, they're joined to this n
 2. Leave **Resource Manager** selected as the deployment model. Resource Manager is the preferred
    deployment model. Then take these steps:
 
-   a. Under **Name**, enter a network name. The name must be unique within the Azure resource group. Use the name **ContosoASRnet**.
+   a. In **Name**, enter a network name. The name must be unique within the Azure resource group. Use the name **ContosoASRnet**.
 
-   b. Under **Resource group**, use the existing resource group **contosoRG**.
+   b. In **Resource group**, use the existing resource group **contosoRG**.
 
-   c. Under **Address range**, enter the network address range **10.0.0.0/24**.
+   c. In **Address range**, enter the network address range **10.0.0.0/24**.
 
    d. For this tutorial, you don't need a subnet.
 
-   e. Under **Subscription**, select the subscription in which to create the network.
+   e. In **Subscription**, select the subscription in which to create the network.
 
-   f. Under **Location**, select **West Europe**. The network must be in the same region as the Recovery
+   f. In **Location**, select **West Europe**. The network must be in the same region as the Recovery
      Services vault.
 
 3. Select **Create**.

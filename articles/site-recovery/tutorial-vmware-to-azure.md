@@ -73,9 +73,9 @@ To set up the configuration server as a highly available VMware VM, download a p
 4. On the rest of the wizard pages, accept the default settings.
 5. On **Ready to complete**:
 
-  a. To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
+    a. To set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
-  b. To add an additional network interface, clear **Power on after deployment**. Then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
+    b. To add an additional network interface, clear **Power on after deployment**. Then select **Finish**. By default, the configuration server template is deployed with a single NIC. You can add additional NICs after deployment.
 
 ## Add an additional adapter
 
@@ -100,12 +100,12 @@ To add an additional NIC to the configuration server, add it before you register
 
 ### Configure settings and connect to VMware
 
-1. In the configuration server management wizard > **Setup connectivity**, select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 4. Select **Install VMware PowerLCI**. Make sure all browser windows are closed before you do this. Then select **Continue**
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
-6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, on which VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
+6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 7. Enter credentials to be used by the configuration server to connect to the VMware server. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then select **Continue**.
 8. In **Configure virtual machine credentials**, enter the user name and password to be used to automatically install Mobility Service on machines, when replication is enabled. For Windows machines, the account needs local administrator privileges on the machines you want to replicate. For Linux, provide details for the root account.
 9. Select **Finalize configuration** to finish registration. 
@@ -123,7 +123,7 @@ Site Recovery connects to VMware servers by using the specified settings and dis
 Select and verify target resources.
 
 1. Select **Prepare infrastructure** > **Target**. Select the Azure subscription you want to use.
-2. Specify whether your target deployment model is Resource Manager-based or classic.
+2. Specify whether your target deployment model is based on Resource Manager or is classic.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
    ![Target tab](./media/tutorial-vmware-to-azure/storage-network.png)
