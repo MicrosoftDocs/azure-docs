@@ -16,31 +16,25 @@ ms.date: 11/22/2017
 ---
 # Deep learning for predictive maintenance real-world scenarios
 
-Deep learning is one of the most popular trends in machine learning. Deep learning is used in many fields and applications, including driverless cars, speech and image recognition, robotics, and finance. Deep learning is a set of algorithms that is inspired by the shape of the brain (biological neural networks), and machine learning. Cognitive scientists usually refer to deep learning as artificial neural networks (ANNs).
+Deep learning is one of the most popular trends in machine learning, with applications to many areas including driverless cars, speech and image recognition, robotics and finance. Also referred to as Artificial Neural Networks (ANN), these methods are inspired by the individual neurons within the brain (biological neural networks).
 
-Predictive maintenance is also popular. In predictive maintenance, many different techniques are designed to help determine the condition of equipment, and to predict when maintenance should be performed. Some common uses of predictive maintenance are failure prediction, failure diagnosis (root-cause analysis), failure detection, failure type classification, and recommendation of mitigation or maintenance actions after failure.
-
-In predictive maintenance scenarios, data is collected over time to monitor the state of equipment. The goal is to find patterns that can help predict and ultimately prevent failures. Using [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks is a deep learning method that is especially appealing in predictive maintenance. LSTM networks are good at learning from sequences. Time series data can be used to look back at longer periods of time to detect failure patterns.
-
-In this tutorial, we build an LSTM network for the data set and scenario that are described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We use the network to predict the remaining useful life of aircraft engines. The template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future. Using this prediction, maintenance can be planned in advance, to prevent failure.
-
-This tutorial uses the [Keras](https://keras.io/) deep learning library, and the Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) as a back end.
-
-The public GitHub repository that has the samples for this tutorial is at [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
+Predictive maintenance uses machine learning methods to determine the condition of equipment in order to preemptively perform maintenance and avoid adverse machine performance. In these scenarios, data is collected over time to monitor the state of the machine with the final goal of finding patterns to predict failures. [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks are especially appealing for predictive maintenance for the ability to learning from sequences of data. LSTMs are designed for application to time series data to detect temporal patterns that could lead to machine failures.
 
 ## Use case overview
 
-This tutorial uses the example of simulated aircraft engine run-to-failure events to demonstrate the predictive maintenance modeling process. 
+This tutorial uses the example of simulated aircraft engine run-to-failure events to demonstrate the predictive maintenance modeling process. The scenario is described at  [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3)
 
-The implicit assumption of the modeling data described here is that the asset has a progressing degradation pattern. The pattern is reflected in the asset's sensor measurements. By examining the asset's sensor values over time, the machine learning algorithm can learn the relationship between the sensor values, changes in sensor values, and historical failures. This relationship is used to predict failures in the future. 
+The implicit assumption of the scenario is the engine has progressive degradation pattern. The pattern signal is reflected in sensor measurements and a machine learning algorithm can learn the relationship between the changes in these sensor values and the historical failures. The model can then Predict engine failures in the future based on the current state of sensor measurements.
 
-We suggest that you examine the data format and complete all three steps of the template before you replace the sample data with your own date.
+This scenario creates an LSTM network for the data to predict remaining useful life of aircraft engines using historical aircraft sensor values. This scenario uses the [Keras](https://keras.io/) with [Tensorflow](https://www.tensorflow.org/) deep learning framework as a back end to train and test the LSTM network.
+
+A public GitHub repository for this scenario is located at[https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) for issue reports and contributions.
 
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - Azure Machine Learning Workbench, with a workspace created.
-- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
 ## Create a new Workbench project
 

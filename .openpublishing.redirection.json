@@ -16170,6 +16170,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-publisher.md",
+            "redirect_url": "https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false

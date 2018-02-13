@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/02/2018
+ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
 
