@@ -1,10 +1,10 @@
-In this section, you update code in your existing Mobile Apps back-end project to send a push notification every time a new item is added. This is powered by the [template](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs, enabling cross-platform pushes. The various clients are registered for push notifications using templates, and a single universal push can get to all client platforms.
+In this section, you update code in your existing Mobile Apps back-end project to send a push notification every time a new item is added. This is powered by the [template](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs, which enables cross-platform pushes. The various clients are registered for push notifications using templates, and a single universal push can get to all client platforms.
 
 Choose one of the following procedures that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
 
 ### <a name="dotnet"></a>.NET back-end project
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs library for sending notifications from your back end.
-2. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+1. In Visual Studio, right-click the server project. Then select **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then select **Install**. This installs the Notification Hubs library for sending notifications from the back end.
+2. In the server project, open **Controllers** > **TodoItemController.cs**. Then add the following using statements:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
@@ -16,7 +16,7 @@ Choose one of the following procedures that matches your back-end project type&m
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get the Notification Hubs credentials for the mobile app.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -25,8 +25,8 @@ Choose one of the following procedures that matches your back-end project type&m
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Sending the message so that all template registrations that contain "messageParam"
-        // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+        // Send the message so that all template registrations that contain "messageParam"
+        // receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
         Dictionary<string,string> templateParams = new Dictionary<string,string>();
         templateParams["messageParam"] = item.Text + " was added to the list.";
 
@@ -60,17 +60,17 @@ Choose one of the following procedures that matches your back-end project type&m
 
         table.insert(function (context) {
         // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
+        // see http://aka.ms/nodejshubs.
         logger.info('Running TodoItem.insert');
 
         // Define the template payload.
         var payload = '{"messageParam": "' + context.item.text + '" }';  
 
-        // Execute the insert.  The insert returns the results as a Promise,
+        // Execute the insert. The insert returns the results as a promise.
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do the push if configured.
                 if (context.push) {
                     // Send a template notification.
                     context.push.send(null, payload, function (error) {
@@ -81,7 +81,7 @@ Choose one of the following procedures that matches your back-end project type&m
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget to return the results from the context.execute().
                 return results;
             })
             .catch(function (error) {
@@ -92,4 +92,4 @@ Choose one of the following procedures that matches your back-end project type&m
         module.exports = table;  
 
     This sends a template notification that contains the item.text when a new item is inserted.
-3. When editing the file on your local computer, republish the server project.
+3. When you edit the file on your local computer, republish the server project.

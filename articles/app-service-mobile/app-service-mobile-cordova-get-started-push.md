@@ -28,8 +28,7 @@ If you do not use the downloaded quickstart server project, you need the push no
 package. For more information, see [Work with the .NET back-end server SDK for Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Prerequisites
-This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015. This device runs on Google
-Android Emulator, an Android device, a Windows device, or an iOS device.
+This tutorial assumes that you have an Apache Cordova application that was developed with Visual Studio 2015. This device should run on Google Android Emulator, an Android device, a Windows device, or an iOS device.
 
 To complete this tutorial, you need:
 
