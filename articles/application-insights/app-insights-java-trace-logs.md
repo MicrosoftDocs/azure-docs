@@ -21,10 +21,7 @@ If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your t
 
 ## Install the Java SDK
 
-Install [Application Insights SDK for Java][java], if you haven't already done that.
-
-(If you don't want to track HTTP requests, you can omit most of the .xml configuration file, but you must at least include the `InstrumentationKey` element. You should also call `new TelemetryClient()` to initialize the SDK.)
-
+Follow the instructions to install [Application Insights SDK for Java][java], if you haven't already done that.
 
 ## Add logging libraries to your project
 *Choose the appropriate way for your project.*
@@ -98,7 +95,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 ```
 
 #### Otherwise ...
-Follow the guidelines to manually install Application Insights Java SDK, download the jar (Upon Landing to Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
+Follow the guidelines to manually install Application Insights Java SDK, download the jar (After ariving at Maven Central Page click on 'jar' link in download section) for appropriate appender and add the downloaded appender jar to the project.
 
 | Logger | Download | Library |
 | --- | --- | --- |
