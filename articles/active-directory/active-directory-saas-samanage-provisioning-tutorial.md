@@ -54,13 +54,13 @@ Before configuring Samanage for automatic user provisioning with Azure AD, you n
 
 4. In the search box, type **Samanage**.
 
-	![Samanage Provisioning](./media/active-directory-saas-Samanage-provisioning-tutorial/Samanage4.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage4.png)
 
 5. In the results panel, select **Samanage**, and then click the **Add** button to add Samanage to your list of SaaS applications.
 
-	![Samanage Provisioning](./media/active-directory-saas-Samanage-provisioning-tutorial/Samanage6.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage6.png)
 
-	![Samanage Provisioning](./media/active-directory-saas-Samanage-provisioning-tutorial/Samanage5.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage5.png)
 
 ## Assigning users to Samanage
 
