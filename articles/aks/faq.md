@@ -47,7 +47,15 @@ Node autoscaling is not supported but is on the roadmap. You might want to take 
 
 ## Why are two resource groups created with AKS? 
 
-The second resource group is auto-created for easy deletion of all resources associated with an AKS deployment.
+Each Azure Container Service (AKS) cluster is contained in two resource groups. The first is created by you and contains only the AKS resource. The second resource group is auto created during deployment and contains all cluster infrastructural resources such as VMs, networking, and storage resources. This resource group is created for easy resource cleanup. 
+
+The auto-created resource group has a name similar to:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+When adding Azure resources to be used with the Kubernetes cluster such as storage accounts or reserved public IP address, these resources need to be created in the auto created resource group.   
 
 ## Is Azure Key Vault integrated with AKS? 
 

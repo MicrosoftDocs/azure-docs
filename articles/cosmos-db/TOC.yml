@@ -227,6 +227,8 @@
         items:
         - name: .NET samples
           href: sql-api-dotnet-samples.md
+        - name: Java samples
+          href: sql-api-java-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
         - name: Python samples
