@@ -1,18 +1,18 @@
 ---
 title: Create effective listings in AppSource and within Office
-description: Make sure that the information you submit, including your title, description, logos, and screenshots, clearly communicates the benefits and functionality that your solution provides.
+description: Make sure that the information you submit, including your title, description, logos, and images, clearly communicates the benefits and functionality that your solution provides.
 ms.date: 1/11/2018
 ---
 
 # Create effective listings in AppSource and within Office
 
-The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and screenshots—clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and images—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
 - Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?* 
 - Use unique logos for each submission.
-- Include screenshots that show off your UI. Be sure to remove any personal information from your screenshots.
+- Include images that show off your UI. Be sure to remove any personal information from your images.
 - If you update your functionality, update your description too.
 - Use a customer-friendly voice. Be concise and use natural language.
 - Avoid marketing speak and buzz words.
@@ -35,7 +35,7 @@ In your title:
 
 *Figure 1. An AppSource listing with an effective title and description next to one that is less effective*
 
-![Screenshot of an AppSource listing with an effective title and description next to one that is less effective](images/appsource-titles-dos-donts.png)
+![Image of an AppSource listing with an effective title and description next to one that is less effective](images/appsource-titles-dos-donts.png)
 
 ### Use a consistent add-in name
 
@@ -128,17 +128,18 @@ The formatting requirements for this image differ depending on the add-in type. 
 For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
 <a name="bk_screenshots"> </a>
-## Use screenshots effectively
+## Use images effectively
 
-Make your screenshots rich and informative. Help customers understand how your solution solves problems and helps them get work done more effectively. In your screenshots:
+Make your store images rich and informative. Help customers understand how your solution solves problems. Make it clear at a glance. Follow our best practices for [crafting effective AppSource store images](craft-effective-appsource-store-images.md). Remember to communicate only the essential information in your images, and apply the following best practices:
 
-- Focus on your solution.
+- Keep images legible. 
 - Show real content rather than an empty document.
-- Use captions to describe the value of the add-in.
+- Focus on your solution.
+- Use captions to describe features and value.
 - Reinforce your brand.
 
 > [!NOTE]
-> Be sure to remove any personal information from your screenshots that you do not want customers to see.
+> Be sure to remove any personal information from your images that you do not want customers to see.
 
 <br/>
 
@@ -148,7 +149,7 @@ Make your screenshots rich and informative. Help customers understand how your s
 |<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="500"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="500"> |
 |**When needed, make content legible with magnified close-ups.**|**Don't highlight more than one section.**|
 |<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="500">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="500">|
-|**Incorporate recognizable brand elements like color or logo into screenshots.**|**Don't add unnecessary graphic elements that obstruct content.**|
+|**Incorporate recognizable brand elements like color or logo into images.**|**Don't add unnecessary graphic elements that obstruct content.**|
 |<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="500">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="500">|
 
 <br/>
@@ -171,7 +172,7 @@ You can use the comment feature in AppSource to respond to customer reviews of y
 
 *Figure 5. A developer response to a comment with the App provider label under the name*
 
-![Screenshot that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
+![Image that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
  
 If you've responded to a user review and the user responds to your comment, the user has the option to change their rating of the app or add-in if their issue has been resolved. 
 
