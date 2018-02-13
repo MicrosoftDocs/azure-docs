@@ -22,7 +22,7 @@ ms.author: v-ant-msft
 The objective of this tutorial is to demonstrate the steps that are needed to be performed in Zendesk and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Zendesk. 
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, please see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 > The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
 
 ## Adding Zendesk from the gallery
-Before configuring Zendesk for automatic user provisioning with Azure AD, you will need to add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Zendesk for automatic user provisioning with Azure AD, you need to add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Zendesk from the Azure AD application gallery, perform the following steps:**
 
@@ -46,7 +46,7 @@ Before configuring Zendesk for automatic user provisioning with Azure AD, you wi
 
 2. Navigate to **Enterprise applications** > **All applications**.
 
-	![The Enterprise applications blade][2]
+	![The Enterprise applications Section][2]
 	
 3. To add Zendesk, click the **New application** button on the top of the dialog.
 
@@ -66,7 +66,7 @@ Before configuring Zendesk for automatic user provisioning with Azure AD, you wi
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized. 
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD will need access to Zendesk. Once decided, you can assign these users and/or groups to Zendesk by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zendesk. Once decided, you can assign these users and/or groups to Zendesk by following the instructions here:
 
 *   [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 
@@ -78,7 +78,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Configuring automatic user provisioning to Zendesk 
 
-This section will guide you through connecting your Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, which will utilize Zendesk's user provisioning API to create, update and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
+This section guides you through steps for connecting Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, using Zendesk's user provisioning API to create, update and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zendesk, following the instructions provided in the [Zendesk single sign-on tutorial](active-directory-saas-zendesk-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
@@ -99,14 +99,14 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Under the **Admin Credentials** section, input the **Admin Username, Secret Token and Domain** of your Zendesk's account. Examples of these values are:
+5. Under the **Admin Credentials** section, input the **Admin Username, Secret Token, and Domain** of your Zendesk's account. Examples of these values are:
 
 	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk Tenant. Example: admin@contoso.com.
 
 	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
 	*   In the **Domain** field, populate the subdomain of your Zendesk tenant.
-	Example: For an account with a tenant URL of https://testcompany.zendesk.com, your subdomain would be **testcompany**.
+	Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
 
 6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**. 
 
@@ -114,7 +114,7 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
-7. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to Zendesk. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zendesk. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk19.png)
 	
@@ -158,7 +158,7 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
 
 
-This starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describes all actions performed by the Azure AD provisioning service on Zendesk.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
