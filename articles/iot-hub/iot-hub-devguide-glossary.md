@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -158,48 +158,7 @@ The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in c
 ## Interactive message
 An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged in to a CRM system.
 
-## IoT Edge
-Azure IoT Edge enables cloud-driven deployment of Azure services and solution-specific code to on-premise devices. IoT Edge devices can aggregate data from other devices to perform computing and analytics before the data is sent to the cloud. For more information please see [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
-
-## IoT Edge agent
-The part of the IoT Edge runtime responsible for deploying and monitoring modules.
-
-## IoT Edge device
-IoT Edge devices have the IoT Edge runtime installed and are flagged as “IoT Edge device” in the device details. Learn how to [deploy Azure IoT Edge on a simulated device in Linux - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
-
-## IoT Edge deployment
-An IoT Edge deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
-
-## IoT Edge deployment manifest
-A Json document containing the information to be copied in one or more IoT Edge devices' module twin(s) to deploy a set of modules, routes and associated module desired properties.
-
-## IoT Edge gateway device
-An IoT Edge device with downstream device. The downstream device can be either IoT Edge or not IoT Edge device.
-
-## IoT Edge hub
-The part of the IoT Edge runtime responsible for module to module communications, upstream (toward IoT Hub) and downstream (away from IoT Hub) communications. 
-
-## IoT Edge leaf device
-An IoT Edge device with no downstream device. 
-
-## IoT Edge module
-An IoT Edge module is a Docker container that you can deploy to IoT Edge devices. It performs a specific task, such as ingesting a message from a device, transforming a message, or sending a message to an IoT hub. It communicates with other modules and sends data to the IoT Edge runtime. [Understand the requirements and tools for developing IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/module-development).
-
-## IoT Edge module identity
-A record in the IoT Hub module identity registry detailing the existence and security credentials to be used by a module to authenticate with an edge hub or IoT Hub.
-
-## IoT Edge module image
-The docker image that is used by the IoT Edge runtime to instantiate module instances.
-
-## IoT Edge module twin
-A Json document persisted in the IoT Hub that stores the state information for a module instance. 
-
-## IoT Edge runtime
-IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It included Edge agent, Edge hub and Edge CTL tool.
-
-## IoT Edge set modules to a single device
-An operation that copies the content of an IoT Edge manifest on one device' module twin. The underlying API is a generic 'apply configuration', which simply takes an IoT Edge manifest as an input.
-s
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
@@ -216,8 +175,8 @@ You can use the [IoT Hub Resource Provider REST API](https://docs.microsoft.com/
 ## IoT Suite
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## iothub-explorer
-The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
+## The IoT extension for Azure CLI 2.0
+[The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
@@ -236,9 +195,6 @@ A physical device is a real device such as a Raspberry Pi that connects to an Io
 
 ## Primary and secondary keys
 When you connect to a device-facing or service-facing endpoint on an IoT hub, your [connection string](#connection-string) includes key to grant you access. When you add a device to the [identity registry](#identity-registry) or add a [shared access policy](#shared-access-policy) to your hub, the service generates a primary and secondary key. Having two keys enables you to roll over from one key to another when you update a key without losing access to the IoT hub.
-
-## Priority
-When two IoT Edge deployments target the same device, the deployment with higher priority gets applied. If two deployments have the same priority, the deployment with the later creation date gets applied. Learn more about [priority](#https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## Protocol gateway
 A protocol gateway is typically deployed in the cloud and provides protocol translation services for devices connecting to [IoT Hub](#iot-hub). For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -284,9 +240,6 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), system prop
 
 ## Tags
 In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the solution back end in the form of a JSON document. Tags are not visible to apps on a device.
-
-## Target Condition
-In an IoT Edge deployment, Target condition is any Boolean condition on device twins’ tags to select the target devices of the deployment, e.g. "tag.environment = prod". The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do. Learn more about [target condition](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## Telemetry
 Devices collect telemetry data, such as wind speed or temperature, and use [data-point messages](#data-point-messages) to send the telemetry to an IoT hub.

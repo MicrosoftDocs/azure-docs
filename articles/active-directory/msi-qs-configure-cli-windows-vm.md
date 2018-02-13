@@ -3,7 +3,7 @@ title: How to configure MSI on an Azure VM using Azure CLI
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
+ms.author: daveba
 ---
 
 # Configure a VM Managed Service Identity (MSI) using Azure CLI
@@ -40,19 +40,19 @@ To run the CLI script examples, you have three options:
 
 To create an MSI-enabled VM:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#create). You can skip this step if you already have resource group you would like to use instead:
+2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM named *myVM* with an MSI, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+3. Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with an MSI, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -62,7 +62,7 @@ To create an MSI-enabled VM:
 
 If you need to enable MSI on an existing Virtual Machine:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login
@@ -78,7 +78,7 @@ If you need to enable MSI on an existing Virtual Machine:
 
 If you have a Virtual Machine that no longer needs an MSI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login

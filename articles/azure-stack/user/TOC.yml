@@ -43,6 +43,8 @@
         href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
+      - name: Manage VM disks
+        href: azure-stack-manage-vm-disks.md
     - name: Storage
       items:
       - name: Overview

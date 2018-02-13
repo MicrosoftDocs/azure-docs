@@ -32,7 +32,7 @@ When deploying an AKS cluster with the `az aks create` command, you have the opt
 In the following example, an AKS cluster is created, and because an existing service principal is not specified, a service principal is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principal.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## Use an existing SP
@@ -64,7 +64,7 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 When using a pre-created service principal, provide the `appId` and `password` as argument values to the `az aks create` command.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 If you're deploying an AKS cluster by using the Azure portal, enter the `appId` value in the **Service principal client ID** field, and the `password` value in the **Service principal client secret** field in the AKS cluster configuration form.
@@ -80,7 +80,7 @@ When working with AKS and Azure AD service principals, keep the following in min
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
-* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry][acr-into] created in the same subscription.
+* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry][acr-intro] created in the same subscription.
 * When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. You can use `az ad sp delete --id $clientID` to delete it.
 
 ## Next steps

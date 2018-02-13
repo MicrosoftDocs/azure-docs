@@ -309,5 +309,5 @@ For more information about using Draft, see the Draft documentation on GitHub.
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
-[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

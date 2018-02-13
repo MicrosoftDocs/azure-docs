@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.author: owend
 
 ---
@@ -27,10 +27,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.1000.397      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.1000.397      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.218      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.1000.397      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
 
 ## Understanding client libraries
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 10/11/2017
+ms.date: 02/12/2018
 ms.author: carlrab
 
 ---
@@ -46,8 +46,7 @@ Changing the service tier and/or performance level of a database creates a repli
 The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250-GB database that is changing to, from, or within a Standard service tier, should complete within six hours. For a database the same size that is changing performance levels within the Premium service tier, the scale-up should complete within three hours.
 
 > [!TIP]
-> To check on the status of an ongoing SQL database scaling operation, you can use the following query: ```select * from sys.dm_operation_status```.
->
+> To monitor in-progess operations, see: [Manage operations using the SQL REST API](/rest/api/sql/Operations/List), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) and [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * If you are upgrading to a higher service tier or performance level, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 * To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and performance level. 
@@ -110,6 +109,10 @@ You can increase or decrease the resources available to an elastic pool based on
 - When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
 - When rescaling pool eDTUs, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
 
+## What is the maximum number of servers and databases?
+
+The maximum number of servers per subscription per region is 21. The maximum number of databases per server is 5000. These are soft limits established experimentally based on payload size analysis, logical master telemetry collection analysis, and a few other aspects. You can request to exceed these limits, provided you stay within your DTU quota. As the number of databases and servers becomes large, the problem that you will hit is resource stats collection in logical master and contention on management operations. These problems are not fatal; they will increase latency.
+
 ## What happens when database and elastic pool resource limits are reached?
 
 ### Compute (DTUs and eDTUs)
@@ -144,3 +147,4 @@ When encountering high session or worker utilization, mitigation options include
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
+- For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

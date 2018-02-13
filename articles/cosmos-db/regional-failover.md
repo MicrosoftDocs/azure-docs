@@ -138,6 +138,6 @@ In this article, we reviewed how manual and automatic failovers work in Cosmos D
 ## <a id="NextSteps"></a>Next Steps
 * Learn about how Cosmos DB supports [global distribution](distribute-data-globally.md)
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
-* Develop with multiple regions using Azure Cosmos DB's [SQL API](tutorial-global-distribution-documentdb.md)
+* Develop with multiple regions using Azure Cosmos DB's [SQL API](tutorial-global-distribution-sql-api.md)
 * Learn how to build [Multi-region writer architectures](multi-region-writers.md) with Azure Cosmos DB
 

@@ -1,0 +1,220 @@
+---
+title: Node.JS Quickstart for Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Bing Entity Search API in Microsoft Cognitive Services on Azure.
+services: cognitive-services
+documentationcenter: ''
+author: v-jaswel
+
+ms.service: cognitive-services
+ms.technology: entity-search
+ms.topic: article
+ms.date: 11/28/2017
+ms.author: v-jaswel
+
+---
+# Quickstart for Microsoft Bing Entity Search API with Node.JS 
+<a name="HOLTop"></a>
+
+This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with Node.JS.
+
+## Prerequisites
+
+You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Entity Search API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+
+## Search entities
+
+To run this application, follow these steps.
+
+1. Create a new Node.JS project in your favorite IDE.
+2. Add the code provided below.
+3. Replace the `key` value with an access key valid for your subscription.
+4. Run the program.
+
+```nodejs
+'use strict';
+
+let https = require ('https');
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the subscriptionKey string value with your valid subscription key.
+let subscriptionKey = 'ENTER KEY HERE';
+
+let host = 'api.cognitive.microsoft.com';
+let path = '/bing/v7.0/entities';
+
+let mkt = 'en-US';
+let q = 'italian restaurant near me';
+
+let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+
+let response_handler = function (response) {
+    let body = '';
+    response.on ('data', function (d) {
+        body += d;
+    });
+    response.on ('end', function () {
+		let body_ = JSON.parse (body);
+		let body__ = JSON.stringify (body_, null, '  ');
+        console.log (body__);
+    });
+    response.on ('error', function (e) {
+        console.log ('Error: ' + e.message);
+    });
+};
+
+let Search = function () {
+	let request_params = {
+		method : 'GET',
+		hostname : host,
+		path : path + params,
+		headers : {
+			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+		}
+	};
+
+	let req = https.request (request_params, response_handler);
+	req.end ();
+}
+
+Search ();
+```
+
+**Response**
+
+A successful response is returned in JSON, as shown in the following example: 
+
+```json
+{
+  "_type": "SearchResponse",
+  "queryContext": {
+    "originalQuery": "italian restaurant near me",
+    "askUserForLocation": true
+  },
+  "places": {
+    "value": [
+      {
+        "_type": "LocalBusiness",
+        "webSearchUrl": "https://www.bing.com/search?q=Park+Place&filters=local_ypid:%22YN873x5786319842120194005%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
+        "name": "Park Place",
+        "url": "https://www.restaurantparkplace.com/",
+        "entityPresentationInfo": {
+          "entityScenario": "ListItem",
+          "entityTypeHints": [
+            "Place",
+            "LocalBusiness"
+          ]
+        },
+        "address": {
+          "addressLocality": "Seattle",
+          "addressRegion": "WA",
+          "postalCode": "98112",
+          "addressCountry": "US",
+          "neighborhood": "Madison Park"
+        },
+        "telephone": "(206) 453-5867"
+      },
+      {
+        "_type": "LocalBusiness",
+        "webSearchUrl": "https://www.bing.com/search?q=Pasta+and+Company&filters=local_ypid:%22YN873x2257558900374394159%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
+        "name": "Pasta and Company",
+        "url": "http://www.pastaco.com/",
+        "entityPresentationInfo": {
+          "entityScenario": "ListItem",
+          "entityTypeHints": [
+            "Place",
+            "LocalBusiness"
+          ]
+        },
+        "address": {
+          "addressLocality": "Seattle",
+          "addressRegion": "WA",
+          "postalCode": "98121",
+          "addressCountry": "US",
+          "neighborhood": ""
+        },
+        "telephone": "(206) 322-1644"
+      },
+      {
+        "_type": "LocalBusiness",
+        "webSearchUrl": "https://www.bing.com/search?q=Calozzi%27s+Cheesesteaks-Italian&filters=local_ypid:%22YN925x222744375%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
+        "name": "Calozzi's Cheesesteaks-Italian",
+        "entityPresentationInfo": {
+          "entityScenario": "ListItem",
+          "entityTypeHints": [
+            "Place",
+            "LocalBusiness"
+          ]
+        },
+        "address": {
+          "addressLocality": "Bellevue",
+          "addressRegion": "WA",
+          "postalCode": "98008",
+          "addressCountry": "US",
+          "neighborhood": "Crossroads"
+        },
+        "telephone": "(425) 221-5116"
+      },
+      {
+        "_type": "Restaurant",
+        "webSearchUrl": "https://www.bing.com/search?q=Princi&filters=local_ypid:%22YN873x3764731790710239496%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
+        "name": "Princi",
+        "url": "http://www.princi.com/",
+        "entityPresentationInfo": {
+          "entityScenario": "ListItem",
+          "entityTypeHints": [
+            "Place",
+            "LocalBusiness",
+            "Restaurant"
+          ]
+        },
+        "address": {
+          "addressLocality": "Seattle",
+          "addressRegion": "WA",
+          "postalCode": "98101",
+          "addressCountry": "US",
+          "neighborhood": "Capitol Hill"
+        },
+        "telephone": "(206) 624-0173"
+      },
+      {
+        "_type": "Restaurant",
+        "webSearchUrl": "https://www.bing.com/search?q=Swedish+Ballard+Cafeteria&filters=local_ypid:%22YN873x9787543113095303180%22&elv=AXXfrEiqqD9r3GuelwApulqDCgnOZrYZ*RB3VGaWfk8gK7yMNsMKZ091jipuxw7sD8M5EX84K6nRW*6aYSd2s*n!ZICJHXshywvARqsAvOi4",
+        "name": "Swedish Ballard Cafeteria",
+        "url": "http://www.swedish.com/",
+        "entityPresentationInfo": {
+          "entityScenario": "ListItem",
+          "entityTypeHints": [
+            "Place",
+            "LocalBusiness",
+            "Restaurant"
+          ]
+        },
+        "address": {
+          "addressLocality": "Seattle",
+          "addressRegion": "WA",
+          "postalCode": "98107",
+          "addressCountry": "US",
+          "neighborhood": "Ballard"
+        }
+      }
+    ]
+  }
+}
+```
+
+[Back to top](#HOLTop)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
+
+## See also 
+
+[Bing Entity Search overview](../search-the-web.md )
+[API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

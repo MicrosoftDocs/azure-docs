@@ -1,23 +1,16 @@
 ---
-title: Run a disaster recovery drill to your secondary on-premises site with Azure Site Recovery | Microsoft Docs
+title: Run a disaster recovery drill to a secondary on-premises site with Azure Site Recovery | Microsoft Docs
 description: Learn about running a disaster recovery drill to your secondary on-premises site with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
 
 ---
-# Run a disaster recovery drill for Hyper-V VMs to your secondary on-premises site
+# Run a disaster recovery drill for Hyper-V VMs to a secondary on-premises site
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 

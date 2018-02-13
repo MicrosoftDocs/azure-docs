@@ -7,20 +7,17 @@ author: vladvino
 manager: erikre
 editor: mattfarm
 
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
 ---
 # How to save and configure your API Management service configuration using Git
-> 
-> 
 
-Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the publisher portal, using a PowerShell cmdlet, or making a REST API call. In addition to these methods, you can also manage your service instance configuration using Git, enabling service management scenarios such as:
+Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using a PowerShell cmdlet, or making a REST API call. In addition to these methods, you can also manage your service instance configuration using Git, enabling service management scenarios such as:
 
 * Configuration versioning - download and store different versions of your service configuration
 * Bulk configuration changes - make changes to multiple parts of your service configuration in your local repository and integrate the changes back to the server with a single operation
@@ -30,7 +27,7 @@ The following diagram shows an overview of the different ways to configure your 
 
 ![Git configure][api-management-git-configure]
 
-When you make changes to your service using the publisher portal, PowerShell cmdlets, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
+When you make changes to your service using the Azure portal, PowerShell cmdlets, or the REST API, you are managing your service configuration database using the `https://{name}.management.azure-api.net` endpoint, as shown on the right side of the diagram. The left side of the diagram illustrates how you can manage your service configuration using Git and Git repository for your service located at `https://{name}.scm.azure-api.net`.
 
 The following steps provide an overview of managing your API Management service instance using Git.
 
@@ -43,11 +40,8 @@ The following steps provide an overview of managing your API Management service 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
 ## Access Git configuration in your service
-You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, the status message indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
 
-![Git status][api-management-git-icon-enable]
-
-To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
+To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
 
 ![Enable GIT][api-management-enable-git]
 
@@ -59,43 +53,30 @@ To view and configure your Git configuration settings, you can either click the 
 For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## To save the service configuration to the Git repository
-The first step before cloning the repository is to save the current state of the service configuration to the repository. Click **Save configuration to repository**.
 
-![Save configuration][api-management-save-configuration]
+The first step before cloning the repository is to save the current state of the service configuration to the repository. Click **Save to repository**.
 
 Make any desired changes on the confirmation screen and click **Ok** to save.
 
-![Save configuration][api-management-save-configuration-confirm]
-
 After a few moments the configuration is saved, and the configuration status of the repository is displayed, including the date and time of the last configuration change and the last synchronization between the service configuration and the repository.
-
-![Configuration status][api-management-configuration-status]
 
 Once the configuration is saved to the repository, it can be cloned.
 
 For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## To clone the repository to your local machine
-To clone a repository, you need the URL to your repository, a user name, and a password. The user name and URL are displayed near the top of the **Configuration repository** tab.
 
-![Git clone][api-management-configuration-git-clone]
-
-The password is generated at the bottom of the **Configuration repository** tab.
-
-![Generate password][api-management-generate-password]
-
-To generate a password, first ensure that the **Expiry** is set to the desired expiration date and time, and then click **Generate Token**.
-
-![Password][api-management-password]
+To clone a repository, you need the URL to your repository, a user name, and a password. To get user name and other credentials, click on **Access credentials** near the top of the page.  
+ 
+To generate a password, first ensure that the **Expiry** is set to the desired expiration date and time, and then click **Generate**.
 
 > [!IMPORTANT]
 > Make a note of this password. Once you leave this page the password will not be displayed again.
 > 
-> 
 
 The following examples use the Git Bash tool from [Git for Windows](http://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
-Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the publisher portal.
+Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -112,7 +93,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Use the encoded password along with your user name and repository location to construct the git command.
@@ -124,7 +105,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
-If you make changes to your API Management service instance in the publisher portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save configuration to repository** on the **Configuration repository** tab in the publisher portal, and then issue the following command in your local repository.
+
+If you make changes to your API Management service instance in the Azure portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save configuration to repository** on the **Configuration repository** tab in the Azure portal, and then issue the following command in your local repository.
 
 ```
 git pull
@@ -151,13 +133,13 @@ git push
 ```
 
 ## To deploy any service configuration changes to the API Management service instance
-Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
-![Deploy][api-management-configuration-deploy]
+Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
 For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
+
 The files and folders in the local git repository contain the configuration information about the service instance.
 
 | Item | Description |
@@ -189,7 +171,6 @@ These files can be created, deleted, edited, and managed on your local file syst
 > * Properties
 > * Developer portal entities other than styles
 > 
-> 
 
 ### Root api-management folder
 The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
@@ -219,8 +200,6 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
 
-![Identity settings][api-management-identity-settings]
-
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 
 | Delegation setting | Maps to |
@@ -229,8 +208,6 @@ The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscrip
 | DelegationUrl |**Delegation endpoint URL** textbox |
 | DelegatedSubscriptionEnabled |**Delegate product subscription** checkbox |
 | DelegationValidationKey |**Delegate Validation Key** textbox |
-
-![Delegation settings][api-management-delegation-settings]
 
 The final setting, `$ref-policy`, maps to the global policy statements file for the service instance.
 
@@ -279,15 +256,9 @@ For information on other ways to manage your service instance, see:
 * Manage your service instance using the following PowerShell cmdlets
   * [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Manage your service instance in the publisher portal
-  * [Manage your first API](import-and-publish.md)
 * Manage your service instance using the REST API
   * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## Watch a video overview
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

@@ -1,8 +1,11 @@
 ---
 title: Azure Data Source Wizard for Azure Machine Learning | Microsoft Docs
 description: Explains the data source wizard of AML workbench
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

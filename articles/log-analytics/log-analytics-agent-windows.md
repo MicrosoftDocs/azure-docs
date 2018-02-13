@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ---
 
@@ -28,6 +28,8 @@ The agent may be installed by using one of the following methods. Most installat
 * Azure Automation Desired State Configuration (DSC). Using DSC in Azure Automation with a script for Windows computers already deployed in your environment.  
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premise in Azure Stack.  
+
+To understand the network and system requirements to deploy the Windows agent, review [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
 ## Obtain workspace ID and key
 Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics.  

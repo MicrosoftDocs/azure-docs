@@ -33,7 +33,7 @@ Indexes created using recommendations are always flagged as auto_created indexes
 
 Once the create index recommendation is applied, Azure SQL Database will compare performance of the queries with the baseline performance. If new index brought improvements in the performance, recommendation will be flagged as successful and impact report will be available. In case the index didn’t bring the benefits, it will be automatically reverted. This way Azure SQL Database ensures that using recommendations will only improve the database performance.
 
-Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the database or pool DTU usage was above 80% in last 20 minutes or if the storage is above 90% of usage. In this case, the recommendation will be postponed.
+Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the resource usage of a database or pool is high. Back off policy takes into account CPU, Data IO, Log IO, and available storage. If CPU, Data IO, or Log IO was higher than 80% in last 30 minutes create index will be postponed. If available storage would be below 10% after the index is created, recommendation will go into error state. If after couple of days automatic tuning still believes that index would be beneficial the process will start again. This process will repeat until there is enough available storage to create an index or index is not seen as beneficial anymore.
 
 ## Drop index recommendations
 In addition to detecting a missing index, Azure SQL Database continuously analyzes the performance of existing indexes. If index is not used, Azure SQL Database will recommend dropping it. Dropping an index is recommended in two cases:

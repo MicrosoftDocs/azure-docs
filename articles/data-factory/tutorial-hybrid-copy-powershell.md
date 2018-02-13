@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 ---
 # Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
@@ -46,7 +46,7 @@ To view the permissions you have in the subscription, go to the Azure portal, se
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Azure Blob storage (sink). You then create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table. 
 
-1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
 2. Connect to your SQL Server instance by using your credentials. 
 
@@ -198,6 +198,9 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 2. Create a self-hosted integration runtime. 
 
+    ```powershell
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```	
     Here is the sample output:
 
     ```json
@@ -206,7 +209,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. To retrieve the status of the created integration runtime, run the following command:

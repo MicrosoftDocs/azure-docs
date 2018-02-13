@@ -26,6 +26,11 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ## Prerequisites
 
+> [!NOTE]  
+> Do not use Custom Script Extension to run Update-AzureRmVM with the same VM as its parameter, since it will wait on itself.  
+>   
+> 
+
 ### Operating System
 
 The Custom Script Extension for Windows can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.

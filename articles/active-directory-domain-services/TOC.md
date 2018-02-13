@@ -28,6 +28,7 @@
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
+### [Check your domain's health](active-directory-ds-check-health.md)
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
@@ -44,7 +45,12 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+### [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md)
+#### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)
+#### [Restore missing service principals](active-directory-ds-troubleshoot-service-principals.md)
+#### [Secure LDAP errors](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
