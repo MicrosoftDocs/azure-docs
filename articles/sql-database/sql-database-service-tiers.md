@@ -19,7 +19,7 @@ ms.date: 02/12/2018
 ms.author: carlrab
 
 ---
-# What are Azure SQL Database service tiers
+# What are Azure SQL Database service tiers?
 
 [Azure SQL Database](sql-database-technical-overview.md) offers **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). Service tiers are primarily differentiated by a range of performance level and storage size choices, and price.  All service tiers provide flexibility in changing performance level and storage size.  Single databases and elastic pools are billed hourly based on service tier, performance level, and storage size.   
 
@@ -39,7 +39,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ## Performance level and storage size limits
 
-Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-what-is-a-dtu.md).
+Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-what-is-a-dtu.md)
 
 ### Single databases
 
