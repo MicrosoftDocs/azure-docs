@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.author: jeedes
 
 ---
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ZwayamSSO Domain and URLs single sign-on information](./media/active-directory-saas-zwayamsso-tutorial/tutorial_zwayamsso_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/<SAML Entity ID>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.zwayam.com/zwayam-saml/zwayam-saml/saml/login?idp=<SAML Entity ID>`
 
 	b. In the **Identifier** textbox, type the URL: `https://sso.zwayam.com/zwayam-saml/saml/metadata`
 
