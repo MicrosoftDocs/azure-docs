@@ -111,7 +111,7 @@ For development using Python, Anaconda Python distribution 2.7 and 3.5 has been 
 > 
 > 
 
-Anaconda Python 2.7 is installed under C:\Anaconda and Anaconda Python 3.5 is installed under c:\Anaconda\envs\py35. See [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for detailed steps. 
+Anaconda Python 2.7 is installed under C:\Anaconda and Anaconda Python 3.5 is installed under c:\Anaconda\envs\py35. See [PTVS documentation](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) for detailed steps. 
 
 ### Jupyter Notebook
 Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. A Jupyter notebook server has been pre-configured with Python 2.7, Python 3.5, PySpark, Julia and R kernels. There is a desktop icon named "Jupyter Notebook" to start the Jupyter server and launch the browser to access the Notebook server. 
@@ -196,6 +196,6 @@ Here are some next steps to continue your learning and exploration.
 * Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../preview/index.yml). 
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [10 things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
-* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine learning and related data services on Azure. We have also provided an icon on the **Start** menu and on the desktop of the virtual machine to this gallery.
 

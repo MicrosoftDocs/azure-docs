@@ -328,7 +328,7 @@ On the right sidebar of the Workbench, browse to **Runs** to see the run history
 
 In this section, you operationalize the model you created in the previous steps as a web service. You also learn how to use the web service to predict workload. Use Machine Language operationalization command-line interfaces (CLIs) to package the code and dependencies as Docker images, and to publish the model as a containerized web service.
 
-You can use the command-line prompt in Machine Learning Workbench to run the CLIs.  You can also run the CLIs on Ubuntu Linux by following the [installation guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+You can use the command-line prompt in Machine Learning Workbench to run the CLIs.  You can also run the CLIs on Ubuntu Linux by following the [installation guide](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > In all the following commands, replace any argument variable with its actual value. It takes about 40 minutes to finish this section.
@@ -414,7 +414,7 @@ Choose a unique string as the environment for operationalization. Here, we use t
 
 8. Scale the web service. 
 
-   For more information, see [How to scale operationalization on your Azure Container Service cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   For more information, see [How to scale operationalization on your Azure Container Service cluster](how-to-scale-clusters.md).
  
 
 ## Next steps
