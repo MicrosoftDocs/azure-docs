@@ -35,13 +35,17 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample web app from GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
+```
 
 ## Run the app in Visual Studio
 
 In the sample application project folder, open the `active-directory-b2c-wpf.sln` solution in Visual Studio. 
 
-Select **Debug > Start Debugging** to build and run the application. 
+Press **F5** to debug the application. 
 
 ## Create an account
 

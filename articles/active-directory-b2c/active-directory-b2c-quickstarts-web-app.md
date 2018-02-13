@@ -36,7 +36,11 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+```
 
 ## Run the app in Visual Studio
 
@@ -49,13 +53,12 @@ The solution is a sample to-do list application consisting of two projects:
 
 For this quickstart, you need to run both the `TaskWebApp` and `TaskService` projects at the same time. 
 
-1. In the Visual Studio menu, select **Projects > Set StartUp Projects...**. 
-2. Select **Multiple startup projects** radio button.
-3. Change the **Action** for both projects to **Start**. Click **OK**.
+1. Select solution `B2C-WebAPI-DotNet` in Solution Explorer.
+2. In the Visual Studio menu, select **Project > Set StartUp Projects...**. 
+3. Select **Multiple startup projects** radio button.
+4. Change the **Action** for both projects to **Start**. Click **OK**.
 
-![Set Startup Page in Visual Studio](media/active-directory-b2c-quickstarts-web-app/setup-startup-projects.png)
-
-Select **Debug > Start Debugging** to build and run both applications. Each application opens in its own browser tab:
+Press **F5** to debug both applications. Each application opens in its own browser tab:
 
 `https://localhost:44316/` - This page is the ASP.NET web application. You interact directly with this application in the quickstart.
 `https://localhost:44332/` - This page is the web API that is called by the ASP.NET web application.

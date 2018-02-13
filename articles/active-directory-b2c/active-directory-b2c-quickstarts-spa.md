@@ -39,7 +39,11 @@ Azure Active Directory B2C provides cloud identity management to keep your appli
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample web app from GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ## Run the sample application
 
