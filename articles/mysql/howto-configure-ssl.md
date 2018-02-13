@@ -5,7 +5,7 @@ services: mysql
 author: seanli1988
 ms.author: seanli
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 11/27/2017
