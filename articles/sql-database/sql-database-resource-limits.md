@@ -14,11 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: carlrab
 
 ---
 # Azure SQL Database resource limits
+
+> [!IMPORTANT]
+> For resource limits with SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ## Single database: Storage sizes and performance levels
 
@@ -108,10 +111,6 @@ You can increase or decrease the resources available to an elastic pool based on
 - In general, the duration to change the min eDTUs per database or max eDTUs per database is five minutes or less.
 - When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
 - When rescaling pool eDTUs, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
-
-## What is the maximum number of servers and databases?
-
-The maximum number of servers per subscription per region is 21. The maximum number of databases per server is 5000. These are soft limits established experimentally based on payload size analysis, logical master telemetry collection analysis, and a few other aspects. You can request to exceed these limits, provided you stay within your DTU quota. As the number of databases and servers becomes large, the problem that you will hit is resource stats collection in logical master and contention on management operations. These problems are not fatal; they will increase latency.
 
 ## What happens when database and elastic pool resource limits are reached?
 
