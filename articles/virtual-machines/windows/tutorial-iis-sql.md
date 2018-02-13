@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -30,7 +30,21 @@ In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+
+
+## Update PowerShell
+
+This tutorial requires the Azure.Compute module version 5.3.1 which may not be in Cloud Shell yet. In the snippet below, click the *Try it* button and then copy and paste the snippet into Cloud Shell to check the version: 
+
+```azurepowershell-interactive
+Get-Module -ListAvailable AzureRM.Compute
+```
+
+If you need to upgrade, type the following:
+
+```azurepowershell-interactive
+Install-Module AzureRM.Compute -RequiredVersion 4.3.1
+```
 
 ## Create a IIS VM 
 

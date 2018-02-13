@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.author: davidmu
 ms.custom: mvc
 ---
@@ -29,6 +29,24 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Create a front-end VM
 > * Secure network traffic
 > * Create back-end VM
+
+## Update PowerShell
+
+This tutorial requires the Azure.Compute module version 5.3.1 which may not be in Cloud Shell yet. In the code block below, click the *Try it* button and then copy and paste it into Cloud Shell to check the version: 
+
+```azurepowershell-interactive
+Get-Module -ListAvailable AzureRM.Compute
+```
+
+If you need to upgrade, type the following:
+
+```azurepowershell-interactive
+Install-Module AzureRM.Compute -RequiredVersion 4.3.1 
+```
+
+## VM networking overview
+
+Azure virtual networks enable secure network connections between virtual machines, the internet, and other Azure services such as Azure SQL database. Virtual networks are broken down into logical segments called subnets. Subnets are used to control network flow, and as a security boundary. When deploying a VM, it generally includes a virtual network interface, which is attached to a subnet.
 
 While completing this tutorial, you can see these resources created:
 
@@ -45,10 +63,6 @@ While completing this tutorial, you can see these resources created:
 - *myBackendVM* - The VM that uses port 1433 to communicate with *myFrontendVM*.
 
 This tutorial requires the Azure PowerShell module version 5.3.1 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
-
-## VM networking overview
-
-Azure virtual networks enable secure network connections between virtual machines, the internet, and other Azure services such as Azure SQL database. Virtual networks are broken down into logical segments called subnets. Subnets are used to control network flow, and as a security boundary. When deploying a VM, it generally includes a virtual network interface, which is attached to a subnet.
 
 ## Create a virtual network and subnet
 
