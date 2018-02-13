@@ -42,23 +42,23 @@ Status: <release date>
 
 ### Azure AD Connect
 #### Fixed issues
-* Fix timing window on background tasks for Paritition Filtering page when
-* Fix timing window on background tasks for Paritition Filtering page when switching to next page.
+* Fix timing window on background tasks for Partition Filtering page when
+* Fix timing window on background tasks for Partition Filtering page when switching to next page.
 
 * Fixed a bug that caused Access violation during the ConfigDB custom action
 
 * Fixed a bug to recover from SQL connection timeout.
 
-* Fixed a bug where certificates with SAN wildcards fail pre-req check
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check
 
-* Fixed a bug which causes miiserver.exe crash during AAD connector export.
+* Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
 
-* Fixed a bug which bad password attempt logged on DC when running AAD connect wizard to change configuration
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration
 
 
 #### New features and improvements
 
-* Adding Privacy Settings for GDPR
+* Adding Privacy Settings for the General Date Protection Regulation (GDPR)
 For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
 
 1) Data sharing and privacy notification on the clean install EULA page.
@@ -69,10 +69,10 @@ For GDPR we are required to indicate the kinds of customer data that are shared 
 
   * application telemetry - admin can switch this class of data on/off at will
 
-  * AAD Health data - admin must visit the health portal to control their health settings.
+  * Azure AD Health data - admin must visit the health portal to control their health settings.
       Once the service policy has been changed, the agents will read and enforce it.
 
-* Added device writeback configuration actions and a progress bar for page initialization
+* Added device write-back configuration actions and a progress bar for page initialization
 
 * Improved General Diagnostics with HTML report and full data collection in a ZIP-Text / HTML Report
 
@@ -86,7 +86,7 @@ The changes will take care of following:
 1. Express Installations
 2. Custom Installations with Auto-Create account
 
-* Changed the installer so it doesn't require SA privilege on clean install of AADConnect
+* Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
 
 * Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
 
