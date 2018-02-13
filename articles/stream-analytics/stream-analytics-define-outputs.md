@@ -4,7 +4,7 @@ description: Learn about targeting Stream Analytics data outputs options includi
 keywords: data transformation, analysis results, data storage options
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: ''
-author: SnehaGUnda
+author: SnehaGunda
 manager: kfile
 editor: cgronlun
 
