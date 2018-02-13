@@ -488,7 +488,11 @@ Version 2.x of the Azure Functions runtime introduces a new extension-based mode
 >[!NOTE]
 >For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview.
 
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions. 
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions). The way you install and register binding extensions depends on how you develop your functions: 
+
++ [Locally in Visual Studio as precompiled C# functions](#precompiled-functions-c)
++ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
++ [In the Azure portal](#azure-portal-development) 
 
 ### Precompiled functions (C#)
 
