@@ -1,6 +1,6 @@
 ---
-title: Video search SDK Node quickstart | Microsoft Docs
-description: Setup for Video search SDK console application.
+title: Video Search SDK Node quickstart | Microsoft Docs
+description: Setup for Video Search SDK console application.
 titleSuffix: Azure cognitive services Video search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
@@ -29,9 +29,10 @@ let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 Then, instantiate the client:
 ```
 const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
-
 let client = new VideoSearchAPIClient(credentials);
-
+```
+Search for results.
+```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
 }).catch((err) => {
@@ -43,6 +44,6 @@ The code prints `result.value` items to the console without parsing any text.
 
 ![Video results](media/video-search-sdk-node-results.png)
 
-##Next steps
+## Next steps
 
 [Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
