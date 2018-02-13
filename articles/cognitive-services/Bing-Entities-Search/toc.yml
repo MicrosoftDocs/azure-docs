@@ -24,9 +24,9 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Entity search C# quickstart (preview)
+  - name: Entity Search C# quickstart (preview)
     href: entity-search-sdk-quickstart.md
-  - name: Entity search Node.js quickstart (preview)
+  - name: Entity Search Node.js quickstart (preview)
     href: entity-search-sdk-quickstart.md  
 - name: How To Guides
   items:

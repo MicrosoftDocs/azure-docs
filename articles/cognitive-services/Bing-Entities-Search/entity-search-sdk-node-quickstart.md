@@ -12,15 +12,15 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-#News Search SDK Node quickstart
+# Entity Search SDK Node quickstart
 
 The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
-To set up a console application using the Bing News Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.
+To set up a console application using the Bing Entity Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.
 
-##News Search client
+## Entity Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -45,6 +45,6 @@ The code prints `result.value` items to the console without parsing any text.
 
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
 
-##Next steps
+## Next steps
 
 [Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
