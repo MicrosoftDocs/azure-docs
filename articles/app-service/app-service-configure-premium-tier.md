@@ -21,7 +21,7 @@ ms.author: cephalin
 
 # Configure PremiumV2 tier for Azure App Service
 
-The new **PremiumV2** pricing tier gives you faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
+The new **PremiumV2** pricing tier gives you faster processors, SSD storage, and doubles the memory-to-core ratio of the existing pricing tiers. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Choose one of the **PremiumV2** options and click **Select**.
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> If you do not see **P1V2**, **P2V2**, and **P3V2** as options, either **PremiumV2** is not available in your region of choice, or you are configuring a Linux App Service plan, which does not support **PremiumV2**.
+> If you don't see **P1V2**, **P2V2**, and **P3V2** as options, either **PremiumV2** isn't available in your region of choice, or you're configuring a Linux App Service plan, which doesn't support **PremiumV2**.
 
 ## Scale up an existing app to PremiumV2 tier
 
@@ -96,7 +96,7 @@ Once the change operation completes, your app is running in **PremiumV2** tier.
 
 ## Scale up from an unsupported region
 
-If your app runs in a region where **PremiumV2** is not yet available, you can move your app to a different region to take advantage of **PremiumV2**. You have two options:
+If your app runs in a region where **PremiumV2** isn't available yet, you can move your app to a different region to take advantage of **PremiumV2**. You have two options:
 
 - Create an app in new **PremiumV2** plan, then redeploy your application code. Follow the steps at [Create an app in PremiumV2 tier](#create) to set it to **PremiumV2** tier. If desired, use the same scale-out configuration as your existing App Service plan (number of instances, autoscale, and so on).
 - If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration.
