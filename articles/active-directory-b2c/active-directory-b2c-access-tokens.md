@@ -72,7 +72,7 @@ Once an API is configured to publish scopes, the client application needs to be 
 > Azure AD B2C does not ask your client application users for their consent. Instead, all consent is provided by the admin, based on the permissions configured between the applications described above. If a permission grant for an application is revoked, all users who were previously able to acquire that permission will no longer be able to do so.
 
 ## Requesting a token
-
+.
 When requesting an access token, the client application needs to specify the desired permissions in the **scope** parameter of the request. For example, to specify the **Scope Value** “read” for the API that has the **App ID URI** of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `/authorize` endpoint.
 
 > [!NOTE]
