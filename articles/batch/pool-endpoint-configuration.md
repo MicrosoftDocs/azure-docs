@@ -72,7 +72,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## Example: Allow RDP traffic from a specific IP address
 
-The following C# snippet shows how to configure the RDP endpoint on compute nodes in a Windows pool to allow RDP access only from IP address *198.51.100.7*:
+The following C# snippet shows how to configure the RDP endpoint on compute nodes in a Windows pool to allow RDP access only from IP address *198.51.100.7*. The second NSG rule denies traffic that does not match the IP address.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -90,7 +90,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 
 ## Example: Allow SSH traffic from a specific subnet
 
-The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to allow access only from the subnet *192.168.1.0/24*:
+The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to allow access only from the subnet *192.168.1.0/24*. The second NSG rule denies traffic that does not match the subnet.
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(
@@ -108,7 +108,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
                 source_address_prefix='192.168.1.0/24'
                 ),
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
+                priority=175,
                 access='deny',
                 source_address_prefix='*'
                 )
