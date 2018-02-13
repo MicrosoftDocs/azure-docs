@@ -495,10 +495,12 @@ Extensions are delivered as NuGet packages, where the package name typically sta
 When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
 
 + **Visual Studio**: Use the NuGet Package Manager tools. The following command installs the Azure Cosmos DB extension from the Package Manager Console:
+
     ```
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
 + **Visual Studio Code**: You can install packages from the command prompt using the .NET CLI, as follows:
+
     ```
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6
     ```
