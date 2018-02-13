@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -17,63 +17,50 @@ ms.custom: mvc
 
 # Set up a device to provision using the Azure IoT Hub Device Provisioning Service
 
-In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, enabling it to be auto-provisioned by the Device Provisioning Service (DPS). DPS allows your device to be provisioned based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), upon first boot and connection to DPS. This tutorial discusses the processes to:
+In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service (DPS) to automatically provision your devices to your IoT hub. This tutorial shows you how to set up your device during the manufacturing process, enabling it to be auto-provisioned by the DPS. DPS allows your device to be provisioned based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), upon first boot and connection to DPS. This tutorial discusses the processes to:
 
 > [!div class="checklist"]
-> * Choose a Hardware Security Module
-> * Build a platform-specific version of the Device Provisioning Client SDK for the selected HSM
+> * Build a platform-specific version of the DPS Client SDK for C, for a selected HSM
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
-
->[!NOTE]
-> This tutorial assumes the use of the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), used with Visual Studio 2017 on a Windows client. See the IoT Hub Device Provision Service Quickstarts to the left, for details on available SDK support for additional platforms/languages.
 
 ## Prerequisites
 
 Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions mentioned in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
-### Choose a Hardware Security Module
-
-As a device manufacturer, you also need to choose Hardware Security Modules (or HSMs) that are based on one of the supported types. Currently, the [Device Provisioning Service client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following HSMs: 
-
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
-
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 based HSMs are relatively newer chips. Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
-
-For more details on HSM types, see [IoT Hub Device Provisioning Service security concepts](concepts-security.md).  
+This tutorial will use the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), which contains the DPS Client SDK for C. The DPS Client SDK currently provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. This tutorial is based on use of a Windows development client, which also assumes some proficiency with Visual Studio 2017. 
 
 ## Build a platform-specific version of the SDK
 
-> [!IMPORTANT]
-> The Device Provisioning Service Client SDK provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. For guidance on these supported platforms and HSMs, continue reading this section. 
->
-> For all other platforms/HSMs, you need to write custom code. Skip to the [Support for custom TPM and X.509 devices](#customhsm) section for guidance on porting the SDK for your specific needs.
+The Device Provisioning Service Client SDK helps you implement the selected security mechanism in your device  software. But before you can use it, you need to build a version of the SDK specific to your development client platform and HSM. In this tutorial, you will build the SDK using Visual Studio 2017 on a Windows development platform, for a supported HSM chip:
 
-The Device Provisioning Service Client SDK helps implement the selected security mechanism in software. But before you can use it, you need to build a version of the SDK specific to your development client and HSM. The following steps show how to build a version for a Windows Visual Studio 2017 development client, and selected HSM chip:
-
-1. If you followed one of the Quickstarts to [create a simulated TPM device](./quick-create-simulated-device.md) or [create a simulated X.509 device](./quick-create-simulated-device-x509.md), you are ready to build the SDK and can jump to step #2. 
-
-   If not, complete the following steps to install the required tools, and clone the GitHub repository that contains the Device Provisioning Service Client SDK.
+1. Install the required tools and clone the GitHub repository that contains the DPS Client SDK for C:
 
    a. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-   b. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
+   b. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the CMake installation.
 
    c. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest `git` tools, including  **Git Bash**, a command-line Bash shell for interacting with your local Git repository. 
 
-   d. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+   d. Open Git Bash, and clone the "Azure IoT SDKs and libraries for C" repository. The clone command may take several minutes to complete, as it also downloads several dependant submodules:
     
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-    ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-2. Open a command prompt and change into the repository's "cmake" subdirectory:
+   e. Create a new `cmake` subdirectory inside of the newly created repository subdirectory:
+
+   ```cmd/sh
+   mkdir azure-iot-sdk-c/cmake
+   ``` 
+
+2. From the Git Bash command prompt, change into the azure-iot-sdk-c repository's `cmake` subdirectory:
 
    ```cmd/sh
    cd azure-iot-sdk-c/cmake
    ```
 
-3. Build a platform-specific SDK for the type of HSM you have selected for your device, using one of the following commands on the command prompt:
+3. Build the SDK for your development platform and one of the supported HSMs, using one of the following commands (note the 2 trailing period characters). Upon completion, CMake will build out the `/cmake` subdirectory with content specific to your platform/HSM:
     - For TPM devices:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
@@ -89,50 +76,13 @@ The Device Provisioning Service Client SDK helps implement the selected security
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-Now you're ready to use the SDK. Skip to the [Extract the security artifacts section](#extract-the-security-artifacts) for the next steps.
+Now you're ready to use the SDK to build your device registration code. 
 
-<a id="customhsm"></a>
-### Support for custom TPM and X.509 devices (optional)
+## Set up the DPS configuration on the device
 
-First you need to develop your custom HSM repository and library:
+The last step in the device manufacturing process is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. 
 
-1. Develop a library to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
-
-2. Implement the functions defined in the following header file, in your library: 
-
-    - For custom TPM: implement the Custom HSM functions defined under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).  
-    - For custom X.509: implement the Custom HSM functions defined under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
-
-Once your library successfully builds on its own, you'll need to integrate it with the Device Provisioning Service Client SDK, by linking against your library:
-
-1. Supply the custom HSM GitHub repository, the library path and its name in the following cmake command:
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
-    ```
-   
-2. Open the Visual Studio solution file built by CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`), and build it. 
-
-    - The build process compiles the SDK library.
-    - The SDK attempts to link against the custom HSM defined in the cmake command.
-
-3. Run the sample app built for the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample` project, to verify if your HSM is implemented correctly.
-
-<a id="extractsecurity"></a>
-## Extract the security artifacts
-
-The next step is to extract the security artifacts for the HSM on your device.
-
-1. For a TPM device, you need to find out the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key. 
-2. For an X.509 device, you need to obtain the certificates issued to your device(s) - end-entity certificates for individual device enrollments, while root certificates for group enrollments of devices.
-
-These security artifacts are required to enroll your devices to the Device Provisioning Service. The provisioning service then waits for any of these devices to boot and connect with it at any later point in time. See [How to manage device enrollments](how-to-manage-enrollments.md) for information on how to use these security artifacts to create enrollments. 
-
-When your device boots for the first time, the client SDK interacts with your chip to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
-
-
-## Set up the Device Provisioning Service configuration on the device
-
-The last step in the device manufacturing process is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. This SDK provides the following APIs for your applications to use:
+This SDK provides the following APIs for your applications to use:
 
 ```C
 // Creates a Provisioning Client for communications with the Device Provisioning Client Service
@@ -165,9 +115,11 @@ static void register_callback(DPS_RESULT register_result, const char* iothub_uri
     ...
     user_info. reg_complete = 1;
 }
+
 static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
 {
 }
+
 int main()
 {
     ...
@@ -193,22 +145,24 @@ int main()
 }
 ```
 
-You may refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you need to [enroll the device with the Device Provisioning Service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the Next Steps section to learn more about this process. 
+You may refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. 
+
+> [!IMPORTANT]
+> Do not start the device yet! You need to finish the process by enrolling the device with the Device Provisioning Service first, before starting the device. The Next steps section below will guide you to the next article.
 
 ## Clean up resources
 
-At this point, you might have the Device Provisioning and IoT Hub services running in the portal. If you wish to abandon the device provisioning setup, and/or delay using any of these services, we recommend shutting them down to avoid incurring unnecessary costs.
+At this point, you might have the Device Provisioning and IoT Hub services running in the portal. If you wish to abandon the device provisioning setup, and/or delay completion of this tutorial series, we recommend shutting them down to avoid incurring unnecessary costs.
 
 1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
 
 
 ## Next steps
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Choose a Hardware Security Module
-> * Build platform-specific Device Provisioning Client SDK components for the selected HSM
+> * Build platform-specific DPS Client SDK components for the selected HSM
 > * Extract the security artifacts
 > * Set up the Device Provisioning Service configuration on the device
 
