@@ -23,7 +23,7 @@ You can use PowerShell scripts in your recovery plans. You write them, and place
 - Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
 - If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
       * Open the Registry Editor and navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
+      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. To check this, you can browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable.
 
 When you write and place the script:
 
