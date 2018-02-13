@@ -63,7 +63,7 @@ For instructions on creating an Azure Cosmos DB Table API account, see [Create a
 
 After you've created a Storage account, your next step is to install the [Microsoft Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/blob/master/azure-cosmosdb-table/README.rst) file in the Cosmos DB Table SDK for Python repository on GitHub.
 
-## Create a table
+## Import the TableService and Entity classes
 
 To work with entities in the Azure Table service in Python, you use the [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) and [Entity][py_Entity] classes. Add this code near the top your Python file to import both:
 
@@ -72,11 +72,27 @@ from azure.cosmosdb.table.tableservice import TableService
 from azure.cosmosdb.table.models import Entity
 ```
 
-Create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
+## Connect to Azure Table service
+
+To connect to Azure Storage Table service, create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, and pass in your Storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
+```
 
+## Connect to Azure Cosmos DB
+
+To connect to Azure Cosmos DB, create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, and using the `connection_string` parameter, pass in the default endpoints protocol, your account name, account key, and table endpoint. Replace `myaccount`, `mykey`, and `myendpoint` with the values for your account.
+
+```python
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+```
+
+## Create a table
+
+Call [create_table][py_create_table] to create the table.
+
+```python
 table_service.create_table('tasktable')
 ```
 
