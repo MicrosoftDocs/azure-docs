@@ -43,6 +43,7 @@
 ## Create and manage pools
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
 ### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
+### [Configure access to compute nodes](pool-endpoint-configuration.md)
 ### [Create a pool with a custom image](batch-custom-images.md)
 ### [Create a pool in a virtual network](batch-virtual-network.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
