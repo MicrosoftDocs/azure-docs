@@ -72,11 +72,11 @@ Anomaly of a particular type is detected when one of these anomaly scores crosse
 
 ## Anomaly Detection algorithm
 
-ANOMALYDETECTION operator uses an unsupervised learning approach where it does not assume any type of distribution in the events. In general, 2 models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
+ANOMALYDETECTION uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, 2 models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
 
-ANOMALYDETECTION uses sliding window semantics to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
+ANOMALYDETECTION uses **sliding window semantics**** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
 
-ANOMALYDETECTION provides a repeatability guarantee: the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
+ANOMALYDETECTION operator provides a **repeatability guarantee** the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
 
 ### Training the models 
 
