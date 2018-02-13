@@ -41,12 +41,9 @@ The main assumption in this setting is the engine progressively degraded over it
 This scenario creates an LSTM network to predict remaining useful life (RUL) of aircraft engines using historical sensor values. Using [Keras](https://keras.io/) with [Tensorflow](https://www.tensorflow.org/) deep learning framework as a compute engine, the scenario trains the LSTM with one set of engines, and test the network on an unseen engine set.
 
 ## Prerequisites
-
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quickstart installation guide](./quickstart-installation.md) to install the application and create a workspace.
-* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
-
-This example can run on any AML Workbench compute context. However, it's recommended to have at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+- An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
+- Azure Machine Learning Workbench, with a workspace created.
+- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
 ## Create a new Workbench project
 
