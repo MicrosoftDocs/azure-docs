@@ -12,7 +12,7 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-#News Search SDK Node quickstart
+# News Search SDK Node quickstart
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
