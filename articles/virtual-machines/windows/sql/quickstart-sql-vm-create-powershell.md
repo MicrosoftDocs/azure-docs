@@ -4,7 +4,7 @@ description: This tutorial shows how to create a Windows SQL Server 2017 virtual
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na

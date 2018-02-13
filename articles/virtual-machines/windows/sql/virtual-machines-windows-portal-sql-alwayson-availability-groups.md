@@ -4,7 +4,7 @@ description: This tutorial shows you how to create an Always On availability gro
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
 

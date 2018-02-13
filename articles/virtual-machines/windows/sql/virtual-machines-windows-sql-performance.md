@@ -4,7 +4,7 @@ description: Provides best practices for optimizing SQL Server performance in Mi
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

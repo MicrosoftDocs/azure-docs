@@ -4,7 +4,7 @@ description: This article covers application patterns for SQL Server on Azure VM
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

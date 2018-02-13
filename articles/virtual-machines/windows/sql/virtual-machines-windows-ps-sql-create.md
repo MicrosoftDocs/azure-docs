@@ -4,7 +4,7 @@ description: Provides steps and PowerShell commands for creating an Azure VM wit
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
 

@@ -4,7 +4,7 @@ description: 'Explains the Automated Backup feature for SQL Server 2016 VMs runn
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-resource-manager
 

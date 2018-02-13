@@ -3,19 +3,18 @@ title: Migrate a SQL Server database to SQL Server on a VM | Microsoft Docs
 description: Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: ''
 tags: azure-service-management
-
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql 
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
+ms.date: 02/13/2018
+ms.author: jroth
 
 ---
 # Migrate a SQL Server database to SQL Server in an Azure VM
@@ -32,7 +31,7 @@ The primary migration methods are:
 * Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure VM from URL
 * Convert on-premises physical machine to Hyper-V VHD, upload to Azure Blob storage, and then deploy as new VM using uploaded VHD
 * Ship hard drive using Windows Import/Export Service
-* If you have an AlwaysOn deployment on-premises, use the [Add Azure Replica Wizard](../classic/sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
+* If you have an AlwaysOn deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
 * Use SQL Server [transactional replication](https://msdn.microsoft.com/library/ms151176.aspx) to configure the Azure SQL Server instance as a subscriber and then disable replication, pointing users to the Azure database instance
 
 > [!TIP]

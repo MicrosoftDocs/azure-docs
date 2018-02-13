@@ -4,7 +4,7 @@ description: This article uses resources created with the classic deployment mod
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 

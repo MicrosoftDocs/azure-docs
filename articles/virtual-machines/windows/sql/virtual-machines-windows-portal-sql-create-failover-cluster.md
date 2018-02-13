@@ -4,7 +4,7 @@ description: "This article explains how to create SQL Server Failover Cluster In
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 

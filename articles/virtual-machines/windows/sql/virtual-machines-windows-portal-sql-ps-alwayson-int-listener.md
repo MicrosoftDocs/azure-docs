@@ -4,7 +4,7 @@ description: Configure Availability Group Listeners on the Azure Resource Manage
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
