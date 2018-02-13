@@ -14,25 +14,31 @@ ms.date: 01/11/2018
 The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
-Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-pricing-tiers.md).  
+Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
 
 There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Max connections**        |                   |
-| Basic 50 Compute Units     | 50 connections    |
-| Basic 100 Compute Units    | 100 connections   |
-| Standard 100 Compute Units | 200 connections   |
-| Standard 200 Compute Units | 400 connections   |
-| Standard 400 Compute Units | 800 connections   |
-| Standard 800 Compute Units | 1600 connections  |
-| **Max Compute Units**      |                   |
-| Basic service tier         | 100 Compute Units |
-| Standard service tier      | 800 Compute Units |
-| **Max storage**            |                   |
-| Basic service tier         | 1 TB              |
-| Standard service tier      | 1 TB              |
+|**Pricing Tier**| **Compute Generation**|**vCore(s)**| **Max Connections**|
+|---|---|---|---|
+|Basic| Gen 4| 1| 200|
+|Basic| Gen 4| 2| 100|
+|Basic| Gen 5| 1| 50|
+|Basic| Gen 5| 2| 100|
+|General Purpose| Gen 4| 2| 200|
+|General Purpose| Gen 4| 4| 400|
+|General Purpose| Gen 4| 8| 800|
+|General Purpose| Gen 4| 16| 1600|
+|General Purpose| Gen 4| 32| 3200|
+|General Purpose| Gen 5| 2| 200|
+|General Purpose| Gen 5| 4| 400|
+|General Purpose| Gen 5| 8| 800|
+|General Purpose| Gen 5| 16| 1600|
+|General Purpose| Gen 5| 32| 3200|
+|Memory Optimized| Gen 5| 2| 200|
+|Memory Optimized| Gen 5| 4| 400|
+|Memory Optimized| Gen 5| 8| 800|
+|Memory Optimized| Gen 5| 16| 1600|
+|Memory Optimized| Gen 5| 32| 3200| 
 
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -68,7 +74,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ## Preview functional limitations
 
 ### Scale operations
-- Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
+- Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, and Memory Optimized pricing tiers.
 - Dynamic on-demand increase of storage on pre-created server is currently not supported.
 - Decreasing server storage size is not supported.
 
@@ -88,5 +94,5 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
 
 ## Next steps
-- [What’s available in each service tier](concepts-pricing-tiers.md)
+- [What’s available in each service tier](concepts-service-tiers.md)
 - [Supported MySQL database versions](concepts-supported-versions.md)
