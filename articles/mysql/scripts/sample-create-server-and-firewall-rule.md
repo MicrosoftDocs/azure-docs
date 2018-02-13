@@ -4,7 +4,7 @@ description: This sample CLI script creates an Azure Database for MySQL server a
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
@@ -18,18 +18,18 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
 
 ## Sample script
-In this sample script, edit the highlighted lines to customize the admin username and password.
+In this sample script, edit the highlighted lines to update the admin username and password to your own.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## Clean up deployment
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it after the script has been run. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/delete-mysql.sh "Delete the resource group.")]
 
 ## Script explanation
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|

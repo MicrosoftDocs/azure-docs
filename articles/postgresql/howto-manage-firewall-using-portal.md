@@ -35,7 +35,7 @@ Use a search engine or other online tool to check your own IP address. For examp
 
   ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
-5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
+5. Allow access to Azure Services by clicking **ON** and click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
 
   ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
