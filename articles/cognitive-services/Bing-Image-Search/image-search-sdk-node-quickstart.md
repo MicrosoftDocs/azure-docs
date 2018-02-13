@@ -21,7 +21,7 @@ The Bing Image Search SDK contains the functionality of the REST API for image q
 To set up a console application using the Bing Image Search SDK, run `npm install azure-cognitiveservices-imagesearch` in your development environment.
 
 ##Image Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
