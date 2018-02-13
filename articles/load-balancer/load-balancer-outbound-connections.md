@@ -26,7 +26,7 @@ Azure provides outbound connectivity for customer deployments through several di
 
 A deployment in Azure can communicate with endpoints outside of Azure in public IP address space. When an instance initiates an outbound flow to a destination in public IP address space, Azure dynamically maps the private IP address to a public IP address.  Once this mapping has been created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
-Azure uses source address network address translation (SNAT) to perform this function.  When multiple private IP addresses are masquerading behind a single public IP address, Azure uses [port address translation (PAT)](#pat) to masquerade private IP addresses.  Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size.
+Azure uses source network address translation (SNAT) to perform this function.  When multiple private IP addresses are masquerading behind a single public IP address, Azure uses [port address translation (PAT)](#pat) to masquerade private IP addresses.  Ephemeral ports are used for PAT and are [preallocated](#preallocatedports) based on pool size.
 
 There are multiple [outbound scenarios](#scenarios). These scenarios can be combined as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario.  Review guidance for [managing these scenarios](#snatexhaust).
 
