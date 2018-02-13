@@ -108,10 +108,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<Server-Based-URL>/<sub-domain>/`
 
+	c. Copy the **Identifier** value in notepad. You will use Identifier value later in this tutorial.
+	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [E Sales Manager Remix Client support team](mailto:esupport@softbrain.co.jp) to get these values.
-
-	c. Copy the **Identifier** value in notepad. You will use Identifier value later in this tutorial.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -125,13 +125,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
 
-7. Click **Save** button.
-
-	![Configure Single Sign-On Save button](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_general_400.png)
-
-8. On the **E Sales Manager Remix Configuration** section, click **Configure E Sales Manager Remix** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **E Sales Manager Remix Configuration** section, click **Configure E Sales Manager Remix** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+
+8. Click **Save** button.
+
+	![Configure Single Sign-On Save button](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_general_400.png)
 
 9. Sign on to your E Sales Manager Remix application as an administrator.
 
@@ -214,12 +214,12 @@ The objective of this section is to create a test user in the Azure portal calle
 	a. In the **Employee Name** textbox, type the name of user like Britta.
 
 	b. Fill all the respective mandatory fields with the user information.
+	
+	c. If you enable SAML, the administrator will not be able to log in from the login screen, so grant administrator login privileges to the user. 
 
-5. If you enable SAML, the administrator will not be able to log in from the login screen, so you can grant administrator login privileges to the user. 
+5. In the future, if you want to log in as an administrator, log in with the user who was granted the administrator permission, and click "To Administrator Menu" from the menu at the top right.
 
 	![The User](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
-
-6. In the future, if you want to log in as an administrator, log in with the user who granted the administrator login role, and click "Admin Login" from the menu at the top right.
 
 ### Assign the Azure AD test user
 
