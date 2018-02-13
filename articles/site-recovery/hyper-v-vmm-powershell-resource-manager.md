@@ -17,7 +17,7 @@ This article shows to automate the steps for replication of Hyper-V VMs in Syste
 
 ## Prerequisites
 
-- Review the [scenario architecture and components](concepts-hyper-v-to-secondary-architecture.md).
+- Review the [scenario architecture and components](hyper-v-vmm-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
 - Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
 - Check that VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)
@@ -25,7 +25,7 @@ This article shows to automate the steps for replication of Hyper-V VMs in Syste
 
 ## Prepare for network mapping
 
-[Network mapping](site-recovery-network-mapping.md) maps between on-premises VMM VM networks in source and target clouds. Mapping does the following:
+[Network mapping](hyper-v-vmm-network-mapping.md) maps between on-premises VMM VM networks in source and target clouds. Mapping does the following:
 
 - Connects VMs to appropriate target VM networks after failover. 
 - Optimally places replica VMs on target Hyper-V host servers. 
