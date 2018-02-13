@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: cahann
+ms.date: 02/13/2018
+ms.author: cahann;v-geberr;v-demak;
 ---
 # Utterances in LUIS
 
@@ -37,6 +37,9 @@ I want to get a computer, how do I go about it?
 When can I have a computer? 
 ```
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
+
+## Example utterances in each intent
+Each intent needs to have example utterances. If you have an intent but do not have any examples utterances in that intent, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not be able to provide precise predictions. 
 
 ## Review utterances
 After your model is trained, published, and receiving endpoint queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
