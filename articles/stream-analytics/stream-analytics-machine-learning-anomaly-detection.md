@@ -72,11 +72,11 @@ Anomaly of a particular type is detected when one of these anomaly scores crosse
 
 ## Anomaly Detection algorithm
 
-ANOMALYDETECTION uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, 2 models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
+* ANOMALYDETECTION algorithm uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, 2 models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
 
-ANOMALYDETECTION uses **sliding window semantics**** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
+* ANOMALYDETECTION uses **sliding window semantics**** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
 
-ANOMALYDETECTION operator provides a **repeatability guarantee** the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
+* ANOMALYDETECTION operator provides a **repeatability guarantee** the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
 
 ### Training the models 
 
@@ -117,19 +117,19 @@ Let's review these in detail (assume a set of historical window with events exis
 
 1. **Bi-directional level change:** Based on the history window, a normal operating range is computed as [10th percentile, 90th percentile] i.e. 10th percentile value as the lower bound and 90th percentile value as the upper bound. A strangeness value for the current event is computed as:  
 
-  a. 0, if event_value is in normal operating range  
-  b. event_value/90th_percentile, if event_value > 90th_percentile  
-  c. 10th_percentile/event_value, if the event_value is < 10th_percentile  
+   - 0, if event_value is in normal operating range  
+   - event_value/90th_percentile, if event_value > 90th_percentile  
+   - 10th_percentile/event_value, if the event_value is < 10th_percentile  
 
-2. **Slow positive trend:** Here, we fit a trend line over the event values in the history window and look for positive trend. The strangeness value is computed as:  
+2. **Slow positive trend:** A trend line over the event values in the history window is calculated and we look for positive trend. The strangeness value is computed as:  
 
-  a. Slope, if slope is positive  
-  b. 0, otherwise 
+   - Slope, if slope is positive  
+   - 0, otherwise 
 
-3. **Slow negative trend:** Here too we fit a trend line over the event values in the history window and look for negative trend. The strangeness value is computed as: 
+1. **Slow negative trend:** A trend line over the event values in the history window is calculated and we look for negative trend. The strangeness value is computed as: 
 
-  a. Slope, if slope is negative  
-  b. 0, otherwise  
+   - Slope, if slope is negative  
+   - 0, otherwise  
 
 Once we have a strangeness value for the incoming event, a martingale value is computed based on this strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
@@ -236,11 +236,11 @@ shown below.
 
 ## Limitations of the ANOMALYDETECTION operator 
 
-* ANOMALYDETECTION operator currently does not support spike and dip detection. Spikes and dips are spontaneous or short-lived changes in the time series. 
+* This operator currently does not support spike and dip detection. Spikes and dips are spontaneous or short-lived changes in the time series. 
 
-* ANOMALYDETECTION operatorcurrently does not handle seasonality patterns. These are repeated patterns in the data, for example a different web traffic behavior during weekends or different shopping trends during Black Friday, which are not anomalies but an expected pattern in behavior. 
+* This operator currently does not handle seasonality patterns. These are repeated patterns in the data, for example a different web traffic behavior during weekends or different shopping trends during Black Friday, which are not anomalies but an expected pattern in behavior. 
 
-* ANOMALYDETECTION operator expects the input time series to be uniform. An event stream can be made uniform by aggregating over a tumbling or hopping window. In scenarios where the gap between events is always smaller than the aggregation window, a tumbling window is sufficient to make the time series uniform. When the gap can be larger, the gaps can be filled by repeating the last value using a hopping window. 
+* This operator expects the input time series to be uniform. An event stream can be made uniform by aggregating over a tumbling or hopping window. In scenarios where the gap between events is always smaller than the aggregation window, a tumbling window is sufficient to make the time series uniform. When the gap can be larger, the gaps can be filled by repeating the last value using a hopping window. 
 
 ## References
 
