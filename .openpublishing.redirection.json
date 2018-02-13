@@ -4964,11 +4964,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/index.md",
-            "redirect_url": "/azure/machine-learning/preview/",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/preview/quick-start-installation.md",
             "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
             "redirect_document_id": false
@@ -14512,6 +14507,11 @@
         {
             "source_path": "articles/container-instances/container-instances-region-availability.md",
             "redirect_url": "/azure/container-instances/container-instances-quotas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-instances/container-instances-mounting-azure-files-volume.md",
+            "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
             "redirect_document_id": false
         },
         {
