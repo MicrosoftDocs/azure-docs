@@ -123,7 +123,6 @@ This section guides you through steps for connecting Azure AD to Samanage's user
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage13.png)
 
-
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Samanage**.
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage14.png)
