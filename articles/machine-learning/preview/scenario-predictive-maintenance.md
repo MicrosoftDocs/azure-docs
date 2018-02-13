@@ -15,7 +15,7 @@ ms.date: 10/05/2017
 
 # Predictive maintenance real-world scenario.
 
-The impact of unscheduled equipment downtime can be detrimental for any business. It is critical to therefore keep field equipment running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
+The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
 This scenario explores a relatively [large-scale simulated data set](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk through a predictive maintenance data science project from data ingestion, feature engineering, model building, and model operationalization and deployment. The code for the entire process is written in Jupyter notebooks using PySpark within Azure ML Workbench. The final model is deployed using Azure Machine Learning Model Management to make realtime equipment failure predictions.   
 
@@ -122,13 +122,15 @@ This scenario gives the reader an overview of how to build an end to end predict
 
 ## References
 
-This use case has been previously developed on multiple platforms:
+There are other predictive maintenance use case examples available on a variety of platforms:
 
 * [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Deep learning for predictive maintenance](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## Next steps
 
