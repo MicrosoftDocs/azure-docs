@@ -39,7 +39,7 @@ The following table summarizes replication support for machines. Site Recovery s
 --- | ---
 Machine configuration | Machines that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
 Machine operating system (Windows) | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1
-Machine operating system (Linux) | Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 isn't supported. If a replicated machine is upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
+Machine operating system (Linux) | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 isn't supported. If a replicated machine is upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
 
 >[!NOTE]
 >
@@ -115,7 +115,7 @@ Azure Virtual Network service endpoints<br/><br/> (Azure Storage firewalls and v
 --- | --- 
 Host NFS | Yes for VMware<br/><br/> No for physical servers 
 Host SAN (ISCSI) | Yes
-Host Multi-path (MPIO) | Yes; tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
+Host Multi-path (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Guest/server VMDK | Yes 
 Guest/server EFI/UEFI| Partial (Migration to Azure for Windows Server 2012 and later only) </br></br> See note at the end of the table.
 Guest/server shared cluster disk | No 
@@ -156,7 +156,7 @@ Encryption at rest (SSE)| Yes
 Premium storage | Yes 
 Import/export service | No 
 Virtual Network service endpoints<br/><br/> Storage firewalls and virtual networks configured on target storage/cache storage account (used to store replication data) | No 
-General purpose V2 storage accounts (both hot and cool tiers) | No 
+General-purpose V2 storage accounts (both hot and cool tiers) | No 
 
 
 ## Azure compute
@@ -177,7 +177,7 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 **Guest operating system architecture** | 64-bit | Prerequisites check fails if unsupported.
 **Operating system disk size** | Up to 2048 GB. | Prerequisites check fails if unsupported.
 **Operating system disk count** | 1 | Prerequisites check fails if unsupported.
-**Data disk count** | Count is 64 or less if you're replicating *VMware VMs to Azure*; 16 or less if you're replicating *Hyper-V VMs to Azure*. | Prerequisites check fails if unsupported.
+**Data disk count** | Count is 64 or less if you're replicating *VMware VMs to Azure*. Count is 16 or less if you're replicating *Hyper-V VMs to Azure*. | Prerequisites check fails if unsupported.
 **Data disk VHD size** | Up to 4095 GB. | Prerequisites check fails if unsupported.
 **Network adapters** | Multiple adapters are supported. | 
 **Shared VHD** | Not supported. | Prerequisites check fails if unsupported.

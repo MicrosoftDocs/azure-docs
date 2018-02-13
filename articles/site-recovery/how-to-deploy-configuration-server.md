@@ -97,7 +97,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 1. In the configuration server management wizard, select **Setup connectivity**. Select the NIC to receive replication traffic, and then select **Save**. You can't change this setting after it's been configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
-4. Select **Install VMware PowerLCI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
+4. Select **Install VMware PowerLCI**. Make sure all browser windows are closed before you do this step. Then select **Continue**.
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
 6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening and a friendly name for the VMware server in the vault.
 7. Enter credentials to be used by the configuration server to connect to the VMware server. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then select **Continue**.
