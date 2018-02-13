@@ -26,7 +26,7 @@ The following table and graphic provide a high-level view of the components used
 
 **On-premises to on-premises architecture**
 
-![On-premises to on-premises](./media/concepts-hyper-v-to-secondary-architecture/arch-onprem-onprem.png)
+![On-premises to on-premises](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## Replication process
 
@@ -53,4 +53,4 @@ The following table and graphic provide a high-level view of the components used
 ## Next steps
 
 
-Follow [this tutorial](hyper-v-vmm-walkthrough.md) to enable Hyper-V replication between VMM clouds.
+Follow [this tutorial](hyper-v-vmm-disaster-recovery.md) to enable Hyper-V replication between VMM clouds.
