@@ -58,19 +58,17 @@ Status: <release date>
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Date Protection Regulation (GDPR)
-For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+* Adding Privacy Settings for the General Date Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
 
-1) Data sharing and privacy notification on the clean install EULA page.
 
-2) Data sharing and privacy notification on the upgrade page.
+	- Data sharing and privacy notification on the clean install EULA page.
+	- Data sharing and privacy notification on the upgrade page.
+	- A new additional task "Privacy Settings" where the user can change their preferences.
 
-3) A new additional task "Privacy Settings" where the user can change their preferences.
+* application telemetry - admin can switch this class of data on/off at will
 
-  * application telemetry - admin can switch this class of data on/off at will
-
-  * Azure AD Health data - admin must visit the health portal to control their health settings.
-      Once the service policy has been changed, the agents will read and enforce it.
+* Azure AD Health data - admin must visit the health portal to control their health settings.
+   Once the service policy has been changed, the agents will read and enforce it.
 
 * Added device write-back configuration actions and a progress bar for page initialization
 
