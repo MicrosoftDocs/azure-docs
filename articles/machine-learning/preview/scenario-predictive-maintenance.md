@@ -37,7 +37,7 @@ The business problem for this simulated data is to predict issues caused by comp
 
 * An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quickstart installation guide](./quickstart-installation.md) to install the program and create a workspace.
-* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](model-management-overview.md)
 
 This example can be run on any AML Workbench compute context. However, it is recommended to run it with at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
