@@ -9,7 +9,9 @@
 - name: Quickstarts
   expanded: true
   items: 
-  - name: Create a new app
+  - name: Create new app with intents
+    href: luis-quickstart-intents-only.md
+  - name: Create a new app with Prebuilt Domain
     href: luis-get-started-create-app.md
   - name: Call LUIS endpoint API
     items:
@@ -51,6 +53,8 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Add list entity for increased entity detection using Node.js
+    href: luis-tutorial-list-entity.md
   - name: Learn synonyms with a phrase list
     href: luis-tutorial-interchangeable-phrase-list.md
   - name: Gain Application Insights with a bot using Node.js
@@ -60,7 +64,9 @@
   - name: Code samples
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
-  items: 
+  items:
+  - name: Authoring cycle
+    href: luis-concept-app-iteration.md 
   - name: Intents
     href: luis-concept-intent.md
   - name: Entities
@@ -69,6 +75,8 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
+  - name: Testing
+    href: luis-concept-test.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -115,6 +123,10 @@
     href: migration-v1-to-v2.md
 - name: Reference
   items: 
+  - name: Regions
+    href: luis-reference-regions.md
+  - name: Boundaries
+    href: luis-boundaries.md
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
   - name: Prebuilt domain reference
@@ -141,7 +153,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Glossary
     href: luis-glossary.md
-  - name: LUIS FAQ
+  - name: FAQ
     href: luis-resources-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

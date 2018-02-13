@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
 
 ---
@@ -91,7 +91,7 @@ As when adding a node manually, adding a scale set instance should be all that's
 
 Scaling in is similar to scaling out. The actual virtual machine scale set changes are practically the same. But, as was discussed previously, Service Fabric only automatically cleans up removed nodes with a durability of Gold or Silver. So, in the Bronze-durability scale-in case, it's necessary to interact with the Service Fabric cluster to shut down the node to be removed and then to remove its state.
 
-Preparing the node for shutdown involves finding the node to be removed (the most recently added node) and deactivating it. For non-seed nodes, newer nodes can be found by comparing `NodeInstanceId`. 
+Preparing the node for shutdown involves finding the node to be removed (the most recently added virtual machine scale set instance) and deactivating it. Virtual machine scale set instances are numbered in the order they are added, so newer nodes can be found by comparing the number suffix in the nodes' names (which match the underlying virtual machine scale set instance names). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -99,11 +99,14 @@ using (var client = new FabricClient())
 	var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
 	    .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
 	    .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-	    .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
 	    .FirstOrDefault();
 ```
-
-Seed nodes are different and don't necessarily follow the convention that greater instance IDs are removed first.
 
 Once the node to be removed is found, it can be deactivated and removed using the same `FabricClient` instance and the `IAzure` instance from earlier.
 
