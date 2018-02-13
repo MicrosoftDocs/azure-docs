@@ -33,7 +33,7 @@ As a device manufacturer, you first need to choose Hardware Security Modules (or
 
 For more information, see [IoT Hub Device Provisioning Service security concepts](concepts-security.md). 
 
-## Enable authentication with different HSMs
+## Enable authentication for supported HSMs
 
 Authentication mode (X**.**509 or TPM) must be enabled for the physical device or simulator before they can be enrolled in the Azure portal. First, navigate to the root folder for azure-iot-sdk-c. Then run the specified command, depending on the authentication mode you choose:
 
@@ -150,18 +150,10 @@ If you are using TPM, follow instructions in ["Create and provision a simulated 
    - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
    - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
 
-## Connecting to IoT Hub after provisioning
-
-Once the device has been provisioned with the provisioning service, this API uses the HSM authentication mode to connect with IoT Hub: 
-  ```
-  IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
-  ```
-
-
-### Support for custom TPM and X.509 devices 
+## Enable authentication for custom TPM and X.509 devices (optional)
 
 > [!NOTE]
-> This section is only applicable to devices that require support for a custom platform or HSM.
+> This section is only applicable to devices that require support for a custom platform or HSM, that is not currently supported by the DPS Client SDK for C.
 
 First you need to develop your custom HSM repository and library:
 
@@ -172,7 +164,7 @@ First you need to develop your custom HSM repository and library:
     - For a custom TPM: implement the Custom HSM functions defined under [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).  
     - For a custom X.509: implement the Custom HSM functions defined under [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
-Once your library successfully builds on its own, you'll need to integrate it with the Device Provisioning Service Client SDK, by linking against your library:
+Once your library successfully builds on its own, you'll need to integrate it with the Device Provisioning Service Client SDK, by linking against your library. :
 
 1. Supply the custom HSM GitHub repository, the library path and its name in the following `cmake` command:
     ```cmd/sh
@@ -184,4 +176,12 @@ Once your library successfully builds on its own, you'll need to integrate it wi
     - The build process compiles the SDK library.
     - The SDK attempts to link against the custom HSM defined in the `cmake` command.
 
-3. Run the "prov_dev_client_ll_sample" sample app under "Provision_Samples" (under `\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample`), to verify if your HSM is implemented correctly.
+3. Run the "prov_dev_client_ll_sample" sample app under "Provision_Samples" (under `\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample`), to verify that your HSM is implemented correctly.
+
+## Connecting to IoT Hub after provisioning
+
+Once the device has been provisioned with the provisioning service, this API uses the HSM authentication mode to connect with IoT Hub: 
+  ```
+  IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
+  ```
+
