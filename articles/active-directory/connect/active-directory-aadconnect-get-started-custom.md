@@ -92,7 +92,7 @@ Review every domain marked **Not Added** and **Not Verified**. Make sure those d
 > When you enable Pass-through Authentication you must have at least one verified domain in order to continue through the wizard.
 
 > [!WARNING]
-> Using an Alternate ID is not compatible with all Office 365 workloads. For more information, refer to [Configuring Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> Using an Alternate ID is not compatible with all Office 365 workloads. For more information, refer to [Configuring Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
