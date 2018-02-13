@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to determine the publisher, offer, S
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -101,7 +101,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 
 Apply similar filters with the `--location`, `--publisher`, and `--sku` options. You can even perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
 
-If you don't specify a particular location with the `--location` option, the values for `westus` are returned by default. (Set a different default location by running `az configure --defaults location=<location>`.)
+If you don't specify a particular location with the `--location` option, the values for the default location are returned. (Set a different default location by running `az configure --defaults location=<location>`.)
 
 For example, the following command lists all Debian 8 SKUs in `westeurope`:
 

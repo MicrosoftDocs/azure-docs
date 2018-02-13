@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerSHell to determine the publisher, offer
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/12/2017
+ms.date: 02/12/2018
 ms.author: danlep
 
 ---
