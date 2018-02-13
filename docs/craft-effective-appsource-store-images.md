@@ -20,12 +20,12 @@ The content of each image should be easy to read, and should reflect the quality
 |Use magnified close-ups or crops when needed to make content legible.|Don’t make your content so small that it is illegible.|
 
 ## Avoid excess content
-Use images to focus the user’s attention on your solution. Images that contain extra unrelated content are distracting and confusing to the user. 
+Use images to focus the user’s attention on your solution. Images that contain unrelated content are distracting and confusing to the user. 
 
 |**Do**|**Don't**|
 |:----|:----|
 |Use example personas when needed.|Don't show private or personal information.|
-|Only show interface elements relevant to the add-in. Use the Office UI sparingly. |Don’t show unrelated user interface elements such as task bars, ribbons, or other applications.|
+|Only show interface elements relevant to the add-in. Use the Office UI sparingly. |Don’t show unrelated user interface elements such as task bars, ribbons, excessive empty space, or other applications.|
 |Reinforce your brand by incorporating recognizable brand elements such as the logo or brand colors. | Don’t add unnecessary graphic elements that obstruct content. |
 
 ## Show the value of your add-in
@@ -34,7 +34,7 @@ The images should clearly communicate value of your solution and its main featur
 |**Do**|**Don't**|
 |:----|:----|
 |Use simple captions or callouts to focus the user’s attention on one key feature.|Don’t communicate more than one point per image.|
-|Only show content that helps illustrate how the add-in creates value for the user.| Don’t show large empty areas or unrelated content.|
+|Only show content that helps illustrate how the add-in creates value for the user.| Don’t show unrelated content.|
 |Position callouts, magnifications, or crops to focus customers on your solution.| Don’t use captions or callouts that obstruct important content.|
 
 ## See also
