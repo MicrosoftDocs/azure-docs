@@ -1,12 +1,12 @@
 ---
-title: Test results for Hyper-V replication between VMM sites with Azure Site Recovery | Microsoft Docs
-description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds using Azure Site Recovery.
+title: Test results for replication of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
+description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds to a secondary site using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/13/2018
 ms.author: raynew
 
 ---
@@ -18,15 +18,15 @@ This article provides the results of performance testing when replicating Hyper-
 
 The goal of testing was to examine how Site Recovery performs during steady state replication.
 
-- Steady state replication occurs when VMs have completed initial replication and are synchronizing delta changes.
-- It’s important to measure performance using steady state, because it’s the state in which most VMs remain unless unexpected outages occur.
+- Steady state replication occurs when VMs have completed initial replication, and are synchronizing delta changes.
+- It’s important to measure performance using steady state, because it’s the state in which most VMs remain, unless unexpected outages occur.
 - The test deployment consisted of two on-premises sites, with a VMM server in each site. This test deployment is typical of a head office/branch office deployment, with head office acting as the primary site, and the branch office as the secondary or recovery site.
 
 ## What we did
 
 Here's what we did in the test pass:
 
-1. Created VMss using VMM templates.
+1. Created VMs using VMM templates.
 2. Started VMs, and captured baseline performance metrics over 12 hours.
 3. Created clouds on the primary and recovery VMM servers.
 4. Configured replication in Site Recovery, including mapping between source and recovery clouds.
@@ -39,51 +39,51 @@ Here's what we did in the test pass:
 ## Primary server performance
 
 * Hyper-V Replica (used by Site Recovery) asynchronously tracks changes to a log file, with minimum storage overhead on the primary server.
-* Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
-* The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5% which is quite low.
+* Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory, and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
+* The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5%, which is quite low.
 
-![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744913.png)
+  ![Primary results](./media/hyper-v-vmm-performance-results/IC744913.png)
 
-Hyper-V Replica utilizes memory on the primary server to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication compared to the total installed memory on the Hyper-V server.
+Hyper-V Replica uses memory on the primary server, to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
-![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
+![Primary results](./media/hyper-v-vmm-performance-results/IC744914.png)
 
 Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication overhead is in the range of 2-3%.
 
-![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
+![Primary results](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## Secondary server performance
 
-Hyper-V Replica uses a small amount of memory on the recovery server to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication compared to the total installed memory on the Hyper-V server.
+Hyper-V Replica uses a small amount of memory on the recovery server, to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
-![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744916.png)
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 The amount of I/O operations on the recovery site is a function of the number of write operations on the primary site. Let’s look at the total I/O operations on the recovery site in comparison with the total I/O operations and write operations on the primary site. The graphs show that the total IOPS on the recovery site is
 
 * Around 1.5 times the write IOPS on the primary.
 * Around 37% of the total IOPS on the primary site.
 
-![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744917.png)
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744917.png)
 
-![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744918.png)
 
 ## Effect on network utilization
 
-An average of 275 Mb per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 Gb per second.
+An average of 275 Mb per second of network bandwidth was used between the primary and recovery nodes (with compression enabled), against an existing bandwidth of 5 Gb per second.
 
-![Results network utilization](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
+![Results network utilization](./media/hyper-v-vmm-performance-results/IC744919.png)
 
 ## Effect on VM performance
 
 An important consideration is the impact of replication on production workloads running on the virtual machines. If the primary site is adequately provisioned for replication, there shouldn’t be any impact on the workloads. Hyper-V Replica’s lightweight tracking mechanism ensures that workloads running in the virtual machines are not impacted during steady-state replication. This is illustrated in the following graphs.
 
-This graph shows IOPS performed by virtual machines running different workloads before and after replication was enabled. You can observe that there is no difference between the two.
+This graph shows IOPS performed by virtual machines running different workloads, before and after replication was enabled. You can observe that there is no difference between the two.
 
-![Replica effect results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744920.png)
+![Replica effect results](./media/hyper-v-vmm-performance-results/IC744920.png)
 
-The following graph shows the throughput of virtual machines running different workloads before and after replication was enabled. You can observe that replication has no significant impact.
+The following graph shows the throughput of virtual machines running different workloads, before and after replication was enabled. You can observe that replication has no significant impact.
 
-![Results replica effects](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
+![Results replica effects](./media/hyper-v-vmm-performance-results/IC744921.png)
 
 ## Conclusion
 
@@ -99,7 +99,7 @@ The results clearly show that Site Recovery, coupled with Hyper-V Replica, scale
 * Each cluster server has four network cards (NICs) of one Gbps each.
 * Two of the network cards are connected to an iSCSI private network, and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
 
-![Primary hardware requirements](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
+![Primary hardware requirements](./media/hyper-v-vmm-performance-results/IC744922.png)
 
 | Server | RAM | Model | Processor | Number of processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -111,7 +111,7 @@ The results clearly show that Site Recovery, coupled with Hyper-V Replica, scale
 * The secondary site has a six-node failover cluster.
 * Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
 
-![Primary hardware specification](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
+![Primary hardware specification](./media/hyper-v-vmm-performance-results/IC744923.png)
 
 | Server | RAM | Model | Processor | Number of processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
