@@ -85,3 +85,5 @@ Start replicating from the secondary site to the primary, and fail back to the p
 > [!NOTE]
 > Reverse replication only replicates changes that have occurred since the replica VM was turned off, and only delta changes are sent.
 
+## Next steps
+[Review the step](hyper-v-vmm-disaster-recovery.md) for replicating Hyper-V VMs to a secondary site.
