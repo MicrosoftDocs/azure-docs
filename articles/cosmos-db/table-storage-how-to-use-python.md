@@ -40,7 +40,7 @@ You need the following to complete this tutorial successfully:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
 - [Azure Cosmos DB Table SDK 1.01 for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-- [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)  
+- [Azure Storage account or Azure Cosmos DB Table API account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account)  
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -82,7 +82,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 
 ## Connect to Azure Cosmos DB
 
-To connect to Azure Cosmos DB, create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object, and using the `connection_string` parameter, pass in the default endpoints protocol, your account name, account key, and table endpoint. Replace `myaccount`, `mykey`, and `myendpoint` with the values for your account.
+To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) object using your copied connection string:
 
 ```python
 table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
