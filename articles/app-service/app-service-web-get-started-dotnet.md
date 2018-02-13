@@ -79,7 +79,7 @@ From the menu, select **Debug > Start without Debugging** to run the web app loc
 
 Back in Visual Studio, from the **View** menu, click **Team Explorer**. The **Team Explorer** is displayed.
 
-In the Home view, click **Settings** > **Repository Settings**.
+In the **Home** view, click **Settings** > **Repository Settings**.
 
 ![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
@@ -89,15 +89,13 @@ Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL t
 
 ![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
-> [!NOTE]
-> This setting is equivalent to the Git command `git remote add Azure <URL>`.
->
+This setting is equivalent to the Git command `git remote add Azure <URL>`.
 
 Click the **Home** button at the top.
 
 Select **Settings** > **Global Settings**. Confirm that the name and email address are set. Select **Update** if necessary.
 
-Your files are Visual Studio has already committed all the files into the Git repository when it created the project. All you need to do now is to push the files to Azure.
+Visual Studio already committed all the files into the Git repository when it created the project. All you need to do now is to push the files to Azure.
 
 Click the **Home** button at the top. Select **Sync** > **Actions** > **Open Command Prompt**. 
 
