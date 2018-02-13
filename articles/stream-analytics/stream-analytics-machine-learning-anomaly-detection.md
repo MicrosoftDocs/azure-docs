@@ -18,9 +18,9 @@ ms.author: dubansal
 # Anomaly Detection in Azure Stream Analytics
 
 > [!IMPORTANT]
-> This functionality is in preview, its not recommend for production workloads.
+> This functionality is in preview, its not recommend to use with production workloads.
 
-The AnomalyDetection operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
+The **AnomalyDetection** operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
 
 The AnomalyDetection operator detects three types of anomalies: 
 
@@ -30,7 +30,7 @@ The AnomalyDetection operator detects three types of anomalies:
 
 * **Slow Negative Trend**: A slow decrease in the trend over time.  
 
-When using the AnomalyDetection operator, you must specify the LIMIT DURATION clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. This operator can optionally be limited to only events that match a certain property or condition by using the WHEN clause. This operator can also optionally process groups of events separately based on the key specified in the PARTITION BY clause. Training and prediction occur independently for each partition. 
+When using the AnomalyDetection operator, you must specify the **Limit Duration** clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. This operator can optionally be limited to only events that match a certain property or condition by using the **When** clause. This operator can also optionally process groups of events separately based on the key specified in the **Partition by** clause. Training and prediction occur independently for each partition. 
 
 ## Syntax for AnomalyDetection operator
 
@@ -51,7 +51,7 @@ value would be used for learning and training in that model. For example, the fo
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration clause** DURATION(\<unit\>, \<length\>) - Specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. See [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) for a detailed description of supported units and their abbreviations. 
+* **limit_duration clause** `DURATION(<unit>, <length>)` - Specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. See [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) for a detailed description of supported units and their abbreviations. 
 
 * **when_clause** - Specifies a boolean condition for the events considered in the
 anomaly detection computation.
@@ -81,7 +81,7 @@ Anomaly of a particular type is detected when one of the anomaly scores crosses 
 
 ### Training the models 
 
-As time progresses, models are trained with different data. To make sense of the scores, it helps to understand the underlying mechanism by which the models are trained. Here, **t<sub>0</sub>** is the job output start time and **d** is the window size from the Limit Duration parameter. Assume that time is divided up into hops of size **d**, starting from `01/01/0001 00:00:00`. The following steps are used to train the model and score the events:
+As time progresses, models are trained with different data. To make sense of the scores, it helps to understand the underlying mechanism by which the models are trained. Here, **t<sub>0</sub>** is the **job output start time** and **d** is the **window size** from the Limit Duration parameter. Assume that time is divided up into **hops of size d**, starting from `01/01/0001 00:00:00`. The following steps are used to train the model and score the events:
 
 * When a job starts up, it reads data starting at time t<sub>0</sub> – 2d.  
 * When time reaches the next hop, a new model M1 is created and starts getting trained.  
