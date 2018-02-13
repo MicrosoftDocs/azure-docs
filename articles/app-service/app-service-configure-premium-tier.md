@@ -103,7 +103,7 @@ If your app runs in a region where **PremiumV2** isn't available yet, you can mo
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    In the **Clone app** page, you can create a new App Service plan in the region you want, and specify the settings that you want to clone.
+    In the **Clone app** page, you can create an App Service plan in the region you want, and specify the settings that you want to clone.
 
 ## Automate with scripts
 
