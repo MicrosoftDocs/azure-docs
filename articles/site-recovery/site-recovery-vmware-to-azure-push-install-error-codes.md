@@ -16,7 +16,7 @@ ms.author: anoopkv
 This article describes common problems you might face when you try to install Azure Site Recovery Mobility Service on the source server to enable protection.
 
 ## Error 78007 - The requested operation could not be completed
-This error can be thrown by the service for multiple reasons. Choose the corresponding provider error to troubleshoot further.
+This error can be thrown by the service for several reasons. Choose the corresponding provider error to troubleshoot further.
 
 * [Error 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
 * [Error 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
@@ -32,7 +32,7 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95105 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0856**. <br> Either **File and Printer Sharing** isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| **File and Printer Sharing** isn't enabled. | Allow **File and Printer Sharing** on the source machine in Windows Firewall. On the source machine, under **Windows Firewall** > **Allow an app or feature through Firewall**, select **File and Printer Sharing for all profiles**. </br> In addition, check the following prerequisites to successfully finish the push installation.<br> Read more about [troubleshooting WMI isssues](#troubleshoot-wmi-issues).
+95105 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0856**. <br> Either **File and Printer Sharing** isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| **File and Printer Sharing** isn't enabled. | Allow **File and Printer Sharing** on the source machine in Windows Firewall. On the source machine, under **Windows Firewall** > **Allow an app or feature through Firewall**, select **File and Printer Sharing for all profiles**. </br> In addition, check the following prerequisites to successfully finish the push installation.<br> Read more about [troubleshooting WMI issues](#troubleshoot-wmi-issues).
 
 
 ## Error 95107 - Protection could not be enabled (EP0858)
