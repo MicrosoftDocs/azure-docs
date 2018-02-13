@@ -34,7 +34,7 @@ A public GitHub repository for this scenario is located at[https://github.com/Az
 
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - Azure Machine Learning Workbench, with a workspace created.
-- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment setup, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](model-management-overview.md).
 
 ## Create a new Workbench project
 
