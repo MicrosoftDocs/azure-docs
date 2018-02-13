@@ -4,8 +4,8 @@ description: Learn about targeting Stream Analytics data outputs options includi
 keywords: data transformation, analysis results, data storage options
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: ''
-author: samacha
-manager: jhubbard
+author: SnehaGUnda
+manager: kfile
 editor: cgronlun
 
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
+ms.date: 02/18/2017
+ms.author: sngun
 
 ---
 # Stream Analytics outputs: Options for storage, analysis
@@ -161,6 +161,15 @@ The table below lists the property names and their description for creating a bl
 </tr>
 </tbody>
 </table>
+
+When using blob storage as output, a new file is created in the blob in the following cases:
+
+* If the file exceeds the maximum allowed number of  blocks (Note that the maximum allowed number of blocks might be reached without reaching the maxium allowed blob size. For example, if the output rate is high, you will see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size will be smaller.)
+•	If there is a schema change in the output, and the output format requires fixed schema (CSV and Avro). 
+•	If a job is restarted either externally or internal restart of a job.
+•	If the query is fully partitioned, new file is created for each output partition. 
+•	If a file or a container of the storage account is deleted by the user.
+•	If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
 
 ## Event Hub
 [Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second.  One use of an Event Hub as output is when the output of a Stream Analytics job will be the input of another streaming job.
