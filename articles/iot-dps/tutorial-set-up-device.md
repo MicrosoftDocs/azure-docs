@@ -26,13 +26,13 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 
 ## Prerequisites
 
-Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions mentioned in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
+Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions  in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
-This tutorial will use the [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), which contains the DPS Client SDK for C. The DPS Client SDK currently provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. This tutorial is based on use of a Windows development client, which also assumes some proficiency with Visual Studio 2017. 
+This tutorial will use the [Azure IoT SDKs and libraries for C repository](https://github.com/Azure/azure-iot-sdk-c), which contains the DPS Client SDK for C. The DPS Client SDK currently provides TPM and X.509 HSM support for devices running on Windows or Ubuntu implementations. As such, this tutorial is based on use of a Windows development client, which also assumes some proficiency with Visual Studio 2017. 
 
 ## Build a platform-specific version of the SDK
 
-The Device Provisioning Service Client SDK helps you implement the selected security mechanism in your device  software. But before you can use it, you need to build a version of the SDK specific to your development client platform and HSM. In this tutorial, you will build the SDK using Visual Studio 2017 on a Windows development platform, for a supported HSM chip:
+The Device Provisioning Service Client SDK helps you implement the selected security mechanism in your device  software. But before you can use it, you need to build a version of the SDK specific to your development client platform and HSM. In this tutorial, you will build an SDK that uses Visual Studio 2017 on a Windows development platform, for a supported HSM chip:
 
 1. Install the required tools and clone the GitHub repository that contains the DPS Client SDK for C:
 
@@ -60,7 +60,7 @@ The Device Provisioning Service Client SDK helps you implement the selected secu
    cd azure-iot-sdk-c/cmake
    ```
 
-3. Build the SDK for your development platform and one of the supported HSMs, using one of the following commands (note the 2 trailing period characters). Upon completion, CMake will build out the `/cmake` subdirectory with content specific to your platform/HSM:
+3. Build the SDK for your development platform and one of the supported HSMs, using one of the following commands (also note the 2 trailing period characters). Upon completion, CMake will build out the `/cmake` subdirectory with content specific to your platform/HSM:
     - For TPM devices:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
