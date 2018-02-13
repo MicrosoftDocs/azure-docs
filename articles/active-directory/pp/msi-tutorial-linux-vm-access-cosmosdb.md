@@ -1,4 +1,4 @@
-# Use a user-assigned Managed Service Identity (MSI) on a Linux VM to access Cosmos DB
+# Use a user-assigned Managed Service Identity (MSI) to access Cosmos DB on a Linux VM 
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux virtual machine in a new resource group
 
-First you create a new Linux VM. You can also enable MSI on an existing VM if you prefer.
+First you create a new Linux VM. If you prefer, you can also enable MSI on an existing VM.
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -53,7 +53,7 @@ First you create a new Linux VM. You can also enable MSI on an existing VM if yo
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    The response contains details for the user-assigned MSI created, similar to the following example. Note the `clientId` and `id` values for your MSI, as they will be used in later steps:
+    The response contains details for the user-assigned MSI created, similar to the following example: Note the `clientId` and `id` values for your MSI, as they are used in later steps:
 
     ```json
     {
@@ -87,7 +87,7 @@ If you don't already have one, now create a Cosmos DB account. You can also skip
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
 3. Enter an **ID** for the Cosmos DB account, which you use later.  
-4. **API** should be set to "SQL". The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
+4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
 6. Click **Create**.
 
@@ -97,13 +97,13 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 
 1. Navigate to your newly created Cosmos DB account.
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
-3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).
+3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).
 
 ## Grant your User Assigned MSI access to the Cosmos DB account access keys
 
 Cosmos DB does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB.  In this step, you grant your user assigned MSI access to the keys to the Cosmos DB account.
 
-First grant the MSI identity access to the Cosmos DB account in Resource Manager using the Azure CLI. Update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
+First grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI. Update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -127,13 +127,13 @@ The response includes the details for the role assignment created:
 
 ## Get an access token using the User Assigned MSI and use it to call Azure Resource Manager
 
-For the remainder of the tutorial, we will work from the VM we created earlier.
+For the remainder of the tutorial, work from the VM created earlier.
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
-3. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
 4. Use CURL to get an access token for Azure Resource Manager.  
 
     The CURL request and response for the access token is below.  Replace <CLIENT ID> with the clientId value of your user assigned MSI:
@@ -165,7 +165,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 
 > [!NOTE]
-> The text in the prior URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
+> The text in the prior URL is case-sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
 
 The CURL response gives you the list of Keys.  For example, if you get the read-only keys:  
 
@@ -242,6 +242,6 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](msi-overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
