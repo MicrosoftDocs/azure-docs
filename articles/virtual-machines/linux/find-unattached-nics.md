@@ -23,7 +23,7 @@ When you delete a virtual machine in Azure, the NICs attached to it are not dele
 
 ## Find and delete unattached NICs
 
-The following script shows you how to find unattached NICs by using the *macAddress* property. It loops through all the NICs in a subscription and checks if the *macAddress* property is null to find unattached NICs. *macAddress* property stores the MAC address of the interface when it's attached to a VM.
+The following script shows you how to find unattached NICs by using the *virtualMachine* property. It loops through all the NICs in a subscription and checks if the *virtualMachine* property is null to find unattached NICs. *virtualMachine* property stores the MAC address of the interface when it's attached to a VM.
 
 We highly recommend you to first run the script by setting the *deleteUnattachedNics* variable to 0 to view all the unattached NICs. After reviewing the unattached NICs, run the script by setting *deleteUnattachedNics* to 1 to delete all the unattached NICs.
 
@@ -33,15 +33,15 @@ We highly recommend you to first run the script by setting the *deleteUnattached
 # Set deleteUnattachedNics=0 if you want to see the Id(s) of the unattached NICs
 deleteUnattachedNics=0
 
-unattachedNicsIds=$(az network nic list --query '[?macAddress==`null`].[id]' -o tsv)
+unattachedNicsIds=$(az network nic list --query '[?virtualMachine==`null`].[id]' -o tsv)
 for id in ${unattachedNicsIds[@]}
 do
    if (( $deleteUnattachedNics == 1 ))
    then
 
-       echo "Deleting unattached Nic with Id: "$id
+       echo "Deleting unattached NIC with Id: "$id
        az network nic delete --ids $id
-       echo "Deleted unattached Nic with Id: "$id
+       echo "Deleted unattached NIC with Id: "$id
    else
        echo $id
    fi
