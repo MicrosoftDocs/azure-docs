@@ -92,11 +92,12 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
         ![Azure SQL Database linked service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
 
-    1. For the **Stored procedure name** field, Enter `sp_executesql`. 
-    2. Click **+ New** in the **Stored procedure parameters** section. 
-    3. For **name** of the parameter, enter **stmt**. 
-    4. For **type** of the parameter, enter **String**. 
-    5. For **value** of the parameter, enter the following SQL query:
+    1. Select **Edit**. 
+    2. For the **Stored procedure name** field, Enter `sp_executesql`. 
+    3. Click **+ New** in the **Stored procedure parameters** section. 
+    4. For **name** of the parameter, enter **stmt**. 
+    5. For **type** of the parameter, enter **String**. 
+    6. For **value** of the parameter, enter the following SQL query:
 
         In the SQL query, specify the right values for the **folder_name**, **project_name**, and **package_name** parameters. 
 
@@ -118,7 +119,8 @@ In this section, you trigger a pipeline run and then monitor it.
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
     ![Trigger now](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
+2. In the **Pipeline Run** window, select **Finish**. 
+3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
