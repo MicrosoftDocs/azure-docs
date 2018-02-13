@@ -4,7 +4,7 @@ description: "Pricing Tiers in Azure Database for PostreSQL"
 services: postresql
 author: jan-eng
 ms.author: janeng
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: PostreSQL-database
 ms.topic: article
@@ -20,7 +20,7 @@ An Azure Database for PostgreSQL server can be created in one of three different
 | Compute generation | Gen4, Gen5 | Gen4, Gen5 | Gen5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
 | Memory per vCore | 1x | 2x Basic | 2x General Purpose |
-| Storage Size | 5 GB to 2 TB |
+| Storage Size | 5 GB to 1 TB |
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 - 35 days |
 
@@ -48,7 +48,7 @@ The storage you provision is the amount of storage capacity available to your Az
 |:---|:----------|:--------------------|:---------------------|
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Storage Size | 5 GB to 1 TB |
-| Storage increment size | 1GB |
+| Storage increment size | 1 GB |
 | IOPS | Variable | 3 IOPS/GB | 3 IOPS/GB |
 
 Additional storage capacity can be added during and after the creation of the server. The amount of allocated storage can also be reduced if it is not used by the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the maximum storage size in a 3:1 ratio.
