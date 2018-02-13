@@ -20,7 +20,7 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 > * Prepare on-premises VMM servers and Hyper-V hosts
 > * Create a Recovery Services vault for Site Recovery 
 > * Set up the source and target replication environments. 
-> * Set up network mapping (if Hyper-V is managed by System Center VMM)
+> * Set up network mapping 
 > * Create a replication policy
 > * Enable replication for a VM
 
@@ -28,7 +28,7 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 
 To complete this scenario:
 
-- Review the [scenario architecture and components](concepts-hyper-v-to-secondary-architecture.md).
+- Review the [scenario architecture and components](hyper-v-vmm-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
 - Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
 - Check that VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
@@ -36,7 +36,7 @@ To complete this scenario:
 
 ### Prepare for network mapping
 
-[Network mapping](site-recovery-network-mapping.md) maps between on-premises VMM VM networks in source and target clouds. Mapping does the following:
+[Network mapping](hyper-v-vmm-network-mapping.md) maps between on-premises VMM VM networks in source and target clouds. Mapping does the following:
 
 - Connects VMs to appropriate target VM networks after failover. 
 - Optimally places replica VMs on target Hyper-V host servers. 
@@ -76,7 +76,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 4. Download the Azure Site Recovery Provider installation file.
 5. Download the registration key. You need this when you install the Provider. The key is valid for five days after you generate it.
 
-    ![Set up source](./media/tutorial-vmm-to-vmm/source-settings.png)
+    ![Set up source](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Install the Provider on each VMM server. You don't need to explicitly install anything on Hyper-V hosts.
 
@@ -90,7 +90,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 4. In **Installation**, accept or modify the default installation location, and click **Install**.
 5. After installation is complete, click **Register** to register the server in the vault.
 
-    ![Install location](./media/tutorial-vmm-to-vmm/provider-register.png)
+    ![Install location](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. In **Vault name**, verify the name of the vault in which the server will be registered. Click **Next**.
 7. In **Proxy Connection**, specify how the Provider running on the VMM server connects to Azure.
    - You can specify that the provider should connect directly to the internet, or via a proxy. Specify proxy settings as needed.
@@ -111,7 +111,7 @@ Select the target VMM server and cloud:
 1. Click **Prepare infrastructure** > **Target**, and select the target VMM server.
 2. VMM clouds that are synchronized with Site Recovery are displayed. Select the target cloud.
 
-   ![Target](./media/tutorial-vmm-to-vmm/target-vmm.png)
+   ![Target](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## Set up a replication policy
@@ -134,7 +134,7 @@ Before you start, make sure that all hosts using the policy have the same operat
 5. Select **Delete replica VM**, to specify that the replica virtual machine should be deleted if you disable protection for the source VM. If you enable this setting, when you disable protection for the source VM it's removed from the Site Recovery console, Site Recovery settings for the VMM are removed from the VMM console, and the replica is deleted.
 6. In **Initial replication method**, if you're replicating over the network, specify whether to start the initial replication or schedule it. To save network bandwidth, you might want to schedule it outside your busy hours. Then click **OK**.
 
-     ![Replication policy](./media/tutorial-vmm-to-vmm/replication-policy.png)
+     ![Replication policy](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. The new policy is automatically associated with the VMM cloud. In **Replication policy**, click **OK**. 
 
@@ -151,4 +151,4 @@ You can track progress of the **Enable Protection** action in **Jobs** > **Site 
 
 ## Next steps
 
-[Run a disaster recovery drill](hyper-v-to-vmm-test-failover.md)
+[Run a disaster recovery drill](hyper-v-vmm-test-failover.md)
