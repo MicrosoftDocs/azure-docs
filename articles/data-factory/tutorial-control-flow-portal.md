@@ -274,7 +274,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 24. To validate the pipeline, click **Validate** button on the toolbar. Close the **Pipeline Validation Output** window by clicking the **>>** button.
 
     ![Validate pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, click **Publish**. Wait until you see the **Successfully published** message.
+24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, select **Publish All**. Wait until you see the **Successfully published** message.
 
     ![Publish](./media/tutorial-control-flow-portal/publish-button.png)
  
