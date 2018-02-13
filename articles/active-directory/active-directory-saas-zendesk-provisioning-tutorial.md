@@ -60,6 +60,8 @@ Before configuring Zendesk for automatic user provisioning with Azure AD, you wi
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk7.png)
 
+	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk20.png)
+
 ## Assigning users to Zendesk
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized. 
@@ -72,7 +74,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 *	It is recommended that a single Azure AD user is assigned to Zendesk to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Zendesk, you must select either the **User** role or another valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+*	When assigning a user to Zendesk, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Zendesk 
 
@@ -85,13 +87,11 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
-	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk17.png)
-
 2. Select Zendesk from your list of SaaS applications.
  
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk3.png)
 
-3. Upon selecting the Zendesk SaaS application, select the **Provisioning** tab.
+3. Select the **Provisioning** tab.
 	
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk16.png)
 
@@ -101,23 +101,24 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 5. Under the **Admin Credentials** section, input the **Admin Username, Secret Token and Domain** of your Zendesk's account. Examples of these values are:
 
-*   In the **Admin Username** field, update the Username having admin priveleges on your Zendesk Tenant.
+	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk Tenant. Example: admin@contoso.com.
 
-*   In the **Secret Token** field, update the secret token generated as mentioned in Step 6.
+	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
-*   In the **Domain** field, use the subdomain registered for you with Zendesk e.g. for an account with url https://testcompany.zendesk.com your domain would be **testcompany**
+	*   In the **Domain** field, populate the subdomain of your Zendesk tenant.
+	Example: For an account with a tenant URL of https://testcompany.zendesk.com, your subdomain would be **testcompany**.
 
-6. You can find the **Secret Token** for your Zendesk account in **Admin > API > Settings**. 
+6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**. 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk4.png)
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
-7. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to your Zendesk app. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
+7. Upon populating the fields shown above, click **Test Connection** to ensure Azure AD can connect to Zendesk. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk19.png)
 	
-8. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk9.png)
 
@@ -127,7 +128,7 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk10.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zendesk for update operations. Select the **Save** button to commit any changes.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk11.png)
 
@@ -138,7 +139,7 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk12.png)
 
 
-14. Review the group attributes that are synchronized from Azure AD to Zendesk. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the **Save** button to commit any changes.
+14. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the **Save** button to commit any changes.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk13.png)
 
@@ -157,10 +158,9 @@ This section will guide you through connecting your Azure AD to Zendesk's user r
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
 
 
-This starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describes all actions performed by the Azure AD provisioning service on Zendesk.
+This starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
-
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 
@@ -171,9 +171,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
 
-
 <!--Image references-->
-
 [1]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_03.png
