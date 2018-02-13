@@ -1,10 +1,10 @@
 ---
 title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
-description: Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and the portal
+description: Create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and the portal
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
 
 ---
@@ -222,34 +222,46 @@ In these steps, you configure the connection from the Resource Manager VNet to t
 9. Create a **shared key**. This key is also used in the connection that you create from the classic VNet to the Resource Manager VNet. You can generate the key or make one up. In our example, we use 'abc123', but you can (and should) use something more complex.
 10. Click **OK** to create the connection.
 
-##<a name="classictoRM"></a>Section 5 - Create classic to Resource Manager connection
+## <a name="classictoRM"></a>Section 5 - Create classic to Resource Manager connection
 
 In these steps, you configure the connection from the classic VNet to the Resource Manager VNet. These steps require PowerShell. You can't create this connection in the portal. Make sure you have downloaded and installed both the classic (SM) and Resource Manager (RM) PowerShell cmdlets.
 
 ### 1. Connect to your Azure account
 
-Open the PowerShell console with elevated rights and log in to your Azure account. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
+Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
 
 ```powershell
 Login-AzureRmAccount
 ```
-   
-Get a list of your Azure subscriptions if you have more than one subscription.
+
+Get a list of your Azure subscriptions.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Specify the subscription that you want to use. 
+Specify the subscription that you want to use (if you have more than one subscription).
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-Add your Azure Account to use the classic PowerShell cmdlets (SM). To do so, you can use the following command:
+You need to also use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:
 
 ```powershell
 Add-AzureAccount
+```
+
+Get a list of your subscriptions. This step is necessary when adding the Service Management cmdlets.
+
+```powershell
+Get-AzureSubscription
+```
+
+Specify the subscription that you want to use (if you have more than one subscription).
+
+```powershell
+Select-AzureSubscription -SubscriptionName "Name of subscription"
 ```
 
 ### 2. View the network configuration file values
