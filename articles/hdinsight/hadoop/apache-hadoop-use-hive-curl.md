@@ -46,24 +46,37 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 >
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
-1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
+1. To set the cluster login that is used by the scripts in this document, use one of the following commands:
 
-    ```curl
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```bash
+    read -p "Enter your cluster login account name: " LOGIN
     ```
-    
-    > [!NOTE]
-    > Replace `admin` with the cluster login name. Replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the user account.
-    
+
     ```powershell
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. To set the cluster name, use one of the following commands:
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+1. To verify that you can connect to your HDInsight cluster, use one of the following commands:
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    ```
+    
+    ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
        -Credential $creds
     $resp.Content
     ```
-
-    > [!NOTE]
-    > Replace `admin` wsith the cluster login name. Replace `$clusterName` with the name of your cluster. When prompted, enter the password for the user account.
 
     You receive a response similar to the following text:
 
@@ -73,13 +86,13 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
     The parameters used in this command are as follows:
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this request is a GET operation.
+    * `-u` - The user name and password used to authenticate the request.
+    * `-G` - Indicates that this request is a GET operation.
 
-   The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
+   The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path, `/status`, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
-    ```curl
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
     ```powershell
@@ -96,8 +109,9 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
 2. Use the following to create a table named **log4jLogs**:
 
-    ```curl
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    ```bash
+    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
+    echo $JOBID
     ```
 
     ```powershell
@@ -106,42 +120,39 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
        -Credential $creds `
        -Body $reqParams `
        -Method POST
-    $resp.Content
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     This request uses the POST method, which sends data as part of the request to the REST API. The following data values are sent with the request:
 
-     * **user.name** - The user that is running the command.
-     * **execute** - The HiveQL statements to execute.
-     * **statusdir** - The directory that the status for this job is written to.
+     * `user.name` - The user that is running the command.
+     * `execute` - The HiveQL statements to execute.
+     * `statusdir` - The directory that the status for this job is written to.
 
    These statements perform the following actions:
    
-   * **DROP TABLE** - If the table already exists, it is deleted.
-   * **CREATE EXTERNAL TABLE** - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
+   * `DROP TABLE` - If the table already exists, it is deleted.
+   * `CREATE EXTERNAL TABLE` - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
      > [!NOTE]
      > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
      >
      > Dropping an external table does **not** delete the data, only the table definition.
 
-   * **ROW FORMAT** - How the data is formatted. The fields in each log are separated by a space.
-   * **STORED AS TEXTFILE LOCATION** - Where the data is stored (the example/data directory) and that it is stored as text.
-   * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
+   * `ROW FORMAT` - How the data is formatted. The fields in each log are separated by a space.
+   * `STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it is stored as text.
+   * `SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
 
      > [!NOTE]
      > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
 
       This command returns a job ID that can be used to check the status of the job.
 
-    ```json
-       {"id":"job_1415651640909_0026"}
-    ```
-
 3. To check the status of the job, use the following command:
 
-    ```curl
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    ```bash
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
     ```powershell
@@ -155,11 +166,9 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Replace `JOBID` or `$joID` with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then value is `job_1415651640909_0026`.
+    If the job has finished, the state is **SUCCEEDED**.
 
-    If the job has finished, the state is `SUCCEEDED`.
-
-4. Once the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
+4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
     You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
