@@ -27,9 +27,9 @@
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Video search SDK C# quickstart (preview)
+  - name: Video Search SDK C# quickstart (preview)
     href: video-search-sdk-quickstart.md 
-  - name: Video search SDK Node quickstart (preview)
+  - name: Video Search SDK Node quickstart (preview)
     href: video-search-sdk-node-quickstart.md 
 - name: How to
   items:

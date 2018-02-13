@@ -1,6 +1,6 @@
 ---
-title: Video search SDK Node quickstart | Microsoft Docs
-description: Setup for Video search SDK console application.
+title: Video Search SDK Node quickstart | Microsoft Docs
+description: Setup for Video Search SDK console application.
 titleSuffix: Azure cognitive services Video search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
@@ -12,15 +12,15 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-#Video Search SDK Node quickstart
+# Video Search SDK Node quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
-##Video Search client
+## Video Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/en-us/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -44,6 +44,6 @@ The code prints `result.value` items to the console without parsing any text.
 
 ![Video results](media/video-search-sdk-node-results.png)
 
-##Next steps
+## Next steps
 
 [Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
