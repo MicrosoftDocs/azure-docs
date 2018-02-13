@@ -27,7 +27,7 @@ The current version of SQL Database is V12. Version V11 has been retired.
 We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## How do I reset the password for the server admin?
-In the [Azure portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+In the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
 See [Managing databases and logins](sql-database-manage-logins.md).
@@ -41,7 +41,7 @@ SQL Database bills on a predictable hourly rate based on both the service tier +
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
 You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
 
-Examples
+Examples:
 
 * If you create a Basic database and then immediately upgrade it to Standard S1, you are charged at the Standard S1 rate for the first hour.
 * If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
@@ -50,7 +50,7 @@ Examples
 ## How does elastic pool usage show up on my bill and what happens when I change eDTUs per pool?
 Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
-Examples
+Examples:
 
 * If you create a Standard elastic pool with 200 eDTUs at 11:18 a.m., adding five databases to the pool, you are charged for 200 eDTUs for the whole hour, beginning at 11 a.m. through the remainder of the day.
 * On Day 2, at 5:05 a.m., Database 1 begins consuming 50 eDTUs and holds steady through the day. Databases 2-5 fluctuate between 0 and 80 eDTUs. During the day, you add five other databases that consume varying eDTUs throughout the day. Day 2 is a full day billed at 200 eDTU. 
@@ -76,7 +76,7 @@ Unlike single databases, using [active geo-replication](sql-database-geo-replica
 Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
 ## How do I find the right service tier and performance level for single databases and elastic pools?
-There are a few tools available to you. 
+There are a few tools available to you: 
 
 * For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
 * If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md)
@@ -116,7 +116,7 @@ The geo-secondary is an async replica and we do not try to keep it in full sync 
 We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## To move a database to a different server in the same subscription
-* In the [Azure portal](https://portal.azure.com), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
+In the [Azure portal](https://portal.azure.com), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
 
 ## To move a database between subscriptions
-* In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
