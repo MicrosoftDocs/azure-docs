@@ -13,12 +13,12 @@ ms.author: v-geberr;
 --- 
 
 # Simple app with primary and secondary data
-This simple app has two intents (primary) and one entity (secondary). The purpose of this quickstart is to demonstrate how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the entity (secondary data) is the content of the message.  
+This simple app has two intents and one entity . This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the entity (secondary data) is the content of the message, `telling them to stop`.  
 
-Once the intent and entity of the utterance are identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
+1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
@@ -32,11 +32,13 @@ Once the intent and entity of the utterance are identified, LUIS is done. The ca
 
 ## Create a new intent
 
-1. From the left panel, select **Create new intent**. Enter the new intent name `SendMessage`. This intent should be selected any time a user wants to send a message.
+1. On the **Intents** page, select **Create new intent**. 
+
+2. Enter the new intent name `SendMessage`. This intent should be selected any time a user wants to send a message.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-2. Add seven utterances to the `SendMessage` intent that you expect a user to ask for, such as:
+3. Add seven utterances to the `SendMessage` intent that you expect a user to ask for, such as:
 
     | Example utterances|
     |--|
