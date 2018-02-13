@@ -32,9 +32,9 @@ The **Log Analytics usage** dashboard displays the following information:
 - Offerings
     - Insight and Analytics nodes
     - Automation and Control nodes
-    - Security nodes
- - Performance
-    - Time taken to collect and index data
+    - Security nodes  
+- Performance
+    - Time taken to collect and index data  
 - List of queries
 
 ![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
