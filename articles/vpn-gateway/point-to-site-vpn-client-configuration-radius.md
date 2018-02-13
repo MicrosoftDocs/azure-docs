@@ -1,10 +1,10 @@
 ---
 title: 'Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure | Microsoft Docs'
-description: This article helps you create VPN client configuration file for Point-to-Site connections that use RADIUS authentication.
+description: Create Windows, Mac OS X, and Linux VPN client configuration files for connections that use RADIUS authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
 
 ---
 # Create and install VPN client configuration files for P2S RADIUS authentication
 
-To connect to a virtual network over Point-to-Site, you need to configure the client device from which you will be connecting. The RADIUS server provides multiple authentication options: Username/password authentication, certificate authentication, as well as other authentication types. The VPN client configuration is different for each type of authentication. To configure the VPN client, you use client configuration files that contain the required settings. This article helps you create and install the VPN client configuration for the RADIUS authentication type that you want to use.
+To connect to a virtual network over Point-to-Site, you need to configure the client device from which you will be connecting. You can create P2S VPN connections from Windows, Mac OSX, and Linux client devices. When using RADIUS authentication, there are multiple authentication options: Username/password authentication, certificate authentication, as well as other authentication types. The VPN client configuration is different for each type of authentication. To configure the VPN client, you use client configuration files that contain the required settings. This article helps you create and install the VPN client configuration for the RADIUS authentication type that you want to use.
 
-### Workflow
+The configuration workflow for P2S RADIUS authentication is as follows:
 
 1. [Set up the Azure VPN gateway for P2S connectivity](point-to-site-how-to-radius-ps.md).
 2. [Set up your RADIUS server for authentication](point-to-site-how-to-radius-ps.md#radius). 
@@ -33,6 +33,8 @@ To connect to a virtual network over Point-to-Site, you need to configure the cl
 >If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration profile, such as the VPN protocol type or authentication type, you must generate and install a new VPN client configuration on your user devices.
 >
 >
+
+To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Within each section, there are steps for Windows, Mac OS X, and Linux (limited steps available at this time).
 
 ## <a name="adeap"></a>Username/password authentication
 
@@ -118,7 +120,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 The following instructions were created using strongSwan 5.5.1 on Ubuntu 17.0.4. Actual screens may be different depending on your version of Linux and strongSwan.
 
-1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the following command. If you receive an error relating to the "libcharon-extra-plugins," replace it with "strongswan-plugin-eap-mschapv2".
+1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example. If you receive an error relating to the "libcharon-extra-plugins," replace it with "strongswan-plugin-eap-mschapv2".
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -248,3 +250,5 @@ To use a different authentication type (for example, OTP), and not username/pass
 ## Next steps
 
 Return to the article to [complete your P2S configuration](point-to-site-how-to-radius-ps.md).
+
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

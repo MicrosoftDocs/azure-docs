@@ -12,12 +12,12 @@ ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Mount an Azure file share with Azure Container Instances
+# Mount an Azure file share in Azure Container Instances
 
 By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. This article shows how to mount an Azure file share for use with Azure Container Instances.
 
 > [!NOTE]
-> Mounting an Azure file share is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting an Azure Files share is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## Create an Azure file share
 
@@ -132,7 +132,11 @@ To see an example of container instance deployment with an Azure Resource Manage
 
 ## Next steps
 
-Learn about the relationship between [Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md).
+Learn how to mount other volume types in Azure Container Instances:
+
+* [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md)
+* [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md)
+* [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
 [aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
