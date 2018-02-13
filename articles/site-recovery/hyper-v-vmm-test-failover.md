@@ -19,13 +19,13 @@ You run a test failover to validate your replication strategy, and perform a DR 
 
 ## How do test failovers work?
 
-- You generally run a test failover from the primary to the secondary site. If you simply want to check that a VM fails over, you can run a test failover without setting anything up on the secondary site. If you want to verify app failover, you will need to set up networking and infrastructure in the secondary location.
+You run a test failover from the primary to the secondary site. If you simply want to check that a VM fails over, you can run a test failover without setting anything up on the secondary site. If you want to verify app failover works as expected, you will need to set up networking and infrastructure in the secondary location.
 - You can run a test failover on a single VM, or on a [recovery plan](site-recovery-create-recovery-plans.md).
 - You can run a test failover without a network, with an existing network, or with an automatically created network. More details about these options are provided in the table below.
     - You can run a test failover without a network. This option is useful if you simply want to check that a VM was able to fail over, but you won't be able to verify any network configuration.
     - Run the failover with an existing network. We recommend you don't use a production network.
     - Run the failover and let Site Recovery automatically create a test network. In this case Site Recovery will create the network automatically, and clean it up when test failover is complete.
-- You need to select a recovery point for the test failover 
+- You need to select a recovery point for the test failover: 
     - **Latest processed**: This option fails a VM over to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
     - **Latest app-consistent**: This option fail over a VM to the latest application-consistent recovery point processed by Site Recovery. 
     - **Latest**: This option first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest RPO (Recovery Point Objective), because the VM created after failover will have all the data replicated to Site Recovery when the failover was triggered.
@@ -34,9 +34,10 @@ You run a test failover to validate your replication strategy, and perform a DR 
     - **Custom**: Use this option to fail over a specific VM to a particular recovery point.
 
 
-### Network options for test failover
 
-When you run a test failover, you're asked to select network settings for test replica machines.  
+## Prepare networking
+
+When you run a test failover, you're asked to select network settings for test replica machines, as summarized in the table.
 
 **Option** | **Details** 
 --- | --- 
@@ -44,10 +45,7 @@ When you run a test failover, you're asked to select network settings for test r
 **Use existing** | The test VM is created on the host on which the replica VM is located. It isn’t added to the cloud.<br/><br/>Create a VM network that's isolated from your production network.<br/><br/>If you're using a VLAN-based network, we recommend that you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for test failovers.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers that are hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites that you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks. 
 **Create a network** | A temporary test network is created automatically based on the setting that you specify in **Logical Network** and its related network sites.<br/><br/> Failover checks that VMs are created. |You should use this option if a recovery plan uses more than one VM network.<br/><br/> If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.<br/><br/> The test VM is created on the host on which the replica virtual machine exists. It isn’t added to the cloud.
 
-
-## Prepare networking
-
-Things to note:
+### Best practices
 
 - Testing a production network causes downtime for production workloads. Ask your users not to use related apps when the disaster recovery drill is in progress.
 - The test network doesn't need to match the VMM logical network type used for test failover. But, some combinations don't work:
@@ -55,12 +53,10 @@ Things to note:
         - Test failover won't work if the replica network uses no isolation, and the test network uses Windows Network Virtualization. This is because the no-isolation network doesn't have the subnets required to create a Windows Network Virtualization network.
 - We recommend that you don't use the network you selected for network mapping, for test failover.
 - How replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console.
-- 
-
-- 
-- 
 
 ### VM network configured with no isolation or VLAN isolation
+
+If a VM network is configured in VMM with no isolation, or VLAN isolation, note the following:
 
 - If DHCP is defined for the VM network, the replica virtual machine is connected to the VLAN ID through the settings that are specified for the network site in the associated logical network. The virtual machine receives its IP address from the available DHCP server.
 - You don't need to define a static IP address pool for the target VM network. If a static IP address pool is used for the VM network, the replica virtual machine is connected to the VLAN ID through the settings that are specified for the network site in the associated logical network.
@@ -68,7 +64,9 @@ Things to note:
 
 ### VM network with Windows Network Virtualization
 
-- If a VM network is configured with Windows Network Virtualization, you should define a static pool for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool. 
+If a VM network is configured in VMM with Windows Network Virtualization, note the following:
+
+- You should define a static pool for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool. 
 - If you define DHCP, the target VMM server acts as a DHCP server and provides an IP address from the pool that's defined for the target VM network.
 - If use of a static IP address pool is defined for the source server, the target VMM server allocates an IP address from the pool. In both cases, IP address allocation will fail if a static IP address pool is not defined.
 
@@ -77,7 +75,6 @@ Things to note:
 ## Prepare the infrastructure
 
 If you simply want to check that a VM can fail over, you can run a test failover without an infrastructure. If you want to do a full DR drill to test app failover, you need to prepare the infrastructure at the secondary site:
-
 
 - If you run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.
 - If you run a test failover with the option to create a VM network automatically, you need to add infrastructure resources to the automatically created network, before you run the test failover. In a recovery plan, you can facilitate this by adding a manual step before Group-1 in the recovery plan that you’re going to use for the test failover. Then, add the infrastructure resources to the automatically created network before you run the test failover.
