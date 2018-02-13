@@ -14,8 +14,7 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: "Active"
-ms.topic: article
-ms.tgt_pltfrm: NA
+ms.topic: 02/12/2018
 ---
 
 # Elastic pools help you manage and scale multiple Azure SQL databases
@@ -167,7 +166,7 @@ The SQL Database service evaluates usage history and recommends one or more pool
 
 The pool recommendation comprises:
 
-- A pricing tier for the pool (Basic, Standard, Premium, or Premium RS)
+- A pricing tier for the pool (Basic, Standard, or Premium)
 - Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
