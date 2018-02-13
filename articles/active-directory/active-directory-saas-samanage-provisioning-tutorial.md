@@ -19,7 +19,7 @@ ms.author: v-ant-msft
 
 # Tutorial: Configure Samanage for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps that are needed to be performed in Samanage nd Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Samanage.
+The objective of this tutorial is to demonstrate the steps to be performed in Samanage and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Samanage.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
@@ -30,7 +30,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure Active Directory tenant
 *   A Samanage tenant with the [Professional](https://www.samanage.com/pricing/) plan or better enabled 
-*   An user account in Samanage with Admin permissions 
+*   A user account in Samanage with Admin permissions 
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Samanage REST API](https://www.samanage.com/api/), which is available to Samanage teams on the Professional plan or better.
@@ -78,10 +78,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Configuring user provisioning to Samanage 
 
-This section guides you through steps for connecting Azure AD to Samanage's user roster by configuring the Azure AD provisioning service, using Samanage's user provisioning API to create, update and disable users and/or groups in Samanage based on user and/or group assignments in Azure AD.
+This section guides you through steps for connecting Azure AD to Samanage's user roster by configuring the Azure AD provisioning service, using Samanage's user provisioning API to create, update, and disable users and/or groups in Samanage based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Samanage, following the instructions provided in the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other..For more information, see the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md).
+> You may also choose to enable SAML-based single sign-on for Samanage, following the instructions provided in the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other. For more information, see the [Samanage single sign-on tutorial](active-directory-saas-samanage-tutorial.md).
 
 ### To configure automatic user provisioning for Samanage in Azure AD:
 

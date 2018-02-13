@@ -19,7 +19,7 @@ ms.author: v-ant-msft
 
 # Tutorial: Configure Zendesk for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps that are needed to be performed in Zendesk and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Zendesk. 
+The objective of this tutorial is to demonstrate the steps to be performed in Zendesk and Azure Active Directory (Azure AD) to configure the automatic provisioning and de-provisioning of users and/or groups from Azure AD to Zendesk. 
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./active-directory-saas-app-provisioning.md).
@@ -30,7 +30,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure AD tenant
 *   A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled 
-*   An user account in Zendesk with Admin permissions 
+*   A user account in Zendesk with Admin permissions 
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
@@ -78,7 +78,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Configuring automatic user provisioning to Zendesk 
 
-This section guides you through steps for connecting Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, using Zendesk's user provisioning API to create, update and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
+This section guides you through steps for connecting Azure AD to Zendesk's user roster by configuring the Azure AD provisioning service, using Zendesk's user provisioning API to create, update, and disable users and/or groups in Zendesk based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zendesk, following the instructions provided in the [Zendesk single sign-on tutorial](active-directory-saas-zendesk-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
