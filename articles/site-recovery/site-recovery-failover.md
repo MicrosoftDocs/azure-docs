@@ -64,7 +64,7 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 
 1. You can follow the failover progress on the **Jobs** page. Even if errors occur during an unplanned failover, the recovery plan runs until it is complete.
 1. After the failover, validate the virtual machine by logging in to it. If you want to go another recovery point for the virtual machine, then you can use **Change recovery point** option.
-1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. Commit deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
+1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. **Commit deletes all the recovery points available with the service** and **Change recovery point** option is not available.
 
 ## Planned failover
 Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. Planned failover is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut-down, the latest data is synchronized and then a failover is triggered.
@@ -104,7 +104,7 @@ In certain cases, failover of virtual machines requires an extra intermediate st
 	* atapi
 * VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
 
-In all the other cases this intermediate step is not required and the time taken for the failover is lower. 
+In all the other cases, this intermediate step is not required and the time taken for the failover is lower. 
 
 
 
@@ -114,7 +114,7 @@ In all the other cases this intermediate step is not required and the time taken
 You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](site-recovery-runbook-automation.md) in [recovery plans](site-recovery-create-recovery-plans.md) to do that.
 
 ## Post failover considerations
-Post failover you might want to consider the following recommendations.
+Post failover you might want to consider the following recommendations:
 ### Retaining drive letter after failover 
 To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
