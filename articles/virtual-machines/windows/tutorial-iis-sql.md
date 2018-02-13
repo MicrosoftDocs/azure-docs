@@ -34,7 +34,7 @@ In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell
 
 ## Update PowerShell
 
-This tutorial requires the Azure.Compute module version 4.3.1 which may not be in Cloud Shell yet. In the code block below, click the *Try it* button and then copy and paste the code it into Cloud Shell to check the version:
+This tutorial requires the Azure.Compute module version 4.3.1 which may not be in Cloud Shell yet. In the code block below, click the **Try it** button and then copy and paste the code it into Cloud Shell to check the version:
 
 ```azurepowershell-interactive
 Get-Module -ListAvailable AzureRM.Compute

@@ -32,7 +32,7 @@ Azure virtual machines use Azure networking for internal and external network co
 
 ## Update PowerShell
 
-This tutorial requires the Azure.Compute module version 4.3.1 which may not be in Cloud Shell yet. In the code block below, click the *Try it* button and then copy and paste the code into Cloud Shell to check the version: 
+This tutorial requires the Azure.Compute module version 4.3.1 which may not be in Cloud Shell yet. In the code block below, click the **Try it** button and then copy and paste the code into Cloud Shell to check the version: 
 
 ```azurepowershell-interactive
 Get-Module -ListAvailable AzureRM.Compute
