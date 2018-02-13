@@ -329,6 +329,7 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
 
 ## Initiatives
 
