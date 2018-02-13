@@ -18,7 +18,7 @@ ms.author: dubansal
 # Anomaly Detection in Azure Stream Analytics
 
 > [!IMPORTANT]
-> This functionality is in preview, its not recommend to use with production workloads.
+> This functionality is in preview, it’s not recommend using with production workloads.
 
 The **AnomalyDetection** operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
 
@@ -42,7 +42,7 @@ When using the AnomalyDetection operator, you must specify the **Limit Duration*
 
 ### Arguments
 
-* **scalar_expression** - The scalar expression over which the anomaly detection is performed. Allowed values for this parameter include float or bigint data types that return a single (scalar) value. The wildcard expression **\*** is not allowed. Scalar expression cannot contain other analytic functions or external functions. 
+* **scalar_expression** - The scalar expression over which the anomaly detection is performed. Allowed values for this parameter include Float or Bigint data types that return a single (scalar) value. The wildcard expression **\*** is not allowed. Scalar expression cannot contain other analytic functions or external functions. 
 
 * **partition_by_clause** - The `PARTITION BY <partition key>` clause divides the
 learning and training across separate partitions. In other words, a separate
@@ -69,7 +69,7 @@ To extract the individual values out of the record, use the **GetRecordPropertyV
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
-Anomaly of a particular type is detected when one of the anomaly scores crosses a threshold. The threshold can be any floating point number >= 0. The threshold is a tradeoff between sensitivity and confidence. For example, a lower threshold would make detection more sensitive to changes and generate more alerts, whereas a higher threshold could make detection less sensitive and more confident but mask some anomalies. The exact threshold value to use depends on the scenario. There is no upper limit but the recommended range is 3.25-5. 
+Anomaly of a type is detected when one of the anomaly scores crosses a threshold. The threshold can be any floating-point number >= 0. The threshold is a tradeoff between sensitivity and confidence. For example, a lower threshold would make detection more sensitive to changes and generate more alerts, whereas a higher threshold could make detection less sensitive and more confident but mask some anomalies. The exact threshold value to use depends on the scenario. There is no upper limit, but the recommended range is 3.25-5. 
 
 ## Anomaly detection algorithm
 
@@ -90,7 +90,7 @@ As time progresses, models are trained with different data. To make sense of the
 * At the next hop, three things happen at the same time:  
 
   * M1 is no longer needed and it is discarded.  
-  * M2 has been sufficiently trained so its used for scoring.  
+  * M2 has been sufficiently trained so it's used for scoring.  
   * A new model M3 is created and starts getting trained in the background.  
 
 * This cycle repeats for every hop, where the active model is discarded, switch to the parallel model, and start training a third model in the background. 
@@ -115,7 +115,7 @@ Diagrammatically, the steps look as follows:
 
 At the Machine Learning level, the anomaly detection algorithm computes a strangeness value for each incoming event by comparing it with events in a history window. The strangeness computation differs for each type of anomaly.  
 
-Let's review the strangeness computation in detail (assume a set of historical window with events exists): 
+Let's review the strangeness computation in detail (assume a set of historical windows with events exists): 
 
 1. **Bi-directional level change:** Based on the history window, a normal operating range is computed as [10th percentile, 90th percentile] that is, 10th percentile value as the lower bound and 90th percentile value as the upper bound. A strangeness value for the current event is computed as:  
 
@@ -135,7 +135,7 @@ Let's review the strangeness computation in detail (assume a set of historical w
 
 Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
-Prob [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if we alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
+Probability [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if we alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
 
 ## Guidance for using the bi-directional level change detector 
 
@@ -143,7 +143,7 @@ The bi-directional level change detector can be used in scenarios such as power 
 
 The following points should be considered when using this detector: 
 
-1. When the time series suddenly sees a increase or drop in value, the AnomalyDetection operator detects it. But detecting the return to normal requires more planning. If a time series was in steady state before the anomaly, which can be achieved by setting the AnomalyDetection operator’s detection window to at most half the length of the anomaly. This scenario assumes that the minimum duration of the anomaly can be estimated ahead of time, and there are enough events in that time frame to train the model sufficiently (at least 50 events). 
+1. When the time series suddenly sees an increase or drop in value, the AnomalyDetection operator detects it. But detecting the return to normal requires more planning. If a time series was in steady state before the anomaly, which can be achieved by setting the AnomalyDetection operator’s detection window to at most half the length of the anomaly. This scenario assumes that the minimum duration of the anomaly can be estimated ahead of time, and there are enough events in that time frame to train the model sufficiently (at least 50 events). 
 
    This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the AnomalyDetection operator. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, an upward change is detected because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, we must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so return to normal can't be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal is detected. Anything smaller than half also works for the same reason, whereas anything bigger will end up including a bit of the normal events. 
 
@@ -252,9 +252,9 @@ shown below.
 
 ## References
 
-* [Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine Learning Anomaly Detection API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
-* [Time Series Anomaly Detection](https://msdn.microsoft.com/library/azure/mt775197.aspx)
+* [Anomaly detection – Using machine learning to detect abnormalities in time series data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
+* [Machine learning anomaly detection API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Time series anomaly detection](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## Next steps
 
