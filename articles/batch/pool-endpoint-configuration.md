@@ -7,15 +7,15 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/13/2018
 ms.author: danlep
 ---
 
 # Configure or disable remote access to compute nodes in an Azure Batch pool
 
-By default, a [node user](/rest/api/batchservice/computenode/adduser) with network connectivity can connect externally to a compute node in a Batch pool. For example, a user can make a Remote Desktop (RDP) connection on port 3389 to a compute node in a Windows pool. Similarly, by default, a user can make a Secure Shell (SSH) connection on port 22 to a compute node in a Linux pool. 
+By default, Batch allows a [node user](/rest/api/batchservice/computenode/adduser) with network connectivity to connect externally to a compute node in a Batch pool. For example, a user can connect by Remote Desktop (RDP) on port 3389 to a compute node in a Windows pool. Similarly, by default, a user can connect by Secure Shell (SSH) on port 22 to a compute node in a Linux pool. 
 
-In your environment, you might need to restrict or disable these default external access settings. Modify these settings by using the Batch APIs to set the [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) property. 
+In your environment, you might need to restrict or disable these default external access settings. You can modify these settings by using the Batch APIs to set the [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) property. 
 
 ## About the pool endpoint configuration
 The endpoint configuration consists of one or more [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool) of frontend ports. (Do not confuse a NAT pool with the Batch pool of compute nodes.) You set up each NAT pool to override the default connection settings on the pool's compute nodes. 
@@ -53,15 +53,16 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
-            protocol='udp',
+            protocol='tcp',
             backend_port=22,
             frontend_port_range_start=4000,
             frontend_port_range_end=4100,
-            network_security_group_rules=[batchmodels.NetworkSecurityGroupRule(
+            network_security_group_rules=[
+                batchmodels.NetworkSecurityGroupRule(
                 priority=170,
                 access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
                 source_address_prefix='Internet'
-            )
+                )
             ]
         )
         ]
@@ -80,7 +81,8 @@ pool.NetworkConfiguration = new NetworkConfiguration
     {
         new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 7500, 8000, new NetworkSecurityGroupRule[]
         {   
-            new NetworkSecurityGroupRule(179,NetworkSecurityGroupRuleAccess.Allow,  "198.51.100.7")
+            new NetworkSecurityGroupRule(179,NetworkSecurityGroupRuleAccess.Allow, "198.51.100.7"),
+            new NetworkSecurityGroupRule(180,NetworkSecurityGroupRuleAccess.Deny, "*")
         })
     })    
 };
@@ -95,15 +97,21 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
-            protocol='udp',
+            protocol='tcp',
             backend_port=22,
             frontend_port_range_start=4000,
             frontend_port_range_end=4100,
-            network_security_group_rules=[batchmodels.NetworkSecurityGroupRule(
+            network_security_group_rules=[
+                batchmodels.NetworkSecurityGroupRule(
                 priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.allow,
+                access='allow',
                 source_address_prefix='192.168.1.0/24'
-            )
+                ),
+                batchmodels.NetworkSecurityGroupRule(
+                priority=170,
+                access='deny',
+                source_address_prefix='*'
+                )
             ]
         )
         ]
