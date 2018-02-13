@@ -9,7 +9,9 @@
 - name: Quickstarts
   expanded: true
   items: 
-  - name: Create a new app
+  - name: Create new app with intents
+    href: luis-quickstart-intents-only.md
+  - name: Create a new app with Prebuilt Domain
     href: luis-get-started-create-app.md
   - name: Call LUIS endpoint API
     items:
