@@ -240,7 +240,7 @@ Get a list of your Azure subscriptions.
 Get-AzureRmSubscription
 ```
 
-Specify the subscription that you want to use (if you have more than one subscription).
+If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -258,7 +258,7 @@ Get a list of your subscriptions. This step may be necessary when adding the Ser
 Get-AzureSubscription
 ```
 
-Specify the subscription that you want to use (if you have more than one subscription).
+If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
 Select-AzureSubscription -SubscriptionName "Name of subscription"

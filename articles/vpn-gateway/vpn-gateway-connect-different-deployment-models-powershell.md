@@ -71,13 +71,13 @@ Gateway IP addressing configuration = gwipconfig
 
 ## <a name="createsmgw"></a>Section 1 - Configure the classic VNet
 ### 1. Download your network configuration file
-1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You use the SM PowerShell cmdlets to complete this part of the configuration.
+1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. The classic Service Management (SM) Azure PowerShell cmdlets are used in this section.
 
   ```powershell
   Add-AzureAccount
   ```
 
-  Get your Azure subscription
+  Get your Azure subscription.
 
   ```powershell
   Get-AzureSubscription
@@ -176,13 +176,13 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   Login-AzureRmAccount
   ``` 
    
-  Get a list of your Azure subscriptions if you have more than one subscription.
+  Get a list of your Azure subscriptions.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Specify the subscription that you want to use.
+  If you have more than one subscription, specify the subscription that you want to use.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
