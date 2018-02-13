@@ -1,6 +1,24 @@
-# Data Prep Operationalization 
+---
+title: In-depth guide on how to use the Azure Machine Learning Data Preparations Operationalization | Microsoft Docs
+description: This document provides details on executing previously designed Data Sources and Data Preparations packages
+services: machine-learning
+author: hughz
+ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: 
+ms.devlang: 
+ms.topic: article 
+ms.date: 02/13/2018
+---
+
+# Data Preparation Operationalization 
 
 ## Operationalization Scenario
+
+The following are the different Data Preparation Operationalization scenarios that a user could come across.
 
 ### Develop your model based on training data
 
