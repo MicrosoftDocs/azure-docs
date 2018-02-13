@@ -18,7 +18,7 @@ ms.date: 01/10/2017
 ms.author: gpetrousov
 ---
 # Find and delete unattached Azure NICs
-When you delete a virtual machine in Azure, the nics attached to it are not deleted by default. Creating and deleting multiple VMs may cause the existance of many unused NICs which are still using the internal IPs and thus taking address space in the subnet. Use this article to find and delete all the unattached NICs and clean the address space.
+When you delete a virtual machine in Azure, the NICs attached to it are not deleted by default. Creating and deleting multiple VMs may cause the existence of many unused NICs which are still occupying the internal IPs and thus taking address space in the subnet. Use this article to find and delete all the unattached NICs and clean the address space.
 
 
 ## Find and delete unattached NICs
@@ -29,8 +29,8 @@ We highly recommend you to first run the script by setting the *deleteUnattached
 
  ```azurecli
 
-# Set deleteUnattachedNics=1 if you want to delete unattached Nics
-# Set deleteUnattachedNics=0 if you want to see the Id of the unattached Nics
+# Set deleteUnattachedNics=1 if you want to delete unattached NICs
+# Set deleteUnattachedNics=0 if you want to see the Id(s) of the unattached NICs
 deleteUnattachedNics=0
 
 unattachedNicsIds=$(az network nic list --query '[?macAddress==`null`].[id]' -o tsv)
