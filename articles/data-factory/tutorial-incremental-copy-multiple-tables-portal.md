@@ -420,7 +420,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     3. Select **Object** for the parameter **type**.
 
     ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
+4. In the **Activities** toolbox, expand **Iteration & Conditionals**, Drag-and-drop the **ForEach** activity from the **Activities** toolbox to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Switch to the **Settings** tab in the **Properties** window, and enter `@pipeline().parameters.tableList` for **Items**. The ForEach activity iterates through a list of tables and performs the incremental copy operation. 
