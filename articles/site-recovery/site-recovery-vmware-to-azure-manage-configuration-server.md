@@ -148,4 +148,4 @@ For configuration server deployments before May 2016, certificate expiry was set
 
 ## Next steps
 
-Review the tutorials for how to set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and physical servers(tutorial-physical-to-azure.md) to Azure.
+Review the tutorials for how to set up disaster recovery of [VMware VMs](tutorial-vmware-to-azure.md) and [physical servers](tutorial-physical-to-azure.md) to Azure.
