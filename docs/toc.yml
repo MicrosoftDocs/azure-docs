@@ -15,6 +15,9 @@
     href: add-in-license-schema.md
 - name: Create effective AppSource listings
   href: create-effective-office-store-listings.md
+  items:
+  - name: Craft effective AppSource store images
+  - href: craft-effective-appsource-store-images.md
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
 - name: Submit to the Seller Dashboard
