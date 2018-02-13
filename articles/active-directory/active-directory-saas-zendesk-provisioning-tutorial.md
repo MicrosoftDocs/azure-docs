@@ -30,7 +30,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure AD tenant
 *   A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled 
-*   A user account in Zendesk with Admin permissions 
+*   An user account in Zendesk with Admin permissions 
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), which is available to Zendesk teams on the Enterprise plan or better.
@@ -132,28 +132,25 @@ This section guides you through steps for connecting Azure AD to Zendesk's user 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk11.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters.md).
-
-13. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZenDesk**.
+12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZenDesk**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk12.png)
 
-
-14. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the **Save** button to commit any changes.
+13. Review the group attributes that are synchronized from Azure AD to Zendesk in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zendesk for update operations. Select the **Save** button to commit any changes.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk13.png)
 
-15. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./active-directory-saas-scoping-filters).
 
-16. To enable the Azure AD provisioning service for Zendesk, change the **Provisioning Status** to **On** in the **Settings** section.
+15. To enable the Azure AD provisioning service for Zendesk, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk14.png)
 
-17. Define the users and/or groups that you would like to provision to Zendesk by choosing the desired values in **Scope** in the **Settings** section.
+16. Define the users and/or groups that you would like to provision to Zendesk by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk15.png)
 
-18. When you are complete and ready to provision, click **Save**.
+17. When you are complete and ready to provision, click **Save**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk18.png)
 
