@@ -93,7 +93,7 @@ This section guides you through steps for connecting Azure AD to Samanage's user
 
 3. Select the **Provisioning** tab.
 	
-	![Zendesk Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage8.png)
+	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage8.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -146,7 +146,7 @@ This section guides you through steps for connecting Azure AD to Samanage's user
 
 	![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage18.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zendesk.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Samanage.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
 
@@ -160,6 +160,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_03.png
+[1]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png
