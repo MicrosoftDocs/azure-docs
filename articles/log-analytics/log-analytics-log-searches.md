@@ -35,7 +35,7 @@ We'll start with simple, practical examples and then build on them so that you c
 After you've familiar with search techniques, you can review the [Log Analytics log search reference](log-analytics-search-reference.md).
 
 ## Use basic filters
-The first thing to know is that the first part of a search query, before any "|" vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the og Analytics workspace. Searching in the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
+The first thing to know is that the first part of a search query, before any "|" vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the Log Analytics workspace. Searching in the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
 
 The most basic filters you can use are *keywords*, such as ‘error’ or ‘timeout’, or a computer name. These types of simple queries generally return diverse shapes of data within the same result set. This is because Log Analytics has different *types* of data in the system.
 
