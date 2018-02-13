@@ -22,12 +22,10 @@ ms.custom: mvc, devcenter
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
 >
-
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
-
-> [!NOTE]
 > If you're looking for steps for an ASP.NET Framework app, see [Create an ASP.NET Framework web app in Azure](app-service-web-get-started-dotnet-framework.md). 
 >
+
+[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,7 +77,7 @@ From the menu, select **Debug > Start without Debugging** to run the web app loc
 
 ## Push to Azure from Visual Studio
 
-Back in Visual Studio, from the **View** menu, click **Team Explorer**. The Team Explorer is displayed.
+Back in Visual Studio, from the **View** menu, click **Team Explorer**. The **Team Explorer** is displayed.
 
 In the Home view, click **Settings** > **Repository Settings**.
 
