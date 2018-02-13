@@ -90,7 +90,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 # copy a blob to a file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
-### Create a share snapshot by using PowerShell
+## Create a share snapshot
 You can create a share snapshot by using the `$share.Snapshot()` command:
 
 ```powershell
@@ -107,13 +107,12 @@ $snapshot=$share.Snapshot()
 
 ```
 
-#### List share snapshots
+## List share snapshots
 
 You may list share snapshots of a particular share using `Get-AzureStorageShare`
 
 ```powershell
-Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
-```
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"```
 
 #### Browse share snapshots
 You may also browse into a particular share snapshot to view its content using `Get-AzureStorageFile` with the value of `-Share` pointing to the particular snapshot
@@ -123,7 +122,7 @@ $snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/201
 Get-AzureStorageFile -Share $snapshot
 ```
 
-#### Restore from share snapshots
+## Restore from share snapshots
 
 You can restore a file by copying or downloading a file from the share snapshot using `Get-AzureStorageFileContent` command
 
@@ -138,7 +137,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-### Delete a share snapshot by using PowerShell
+## Delete a share snapshot
 You can delete a share snapshot by using the `Remove-AzureStorageShare -Share` command:
 
 ```powershell
