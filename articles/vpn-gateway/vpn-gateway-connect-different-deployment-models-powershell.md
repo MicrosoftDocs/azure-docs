@@ -1,10 +1,10 @@
 ---
 title: 'Connect classic virtual networks to Azure Resource Manager VNets: PowerShell | Microsoft Docs'
-description: Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and PowerShell
+description: Create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
 
 ---
 # Connect virtual networks from different deployment models using PowerShell
 
-
-
-This article shows you how to connect classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other. The steps in this article use PowerShell, but you can also create this configuration using the Azure portal by selecting the article from this list.
+This article helps you connect classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other. The steps in this article use PowerShell, but you can also create this configuration using the Azure portal by selecting the article from this list.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -32,7 +30,7 @@ This article shows you how to connect classic VNets to Resource Manager VNets to
 
 Connecting a classic VNet to a Resource Manager VNet is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can create a connection between VNets that are in different subscriptions and in different regions. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. 
 
-If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
+If you do not already have a virtual network gateway and do not want to create one, you may want to instead consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Before you begin
 
@@ -73,10 +71,22 @@ Gateway IP addressing configuration = gwipconfig
 
 ## <a name="createsmgw"></a>Section 1 - Configure the classic VNet
 ### 1. Download your network configuration file
-1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You use the SM PowerShell cmdlets to complete this part of the configuration.
+1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. The classic Service Management (SM) Azure PowerShell cmdlets are used in this section.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Get your Azure subscription.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  If you have more than one subscription, select the subscription that you want to use.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary.
 
@@ -166,13 +176,13 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
   Login-AzureRmAccount
   ``` 
    
-  Get a list of your Azure subscriptions if you have more than one subscription.
+  Get a list of your Azure subscriptions.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Specify the subscription that you want to use.
+  If you have more than one subscription, specify the subscription that you want to use.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -305,4 +315,3 @@ Creating a connection between the gateways requires PowerShell. You may need to 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

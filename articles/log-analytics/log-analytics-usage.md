@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
 
 ---
@@ -32,7 +32,9 @@ The **Log Analytics usage** dashboard displays the following information:
 - Offerings
     - Insight and Analytics nodes
     - Automation and Control nodes
-    - Security nodes
+    - Security nodes  
+- Performance
+    - Time taken to collect and index data  
 - List of queries
 
 ![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
@@ -152,19 +154,6 @@ Click on **See all...** to view the full list of computers sending data for the 
 
 Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
 
-## Check if there is ingestion latency
-With Log Analytics there is an anticipated latency with the ingestion of collected data.  The absolute time between indexing data and when it is available to search can be unpredictable. Previously we included a performance chart on the dashboard that showed the time taken to collect and index data, and with the introduction of the new query language, we have temporarily removed this chart.  As an interim solution until we release updated data ingestion latency metrics, the following query can be used to approximate the latency for each data type.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> The ingestion latency query does not show historical latency and is limited to only returning results for the current time.  The value for *TimeGenerated* is populated at the agent for Common schema logs and populated at the collection endpoint for Custom logs.  
->
 
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -18,7 +18,7 @@ Azure Container Registry is a managed Docker container registry service used for
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Log in to Azure
 
@@ -54,13 +54,13 @@ Before pushing and pulling container images, you must log in to the ACR instance
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Next, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to log in to the ACR instance.
+Next, use the [docker login][docker-login] command to log in to the ACR instance.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-The command returns a 'Login Succeeded' message once completed.
+The command returns `Login Succeeded` once completed. You might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. See the [docker login][docker-login] command reference for more information.
 
 ## Push image to ACR
 
@@ -76,13 +76,13 @@ The image must be tagged with the ACR login server name. Run the [Get-AzureRmCon
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+Tag the image using the [docker tag][docker-tag] command. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
+Finally, use [docker push][docker-push] to push the images to the ACR instance. Replace *acrLoginServer* with the login server name of your ACR instance.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -102,3 +102,11 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
