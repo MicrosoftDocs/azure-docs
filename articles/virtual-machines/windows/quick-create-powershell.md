@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Quick Start - Create Windows VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Windows virtual machines with PowerShell
 services: virtual-machines-windows
@@ -49,7 +49,7 @@ When running this step, you are prompted for credentials. The values that you en
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
-    -Name "myVM$(Get-Random)" `
+    -Name "myVM" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
