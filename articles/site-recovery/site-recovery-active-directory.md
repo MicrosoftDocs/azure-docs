@@ -84,7 +84,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 
 ### Test failover to a secondary site
 
-1. If you're replicating to another on-premises site and you use DHCP, follow the instructions to [set up DNS and DHCP for test failover](hyper-v-vmm-test-failover.md#prepare-dhcp).
+1. If you're replicating to another on-premises site and you use DHCP, [set up DNS and DHCP for test failover](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Do a test failover of the domain controller virtual machine that runs in the isolated network. Use the latest available *application consistent* recovery point of the domain controller virtual machine to do the test failover.
 3. Run a test failover for the recovery plan that contains virtual machines that the application runs on.
 4. When testing is complete, *clean up the test failover* on the domain controller virtual machine. This step deletes the domain controller that was created for test failover.
