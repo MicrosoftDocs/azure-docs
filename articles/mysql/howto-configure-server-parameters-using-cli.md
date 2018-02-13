@@ -22,29 +22,29 @@ To step through this how-to guide, you need:
 ## List server configuration parameters for Azure Database for MySQL server
 To list all modifiable parameters in a server and their values, run the [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) command.
 
-You can list the server configuration parameters for the server **myserver4demo.mysql.database.azure.com** under resource group **myresourcegroup**.
+You can list the server configuration parameters for the server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup**.
 ```azurecli-interactive
-az mysql server configuration list --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 For the definition of each of the listed parameters, see the MySQL reference section on [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## Show server configuration parameter details
 To show details about a particular configuration parameter for a server, run the [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) command.
 
-This example shows details of the **slow\_query\_log** server configuration parameter for server **myserver4demo.mysql.database.azure.com** under resource group **myresourcegroup.**
+This example shows details of the **slow\_query\_log** server configuration parameter for server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
-az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## Modify a server configuration parameter value
 You can also modify the value of a certain server configuration parameter, which updates the underlying configuration value for the MySQL server engine. To update the configuration, use the [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) command. 
 
-To update the **slow\_query\_log** server configuration parameter of server **myserver4demo.mysql.database.azure.com** under resource group **myresourcegroup.**
+To update the **slow\_query\_log** server configuration parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
-az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo --value ON
+az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
 If you want to reset the value of a configuration parameter, omit the optional `--value` parameter, and the service applies the default value. For the example above, it would look like:
 ```azurecli-interactive
-az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 This code resets the **slow\_query\_log** configuration to the default value **OFF**. 
 
