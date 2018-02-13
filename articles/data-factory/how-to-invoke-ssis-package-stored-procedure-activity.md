@@ -73,7 +73,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 1. In the get started page, click **Create pipeline**: 
 
     ![Get started page](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. In the **Activities** toolbox, expand **SQL Database**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
+2. In the **Activities** toolbox, expand **General**, and drag-drop **Stored Procedure** activity to the pipeline designer surface. 
 
     ![Drag-and-drop stored procedure activity](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. In the properties window for the stored procedure activity, switch to the **SQL Account** tab, and click **+ New**. You create a connection to the Azure SQL database that hosts the SSIS Catalog (SSIDB database). 
