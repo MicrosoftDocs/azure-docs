@@ -14510,6 +14510,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-instances/container-instances-mounting-azure-files-volume.md",
+            "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
@@ -16162,6 +16167,11 @@
         {
             "source_path": "articles/iot-suite/iot-suite-v1-gateway-kit-get-started-simulator.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-connected-factory-publisher.md",
+            "redirect_url": "https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md",
             "redirect_document_id": false
         },
         {
