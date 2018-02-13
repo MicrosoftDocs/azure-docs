@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database feature comparison | Microsoft Docs
-description: This article compares the features of SQL Server and Azure SQL Database and shows their differences.
+description: This article compares the features of Azure SQL Database and Azure SQL Database Managed Instances with each other and with SQL Server.
 services: sql-database
-documentationcenter: na
+documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: ''
+editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: "Active"
 ms.date: 02/28/2018
 ms.author: carlrab
+manager: jhubbard
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server 
@@ -52,7 +52,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
 | [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
 | [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes | Yes |
-| [Cross-database queries](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | No - see [Elastic queries](sql-database-elastic-query-overview.md) | Yes, including [Elastic queries](sql-database-elastic-query-overview.md) |
+| Cross-database queries | No - see [Elastic queries](sql-database-elastic-query-overview.md) | Partial (within instance only), plus [Elastic queries](sql-database-elastic-query-overview.md) |
 | Cross-database transactions | No | Partial (within instance only) |
 | [Cursors](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Yes |Yes | 
 | [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Yes |Yes |
@@ -109,16 +109,16 @@ The following table lists the major features of SQL Server and provides informat
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Partial (within instance only) - see [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) |
 | [Server configuration settings](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Most - see individual settings |
 | [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements Most - see individual statements | | Most - see individual statements Most - see individual statements
-| [SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Yes | Yes |
+| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Yes | Yes |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | Yes |
-| [SQL Operations Studio](/sql/sql-operations-studio/what-is) | Yes | Yes |
+| [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Yes | Yes |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](sql-database-elastic-jobs-getting-started.md) | Partial - see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No -see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
-| [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) | Partial - see [Auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) |
-| [SQL Server Data Tools (SSDT)] (/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
+| [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) | Partial - see [Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) |
+| [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Only as external service - see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) | Only as external service - see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
-| [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes |
+| [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |
 | [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) | Yes |
@@ -139,4 +139,4 @@ The following table lists the major features of SQL Server and provides informat
 ## Next steps
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
-- For information about a Managed Instance, see [What is an Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+- For information about a Managed Instance, see [What is an Azure SQL Database Managed Instance?](sql-database-managed-instance.md).
