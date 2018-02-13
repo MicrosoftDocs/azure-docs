@@ -20,7 +20,7 @@ ms.author: cephalin
 # Scale up an app in Azure
 
 > [!NOTE]
-> The new **PremiumV2** tier gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
+> The new **PremiumV2** tier gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. The performance advantage over other tiers means that you could save money by your apps on less instances. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.

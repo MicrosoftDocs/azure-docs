@@ -21,7 +21,7 @@ ms.author: cephalin
 
 # Configure PremiumV2 tier for Azure App Service
 
-The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
+The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. The performance advantage over other tiers means that you could save money by your apps on less instances. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
 
 ## Prerequisites
 
