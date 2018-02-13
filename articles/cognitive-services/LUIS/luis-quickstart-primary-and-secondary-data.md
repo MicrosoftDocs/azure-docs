@@ -54,7 +54,7 @@ When the intent and entities of the utterance are identified, LUIS is done. The 
 
 The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
     
-Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your store, some good **None** utterances are:
+Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. Some good **None** utterances are:
 
 | Example utterances|
 |--|
@@ -143,7 +143,7 @@ The message data has a type, `Message`, as well as a value, `i ' m driving and w
 Your chat bot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or can send the user to the store's website page containing the information. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through an 3rd party API. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 
 ## Next steps
