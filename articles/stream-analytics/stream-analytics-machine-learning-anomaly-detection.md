@@ -20,9 +20,9 @@ ms.author: dubansal
 > [!IMPORTANT]
 > This functionality is in preview, we do not recommend using it for production workloads.
 
-The ANOMALYDETECTION operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
+The AnomalyDetection operator is used to detect different types of anomalies in event streams. For example, a slow decrease in free memory over a long time can be indicative of a memory leak, or the number of web service requests that are stable in a range might dramatically increase or decrease.  
 
-This ANOMALYDETECTION operator detects three types of anomalies: 
+This AnomalyDetection operator detects three types of anomalies: 
 
 * **Bi-directional Level Change**: A sustained increase or decrease in the level of values, both upward and downward. This is different from spikes and dips, which are instantaneous or short-lived changes.  
 
@@ -30,13 +30,14 @@ This ANOMALYDETECTION operator detects three types of anomalies:
 
 * **Slow Negative Trend**: A slow decrease in the trend over time.  
 
-When using the AnomalyDetection operator, you must specify the LIMIT DURATION clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. ANOMALYDETECTION can optionally be limited to only events that match a certain property or condition by using the WHEN clause. This operator can also optionally process groups of events separately based on the key specified in the PARTITION BY clause. Training and prediction occur independently for each partition. 
+When using the AnomalyDetection operator, you must specify the LIMIT DURATION clause. This clause specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. This operator can optionally be limited to only events that match a certain property or condition by using the WHEN clause. This operator can also optionally process groups of events separately based on the key specified in the PARTITION BY clause. Training and prediction occur independently for each partition. 
 
-## Syntax for ANOMALYDETECTION operator
+## Syntax for AnomalyDetection operator
 
 `ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
-**Example usage**
+**Example usage**  
+
 `SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`
 
 ### Arguments
@@ -53,11 +54,11 @@ value would be used for learning and training in that model. For example, the fo
 * **limit_duration clause** DURATION(\<unit\>, \<length\>) - Specifies the time interval (how far back in history from the current event) should be considered when detecting anomalies. See [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) for a detailed description of supported units and their abbreviations. 
 
 * **when_clause** - Specifies a boolean condition for the events considered in the
-ANOMALYDETECTION computation.
+anomaly detection computation.
 
 ### Return Types
 
-The ANOMALYDETECTION operator returns a record containing all three scores as its output. The
+The AnomalyDetection operator returns a record containing all three scores as its output. The
 properties associated with the different types of anomaly detectors are:
 
 - BiLevelChangeScore
@@ -70,22 +71,22 @@ To extract the individual values out of the record, use the **GetRecordPropertyV
 
 Anomaly of a particular type is detected when one of these anomaly scores crosses a threshold. The threshold can be any floating point number >= 0. The threshold is a tradeoff between sensitivity and confidence. For example, a lower threshold would make detection more sensitive to changes and generate more alerts, whereas a higher threshold could make detection less sensitive and more confident but mask some anomalies. The exact threshold value to use depends on the scenario. There is no upper limit but the recommended range is 3.25-5. 
 
-## Anomaly Detection algorithm
+## Anomaly detection algorithm
 
-* ANOMALYDETECTION algorithm uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, two models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
+* AnomalyDetection operator uses an **unsupervised learning** approach where it does not assume any type of distribution in the events. In general, two models are maintained in parallel at any given time, where one of them is used for scoring and the other is trained in the background. The anomaly detection models are trained using data from the current stream rather than using an out-of-band mechanism. The amount of data used for training depends on the window size d specified by the user within the Limit Duration parameter. Each model ends up getting trained based on d to 2d worth of events. It is recommended to have at least 50 events in each window for best results. 
 
-* ANOMALYDETECTION uses **sliding window semantics**** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
+* AnomalyDetection operator uses **sliding window semantics** to train models and score events. This means that each event is evaluated for anomaly and a score is returned. The score is an indication of the confidence level of that anomaly. 
 
-* ANOMALYDETECTION operator provides a **repeatability guarantee** the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
+* AnomalyDetection operator provides a **repeatability guarantee** the same input always produces the same score regardless of the job output start time. The job output start time represents the time at which the first output event is expected to be produced by the job. It is set by the user to the current time, a custom value, or the last output time (if the job had produced an output previously). 
 
 ### Training the models 
 
-As time progresses, models are trained with different data. To make sense of the scores, it helps to understand the underlying mechanism by which the models are trained. Here, **t0** is the job output start time and **d** is the window size from the Limit Duration parameter. Assume that time is divided up into hops of size **d**, starting from `01/01/0001 00:00:00`. The following steps are used to train the model and score the events:
+As time progresses, models are trained with different data. To make sense of the scores, it helps to understand the underlying mechanism by which the models are trained. Here, **t<sub>0</sub>** is the job output start time and **d** is the window size from the Limit Duration parameter. Assume that time is divided up into hops of size **d**, starting from `01/01/0001 00:00:00`. The following steps are used to train the model and score the events:
 
-* When a job starts up, it reads data starting at time t0 – 2d.  
+* When a job starts up, it reads data starting at time t<sub>0</sub> – 2d.  
 * When time reaches the next hop, a new model M1 is created and starts getting trained.  
 * When time advances by another hop, a new model M2 is created and starts getting trained.  
-* When time reaches t0, M1 is made active and its score starts getting outputted.  
+* When time reaches t<sub>0</sub>, M1 is made active and its score starts getting outputted.  
 * At the next hop, three things happen at the same time:  
 
   * M1 is no longer needed and is discarded.  
@@ -133,7 +134,7 @@ Let's review these in detail (assume a set of historical window with events exis
 
 Once we have a strangeness value for the incoming event, a martingale value is computed based on this strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
-Prob [there exists t such that M~t > λ ] < 1/λ, where M~t is the martingale value at instant t and λ is a real value. For example, if we alert when M~t>100, then the probability of false positives is less than 1/100.  
+Prob [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if we alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
 
 ## Guidance for using the bi-directional level change detector 
 
@@ -141,9 +142,9 @@ The bi-directional level change detector can be used in scenarios such as power 
 
 The following points should be considered when using this detector: 
 
-1. When the time series suddenly sees a jump or drop in value, this detector will detect it. But detecting the return to normal requires more planning. If a time series was in steady state before the anomaly, this can be achieved by setting the ANOMALYDETECTION function’s detection window to at most half the length of the anomaly. This assumes that the minimum duration of the anomaly can be estimated ahead of time, and there are enough events in that time frame to train the model sufficiently (at least 50 events). 
+1. When the time series suddenly sees a jump or drop in value, this detector will detect it. But detecting the return to normal requires more planning. If a time series was in steady state before the anomaly, this can be achieved by setting the AnomalyDetection operator’s detection window to at most half the length of the anomaly. This assumes that the minimum duration of the anomaly can be estimated ahead of time, and there are enough events in that time frame to train the model sufficiently (at least 50 events). 
 
-  This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the ANOMALYDETECTION function. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, we can detect the upward change because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, we must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so the return to normal will not be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal will be detected. Anything smaller than half will also work for the same reason, whereas anything bigger will end up including a bit of the normal events. 
+  This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the AnomalyDetection operator. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, we can detect the upward change because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, we must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so the return to normal will not be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal will be detected. Anything smaller than half will also work for the same reason, whereas anything bigger will end up including a bit of the normal events. 
 
 2. In cases where the length of the anomaly cannot be predicted, this detector will operate at best effort. However, choosing a narrower time window will limit the training data, which would increase the probability of detecting the return to normal. 
 
@@ -228,13 +229,13 @@ shown below.
 
 * Use 6 streaming units for jobs. 
 * Send events at least 1 second apart.
-* A non-partitioned query using the ANOMALYDETECTION function can produce results with a computation latency of about 25ms on average.
+* A non-partitioned query that is using the AnomalyDetection operator can produce results with a computation latency of about 25ms on average.
 * The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
 * While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
     - 60 data points in the detection window can result in a latency of 10 seconds with a throughput of 3 MBps. 
     - At 600 data points, the latency can reach about 80 seconds with a throughput of 0.4 MBps.
 
-## Limitations of the ANOMALYDETECTION operator 
+## Limitations of the AnomalyDetection operator 
 
 * This operator currently does not support spike and dip detection. Spikes and dips are spontaneous or short-lived changes in the time series. 
 
