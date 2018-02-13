@@ -63,8 +63,8 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 	>
 
 1. You can follow the failover progress on the **Jobs** page. Even if errors occur during an unplanned failover, the recovery plan runs until it is complete.
-1. After the failover, validate the virtual machine by logging in to it. If you want to go another recovery point for the virtual machine, then you can use **Change recovery point** option.
-1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. **Commit deletes all the recovery points available with the service** and **Change recovery point** option is not available.
+1. After the failover, validate the virtual machine by logging-in to it. If you want to switch to another recovery point of the virtual machine, then you can use **Change recovery point** option.
+1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. **Commit deletes all the recovery points available with the service** and **Change recovery point** option is no longer available.
 
 ## Planned failover
 Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. Planned failover is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut-down, the latest data is synchronized and then a failover is triggered.
