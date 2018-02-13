@@ -1,6 +1,6 @@
 ---
 title: News Search SDK Node quickstart | Microsoft Docs
-description: Setup the News search SDK console application.
+description: Set up the News Search SDK console application
 titleSuffix: Azure cognitive services News search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
