@@ -30,6 +30,7 @@ Azure Storage Explorer (Preview) is a standalone app that enables you to easily 
 > For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
 > * libgconf-2-4
 > * libsecret
+> * Up-to-date GCC
 >
 > Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
 >
