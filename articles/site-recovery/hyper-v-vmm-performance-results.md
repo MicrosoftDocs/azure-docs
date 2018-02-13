@@ -177,4 +177,4 @@ The table summarizes the performance metrics and counters that were measured in 
 
 ## Next steps
 
-[Set up replication](hyper-v-to-vmm-disaster-recovery.md)
+[Set up replication](hyper-v-vmm-disaster-recovery.md)
