@@ -17,6 +17,7 @@
 #### [Permissions on azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Remote monitoring solution walkthrough](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connect your Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Connect your MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Use C
 ###### [Simulated data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
