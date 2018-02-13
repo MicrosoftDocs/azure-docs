@@ -36,9 +36,9 @@ Network mapping works as follows:
 
 When you're replicating to a secondary site, network mapping maps between VM networks on a source VMM server, and VM networks on a target VMM server. Mapping does the following:
 
-    - **Network connection**—Connects VMs to appropriate networks after failover. The replica VM will be connected to the target network that's mapped to the source network.
-    - **Optimal VM placement**—Optimally places the replica VMs on Hyper-V host servers. Replica VMs are placed on hosts that can access the mapped VM networks.
-    - **No network mapping**—If you don’t configure network mapping, replica VMs won’t be connected to any VM networks after failover.
+- **Network connection**—Connects VMs to appropriate networks after failover. The replica VM will be connected to the target network that's mapped to the source network.
+- **Optimal VM placement**—Optimally places the replica VMs on Hyper-V host servers. Replica VMs are placed on hosts that can access the mapped VM networks.
+- **No network mapping**—If you don’t configure network mapping, replica VMs won’t be connected to any VM networks after failover.
 
 Network mapping works as follows:
 
