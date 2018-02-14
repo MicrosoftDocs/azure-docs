@@ -17,8 +17,9 @@
 ### [Security technical capabilities](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
 ### [Data encryption at rest](azure-security-encryption-atrest.md)
-### Architecture Blueprints
-#### [Compliance - PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Azure Security and Compliance Blueprints
+#### PCI DSS
+##### [Payment Processing for PCI DSS-compliant environments](./blueprints/payment-processing-blueprint.md)
 ##### [Requirements overview](./blueprints/pci-dss-requirements-overview.md)
 ##### [Requirement 1 - firewalls](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Requirement 2 - passwords](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requirement 10 - monitoring](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Requirement 11 - testing](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Requirement 12 - policy](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Compliance - FedRAMP ](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Web Applications Automation](./blueprints/fedramp.md)
 ##### [Security controls overview](./blueprints/fedramp-controls-overview.md)
 ##### [Access control](./blueprints/fedramp-access-controls.md)
 ##### [Audit and accountability](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [System and communications protection](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [System and information integrity](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [System and services acquisition](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Compliance - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Three-Tier Web Applications Automation](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overview](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Compliance - Financial Services
+#### Financial Services
 ##### [Financial Services for Regulated Workloads](./blueprints/financial-services-regulated-workloads.md)
 
 # Get Started
