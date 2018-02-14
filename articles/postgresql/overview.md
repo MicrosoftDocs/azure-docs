@@ -13,7 +13,7 @@ ms.date: 02/13/2018
 ---
 # What is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open source [PostgreSQL](https://www.postgresql.org/) database engine. This service is in public preview. Azure Database for PostgreSQL delivers:
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine. This service is in public preview. Azure Database for PostgreSQL delivers:
 
 - Built-in high availability with no additional cost
 - Predictable performance, using inclusive pay-as-you-go pricing
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL is a relational database service in the Microsoft 
 - Automatic backups and point-in-time-restore for up to 35 days
 - Enterprise-grade security and compliance
 
-All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid application development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
+All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid application development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
 
 This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability. See these quickstarts to get you started:
 
