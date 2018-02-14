@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Functions Reference | Microsoft Docs'
 description: Reference of declarative provisioning expressions in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 
