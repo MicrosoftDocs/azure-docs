@@ -32,9 +32,9 @@ The developer portal is based on a content management system. The layout of ever
 
 All widgets are editable. 
 * The core contents specific to each individual page reside in the "Contents" widget. Editing a page means editing the contents of this widget.
-* All page layout elements are contained with the remaining widgets. Changes made to these widgets are applied to all pages. They are referred to as "layout widgets".
+* All page layout elements are contained with the remaining widgets. Changes made to these widgets are applied to all pages. They are referred to as "layout widgets."
 
-In day-to-day page editing one usually only modifies the Content widget which will have different content for each individual page.
+In day-to-day page editing one would often modify just the Content widget, which will have different content for each individual page.
 
 ## <a name="modify-layout-widget"> </a>Modifying the contents of a layout widget
 
