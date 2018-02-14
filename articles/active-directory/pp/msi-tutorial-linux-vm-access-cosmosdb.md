@@ -1,4 +1,22 @@
-# Use a user-assigned Managed Service Identity (MSI) to access Cosmos DB on a Linux VM 
+---
+title: Use a user-assigned Managed Service Identity (MSI) on a Linux VM to access Azure Cosmos DB
+description: A tutorial that walks you through the process of using a User-Assigned Managed Service Identity (MSI) on a Linux VM, to access Azure Cosmos DB.
+services: active-directory
+documentationcenter: 
+author: daveba
+manager: mtillman
+editor: 
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/14/2018
+ms.author: skwan
+ROBOTS: NOINDEX,NOFOLLOW
+---
+# Use a user-assigned Managed Service Identity (MSI) on a Linux VM to access Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -27,17 +45,17 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux virtual machine in a new resource group
 
-First you create a new Linux VM. If you prefer, you can also enable MSI on an existing VM.
+For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
+1. Click the **+ Create a resource** found on the upper left-hand corner of the Azure portal.
+2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS VM**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
     ![MSI Linux VM](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
+5. Under **Resource Group**, choose **Create New** and type the name of the resource group for this VM. When complete, click **OK**.
+6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. In the **Settings** blade, keep the defaults and click **OK**.
 
 ## Create a user-assigned MSI
 
@@ -53,7 +71,7 @@ First you create a new Linux VM. If you prefer, you can also enable MSI on an ex
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    The response contains details for the user-assigned MSI created, similar to the following example: Note the `clientId` and `id` values for your MSI, as they are used in later steps:
+    The response contains details for the user-assigned MSI created, similar to the following example (note the `clientId` and `id` values for your MSI, as they are used in later steps):
 
     ```json
     {
