@@ -66,7 +66,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
     ```
 
-1. To verify that you can connect to your HDInsight cluster, use one of the following commands:
+3. To verify that you can connect to your HDInsight cluster, use one of the following commands:
 
     ```bash
     curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
@@ -107,7 +107,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
     ```
 
-2. Use the following to create a table named **log4jLogs**:
+4. Use the following to create a table named **log4jLogs**:
 
     ```bash
     JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
@@ -149,7 +149,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
       This command returns a job ID that can be used to check the status of the job.
 
-3. To check the status of the job, use the following command:
+5. To check the status of the job, use the following command:
 
     ```bash
     curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
@@ -168,7 +168,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
     If the job has finished, the state is **SUCCEEDED**.
 
-4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
+6. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
     You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
