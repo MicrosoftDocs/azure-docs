@@ -206,6 +206,8 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
