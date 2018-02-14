@@ -50,7 +50,7 @@ Particularly the section on configuring KCD on 2012R2, as this employs a fundame
 
 -   Where possible, you should avoid placing any active IPS/IDS devices between connector hosts and DCs, as these are sometimes over intrusive and interfere with core RPC traffic
 
-It is recommended to test delegation in the simplest of scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
+You should test delegation in the simplest scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
 
 Some environmental factors may also be contributing to an issue. During testing, minimize the architecture to a bare minimum to avoid these environmental factors. For example, misconfigured internal firewall ACLs are not uncommon, so if possible have all traffic from a connector allowed straight through to the DCs and backend application. 
 
@@ -78,7 +78,7 @@ If you’ve got this far, then the main issue definitely exists. Start by separa
 
 **Client pre-authentication** - The external user authenticating to Azure via a browser.
 
-Being able to pre-authenticate to Azure is imperative for KCD SSO to function. This should be tested and addressed first, if there are any issues. The pre-authentication stage has no relation to KCD or the published application. It should be fairly easy to correct any discrepancies by sanity checking the subject account exists in Azure, and that it is not disabled/blocked. The error response in the browser is usually descriptive enough to understand the cause. You can also check our other Troubleshoot docs to verify if you aren’t sure.
+Being able to pre-authenticate to Azure is imperative for KCD SSO to function. You should test and address this  if there are any issues. The pre-authentication stage has no relation to KCD or the published application. It should be fairly easy to correct any discrepancies by sanity checking the subject account exists in Azure, and that it is not disabled/blocked. The error response in the browser is usually descriptive enough to understand the cause. You can also check our other Troubleshoot docs to verify if you aren’t sure.
 
 **Delegation service** - The Azure Proxy connector obtaining a Kerberos service ticket from a KDC (Kerberos Distribution Center), on behalf of users.
 
@@ -102,7 +102,7 @@ And the corresponding entries seen the event log would be seen as events 13019 o
 
 -   Check to see if a domain policy is enforced to limit the [max size of issued Kerberos tokens](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), as this prevents the connector from obtaining a token if found to be excessive
 
-A network trace capturing the exchanges between the connector host and a domain KDC would then be the next best step in obtaining more low-level detail on the issues. For more details see, [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
+A network trace capturing the exchanges between the connector host and a domain KDC would then be the next best step in obtaining more low-level detail on the issues. For more information see, [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
 
 If ticketing looks good, you should see an event in the logs stating that authentication failed due to the application returning a 401. This typically indicates that the target application rejecting your ticket, so proceed with the following next stage.
 
