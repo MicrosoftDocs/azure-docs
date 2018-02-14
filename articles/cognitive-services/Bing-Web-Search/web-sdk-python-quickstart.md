@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
 ---
-# Web Search SDK Node quickstart
+# Web Search SDK Python quickstart
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
@@ -19,13 +19,13 @@ The Bing Web Search SDK contains the functionality of the REST API for web queri
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 
 The general recommendation for Python development is to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). 
-Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv).  For Python 2.7, install virtualenv. It could be "python3" or "py -3.6" depending on your Python installation.
+Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install virtualenv for Python 2.7.
 ```
 python -m venv mytestenv
-cd mytestenv
 ```
 Install Bing Web Search SDK dependencies:
 ```
+cd mytestenv
 python -m pip install azure-cognitiveservices-search-imagesearch
 ```
 ## Web Search client
