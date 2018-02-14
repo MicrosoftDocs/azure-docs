@@ -350,7 +350,6 @@ IoT Hub can only route based on message body contents if the message body is pro
 You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
 $body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
