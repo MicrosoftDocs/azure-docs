@@ -32,7 +32,7 @@ While creating a server through the Azure portal, the **Pricing Tier** window is
 
    ![Pricing Tier - Choose Backup Redundancy](./media/howto-restore-server-portal/pricing-tier.png)
 
-For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal).
+For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 The backup retention period can be changed on a server through the following steps:
 1. Sign into the [Azure portal](https://portal.azure.com/).
