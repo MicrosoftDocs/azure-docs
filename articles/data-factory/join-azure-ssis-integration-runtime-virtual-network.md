@@ -28,7 +28,7 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in generally availability (GA), see the [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
-## Access on-premises data stores
+## Access to on-premises data stores
 If SSIS packages access only public cloud data stores, you don't need to join the Azure-SSIS IR to a virtual network. If SSIS packages access on-premises data stores, you must join the Azure-SSIS IR to a virtual network that is connected to the on-premises network. 
 
 If the SSIS catalog is hosted in an Azure SQL Database instance that is not in the virtual network, you need to open appropriate ports. 
@@ -59,7 +59,7 @@ If you need to implement a network security group (NSG) in a virtual network joi
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
 | 10100, 20100, 30100 (if you join the IR to a classic virtual network)<br/><br/>29876, 29877 (if you join the IR to an Azure Resource Manager virtual network) | Inbound | TCP | Azure services use these ports to communicate with the nodes of your Azure-SSIS integration runtime in the virtual network. | Internet | 
 | 443 | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in the virtual network use this port to access Azure services, like Azure Storage and Azure Event Hubs. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in the virtual network use these ports to access SSISDB hosted by your Azure SQL Database server (not applicable to SSISDB hosted by SQL Database Managed Instance). | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Outbound | TCP | The nodes of your Azure-SSIS integration runtime in the virtual network use these ports to access SSISDB hosted by your Azure SQL Database server (This purpose is not applicable to SSISDB hosted by SQL Database Managed Instance.) | Internet | 
 
 ## Azure portal (Data Factory UI)
 This section shows you how to join an existing Azure-SSIS runtime to a virtual network (classic or Azure Resource Manager) by using the Azure portal and Data Factory UI. First, you need to configure the virtual network appropriately before joining your Azure-SSIS IR to it. Go through one of the next two sections based on the type of your virtual network (classic or Azure Resource Manager). Then, continue with the third section to join your Azure-SSIS IR to the virtual network. 
