@@ -37,34 +37,25 @@ All widgets are editable.
 In day-to-day page editing one usually only modifies the Content widget which will have different content for each individual page.
 
 ## <a name="modify-layout-widget"> </a>Modifying the contents of a layout widget
+The Developer portal is accessible from the Azure Portal. 
 
-Content within the developer portal is modified via the publisher portal which is accessible from the Azure Portal. To reach it, click **Publisher portal** from the service toolbar of your API Management instance.
-
-![Publisher portal][api-management-management-console]
-
-To edit the contents of that widget, click **Widgets** from the **Developer Portal** menu on the left. For this example lets modify the contents of the Header widget. Select the **Header** widget from the list.
-
-![Widgets header][api-management-widgets-header]
-
-The contents of the header is editable from within the **Body** field. Change the text as desired and then click **Save** at the bottom of the page.
+1. Click **Developer portal** from the toolbar of your API Management instance.
+2. To edit the contents of that widget, click **Widgets** from the **Developer Portal** menu on the left. 
+3. To modify the contents of the Header, select the **Header** widget from the list.
+    
+    The contents of the header is editable from within the **Body** field.
+4. Click **Publish** at the bottom of the page.
 
 Now you should be able to see the new header on every page within the developer portal.
 
-> To open the developer portal while in the publisher portal, click **Developer portal** in the top bar.
-> 
-> 
 
 ## <a name="edit-page-contents"> </a>Edit the contents of a page
 
-To see the list of all existing content pages, click **Content** from the **Developer portal** menu in the publisher portal.
-
-![Manage content][api-management-customization-manage-content]
+To see the list of all existing content pages, click **Content** from the **Developer portal** menu.
 
 Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
-> The home page uses a special layout that allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
-> 
-> 
+The home page uses a special layout that allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
 ## <a name="next-steps"> </a>Next steps
 * [Update the styles used for page elements across the developer portal][customize-styles]
