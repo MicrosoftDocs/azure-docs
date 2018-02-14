@@ -96,7 +96,7 @@ API Management uses the `enduserid` to construct the URL to the user profile res
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-To avoid us having to make this HTTP request again, when the same user makes another request, API Management can store the user profile in the cache.
+To avoid API Management from making this HTTP request again, when the same user makes another request, you can specify to store the user profile in the cache.
 
 ```xml
 <cache-store-value
@@ -117,7 +117,7 @@ The final step in the process is to update the returned response with the user p
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-I chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON. This was primarily to make debugging easier.
+You can chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON.  
 
 Once you combine all these steps together, the end result is a policy that looks like the following one.
 
@@ -274,7 +274,3 @@ Instead of returning a preferred version of the API for each subscription key, y
 
 ## Summary
 The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
-
-## Next steps
-Give your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
-
