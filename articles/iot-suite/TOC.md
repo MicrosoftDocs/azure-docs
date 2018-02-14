@@ -17,6 +17,7 @@
 #### [Permissions on azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Remote monitoring solution walkthrough](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connect your Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Connect your MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Use C
 ###### [Simulated data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -58,7 +59,9 @@
 ### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
-### [Use simulated devices](iot-suite-remote-monitoring-test.md)
+### [Understand the device model schema](iot-suite-remote-monitoring-device-schema.md)
+### [Understand the device model behavior](iot-suite-remote-monitoring-device-behavior.md)
+### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Connect a physical device
@@ -74,7 +77,7 @@
 ## Connected factory
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Customize connected factory](iot-suite-connected-factory-customize.md)
-### [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
+### [Use the OPC publisher for connected factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configure connected factory](iot-suite-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 

@@ -4,7 +4,7 @@ description: Set up your web pages to send Real User Measurements to Traffic Man
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 
@@ -58,11 +58,11 @@ After you have obtained the RUM key, the next step is to embed this copied JavaS
 1.	Open the HTML page in a text editor
 2.	Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9, see figure 3).
  
-    ![Embed Javascript code into web page for Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Embed Javascript code into web page for Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
 
-3.	Save the HTML file
+3.	Save the HTML file and host it on a webserver connected to the internet. 
 4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
 
 

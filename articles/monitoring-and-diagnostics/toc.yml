@@ -2,8 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Monitor
-    href: monitoring-overview-azure-monitor.md
+  - name: Monitoring in Azure
+    href: monitoring-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -27,8 +27,8 @@
     href: monitoring-partners.md
   - name: Additional overviews
     items:
-    - name: Monitoring tools across Azure
-      href: monitoring-overview.md
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
     - name: Metrics
       href: monitoring-overview-metrics.md
     - name: Alerts
@@ -41,6 +41,8 @@
       href: monitoring-overview-autoscale.md
     - name: Activity log
       href: monitoring-overview-activity-logs.md
+    - name: Activity log alerts (Preview)
+      href: monitoring-activity-log-alerts-new-experience.md
     - name: Action groups
       href: monitoring-action-groups.md
     - name: Diagnostic logs
@@ -86,6 +88,8 @@
       href: insights-alerts-powershell.md
     - name: Have a metric alert call a webhook
       href: insights-webhooks-alerts.md
+      name: Webhook actions for log alerts
+      href: monitor-alerts-unified-log-webhook.md
     - name: Create a metric alert with a Resource Manager template
       href: monitoring-enable-alerts-using-template.md
   - name: Use autoscale

@@ -4,7 +4,7 @@
 ## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # How To
 ## Plan and design
@@ -35,6 +34,7 @@
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Message handling
 #### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
