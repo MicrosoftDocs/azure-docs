@@ -20,7 +20,7 @@ The MAG data is mined from the Bing web index as well as an in-house knowledge b
 
 For more information on the Microsoft Academic Graph, see [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
 
-For help with setting up your free Azure account and adding the Academic Knowledge API to your dashboard, see this [step-by-step tutorial](https://www.microsoft.com/en-us/research/project/academic/articles/sign-academic-knowledge-api/). 
+AK API has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is: [http://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](http://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Your existing API key will continue working until May 24th, 2018. After this date, please generate a new API key. Please note that paid preview will no longer be available once your existing key expires. Please contact our team if the free tier of the API is not sufficient for your purposes. 
 
 ## Features
 The Academic Knowledge API consists of four related REST endpoints:  
