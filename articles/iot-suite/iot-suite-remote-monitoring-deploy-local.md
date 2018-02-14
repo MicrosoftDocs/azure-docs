@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Deploy the remote monitoring preconfigured solution locally
 
-This tutorial shows you how to deploy the remote monitoring preconfigured solution to your local machine for testing and development. You deploy the solution using the CLI. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud.
+This article shows you how to deploy the remote monitoring preconfigured solution to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the preconfigured solutions (PCS) CLI to deploy the Azure cloud services.
 
 ## Prerequisites
 
@@ -32,7 +32,10 @@ To complete the local deployemnt, you need the following tools installed on your
 * [Node.js](https://nodejs.org/) - this is a prerequisite for the PCS CLI.
 * PCS CLI
 
-### Install the CLI
+> [!NOTE]
+> These tools are available on many platforms, including Windows, Linux, and iOS.
+
+### Install the PCS CLI
 
 To install the CLI, run the following command in your command-line environment:
 
@@ -44,7 +47,7 @@ For more information about the CLI, see [How to use the CLI](https://github.com/
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on three Azure services. You can deploy these Azure services manually theough the Azure portal, or use the `pcs` CLI tool. This article shows you how to use the `pcs` tool.
+Although this article shows you how to run the microservices locally, they depend on three Azure services running in the cloud. You can deploy these Azure services manually theough the Azure portal, or use the PCS CLI. This article shows you how to use the `pcs` tool.
 
 ### Sign in to the CLI
 
@@ -70,9 +73,9 @@ The script prompts you for the following information:
 * The Azure subscription to use.
 * The location of the Azure datacenter to use.
 
-The script creates an IoT Hub, a Cosmos DB instance, and an Azure storage account in a resource group in your Azure subscription.
+The script creates an IoT Hub instance, a Cosmos DB instance, and an Azure storage account in a resource group in your Azure subscription. The name of the resource group is the name of the solution you chose when you ran the `pcs` tool.
 
-The script takes several minutes to run. When it completes, you see a message `Copy the following environment variables to /scripts/local/.env file:`. Copy the environment variables following the message, you use them in a later step.
+The script takes several minutes to run. When it completes, you see a message `Copy the following environment variables to /scripts/local/.env file:`. Copy the environment variable definitions following the message, you use them in a later step.
 
 ## Download the source code
 
@@ -88,11 +91,11 @@ To install the .Net implementations of the microservices, run:
 git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
 ```
 
-These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you plan to modify the preconfigured solution and test you changes locally.
+These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the preconfigured solution and test you changes locally.
 
-### Run the microservices in Docker
+## Run the microservices in Docker
 
-To run the microservices in Docker, first edit the **scripts\local\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command in a previous step. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` command.
+To run the microservices in Docker, first edit the **scripts\local\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command previously. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
 
 Then navigate to the **scripts\local** folder in your command-line environment and run the following command to run the preconfigured solution:
 
@@ -100,11 +103,17 @@ Then navigate to the **scripts\local** folder in your command-line environment a
 docker-compose up
 ```
 
-TODO Add instructions for generating the certificate files
+The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On subsequent runs, Docker runs the containers immediately.
 
-The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers. On subsequent runs, Docker can run the container immediately.
+You can use a separate shell to view the logs from the container. First find the container Id using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
 
-You can use a separate shell to view the logs from the container. First find the container Id using `docker ps -a`. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries.
+To access the remote monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+
+## Tidy up
+
+To avoid unecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to use the Azure portal to delete the resource group created by the `pcs` tool.
+
+Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the remote monitoring repository created when you cloned the source code from GitHub.
 
 ## Next steps
 
