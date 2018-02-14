@@ -18,11 +18,11 @@ description: Learn to stream your Big Data into Event Hubs
 
 # Stream into Event Hubs
 
-Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs is used for various scenarios. Some common scenarios include _Anomaly detection_ like fraud/outliers, _Application logging_, _Real-time analytics_ pipeline like clickstreams, _Live dash boarding_, _Archival of data_, _Transaction processing_, _User telemetry_ processing or _Device telemetry_ streaming and more. In this article, you will deploy the resources and use sample clients to ingest and process events into Event Hubs.
+Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs is used for various scenarios. Some common scenarios include _Anomaly detection_ like fraud/outliers, _Application logging_, _Real-time analytics_ pipeline like clickstreams, _Live dash boarding_, _Archival of data_, _Transaction processing_, _User telemetry_ processing, or _Device telemetry_ streaming and more. In this article, you deploy the resources and use sample clients to ingest and process events into Event Hubs.
 ## What will I learn?
 This article gives you a step-by-step illustration to provision the required resources and a sample client that shows you how to get started with Event Hubs. 
 
-## Part 1: Setup your resources
+## Part 1: Set up your resources
 ### Prerequisites
 
 You need an Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/) before you begin
@@ -114,14 +114,14 @@ private const string EhEntityPath = "Event Hub name";
 5. Build and run the sample. 
 6. Check the portal to see your messages being sent to your event hub
 
-    [![Screenshot showing the event hubs metrics for messages recieved in the portal](./media/event-hubs-quickstart-stream/event-hubs-metrics-in-portal.png)]
+    [![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hubs-metrics-in-portal.png)]
 
-Event Hubs has a highly scalable parallel architecture that lets you ingress **_1x_** times and egress/process **_2x_** times the input events of a stream. To efficiently process the event, Event Hubs offers [EventHubsProcessor client](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet). The [SampleEphReveiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), describes how to consume events from your Event Hubs using EventProcessorHost. Following steps show how you can achieve this.
+Event Hubs has a highly scalable parallel architecture that lets you ingress **_1x_** times and egress/process **_2x_** times the input events of a stream. To efficiently process the event, Event Hubs offers [EventHubsProcessor client](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet). The [SampleEphReveiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), describes how to consume events from your Event Hubs using EventProcessorHost. Following steps show how this can be achieved.
 
 1. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver folder
 2. Load the SampleEphReceiver.sln solution file into Visual Studio
 3. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project
-4. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key
+4. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name, and storage account key
 
 ```netcore-cli
 
@@ -136,7 +136,7 @@ private const string StorageAccountKey = "Storage account key";
 6. Optionally, you can run the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) for ingestion in tandem to check the send and receive together
 7. You can also check the portal for outgoing messages
 
-   [![Screenshot showing the event hubs metrics for messages recieved in the portal](./media/event-hubs-quickstart-stream/event-hub-metrics-for-receive-in-portal.png)]
+   [![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hub-metrics-for-receive-in-portal.png)]
 
 
 
