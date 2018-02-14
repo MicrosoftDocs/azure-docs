@@ -1,5 +1,5 @@
 ---
-title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits (Preview) | Microsoft Docs'
+title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits | Microsoft Docs'
 description: Configure NPM for Azure ExpressRoute circuits. (Preview)
 documentationcenter: na
 services: expressroute
@@ -18,7 +18,7 @@ ms.date: 01/31/2018
 ms.author: pareshmu
 
 ---
-# Configure Network Performance Monitor for ExpressRoute (Preview)
+# Configure Network Performance Monitor for ExpressRoute
 
 Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Microsoft Operations Management Suite (OMS). NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
 
@@ -83,15 +83,13 @@ If you are already using Network Performance Monitor to monitor other objects or
 5. After the Workspace has been deployed, navigate to the **NetworkMonitoring(name)** resource that you created. Validate the settings, then click **Solution requires additional configuration**.
 
   ![additional configuration](.\media\how-to-npm\5.png)
-6. On the **Welcome to Network Performance Monitor** page, select **Use TCP for synthetic transactions**, then click **Submit**. The TCP transactions are used only to make and break the connection. No data is sent over these TCP connections.
 
-  ![TCP for synthetic transactions](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Step 2: Install and configure agents
 
 ### <a name="download"></a>2.1: Download the agent setup file
 
-1. On the **Network Performance Monitor Configuration - TCP Setup page** for your resource, in the **Install OMS Agents** section, click the agent that corresponds to your server's processor and download the setup file.
+1. Head to **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install OMS Agents** section and download the setup file.
 
   >[!NOTE]
   >The agent must be installed on a Windows Server (2008 SP1 or later). 
@@ -99,7 +97,7 @@ If you are already using Network Performance Monitor to monitor other objects or
   >
   >
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
-3. In the **Configure Agents** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
+3. From the **Configure OMS Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
   ![PowerShell script](.\media\how-to-npm\7.png)
 

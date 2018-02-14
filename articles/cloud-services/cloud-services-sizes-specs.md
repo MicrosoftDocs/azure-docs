@@ -144,23 +144,23 @@ For information and considerations about using these sizes, see [High performanc
 
 | Size            | CPU cores | Memory: GiB   | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / moderate |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / high |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / high |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremely high |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremely high |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremely high |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / moderate |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / high |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / high |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremely high |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremely high |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremely high |
 
 ## Ev3-series
 
 | Size            | CPU cores | Memory: GiB   | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / moderate |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / high |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / high |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremely high |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremely high |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremely high |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / moderate |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / high |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / high |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremely high |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
 
 
 ## G-series
