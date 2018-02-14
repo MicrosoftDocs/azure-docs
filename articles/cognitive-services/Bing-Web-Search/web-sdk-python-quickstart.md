@@ -26,7 +26,7 @@ python -m venv mytestenv
 Install Bing Web Search SDK dependencies:
 ```
 cd mytestenv
-python -m pip install azure-cognitiveservices-search-imagesearch
+python -m pip install azure-cognitiveservices-search-websearch
 ```
 ## Web Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
