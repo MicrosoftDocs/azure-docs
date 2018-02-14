@@ -21,8 +21,9 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
 1. Open the Azure portal, and select your Azure Cosmos DB account.
 2. Click the **Access control (IAM)** tab, and then click  **+ Add**.
 3. In the **Add permissions** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
-4. In the **Assign access to box**, select **Azure AD user, group, or application**, and then in the **Select** box, type the name of the entity to add to the Cosmos DB Account Reader role, and then click the entity.  
-    The entity appears in the selected members list.
-5. Click **Save**.
+4. In the **Assign access to box**, select **Azure AD user, group, or application**.
+5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
+    The selected user, group, or application appears in the selected members list.
+6. Click **Save**.
 
 The entity can now read Azure Cosmos DB resources.
