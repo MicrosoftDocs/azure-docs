@@ -8249,12 +8249,197 @@
             "redirect_url": "azure-to-azure-quickstart",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/site-recovery/upgrade-site-recovery-vaults.md",
-            "redirect_url": "site-recovery-overview",
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-architecture.md",
+            "redirect_url": "hyper-v-vmm-architecture",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
+            "redirect_url": "hyper-v-vmm-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/concepts-hyper-v-to-secondary-site.md",
+            "redirect_url": "hyper-v-vmm-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-architecture.md",
+            "redirect_url": "hyper-v-vmm-architecture",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-capacity.md",
+            "redirect_url": "hyper-v-vmm-performance-results",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md",
+            "redirect_url": "hyper-v-vmm-performance-results",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/tutorial-vmm-to-vmm.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-enable-replication.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network.md",
+            "redirect_url": "hyper-v-vmm-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/concepts-on-premises-to-on-premises-networking.md",
+            "redirect_url": "hyper-v-vmm-networking",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network-mapping.md",
+            "redirect_url": "hyper-v-vmm-network-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-network-mapping.md",
+            "redirect_url": "hyper-v-vmm-network-mapping",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-overview.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prepare-azure.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prerequisites.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-replication.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-source-target.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-test-failover.md",
+            "redirect_url": "hyper-v-vmm-test-failover",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-test-failover-vmm-to-vmm.md",
+            "redirect_url": "hyper-v-vmm-test-failover",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/tutorial-dr-drill-secondary.md",
+            "redirect_url": "hyper-v-vmm-test-failover",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-test-failover.md",
+            "redirect_url": "hyper-v-vmm-test-failover",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-how-to-add-vmmscript.md",
+            "redirect_url": "hyper-v-vmm-recovery-script",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-powershell-resource-manager.md",
+            "redirect_url": "hyper-v-vmm-powershell-resource-manager",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/tutorial-vmm-to-vmm-failover-failback.md",
+            "redirect_url": "hyper-v-vmm-failover-failback",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-create-vault.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-enable-replication.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network-mapping.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-overview.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-prerequisites.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-source-target.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-vmm-hyper-v.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic-legacy.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure-classic.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmm-san.md",
+            "redirect_url": "hyper-v-vmm-disaster-recovery",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
             "redirect_url": "tutorial-vmware-to-vmware",
             "redirect_document_id": false
@@ -8277,11 +8462,6 @@
         {
             "source_path": "articles/site-recovery/site-recovery-architecture-hyper-v-to-azure.md",
             "redirect_url": "concepts-hyper-v-to-azure-architecture",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-architecture-to-secondary-site.md",
-            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
             "redirect_document_id": false
         },
         {
@@ -8405,66 +8585,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-architecture.md",
-            "redirect_url": "concepts-hyper-v-to-azure-architecture",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-capacity.md",
-            "redirect_url": "site-recovery-capacity-planning-for-hyper-v-replication",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-create-vault.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-enable-replication.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-network-mapping.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-overview.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prepare-azure.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-prerequisites.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-replication.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-source-target.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-azure-walkthrough-test-failover.md",
-            "redirect_url": "tutorial-dr-drill-azure",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/vmware-walkthrough-architecture.md",
             "redirect_url": "concepts-vmware-to-azure-architecture",
             "redirect_document_id": false
@@ -8530,75 +8650,11 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-architecture.md",
-            "redirect_url": "concepts-hyper-v-to-secondary-architecture",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-create-vault.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-enable-replication.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-network-mapping.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-overview.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-prerequisites.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-source-target.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-test-failover.md",
-            "redirect_url": "tutorial-dr-drill-secondary",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/vmm-to-vmm-walkthrough-vmm-hyper-v.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware.md",
             "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm-classic-legacy.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure-classic.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
+        
         {
             "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
             "redirect_url": "site-recovery-runbook-automation",
@@ -8675,26 +8731,16 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/site-recovery-vmm-san.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-vmm-to-vmm.md",
-            "redirect_url": "tutorial-vmm-to-vmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/site-recovery/site-recovery-vmm-to-azure.md",
-            "redirect_url": "tutorial-hyper-v-to-azure",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/site-recovery-monitoring-and-troubleshooting.md",
             "redirect_url": "site-recovery-monitor-and-troubleshoot",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/upgrade-site-recovery-vaults.md",
+            "redirect_url": "site-recovery-overview",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/active-directory/active-directory-aadconnect-design-concepts.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-design-concepts",
             "redirect_document_id": false
@@ -12242,6 +12288,21 @@
         {
             "source_path": "articles/cloud-services/cloud-services-nodejs-stage-application.md",
             "redirect_url": "/azure/cloud-services/cloud-services-how-to-manage-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-continuous-delivery.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-choose-me",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md",
+            "redirect_url": "/azure/application-insights/app-insights-cloudservices",
             "redirect_document_id": false
         },
         {
@@ -16746,6 +16807,16 @@
     {
             "source_path": "articles/security/security-azure-log-integration-security-center.md",
             "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-tutorial",
             "redirect_document_id": false
     }
    ]
