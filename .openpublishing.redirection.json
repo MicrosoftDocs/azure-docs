@@ -16036,6 +16036,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-eventhub-strutured-streaming",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
             "redirect_document_id": false
