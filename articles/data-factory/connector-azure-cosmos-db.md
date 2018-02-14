@@ -159,7 +159,7 @@ To copy data from Azure Cosmos DB, set the source type in the copy activity to *
 
 ### Azure Cosmos DB as sink
 
-To copy data from Azure Cosmos DB, set the sink type in the copy activity to **DocumentDbCollectionSink**. The following properties are supported in the copy activity **source** section:
+To copy data to Azure Cosmos DB, set the sink type in the copy activity to **DocumentDbCollectionSink**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
