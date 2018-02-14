@@ -117,12 +117,11 @@
 ### [Analyze your workload](analyze-your-workload.md)
 
 ## Scale out
-### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
 
 
 # Reference
-
 
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [SQL DW statements](sql-data-warehouse-reference-tsql-statements.md)
 ## [System views](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST APIs](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)

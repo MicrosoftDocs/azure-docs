@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: v-demak
+ms.date: 02/13/2018
+ms.author: v-demak;v-geberr;
 ---
 # Entities in LUIS
 
@@ -24,6 +24,7 @@ You do not need to create entities for every concept in your app, but only for t
 
 You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
+While most LUIS apps have entities, they are not required. 
 
 ## Types of entities
 
