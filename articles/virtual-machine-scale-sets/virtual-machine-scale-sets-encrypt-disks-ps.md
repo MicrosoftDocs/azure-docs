@@ -32,6 +32,8 @@ Azure disk encryption is supported:
 Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for VM scale sets preview is recommended only in test environments. In the preivew, do not enable disk encrptyion in production environments where you might need to upgrade an OS image in an encrypted scale set.
 
 ## Prerequisites
+Install the latest versions of [Azure Powershell](https://github.com/Azure/azure-powershell/releases), which contains the encryption commands.
+
 The Azure disk encryption for VM scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
 
 ```powershell
@@ -56,13 +58,6 @@ $VaultName="encryptionvault321"
 New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $rgName -Location southcentralus -EnabledForDiskEncryption
 ``` 
 
-```azurecli
-rgname="linuxdatadiskencryptiontest"
-VaultName="encryptionvault321"
-
-az keyvault create --name $VaultName --resource-group $rgname --enabled-for-disk-encryption
-```
-
 Or, enable an existing key vault in the same subscription and region as the scale set for disk encryption.
 
 ```powershell
@@ -70,21 +65,9 @@ $VaultName="encryptionvault321"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -EnabledForDiskEncryption
 ```
 
-```azurecli
-VaultName="encryptionvault321"
-az keyvault update --name $VaultName --enabled-for-disk-encryption
-```
-
 ## Enable encryption
+The following commands encrypt a data disk in a running scale set using a key vault in the same resource group. You can also use templates to encrypt disks in a running [Windows scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
-### Templates
-Create a Windows VM scale set and enable encryption: [201-encrypt-running-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-Enable encryption on a running Windows VM scale set: [201-encrypt-vmss-windows-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-Create a Linux VM scale set and enable encryption: [201-encrypt-running-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-Enable encryption on a running Linux VM scale set: [201-encrypt-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
-### PowerShell
 
 ```powershell
 $rgname="windatadiskencryptiontest"
@@ -96,20 +79,8 @@ Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetNam
     -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId –VolumeType Data
 ```
 
-### Azure CLI
-```azurecli
-ResourceGroup="linuxdatadiskencryptiontest"
-VmssName="nt1vm"
-EncryptionKeyVaultUrl="https://encryptionvaultlinuxsf.vault.azure.net"
-VaultResourceId="/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/linuxdatadiskencryptiontest/providers/Microsoft.KeyVault/vaults/encryptionvaultlinuxsf"
-
-az vmss encryption enable -g $ResourceGroup -n $VmssName --disk-encryption-keyvault $VaultResourceId --volume-type DATA
-az vmss update-instances -g $ResourceGroup -n $VmssName --instance-ids *
-```
-
 ## Check encryption progress
-
-### PowerShell
+Use the following commands to show encryption status of the scale set.
 
 ```powershell
 $rgname="windatadiskencryptiontest"
@@ -119,15 +90,11 @@ Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNa
 Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName -InstanceId "4"
 ```
 
-```azurecli
-ResourceGroup="linuxdatadiskencryptiontest"
-VmssName="nt1vm"
-
-az vmss encryption show -g $ResourceGroup -n $VmssName
-```
-
 ## Disable encryption
+Disable encryption on a running virtual machine scale set using the following commands. You can also use templates to disable encryption in a running [Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) or [Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
 
-### Templates
-Disable encryption on a running windows VM scale set: [201-decrypt-vmss-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
-Disable encryption on a running Linux VM scale set: [201-decrypt-vmss-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+```powershell
+$rgname="windatadiskencryptiontest"
+$VmssName="nt1vm"
+Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+```
