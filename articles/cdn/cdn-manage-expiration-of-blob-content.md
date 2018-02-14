@@ -81,17 +81,17 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 4. Select **Save**.
 
-**To set a specific blob file's Cache-Control headers by using custom caching rules:**
+**To set a blob file's Cache-Control headers by using custom caching rules:**
 
 1. Under **Custom caching rules**, set **Match condition** to **Path**
 
-2. For **Match value**, enter `/blobcontainer1/*`
+2. For **Match value**, enter `/blobcontainer1/blob1.txt`
 
 3. Set **Caching behavior** to **Override** and enter 1 in the **Days** box.
 
    ![CDN custom caching rules blob example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-blob.png)
 
-   This custom caching rule sets a cache duration of one day on the specific /blobcontainer1/blob1.txt blob file in the origin of your endpoint. For this specific file, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+   This custom caching rule sets a cache duration of one day on the specific `/blobcontainer1/blob1.txt` blob file in the origin of your endpoint. For this specific file, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
 
 4. Select **Save**.
 
