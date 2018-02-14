@@ -106,15 +106,15 @@ The [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples
 4. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained form Part 1 of this article
 
 
-```netcore-cli
-private const string EhConnectionString = "Event Hubs connection string";
-private const string EhEntityPath = "Event Hub name";
+    ```netcore-cli
+    private const string EhConnectionString = "Event Hubs connection string";
+    private const string EhEntityPath = "Event Hub name";
 
-```
+    ```
 5. Build and run the sample. 
 6. Check the portal to see your messages being sent to your event hub
 
-    [![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hubs-metrics-in-portal.png)]
+    ![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hubs-metrics-in-portal.png)
 
 Event Hubs has a highly scalable parallel architecture that lets you ingress **_1x_** times and egress/process **_2x_** times the input events of a stream. To efficiently process the event, Event Hubs offers [EventHubsProcessor client](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet). The [SampleEphReveiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), describes how to consume events from your Event Hubs using EventProcessorHost. Following steps show how this can be achieved.
 
@@ -123,20 +123,20 @@ Event Hubs has a highly scalable parallel architecture that lets you ingress **_
 3. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project
 4. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name, and storage account key
 
-```netcore-cli
+    ```netcore-cli
 
-private const string EventHubConnectionString = "Event Hubs connection string";
-private const string EventHubName = "Event Hub name";
-private const string StorageContainerName = "Storage account container name";
-private const string StorageAccountName = "Storage account name";
-private const string StorageAccountKey = "Storage account key";
+    private const string EventHubConnectionString = "Event Hubs connection string";
+    private const string EventHubName = "Event Hub name";
+    private const string StorageContainerName = "Storage account container name";
+    private const string StorageAccountName = "Storage account name";
+    private const string StorageAccountKey = "Storage account key";
 
-```
+    ```
 5. Build and run the sample. You can see the events being received on your sample application
 6. Optionally, you can run the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) for ingestion in tandem to check the send and receive together
 7. You can also check the portal for outgoing messages
 
-   [![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hub-metrics-for-receive-in-portal.png)]
+   ![Screenshot showing the event hubs metrics for messages received in the portal](./media/event-hubs-quickstart-stream/event-hub-metrics-for-receive-in-portal.png)
 
 
 
