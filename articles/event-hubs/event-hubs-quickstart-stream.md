@@ -105,8 +105,8 @@ The [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples
 3. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project
 4. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained form Part 1 of this article
 
-
     ```netcore-cli
+    
     private const string EhConnectionString = "Event Hubs connection string";
     private const string EhEntityPath = "Event Hub name";
 
