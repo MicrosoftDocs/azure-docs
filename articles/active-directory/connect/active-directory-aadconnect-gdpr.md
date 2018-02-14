@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/14/2018
 ms.author: billmath
 ---
 
@@ -31,9 +31,9 @@ An Azure AD Connect sync server stores the following data that is in scope for G
 
 To be GDPR compliant, Azure AD Connect customers should use the following guidelines:
 1.	Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
-2.	This product may also create Event Logs.
+2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
-Data about a person is automatically removed from the Azure ADConnect database when that person’s data is removed from the source system where it originated from. This requires no specific action from administrators in order to be GDPR compliant.  However, it does require that the Azure ADConnect data is ???
+Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. This requires no specific action from administrators in order to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
 
 ## Delete the contents of the Azure AD Connect installation log file folder
 You should regularly check the contents of **c:\programdata\aadconnect** and delete the contents of this folder – with the exception of the **PersistedState.Xml** file, as this file is used to maintain the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file will never contain any data about a person and should never be deleted.
