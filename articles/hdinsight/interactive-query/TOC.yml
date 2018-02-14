@@ -49,7 +49,7 @@
       - name: Use Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
-      - name: Use cURL
+      - name: Use REST API
         href: ../hadoop/apache-hadoop-use-hive-curl.md
         maintainContext: true
       - name: Use Azure PowerShell
@@ -147,6 +147,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:

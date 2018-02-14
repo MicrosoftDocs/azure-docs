@@ -25,8 +25,8 @@ This article describes the details of configuring Service Map and onboarding age
 ## Dependency Agent downloads
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## Connected sources
@@ -136,7 +136,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## Azure VM Extension
-You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
+You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
 
 To deploy the Azure VM Extension via PowerShell, you can use the following example:
 ```PowerShell
@@ -144,7 +144,7 @@ To deploy the Azure VM Extension via PowerShell, you can use the following examp
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -177,7 +177,7 @@ An even easier way to ensure the the Dependency Agent is on each of your VMs is 
 "properties": {
 	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
 	"type": "DependencyAgentWindows",
-	"typeHandlerVersion": "9.1",
+	"typeHandlerVersion": "9.3",
 	"autoUpgradeMinorVersion": true
 }
 
@@ -232,7 +232,7 @@ sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent
+sudo apt -y purge dependency-agent
 ```
 ## Troubleshooting
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
@@ -347,8 +347,8 @@ The following sections list the supported operating systems for the Dependency A
 
 | OS version | Kernel version |
 |:--|:--|
-| 16.04 | 4.4.0-103<br>4.11.0-1016 |
-| 14.04 | 3.13.0-137<br>4.4.0-103 |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
 ### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6

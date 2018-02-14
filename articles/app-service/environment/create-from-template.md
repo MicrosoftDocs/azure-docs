@@ -36,7 +36,7 @@ To automate your ASE creation:
 
 2. After your ILB ASE is created, an SSL certificate that matches your ILB ASE domain is uploaded.
 
-3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, https://someapp.mycustomrootcomain.com).
+3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, https://someapp.mycustomrootdomain.com).
 
 
 ## Create the ASE

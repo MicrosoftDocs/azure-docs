@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Inactive"
-ms.date: 09/15/2017
-ms.author: genemi
+ms.date: 02/05/2018
+ms.reviewer: genemi
+ms.author: dmalik
 ---
 # Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
 
@@ -44,7 +45,8 @@ The following list shows the sequence of other *major* cmdlets that you must run
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): Persists updates made to your virtual network.
 
-5. **New-AzureRmSqlServerVirtualNetworkRule**: After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+    - Offers the parameter **-IgnoreMissingVnetServiceEndpoint**, starting in Azure RM PowerShell Module version 5.1.1.
 
 #### Prerequisites for running PowerShell
 

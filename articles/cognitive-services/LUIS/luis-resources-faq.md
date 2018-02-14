@@ -1,5 +1,6 @@
 ---
 title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
+titleSuffix: Azure
 description:  Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 services: cognitive-services
 author: DeniseMak
@@ -8,8 +9,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/14/2017
-ms.author: v-demak
+ms.date: 01/31/2018
+ms.author: v-demak;v-geberr;
 ---
 # Language Understanding FAQ
 
@@ -19,32 +20,24 @@ This article contains answers to frequently asked questions about Language Under
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ## What is the maximum number of intents and entities that a LUIS app can support?
-A LUIS app can support up to 500 intents.
-
-Limits on entities depend on the entity type, as shown in the following table:
-
-| Type | Limit | 
-|:------------- |:----- |
-| [Prebuilt entities](./Pre-builtEntities.md) | No limit. | 
-| [List entities](./luis-concept-entity-types.md) | 50 list entities. Each list can contain up to 20,000 items. | 
-| [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 30 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
+See the [boundaries](luis-boundaries.md) reference.
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
 * Create a top-level LUIS app to determine the category of utterance, and then use the result to send the utterance to the LUIS app for that category.
-* Do some preprocessing on the utterance, such as matching on regular expressions, to determine which LUIS app or set of apps receives it.
+* Do some preprocessing on the utterance, such as matching on [regular expressions](#where-is-the-pattern-feature-that-provides-regular-expression-matching), to determine which LUIS app or set of apps receives it.
 
 When you're deciding which approach to use with multiple LUIS apps, consider the following trade-offs:
 * **Saving suggested utterances for training**: Your LUIS apps get a performance boost when you label the user utterances that the apps receive, especially the [suggested utterances](./Label-Suggested-Utterances.md) that LUIS is relatively unsure of. Any LUIS app that doesn't receive an utterance won't have the benefit of learning from it.
 * **Calling LUIS apps in parallel instead of in series**: To improve responsiveness, you might ordinarily design a system to reduce the number of REST API calls that happen in series. But if you send the utterance to multiple LUIS apps and pick the intent with the highest score, you can call the apps in parallel by sending all the requests asynchronously. If you call a top-level LUIS app to determine a category, and then use the result to send the utterance to another LUIS app, the LUIS calls happen in series.
 
-If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
@@ -54,13 +47,13 @@ Composite entities represent parts of a whole. For example, a composite entity n
 
 LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. A list entity can have up to 20,000 items.
 
-If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
+If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
 ## What are the limits on the number and size of phrase lists?
-The maximum length of a [phrase list](./luis-concept-feature.md) is 5,000 items. You can use a maximum of 10 phrase lists per LUIS app.
+For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
 
 ## What are the limits on example utterances?
-The maximum length of an utterance is 500 characters. You can have a maximum of 15,000 example utterances in your LUIS app.
+See the [boundaries](luis-boundaries.md) reference.
 
 ## What is the best way to start building my app in LUIS?
 
@@ -100,15 +93,15 @@ If you don't want to use a spell check service, you can label utterances that ha
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
-The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following:
+The errors indicate that there is some discrepancy between your labels and the predictions from your models. To address the problem, do one or both of the following tasks:
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
 ## Why don't I see my endpoint hits in my app's Dashboard?
-The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure Portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure Portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure Portal shows the aggregate number of calls from all LUIS apps that use it.
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
 ## How do I transfer ownership of a LUIS app?
-To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. The LUIS app's ID will need to be updated in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
 
 ## I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
 1. Export your app.
@@ -121,6 +114,9 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 
 ## How can I disable the logging of utterances?
 You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of those user utterances from LUIS or use those utterances to improve your app.
+
+## Why don't I want all my endpoint utterances logged?
+You do not want any test utterances captured in your log if you are using your log for prediction analysis. 
 
 ## Can I delete data from LUIS? 
 
@@ -136,9 +132,27 @@ In Azure, a tenant represents the client or organization that's associated with 
 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
+## Why did I get an email saying I'm almost out of quota?
+Your programmatic/starter key is only allowed 1000 endpoint queries a month. You should create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+
+## Where is the Pattern feature that provides regular expression matching?
+The Pattern feature is currently deprecated. Pattern features in LUIS are provided by [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). If you have a regular expression you need, or a culture in which a regular expression is not provided, contribute to the Recognizers-Text project. 
+
+## Why are there more subscription keys on my app's publish page than I assigned to the app? 
+Each LUIS app has the programmatic/starter key. LUIS subscription keys created during the GA time frame will be visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys will not appear on the publish page. 
+
+## How do I secure my LUIS endpoint? 
+You can control who has access to your LUIS endpoint by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+
+## Where is my LUIS app created during the Azure web app bot subscription process?
+If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
+
+![LUIS template web app bot region](./media/luis-faq/web-app-bot-location.png)
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
+[LUIS]:luis-reference-regions.md

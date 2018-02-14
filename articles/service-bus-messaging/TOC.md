@@ -4,7 +4,7 @@
 ## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -28,13 +28,13 @@
 ### [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
 ### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
+### [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Message handling
 #### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)

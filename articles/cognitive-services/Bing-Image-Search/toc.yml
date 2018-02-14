@@ -8,7 +8,7 @@
       href: image-search-endpoint.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: Quickstarts
+- name: API Quickstarts
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -22,6 +22,14 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
+- name: SDK (preview)
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Image search SDK C# quickstart (preview)
+    href: image-search-sdk-quickstart.md
+  - name: Image search SDK Node.js quickstart (preview)
+    href: image-search-sdk-node-quickstart.md
 - name: How To Guides
   items:
   - name: Use and display results
