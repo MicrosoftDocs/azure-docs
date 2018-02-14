@@ -8525,18 +8525,8 @@
             "redirect_document_id": false
         },
 	{
-            "source_path": "articles/site-recovery/tutorial-hyper-v-to-azure-failover-failback.md",
-            "redirect_url": "hyper-v-failover-failback-tutorial",
-            "redirect_document_id": false
-        },
-	{
             "source_path": "articles/site-recovery/tutorial-prepare-on-premises-hyper-v.md",
             "redirect_url": "hyper-v-prepare-on-premises-tutorial",
-            "redirect_document_id": false
-        },
-	{
-            "source_path": "articles/site-recovery/tutorial-hyper-v-to-azure-failover-failback.md",
-            "redirect_url": "hyper-v-failover-failback-tutorial",
             "redirect_document_id": false
         },
 	{
