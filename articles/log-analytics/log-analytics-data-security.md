@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2018
+ms.date: 02/14/2018
 ms.author: magoedte
 
 ---
@@ -131,7 +131,7 @@ For your organization to send data to Log Analytics, you configure a Windows or 
 
 A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region. Each workspace is replicated to other datacenters in the region, primarily for Log Analytics service availability.
 
-For Operations Manager, the Operations Manager management group establishes a connection with the Log Analytics service. You then configure the integration to choose which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the Log Analytics service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Log Analytics service directly.
+For Operations Manager, the Operations Manager management group establishes a connection with the Log Analytics service. You then configure which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the Log Analytics service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Log Analytics service directly.
 
 All communication between connected systems and the Log Analytics service is encrypted.  The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
@@ -140,7 +140,7 @@ Each type of agent collects data for Log Analytics. The type of data that is col
 ## 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Log Analytics service using certificate-based authentication and SSL with port 443. Log Analytics uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.
 
-With Operations Manager, you register the management group with a Log Analytics workspace and a secure HTTPS connection is established with the Operations Manager management server.
+With Operations Manager, the management group registered with a Log Analytics workspace establishes a secure HTTPS connection with an Operations Manager management server.
 
 For Windows or Linux agents running on Azure virtual machines, a read-only storage key is used to read diagnostic events in Azure tables.  
 
@@ -151,9 +151,9 @@ The Windows or management server agent cached data is protected by the operating
 As described above, data from the management server or direct-connected agents is sent over SSL to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## 3. The Log Analytics service receives and processes data
-TThe Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. This data is encrypted. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
+TThe Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
 
-The database has a short term (up to 14 day) data store, that is not yet encrypted at rest. This is planned for mid-2018. Long term storage as selected for the workspace is encrypted at rest.
+The retention period of collected data stored in the database depends on the plan selected when the workspace was created.  For the paid tier, collected data is available for 31 days by default, but can be extended to 365 days.  This data is not yet encrypted at rest and is planned for mid-2018. 
 
 ## 4. Use Log Analytics to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
