@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/1/2018
 ms.author: mazha
 
 ---
@@ -36,10 +36,13 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 > For more information about Azure Blob storage, see [Introduction to Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
-## Setting Cache-Control headers by using caching rules
-The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
+## Setting Cache-Control headers by using CDN caching rules
+The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
-**To set a blob's Cache-Control headers by using global caching rules:**
+> [!NOTE] 
+> Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles. For **Azure CDN from Verizon Premium** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+
+**To navigate to the CDN caching rules page**:
 
 1. In the Azure portal, select a CDN profile, then select the endpoint for the blob.
 
@@ -47,13 +50,50 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
    ![CDN caching rules button](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
 
-3. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
+   The **Caching rules** page appears.
+
+   ![CDN caching page](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
+
+
+**To set a blob's Cache-Control headers by using global caching rules:**
+
+1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
       
-5. For **Cache expiration duration**, enter 3600 in the **Seconds** field. 
+2. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box. 
 
    ![CDN global caching rules example](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
 
-6. Select **Save**.
+   This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+
+3. Select **Save**.
+ 
+**To set a blob container's Cache-Control headers by using custom caching rules:**
+
+1. Under **Custom caching rules**, set **Match condition** to **Path**
+
+2. For **Match value**, enter `/blobcontainer1/*`
+
+3. Set **Caching behavior** to **Override** and enter 2 in the **Hours** box.
+
+   ![CDN custom caching rules container example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-container.png)
+
+   This custom caching rule sets a cache duration of two hours on any blob files in the /blobcontainer1 folder in the origin of your endpoint. For this specific container, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+
+4. Select **Save**.
+
+**To set a specific blob file's Cache-Control headers by using custom caching rules:**
+
+1. Under **Custom caching rules**, set **Match condition** to **Path**
+
+2. For **Match value**, enter `/blobcontainer1/*`
+
+3. Set **Caching behavior** to **Override** and enter 1 in the **Days** box.
+
+   ![CDN custom caching rules blob example](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-blob.png)
+
+   This custom caching rule sets a cache duration of one day on the specific /blobcontainer1/blob1.txt blob file in the origin of your endpoint. For this specific file, it overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
+
+4. Select **Save**.
 
 ## Setting Cache-Control headers by using Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
@@ -80,7 +120,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## Setting Cache-Control headers by using .NET
-To set a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
+To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
 
 For example:
 
@@ -97,10 +137,10 @@ class Program
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create a reference to the container
-        CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
+        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
 
         // Create a reference to the blob
-        CloudBlob blob = container.GetBlobReference("<blob name>");
+        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
         blob.Properties.CacheControl = "max-age=3600";
@@ -132,7 +172,7 @@ To update the *CacheControl* property of a blob with Azure Storage Explorer:
 With the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
   
 ```azurecli
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### Azure storage services REST API
