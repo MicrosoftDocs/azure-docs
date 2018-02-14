@@ -4,7 +4,7 @@ description: This VPN Gateway Overview explains the ways to connect to Azure vir
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
 
 ---
