@@ -9,6 +9,25 @@
 ### [Linux scale set](virtual-machine-scale-sets-create-template-linux.md)
 ### [Windows scale set](virtual-machine-scale-sets-create-template-windows.md)
 
+# Tutorials
+## 1 - Create / manage scale set
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Use data disks
+### Azure CLI 2.0
+### Azure PowerShell
+## 3 - Use a custom VM image
+### Azure CLI 2.0
+### Azure PowerShell
+## 4 - Deploy apps to a scale set
+### Azure CLI 2.0]
+### Azure PowerShell
+### Template
+## 5 - Autoscale a scale set
+### Azure CLI 2.0
+### Azure PowerShell
+### Template
+
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
