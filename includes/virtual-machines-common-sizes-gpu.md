@@ -71,7 +71,7 @@ GRID licensing terms for NV instances include:
 
 *  A maximum of 1 NVIDIA GRID Virtual Workstation per GPU, for users of remote professional graphics applications. 
 
-* A maxiumum of 25 concurrent GRID Virtual Applications per GPU, for hosted desktop solutions such as RDSH or Citrix XenApp.
+* A maximum of 25 concurrent GRID Virtual Applications per GPU, for hosted desktop solutions such as RDSH or Citrix XenApp.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks | Virtual Workstations | Virtual Applications
 | --- | --- | --- | --- | --- | --- | --- | --- |
