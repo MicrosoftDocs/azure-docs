@@ -38,13 +38,34 @@ In this example, we are going to block the installation of the VM agent that all
    --display-name 'Block VM Extensions' \
    --description 'This policy governs which VM extensions that are blocked.' \
    --rules '{
-		"notAllowedExtensions": {
-			"value": [
-				"VMAccessAgent",
-				"CustomScriptExtension"
-			]
-		}
-	}'
+			"if": {
+				"allOf": [
+					{
+						"field": "type",
+						"equals": "Microsoft.Compute/virtualMachines/extensions"
+					},
+					{
+						"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+						"equals": "Microsoft.Compute"
+					},
+					{
+						"field": "Microsoft.Compute/virtualMachines/extensions/type",
+						"in": "[parameters('notAllowedExtensions')]"
+					}
+				]
+			},
+			"then": {
+				"effect": "deny"
+			}
+		}'
+   --params '{
+			"notAllowedExtensions": {
+				"value": [
+					"VMAccessAgent",
+					"CustomScriptExtension"
+				]
+			}
+		}'
 ```
 
 ## Assign the policy

@@ -34,35 +34,35 @@ In this example, we are going to block the installation of the VM agent that all
 $definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied." 	`
-   -Policy {
-		"if": {
-			"allOf": [
-				{
-					"field": "type",
-					"equals": "Microsoft.Compute/virtualMachines/extensions"
-				},
-				{
-					"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-					"equals": "Microsoft.Compute"
-				},
-				{
-					"field": "Microsoft.Compute/virtualMachines/extensions/type",
-					"in": "[parameters('notAllowedExtensions')]"
-				}
-			]
-		},
-		"then": {
-			"effect": "deny"
-		}
-	} `
-   -Parameter {
-		"notAllowedExtensions": {
-			"value": [
-				"VMAccessAgent",
-				"CustomScriptExtension"
-			]
-		}
-	}
+   -Policy '{
+			"if": {
+				"allOf": [
+					{
+						"field": "type",
+						"equals": "Microsoft.Compute/virtualMachines/extensions"
+					},
+					{
+						"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+						"equals": "Microsoft.Compute"
+					},
+					{
+						"field": "Microsoft.Compute/virtualMachines/extensions/type",
+						"in": "[parameters('notAllowedExtensions')]"
+					}
+				]
+			},
+			"then": {
+				"effect": "deny"
+			}
+		}' `
+   -Parameter '{
+			"notAllowedExtensions": {
+				"value": [
+					"VMAccessAgent",
+					"CustomScriptExtension"
+				]
+			}
+		}'
 ```
 
 
