@@ -58,11 +58,11 @@ Installing WMF requires a restart. After restarting, the extension downloads the
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). For script parameters, see [DSC extension with Azure Resource Manager templates](extensions-dsc-template#default-configuration-script). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](extensions-dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## DSC extension in Resource Manager templates
 
-In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [DSC extension with Azure Resource Manager templates](extensions-dsc-template.md).
+In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md).
 
 ## DSC extension PowerShell cmdlets
 
