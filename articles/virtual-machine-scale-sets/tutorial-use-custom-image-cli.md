@@ -1,6 +1,6 @@
 ---
 title: Create and use a custom scale set VM image with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create and use a custom VM image that you can use to deploy a virtual machine scale set with the Azure CLI 2.0
+description: Learn how to create a custom VM image that you can use to deploy a virtual machine scale set with the Azure CLI 2.0
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -55,7 +55,7 @@ The public IP address of your VM is shown in the output of the [az vm create](/c
 ssh azureuser@<publicIpAddress>
 ```
 
-To customize your VM, lets install a basic web server. When a VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *Nginx* as follows:
+To customize your VM, let's install a basic web server. When a VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *Nginx* as follows:
 
 ```bash
 sudo apt-get install -y nginx
@@ -76,7 +76,7 @@ exit
 ```
 
 
-## Create a source image from VM
+## Create a source image from a VM
 The source VM is now customized with the Nginx web server installed. Let's create the custom VM image for use with a scale set.
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#az_vm_deallocate). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#az_vm_generalize) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
@@ -96,7 +96,7 @@ az image create \
 ```
 
 
-## Create scale set from custom image
+## Create a scale set from a custom image
 Create a scale set with [az vmss create](/cli/az/vmss#az_vmss_create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
 
 ```azurecli-interactive

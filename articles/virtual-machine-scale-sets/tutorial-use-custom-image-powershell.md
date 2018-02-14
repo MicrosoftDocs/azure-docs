@@ -1,6 +1,6 @@
 ---
 title: Create and use a custom scale set VM image with Azure PowerShell | Microsoft Docs
-description: Learn how to create and use a custom VM image that you can use to deploy a virtual machine scale set with Azure PowerShell
+description: Learn how to create a custom VM image that you can use to deploy a virtual machine scale set with Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -80,7 +80,7 @@ C:\Windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown
 The remote connection to the VM is automatically closed when Sysprep completes the process and the VM is shut down.
 
 
-## Create a source image from VM
+## Create a source image from a VM
 The source VM now customized with the IIS web server installed. Let's create the custom VM image for use with a scale set.
 
 To create an image, the VM needs to be deallocated. Deallocate the VM using [Stop-AzureRmVm](/powershell/module/azurerm.compute/stop-azurermvm). Then, set the state of the VM as generalized with [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
@@ -104,7 +104,7 @@ New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResour
 ```
 
 
-## Create scale set from custom image
+## Create a scale set from a custom image
 To get started with the scale set deployment, create the supporting network resources and scale set configuration objects as follows:
 
 ```azurepowershell-interactive
