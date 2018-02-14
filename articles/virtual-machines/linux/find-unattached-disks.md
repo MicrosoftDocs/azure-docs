@@ -19,7 +19,7 @@ ms.author: ramankum
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks
-When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you might continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
+When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
 
 
 ## Managed disks: Find and delete unattached disks 
