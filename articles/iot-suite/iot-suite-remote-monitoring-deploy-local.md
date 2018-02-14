@@ -24,12 +24,12 @@ To deploy the Azure services used by the remote monitoring preconfigured solutio
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
-To complete the local deployemnt, you need the following tools installed on your local development machine:
+To complete the local deployment, you need the following tools installed on your local development machine:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Docker compose](https://docs.docker.com/compose/install/)
-* [Node.js](https://nodejs.org/) - this is a prerequisite for the PCS CLI.
+* [Node.js](https://nodejs.org/) - this software is a prerequisite for the PCS CLI.
 * PCS CLI
 
 > [!NOTE]
@@ -47,7 +47,7 @@ For more information about the CLI, see [How to use the CLI](https://github.com/
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on three Azure services running in the cloud. You can deploy these Azure services manually theough the Azure portal, or use the PCS CLI. This article shows you how to use the `pcs` tool.
+Although this article shows you how to run the microservices locally, they depend on three Azure services running in the cloud. You can deploy these Azure services manually through the Azure portal, or use the PCS CLI. This article shows you how to use the `pcs` tool.
 
 ### Sign in to the CLI
 
@@ -79,7 +79,9 @@ The script takes several minutes to run. When it completes, you see a message `C
 
 ## Download the source code
 
-The remote monitoring source code repository includes the Docker configuration files you need to download, configure, and run the the Docker images that contain the microservices. To clone the repository, navigate to a suitable folder on your local machine and run one of the following commands. To install the Java implementations of the microservices, run:
+The remote monitoring source code repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone the repository, navigate to a suitable folder on your local machine and run one of the following commands:
+
+To install the Java implementations of the microservices, run:
 
 ```cmd/sh
 git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
@@ -91,13 +93,13 @@ To install the .Net implementations of the microservices, run:
 git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
 ```
 
-These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the preconfigured solution and test you changes locally.
+These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the preconfigured solution and test your changes locally.
 
 ## Run the microservices in Docker
 
 To run the microservices in Docker, first edit the **scripts\local\.env** file in your local copy of the repository. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command previously. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
 
-Then navigate to the **scripts\local** folder in your command-line environment and run the following command to run the preconfigured solution:
+To run the preconfigured solution, navigate to the **scripts\local** folder in your command-line environment and run the following command:
 
 ```cmd\sh
 docker-compose up
@@ -105,13 +107,13 @@ docker-compose up
 
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On subsequent runs, Docker runs the containers immediately.
 
-You can use a separate shell to view the logs from the container. First find the container Id using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
+You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps -a` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 log entries for the specified container.
 
 To access the remote monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Tidy up
 
-To avoid unecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to use the Azure portal to delete the resource group created by the `pcs` tool.
+To avoid unnecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to use the Azure portal to delete the resource group created by the `pcs` tool.
 
 Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the remote monitoring repository created when you cloned the source code from GitHub.
 
