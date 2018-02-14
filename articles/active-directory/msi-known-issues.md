@@ -42,6 +42,7 @@ The following Linux distributions support MSI:
 - CentOS 7.1
 - RedHat 7.2
 - Ubuntu 15.04
+- Ubuntu 16.04
 
 Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
 
