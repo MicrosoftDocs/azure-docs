@@ -32,7 +32,6 @@ An Azure AD Connect sync server stores the following data that is in scope for G
 To be GDPR compliant, Azure AD Connect customers should use the following guidelines:
 1.	Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
 2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
-3.	
 
 Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
 
@@ -50,28 +49,22 @@ You can either review and delete these files using Windows Explorer or you can u
 Use the following steps to schedule the script to run every 48 hours.
 
 1.	Save the script in a file with the extension **&#46;PS1**, then open the Control Panel and click on **Systems and Security**.
-
-![](media\active-directory-aadconnect-gdpr\gdpr2.png)
+    ![System](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
 2.	Under the Administrative Tools heading, click on **Schedule Tasks**.
-
-![](media\active-directory-aadconnect-gdpr\gdpr3.png)
+    ![Task](media\active-directory-aadconnect-gdpr\gdpr3.png)
 
 3.	In Task Scheduler, right click on **Task Schedule Library** and click on **Create Basic task…**
-
-![](media\active-directory-aadconnect-gdpr\gdpr4.png)
+    ![Create](media\active-directory-aadconnect-gdpr\gdpr4.png)
 
 4.	Enter the name for the new task and click **Next**.
-
-![](media\active-directory-aadconnect-gdpr\gdpr5.png)
+    ![Name](media\active-directory-aadconnect-gdpr\gdpr5.png)
 
 5.	Select **Daily** for the task trigger and click on **Next**.
-
-![](media\active-directory-aadconnect-gdpr\gdpr6.png)
+    ![Daily](media\active-directory-aadconnect-gdpr\gdpr6.png)
 
 6.	Set the recurrence to **2 days** and click **Next**.
-
-![](media\active-directory-aadconnect-gdpr\gdpr7.png)
+    ![Days](media\active-directory-aadconnect-gdpr\gdpr7.png)
 
 7.	Select **Start a program** as the action and click on **Next**.
 
@@ -79,11 +72,10 @@ Use the following steps to schedule the script to run every 48 hours.
 
 8.	Type **PowerShell** in the box for the Program/script, and in box labeled **Add arguments (optional)**, enter the full path to the script that you created earlier, then click **Next**.
 
-![](media\active-directory-aadconnect-gdpr\gdpr9.png)
+    ![Add](media\active-directory-aadconnect-gdpr\gdpr9.png)
 
 9.	The next screen shows a summary of the task you are about to create. Verify the values and click **Finish** to create the task.
-
-![](media\active-directory-aadconnect-gdpr\gdpr10.png)
+    ![Finish](media\active-directory-aadconnect-gdpr\gdpr10.png)
 
 
 ## Next steps
