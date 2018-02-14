@@ -53,7 +53,7 @@ In order to determine the appropriate user information to include, we need to id
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-We store this `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this we use the `cache-lookup-value` policy.
+We store this `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this, we use the `cache-lookup-value` policy.
 
 ```xml
 <cache-lookup-value
@@ -61,7 +61,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable will be created. We check the success of the lookup using the `choose` control flow policy.
+If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. We check the success of the lookup using the `choose` control flow policy.
 
 ```xml
 <choose>
@@ -104,9 +104,9 @@ To avoid us having to make this HTTP request again, when the same user makes ano
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-We store the value in the cache using the exact same key that we originally attempted to retrieve it with. The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out of date information. 
+We store the value in the cache using the exact same key that we originally attempted to retrieve it with. The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes significantly longer than that due to needing to do database queries or aggregate information from multiple back-ends.
+It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
 The final step in the process is to update the returned response with our user profile information.
 
@@ -173,12 +173,12 @@ Once you combine all these steps together, the end result is a policy that looks
 </policies>
 ```
 
-This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not to put that responsibility on the client.
+This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. However, it can also be useful in APIs where clients cannot do client-side HTTP caching or it is desirable not to put that responsibility on the client.
 
 This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
 
 ## Transparent versioning
-It is common practice for multiple different implementation versions of an API to be supported at any one time. This is perhaps to support different environments, like dev, test, production, etc, or it may be to support older versions of the API to give time for API consumers to migrate to newer versions. 
+It is common practice for multiple different implementation versions of an API to be supported at any one time. This is perhaps to support different environments, like dev, test, production, etc., or it may be to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
 One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. In order to determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, we can minimize the performance penalty of doing this lookup.
 
@@ -203,7 +203,7 @@ Then we check to see if we did not find it in the cache.
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-If we didn’t then we go and retrieve it.
+If we didn’t, then we retrieve it.
 
 ```xml
 <send-request
@@ -265,7 +265,7 @@ The completely policy is as follows.
 </inbound>
 ```
 
-Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is a elegant solution that addresses many API versioning concerns.
+Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is an elegant solution that addresses many API versioning concerns.
 
 ## Tenant Isolation
 In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
@@ -276,5 +276,5 @@ Instead of returning a preferred version of the API for each subscription key, y
 The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
 
 ## Next steps
-Please give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
+Give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
 
