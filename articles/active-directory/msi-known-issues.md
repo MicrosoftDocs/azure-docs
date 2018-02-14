@@ -1,4 +1,3 @@
-
 ---
 title: FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 description: Known issues with Managed Service Identity for Azure Active Directory.
