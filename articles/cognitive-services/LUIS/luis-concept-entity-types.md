@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/14/2018
 ms.author: v-demak;v-geberr;
 ---
 # Entities in LUIS
