@@ -14,8 +14,8 @@
 ### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
 ### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
 ## 2 - Use data disks
-### Azure CLI 2.0
-### Azure PowerShell
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
 ## 3 - Use a custom VM image
 ### Azure CLI 2.0
 ### Azure PowerShell
