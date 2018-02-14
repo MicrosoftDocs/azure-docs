@@ -105,8 +105,7 @@ The [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples
 3. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project
 4. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained form Part 1 of this article
 
-    ```netcore-cli
-    
+    ```csharp
     private const string EhConnectionString = "Event Hubs connection string";
     private const string EhEntityPath = "Event Hub name";
 
@@ -123,14 +122,12 @@ Event Hubs has a highly scalable parallel architecture that lets you ingress **_
 3. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project
 4. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name, and storage account key
 
-    ```netcore-cli
-
+    ```csharp
     private const string EventHubConnectionString = "Event Hubs connection string";
     private const string EventHubName = "Event Hub name";
     private const string StorageContainerName = "Storage account container name";
     private const string StorageAccountName = "Storage account name";
     private const string StorageAccountKey = "Storage account key";
-
     ```
 5. Build and run the sample. You can see the events being received on your sample application
 6. Optionally, you can run the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) for ingestion in tandem to check the send and receive together
