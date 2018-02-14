@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 02/14/2018
 ms.author: saurinsh
 
 ---
@@ -26,7 +26,6 @@ Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTT
 
 -	A standalone Active Directory running on Azure IaaS.
 -	Azure Active Directory.
--	Active Directory running on the customer on-premises environment.
 
 Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
 
@@ -38,6 +37,9 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
     - Create HDInsight cluster
 
 > [!IMPORTANT]
+> 
+> To use Azure Data Lake Store, you must sync AD on Azure AD. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+>
 > Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisite
@@ -68,9 +70,10 @@ In this section, you open an Azure resource management template from the Azure p
     - **Admin Username**: Enter the domain administrator username.
     - **Admin Password**: Enter the domain administrator password.
     - **Domain Name**: The default name is *contoso.com*.  If you change the domain name, you must also update the **Secure LDAP Certificate** field and the **Organizational Unit DN** field.
+    - **DNS Prefix**: Enter the DNS prefix for the public IP address used by the Load Balancer.
     - **Cluster Name**: Enter the HDInsight cluster name.
     - **Cluster Type**: Don't change this value. If you want to change the cluster type, use the specific template in the last step.
-
+    - **Secure Ldap Certificate Password**: Use the default value unless you change the Secure LDAP certificate field.
     Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
 
     ![HDInsight domain-joined cluster edit template](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

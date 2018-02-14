@@ -3,7 +3,7 @@ title: Collect and analyze Azure activity logs in Log Analytics | Microsoft Docs
 description: You can use the Azure Activity Logs solution to analyze and search the Azure activity log across all your Azure subscriptions.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
-ms.author: banders
+ms.date: 01/24/2018
+ms.author: magoedte
 
 ---
 
@@ -87,10 +87,10 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 | Blade | Description |
 | --- | --- |
-| Azure Activity Log Entries | Shows a bar chart of the top Azure activity log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. Click the bar chart to run a log search for <code>Type=AzureActivity</code>. Click a caller item to run a log search returning all activity log entries for that item. |
-| Activity Logs by Status | Shows a doughnut chart for Azure activity log status for the date range that you have selected. Also shows a list a list of the top ten status records. Click the chart to run a log search for <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Click a status item to run a log search returning all activity log entries for that status record. |
-| Activity Logs by Resource | Shows the total number of resources with activity logs and lists the top ten resources with record counts for each resource. Click the total area to run a log search for <code>Type=AzureActivity &#124; measure count() by Resource</code>, which shows all Azure resources available to the solution. Click a resource to run a log search returning all activity records for that resource. |
-| Activity Logs by Resource Provider | Shows the total number of resource providers that produce activity logs and lists the top ten. Click the total area to run a log search for <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, which shows all Azure resource providers. Click a resource provider to run a log search returning all activity records for the provider. |
+| Azure Activity Log Entries | Shows a bar chart of the top Azure activity log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. Click the bar chart to run a log search for <code>AzureActivity</code>. Click a caller item to run a log search returning all activity log entries for that item. |
+| Activity Logs by Status | Shows a doughnut chart for Azure activity log status for the date range that you have selected. Also shows a list a list of the top ten status records. Click the chart to run a log search for <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Click a status item to run a log search returning all activity log entries for that status record. |
+| Activity Logs by Resource | Shows the total number of resources with activity logs and lists the top ten resources with record counts for each resource. Click the total area to run a log search for <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, which shows all Azure resources available to the solution. Click a resource to run a log search returning all activity records for that resource. |
+| Activity Logs by Resource Provider | Shows the total number of resource providers that produce activity logs and lists the top ten. Click the total area to run a log search for <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, which shows all Azure resource providers. Click a resource provider to run a log search returning all activity records for the provider. |
 
 ![Azure Activity Logs dashboard](./media/log-analytics-activity/activity-log-dash.png)
 

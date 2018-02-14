@@ -1,3 +1,4 @@
+
 ---
 title: Azure ML Workbench release notes for sprint 3 January 2018
 description: This document details the updates for the sprint 3 release of Azure ML 
@@ -16,7 +17,7 @@ ms.date: 01/22/2018
 
 #### Version number: 0.1.1712.18263
 
->Here is how you can [find the version number](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
 
 Welcome to the fourth update of Azure Machine Learning Workbench. The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
@@ -30,6 +31,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 - Ability to install/uninstall the app from Add/Remove Programs
 - Updates to the authentication stack forces login and account selection at start-up
 - Improved Single Sign On (SSO) experience on Windows
+- Users that belong to multiple tenants with different credentials will now be able to sign into Workbench
 
 #### UI
 - General improvements and bug fixes
@@ -43,6 +45,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 - Ability to send sample data and feedback while performing By Example transformations 
 ![Image of send feedback link on derive column transform](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Spark Runtime Improvements
+- Scala has replaced Pyspark
 - Fixed inability to close Data Not Applicable for the Time Series Inspector 
 - Fixed the hang time for Data Prep execution for HDI
 

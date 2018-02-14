@@ -2,8 +2,8 @@
 title: How to Use Run History and Model Metrics in Azure Machine Learning Workbench | Microsoft Docs
 description: Guide for the using the Run History and Model Metrics features of Azure Machine Learning Workbench
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning

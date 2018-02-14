@@ -36,13 +36,13 @@ When the provisioning process for the remote monitoring solution finishes, click
 ### Provision your device in the remote monitoring solution
 
 > [!NOTE]
-> If you have already provisioned a device in your solution, you can skip this step. You need the device credentials when you create the client application.
+> If you have already provisioned a device in your solution, you can skip this step. You need the device connection string, which you can retrieve from the Azure portal, when you create the client application.
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution **Devices** page. You include the device credentials in your client application later in this tutorial.
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains the credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
 
 To add a device to your remote monitoring solution, complete the following steps on the **Devices** page in the solution:
 
-1. Choose **Provision**, and then choose **Physical** as the **Device type**:
+1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
 
     ![Provision a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ To add a device to your remote monitoring solution, complete the following steps
 
     ![Choose device options](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Choose **Apply**. Then make a note of the **Device ID**, **Primary Key**, and **Connection string primary key** values:
+
+    ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
+
 To locate the credentials your device must use to connect to the preconfigured solution, navigate to the Azure portal in your browser. Sign in to your subscription.
-
-1. Locate the resource group that contains the Azure services your remote monitoring solution uses. The resource group has the same name as the remote monitoring solution you provisioned.
-
-1. Navigate to the IoT hub in this resource group. Then choose **IoT Devices**:
-
-    ![Device explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Choose the **Device ID** you created on the **Devices** page in the remote monitoring solution.
-
-1. Make a note of the **Device ID** and **Primary key** values. You use these values when you add code to connect your device to the solution.
 
 You have now provisioned a physical device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
 
@@ -68,4 +62,4 @@ The client application implements the built-in **Chiller** device model. A preco
 
 * The properties the device reports to the solution. For example, a **Chiller** device reports information about its firmware and location.
 * The types of telemetry the device sends to the solution. For example, a **Chiller** device sends temperature, humidity, and pressure values.
-* The methods you can schedule from the solution to run on the device. For example, a **Chiller** device must implement **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressuree** methods.
+* The methods you can schedule from the solution to run on the device. For example, a **Chiller** device must implement **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressure** methods.

@@ -1,7 +1,7 @@
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
-# Get Started
+# Quickstarts
 ## [Create in the Azure portal](virtual-machine-scale-sets-create-portal.md)
 ## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
 ## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
@@ -11,11 +11,11 @@
 
 # Tutorials
 ## 1 - Create / manage scale set
-### Azure CLI 2.0
-### Azure PowerShell
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
 ## 2 - Use data disks
-### Azure CLI 2.0
-### Azure PowerShell
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
 ## 3 - Use a custom VM image
 ### Azure CLI 2.0
 ### Azure PowerShell
@@ -27,7 +27,6 @@
 ### Azure CLI 2.0
 ### Azure PowerShell
 ### Template
-
 
 # How To
 ## Plan and design

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 # Sample of custom source connections (Python) 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
@@ -40,7 +40,7 @@ Now you should be able to import data.world libraries.
 
 #### Load data into data preparation
 
-Create a new script-based data flow. Then use the following script to load the data from data.world.
+Create a Transform Data Flow (Script) transform. Then use the following script to load the data from data.world.
 
 ```python
 #paths = df['Path'].tolist()
@@ -54,34 +54,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
-
-## Load Azure Cosmos DB data into data preparation
-
-Create a new script-based data flow, and then use the following script to load the data from Azure Cosmos DB. (The libraries need to be installed first. For more information, see the previous reference document that we link to.)
-
-```python
-import pydocumentdb
-import pydocumentdb.document_client as document_client
-
-import pandas as pd
-
-config = { 
-    'ENDPOINT': '<Endpoint>',
-    'MASTERKEY': '<Key>',
-    'DOCUMENTDB_DATABASE': '<DBName>',
-    'DOCUMENTDB_COLLECTION': '<collectionname>'
-};
-
-# Initialize the Python DocumentDB client.
-client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
-
-# Read databases and take first since id should not be duplicated.
-db = next((data for data in client.ReadDatabases() if data['id'] == config['DOCUMENTDB_DATABASE']))
-
-# Read collections and take first since id should not be duplicated.
-coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config['DOCUMENTDB_COLLECTION']))
-
-docs = client.ReadDocuments(coll['_self'])
-
-df = pd.DataFrame(list(docs))
-```
+## Azure Cosmos DB as a data source connection
+For an example of Azure Cosmos DB as a data connection, read [Load Azure Cosmos DB as a source data connection](data-prep-load-azure-cosmos-db.md)
