@@ -43,8 +43,8 @@ This topic describes the entity and type representations for common items used i
 -   [Subscription](#Subscription)  
 -   [Subscription summary](#SubscriptionSummary)  
 -   [User account info](#UserAccountInfo)  
--   [User sign in](#UseSignIn)  
--   [User sign up](#UserSignUp)  
+-   [User sign-in](#UseSignIn)  
+-   [User sign-up](#UserSignUp)  
   
 ##  <a name="API"></a> API  
  The `API` entity has the following properties:  
