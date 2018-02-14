@@ -4,7 +4,7 @@ description: This topic provides considerations and guidelines for configuring a
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
@@ -28,7 +28,7 @@ An Azure Database for PostgreSQL server:
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
 
-Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, compute units, and storage (GB). For more information, see [Pricing tiers](./concepts-pricing-tiers.md).
+Within an Azure Database for PostgreSQL server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Pricing tiers](./concepts-pricing-tiers.md).
 
 ## How do I connect and authenticate to an Azure Database for PostgreSQL server?
 The following elements help ensure safe access to your database:
