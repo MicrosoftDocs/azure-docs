@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/14/2018
 ms.author: v-demak;v-geberr;
 ---
 
@@ -93,17 +93,17 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
 ## View Bing Spell Check corrections in test panel
-You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the **Compare with published** panel, in the JSON view. 
+You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel. 
 
-To use this feature, you must have a published app and a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored, the functionality is only available during a browser session. 
+To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
 Use the following steps to use the Bing Spell Check v7 service key. 
 
-1. In the test panel, on the **Compare with published** pane, select **Additional Settings**.
+1. In the test panel, on the **Published** pane, select **Additional Settings**.
 
     ![Additional Settings link](./media/luis-how-to-train-test/interactive-with-spell-check-additional-settings.png)
 
-2. In the pop-up dialog, enter your Bing Spell Check service key. 
+2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
     ![Enter Bing Spell Check service key](./media/luis-how-to-train-test/interactive-with-spell-check-service-key.png)
 
 3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as query, and the corrected spelling in the query, as alteredQuery.
