@@ -145,13 +145,10 @@
 <!--- # Not accounted for in this TOC
 
 ## [Security services and technologies](azure-security-services-technologies.md) compare to tom's new page.
-
-
 ### [Data classification](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Disaster recovery and high availability for applications built on Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Trust Center](security-microsoft-trust-center.md)
 ## [Microsoft Security Response Center](azure-security-response-center.md)
-
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
