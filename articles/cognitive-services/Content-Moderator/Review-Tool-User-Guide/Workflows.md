@@ -14,9 +14,9 @@ ms.author: sajagtap
 
 # Define, test, and use workflows
 
-You can use the Azure Cognitive Services Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
+You can use the Azure Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
 
-Workflows "connect" to the Content Moderator API by using connectors. In addition, you use other APIs if a connector for that API is available. The example here uses the Content Moderator connector that is included by default.
+Workflows "connect" to the Content Moderator API by using connectors. You can use other APIs if a connector for that API is available. The example here uses the Content Moderator connector that is included by default.
 
 ## Browse to the Workflows section
 
@@ -80,6 +80,6 @@ To see the image review, go to the **Image** tab under **Review**.
 
   ![Review images](images/ocr-sample-image-workflow1.PNG)
 
-## Next steps: Invoke the workflow from code
+## Next steps 
 
-Use custom workflows with the [`Job` API console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).
+To invoke the workflow from code, use custom workflows with the [`Job` API console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).

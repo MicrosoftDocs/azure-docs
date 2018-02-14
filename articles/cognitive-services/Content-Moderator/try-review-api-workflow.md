@@ -14,11 +14,12 @@ ms.author: sajagtap
 
 # Workflows from the API console
 
-Use the [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Cognitive Services Content Moderator to create or update a workflow or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows also are used by the Review API's Job operations.
+Use the [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update a workflow or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows also are used by the Review API's Job operations.
 
 ## Prerequisites
 
-Go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/). Sign up if you have not done so yet. In the Review tool, under **Settings**, select the **Workflows** tab, as shown in the Review tool's [workflow tutorial](Review-Tool-User-Guide/Workflows.md).
+1. Go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/). Sign up if you haven't done so yet. 
+2. In the Review tool, under **Settings**, select the **Workflows** tab, as shown in the Review tool's [workflow tutorial](Review-Tool-User-Guide/Workflows.md).
 
 ### Browse to the workflows screen
 
@@ -59,7 +60,8 @@ In the Review tool, go to the [Credentials](Review-Tool-User-Guide/credentials.m
 
 ### Browse to the API reference
 
-In the **Credentials** view, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). The **Workflow - Create Or Update** page opens. Go to the [Workflow - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) reference.
+1. In the **Credentials** view, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
+2. When the **Workflow - Create Or Update** page opens, go to the [Workflow - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) reference.
 
 ### Select your region
 
@@ -117,9 +119,7 @@ In the Review tool, go to the [Credentials](Review-Tool-User-Guide/credentials.m
 
 ### Browse to the API reference
 
-In the **Credentials** view, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59).
-
-  The **Workflow - Create Or Update** page opens.
+In the **Credentials** view, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). The **Workflow - Create Or Update** page opens.
 
 ### Select your region
 
@@ -141,18 +141,19 @@ Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (
 
 ### Enter the workflow definition
 
-Edit the **Request body** box to enter the JSON request with details for **Description** and **Type** (Image or Text). For **Expression**, copy the default workflow expression from the preceding section, as shown here:
+1. Edit the **Request body** box to enter the JSON request with details for **Description** and **Type** (Image or Text). 
+2. For **Expression**, copy the default workflow expression from the preceding section, as shown here:
 
-	{
-		"Description": "Default workflow from API console",
-		"Type": "Image",
-		"Expression": 
-			// Copy the default workflow expression from the preceding section
-	}
+		{
+			"Description": "Default workflow from API console",
+			"Type": "Image",
+			"Expression": 
+				// Copy the default workflow expression from the preceding section
+		}
 
-Your request body looks like the following JSON request:
+	Your request body looks like the following JSON request:
 
-	{
+		{
 		"Description": "Default workflow from API console",
 		"Type": "Image",
 		"Expression": {
@@ -189,14 +190,13 @@ In the Review tool, select **Review** > **Settings** > **Workflows**. Your new w
   
 ### Review your new workflow details
 
-Select the **Edit** option for your workflow, and then select the **Designer** and **JSON** tabs.
+1. Select the **Edit** option for your workflow, and then select the **Designer** and **JSON** tabs.
 
-  ![Designer tab for a selected workflow](images/workflow-console-new-workflow-designer.PNG)
+   ![Designer tab for a selected workflow](images/workflow-console-new-workflow-designer.PNG)
 
-To see the JSON view of the workflow, select the **JSON** tab.
+2. To see the JSON view of the workflow, select the **JSON** tab.
 
 ## Next steps
 
-For more complex workflow examples, see the [Workflows overview](workflow-api.md).
-
-Learn how to use workflows with [content moderation jobs](try-review-api-job.md).
+* For more complex workflow examples, see the [Workflows overview](workflow-api.md).
+* Learn how to use workflows with [content moderation jobs](try-review-api-job.md).
