@@ -12,7 +12,7 @@ ms.author: anroth
 ---
 
 # Face detection using Cognitive Services
-This walkthrough uses the cognitive services [Face API](https://azure.microsoft.com/en-us/services/cognitive-services/face/) to detect faces in an image. The API also returns various attributes such as the gender and age of each person. The sample images are from the [How-Old Robot](http://www.how-old.net) that uses the same service behind the scenes.
+This walkthrough shows you how to use the cognitive services [Face API](https://azure.microsoft.com/en-us/services/cognitive-services/face/) to detect faces in an image. The API also returns various attributes such as the gender and age of each person. The sample images used in this walkthrough are from the [How-Old Robot](http://www.how-old.net) that uses the same APIs.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -24,7 +24,7 @@ For more information, see the [REST API Reference](https://westus.dev.cognitive.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-To continue with this walkthrough, replace `subscription_key` with a valid subscription key that you obtained earlier.
+To continue with this walkthrough, replace `subscription_key` with a valid subscription key.
 
 
 ```python
@@ -32,7 +32,7 @@ subscription_key = "354f9ac5f2f04a008504575c15f458a7"
 assert subscription_key
 ```
 
-Next, verify the service URL and make sure it corresponds to the region you used when generating the subscription key. If you are using a trial key, you do not need to make any changes.
+Next, verify `face_api_url` and make sure it corresponds to the region you used when generating the subscription key. If you are using a trial key, you don't need to make any changes.
 
 
 ```python
@@ -125,7 +125,7 @@ def annotate_image(image_url):
     plt.axis("off")
 ```
 
-You can then call ``annotate_image`` on other images as desired.
+You can then call ``annotate_image`` on other images. A few examples samples are shown below.
 
 
 ```python
