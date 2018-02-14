@@ -37,7 +37,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Management operations (e.g. Account Create) |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |
 | Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Optimized performance for parallel analytics workloads. |
-| Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../storage/common/storage-scalability-targets). Larger account limits available by contacting [Azure Support](https://azure.microsoft.com/support/faq/) |
+| Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../storage/common/storage-scalability-targets.md). Larger account limits available by contacting [Azure Support](https://azure.microsoft.com/support/faq/) |
 | Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), zone redundant (ZRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/common/storage-redundancy.md) for more information |
 | Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |Available in all Azure regions |
