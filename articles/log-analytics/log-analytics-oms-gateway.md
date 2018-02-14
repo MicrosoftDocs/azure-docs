@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/14/2018
 ms.author: magoedte
 ---
 
@@ -30,7 +30,7 @@ If your IT security policies do not allow computers on your network to connect t
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled.  Operations Manager agents send some data such as Operations Manager alerts, configuration assessment, instance space, and capacity data to the management server. Other high-volume data, such as IIS logs, performance, and security events are sent directly to the OMS Gateway.  If you have one or more Operations Manager Gateway servers deployed in a DMZ or other isolated network to monitor untrusted systems, it cannot communicate with an OMS Gateway.  Operations Manager Gateway servers can only report to a management server.  When an Operations Manager management group is configured to communicate with the OMS Gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
 
-To provide high availability for direct connected or Operations Management groups that communicate with OMS through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
+To provide high availability for direct connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
 It is recommended that you install the OMS agent on the computer running the OMS Gateway software to monitor the OMS Gateway and analyze performance or event data. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
 
@@ -169,19 +169,22 @@ After completing the integration with Log Analytics, you can remove the change b
 3. Click **Finish**. Your Operations Manager management group is now configured to communicate through the gateway server to the Log Analytics service.
 
 ### Configure Operations Manager - specific agents use proxy server
-For large or complex environments, you may only want specific servers (or groups) to use the OMS Gateway server.  For these servers, you cannot update the Operations Manager agent directly as this value is overwritten by the global value for the management group.  Instead you need to override the rule used to push these values.
+For large or complex environments, you may only want specific servers (or groups) to use the OMS Gateway server.  For these servers, you cannot update the Operations Manager agent directly as this value is overwritten by the global value for the management group.  Instead you need to override the rule used to push these values.  
 
 > [!NOTE] 
 > This same configuration technique can be used to allow the use of multiple OMS Gateway servers in your environment.  For example, you may require specific OMS Gateway servers to be specified on a per-region basis.
+>  
 
 1. Open the Operations Manager console and select the **Authoring** workspace.  
 2. In the Authoring workspace, select **Rules** and click the **Scope** button on the Operations Manager toolbar. If this button is not available, check to make sure that you have an object, not a folder, selected in the Monitoring pane. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups, or objects. 
 3. Type **Health Service** in the **Look for** field and select it from the list.  Click **OK**.  
 4. Search for the rule **Advisor Proxy Setting Rule** and in the Operations console toolbar, click **Overrides** and then point to **Override the Rule\For a specific object of class: Health Service** and select a specific object from the list.  Optionally, you can create a custom group containing the health service object of the servers you wish to apply this override to and then apply the override to that group.
-5. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server ensuring that you start with the `http://` prefix.
-   >[!NOTE]
-   > You do not need to enable the rule as it is already managed automatically with an override contained in the Microsoft System Center Advisor Secure Reference Override management pack targeting the Microsoft System Center Advisor Monitoring Server Group.
-   > 
+5. In the **Override Properties** dialog box, click to place a check mark in the **Override** column next to the **WebProxyAddress** parameter.  In the **Override Value** field, enter the URL of the OMS Gateway server ensuring that you start with the `http://` prefix.  
+
+    >[!NOTE]
+    > You do not need to enable the rule as it is already managed automatically with an override contained in the Microsoft System Center Advisor Secure Reference Override management pack targeting the Microsoft System Center Advisor Monitoring Server Group.
+    >   
+
 6. Either select a management pack from the **Select destination management pack** list or create a new unsealed management pack by clicking **New**. 
 7. When you complete your changes, click **OK**. 
 
@@ -304,7 +307,7 @@ The following table shows the performance counters available for the OMS Gateway
 ![OMS Gateway performance counters](./media/log-analytics-oms-gateway/counters.png)
 
 ## Get assistance
-When you're signed-in to the Azure portal, you can create a request for assistance with the OMS Gateway or any other Azure service or feature of a service.
+When you are signed in to the Azure portal, you can create a request for assistance with the OMS Gateway or any other Azure service or feature of a service.
 To request assistance, click the question mark symbol in the top right corner of the portal and then click **New support request**. Then, complete the new support request form.
 
 ![New support request](./media/log-analytics-oms-gateway/support.png)
