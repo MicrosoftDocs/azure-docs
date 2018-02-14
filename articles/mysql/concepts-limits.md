@@ -4,7 +4,7 @@ description: Describes preview limitations in Azure Database for MySQL.
 services: mysql
 author: jasonh
 ms.author: kamathsun
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
@@ -34,11 +34,11 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 |General Purpose| Gen 5| 8| 800|
 |General Purpose| Gen 5| 16| 1600|
 |General Purpose| Gen 5| 32| 3200|
-|Memory Optimized| Gen 5| 2| 200|
-|Memory Optimized| Gen 5| 4| 400|
-|Memory Optimized| Gen 5| 8| 800|
-|Memory Optimized| Gen 5| 16| 1600|
-|Memory Optimized| Gen 5| 32| 3200| 
+|Memory Optimized| Gen 5| 2| 600|
+|Memory Optimized| Gen 5| 4| 1250|
+|Memory Optimized| Gen 5| 8| 2500|
+|Memory Optimized| Gen 5| 16| 5000|
+|Memory Optimized| Gen 5| 32| 10000| 
 
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
