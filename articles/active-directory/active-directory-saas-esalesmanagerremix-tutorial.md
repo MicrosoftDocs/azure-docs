@@ -139,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
-11. Select **System settings**>**Cooperation with external system**>
+11. Select **System settings**>**Cooperation with external system**
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure5.png)
 	
