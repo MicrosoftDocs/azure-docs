@@ -37,25 +37,17 @@ All widgets are editable.
 In day-to-day page editing one usually only modifies the Content widget which will have different content for each individual page.
 
 ## <a name="modify-layout-widget"> </a>Modifying the contents of a layout widget
+
 The Developer portal is accessible from the Azure Portal. 
 
 1. Click **Developer portal** from the toolbar of your API Management instance.
-2. To edit the contents of that widget, click **Widgets** from the **Developer Portal** menu on the left. 
-3. To modify the contents of the Header, select the **Header** widget from the list.
+2. To edit the contents of that widget, click the icon comprised of two paint brushes from the **Developer Portal** menu on the left. 
+3. To modify the contents of the Header, scroll to the **Header** section in the list on the left.
     
-    The contents of the header is editable from within the **Body** field.
+    The widgets are editable from within the fields.
 4. Click **Publish** at the bottom of the page.
 
 Now you should be able to see the new header on every page within the developer portal.
-
-
-## <a name="edit-page-contents"> </a>Edit the contents of a page
-
-To see the list of all existing content pages, click **Content** from the **Developer portal** menu.
-
-Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
-
-The home page uses a special layout that allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
 
 ## <a name="next-steps"> </a>Next steps
 * [Update the styles used for page elements across the developer portal][customize-styles]
