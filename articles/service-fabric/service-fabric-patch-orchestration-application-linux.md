@@ -116,7 +116,7 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 ## Download the app package
 
-Download the application from the [download link](https://bing.com).
+Download the application from the [download link](https://go.microsoft.com/fwlink/?linkid=867984).
 
 ## Configure the app
 
