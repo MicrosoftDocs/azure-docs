@@ -22,11 +22,6 @@ ms.author: danis
 If you want to prevent extension installation, or certain extensions being install to your VMs, you can use Azure Resource Manager to restrict VMs having specific or all extensions installed, this can be scoped to a resource group. 
 
 
-This tutorial requires that you are running the Azure CLI version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
-
-
-## Create the policy 
 
 
 ## Create the policy
@@ -39,14 +34,35 @@ In this example, we are going to block the installation of the VM agent that all
 $definition = New-AzureRmPolicyDefinition -Name "not-allowed-vmextension" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied." 	`
-   -Policy '{
+   -Policy {
+		"if": {
+			"allOf": [
+				{
+					"field": "type",
+					"equals": "Microsoft.Compute/virtualMachines/extensions"
+				},
+				{
+					"field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+					"equals": "Microsoft.Compute"
+				},
+				{
+					"field": "Microsoft.Compute/virtualMachines/extensions/type",
+					"in": "[parameters('notAllowedExtensions')]"
+				}
+			]
+		},
+		"then": {
+			"effect": "deny"
+		}
+	} `
+   -Parameter {
 		"notAllowedExtensions": {
 			"value": [
 				"VMAccessAgent",
 				"CustomScriptExtension"
 			]
 		}
-	}'
+	}
 ```
 
 
