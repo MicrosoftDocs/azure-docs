@@ -20,9 +20,9 @@
 ### Azure CLI 2.0
 ### Azure PowerShell
 ## 4 - Deploy apps to a scale set
-### Azure CLI 2.0]
-### Azure PowerShell
-### Template
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Template](tutorial-install-apps-template.md)
 ## 5 - Autoscale a scale set
 ### Azure CLI 2.0
 ### Azure PowerShell
