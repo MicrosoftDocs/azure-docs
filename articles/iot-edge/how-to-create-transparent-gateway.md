@@ -109,12 +109,12 @@ In order to configure your IoT Edge device as a gateway you just need to configu
 
 We assume the following file names from the sample scripts above:
 
-| Output | Bash script | PowerShell |
-| ------ | ----------- | ---------- |
-| Device certificate | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Device private key | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Device certificate chain | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Output | File name |
+| ------ | --------- |
+| Device certificate | `certs/new-edge-device.cert.pem` |
+| Device private key | `private/new-edge-device.cert.pem` |
+| Device certificate chain | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Provide the device and certificate information to the IoT Edge runtime. 
  
