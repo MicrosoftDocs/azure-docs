@@ -63,6 +63,9 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
   
 3. When deployment successfully completes, go ahead and click **Close**.  
   
+
+This lesson describes the most common and easiest method to deploy a tabular model from from SSDT. Advanced deployment options such as the Deployment Wizard or automating with XMLA and AMO provide greater flexibility, consistency, and scheduled deployments. To learn more, see [Tabular model solution deployment](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## Conclusion  
 Congratulations! You're finished authoring and deploying your first Analysis Services Tabular model. This tutorial has helped guide you through completing the most common tasks in creating a tabular model. Now that your Adventure Works Internet Sales model is deployed, you can use SQL Server Management Studio to manage the model; create process scripts and a backup plan. Users can also now connect to the model using a reporting client application such as Microsoft Excel or Power BI.  
 
