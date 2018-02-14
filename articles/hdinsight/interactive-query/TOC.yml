@@ -49,7 +49,7 @@
       - name: Use Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
-      - name: Use cURL
+      - name: Use REST API
         href: ../hadoop/apache-hadoop-use-hive-curl.md
         maintainContext: true
       - name: Use Azure PowerShell
