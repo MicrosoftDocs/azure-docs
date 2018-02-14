@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: cahann
+ms.date: 02/13/2018
+ms.author: cahann;v-geberr;v-demak;
 ---
 # Intents in LUIS
 
@@ -25,6 +25,8 @@ Example intent   |   Example utterances   |
  None         | Get me a cookie recipe |
 
 All applications come with the predefined intent, **"None"**. The none intent teaches LUIS to recognize user statements that are irrelevant to the app.
+
+A LUIS app must have at least one intent. 
 
 ## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
