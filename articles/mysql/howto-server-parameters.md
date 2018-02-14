@@ -4,7 +4,7 @@ description: This article describes how to configure MySQL server parameters in 
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
@@ -51,11 +51,11 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 |General Purpose| Gen 5| 8| 10240| 800|
 |General Purpose| Gen 5| 16| 20480| 1600|
 |General Purpose| Gen 5| 32| 40960| 3200|
-|Memory Optimized| Gen 5| 2| 2560| 200|
-|Memory Optimized| Gen 5| 4| 5120| 400|
-|Memory Optimized| Gen 5| 8| 10240| 800|
-|Memory Optimized| Gen 5| 16| 20480| 1600|
-|Memory Optimized| Gen 5| 32| 40960| 3200| 
+|Memory Optimized| Gen 5| 2| 7168| 600|
+|Memory Optimized| Gen 5| 4| 15360| 1250|
+|Memory Optimized| Gen 5| 8| 30720| 2500|
+|Memory Optimized| Gen 5| 16| 62464| 5000|
+|Memory Optimized| Gen 5| 32| 125952| 10000| 
 
 These additional server parameters are not configurable in the system:
 
