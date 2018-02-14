@@ -21,7 +21,7 @@ ms.author: apimpm
 Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.
 
 ## Architecture
-API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you will still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
+API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
 
 ## Fragment caching
 There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
@@ -45,7 +45,7 @@ And secondary resource at `/userprofile/{userid}` that looks like,
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-In order to determine the appropriate user information to include, we need to identify who the end user is. This mechanism is implementation dependent. As an example, I am using the `Subject` claim of a `JWT` token. 
+To determine the appropriate user information to include, API Management needs to identify who the end user is. This mechanism is implementation-dependent. As an example, I am using the `Subject` claim of a `JWT` token. 
 
 ```xml
 <set-variable
@@ -53,7 +53,7 @@ In order to determine the appropriate user information to include, we need to id
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-We store this `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this, we use the `cache-lookup-value` policy.
+API Management stores the `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this, API Management uses the `cache-lookup-value` policy.
 
 ```xml
 <cache-lookup-value
@@ -61,7 +61,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. We check the success of the lookup using the `choose` control flow policy.
+If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. API Management checks the success of the lookup using the `choose` control flow policy.
 
 ```xml
 <choose>
@@ -71,7 +71,7 @@ If there is no entry in the cache that corresponds to the key value, then no `us
 </choose>
 ```
 
-If the `userprofile` context variable doesn’t exist, then we are going to have to make an HTTP request to retrieve it.
+If the `userprofile` context variable doesn’t exist, then API Management is going to have to make an HTTP request to retrieve it.
 
 ```xml
 <send-request
@@ -88,7 +88,7 @@ If the `userprofile` context variable doesn’t exist, then we are going to have
 </send-request>
 ```
 
-We use the `enduserid` to construct the URL to the user profile resource. Once we have the response, we can pull the body text out of the response and store it back into a context variable.
+API Management uses the `enduserid` to construct the URL to the user profile resource. Once API Management has the response, it pulls the body text out of the response and store it back into a context variable.
 
 ```xml
 <set-variable
@@ -96,7 +96,7 @@ We use the `enduserid` to construct the URL to the user profile resource. Once w
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-To avoid us having to make this HTTP request again, when the same user makes another request, we can store the user profile in the cache.
+To avoid us having to make this HTTP request again, when the same user makes another request, API Management can store the user profile in the cache.
 
 ```xml
 <cache-store-value
@@ -104,7 +104,7 @@ To avoid us having to make this HTTP request again, when the same user makes ano
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-We store the value in the cache using the exact same key that we originally attempted to retrieve it with. The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
+API Management stores the value in the cache using the exact same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
 It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
@@ -134,7 +134,7 @@ Once you combine all these steps together, the end result is a policy that looks
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
                 <!-- Make HTTP request to get user profile -->
@@ -180,7 +180,7 @@ This same kind of fragment caching can also be done on the backend web servers u
 ## Transparent versioning
 It is common practice for multiple different implementation versions of an API to be supported at any one time. This is perhaps to support different environments, like dev, test, production, etc., or it may be to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. In order to determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, we can minimize the performance penalty of doing this lookup.
+One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
 
 The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
 
@@ -188,7 +188,7 @@ The first step is to determine the identifier used to configure the desired vers
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-We then do a cache lookup to see if we already have retrieved the desired client version.
+API Management then does a cache lookup to see wheather it already retrieved the desired client version.
 
 ```xml
 <cache-lookup-value
@@ -196,14 +196,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Then we check to see if we did not find it in the cache.
+Then, API Management checks to see if it did not find it in the cache.
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-If we didn’t, then we retrieve it.
+If API Management didn’t find it, API Management retrieves it.
 
 ```xml
 <send-request
@@ -240,7 +240,7 @@ And finally update the back-end URL to select the version of the service desired
       base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 ```
 
-The completely policy is as follows.
+The complete policy is as follows:
 
 ```xml
 <inbound>
@@ -248,7 +248,7 @@ The completely policy is as follows.
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
     <choose>
         <when condition="@(!context.Variables.ContainsKey("clientversion"))">
             <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
