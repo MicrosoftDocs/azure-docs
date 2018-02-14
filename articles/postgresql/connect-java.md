@@ -4,7 +4,7 @@ description: This quickstart provides a Java code sample you can use to connect 
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
@@ -29,11 +29,10 @@ You also need to:
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **mypgserver-20170401**.
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-java/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and the search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for PostgreSQL server name](./media/connect-java/1-connection-string.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data into the database using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect to the database, drop, and create the table. The [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) runs the command for each set of parameters. 
@@ -50,9 +49,9 @@ public class CreateTableInsertRows {
 	{
 
 		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
+		String host = "mydemoserver.postgres.database.azure.com";
 		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
+		String user = "mylogin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -150,9 +149,9 @@ public class ReadTable {
 	{
 
 		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
+		String host = "mydemoserver.postgres.database.azure.com";
 		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
+		String user = "mylogin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -236,9 +235,9 @@ public class UpdateTable {
 	{
 
 		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
+		String host = "mydemoserver.postgres.database.azure.com";
 		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
+		String user = "mylogin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -316,9 +315,9 @@ public class DeleteTable {
 	{
 
 		// Initialize connection variables.
-		String host = "mypgserver-20170401.postgres.database.azure.com";
+		String host = "mydemoserver.postgres.database.azure.com";
 		String database = "mypgsqldb";
-		String user = "mylogin@mypgserver-20170401";
+		String user = "mylogin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
