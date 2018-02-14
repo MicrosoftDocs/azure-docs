@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Virtual Machine Scale Set with the Azure CLI 2.0 | Microsoft Docs
+title: Quickstart - Create a virtual machine scale set with the Azure CLI 2.0 | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale with Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 01/25/18
 ms.author: iainfou
 ---
 
-# Quickstart: Create a Virtual Machine Scale Set with the Azure CLI 2.0
+# Quickstart: Create a virtual machine scale set with the Azure CLI 2.0
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with the Azure CLI 2.0.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
