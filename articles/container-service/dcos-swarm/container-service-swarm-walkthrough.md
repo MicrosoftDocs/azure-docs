@@ -106,7 +106,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -124,9 +124,9 @@ Output:
 
 ```bash
 Creating network "user_default" with the default driver
-Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
-swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
+Pulling azure-vote-front (microsoft/azure-vote-front:v1)...
+swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:v1...
+swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:v1... : downloaded
 Pulling azure-vote-back (redis:latest)...
 swarm-agent-EE873B23000004: Pulling redis:latest... : downloaded
 Creating azure-vote-front ... 
