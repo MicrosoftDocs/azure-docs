@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.author: jeedes
 
 ---
@@ -139,7 +139,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
-11. Select **System settings**>**Cooperation with external system**>**SAML**. In the **SAML authentication setting** section, perform the following steps:
+11. Select **System settings**>**Cooperation with external system**>
+
+	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure5.png)
+	
+12. Select **SAML**
+
+	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure6.png)
+
+13. In the **SAML authentication setting** section, perform the following steps:
 
 	![E Sales Manager Remix Configuration](./media/active-directory-saas-esalesmanagerremix-tutorial/configure3.png)
 	
@@ -147,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Select **email** from the dropdown in the Collaboration item section.
 
-	c. In the Collaboration item textbox, paste the **Namespace** value that you have copied from the Azure portal.
+	c. In the Collaboration item textbox, paste the **Namespace** value that you have copied from the Azure portal i.e `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 	d. In the **Issuer (entity ID)** textbox, paste the **Identifier** value that you have copied from the Azure portal of **E Sales Manager Remix Domain and URLs** section.
 
@@ -215,9 +223,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	b. Fill all the respective mandatory fields with the user information.
 	
-	c. If you enable SAML, the administrator will not be able to log in from the login screen, so grant administrator login privileges to the user. 
+	c. If you enable SAML, the administrator will not be able to log in from the login screen, so grant administrator login privileges to the user by selecting the **Admin Login**
 
-5. In the future, if you want to log in as an administrator, log in with the user who was granted the administrator permission, and click "To Administrator Menu" from the menu at the top right.
+	d. Click **Registration**
+
+5. In the future, if you want to log in as an administrator, log in with the user who was granted the administrator permission, and click **To Administrator Menu** from the menu at the top right.
 
 	![The User](./media/active-directory-saas-esalesmanagerremix-tutorial/configure4.png)
 
