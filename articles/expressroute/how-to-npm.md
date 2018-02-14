@@ -76,6 +76,7 @@ If you are already using Network Performance Monitor to monitor other objects or
   >[!NOTE]
   >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
   >
+  
   ![workspace](.\media\how-to-npm\4.png)<br><br>
 4. Click **OK** to save and deploy the settings template. Once the template validates, click **Create** to deploy the Workspace.
 5. After the Workspace has been deployed, navigate to the **NetworkMonitoring(name)** resource that you created. Validate the settings, then click **Solution requires additional configuration**.
