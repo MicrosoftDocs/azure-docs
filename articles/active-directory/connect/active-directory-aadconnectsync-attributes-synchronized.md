@@ -469,3 +469,4 @@ Device objects are created in Active Directory. These objects can be devices joi
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
++ 1line
