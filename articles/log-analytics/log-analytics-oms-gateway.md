@@ -17,7 +17,7 @@ ms.author: magoedte
 ---
 
 # Connect computers without Internet access using the OMS Gateway
-This document describes how to configure communication with Azure Automation and Log Analytics using the OMS Gateway when direct connected or Operations Manager monitored computers do not have Internet access.  The OMS Gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to Automation and Log Analytics on their behalf.  
+This document describes how to configure communication with Azure Automation and Log Analytics using the OMS Gateway when direct connected or Operations Manager monitored computers do not have Internet access.  The OMS Gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to Azure Automation and Log Analytics on their behalf.  
 
 The OMS Gateway supports:
 
