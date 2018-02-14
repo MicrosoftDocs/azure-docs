@@ -21,7 +21,7 @@ ms.author: apimpm
 Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.
 
 ## Architecture
-API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
+API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
 
 ## Fragment caching
 There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
@@ -88,7 +88,7 @@ If the `userprofile` context variable doesn’t exist, then API Management is go
 </send-request>
 ```
 
-API Management uses the `enduserid` to construct the URL to the user profile resource. Once API Management has the response, it pulls the body text out of the response and store it back into a context variable.
+API Management uses the `enduserid` to construct the URL to the user profile resource. Once API Management has the response, it pulls the body text out of the response and stores it back into a context variable.
 
 ```xml
 <set-variable
@@ -108,7 +108,7 @@ API Management stores the value in the cache using the exact same key that API M
 
 It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
-The final step in the process is to update the returned response with our user profile information.
+The final step in the process is to update the returned response with the user profile information.
 
 ```xml
 <!-- Update response body with user profile-->
@@ -188,7 +188,7 @@ The first step is to determine the identifier used to configure the desired vers
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-API Management then does a cache lookup to see wheather it already retrieved the desired client version.
+API Management then does a cache lookup to see whether it already retrieved the desired client version.
 
 ```xml
 <cache-lookup-value
@@ -276,5 +276,5 @@ Instead of returning a preferred version of the API for each subscription key, y
 The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
 
 ## Next steps
-Give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
+Give your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
 
