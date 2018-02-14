@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 
 ---
-# Create and use Disks with virtual machine scale set using Azure PowerShell
+# Create and use disks with virtual machine scale set using Azure PowerShell
 Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
