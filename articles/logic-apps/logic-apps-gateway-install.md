@@ -21,7 +21,7 @@ ms.author: LADocs; millopis; estfan
 # Install the on-premises data gateway for Azure Logic Apps
 
 Before your logic apps can access data sources on premises, 
-you must install and set up the on-premises data gateway. 
+you have to install and set up the on-premises data gateway. 
 The gateway acts as a bridge that provides quick data transfer 
 and encryption between on-premises systems and your logic apps. 
 The gateway relays data from on-premises sources 
@@ -86,7 +86,7 @@ You can't install the gateway on a domain controller.
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* During installation, you must sign in with a 
+* During installation, you have to sign in with a 
 [work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
 that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
@@ -275,7 +275,7 @@ TcpTestSucceeded       : True
 
 If **TcpTestSucceeded** is not set to **True**, you might be blocked by a firewall. 
 If you want to be comprehensive, substitute the **ComputerName** and **Port** values 
-with the values listed under [Configure ports](#configure-ports) in this topic.
+with the values listed under [Configure ports](#configure-ports) in this article.
 
 The firewall might also block connections that the Azure Service Bus makes to the Azure datacenters. 
 If this scenario happens, approve (unblock) all the IP addresses for those datacenters in your region. 
@@ -345,7 +345,7 @@ The gateway just needs the capability to connect to the server name that was pro
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Why must I use an Azure work or school account to sign in? <br/>
+**Q**: Why do I have to use an Azure work or school account to sign in? <br/>
 **A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
@@ -380,7 +380,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**A**: No. The Windows service must have a valid Windows account. By default, 
+**A**: No. The Windows service has to have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 ### High availability and disaster recovery
@@ -410,7 +410,7 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+**A**: See Tools later in this article.
 
 ### Update to the latest version
 
