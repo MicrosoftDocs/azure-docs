@@ -2,18 +2,11 @@
 title: Azure Site Recovery deployment planner for Hyper-V to Azure| Microsoft Docs
 description: This article describes the mode of running the Azure Site Recovery deployment planner when you're moving from Hyper-V to Azure.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 12/02/2017
+ms.topic: article
+ms.date: 02/14/2018
 ms.author: nisoneji
 
 ---

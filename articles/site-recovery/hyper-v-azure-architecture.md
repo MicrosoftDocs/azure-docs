@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 02/14/2018
 ms.author: raynew
 ---
 
@@ -31,7 +31,7 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (without VMM)**
 
-![Architecture](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
@@ -49,13 +49,13 @@ The following table and graphic provide a high-level view of the components used
 
 **Hyper-V to Azure architecture (with VMM)**
 
-![Components](./media/concepts-hyper-v-to-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Components](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 
 ## Replication process
 
-![Hyper-V to Azure replication](./media/concepts-hyper-v-to-azure-architecture/arch-hyperv-azure-workflow.png)
+![Hyper-V to Azure replication](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Replication and recovery process**
 
@@ -66,8 +66,8 @@ The following table and graphic provide a high-level view of the components used
 2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), to set up replication with the settings you've configured.
 3. The job starts initial replication by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
-        ![Jobs list](media/concepts-hyper-v-to-azure-architecture/image1.png)
-        ![Enable protection drill down](media/concepts-hyper-v-to-azure-architecture/image2.png)
+        ![Jobs list](media/hyper-v-azure-architecture/image1.png)
+        ![Enable protection drill down](media/hyper-v-azure-architecture/image2.png)
 
 
 ### Initial data replication
@@ -104,7 +104,7 @@ The following table and graphic provide a high-level view of the components used
 2. After resynchronization finishes, normal delta replication should resume.
 3. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. For example, if an outage occurs. To do this, in the Azure portal, select the VM > **Resynchronize**.
 
-    ![Manual resynchronization](./media/concepts-hyper-v-to-azure-architecture/image4-site.png)
+    ![Manual resynchronization](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### Retry process
