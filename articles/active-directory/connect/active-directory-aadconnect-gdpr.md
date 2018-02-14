@@ -31,12 +31,13 @@ An Azure AD Connect sync server stores the following data that is in scope for G
 
 To be GDPR compliant, Azure AD Connect customers should use the following guidelines:
 1.	Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
-2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+3.	
 
-Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. This requires no specific action from administrators in order to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
+Data about a person is automatically removed from the Azure AD Connect database when that person’s data is removed from the source system where it originated from. No specific action from administrators is required to be GDPR compliant.  However, it does require that the Azure AD Connect data is synced with your data source at least every two days.
 
 ## Delete the contents of the Azure AD Connect installation log file folder
-You should regularly check the contents of **c:\programdata\aadconnect** and delete the contents of this folder – with the exception of the **PersistedState.Xml** file, as this file is used to maintain the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file will never contain any data about a person and should never be deleted.
+Regularly check the contents of **c:\programdata\aadconnect** and delete the contents of this folder – with the exception of the **PersistedState.Xml** file, as this file is used to maintain the state of the previous installation of Azure A Connect and is used when an upgrade installation is performed. This file does not contain any data about a person and should not be deleted.
 
 >[!IMPORTANT]
 >Do not delete the PersistedState.xml file.  This file contains no user information and maintains the state of the previous installation.
@@ -45,9 +46,10 @@ You can either review and delete these files using Windows Explorer or you can u
 
 ![](media\active-directory-aadconnect-gdpr\gdpr1.png)
 
-### To schedule this script to run every 48 hours please follow these steps:
+### Schedule this script to run every 48 hours
+Use the following steps to schedule the script to run every 48 hours.
 
-1.	Save the script I n a file with the extension .PS1, then open the Control Panel and click on **Systems and Security**.
+1.	Save the script in a file with the extension **&#46;PS1**, then open the Control Panel and click on **Systems and Security**.
 
 ![](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
@@ -83,7 +85,6 @@ You can either review and delete these files using Windows Explorer or you can u
 
 ![](media\active-directory-aadconnect-gdpr\gdpr10.png)
 
-This completes the steps needed to run the script to delete Azure AD Connect log files every 2 days.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
