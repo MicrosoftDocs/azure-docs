@@ -49,20 +49,20 @@ It's easy to remove a user or a group from being assigned access to one of your 
 2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
 3. Use the following script to assign a user and role to an application:
 
-		```powershell
-		# Store the proper parameters
-		$user = get-azureaduser -ObjectId <objectId>
-		$spo = Get-AzureADServicePrincipal -ObjectId <objectId>
+    ```powershell
+    # Store the proper parameters
+    $user = get-azureaduser -ObjectId <objectId>
+    $spo = Get-AzureADServicePrincipal -ObjectId <objectId>
 
-		#Get the ID of role assignment 
-		$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
+    #Get the ID of role assignment 
+    $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
 
-		#if you run the following, it will show you what is assigned what
-		$assignments | Select *
+    #if you run the following, it will show you what is assigned what
+    $assignments | Select *
 
-		#To remove the App role assignment run the following command.
-		Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
-		``` 
+    #To remove the App role assignment run the following command.
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
+    ``` 
 ## Next steps
 * [See all of my groups](active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
