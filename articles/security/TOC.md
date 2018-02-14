@@ -1,3 +1,4 @@
+
 # [Azure Security Documentation](index.md)
 # [Architecture and design](azure-security.md)
 ## [Isolation in the Azure cloud](azure-isolation.md)
@@ -8,6 +9,7 @@
 ## [Enabling operational security](azure-operational-security.md)
 ## [Advanced threat detection](azure-threat-detection.md)
 ## [Governance in Azure](governance-in-azure.md)
+
 
 # [Data security and encryption](security-azure-encryption-overview.md)
 ## [Database security](azure-database-security-overview.md)

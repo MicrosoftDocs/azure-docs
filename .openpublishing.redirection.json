@@ -16747,6 +16747,16 @@
             "source_path": "articles/security/security-azure-log-integration-security-center.md",
             "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
             "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial",
+            "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-facebook-at-work-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-workplacebyfacebook-tutorial",
+            "redirect_document_id": false
     }
    ]
 }
