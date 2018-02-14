@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
@@ -64,7 +64,8 @@ It's easy to remove a user or a group from being assigned access to one of your 
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
 ## Next steps
-* [See all of my groups](active-directory-groups-view-azure-portal.md)
-* [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-* [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-* [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+- [See all of my groups](active-directory-groups-view-azure-portal.md)
+- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
