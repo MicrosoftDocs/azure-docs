@@ -17,8 +17,8 @@
 ### [Azure CLI 2.0](tutorial-use-disks-cli.md)
 ### [Azure PowerShell](tutorial-use-disks-powershell.md)
 ## 3 - Use a custom VM image
-### Azure CLI 2.0
-### Azure PowerShell
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 ## 4 - Deploy apps to a scale set
 ### [Azure CLI 2.0](tutorial-install-apps-cli.md)
 ### [Azure PowerShell](tutorial-install-apps-powershell.md)
