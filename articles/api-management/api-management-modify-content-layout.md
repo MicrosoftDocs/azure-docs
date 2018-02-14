@@ -32,7 +32,7 @@ The developer portal is based on a content management system. The layout of ever
 
 All widgets are editable. 
 * The core contents specific to each individual page reside in the "Contents" widget. Editing a page means editing the contents of this widget.
-* All page layout elements are contained with the remaining widgets. Changes made to these widgets will apply to all pages. They will be referred to as "layout widgets".
+* All page layout elements are contained with the remaining widgets. Changes made to these widgets are applied to all pages. They are referred to as "layout widgets".
 
 In day-to-day page editing one usually only modifies the Content widget which will have different content for each individual page.
 
@@ -40,7 +40,7 @@ In day-to-day page editing one usually only modifies the Content widget which wi
 
 The Developer portal is accessible from the Azure Portal. 
 
-1. Click the **Developer** portal from the toolbar of your API Management instance.
+1. Click **Developer Portal** from the toolbar of your API Management instance.
 2. To edit the contents of widgets, click the icon comprised of two paint brushes from the **Developer** portal menu on the left. 
 3. To modify the contents of the header, scroll to the **Header** section in the list on the left.
     
