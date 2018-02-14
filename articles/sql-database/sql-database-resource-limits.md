@@ -78,7 +78,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 >
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+ [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
@@ -119,8 +119,8 @@ You can increase or decrease the resources available to an elastic pool based on
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
-> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
-> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
+> <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 ## What happens when database and elastic pool resource limits are reached?
 
