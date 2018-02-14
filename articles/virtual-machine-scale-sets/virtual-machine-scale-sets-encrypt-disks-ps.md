@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Machine Scale Sets Encrypt Disks | Microsoft Docs
-description: Learn how to encrypt attached disks in virtual machine scale sets.
+description: Learn how to encrypt attached disks in virtual machine scale sets using PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -18,7 +18,7 @@ ms.date: 01/26/2018
 ms.author: iainfou
 
 ---
-# Encrypt OS and attached data disks in a virtual machine scale set
+# Encrypt OS and attached data disks using PowerShell
 Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports Azure disk encryption (ADE).  Azure disk encryption can be enabled for Windows and Linux VM scale sets to protect and safeguard the scale sets data at rest using industry standard encryption technology. For more information, read Azure Disk Encryption for Windows and Linux virtual machines.
 
 > [!NOTE]
