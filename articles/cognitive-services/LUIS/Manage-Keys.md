@@ -21,6 +21,8 @@ A key allows you to author and publish your LUIS app, or query your endpoint. LU
 |[Programmatic key](#programmatic-key)|Authoring|
 |[Endpoint key](#endpoint-key)| Querying|
 
+It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
+
 ## Programmatic key
 
 A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one programmatic key across all your LUIS apps. The programmatic key is provided to author your LUIS app or to test endpoint queries. 
