@@ -16,7 +16,7 @@ ms.author: billmath
 ---
 
 # Troubleshoot object synchronization with Azure AD Connect sync
-This topic provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
+This document provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
 
 ## Troubleshooting task
 For Azure Active Directory (AAD) Connect deployment with version <verison> or higher, use the troubleshooting task in the wizard to troubleshoot object synchronization issues. For earlier versions, please troubleshoot manually as described [here](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
@@ -49,12 +49,12 @@ The rest of this section describes specific results that are returned by the tas
 
 ## Detect UPN mismatch if object is synced to Azure Active Directory
 ### UPN Suffix is NOT verified with Azure AD Tenant
-When UserPrincipalName (UPN)/Alternate Login ID suffix is not verified with Azure AD Tenant, then Azure Active Directory replaces such UPN suffixes with default domain name "onmicrosoft.com".
+When UserPrincipalName (UPN)/Alternate Login ID suffix is not verified with the Azure AD Tenant, then Azure Active Directory replaces the UPN suffixes with the default domain name "onmicrosoft.com".
 
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch2.png)
 
 ### Changing UPN Suffix from one federated domain to another federated domain
-Azure Active Directory does not allow the synchronization of UserPrincipalName (UPN)/Alternate Login ID suffix change from one federated domain to another federated domain. This applies to domains which are verified with the Azure AD Tenant and have the Authentication Type as Federated.
+Azure Active Directory does not allow the synchronization of UserPrincipalName (UPN)/Alternate Login ID suffix change from one federated domain to another federated domain. This applies to domains, that are verified with the Azure AD Tenant and have the Authentication Type as Federated.
 
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch3.png) 
 
@@ -74,11 +74,11 @@ Object is out of scope as the domain is missing run profiles/run steps. In the e
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
 ### Object is filtered due to OU filtering
-Object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com which is not included in sync scope.
+The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 
 ## HTML Report
-In addition to analyzing the object, the troubleshooting task also generates a HTML report that has everything we know about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.
+In addition to analyzing the object, the troubleshooting task also generates an HTML report that has everything known about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.
 
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch8.png)
 
