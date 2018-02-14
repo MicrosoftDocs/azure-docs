@@ -99,10 +99,10 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
   > then give that user access to your subscription. 
   > You can then sign in during gateway installation with this username and password.
 
-  You must use the same work or school account later in the Azure portal when you create 
+  You have to use the same work or school account later in the Azure portal when you create 
   and associate a gateway resource with your gateway installation. You then select this 
   gateway resource when you create the connection between your logic app and the 
-  on-premises data source. [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
+  on-premises data source. [Why do I have to use an Azure AD work or school account?](#why-azure-work-school-account)
 
   > [!TIP]
   > If you signed up for an Office 365 offering and didn't supply your actual work email, 
@@ -123,7 +123,7 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
 
 ## Install the data gateway
 
-1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Review and accept the terms of use and privacy statement.
 
