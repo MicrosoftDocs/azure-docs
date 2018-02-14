@@ -20,6 +20,8 @@ The region in which you publish your LUIS app corresponds to the region or locat
 
 LUIS apps created on https://www.luis.ai can be published to all endpoints except the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions. 
 
+The authoring region app can only be published to a corresponding publish region. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region for your publishing region. 
+
  Global region | Authoring region | Publishing & querying region   |   LUIS website | Endpoint URL format   |
 |-----|------|------|------|------|
 | Asia | West US| East Asia     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
