@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 06/02/2018
 ms.author: raynew
+ms.custom: mvc
 ---
 
 # Discover and assess on-premises VMware VMs for migration to Azure
