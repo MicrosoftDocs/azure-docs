@@ -84,6 +84,9 @@ If you would like to create clusters for testing your application before it is d
 
 While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
 
+### Can I encrypt attached data disks in a cluster node type (VM scale set)?
+Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
 ## Container Support
 
 ### Why are my containers that are deployed to SF unable to resolve DNS addresses?
