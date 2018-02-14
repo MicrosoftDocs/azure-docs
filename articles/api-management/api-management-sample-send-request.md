@@ -171,7 +171,7 @@ Once the  operation has been created, you can configure a policy specifically fo
 
 ![Dashboard operation](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-The first step  is to extract any query parameters from the incoming request, so that you can forward them to the backend. In this example, the dashboard is showing information based on a period of time a therefore has a `fromDate` and `toDate` parameter. You can use the `set-variable` policy to extract the information from the request URL.
+The first step  is to extract any query parameters from the incoming request, so that you can forward them to the backend. In this example, the dashboard is showing information based on a period of time and therefore has a `fromDate` and `toDate` parameter. You can use the `set-variable` policy to extract the information from the request URL.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
