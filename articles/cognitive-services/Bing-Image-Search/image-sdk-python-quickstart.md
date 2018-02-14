@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
 ---
-# Web Search SDK Python quickstart
+# Image Search SDK Python quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
@@ -32,20 +32,74 @@ python -m pip install azure-cognitiveservices-search-imagesearch
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
 Add imports, and create an instance of the `CognitiveServicesCredentials`:
 ```
-
+from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
+from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
 Then, instantiate the client:
 ```
-client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Search for results, and print the first Web page result:
+Search images on query (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail URL, and web URL of first result.
 ```
+image_results = client.images.search(
+        query="Yosemite",
+        image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
+        aspect=ImageAspect.wide # Could be the str "Wide"
+    )
+    print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+
+    if image_results.value:
+        first_image_result = image_results.value[0]
+        print("Image result count: {}".format(len(image_results.value)))
+        print("First image insights token: {}".format(first_image_result.image_insights_token))
+        print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
+        print("First image web search url: {}".format(first_image_result.web_search_url))
+    else:
+        print("Couldn't find image results!")
+
 ```
-Print other results:
+Search images for (Yosemite), filtered for animated gifs and wide aspect, then verify number of results and print out `insightsToken`, `thumbnail url` and `web url` of first result.
+```
+image_results = client.images.search(
+    query="Yosemite",
+    image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
+    aspect=ImageAspect.wide # Could be the str "Wide"
+)
+print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+
+if image_results.value:
+    first_image_result = image_results.value[0]
+    print("Image result count: {}".format(len(image_results.value)))
+    print("First image insights token: {}".format(first_image_result.image_insights_token))
+    print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
+    print("First image web search url: {}".format(first_image_result.web_search_url))
+else:
+    print("Couldn't find image results!")
+
 ```
 
+Get trending results:
+```
+trending_result = client.images.trending()
+print("\r\nSearch trending images")
+
+# Categorires
+if trending_result.categories:
+    first_category = trending_result.categories[0]
+    print("Category count: {}".format(len(trending_result.categories)))
+    print("First category title: {}".format(first_category.title))
+    if first_category.tiles:
+        first_tile = first_category.tiles[0]
+        print("Subcategory tile count: {}".format(len(first_category.tiles)))
+        print("First tile text: {}".format(first_tile.query.text))
+        print("First tile url: {}".format(first_tile.query.web_search_url))
+    else:
+        print("Couldn't find subcategory tiles!")
+    else:
+        print("Couldn't find categories!")
 
 ```
 
