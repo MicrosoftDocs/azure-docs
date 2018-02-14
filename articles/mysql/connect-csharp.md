@@ -4,7 +4,7 @@ description: This quickstart provides a C# (.NET) code sample you can use to con
 services: MySQL
 author: seanli1988
 ms.author: seal
-manager: janders
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
@@ -30,11 +30,10 @@ You also need to:
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **myserver4demo**).
+2. From the left-hand menu in Azure portal, click **All resources**, and the search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-csharp/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-csharp/1_server-overview-name-login.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands. 
@@ -56,8 +55,8 @@ namespace driver
     {
         static void Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=mydemoserver.mysql.database.azure.com; Port=3306;" +
+            " Database=quickstartdb; Uid=myadmin@mydemoserver; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
 
             Console.Out.WriteLine("Opening connection");
             conn.Open();
@@ -119,8 +118,8 @@ namespace driver
 
         static void Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=mydemoserver.mysql.database.azure.com; Port=3306;" +
+            " Database=quickstartdb; Uid=myadmin@mydemoserver; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
 
             Console.Out.WriteLine("Opening connection");
             conn.Open();
@@ -172,8 +171,8 @@ namespace driver
     {
         static void Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=mydemoserver.mysql.database.azure.com; Port=3306;" +
+            " Database=quickstartdb; Uid=myadmin@mydemoserver; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
 
             Console.Out.WriteLine("Opening connection");
             conn.Open();
@@ -223,8 +222,8 @@ namespace driver
     {
         static void Main(string[] args)
         {
-            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=myserver4demo.mysql.database.azure.com; Port=3306;" +
-            " Database=quickstartdb; Uid=myadmin@myserver4demo; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
+            var conn = new OdbcConnection("DRIVER={MySQL ODBC 5.3 unicode Driver}; Server=mydemoserver.mysql.database.azure.com; Port=3306;" +
+            " Database=quickstartdb; Uid=myadmin@mydemoserver; Pwd=server_admin_password; sslverify=0; Option=3;MULTI_STATEMENTS=1");
 
             Console.Out.WriteLine("Opening connection");
             conn.Open();
