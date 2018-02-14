@@ -202,7 +202,7 @@ Once you have this information, you can make requests to all the backend systems
 </send-request>
 ```
 
-These requests execute in sequence, which is not ideal. In an upcoming release, API Management will be introducing a new policy called `wait` that enables all of these requests to execute in parallel.
+These requests execute in sequence, which is not ideal. 
 
 ### Responding
 To construct the composite response, you can use the [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
