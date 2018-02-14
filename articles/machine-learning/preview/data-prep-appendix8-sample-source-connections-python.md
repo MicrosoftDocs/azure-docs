@@ -40,7 +40,7 @@ Now you should be able to import data.world libraries.
 
 #### Load data into data preparation
 
-Create a new script-based data flow. Then use the following script to load the data from data.world.
+Create a Transform Data Flow (Script) transform. Then use the following script to load the data from data.world.
 
 ```python
 #paths = df['Path'].tolist()
